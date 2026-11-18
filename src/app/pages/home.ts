@@ -5,9 +5,10 @@ import { STATIC_PAGES } from '../data/catalog';
 import { MODULES } from '../data/modules';
 import { Icon } from '../shared/icon';
 
+import { HeroMotif } from '../shared/hero-motif';
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Icon],
+  imports: [RouterLink, Icon, HeroMotif],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="hero">
@@ -21,21 +22,7 @@ import { Icon } from '../shared/icon';
           <button class="btn primary" type="submit">Ask</button>
         </form>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 420 300">
-          <g class="lanes">
-            <path d="M20,60 C120,60 140,60 400,60" /><path d="M20,150 C120,150 160,150 400,150" /><path d="M20,240 C120,240 160,240 400,240" />
-            <path class="x" d="M150,60 C150,110 150,190 230,240" /><path class="x" d="M330,150 C330,180 330,210 330,240" />
-          </g>
-          <g class="hero-nodes">
-            <circle cx="40" cy="60" r="7"/><circle cx="150" cy="60" r="7"/><circle cx="260" cy="60" r="7"/>
-            <circle cx="60" cy="150" r="7"/><circle cx="170" cy="150" r="7"/><circle cx="330" cy="150" r="7"/>
-            <circle cx="80" cy="240" r="7"/><circle cx="230" cy="240" r="7"/><circle cx="330" cy="240" r="7"/><circle cx="390" cy="240" r="7"/>
-          </g>
-          <text x="20" y="38">Style setup</text><text x="20" y="128">Buyer Block Booking</text><text x="20" y="218">Sales Order</text>
-        </svg>
-        <span class="runner r1"></span><span class="runner r2"></span><span class="runner r3"></span>
-      </div>
+      <div class="hero-art"><wfx-hero-motif /></div>
     </section>
 
     <section class="pick" aria-labelledby="pick-h">

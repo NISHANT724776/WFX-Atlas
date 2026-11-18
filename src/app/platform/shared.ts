@@ -7,13 +7,14 @@ import { KbService } from '../core/kb.service';
 import { KbActions, KbGuideView } from './guide';
 import type { KbAnswer, KbSection, KStatus } from '../core/kb.service';
 
+import { Status } from '../shared/status';
 @Component({
   selector: 'kb-gate',
-  imports: [RouterLink],
+  imports: [RouterLink, Status],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @switch (view()) {
-      @case ('loading') { <p class="muted kb-pad">Connecting to the knowledge server…</p> }
+      @case ('loading') { <wfx-status kind="loading" title="Connecting to the knowledge server" /> }
       @case ('offline') {
         <div class="kb-panel kb-pad">
           <h2>Knowledge server not connected</h2>

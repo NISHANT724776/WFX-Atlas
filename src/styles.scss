@@ -1,8 +1,9 @@
 /* ═════════ Tokens ═════════
    All values live in src/design-system/tokens.css (the one scale, both themes).
    The names below are the app's older names, kept as aliases while the pages
-   move onto --wfx-* directly. Do not add values here. */
-:root {
+   move onto --wfx-* directly. Do not add values here.
+   Declared on every themed element too, so a light panel inside a dark page resolves them in its own theme. */
+:root, [data-theme] {
   --bg: var(--wfx-canvas);
   --surface: var(--wfx-surface);
   --surface-2: var(--wfx-surface-2);
@@ -168,18 +169,7 @@ main { padding-bottom: var(--wfx-space-8); min-height: 60vh; }
 /* ═════════ Home ═════════ */
 .hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--wfx-space-5); align-items: center; padding: var(--wfx-space-6) 0 var(--wfx-space-5); }
 .hero h1 { max-width: 14ch; }
-.hero-art { position: relative; width: 420px; height: 300px; justify-self: end; }
-.hero-art svg { width: 420px; height: 300px; overflow: visible; }
-.hero-art .lanes path { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 5 7; }
-.hero-art .lanes path.x { stroke: var(--accent); stroke-dasharray: 3 6; }
-.hero-art .hero-nodes circle { fill: var(--wfx-canvas); stroke: var(--wfx-ink-2); stroke-width: 1.5; }
-.hero-art text { font: 600 12px var(--sans); fill: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
-.runner { display: none; position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: calc(-1 * var(--wfx-space-2)) 0 0 calc(-1 * var(--wfx-space-2)); border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent); offset-rotate: 0deg; animation: run 4.8s var(--wfx-ease-enter) infinite; }
-.runner.r1 { offset-path: path('M20,60 C120,60 140,60 400,60'); }
-.runner.r2 { offset-path: path('M20,150 C120,150 160,150 400,150'); animation-delay: 1.2s; }
-.runner.r3 { offset-path: path('M20,240 C120,240 160,240 400,240'); animation-delay: 2.4s; }
-@keyframes run { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-@keyframes dash { to { stroke-dashoffset: -24; } }
+.hero-art { width: min(456px, 100%); justify-self: end; }
 @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.97); } to { opacity: 1; transform: none; } }
 @media (max-width: 960px) { .hero { grid-template-columns: 1fr; } .hero-art { display: none; } }
 
@@ -559,7 +549,6 @@ html.theme-anim::view-transition-new(root) {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: var(--wfx-dur-micro) !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: var(--wfx-dur-micro) !important; transition-delay: 0ms !important; }
   .reveal-ready .reveal { opacity: 1; transform: none; }
-  .runner { display: none; }
 }
 
 /* ═════════ BOM cost sheet ═════════ */

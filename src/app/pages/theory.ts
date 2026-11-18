@@ -18,9 +18,10 @@ import { NotFoundBody } from './not-found';
 type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
 
 import { FormulaBadge } from '../shared/states';
+import { Status } from '../shared/status';
 @Component({
   selector: 'app-theory',
-  imports: [RouterLink, FormulaBadge, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
+  imports: [RouterLink, FormulaBadge, Status, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (txn(); as t) {
@@ -171,7 +172,7 @@ import { FormulaBadge } from '../shared/states';
 
         <section role="tabpanel" id="panel-data" aria-labelledby="tab-data" class="panel-body" [hidden]="tab() !== 'data'">
           @for (tb of t.tables; track tb.title) { <app-data-table [table]="tb" /> }
-          @empty { <p class="muted">No line data recorded for this transaction yet.</p> }
+          @empty { <wfx-status kind="empty" title="No line data recorded for this transaction yet" [compact]="true" /> }
         </section>
 
         <section role="tabpanel" id="panel-cases" aria-labelledby="tab-cases" class="panel-body" [hidden]="tab() !== 'cases'">
@@ -181,7 +182,7 @@ import { FormulaBadge } from '../shared/states';
               <h3>{{ c.title }}</h3>
               <p>{{ c.body }}</p>
             </div>
-          } @empty { <p class="muted">No cases recorded yet.</p> }
+          } @empty { <wfx-status kind="empty" title="No cases recorded yet" [compact]="true" /> }
         </section>
 
         <nav class="pager" aria-label="Previous and next transaction">

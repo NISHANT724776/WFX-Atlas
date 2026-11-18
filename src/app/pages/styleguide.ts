@@ -1,10 +1,12 @@
 // /styleguide — the design system rendered live with the app's own tokens and components. Internal review page
 // (not in the navigation, not indexed). Every value shown is read from the running CSS, so this page cannot drift
-// from the app. Groups are added here as they are built: 01 colour, 02 type, 03 scales, 04 icons and brand, 05 state components.
+// from the app. Groups are added here as they are built: 01 colour, 02 type, 03 scales, 04 icons and brand, 05 state components, 06 empty / loading / error and the homepage motif.
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, signal, viewChildren } from '@angular/core';
 import { SeoService } from '../core/seo.service';
 import { Icon, MODULE_ICON_NAMES } from '../shared/icon';
 import { FormulaBadge, LIFECYCLE, Lifecycle, StateChip, StepMarker } from '../shared/states';
+import { Status } from '../shared/status';
+import { HeroMotif } from '../shared/hero-motif';
 
 interface Tok { name: string; label: string; against?: string; need?: number }
 interface Group { title: string; note: string; tokens: Tok[] }
@@ -52,7 +54,7 @@ function contrast(a: string, b: string): number | null {
 
 @Component({
   selector: 'app-styleguide',
-  imports: [Icon, Lifecycle, StateChip, StepMarker, FormulaBadge],
+  imports: [Icon, Lifecycle, StateChip, StepMarker, FormulaBadge, Status, HeroMotif],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="sg-head">
@@ -227,6 +229,30 @@ function contrast(a: string, b: string): number | null {
             <div class="sg-formula"><wfx-formula-badge status="assumed" question="Which exchange-rate table does WFX use (BOM date, company rate, or OC rate)?" /><p class="wfx-num sg-unproven">Value (CS Curr) = Value × exchange rate</p><p class="wfx-sm">Not proved by the sample data: the rate was 1.</p></div>
           </div>
         }
+      </div>
+    </section>
+    <section class="sg-sec" aria-labelledby="sg-empty">
+      <p class="wfx-eyebrow">06 · States and motif</p>
+      <h2 class="wfx-h1" id="sg-empty">Empty, loading, error</h2>
+      <p class="wfx-body">One component for every state that has no content yet. Loading is announced politely, an error is an alert and offers a way out. The compact form sits inside a card or a list.</p>
+      <div class="sg-themes">
+        @for (t of themes; track t) {
+          <div class="sg-theme sg-stack" [attr.data-theme]="t">
+            <wfx-status kind="loading" title="Getting the data ready" detail="Loading the WFX tables into your browser." />
+            <wfx-status kind="empty" title="No cases recorded yet" detail="Cases appear here once the owner documents one." />
+            <wfx-status kind="error" title="The data could not be loaded" detail="The knowledge server did not answer."><button type="button" class="btn small">Try again</button></wfx-status>
+            <div class="sg-formula">
+              <wfx-status kind="loading" title="Loading the records" [compact]="true" />
+              <wfx-status kind="empty" title="No gaps recorded yet" [compact]="true" />
+              <wfx-status kind="error" title="Could not save the draft" [compact]="true" />
+            </div>
+          </div>
+        }
+      </div>
+      <h3 class="wfx-h2 sg-gt">Homepage motif</h3>
+      <p class="wfx-body">Three journeys as lanes on the 24px grid, steps as nodes, documented links as dashed connectors. The single accent is the live link: a booking linked to the sales order.</p>
+      <div class="sg-themes">
+        @for (t of themes; track t) { <div class="sg-theme" [attr.data-theme]="t"><wfx-hero-motif /></div> }
       </div>
     </section>
   `,

@@ -120,7 +120,8 @@
   }
 }
 
-:root {
+/* theme-independent scales; on every themed element too, so composite tokens (borders) resolve in that theme */
+:root, [data-theme] {
   /* --- spacing: 4px base. Section rhythm is 96. Nothing between 64 and 96 */
   --wfx-space-0:   2px;   /* + hairline offsets only (underline, focus gap) */
   --wfx-space-1:   4px;

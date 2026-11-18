@@ -37,9 +37,10 @@ export function humanize(name: string): string {
   }).join(' ');
 }
 
+import { Status } from '../shared/status';
 @Component({
   selector: 'app-data-explorer',
-  imports: [RouterLink, ModulePicker],
+  imports: [RouterLink, ModulePicker, Status],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="page-head">
@@ -49,9 +50,9 @@ export function humanize(name: string): string {
     </header>
 
     @if (error()) {
-      <p class="alert warn">{{ error() }}</p>
+      <wfx-status kind="error" title="The data could not be loaded" [detail]="error()" />
     } @else if (!tables().length) {
-      <p class="muted">Getting the data ready…</p>
+      <wfx-status kind="loading" title="Getting the data ready" detail="Loading the WFX tables into your browser. This takes a moment the first time." />
     } @else {
       <app-module-picker [modules]="areas" [selected]="areaId()" label="Areas of the data" (pick)="pickArea($event)" />
 
@@ -82,7 +83,7 @@ export function humanize(name: string): string {
             <button type="button" class="dm-x" (click)="topic.set(null)" aria-label="Close this table">×</button>
           </div>
           @if (loading()) {
-            <p class="muted">Loading…</p>
+            <wfx-status kind="loading" title="Loading the records" [compact]="true" />
           } @else if (result(); as r) {
             <div class="lookup-bar">
               <label class="search lookup-search"><span class="visually-hidden">Search these records</span>
