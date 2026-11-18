@@ -33,7 +33,7 @@ import { Status } from '../shared/status';
             <p class="one-line">{{ s.oneLine }}</p>
             <dl class="facts big">
               @for (f of s.facts; track f.label; let i = $index) {
-                <div [appReveal]="i * 70"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
+                <div [appReveal]="i"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
               }
             </dl>
           }

@@ -1,35 +1,19 @@
-import { Directive, ElementRef, OnDestroy, afterNextRender, inject, input } from '@angular/core';
-
-let observer: IntersectionObserver | null = null;
+import { Directive, ElementRef, afterNextRender, inject, input } from '@angular/core';
+import { revealOnce } from '../core/motion';
 
 /**
- * Fades an element up when it scrolls into view. Content is only hidden once the browser
- * has marked <html class="reveal-ready">, so prerendered HTML stays fully visible.
+ * Plays the shared enter animation once, when the element scrolls into view (core/motion.ts revealOnce).
+ * The optional value is a delay in steps of the 40 ms stagger token, capped at 8, so a list cascades and
+ * the rest arrives together. Prerendered HTML stays visible: the element is only hidden once the script runs.
  */
-@Directive({ selector: '[appReveal]', host: { class: 'reveal', '[style.--reveal-delay]': 'delay() + "ms"' } })
-export class Reveal implements OnDestroy {
-  readonly delay = input(0, { alias: 'appReveal', transform: (v: unknown) => Number(v) || 0 });
+@Directive({ selector: '[appReveal]', host: { '[style.animation-delay]': 'delay()' } })
+export class Reveal {
+  /** Position in a list (0, 1, 2 …); older pages passed milliseconds, which are read as 40 ms steps. */
+  readonly step = input(0, { alias: 'appReveal', transform: (v: unknown) => Number(v) || 0 });
+  protected readonly delay = () => `calc(${Math.min(this.step() >= 40 ? Math.round(this.step() / 40) : this.step(), 8)} * var(--wfx-stagger))`;
   private readonly el = inject(ElementRef<HTMLElement>);
 
   constructor() {
-    afterNextRender(() => {
-      const node = this.el.nativeElement as HTMLElement;
-      const win = node.ownerDocument.defaultView;
-      if (!win || !('IntersectionObserver' in win)) return;
-      node.ownerDocument.documentElement.classList.add('reveal-ready');
-      observer ??= new IntersectionObserver((entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            observer!.unobserve(e.target);
-          }
-        }
-      }, { rootMargin: '0px 0px -8% 0px' });
-      observer.observe(node);
-    });
-  }
-
-  ngOnDestroy(): void {
-    observer?.unobserve(this.el.nativeElement);
+    afterNextRender(() => revealOnce(this.el.nativeElement as HTMLElement, 'enter'));
   }
 }

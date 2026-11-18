@@ -74,7 +74,7 @@
   100% { color: inherit; }
 }
 .wfx-value-changed {
-  animation: wfx-value-change 600ms var(--wfx-ease-exit) both;
+  animation: wfx-value-change var(--wfx-dur-section) var(--wfx-ease-exit) both;
 }
 
 /* --- 5. processing shimmer ----------------------------------------------
@@ -111,7 +111,7 @@
 }
 .wfx-flow-line--run,
 *:hover > .wfx-flow-line {
-  animation: wfx-flow 600ms var(--wfx-ease-standard) both;
+  animation: wfx-flow var(--wfx-dur-section) var(--wfx-ease-standard) both;
 }
 
 /* --- 7. line draw --------------------------------------------------------
@@ -145,6 +145,9 @@
   border-radius: var(--wfx-radius-sm);
 }
 
+/* waiting to be revealed: invisible only once the script runs, so server-rendered HTML stays readable */
+.wfx-reveal-wait { opacity: 0; }
+
 /* --- 9. tables: fade only, never animated numbers ------------------------ */
 
 .wfx-table-enter {
@@ -171,4 +174,5 @@
   .wfx-flow-line   { stroke-dashoffset: 0; animation: none; }
   .wfx-draw        { stroke-dashoffset: 0; animation: none; }
   .wfx-interactive:active { transform: none; }
+  .wfx-reveal-wait { opacity: 1; }
 }

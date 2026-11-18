@@ -1,12 +1,14 @@
 // /styleguide — the design system rendered live with the app's own tokens and components. Internal review page
 // (not in the navigation, not indexed). Every value shown is read from the running CSS, so this page cannot drift
-// from the app. Groups are added here as they are built: 01 colour, 02 type, 03 scales, 04 icons and brand, 05 state components, 06 empty / loading / error and the homepage motif.
+// from the app. Groups are added here as they are built: 01 colour, 02 type, 03 scales, 04 icons and brand, 05 state components, 06 empty / loading / error and the homepage motif, 07 motion primitives.
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, signal, viewChildren } from '@angular/core';
 import { SeoService } from '../core/seo.service';
 import { Icon, MODULE_ICON_NAMES } from '../shared/icon';
 import { FormulaBadge, LIFECYCLE, Lifecycle, StateChip, StepMarker } from '../shared/states';
 import { Status } from '../shared/status';
 import { HeroMotif } from '../shared/hero-motif';
+import { drawPath, replay, restartClass, sequence, tweenValue } from '../core/motion';
+import type { IndentState } from '../shared/states';
 
 interface Tok { name: string; label: string; against?: string; need?: number }
 interface Group { title: string; note: string; tokens: Tok[] }
@@ -255,6 +257,68 @@ function contrast(a: string, b: string): number | null {
         @for (t of themes; track t) { <div class="sg-theme" [attr.data-theme]="t"><wfx-hero-motif /></div> }
       </div>
     </section>
+    <section class="sg-sec" aria-labelledby="sg-motion">
+      <p class="wfx-eyebrow">07 · Motion</p>
+      <h2 class="wfx-h1" id="sg-motion">Primitives</h2>
+      <p class="wfx-body">Every animation in the app is built from these. Each one says in a sentence what it teaches; if it could not, it would not exist. Numbers tween, layout snaps. With reduced motion every one becomes a 120 ms cross-fade to the same end state.</p>
+      <div class="sg-motion">
+        <article class="sg-m">
+          <header><code class="wfx-code">.wfx-enter</code><button type="button" class="btn small" (click)="again(enterBox)">Replay</button></header>
+          <div class="sg-m-stage"><span class="sg-m-box wfx-enter" #enterBox></span></div>
+          <p class="wfx-sm">Teaches: this content just arrived. 240 ms, rises 8 px, enter easing.</p>
+        </article>
+        <article class="sg-m">
+          <header><code class="wfx-code">.wfx-exit</code><button type="button" class="btn small" (click)="exit(exitBox)">Replay</button></header>
+          <div class="sg-m-stage"><span class="sg-m-box" #exitBox></span></div>
+          <p class="wfx-sm">Teaches: this is going away. 120 ms, faster than it came, exit easing.</p>
+        </article>
+        <article class="sg-m sg-m-wide">
+          <header><code class="wfx-code">.wfx-stagger</code><button type="button" class="btn small" (click)="again(staggerRow)">Replay</button></header>
+          <div class="sg-m-stage"><div class="sg-m-row wfx-stagger" #staggerRow>@for (i of twelve; track i) { <span class="sg-m-dot"></span> }</div></div>
+          <p class="wfx-sm">Teaches: these belong to one list, in this order. 40 ms apart, the first 8 cascade, the rest arrive as one block.</p>
+        </article>
+        <article class="sg-m">
+          <header><code class="wfx-code">tweenValue()</code><button type="button" class="btn small" (click)="tween(num)">Change</button></header>
+          <div class="sg-m-stage"><span class="wfx-num wfx-num--lg" #num data-value="600">600</span><span class="wfx-num--unit">KG</span></div>
+          <p class="wfx-sm">Teaches: the quantity changed and by how much. A spring (180 / 24), tabular figures so nothing jumps; one accent pulse.</p>
+        </article>
+        <article class="sg-m">
+          <header><code class="wfx-code">drawPath()</code><button type="button" class="btn small" (click)="draw(line)">Replay</button></header>
+          <div class="sg-m-stage"><svg viewBox="0 0 200 48" class="sg-m-svg"><path #line class="sg-m-path" d="M8 40 C 60 40, 70 8, 120 8 S 180 24, 192 24" /></svg></div>
+          <p class="wfx-sm">Teaches: this path is the route. Drawn once from its real length, 400 ms.</p>
+        </article>
+        <article class="sg-m">
+          <header><code class="wfx-code">.wfx-flow-line</code><span class="wfx-sm">hover the line</span></header>
+          <div class="sg-m-stage"><svg viewBox="0 0 200 48" class="sg-m-svg sg-m-flow"><path class="wfx-flow-line" d="M8 24 H192" /><path d="M184 18 192 24 184 30" class="sg-m-head" /></svg></div>
+          <p class="wfx-sm">Teaches: data moves in this direction. Runs once on hover, never forever.</p>
+        </article>
+        <article class="sg-m">
+          <header><code class="wfx-code">.wfx-shimmer</code></header>
+          <div class="sg-m-stage sg-m-steps"><wfx-step-marker actor="system" [size]="24" [processing]="true" [showLabel]="true" /><wfx-step-marker actor="user" [size]="24" [showLabel]="true" /></div>
+          <p class="wfx-sm">Teaches: WFX is working on this step right now. SYSTEM steps only; a USER step never shimmers.</p>
+        </article>
+        <article class="sg-m">
+          <header><code class="wfx-code">.wfx-table-enter</code><button type="button" class="btn small" (click)="again(table)">Replay</button></header>
+          <div class="sg-m-stage"><table class="sg-table wfx-table-enter" #table><tbody><tr><td>Booked</td><td class="wfx-num">600</td></tr><tr><td>Needs</td><td class="wfx-num">1,500</td></tr></tbody></table></div>
+          <p class="wfx-sm">Teaches: here is a table to compare. Fade only; numbers in tables never animate.</p>
+        </article>
+      </div>
+
+      <h3 class="wfx-h2 sg-gt">State-change choreography · cause, then effect, 80 ms apart</h3>
+      <p class="wfx-body">A specimen of the rule, not the simulator: the status moves first, then the adjustment, then what is still to buy. The lag is what teaches the causal chain; updating everything at once teaches nothing.</p>
+      <div class="sg-chain">
+        <div class="sg-row" role="group" aria-label="Adhoc Indent status">
+          @for (l of lifecycle; track l.id) { <button type="button" class="btn small" [attr.aria-pressed]="chainState() === l.id" [class.on]="chainState() === l.id" (click)="choreo(l.id, adj, buy)">{{ l.label }}</button> }
+        </div>
+        <wfx-lifecycle [state]="chainState()" />
+        <div class="sg-nums">
+          <div><p class="wfx-eyebrow">Booked (BBB)</p><p class="wfx-num wfx-num--lg">600<span class="wfx-num--unit">KG</span></p></div>
+          <div><p class="wfx-eyebrow">Order needs</p><p class="wfx-num wfx-num--lg">1,500<span class="wfx-num--unit">KG</span></p></div>
+          <div><p class="wfx-eyebrow">Adjustment · effect 1</p><p class="wfx-num wfx-num--lg"><span #adj data-value="0">0</span><span class="wfx-num--unit">KG</span></p></div>
+          <div><p class="wfx-eyebrow">Still to buy · effect 2</p><p class="wfx-num wfx-num--lg"><span #buy data-value="1500">1,500</span><span class="wfx-num--unit">KG</span></p></div>
+        </div>
+      </div>
+    </section>
   `,
   styles: [`
     :host { display: block; padding-block: var(--wfx-space-7) var(--wfx-space-8); }
@@ -304,6 +368,24 @@ function contrast(a: string, b: string): number | null {
     .sg-formula { display: grid; gap: var(--wfx-space-2); justify-items: start; padding: var(--wfx-space-4); background: var(--wfx-surface); border: var(--wfx-border); border-radius: var(--wfx-radius); }
     .sg-formula p { margin: 0; }
     .sg-unproven { text-decoration: underline dashed var(--wfx-hairline-str); text-underline-offset: 5px; }
+    .sg-motion { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: var(--wfx-space-4); margin-top: var(--wfx-space-5); }
+    .sg-m { display: grid; gap: var(--wfx-space-3); align-content: start; padding: var(--wfx-space-4); background: var(--wfx-surface); border: var(--wfx-border); border-radius: var(--wfx-radius); }
+    .sg-m header { display: flex; justify-content: space-between; align-items: center; gap: var(--wfx-space-2); }
+    .sg-m p { margin: 0; }
+    .sg-m-wide { grid-column: span 2; }
+    @media (max-width: 640px) { .sg-m-wide { grid-column: auto; } }
+    .sg-m-stage { display: flex; align-items: center; gap: var(--wfx-space-2); min-height: 72px; padding: var(--wfx-space-3); background: var(--wfx-canvas); border-radius: var(--wfx-radius-sm); }
+    .sg-m-box { display: block; width: 48px; height: 48px; border-radius: var(--wfx-radius); background: var(--wfx-surface-3); border: var(--wfx-border-str); }
+    .sg-m-row { display: flex; flex-wrap: wrap; gap: var(--wfx-space-2); }
+    .sg-m-dot { width: var(--wfx-space-5); height: var(--wfx-space-5); border-radius: var(--wfx-radius-sm); background: var(--wfx-surface-3); }
+    .sg-m-svg { width: 100%; height: 48px; overflow: visible; }
+    .sg-m-svg path { fill: none; stroke: var(--wfx-ink-2); stroke-width: 1.5; stroke-linecap: round; }
+    .sg-m-path { stroke: var(--wfx-accent) !important; }
+    .sg-m-flow:hover .wfx-flow-line { animation: wfx-flow var(--wfx-dur-section) var(--wfx-ease-standard) both; }
+    .sg-m-steps { gap: var(--wfx-space-5); }
+    .sg-chain { display: grid; gap: var(--wfx-space-4); margin-top: var(--wfx-space-4); padding: var(--wfx-space-5); background: var(--wfx-surface); border: var(--wfx-border); border-radius: var(--wfx-radius-lg); }
+    .sg-chain .sg-row { margin: 0; }
+    .sg-chain .btn.on { background: var(--wfx-ink); color: var(--wfx-canvas); border-color: var(--wfx-ink); }
     .sg-table { width: 100%; border-collapse: collapse; margin-top: var(--wfx-space-3); }
     .sg-table th, .sg-table td { text-align: left; padding: var(--wfx-space-2) var(--wfx-space-3); border-bottom: var(--wfx-border); }
     .sg-table th { font-size: var(--wfx-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wfx-ink-3); font-weight: 560; }
@@ -317,6 +399,18 @@ export default class StyleguidePage {
   protected readonly radii = RADII;
   protected readonly motion = MOTION;
   protected readonly lifecycle = LIFECYCLE;
+  protected readonly twelve = Array.from({ length: 12 }, (_, i) => i);
+  protected readonly chainState = signal<IndentState>('none');
+  private flip = false;
+  protected again(el: Element) { replay(el); }
+  protected exit(el: Element) { el.classList.remove('wfx-enter'); restartClass(el, 'wfx-exit'); setTimeout(() => { el.classList.remove('wfx-exit'); restartClass(el, 'wfx-enter'); }, 700); }
+  protected tween(el: HTMLElement) { this.flip = !this.flip; tweenValue(el, this.flip ? 1500 : 600); }
+  protected draw(path: Element) { drawPath(path as SVGPathElement); }
+  /** Cause (the status chip), then effect 1 (adjustment), then effect 2 (still to buy), 80 ms apart. Specimen values from the pack. */
+  protected choreo(state: IndentState, adj: HTMLElement, buy: HTMLElement) {
+    const adjusted = state === 'none' ? 0 : 400;
+    sequence([() => this.chainState.set(state), () => tweenValue(adj, adjusted), () => tweenValue(buy, 1500 - adjusted)]);
+  }
   protected readonly icons = MODULE_ICON_NAMES.map((name) => ({ name, label: ({ 'mod-setup': 'Setup rules', 'mod-style': 'Style & BOM', 'mod-booking': 'Booking & sourcing', 'mod-sales': 'Sales Order', 'mod-planning': 'Planning', 'mod-production': 'Production', 'mod-inventory': 'Inventory, QC & WMS', 'mod-tna': 'TNA', 'mod-masters': 'Masters', 'mod-definitions': 'Definitions & formulas' } as Record<string, string>)[name] ?? name }));
   private readonly panels = viewChildren<ElementRef<HTMLElement>>('themePanel');
   /** Resolved token values per theme, read from the rendered panels (empty on the server). */
