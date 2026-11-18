@@ -13,7 +13,7 @@ import { HeroMotif } from '../shared/hero-motif';
   template: `
     <section class="hero">
       <div class="hero-text">
-        <p class="eyebrow">WFX ERP · knowledge hub</p>
+        <p class="eyebrow">WFX Atlas · ERP knowledge</p>
         <h1>Every WFX transaction, <em>explained</em> and connected.</h1>
         <p class="lead">Pick a module to see its workflow, data model, formulas and theory. Nothing else gets in the way.</p>
         <form class="hero-ask" role="search" (submit)="ask($event, hq.value)">

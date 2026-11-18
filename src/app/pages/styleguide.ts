@@ -179,7 +179,7 @@ function contrast(a: string, b: string): number | null {
           <div [attr.data-theme]="t" class="sg-elev-bg sg-brand">
             <span class="brand">
               <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="7.5" /><path d="M6.5 9.5 11 22.5 16 12.5 21 22.5 25.5 9.5" /></svg>
-              <span class="brand-name"><span class="brand-wfx">WFX</span> <em>Knowledge Hub</em></span>
+              <span class="brand-name"><span class="brand-wfx">WFX</span> <em>Atlas</em></span>
             </span>
             <img src="/favicon.svg" width="32" height="32" alt="Favicon" />
             <img src="/favicon.svg" width="16" height="16" alt="Favicon at 16px" />
@@ -417,7 +417,7 @@ export default class StyleguidePage {
   private readonly resolved = signal<Record<string, Record<string, string>>>({});
 
   constructor() {
-    inject(SeoService).set({ title: 'Styleguide', description: 'The WFX Knowledge Hub design system, rendered live.', path: '/styleguide', noindex: true, crumbs: [{ label: 'Styleguide', path: '/styleguide' }] });
+    inject(SeoService).set({ title: 'Styleguide', description: 'The WFX Atlas design system, rendered live.', path: '/styleguide', noindex: true, crumbs: [{ label: 'Styleguide', path: '/styleguide' }] });
     afterNextRender(() => {
       const out: Record<string, Record<string, string>> = {};
       for (const p of this.panels()) {

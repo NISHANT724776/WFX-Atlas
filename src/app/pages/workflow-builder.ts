@@ -232,7 +232,7 @@ export default class WorkflowBuilderPage {
     effect(() => {
       const p = this.preset();
       if (!this.valid()) {
-        this.seo.set({ title: 'Page not found', description: 'This workflow does not exist in the WFX Knowledge Hub.', path: `/workflows/${this.flow()}`, noindex: true });
+        this.seo.set({ title: 'Page not found', description: 'This workflow does not exist in the WFX Atlas.', path: `/workflows/${this.flow()}`, noindex: true });
         return;
       }
       const path = p ? `/workflows/${p.slug}` : '/workflows';

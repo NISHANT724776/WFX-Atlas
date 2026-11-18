@@ -85,7 +85,7 @@ export default class ColorTracePage {
       const d = this.data();
       const path = `/color-cards/${this.card()}/${this.color()}`;
       if (!d) {
-        this.seo.set({ title: 'Page not found', description: 'This colour does not exist in the WFX Knowledge Hub.', path, noindex: true });
+        this.seo.set({ title: 'Page not found', description: 'This colour does not exist in the WFX Atlas.', path, noindex: true });
         return;
       }
       const label = `${d.color.name} (${d.color.code})`;

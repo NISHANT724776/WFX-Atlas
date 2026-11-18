@@ -229,7 +229,7 @@ export default class TheoryPage {
       const t = this.txn();
       const path = `/theory/${this.slug()}`;
       if (!t) {
-        this.seo.set({ title: 'Page not found', description: 'This transaction does not exist in the WFX Knowledge Hub.', path, noindex: true });
+        this.seo.set({ title: 'Page not found', description: 'This transaction does not exist in the WFX Atlas.', path, noindex: true });
         return;
       }
       const s = THEORY_SUMMARY[t.slug];

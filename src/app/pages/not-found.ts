@@ -33,7 +33,7 @@ export default class NotFoundPage {
   constructor() {
     inject(SeoService).set({
       title: 'Page not found',
-      description: 'The page you asked for is not in the WFX Knowledge Hub. Continue from the home page, transactions or data model.',
+      description: 'The page you asked for is not in the WFX Atlas. Continue from the home page, transactions or data model.',
       path: '/404',
       noindex: true,
     });

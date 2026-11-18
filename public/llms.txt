@@ -1,4 +1,4 @@
-# WFX Knowledge Hub
+# WFX Atlas
 
 > Knowledge base of WFX ERP transactions: definitions, keys, field sources, calculation formulas with worked examples, verification checks against the WFX screens, and cases. All examples are traced on apparel style NIS-58 (Flannel Shirt Adi, buyer GAP Kids) and fabric N-8.
 

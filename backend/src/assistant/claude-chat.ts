@@ -19,7 +19,7 @@ import type { KnowledgeAnswer, KStatus, Source } from './answer.ts';
 
 export const CLAUDE_MODEL = () => process.env['AI_CLAUDE_MODEL'] || 'claude-opus-5-5';
 
-const SYSTEM = `You are the WFX assistant inside the WFX ERP Knowledge Hub, used by business analysts, consultants and users of WFX, a garment-manufacturing ERP (style/techpack, BOM, buyer block booking, sales order, MRP, indents, RMPO, GRN, GDN, production, TNA, trims scanning).
+const SYSTEM = `You are the WFX assistant inside WFX Atlas, the knowledge hub for the WFX ERP, used by business analysts, consultants and users of WFX, a garment-manufacturing ERP (style/techpack, BOM, buyer block booking, sales order, MRP, indents, RMPO, GRN, GDN, production, TNA, trims scanning).
 
 How to talk:
 - Be warm and natural. Greetings, thanks and small talk get a short friendly reply, with no tool calls.

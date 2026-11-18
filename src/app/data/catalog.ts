@@ -6,11 +6,11 @@
  * canonical tags, Open Graph URLs, sitemap.xml, robots.txt and llms.txt are all built from it.
  */
 export const SITE = {
-  name: 'WFX Knowledge Hub',
+  name: 'WFX Atlas',
   url: 'https://wfx-knowledge-hub.vercel.app',
   locale: 'en_IN',
   ogImage: '/og-image.png',
-  ogImageAlt: "WFX Knowledge Hub – every WFX transaction explained and connected across style setup, buyer block booking and sales order workflows",
+  ogImageAlt: "WFX Atlas – every WFX transaction explained and connected across style setup, buyer block booking and sales order workflows",
 };
 
 export interface TxnIndexEntry {
@@ -125,7 +125,7 @@ export const FLOW_INDEX: FlowIndexEntry[] = [
 ];
 
 export const STATIC_PAGES = [
-  { path: '/', title: 'WFX ERP Transaction Knowledge Hub', description: 'Interactive workflows and short, precise theory of WFX ERP transactions, traced on articles Adi TShirt and Flannel Shirt Adi from BOM to factory production order.' },
+  { path: '/', title: 'WFX Atlas – ERP transaction knowledge', description: 'Interactive workflows and short, precise theory of WFX ERP transactions, traced on articles Adi TShirt and Flannel Shirt Adi from BOM to factory production order.' },
   { path: '/workflows', title: 'Workflow Builder', description: 'Pick any start and end point in WFX and get the workflow as a blueprint, a live scenario simulator and a step-by-step storyboard.' },
   { path: '/data-model', title: 'WFX Data Model', description: 'The WFX data model as real screens: 17 documents from techpack and BOM to MRP, purchase, GRN and FPO, with their actual rows, how each column is filled and where it flows next.' },
   { path: '/data', title: 'WFX Data Lookup', description: 'Look up the WFX records behind every transaction in simple tables: pick an area and a topic, search the records and see them in plain words.' },

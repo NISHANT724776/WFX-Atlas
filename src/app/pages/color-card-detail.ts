@@ -90,7 +90,7 @@ export default class ColorCardDetailPage {
       const c = this.info();
       const path = `/color-cards/${this.card()}`;
       if (!c) {
-        this.seo.set({ title: 'Page not found', description: 'This colour card does not exist in the WFX Knowledge Hub.', path, noindex: true });
+        this.seo.set({ title: 'Page not found', description: 'This colour card does not exist in the WFX Atlas.', path, noindex: true });
         return;
       }
       this.seo.set({
