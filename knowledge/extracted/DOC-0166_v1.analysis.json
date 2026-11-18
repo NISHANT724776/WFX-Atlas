@@ -1,0 +1,159 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Ajay Chaudhary",
+          "10-08-2026",
+          "Document Created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Unique BSR based on Division-Buyer-Season",
+  "keyTerms": [
+    "buyer",
+    "buyer season",
+    "season",
+    "division buyer",
+    "bsr",
+    "section",
+    "division",
+    "style",
+    "uniqueness",
+    "transaction uniqueness",
+    "based",
+    "requirement",
+    "assumptions",
+    "business requirement",
+    "assumptions assumptions"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 5
+    },
+    {
+      "module": "Sales Order",
+      "score": 4
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The objective is to prevent duplicate BSR entries within the same Division, Buyer, and Season combination, ensuring data integrity and avoiding confusion in downstream costing, sourcing, and production processes.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Techpack is received from the Buyer, and the Buyer Style Reference (BSR) is a Buyer-provided identifier — its uniqueness is jointly maintained between the Buyer and Shahi, across multiple seasons, the same Buyer may resend a Techpack under the same BSR — often with revisions such as a new color or changed input/raw materials — for a new season.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "To support this legitimate business scenario, WFX must allow creation of a new Techpack/Style using the same BSR, as long as the Division, Buyer, or Season differs from an existing record",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "BSR can not be duplicate based on Transaction uniqueness (In case of Shahi Division-Buyer-Season), and system will through and error message from UI screen and from LLM system will revise the particular records.",
+      "locator": "§ Functional Requirement",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functional Requirement:\n1. Transaction uniqueness master or configurator need to be designed in system under Admin >> Transaction uniqueness.\n2. All three division’s/Company will follow same method as approval taken from all respective stakeholders.\n3. BSR can not be duplicate based on Transaction uniqueness (In case of Shahi Division-Buyer-Season), and system will through and error message from UI screen and from LLM system will revise the particular records.\n4. If a user tries to create/revise any sales order from UI/EDI/LLM system will need to pick correct style code/style name information based on Transaction Uniqueness (In case of Shahi Division-Buyer-Season), Currently at the time of sales order creation we already have the information of ‘Division-Buyer-Season’.\n5. If a user try to create a order with the help of EDI in some cases for example JC penny buyer season don’t come in buyer order we need to resolve the style based on BSR + Season ( Season selected by user manually).",
+      "locator": "§ Functional Requirement",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Revision History, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Unique BSR based on Division-Buyer-Season",
+      "heading": "",
+      "text": "Software Requirements Specification\nUnique BSR Based on Division-Buyer-Season\nDocument: -\nVersion 1.0 ● 10 Aug 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 4\nAssumptions 4\nSection 3. Solution 4\nFunctional Requirement 4\nSection 4. 5\nRevision History 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "This document defines the business requirement for validating uniqueness of the Buyer Style Reference (BSR) at the time of Style/Techpack creation in the WFX ERP system. The objective is to prevent duplicate BSR entries within the same Division, Buyer, and Season combination, ensuring data integrity and avoiding confusion in downstream costing, sourcing, and production processes.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The Techpack is received from the Buyer, and the Buyer Style Reference (BSR) is a Buyer-provided identifier — its uniqueness is jointly maintained between the Buyer and Shahi, across multiple seasons, the same Buyer may resend a Techpack under the same BSR — often with revisions such as a new color or changed input/raw materials — for a new season.\nTo support this legitimate business scenario, WFX must allow creation of a new Techpack/Style using the same BSR, as long as the Division, Buyer, or Season differs from an existing record",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirement",
+      "heading": "Functional Requirement",
+      "text": "• Transaction uniqueness master or configurator need to be designed in system under Admin >> Transaction uniqueness.\n• All three division’s/Company will follow same method as approval taken from all respective stakeholders.\n• BSR can not be duplicate based on Transaction uniqueness (In case of Shahi Division-Buyer-Season), and system will through and error message from UI screen and from LLM system will revise the particular records.\n• If a user tries to create/revise any sales order from UI/EDI/LLM system will need to pick correct style code/style name information based on Transaction Uniqueness (In case of Shahi Division-Buyer-Season), Currently at the time of sales order creation we already have the information of ‘Division-Buyer-Season’.\n• If a user try to create a order with the help of EDI in some cases for example JC penny buyer season don’t come in buyer order we need to resolve the style based on BSR + Season ( Season selected by user manually).",
+      "locator": "§ Functional Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 1",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Ajay Chaudhary | 10-08-2026 | Document Created.",
+      "locator": "§ Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised By: Ajay Chaudhary; Revised On: 10-08-2026; Changes: Document Created.",
+      "locator": "§ Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

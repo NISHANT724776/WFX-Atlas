@@ -1,0 +1,16 @@
+﻿step,slug,name,module,description
+1,masters,"Masters – Colour, Size, UOM",Masters,"Colour card, size range, UOM master and material-wise UOM conversion that every WFX transaction reads from."
+2,apparel-style,Apparel Style (Techpack),Product Development,"Style Flannel Shirt Adi (NIS-58) header, base colour list and base size list that drive BOM dependencies and order breakups."
+3,bom-materials,BOM – Materials & Dependency,Product Development,"BOM material lines with consumption, wastage, loss and shrinkage maths, price conversion and colour/size dependency."
+4,bom-routing,BOM – Routing,Product Development,"Production processes, operations and material linkage of BOM #1 DP, which later become FPPO process orders."
+5,bom-costing,BOM – Costing,Product Development,"Material cost, production cost, total cost, profit, profit % and markup % for BOM #1 DP."
+6,rm-techpack,Raw Material Techpack,Product Development,"Fabric article N-8 master: UOMs, colour card, dependency, buying price and cross-document checks."
+7,buyer-block-booking,Buyer Block Booking (BBB),Pre-booking & Sourcing,Projection booking PPJ179 that reserves fabric by colour and size before a confirmed buyer order exists.
+8,adhoc-indent,BBB Adhoc Indent,Pre-booking & Sourcing,Manual indent PPM-000735-001 of type Buyer Block Booking: buys the booked fabric before any sales order exists.
+9,rmpo,RMPO – Raw Material Purchase Order,Pre-booking & Sourcing,Purchase orders 1229 (against the adhoc indent) and 1230 (against the MRP production indent) with value and open qty maths.
+10,grn,GRN – Goods Receipt Note,Pre-booking & Sourcing,"Receipt of RMPO 1229 into the cut store: balance, received, rejected, accepted qty and stock keys."
+11,buyer-po,Purchase Order from Buyer (OC),Order,"Order confirmation GAPS.NEWOC -249 with delivery OC, colour × size quantity breakup and selling value."
+12,mrp,MRP – Material Requirement Planning,Planning,MRP run for the OC: Level 1 garment production demand and Level 2 fabric purchase demand from BOM explosion.
+13,production-indents,Sales Order Indents (MRP),Planning,"Indents MRP raises for the sales order: Manufacture Indent (Level 1, garment) and Production Indent (Level 2, fabric) with in-house adjustment from BBB stock."
+14,production-order,Production Order,Production,Production order PPS12SO/11325 and colour-wise style quantities allocated to the factory production order.
+15,fpo,FPO & FPPO,Production,"Factory production order PPS12FP0158, fabric requirement, stock material allocation and process orders per colour and size."

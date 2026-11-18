@@ -1,0 +1,76 @@
+{
+  "tables": [],
+  "subject": "AI Tech pack Configuration Classic",
+  "keyTerms": [
+    "package",
+    "user",
+    "mapping",
+    "below",
+    "package mapping",
+    "configuration",
+    "article",
+    "pdf",
+    "upload",
+    "techpack",
+    "per",
+    "before package",
+    "package configuration",
+    "below package",
+    "bom"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 14
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Apparel Style (Techpack)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "In this same package we have a provision of giving the generic article which will be added in the Auto BOM when the BOM created, these generic articles of fabric and trim need to be created initially before the package configuration.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the OTM is done then the user will conform the set up.",
+      "locator": "start",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "AI Tech pack Configuration Classic",
+      "heading": "",
+      "text": "To initiate the AI tech pack mapping for the classic team we need to follow the below steps to initiate it.\n1.Need to ask tech team to create new package as per the buyer where the tech will create the below 4 packages.\nBefore package mapping, we need to do the package configuration on the below screen\nIn this same package we have a provision of giving the generic article which will be added in the Auto BOM when the BOM created, these generic articles of fabric and trim need to be created initially before the package configuration. So that it can be tag with the package.\nArticle and purchase office configuration will help to add the article in Bom and article request will be assigned to the user who will be responsible to conform the material.\n2.Below is the package mapping where the user will do the package mapping for all the packages\nNote: - In this mapping we have a option of editable which allow the user to fill the data manually in case it is not correctly picked by the AI.\n3.Once above is complete the user needs to do the One-time mapping on the AI UI\nOn this screen user will select the tech pack and do the OTM on the screen with the uploaded PDF.\nNote :-PDF size should be 10 MB and pages should be max 50 as per the current structure.\nOnce the OTM is done then the user will conform the set up.\nNow the Upload option of the PDF will be done as per the below option",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "AI Tech pack Configuration Classic",
+      "heading": "",
+      "text": "Then user will upload the document\nThe below marked line display the status of the upload it take around 3-4 mins based on the PDF size to upload",
+      "locator": "start (part 2)",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "tables": [],
+  "subject": "413145",
+  "keyTerms": [
+    "request",
+    "status",
+    "pending",
+    "approver",
+    "price request",
+    "price",
+    "user",
+    "material code",
+    "line",
+    "request status",
+    "consumption",
+    "sewing trims",
+    "context menu",
+    "request consumption",
+    "consumption request"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "There is no option to reassign or resend the request while it is in pending status.",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Delays when the approver is unavailable or unresponsive",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Objective:\n1. Delays when the approver is unavailable or unresponsive\n2. Increased dependency on a single approver\n3. Manual follow-ups and inefficiencies in the approval process",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once a line is send to any request(Consumption, Price, or Material Code) then that lines becomes non editable and its status becomes mark as not read (grey)",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The problem here is that apart from this grey indicator, there is no way to see the request type, the current status label, or which approver it is pending with, without opening another screen.",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If any request is approved then status will get changed.",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If a request is revoked then it will not be showing in the pending list and that line will become editable and then user can resend it for request to any other user.",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "In case any request is revoked then request status will show “Consumption Request is revoked from user”",
+      "locator": "§ Objective",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Objective:\n1. The problem here is that apart from this grey indicator, there is no way to see the request type, the current status label, or which approver it is pending with, without opening another screen.\n2. If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.\n3. So, we require a new field in this BOM Line as “Request Status” which will show.\n“Request Type pending with x User”. For ex: - if I send price request to Rahul then this Request Status will show “Price Request Pending with Rahul”. If any request is approved then status will get changed.\n4. This will always show the status of the Last request that is sent. If user wants to see the full history of all requests then he can open the hyperlink and there user can see the complete history of all request type (Material Code, Price Request, Consumption request) along with the date and time.\n5. Revoke & Re-Request –\n6. an Edit (revoke) icon/action on the pending line that withdraws the request and unlocks the field, after which the same context menu allows the request to be sent again — to the same or a different approver.\n7. If a request is revoked then it will not be showing in the pending list and that line will become editable and then user can resend it for request to any other user.\n8. In case any request is revoked then request status will show “Consumption Request is revoked from user”\n9. The same to be shown in request status and Log.",
+      "locator": "§ Objective",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "413145",
+      "heading": "",
+      "text": "Software Requirements Specification\nRe-Request Provision for Pending Approvals\n16th Apr 2026",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "Objective",
+      "text": "To enable users to re-send approval requests for Material Code, Price, and Consumption in cases where the current request is still pending, allowing flexibility to redirect the request to another approver and avoid delays.\nProblem Statement\nCurrently, once a user raises an approval request:\n• The request gets assigned to a specific approver.\n• There is no option to reassign or resend the request while it is in pending status.\nThis leads to:\n• Delays when the approver is unavailable or unresponsive\n• Increased dependency on a single approver\n• Manual follow-ups and inefficiencies in the approval process\nProposed Solution\nThe BOM screen (Sewing Trims / Packing Trims grids) already exposes a row-level context menu with, Price Request, Material code request.\nFig 1: Existing context menu on a Sewing Trims line – Price Request / Consumption Request options.\nOnce a line is send to any request(Consumption, Price, or Material Code) then that lines becomes non editable and its status becomes mark as not read (grey)\nFig 2: BOM tab showing the Sewing Trims grid with per-line status indicator (colored dot).\n• The problem here is that apart from this grey indicator, there is no way to see the request type, the current status label, or which approver it is pending with, without opening another screen.",
+      "locator": "§ Objective",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "Objective",
+      "text": "• If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.\n• So, we require a new field in this BOM Line as “Request Status” which will show.\n“Request Type pending with x User”. For ex: - if I send price request to Rahul then this Request Status will show “Price Request Pending with Rahul”. If any request is approved then status will get changed.\n• This will always show the status of the Last request that is sent. If user wants to see the full history of all requests then he can open the hyperlink and there user can see the complete history of all request type (Material Code, Price Request, Consumption request) along with the date and time.\n• Revoke & Re-Request –\n• an Edit (revoke) icon/action on the pending line that withdraws the request and unlocks the field, after which the same context menu allows the request to be sent again — to the same or a different approver.\n• If a request is revoked then it will not be showing in the pending list and that line will become editable and then user can resend it for request to any other user.\n• In case any request is revoked then request status will show “Consumption Request is revoked from user”\n• The same to be shown in request status and Log.",
+      "locator": "§ Objective (part 2)",
+      "kind": "section"
+    }
+  ]
+}

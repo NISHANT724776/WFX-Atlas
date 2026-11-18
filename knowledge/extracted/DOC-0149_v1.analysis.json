@@ -1,0 +1,1133 @@
+{
+  "tables": [
+    {
+      "name": "Sheet1",
+      "headers": [
+        "Type",
+        "Field Name",
+        "Visibility",
+        "Placement",
+        "Column 5"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Flex Fields",
+          "Buyer Division/Dept",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "End Customer",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Customer Requested GAC Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Delivery Buyer Order Ref",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Delivery Material ETA",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "OC Factory",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "PO Packet Target Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "OC Delivery Date",
+          "Optional",
+          "Delivery information",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Order Type",
+          "Optional",
+          "Delivery information",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Prod.Capacity Booking No.",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Prompt on multiple Purchase Orders from Buyer for the same style",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Season",
+          "Optional",
+          "Delivery information",
+          "Not Present in SLC"
+        ],
+        [
+          "Flex Fields",
+          "Delivery Season",
+          "Optional",
+          "Order Information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Total Upcharge Amount & Upcharge Currency",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "GAC Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Original GAC Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Raw Material ETA",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Style in Summary OC at Header level",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Extra Production %",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "PCD Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Quota Country Group",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Quota Category",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "HTS Num",
+          "Optional",
+          "Other Detail",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "HTS Code",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "TBA Remark",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "TBA Remark Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Forwarder",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "LC Number",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Attention",
+          "Optional",
+          "Order Information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Seal By Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Agent",
+          "Optional",
+          "Order Information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "UOM",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Zone",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Internal LOT No.",
+          "Optional",
+          "Delivery information",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Buyer LOT No.",
+          "Optional",
+          "Delivery information",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Show Transfer Price Order Notification in Summary OC",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "OC Exchange Rate",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "PO Trigger Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "First Buyer Delivery Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Initial PCD",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Packaging Qty",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Packaging UOM",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Buyer PO Num",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Ship To Address For OC",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Ref Style No.",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Technical Manager",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Exclude From Planning",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Business Unit",
+          "Optional",
+          "Order Information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Techpack Order Type",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Buyer Currency and Exchange Rate in Case of TP Order",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Make To Stock",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Delivery Terms",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "BL Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Link Inquiry Order",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "BOM",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Retail Price & Retail Currency",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Air Freight Details",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Advertised Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Speed Code",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Floor Set Date",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "Shipment Terms",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "GST Port of Loading",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "GST Port of Discharge",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Place Of Receipt By Pre-Carrier",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Final Destination",
+          "Optional",
+          "Need to remove from Flex Field section",
+          ""
+        ],
+        [
+          "Flex Fields",
+          "ETD",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "ETA",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Port Of Discharge",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Port Of Loading",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Shipping Bill No",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Shipping Bill Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Ship Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "FCR Date",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "FCR No",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ],
+        [
+          "Flex Fields",
+          "Shipping Dept. Ref No.",
+          "Optional",
+          "Delivery information",
+          "present in Flex Fields"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales order Flex fileds",
+  "keyTerms": [
+    "flex fields",
+    "flex",
+    "fields",
+    "optional",
+    "optional remove",
+    "remove flex",
+    "flex field",
+    "field section",
+    "section flex",
+    "present flex",
+    "fields flex",
+    "field",
+    "remove",
+    "section",
+    "present"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 13
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Sheet1: Type, Field Name, Visibility, Placement, Column 5 (75 rows)",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: Sheet1 – Sheet1",
+      "heading": "Sheet: Sheet1",
+      "text": "Columns: Type (text); Field Name (text); Visibility (text); Placement (text); Column 5 (text)\nType | Field Name | Visibility | Placement | Column 5\nFlex Fields | Buyer Division/Dept | Optional | Need to remove from Flex Field section | \nFlex Fields | End Customer | Optional | Other Detail | present in Flex Fields\nFlex Fields | Customer Requested GAC Date | Optional | Delivery information | present in Flex Fields\nFlex Fields | Delivery Buyer Order Ref | Optional | Need to remove from Flex Field section | \nFlex Fields | Delivery Material ETA | Optional | Delivery information | present in Flex Fields\nFlex Fields | OC Factory | Optional | Need to remove from Flex Field section | \nFlex Fields | PO Packet Target Date | Optional | Need to remove from Flex Field section | \nFlex Fields | OC Delivery Date | Optional | Delivery information | \nFlex Fields | Order Type | Optional | Delivery information | \nFlex Fields | Prod.Capacity Booking No. | Optional | Other Detail | present in Flex Fields\nFlex Fields | Prompt on multiple Purchase Orders from Buyer for the same style | Optional | Other Detail | present in Flex Fields\nFlex Fields | Season | Optional | Delivery information | Not Present in SLC\nFlex Fields | Delivery Season | Optional | Order Information | present in Flex Fields\nFlex Fields | Total Upcharge Amount & Upcharge Currency | Optional | Other Detail | present in Flex Fields\nFlex Fields | GAC Date | Optional | Need to remove from Flex Field section | \nFlex Fields | Original GAC Date | Optional | Need to remove from Flex Field section | \nFlex Fields | Raw Material ETA | Optional | Need to remove from Flex Field section | \nFlex Fields | Style in Summary OC at Header level | Optional | Other Detail | present in Flex Fields\nFlex Fields | Extra Production % | Optional | Need to remove from Flex Field section | \nFlex Fields | PCD Date | Optional | Need to remove from Flex Field section | \n… 55 more rows",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Sheet1 row 1",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Buyer Division/Dept; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 2",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: End Customer; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 3",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Customer Requested GAC Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 4",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Delivery Buyer Order Ref; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 5",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Delivery Material ETA; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 6",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: OC Factory; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 7",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: PO Packet Target Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 8",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: OC Delivery Date; Visibility: Optional; Placement: Delivery information",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 9",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Order Type; Visibility: Optional; Placement: Delivery information",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 10",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Prod.Capacity Booking No.; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 11",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Prompt on multiple Purchase Orders from Buyer for the same style; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 12",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Season; Visibility: Optional; Placement: Delivery information; Column 5: Not Present in SLC",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 13",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Delivery Season; Visibility: Optional; Placement: Order Information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 14",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Total Upcharge Amount & Upcharge Currency; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 15",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: GAC Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 16",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Original GAC Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 17",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Raw Material ETA; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 18",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Style in Summary OC at Header level; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 19",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Extra Production %; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 20",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: PCD Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 21",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Quota Country Group; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 22",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Quota Category; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 23",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: HTS Num; Visibility: Optional; Placement: Other Detail; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 24",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: HTS Code; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 25",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: TBA Remark; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 26",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: TBA Remark Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 27",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Forwarder; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 28",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: LC Number; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 29",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Attention; Visibility: Optional; Placement: Order Information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 30",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Seal By Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 31",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Agent; Visibility: Optional; Placement: Order Information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 32",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: UOM; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 33",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Zone; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 34",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Internal LOT No.; Visibility: Optional; Placement: Delivery information",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 35",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Buyer LOT No.; Visibility: Optional; Placement: Delivery information",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 35",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 36",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Show Transfer Price Order Notification in Summary OC; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 36",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 37",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: OC Exchange Rate; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 37",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 38",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: PO Trigger Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 38",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 39",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: First Buyer Delivery Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 39",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 40",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Initial PCD; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 40",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 41",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Packaging Qty; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 41",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 42",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Packaging UOM; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 42",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 43",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Buyer PO Num; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 43",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 44",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Ship To Address For OC; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 44",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 45",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Ref Style No.; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 45",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 46",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Technical Manager; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 46",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 47",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Exclude From Planning; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 47",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 48",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Business Unit; Visibility: Optional; Placement: Order Information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 48",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 49",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Techpack Order Type; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 49",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 50",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Buyer Currency and Exchange Rate in Case of TP Order; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 50",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 51",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Make To Stock; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 51",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 52",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Delivery Terms; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 52",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 53",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: BL Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 53",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 54",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Link Inquiry Order; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 54",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 55",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: BOM; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 55",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 56",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Retail Price & Retail Currency; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 56",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 57",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Air Freight Details; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 57",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 58",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Advertised Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 58",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 59",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Speed Code; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 59",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 60",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Floor Set Date; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 60",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 61",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Shipment Terms; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 61",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 62",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: GST Port of Loading; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 62",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 63",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: GST Port of Discharge; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 63",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 64",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Place Of Receipt By Pre-Carrier; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 64",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 65",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Final Destination; Visibility: Optional; Placement: Need to remove from Flex Field section",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 65",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 66",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: ETD; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 66",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 67",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: ETA; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 67",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 68",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Port Of Discharge; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 68",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 69",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Port Of Loading; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 69",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 70",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Shipping Bill No; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 70",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 71",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Shipping Bill Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 71",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 72",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Ship Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 72",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 73",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: FCR Date; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 73",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 74",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: FCR No; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 74",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 75",
+      "heading": "Sheet: Sheet1",
+      "text": "Type: Flex Fields; Field Name: Shipping Dept. Ref No.; Visibility: Optional; Placement: Delivery information; Column 5: present in Flex Fields",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 75",
+      "kind": "data_row"
+    }
+  ]
+}

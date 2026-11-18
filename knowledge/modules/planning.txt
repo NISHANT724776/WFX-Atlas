@@ -1,0 +1,19 @@
+# Module: Planning
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-PLANNING
+MODULE NAME: Planning
+DESCRIPTION: MRP and sales order indents
+SUBMODULES:
+TRANSACTIONS:
+  MRP – Material Requirement Planning (mrp)
+  Sales Order Indents (MRP) (production-indents)
+DATA MODEL DOCUMENTS: mrp, so-indent
+WORKFLOW STEPS: mrp, mfg-indent, so-indent, adjust, so-updated
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

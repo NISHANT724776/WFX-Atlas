@@ -1,0 +1,2163 @@
+{
+  "generated": "2026-11-17T04:13:00.660Z",
+  "tables": [
+    {
+      "module": "masters",
+      "table": "colours",
+      "file": "masters/colours.csv",
+      "description": "Colour master – colour card Nis_colors.",
+      "columns": [
+        {
+          "name": "colour_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "colour_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "colour_card",
+          "type": "TEXT"
+        },
+        {
+          "name": "display_hex",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 8
+    },
+    {
+      "module": "masters",
+      "table": "sizes",
+      "file": "masters/sizes.csv",
+      "description": "Size master – size range ERPSIZE.",
+      "columns": [
+        {
+          "name": "size_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "size_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "display_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "size_range",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 7
+    },
+    {
+      "module": "masters",
+      "table": "uom_conversion",
+      "file": "masters/uom_conversion.csv",
+      "description": "Material-wise UOM conversion (factor 1 when none is maintained).",
+      "columns": [
+        {
+          "name": "article_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "from_uom",
+          "type": "TEXT"
+        },
+        {
+          "name": "to_uom",
+          "type": "TEXT"
+        },
+        {
+          "name": "factor",
+          "type": "REAL"
+        }
+      ],
+      "rows": 1
+    },
+    {
+      "module": "masters",
+      "table": "uom_types",
+      "file": "masters/uom_types.csv",
+      "description": "The three UOM types: storage, consumption and purchase.",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "group_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "masters",
+      "table": "article_coding",
+      "file": "masters/article_coding.csv",
+      "description": "How article codes and names are generated (manual, or automatic via Admin > System Coding).",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "group_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "masters",
+      "table": "article_code_sections",
+      "file": "masters/article_code_sections.csv",
+      "description": "Code sections that can be chosen in an Article Code Definition.",
+      "columns": [
+        {
+          "name": "code_section",
+          "type": "TEXT"
+        },
+        {
+          "name": "meaning",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 19
+    },
+    {
+      "module": "masters",
+      "table": "article_code_rules",
+      "file": "masters/article_code_rules.csv",
+      "description": "Example automatic article-code rules (category Textiles/Fabric): one row per code section.",
+      "columns": [
+        {
+          "name": "rule",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "product_group",
+          "type": "TEXT"
+        },
+        {
+          "name": "sub_category",
+          "type": "TEXT"
+        },
+        {
+          "name": "code_section",
+          "type": "TEXT"
+        },
+        {
+          "name": "value",
+          "type": "TEXT"
+        },
+        {
+          "name": "sort",
+          "type": "REAL"
+        }
+      ],
+      "rows": 19
+    },
+    {
+      "module": "product-development",
+      "table": "dependency_types",
+      "file": "product-development/dependency_types.csv",
+      "description": "Colour and size dependency types of a BOM line: Base, Table, None.",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "group_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "product-development",
+      "table": "bom_concepts",
+      "file": "product-development/bom_concepts.csv",
+      "description": "BOM versions, Standard vs Production BOM, creation, master cost sheet and the indent status rule.",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "group_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 7
+    },
+    {
+      "module": "planning",
+      "table": "mrp_rules",
+      "file": "planning/mrp_rules.csv",
+      "description": "How MRP generates child indents and how a negative MRP adjustment reduces or cancels them.",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "group_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "order",
+      "table": "sales_order_rules",
+      "file": "order/sales_order_rules.csv",
+      "description": "Sales Order (OC re-write) rules: structure, pricing, quantity, delivery actions, approval, price sync, order types, transfer price, TNA, EDI.",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "group_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "option_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 57
+    },
+    {
+      "module": "order",
+      "table": "sales_order_actions",
+      "file": "order/sales_order_actions.csv",
+      "description": "Delivery and order actions: where, what is needed, resulting status and rule.",
+      "columns": [
+        {
+          "name": "action",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "needs",
+          "type": "TEXT"
+        },
+        {
+          "name": "result",
+          "type": "TEXT"
+        },
+        {
+          "name": "rule",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 11
+    },
+    {
+      "module": "order",
+      "table": "sales_order_approval_scenarios",
+      "file": "order/sales_order_approval_scenarios.csv",
+      "description": "Approval value rule worked out: 0 never, -1 always, above 0 only when the order value exceeds the limit.",
+      "columns": [
+        {
+          "name": "approval_limit",
+          "type": "REAL"
+        },
+        {
+          "name": "order_value",
+          "type": "REAL"
+        },
+        {
+          "name": "goes_for_approval",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "order",
+      "table": "sales_order_split_scenarios",
+      "file": "order/sales_order_split_scenarios.csv",
+      "description": "Split by percentage (20 %) and by quantity (100 pcs, spread in proportion) over three colour/size lines.",
+      "columns": [
+        {
+          "name": "mode",
+          "type": "TEXT"
+        },
+        {
+          "name": "input",
+          "type": "TEXT"
+        },
+        {
+          "name": "line",
+          "type": "TEXT"
+        },
+        {
+          "name": "existing_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "moved_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "remaining_qty",
+          "type": "REAL"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "order",
+      "table": "sales_order_upcharge",
+      "file": "order/sales_order_upcharge.csv",
+      "description": "Final Selling Price = Base Selling Price ± Upcharge/Discount, by Price Per level.",
+      "columns": [
+        {
+          "name": "price_per_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "base_price",
+          "type": "REAL"
+        },
+        {
+          "name": "upcharge_discount",
+          "type": "REAL"
+        },
+        {
+          "name": "final_price",
+          "type": "REAL"
+        },
+        {
+          "name": "kind",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "order",
+      "table": "sales_order_desync_steps",
+      "file": "order/sales_order_desync_steps.csv",
+      "description": "Desync price walk-through: cost sheet price against OC price.",
+      "columns": [
+        {
+          "name": "step",
+          "type": "TEXT"
+        },
+        {
+          "name": "cost_sheet_price",
+          "type": "REAL"
+        },
+        {
+          "name": "oc_price",
+          "type": "TEXT"
+        },
+        {
+          "name": "state",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "order",
+      "table": "sales_order_sub_total",
+      "file": "order/sales_order_sub_total.csv",
+      "description": "Sub Total in the sales order currency (value × exchange rate).",
+      "columns": [
+        {
+          "name": "delivery",
+          "type": "TEXT"
+        },
+        {
+          "name": "value",
+          "type": "REAL"
+        },
+        {
+          "name": "currency",
+          "type": "TEXT"
+        },
+        {
+          "name": "rate_to_order_currency",
+          "type": "REAL"
+        },
+        {
+          "name": "sub_total",
+          "type": "REAL"
+        },
+        {
+          "name": "order_currency",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 2
+    },
+    {
+      "module": "order",
+      "table": "sales_order_purchase_demand",
+      "file": "order/sales_order_purchase_demand.csv",
+      "description": "Purchase Demand at Level 1 reduces the material indents on the next MRP run.",
+      "columns": [
+        {
+          "name": "level1_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "purchase_demand",
+          "type": "REAL"
+        },
+        {
+          "name": "manufacture_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "final_consumption",
+          "type": "REAL"
+        },
+        {
+          "name": "material_indent_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "result",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "order",
+      "table": "sales_order_packing",
+      "file": "order/sales_order_packing.csv",
+      "description": "Packing types and how the pieces are worked out.",
+      "columns": [
+        {
+          "name": "packing_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "popup",
+          "type": "TEXT"
+        },
+        {
+          "name": "pp_column",
+          "type": "TEXT"
+        },
+        {
+          "name": "rule",
+          "type": "TEXT"
+        },
+        {
+          "name": "pcs",
+          "type": "TEXT"
+        },
+        {
+          "name": "add_qty_tool",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "order",
+      "table": "sales_order_packing_example",
+      "file": "order/sales_order_packing_example.csv",
+      "description": "Worked example of Solid Color / Assorted Size (interpretation, to be confirmed).",
+      "columns": [
+        {
+          "name": "packing_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "ratio_s",
+          "type": "REAL"
+        },
+        {
+          "name": "ratio_m",
+          "type": "REAL"
+        },
+        {
+          "name": "ratio_l",
+          "type": "REAL"
+        },
+        {
+          "name": "packs",
+          "type": "REAL"
+        },
+        {
+          "name": "pcs",
+          "type": "REAL"
+        }
+      ],
+      "rows": 1
+    },
+    {
+      "module": "order",
+      "table": "sales_order_ex_factory",
+      "file": "order/sales_order_ex_factory.csv",
+      "description": "Ex-factory days: OC Delivery Date = Buyer Delivery Date − days.",
+      "columns": [
+        {
+          "name": "buyer_delivery_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "ex_factory_days",
+          "type": "REAL"
+        },
+        {
+          "name": "oc_delivery_date",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 2
+    },
+    {
+      "module": "product-development",
+      "table": "manual_style_bom",
+      "file": "product-development/manual_style_bom.csv",
+      "description": "Guides for the new BOM, recipe management, manufacturing BOM, MRP with recipes and AI tech pack mapping.",
+      "columns": [
+        {
+          "name": "document",
+          "type": "TEXT"
+        },
+        {
+          "name": "topic",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "content",
+          "type": "TEXT"
+        },
+        {
+          "name": "steps",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 17
+    },
+    {
+      "module": "order",
+      "table": "manual_sales_order",
+      "file": "order/manual_sales_order.csv",
+      "description": "Guides for OC closure setup, stock write-off and the sample order process.",
+      "columns": [
+        {
+          "name": "document",
+          "type": "TEXT"
+        },
+        {
+          "name": "topic",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "content",
+          "type": "TEXT"
+        },
+        {
+          "name": "steps",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 20
+    },
+    {
+      "module": "sourcing",
+      "table": "manual_sourcing",
+      "file": "sourcing/manual_sourcing.csv",
+      "description": "Guides for indents, RMPO, supplier portal, stock adjustment and sourcing reports.",
+      "columns": [
+        {
+          "name": "document",
+          "type": "TEXT"
+        },
+        {
+          "name": "topic",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "content",
+          "type": "TEXT"
+        },
+        {
+          "name": "steps",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 25
+    },
+    {
+      "module": "inventory",
+      "table": "manual_inventory_qc_wms",
+      "file": "inventory/manual_inventory_qc_wms.csv",
+      "description": "Guides for GRN, quality check, returns to supplier, GDI and GDN, and the WMS mobile application.",
+      "columns": [
+        {
+          "name": "document",
+          "type": "TEXT"
+        },
+        {
+          "name": "topic",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "content",
+          "type": "TEXT"
+        },
+        {
+          "name": "steps",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 14
+    },
+    {
+      "module": "tna",
+      "table": "manual_tna",
+      "file": "tna/manual_tna.csv",
+      "description": "Guide to the Time and Action calendar: roles, tasks, templates, auto attachment and closing tasks.",
+      "columns": [
+        {
+          "name": "document",
+          "type": "TEXT"
+        },
+        {
+          "name": "topic",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "content",
+          "type": "TEXT"
+        },
+        {
+          "name": "steps",
+          "type": "TEXT"
+        },
+        {
+          "name": "where_used",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 9
+    },
+    {
+      "module": "product-development",
+      "table": "rm_techpack",
+      "file": "product-development/rm_techpack.csv",
+      "document": "rm-techpack",
+      "grid": "rm",
+      "description": "Raw Material Techpacks – Materials. Every material the T-shirt needs is created once as its own techpack: one fabric and three trims. The BOM lines point to these article codes.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "article_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "article_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "techpack_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "consumption_uom",
+          "type": "TEXT"
+        },
+        {
+          "name": "price_per",
+          "type": "TEXT"
+        },
+        {
+          "name": "bypass_material_check_on_production_grn",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "product-development",
+      "table": "apparel",
+      "file": "product-development/apparel.csv",
+      "document": "apparel",
+      "grid": "detail",
+      "description": "Apparel Techpack – Detail. The garment itself. It fixes buyer, colour card, size range and purchase UOM – everything below inherits these.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "field",
+          "type": "TEXT"
+        },
+        {
+          "name": "value",
+          "type": "TEXT"
+        },
+        {
+          "name": "how_it_is_set",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 9
+    },
+    {
+      "module": "product-development",
+      "table": "bom_materials",
+      "file": "product-development/bom_materials.csv",
+      "document": "bom-materials",
+      "grid": "lines",
+      "description": "BOM · Materials – Materials (4). One line per material: how much one T-shirt consumes, with wastage, and what it costs. Value flows to the Cost tab; each line is linked to a process on the Routing tab.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "line",
+          "type": "REAL"
+        },
+        {
+          "name": "article_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "article_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "purchase_uom",
+          "type": "TEXT"
+        },
+        {
+          "name": "cons_uom",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_colors",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_sizes",
+          "type": "TEXT"
+        },
+        {
+          "name": "total_cons_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_per_item",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "loss_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_incl_loss",
+          "type": "REAL"
+        },
+        {
+          "name": "wastage_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_incl_wastage",
+          "type": "REAL"
+        },
+        {
+          "name": "shrinkage_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "final_consumption",
+          "type": "REAL"
+        },
+        {
+          "name": "supplier",
+          "type": "TEXT"
+        },
+        {
+          "name": "purchase_price",
+          "type": "REAL"
+        },
+        {
+          "name": "conversion",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_uom_price",
+          "type": "REAL"
+        },
+        {
+          "name": "value",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "product-development",
+      "table": "bom_consumption_chain",
+      "file": "product-development/bom_consumption_chain.csv",
+      "document": "bom-materials",
+      "grid": "chain",
+      "description": "BOM · Materials – Consumption chain – worked example (Cons 2). One line per material: how much one T-shirt consumes, with wastage, and what it costs. Value flows to the Cost tab; each line is linked to a process on the Routing tab.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "case",
+          "type": "TEXT"
+        },
+        {
+          "name": "cons_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "loss_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "wastage_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "shrinkage_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "loss_factor",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_incl_loss",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_incl_wastage",
+          "type": "REAL"
+        },
+        {
+          "name": "total_consumption",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "product-development",
+      "table": "routing_processes",
+      "file": "product-development/routing_processes.csv",
+      "document": "routing-processes",
+      "grid": "processes",
+      "description": "BOM · Routing · Processes – Processes (3). The processes that make the T-shirt, in order. Each Process Rate comes from its operation (Cost Of × Production Time) and is summed into Production Cost.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "seq",
+          "type": "REAL"
+        },
+        {
+          "name": "production_process",
+          "type": "TEXT"
+        },
+        {
+          "name": "process_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "output_item",
+          "type": "TEXT"
+        },
+        {
+          "name": "after_process",
+          "type": "TEXT"
+        },
+        {
+          "name": "process_rate",
+          "type": "REAL"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "product-development",
+      "table": "routing_operations",
+      "file": "product-development/routing_operations.csv",
+      "document": "routing-operations",
+      "grid": "operations",
+      "description": "BOM · Routing · Operations – Operations (3). Operation parameters per process: machine, efficiency, Cost Of and time. Cost Of × Production Time becomes the Process Rate.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "production_process",
+          "type": "TEXT"
+        },
+        {
+          "name": "efficiency_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "cost_of",
+          "type": "REAL"
+        },
+        {
+          "name": "operation_sub_operation",
+          "type": "TEXT"
+        },
+        {
+          "name": "machine_sub_category",
+          "type": "TEXT"
+        },
+        {
+          "name": "loss_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "total_time",
+          "type": "REAL"
+        },
+        {
+          "name": "production_time",
+          "type": "REAL"
+        },
+        {
+          "name": "cost_of_time",
+          "type": "REAL"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "product-development",
+      "table": "material_linkage",
+      "file": "product-development/material_linkage.csv",
+      "document": "material-linkage",
+      "grid": "linkage",
+      "description": "BOM · Routing · Material Linkage – Materials (4). Each BOM line is mapped to the process that consumes it – the fabric is issued to cutting, thread and cufflinks to sewing, the polybag to packing.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "line",
+          "type": "REAL"
+        },
+        {
+          "name": "article_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "cons_uom",
+          "type": "TEXT"
+        },
+        {
+          "name": "wastage_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "process",
+          "type": "TEXT"
+        },
+        {
+          "name": "cons_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_incl_wastage_loss",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "product-development",
+      "table": "bom_cost_sections",
+      "file": "product-development/bom_cost_sections.csv",
+      "document": "bom-cost",
+      "grid": "sections",
+      "description": "BOM · Cost – Materials by section. Material value by section plus process rates give the Total Cost per piece, which is compared with the selling price after and before discount.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "section",
+          "type": "TEXT"
+        },
+        {
+          "name": "lines",
+          "type": "TEXT"
+        },
+        {
+          "name": "total_cost",
+          "type": "REAL"
+        },
+        {
+          "name": "budget",
+          "type": "REAL"
+        },
+        {
+          "name": "additional_cost",
+          "type": "REAL"
+        }
+      ],
+      "rows": 2
+    },
+    {
+      "module": "product-development",
+      "table": "bom_cost_production",
+      "file": "product-development/bom_cost_production.csv",
+      "document": "bom-cost",
+      "grid": "production",
+      "description": "BOM · Cost – Production cost (3). Material value by section plus process rates give the Total Cost per piece, which is compared with the selling price after and before discount.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "process",
+          "type": "TEXT"
+        },
+        {
+          "name": "basis",
+          "type": "TEXT"
+        },
+        {
+          "name": "currency",
+          "type": "TEXT"
+        },
+        {
+          "name": "value_cs_curr",
+          "type": "REAL"
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "module": "product-development",
+      "table": "bom_cost_summary",
+      "file": "product-development/bom_cost_summary.csv",
+      "document": "bom-cost",
+      "grid": "summary",
+      "description": "BOM · Cost – Cost summary. Material value by section plus process rates give the Total Cost per piece, which is compared with the selling price after and before discount.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "item",
+          "type": "TEXT"
+        },
+        {
+          "name": "value_inr",
+          "type": "REAL"
+        },
+        {
+          "name": "how_wfx_gets_it",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 8
+    },
+    {
+      "module": "product-development",
+      "table": "bom_58",
+      "file": "product-development/bom_58.csv",
+      "document": "bom-58",
+      "grid": "line",
+      "description": "BOM used by the order – Materials (1). The Flannel Shirt Adi (NIS-58) BOM line that the booking, MRP and FPO quantities are exploded with: 1.5 KG_Nis of N-8 per shirt.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "article_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "total_cons_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_per_item",
+          "type": "REAL"
+        },
+        {
+          "name": "final_consumption",
+          "type": "REAL"
+        },
+        {
+          "name": "cons_uom_price",
+          "type": "REAL"
+        },
+        {
+          "name": "colours_used",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 1
+    },
+    {
+      "module": "sourcing",
+      "table": "bbb",
+      "file": "sourcing/bbb.csv",
+      "document": "bbb",
+      "grid": "material",
+      "description": "Buyer Block Booking – Material Details (6). Fabric booked per colour/size before the order exists. Indented Qty is written back from the Adhoc Indent.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_line_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "article",
+          "type": "TEXT"
+        },
+        {
+          "name": "colour",
+          "type": "TEXT"
+        },
+        {
+          "name": "size",
+          "type": "TEXT"
+        },
+        {
+          "name": "units",
+          "type": "REAL"
+        },
+        {
+          "name": "rate",
+          "type": "REAL"
+        },
+        {
+          "name": "value",
+          "type": "REAL"
+        },
+        {
+          "name": "indented_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "balance_to_indent",
+          "type": "REAL"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "sourcing",
+      "table": "adhoc_indent",
+      "file": "sourcing/adhoc_indent.csv",
+      "document": "adhoc-indent",
+      "grid": "lines",
+      "description": "BBB Adhoc Indent – Indent lines (6). Raised from the booking (\"Generate Indent Requirement\"). Each line points back to a booking material line; Ordered Qty comes back from the PO.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_line_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "booking_material_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "booked_units",
+          "type": "REAL"
+        },
+        {
+          "name": "balance_units",
+          "type": "REAL"
+        },
+        {
+          "name": "indent_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "rate",
+          "type": "REAL"
+        },
+        {
+          "name": "ordered_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "open_qty",
+          "type": "REAL"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "sourcing",
+      "table": "rmpo_1229",
+      "file": "sourcing/rmpo_1229.csv",
+      "document": "rmpo-1229",
+      "grid": "lines",
+      "description": "RMPO 1229 – Article Detail (6). Purchase order for the booked fabric. Value uses the PO price (10), not the indent rate (5). Shipped Qty comes back from the GRN.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "po_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "colour",
+          "type": "TEXT"
+        },
+        {
+          "name": "size",
+          "type": "TEXT"
+        },
+        {
+          "name": "ordered_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "price_per_unit",
+          "type": "REAL"
+        },
+        {
+          "name": "total_value",
+          "type": "REAL"
+        },
+        {
+          "name": "shipped_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "open_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "stock_key",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "sourcing",
+      "table": "grn",
+      "file": "sourcing/grn.csv",
+      "document": "grn",
+      "grid": "lines",
+      "description": "GRN – GRN Qty (6). Fabric received against RMPO 1229. Accepted qty becomes stock under the stock key, still tagged with booking PPJ179.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "po_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "ordered_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "balance_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "received_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "rejected_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "accepted_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "value",
+          "type": "REAL"
+        },
+        {
+          "name": "stock_key",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "module": "order",
+      "table": "oc",
+      "file": "order/oc.csv",
+      "document": "oc",
+      "grid": "breakup",
+      "description": "Sales Order (OC) – Add Quantity BreakUp (4). The confirmed buyer order: pieces per colour × size. Confirming it runs MRP.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "breakup_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "colour",
+          "type": "TEXT"
+        },
+        {
+          "name": "size",
+          "type": "TEXT"
+        },
+        {
+          "name": "qty",
+          "type": "REAL"
+        },
+        {
+          "name": "selling_price",
+          "type": "REAL"
+        },
+        {
+          "name": "total_value",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "planning",
+      "table": "mrp_l1",
+      "file": "planning/mrp_l1.csv",
+      "document": "mrp",
+      "grid": "l1",
+      "description": "MRP – Level 1 – Garment (4). Level 1 = garments to make (from the OC). Level 2 = fabric to buy: garment qty × BOM final consumption. Running Level 1 for the full qty generates the child indents. Any level can take a negative, but a child indent is reduced or cancelled only by a negative at its parent level, and only after MRP is re-run.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "l1_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "oc_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "actual_requirement",
+          "type": "REAL"
+        },
+        {
+          "name": "mrp_pct",
+          "type": "REAL"
+        },
+        {
+          "name": "req_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "demand_type",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "planning",
+      "table": "mrp_l2",
+      "file": "planning/mrp_l2.csv",
+      "document": "mrp",
+      "grid": "l2",
+      "description": "MRP – Level 2 – Fabric N-8 (4). Level 1 = garments to make (from the OC). Level 2 = fabric to buy: garment qty × BOM final consumption. Running Level 1 for the full qty generates the child indents. Any level can take a negative, but a child indent is reduced or cancelled only by a negative at its parent level, and only after MRP is re-run.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "l2_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "parent_l1",
+          "type": "TEXT"
+        },
+        {
+          "name": "garment_req_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "final_consumption",
+          "type": "REAL"
+        },
+        {
+          "name": "req_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "demand_type",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "planning",
+      "table": "mrp_adjust",
+      "file": "planning/mrp_adjust.csv",
+      "document": "mrp",
+      "grid": "adjust",
+      "description": "MRP – Adjustment scenarios (Level 1 = 500). Level 1 = garments to make (from the OC). Level 2 = fabric to buy: garment qty × BOM final consumption. Running Level 1 for the full qty generates the child indents. Any level can take a negative, but a child indent is reduced or cancelled only by a negative at its parent level, and only after MRP is re-run.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "entered_at",
+          "type": "TEXT"
+        },
+        {
+          "name": "mrp_adjustment",
+          "type": "REAL"
+        },
+        {
+          "name": "level_1_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "net_level_1_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "final_consumption",
+          "type": "REAL"
+        },
+        {
+          "name": "child_indent_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "result",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "planning",
+      "table": "so_indent",
+      "file": "planning/so_indent.csv",
+      "document": "so-indent",
+      "grid": "lines",
+      "description": "Sales Order Indent – Indent lines (4). MRP Level 2 written as an indent. Booking stock with the same stock key is reserved first (In-house Adj.); only the rest is ordered.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_line_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "mrp_l2_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "stock_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "purchase_uom_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "bbb_stock_available",
+          "type": "REAL"
+        },
+        {
+          "name": "in_house_adj",
+          "type": "REAL"
+        },
+        {
+          "name": "ordered_qty",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "sourcing",
+      "table": "rmpo_1230",
+      "file": "sourcing/rmpo_1230.csv",
+      "document": "rmpo-1230",
+      "grid": "lines",
+      "description": "RMPO 1230 – Article Detail (4). Purchase order only for the part of the sales-order indent not covered by booking stock.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "in_house_adj",
+          "type": "REAL"
+        },
+        {
+          "name": "ordered_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "shipped_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "open_qty",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "production",
+      "table": "fpo_qty",
+      "file": "production/fpo_qty.csv",
+      "document": "fpo",
+      "grid": "qty",
+      "description": "FPO – FPO Qty – Colour/Size (4). Pieces released to the factory, the fabric they need, and how much of it is already reserved versus still on order.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "breakdown_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "oc_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "allocated_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "reduced_at_fpo",
+          "type": "REAL"
+        },
+        {
+          "name": "fpo_qty",
+          "type": "REAL"
+        },
+        {
+          "name": "final_consumption",
+          "type": "REAL"
+        },
+        {
+          "name": "fabric_qty_reqd",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "production",
+      "table": "fpo_alloc",
+      "file": "production/fpo_alloc.csv",
+      "document": "fpo",
+      "grid": "alloc",
+      "description": "FPO – Stock Material Allocation (4). Pieces released to the factory, the fabric they need, and how much of it is already reserved versus still on order.",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "indent_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "qty_reqd",
+          "type": "REAL"
+        },
+        {
+          "name": "net_qty_instructed",
+          "type": "REAL"
+        },
+        {
+          "name": "open_qty",
+          "type": "REAL"
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "module": "product-development",
+      "table": "bom_colour_dependency",
+      "file": "product-development/bom_colour_dependency.csv",
+      "description": "BOM colour dependency (type Table) per BOM line of Adi TShirt (NIS-59).",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "bom",
+          "type": "TEXT"
+        },
+        {
+          "name": "bom_line_article",
+          "type": "TEXT"
+        },
+        {
+          "name": "colour_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "master_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "on_article",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 32
+    },
+    {
+      "module": "product-development",
+      "table": "bom_size_dependency",
+      "file": "product-development/bom_size_dependency.csv",
+      "description": "BOM size dependency (type Table) per BOM line of Adi TShirt (NIS-59).",
+      "columns": [
+        {
+          "name": "apparel_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "bom",
+          "type": "TEXT"
+        },
+        {
+          "name": "bom_line_article",
+          "type": "TEXT"
+        },
+        {
+          "name": "size_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "master_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "on_article",
+          "type": "TEXT"
+        },
+        {
+          "name": "material_value",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 28
+    },
+    {
+      "module": "knowledge",
+      "table": "transactions",
+      "file": "knowledge/transactions.csv",
+      "description": "Every WFX transaction with its purpose and one-line summary.",
+      "columns": [
+        {
+          "name": "slug",
+          "type": "TEXT"
+        },
+        {
+          "name": "step",
+          "type": "REAL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "module",
+          "type": "TEXT"
+        },
+        {
+          "name": "screen",
+          "type": "TEXT"
+        },
+        {
+          "name": "description",
+          "type": "TEXT"
+        },
+        {
+          "name": "one_line",
+          "type": "TEXT"
+        },
+        {
+          "name": "theory",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 15
+    },
+    {
+      "module": "knowledge",
+      "table": "fields",
+      "file": "knowledge/fields.csv",
+      "description": "Fields of each transaction: how they are filled and where they come from.",
+      "columns": [
+        {
+          "name": "transaction",
+          "type": "TEXT"
+        },
+        {
+          "name": "field_group",
+          "type": "TEXT"
+        },
+        {
+          "name": "field",
+          "type": "TEXT"
+        },
+        {
+          "name": "type",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "source_transaction",
+          "type": "TEXT"
+        },
+        {
+          "name": "source_field",
+          "type": "TEXT"
+        },
+        {
+          "name": "calculation_id",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 136
+    },
+    {
+      "module": "knowledge",
+      "table": "calculations",
+      "file": "knowledge/calculations.csv",
+      "description": "Formula library with worked examples and verification status.",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "transaction",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "formula",
+          "type": "TEXT"
+        },
+        {
+          "name": "explanation",
+          "type": "TEXT"
+        },
+        {
+          "name": "example",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "open_question",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 54
+    },
+    {
+      "module": "knowledge",
+      "table": "glossary",
+      "file": "knowledge/glossary.csv",
+      "description": "Definitions of WFX terms.",
+      "columns": [
+        {
+          "name": "term",
+          "type": "TEXT"
+        },
+        {
+          "name": "definition",
+          "type": "TEXT"
+        },
+        {
+          "name": "transaction",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 136
+    },
+    {
+      "module": "knowledge",
+      "table": "document_columns",
+      "file": "knowledge/document_columns.csv",
+      "description": "Every column of every document: type, formula and the column it is taken from.",
+      "columns": [
+        {
+          "name": "document",
+          "type": "TEXT"
+        },
+        {
+          "name": "document_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "grid",
+          "type": "TEXT"
+        },
+        {
+          "name": "grid_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "column_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "column_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        },
+        {
+          "name": "type",
+          "type": "TEXT"
+        },
+        {
+          "name": "formula",
+          "type": "TEXT"
+        },
+        {
+          "name": "calculated_from",
+          "type": "TEXT"
+        },
+        {
+          "name": "source_document",
+          "type": "TEXT"
+        },
+        {
+          "name": "source_column",
+          "type": "TEXT"
+        },
+        {
+          "name": "calculation_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "note",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 268
+    },
+    {
+      "module": "knowledge",
+      "table": "flow",
+      "file": "knowledge/flow.csv",
+      "description": "Transactions in flow order.",
+      "columns": [
+        {
+          "name": "step",
+          "type": "REAL"
+        },
+        {
+          "name": "slug",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "module",
+          "type": "TEXT"
+        },
+        {
+          "name": "description",
+          "type": "TEXT"
+        }
+      ],
+      "rows": 15
+    }
+  ],
+  "texts": [
+    {
+      "module": "order",
+      "file": "order/sales_order_knowledge.txt",
+      "description": "Sales Order (OC re-write) knowledge as plain text."
+    }
+  ]
+}

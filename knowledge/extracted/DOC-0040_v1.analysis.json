@@ -1,0 +1,430 @@
+{
+  "tables": [],
+  "subject": "Kit pack Costing",
+  "keyTerms": [
+    "kit",
+    "bom",
+    "kitpack",
+    "article",
+    "tab",
+    "items",
+    "line",
+    "user",
+    "dropdown",
+    "kit items",
+    "type",
+    "packing",
+    "color",
+    "level",
+    "articles"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 46
+    },
+    {
+      "module": "Planning",
+      "score": 5
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "Apparel Style (Techpack)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "When the user accesses the Techpack screen, the availability of Single and Multi-options will be controlled Based on setting and on NEW BOM it will work as specified below.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If Single is selected, a “Pack” tab will be enabled on the header.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If Multi is selected, a “Kit” tab will be enabled on the header.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit/Pack Tab:\n1. Kit ID – Hyperlink that opens View Page of Kit/Pack Details\n2. Kit Name – Manual Kit/Pack Creation Screen\n3. Ratio Type - Manual Kit/Pack Creation Screen\n4. Total Cost – Is same as Total/Consolidated selling price of no. of Articles present inside that Kit/Pack.\n5. Status – Both status are in sync from Kit/Pack Creation screen.\n6. Save\n7. Confirmed\n8. Created Date – Based on the transaction creation date.\n9. Last Modified Date – Last date of Modification of Kit/Pack.\n10. Actions (Context Menu)",
+      "locator": "§ Solution › Kit/Pack Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Edit::\n1. Can be performed in two ways:\n2. From the context menu\n3. From inside the Kit Details screen using the Edit button\n4. Allows modification of an existing Draft or Active Kit/Pack",
+      "locator": "§ Solution › Actions › Edit:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Duplicate:\n1. Triggered from: Context Menu → Duplicate\n2. System shows a confirmation prompt:\n3. “Duplicate BOM: 1”\n4. A Kit line will get added.",
+      "locator": "§ Solution › Actions › Duplicate",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Export:\n1. Triggered from: Context Menu → Export: to export the grid details with respective headers.\n2. System shows a confirmation prompt:\n3. “Export BOM: 1”",
+      "locator": "§ Solution › Actions › Export",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Details Screen Includes:\n1. Kit Information\n2. Kit Id\n3. Kit Name\n4. Ratio Type\n5. Kit SKU\n6. BOM Line Items\n7. Displays all associated BOM components\n8. Kit Summary – All BOM Lines details. And same representation as given inside Summary Tab.",
+      "locator": "§ Solution › Kit Details › Details Screen Includes",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header-Level Actions (Create Kit/Pack Screen):\n1. Saves the current configuration\n2. Shows confirmation:\n3. “BOM saved successfully”",
+      "locator": "§ Solution › Create Kit/Pack Screen › Header-Level Actions (Create Kit/Pack Screen)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "Generates BOM based on entered data",
+      "locator": "§ Solution › Create Kit/Pack Screen › Header-Level Actions (Create Kit/Pack Screen)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header-Level Actions (Create Kit/Pack Screen):\n1. Generates BOM based on entered data\n2. Shows confirmation:\n3. “BOM generated successfully",
+      "locator": "§ Solution › Create Kit/Pack Screen › Header-Level Actions (Create Kit/Pack Screen)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The user must fill the following fields and this section should work like a collapse and expand.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Details Section:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once it is collapsed then on the banner it should show the following details in view mode only: Packing Kit ID, Packing Kit Name, Component Type and Ratio Type.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Details Section:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit Details Section::\n1. Packing Kit ID (By default Editable)- It can also can be Configure from System Coding.\n2. Packing Kit Name (Editable)\n3. Component Type\n4. Single\n5. Multi\n6. Ratio Type (Dropdown)\n7. Color Ratio – When Component type is Single.\n8. Size Ratio - When Component type is Single.\n9. Mixed Ratio - When Component type is Multi.\n10. Packing Kit SKU (Editable)\n11. Packing Kit Description (Editable)",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Details Section:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Defines how many articles are included in a kit (e.g., 2 T-shirts in one kit)",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit Items (Articles) Tab:\n1. Displays Kit Articles & Variations.\n2. Defines how many articles are included in a kit (e.g., 2 T-shirts in one kit)\n3. Kit Items should work at component level.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If multiple color are added than a child row will get added.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If multiple sizes are added than a child row will get added.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit Items (Articles) Tab:\n1. Article – Article should be driven from the add item.\n2. Color – Multiselect Dropdown based on the selected Article on color card. If multiple color are added than a child row will get added.\n3. Size – Multiselect Dropdown based on the selected Article on size card. If multiple sizes are added than a child row will get added.\n4. Quantity – It is editable\n5. Price – Selling Price of Article\n6. Manufacturing BOM – Driven from Article techpack (Subsequent BOM)\n7. Actions – Delete Action.\n8. All the Columns from the BOM will come as it is",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When User Selects Color and sizes then child nodes are created and these are mapped in backend with Kit ID, and when user expands the Article then child nodes can be seen as shown in the Screen above.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add:\n1. User clicks on “Add Item” (shown in images)\n2. User can add multiple articles Inside kit(if existing will come directly in dropdown if not then we can create new Article) same for BOM.\n3. Each article contains:\n4. Article selection\n5. Color (Multi-select)\n6. Size (Multi-select)\n7. Auto-generated SKU\n8. Quantity\n9. Manufacturing BOM selection",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add New Article Functionality (Within Article Dropdown):\n1. Product Group – Dropdown (Single Select)\n2. Sub-category – Dropdown (Single Select)\n3. Article Name – Editable Field\n4. Buyer Style Reference – Editable Field\n5. Article Code – Editable Field\n6. Color – Dropdown (Multi-select)\n7. Size – Dropdown (Multi-select)",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add New Article Functionality (Within Article Dropdown)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Horizontal scrolling is supported for viewing all fields",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add New Article Functionality (Within Article Dropdown)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Packaging Materials Tab:\n1. All fields are editable\n2. Multiple packaging materials can be added\n3. These will be included as separate line items in the final BOM",
+      "locator": "§ Solution › Create Kit/Pack Screen › Packaging Materials Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Other Costs Tab:\n1. Charges\n2. Basis (e.g., Per Kit)\n3. Currency\n4. Rate\n5. Value\n6. Value (CS Currency)\n7. Actions (Delete only)",
+      "locator": "§ Solution › Create Kit/Pack Screen › Other Costs Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "These costs are included in the final BOM calculation",
+      "locator": "§ Solution › Create Kit/Pack Screen › Other Costs Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Other Costs Tab:\n1. Represents costs like:\n2. Freight\n3. Courier\n4. Handling\n5. These costs are included in the final BOM calculation",
+      "locator": "§ Solution › Create Kit/Pack Screen › Other Costs Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Routing Processes Tab:\n1. Packing\n2. Cutting\n3. Sewing\n4. Fields:",
+      "locator": "§ Solution › Create Kit/Pack Screen › Routing Processes Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Kit ID: Auto Populate from Kit Items tab\n2. Kit Name: Auto Populate\n3. Ratio Type: Auto Populate\n4. Kit SKU: Auto Populate",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Kit Items (Article) will be Parent line- will have feature of expand and collapse\n2. Material used – Shown as type of BOM detail (Child line)\n3. Packaging Materials (child line)\n4. Other Costs (child line)",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. The summary view will populate the following details for the selected style(s)\n2. On clicking/expanding the style line item:\n3. The system will display the materials used to construct that style (i.e., underlying BOM components such as fabric, trims, etc.).\n4. If Kit is configured:\n5. Multiple styles will be displayed under the Kit Items tab in the summary.\n6. Each style will support the same expand/collapse functionality, showing its respective material breakdown.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Total Cost – Total Consolidated price of Both the Articles (with Materials included) + Packing Material + Other Costs + Routing Process\n2. Selling Price – Initially going to be auto-populated, but user can further edit it.\n3. Discount – As it is currently working in new BOM.\n4. Profit – Eff SP - TC\n5. Markup - SP – CP, Markup% -> (Markup Value/CP)* 100\n6. SMV: Will have the dependency with respective of kit id.\nData will Show Kit item name and SMV used to make that particular item.\n7. EPM – This comes on the basis of configuration and setting.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Generic Formula:",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "EPM = (Selling Price- (Material Cost + Import Cost + EMB Process Cost))/SAM",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MRP:\n1. First Level:\nThe system will display the Kit/Pack Item information.\n2. Second Level:\nUnder the Kit/Pack Item, the system will display the associated Article information.\n3. Third Level:\nUnder each Article, the system will display the raw materials/components used to manufacture that Article.",
+      "locator": "§ Solution › MRP",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Kit/Pack Costing › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\nKit/Pack Management 2\nKit/Pack Tab 2\nActions 2\n1. Edit: 2\n2. View 3\n3. Duplicate 3\n4. Export 3\nKit Details 3\nDetails Screen Includes 3\nConfigure Kit/Pack 3\nCreate Kit/Pack Screen 3\nHeader-Level Actions (Create Kit/Pack Screen) 3\nKit Details Section: 3\n1. Kit Items (Articles) Tab 3\n2. Packaging Materials Tab 3\n3. Other Costs Tab 3\n4. Routing Processes Tab 3\n5. Summary Tab 3\nMRP 6",
+      "locator": "§ Kit/Pack Costing › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Kit/Pack Management",
+      "heading": "Solution › Kit/Pack Management",
+      "text": "When the user accesses the Techpack screen, the availability of Single and Multi-options will be controlled Based on setting and on NEW BOM it will work as specified below.\nThe Component Type field will be available as a dropdown with the following options:\n• Single\n• Multi\nBased on the user’s selection:\n• If Single is selected, a “Pack” tab will be enabled on the header.\n• If Multi is selected, a “Kit” tab will be enabled on the header.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "kind": "section"
+    },
+    {
+      "title": "Kit/Pack Tab",
+      "heading": "Solution › Kit/Pack Tab",
+      "text": "Once the user navigates to the Kit/Pack tab:\n• The system displays a list of already created Kit/Packs.\n• A “Configure Kit/Pack” button will be available at the header level of the grid\nDisplayed Data in Grid\nEach Kit/Pack record will include the following fields:\n• Kit ID – Hyperlink that opens View Page of Kit/Pack Details\n• Kit Name – Manual Kit/Pack Creation Screen\n• Ratio Type - Manual Kit/Pack Creation Screen\n• Total Cost – Is same as Total/Consolidated selling price of no. of Articles present inside that Kit/Pack.\n• Status – Both status are in sync from Kit/Pack Creation screen.\n• Save\n• Confirmed\n• Created Date – Based on the transaction creation date.\n• Last Modified Date – Last date of Modification of Kit/Pack.\n• Actions (Context Menu)",
+      "locator": "§ Solution › Kit/Pack Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Actions",
+      "heading": "Solution › Actions",
+      "text": "Each Kit/Pack record provides the following actions via the context menu:",
+      "locator": "§ Solution › Actions",
+      "kind": "section"
+    },
+    {
+      "title": "Edit:",
+      "heading": "Solution › Actions › Edit:",
+      "text": "• Can be performed in two ways:\n• From the context menu\n• From inside the Kit Details screen using the Edit button\n• Allows modification of an existing Draft or Active Kit/Pack",
+      "locator": "§ Solution › Actions › Edit:",
+      "kind": "section"
+    },
+    {
+      "title": "View",
+      "heading": "Solution › Actions › View",
+      "text": "• Opens the Kit/Pack Details screen",
+      "locator": "§ Solution › Actions › View",
+      "kind": "section"
+    },
+    {
+      "title": "Duplicate",
+      "heading": "Solution › Actions › Duplicate",
+      "text": "• Triggered from: Context Menu → Duplicate\n• System shows a confirmation prompt:\n• “Duplicate BOM: 1”\n• A Kit line will get added.",
+      "locator": "§ Solution › Actions › Duplicate",
+      "kind": "section"
+    },
+    {
+      "title": "Export",
+      "heading": "Solution › Actions › Export",
+      "text": "• Triggered from: Context Menu → Export: to export the grid details with respective headers.\n• System shows a confirmation prompt:\n• “Export BOM: 1”",
+      "locator": "§ Solution › Actions › Export",
+      "kind": "section"
+    },
+    {
+      "title": "Kit Details",
+      "heading": "Solution › Kit Details",
+      "text": "Users can open the Kit/Pack Details screen in two ways:\n• By clicking on Kit ID\n• By selecting View from the context menu",
+      "locator": "§ Solution › Kit Details",
+      "kind": "section"
+    },
+    {
+      "title": "Details Screen Includes",
+      "heading": "Solution › Kit Details › Details Screen Includes",
+      "text": "• Kit Information\n• Kit Id\n• Kit Name\n• Ratio Type\n• Kit SKU\n• BOM Line Items\n• Displays all associated BOM components\n• Kit Summary – All BOM Lines details. And same representation as given inside Summary Tab.",
+      "locator": "§ Solution › Kit Details › Details Screen Includes",
+      "kind": "section"
+    },
+    {
+      "title": "Configure Kit/Pack",
+      "heading": "Solution › Configure Kit/Pack",
+      "text": "User had already made Two or more articles for e.g.: Shirt and Trouser with their respective BOM(Manufacturing BOM) , Now when we create a New techpack Name Shirt-Trouser KIT in BOM we are going to select those articles(Shirt and trouser), Now when we configure a techpack all the articles present in the BOM of kit will auto – populated here & and if user want to create a new techpack he can do that with drop down under article and to create New BOM that can also be done from Manufacturing BOM dropdown.\nClicking on “Configure Kit/Pack” opens the Create Kit/Pack screen.\n• When the user selects “Single” in the Component Type on the Techpack, the style details will be automatically picked up and populated under the Pack Items (Article) tab.\n• When the user selects “Multi”, the designated two or more styles intended to be part of the kit will be automatically picked up and populated under the Kit Items (Article) tab.",
+      "locator": "§ Solution › Configure Kit/Pack",
+      "kind": "section"
+    },
+    {
+      "title": "Header-Level Actions (Create Kit/Pack Screen)",
+      "heading": "Solution › Create Kit/Pack Screen › Header-Level Actions (Create Kit/Pack Screen)",
+      "text": "Available at the top of the screen\n1. Copy From (Secondary Button)\n• Allows copying data from an existing KIT/PACK.\n2. Save Draft (Secondary Button)\n• Saves the current configuration\n• Shows confirmation:\n• “BOM saved successfully”\n3. Confirm (Primary Button)\n• Generates BOM based on entered data\n• Shows confirmation:\n• “BOM generated successfully\nNote: We need same MRP tool that is present on NEW BOM.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Header-Level Actions (Create Kit/Pack Screen)",
+      "kind": "section"
+    },
+    {
+      "title": "Kit Details Section:",
+      "heading": "Solution › Create Kit/Pack Screen › Kit Details Section:",
+      "text": "The user must fill the following fields and this section should work like a collapse and expand. Once it is collapsed then on the banner it should show the following details in view mode only: Packing Kit ID, Packing Kit Name, Component Type and Ratio Type.\n• Packing Kit ID (By default Editable)- It can also can be Configure from System Coding.\n• Packing Kit Name (Editable)\n• Component Type\n• Single\n• Multi\n• Ratio Type (Dropdown)\n• Color Ratio – When Component type is Single.\n• Size Ratio - When Component type is Single.\n• Mixed Ratio - When Component type is Multi.\n• Packing Kit SKU (Editable)\n• Packing Kit Description (Editable)\nUnder the Kit Details section, an additional grid is available consisting of multiple tabs and configurations related to Kit Items.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Details Section:",
+      "kind": "section"
+    },
+    {
+      "title": "Kit Items (Articles) Tab",
+      "heading": "Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "text": "This tab defines the articles/items included in a Kit/Pack BOM.\nFunctionality\n• Displays Kit Articles & Variations.\n• Defines how many articles are included in a kit (e.g., 2 T-shirts in one kit)\n• Kit Items should work at component level.\nField Details :\n• Article – Article should be driven from the add item.\n• Color – Multiselect Dropdown based on the selected Article on color card. If multiple color are added than a child row will get added.\n• Size – Multiselect Dropdown based on the selected Article on size card. If multiple sizes are added than a child row will get added.\n• Quantity – It is editable\n• Price – Selling Price of Article\n• Manufacturing BOM – Driven from Article techpack (Subsequent BOM)\n• Actions – Delete Action.\n• All the Columns from the BOM will come as it is\nNote: We need a Color and Size level dependency(only Table Dependency) such that Kit ID on backend is mapped with Color and Sizes, selected on the Packing Material Screen.\nKit Id – On Left ---------------------- Article – On Right\nWhen User Selects Color and sizes then child nodes are created and these are mapped in backend with Kit ID, and when user expands the Article then child nodes can be seen as shown in the Screen above.\nUI Correction: Price Can be manually edited for child line as well and Manufacturing BOM can only be selected only at parent line.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Add",
+      "heading": "Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add",
+      "text": "• User clicks on “Add Item” (shown in images)\n• User can add multiple articles Inside kit(if existing will come directly in dropdown if not then we can create new Article) same for BOM.\n• Each article contains:\n• Article selection\n• Color (Multi-select)\n• Size (Multi-select)\n• Auto-generated SKU\n• Quantity\n• Manufacturing BOM selection",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add",
+      "kind": "section"
+    },
+    {
+      "title": "View BOM – Hyperlink Functionality",
+      "heading": "Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › View BOM – Hyperlink Functionality",
+      "text": "A “View & Edit” hyperlink will be provided adjacent to the Manufacturing BOM field.\n• On clicking the “View” hyperlink, the system will open the BOM details screen in view mode and user can also edit it when permissions enabled.\n• The user will be able to review all BOM line items and related details in a read-only format.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › View BOM – Hyperlink Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "Add New Article Functionality (Within Article Dropdown)",
+      "heading": "Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add New Article Functionality (Within Article Dropdown)",
+      "text": "Within the Article column dropdown, an option “Add New Article” will be available.\n• On clicking “Add New Article,” a right-side panel will be opened.\nThe panel will contain the following fields:\n• Product Group – Dropdown (Single Select)\n• Sub-category – Dropdown (Single Select)\n• Article Name – Editable Field\n• Buyer Style Reference – Editable Field\n• Article Code – Editable Field\n• Color – Dropdown (Multi-select)\n• Size – Dropdown (Multi-select)\nAt the bottom of the panel, the following actions will be available:\n• Cancel\n• Save Article\nOn clicking “Save Article”:\n• The article will be saved in the system.\n• The newly created article will be available in the Article dropdown list for selection\nBehaviour\n• Multiple selections of color/size automatically generate combinations (child rows)\n• Horizontal scrolling is supported for viewing all fields",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Add New Article Functionality (Within Article Dropdown)",
+      "kind": "section"
+    },
+    {
+      "title": "Delete",
+      "heading": "Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Delete",
+      "text": "Works on line level, and deletes that particular line.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Kit Items (Articles) Tab › Actions in Kit/Items (Article Tab) › Delete",
+      "kind": "section"
+    },
+    {
+      "title": "Packaging Materials Tab",
+      "heading": "Solution › Create Kit/Pack Screen › Packaging Materials Tab",
+      "text": "This tab captures materials required for packing the kit (shown in images).\nFields: will be same as present in BOM as Shown in Image below\nNote: We need a Color and Size level dependency(only Table Dependency) such that Kit ID on backend is mapped with Color and Sizes, selected on the Packing Material Screen.\nKit Id – On Left ---------------------- Article – On Right\nKey Points\n• All fields are editable\n• Multiple packaging materials can be added\n• These will be included as separate line items in the final BOM",
+      "locator": "§ Solution › Create Kit/Pack Screen › Packaging Materials Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Other Costs Tab",
+      "heading": "Solution › Create Kit/Pack Screen › Other Costs Tab",
+      "text": "This tab captures additional costs associated with the kit.\nFields\n• Charges\n• Basis (e.g., Per Kit)\n• Currency\n• Rate\n• Value\n• Value (CS Currency)\n• Actions (Delete only)\nKey Points\n• Represents costs like:\n• Freight\n• Courier\n• Handling\n• These costs are included in the final BOM calculation",
+      "locator": "§ Solution › Create Kit/Pack Screen › Other Costs Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Routing Processes Tab",
+      "heading": "Solution › Create Kit/Pack Screen › Routing Processes Tab",
+      "text": "This tab defines process flow and mapping (shown in images).\nSub Sections\na. Process - Same as present in Routing -> Process Tab (Shown Below in pic)\n• Packing\n• Cutting\n• Sewing\n• Fields:\nb. Material Linking\n• Links BOM line items to defined processes\nFields – Same as Routing -> Material Linkage Tab\nBehaviour\n• Default process assignment is Packing\n• User can modify process using dropdown",
+      "locator": "§ Solution › Create Kit/Pack Screen › Routing Processes Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Summary Tab",
+      "heading": "Solution › Create Kit/Pack Screen › Summary Tab",
+      "text": "This tab provides a complete overview of the Kit/Pack (shown in images).\na. Kit Information\n• Kit ID: Auto Populate from Kit Items tab\n• Kit Name: Auto Populate\n• Ratio Type: Auto Populate\n• Kit SKU: Auto Populate\nb. BOM Line Items\nDisplays combined data from:\n• Kit Items (Article) will be Parent line- will have feature of expand and collapse\n• Material used – Shown as type of BOM detail (Child line)\n• Packaging Materials (child line)\n• Other Costs (child line)\nFields of Header name– As per BOM as shown below\nBOM Line Items – Summary & Expansion Behaviour:\nIn the BOM Line Items (Summary Section):\n• The summary view will populate the following details for the selected style(s)\n• On clicking/expanding the style line item:\n• The system will display the materials used to construct that style (i.e., underlying BOM components such as fabric, trims, etc.).\n• If Kit is configured:\n• Multiple styles will be displayed under the Kit Items tab in the summary.\n• Each style will support the same expand/collapse functionality, showing its respective material breakdown.\nc. Cost Summary\nProvides financial breakdown:\n• Total Cost – Total Consolidated price of Both the Articles (with Materials included) + Packing Material + Other Costs + Routing Process\n• Selling Price – Initially going to be auto-populated, but user can further edit it.\n• Discount – As it is currently working in new BOM.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Summary Tab",
+      "heading": "Solution › Create Kit/Pack Screen › Summary Tab",
+      "text": "• Profit – Eff SP - TC\n• Markup - SP – CP, Markup% -> (Markup Value/CP)* 100\n• SMV: Will have the dependency with respective of kit id.\nData will Show Kit item name and SMV used to make that particular item.\n• EPM – This comes on the basis of configuration and setting.\nGeneric Formula:\nEPM = (Selling Price- (Material Cost + Import Cost + EMB Process Cost))/SAM\nE.g. :- 1.48 =(30-(6.6+4+12))/5\nNote: It will work same like New BOM and all the permissions will be applicable here.",
+      "locator": "§ Solution › Create Kit/Pack Screen › Summary Tab (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "MRP",
+      "heading": "Solution › MRP",
+      "text": "MRP Level Structure for Kit/Pack\nFor Kit/Pack configurations, the MRP hierarchy levels will function as follows:\n• First Level:\nThe system will display the Kit/Pack Item information.\n• Second Level:\nUnder the Kit/Pack Item, the system will display the associated Article information.\n• Third Level:\nUnder each Article, the system will display the raw materials/components used to manufacture that Article.\nNote: If There is any Sub BOM, recipe or if fabric is achieved from Yarn than those details will come on below levels.",
+      "locator": "§ Solution › MRP",
+      "kind": "section"
+    }
+  ]
+}

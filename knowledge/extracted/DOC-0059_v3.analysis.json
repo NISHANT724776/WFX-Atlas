@@ -1,0 +1,224 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Aman Aggarwal",
+          "7th April 2024",
+          "Initial Document Created"
+        ],
+        [
+          "2.0",
+          "Manoj Sambhria",
+          "29-Sep-2025",
+          "Document revised"
+        ],
+        [
+          "3.0",
+          "Shams",
+          "05th Dec 25",
+          "Specs Revised and added Auto Material Change."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex)",
+  "keyTerms": [
+    "procurement",
+    "order",
+    "excess procurement",
+    "inquiry order",
+    "excess",
+    "inquiry",
+    "procurement approval",
+    "approval",
+    "rmpo",
+    "requirement",
+    "revision",
+    "orders",
+    "indent",
+    "quantity",
+    "revised"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 15
+    },
+    {
+      "module": "Sales Order",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "RMPO – Raw Material Purchase Order",
+    "Purchase Order from Buyer (OC)",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Auto material allocation is processing only incase of OC split which should work on Main OC level 4",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The simple reason is inquiry orders gets spitted into confirmed orders and procurements already started against inquiry orders.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The reason is that inquiry orders are later split into confirmed orders, and procurement activities (indent, RMPO, GRN) are already initiated based on the inquiry order.",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "The reason is that inquiry orders are later split into confirmed orders, and procurement activities (indent, RMPO, GRN) are already initiated based on the inquiry order.",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Inquiry Order = 200",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Summary Order received and split into Summary OCs (Total = 200)",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Inquiry Order = 0",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Summary Order = 200",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Example Scenario::\n1. Inquiry Order = 200\n2. Indent generated\n3. RMPO created against indent\n4. GRN created\n5. Summary Order received and split into Summary OCs (Total = 200)\n6. Inquiry Order = 0\n7. Summary Order = 200\n8. Indent revised\n9. During RMPO revision, system flags Excess Quantity and asks for approval",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "This is incorrect because the actual requirement has not changed.",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (3 rows)",
+      "locator": "§ Section 4. Revision History, table 1",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex)",
+      "heading": "",
+      "text": "Software Requirements Specification\nTracker Point 66-RMPO Excess Procurement Approval (Martex/Maliban)\nDocument # 298306\nVersion 1.0 ● 29th October,2025\nContents\nSection 1: Overview 3\nPurpose. 3\nBusiness Requirement 3\nScope 3\nSection2. Assumptions 3\nSection3. Solution 4\nFunctional Requirements 4\n1. PO Excess Procurement 4\n The requirement is to exclude the inquiry order qty while 4\n2. Auto material allocation is processing only incase of OC split which should work on Main OC level 4\nSection 4. Revision History 4",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose.",
+      "heading": "Purpose.",
+      "text": "The Document described understanding of changes required on Order Access Procurement Approval.",
+      "locator": "§ Purpose.",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Currently PO excess approver logic treat inquiry order procurement in it which we require to be excluded while validating excess procurement qty. The simple reason is inquiry orders gets spitted into confirmed orders and procurements already started against inquiry orders. So at one point of time, inquiry order indent line will be 0 and all the revision of PO/Creation will lead to excess procurement approval",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Section2. Assumptions",
+      "heading": "Section2. Assumptions",
+      "text": "Section3. Solution",
+      "locator": "§ Section2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "1. PO Excess Procurement Issue",
+      "heading": "Functional Requirements › … › 1. PO Excess Procurement Issue",
+      "text": "Currently, the PO excess approver logic “Order Access Procurement Approval” incorrectly includes inquiry order procurement while validating excess procurement quantity. This needs to be excluded.\nThe reason is that inquiry orders are later split into confirmed orders, and procurement activities (indent, RMPO, GRN) are already initiated based on the inquiry order. As a result, at a certain stage:\n• Inquiry order quantity becomes 0\n• Confirmed (summary) order quantity reflects the actual requirement\nHowever, during PO revision or creation, the system still considers this as excess procurement and triggers unnecessary approval, even though:\n• At the Main OC / Style level, the total quantity remains unchanged and within limits",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue",
+      "kind": "section"
+    },
+    {
+      "title": "Example Scenario:",
+      "heading": "Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "text": "• Inquiry Order = 200\n• Indent generated\n• RMPO created against indent\n• GRN created\n• Summary Order received and split into Summary OCs (Total = 200)\n• Inquiry Order = 0\n• Summary Order = 200\n• Indent revised\n• During RMPO revision, system flags Excess Quantity and asks for approval\nThis is incorrect because the actual requirement has not changed.\nReference Example: MTX-002073-001 (Metrex Test)",
+      "locator": "§ Functional Requirements › … › 1. PO Excess Procurement Issue › Example Scenario:",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Revision History – Table 1",
+      "heading": "Section 4. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (text); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Aman Aggarwal | 7th April 2024 | Initial Document Created\n2.0 | Manoj Sambhria | 29-Sep-2025 | Document revised\n3.0 | Shams | 05th Dec 25 | Specs Revised and added Auto Material Change.",
+      "locator": "§ Section 4. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 1.0; Revised By: Aman Aggarwal; Revised On: 7th April 2024; Changes: Initial Document Created",
+      "locator": "§ Section 4. Revision History, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 2.0; Revised By: Manoj Sambhria; Revised On: 29-Sep-2025; Changes: Document revised",
+      "locator": "§ Section 4. Revision History, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 3.0; Revised By: Shams; Revised On: 05th Dec 25; Changes: Specs Revised and added Auto Material Change.",
+      "locator": "§ Section 4. Revision History, table 1, row 3",
+      "kind": "data_row"
+    }
+  ]
+}

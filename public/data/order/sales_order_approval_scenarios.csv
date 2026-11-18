@@ -1,0 +1,5 @@
+﻿approval_limit,order_value,goes_for_approval
+0,5000,No
+-1,100,Yes
+1000,1000,No
+1000,1500,Yes

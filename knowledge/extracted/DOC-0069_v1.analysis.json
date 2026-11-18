@@ -1,0 +1,406 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Column 1",
+        "Cost sheet Cons",
+        "Auto PD Cons (Current System)",
+        "Column 4",
+        "Auto PD Cons (Customer Expectation)",
+        "Column 6"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Cost sheet Cons": "amount (currency of the row)"
+      },
+      "identifiers": [
+        "Column 1"
+      ],
+      "rows": [
+        [
+          "Initial",
+          "4",
+          "4 (gets auto populated)",
+          "",
+          "None",
+          ""
+        ],
+        [
+          "Case 1",
+          "Revised 5",
+          "5 (auto-populated as per BOM)",
+          "MRL rerun",
+          "5",
+          ""
+        ],
+        [
+          "Case 2",
+          "4",
+          "4 (auto-populated as per BOM)",
+          "MRL rerun",
+          "5 changed by user (should remain 4, as pd cannot exceed cost sheet cons)",
+          "Case 2 if Cost Sheet is 4 users can't change to 5 on PD consumption... Auto PD will show 4 can reduce but can't increase"
+        ],
+        [
+          "Case 3",
+          "4",
+          "4 (auto-populated as per BOM)",
+          "MRL rerun",
+          "3 changed by user (should remain 3)",
+          ""
+        ],
+        [
+          "",
+          "5",
+          "5 (auto-populated as per BOM)",
+          "MRL rerun",
+          "3",
+          ""
+        ],
+        [
+          "Case 4",
+          "4",
+          "4 (auto-populated as per BOM)",
+          "MRL rerun",
+          "3 (Changed as per Case 3)",
+          ""
+        ],
+        [
+          "",
+          "User revised BOM to 2",
+          "2 (auto-populated as per BOM)",
+          "MRL rerun",
+          "2 (Since BOM is lesser than PD has to auto change)",
+          "The user has changed the consumption to 3 earlier and now the BOM change is lesser."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "empty",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "",
+          "26-12-2024",
+          "Document Created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "367532 - Option to freeze the PD Consumption on User update",
+  "keyTerms": [
+    "consumption",
+    "bom",
+    "mrl",
+    "cost sheet",
+    "change",
+    "user",
+    "auto",
+    "auto populated",
+    "bom mrl",
+    "updated",
+    "cost",
+    "sheet",
+    "populated per",
+    "per bom",
+    "mrl rerun"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 20
+    },
+    {
+      "module": "Sales Order",
+      "score": 3
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Column 1, Cost sheet Cons, Auto PD Cons (Current System), Column 4, Auto PD Cons (Customer Expectation), Column 6 (7 rows; identifiers: Column 1)",
+      "locator": "§ Functional Requirement, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "PD Consumption is been manually updated by user lesser than the BOM consumption.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In the event there is a Buyer PO revision then the Merchant will do the changes in the Summary OC and generate the MRL.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "At this point the expectation is for the PD consumption to remain unchanged as there was no change done to the BOM on the consumption for that article etc.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "PD is generated once MRL is generated and PD consumption populates as 2 MTRS",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "MRL is regenerated due to PO revision.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "This should not happen according to client. (This probably may not be the way the system is also supposed to work).",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Cost Sheet consumption is updated and we regenerate the MRL.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Over here the PD consumption is reduced by user and it is still less than the Cost Sheet consumption, therefore the system should not change the PD consumption when MRL is generated.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Over here the PD consumption is reduced by user and it is still less than the Cost Sheet consumption, therefore the system should not change the PD consumption when MRL is generated.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Cost sheet is revised and consumption is updated from 2 MTRs to 1.95 MTRs",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "BOM is updated from cost sheet and MRL is Re-generated due to consumption change.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functional Requirement:\n1. Initial BOM Generated with consumption as 2 MTRs\n2. PD is generated once MRL is generated and PD consumption populates as 2 MTRS\n3. User updates the PD consumption manually, for example from 2MTRs > 1.9 MTRs as shown below.\n4. MRL is regenerated due to PO revision.\n5. Issue- Consumption goes back to original BOM consumption. This should not happen according to client. (This probably may not be the way the system is also supposed to work).\n6. Cost Sheet consumption is updated and we regenerate the MRL. Over here the PD consumption is reduced by user and it is still less than the Cost Sheet consumption, therefore the system should not change the PD consumption when MRL is generated.\n7. Cost sheet is revised and consumption is updated from 2 MTRs to 1.95 MTRs\n8. BOM is updated from cost sheet and MRL is Re-generated due to consumption change.\n9. When you go to PD, it gives the below prompt. And whether you confirm or cancel. The PD gets updated to the revised consumption from the BOM.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Since the PD User Updated consumption is still below the change done on the Cost Sheet / BOM and MRL regenerated the system should not allow change.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Since the PD User Updated consumption is still below the change done on the Cost Sheet / BOM and MRL regenerated the system should not allow change.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In the event the consumption is changed and the PD consumption is higher than the change done, then the re-generation of the MRL should change accordingly the PD consumption.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "PD consumption must remain unchanged if user has done consumption change to the articles.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The only time the requirement for PD to be updated via BOM is during the following two scenarios.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If there is a change in the consumption on that line item and it is below the PD consumption.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria::\n1. PD consumption must remain unchanged if user has done consumption change to the articles. The MRL re-generated in the event the consumption has been manually updated by user and the BOM consumption is higher than the PD consumption there should be no change.\n2. The only time the requirement for PD to be updated via BOM is during the following two scenarios.\n3. The initial BOM creation stage.\n4. If there is a change in the consumption on that line item and it is below the PD consumption.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Revision History, table 2",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "367532 - Option to freeze the PD Consumption on User update",
+      "heading": "",
+      "text": "Software Requirements Specification\nOption to freeze the PD Consumption on User update\nDocument #367532\nVersion 1.0 ● 22nd Dec 2024\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 3\nAssumptions 3\nSection 3. Solution 3\nFunctional Requirement 3\n1. Option to Freeze Product Definition (PD) Consumption During MRL Regeneration. 3\nSection 4. 5\nRevision History 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Enhancement required in WFX to prevent Product Definition (PD) consumption values from being overwritten during Material Requirement List (MRL) regeneration, especially when PD consumption has been manually revised by users inputs.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Currently, when consumption is manually updated in PD, regenerating the MRL recalculates and overwrites the PD consumption to the current BOM values. This leads to repeated manual corrections; risk of incorrect production consumption being used on material dispatch and also operational inefficiencies.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirement",
+      "heading": "Functional Requirement",
+      "text": "Based on scenarios we have drawn out the functional requirement for the development.",
+      "locator": "§ Functional Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirement – Table 1",
+      "heading": "Functional Requirement",
+      "text": "Columns: Column 1 (text); Cost sheet Cons (text, amount (currency of the row)); Auto PD Cons (Current System) (text); Column 4 (text); Auto PD Cons (Customer Expectation) (text); Column 6 (text)\nColumn 1 | Cost sheet Cons | Auto PD Cons (Current System) | Column 4 | Auto PD Cons (Customer Expectation) | Column 6\nInitial | 4 | 4 (gets auto populated) |  | None | \nCase 1 | Revised 5 | 5 (auto-populated as per BOM) | MRL rerun | 5 | \nCase 2 | 4 | 4 (auto-populated as per BOM) | MRL rerun | 5 changed by user (should remain 4, as pd cannot exceed cost sheet cons) | Case 2 if Cost Sheet is 4 users can't change to 5 on PD consumption... Auto PD will show 4 can reduce but can't increase\nCase 3 | 4 | 4 (auto-populated as per BOM) | MRL rerun | 3 changed by user (should remain 3) | \n | 5 | 5 (auto-populated as per BOM) | MRL rerun | 3 | \nCase 4 | 4 | 4 (auto-populated as per BOM) | MRL rerun | 3 (Changed as per Case 3) | \n | User revised BOM to 2 | 2 (auto-populated as per BOM) | MRL rerun | 2 (Since BOM is lesser than PD has to auto change) | The user has changed the consumption to 3 earlier and now the BOM change is lesser.",
+      "locator": "§ Functional Requirement, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirement",
+      "text": "Column 1: Initial; Cost sheet Cons: 4; Auto PD Cons (Current System): 4 (gets auto populated); Auto PD Cons (Customer Expectation): None",
+      "locator": "§ Functional Requirement, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirement",
+      "text": "Column 1: Case 1; Cost sheet Cons: Revised 5; Auto PD Cons (Current System): 5 (auto-populated as per BOM); Column 4: MRL rerun; Auto PD Cons (Customer Expectation): 5",
+      "locator": "§ Functional Requirement, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirement",
+      "text": "Column 1: Case 2; Cost sheet Cons: 4; Auto PD Cons (Current System): 4 (auto-populated as per BOM); Column 4: MRL rerun; Auto PD Cons (Customer Expectation): 5 changed by user (should remain 4, as pd cannot exceed cost sheet cons); Column 6: Case 2 if Cost Sheet is 4 users can't change to 5 on PD consumption... Auto PD will show 4 can reduce but can't increase",
+      "locator": "§ Functional Requirement, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirement",
+      "text": "Column 1: Case 3; Cost sheet Cons: 4; Auto PD Cons (Current System): 4 (auto-populated as per BOM); Column 4: MRL rerun; Auto PD Cons (Customer Expectation): 3 changed by user (should remain 3)",
+      "locator": "§ Functional Requirement, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Functional Requirement",
+      "text": "Cost sheet Cons: 5; Auto PD Cons (Current System): 5 (auto-populated as per BOM); Column 4: MRL rerun; Auto PD Cons (Customer Expectation): 3",
+      "locator": "§ Functional Requirement, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Functional Requirement",
+      "text": "Column 1: Case 4; Cost sheet Cons: 4; Auto PD Cons (Current System): 4 (auto-populated as per BOM); Column 4: MRL rerun; Auto PD Cons (Customer Expectation): 3 (Changed as per Case 3)",
+      "locator": "§ Functional Requirement, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Functional Requirement",
+      "text": "Cost sheet Cons: User revised BOM to 2; Auto PD Cons (Current System): 2 (auto-populated as per BOM); Column 4: MRL rerun; Auto PD Cons (Customer Expectation): 2 (Since BOM is lesser than PD has to auto change); Column 6: The user has changed the consumption to 3 earlier and now the BOM change is lesser.",
+      "locator": "§ Functional Requirement, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Functional Requirement",
+      "heading": "Functional Requirement",
+      "text": "• PD Consumption is been manually updated by user lesser than the BOM consumption. In the event there is a Buyer PO revision then the Merchant will do the changes in the Summary OC and generate the MRL.\nAt this point the expectation is for the PD consumption to remain unchanged as there was no change done to the BOM on the consumption for that article etc.\nExample done on the TIMEX Test Server for elaboration:\n• Initial BOM Generated with consumption as 2 MTRs\n• PD is generated once MRL is generated and PD consumption populates as 2 MTRS\n• User updates the PD consumption manually, for example from 2MTRs > 1.9 MTRs as shown below.\n• MRL is regenerated due to PO revision.\n• Issue- Consumption goes back to original BOM consumption. This should not happen according to client. (This probably may not be the way the system is also supposed to work).\n• Cost Sheet consumption is updated and we regenerate the MRL. Over here the PD consumption is reduced by user and it is still less than the Cost Sheet consumption, therefore the system should not change the PD consumption when MRL is generated.\n• Cost sheet is revised and consumption is updated from 2 MTRs to 1.95 MTRs\n• BOM is updated from cost sheet and MRL is Re-generated due to consumption change.",
+      "locator": "§ Functional Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirement",
+      "heading": "Functional Requirement",
+      "text": "• When you go to PD, it gives the below prompt. And whether you confirm or cancel. The PD gets updated to the revised consumption from the BOM.\nSince the PD User Updated consumption is still below the change done on the Cost Sheet / BOM and MRL regenerated the system should not allow change.\n• In the event the consumption is changed and the PD consumption is higher than the change done, then the re-generation of the MRL should change accordingly the PD consumption. This control will allow the Merchant to always have sync between Internal Cost Sheet and Production Definition.",
+      "locator": "§ Functional Requirement (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "Functional Requirement › Acceptance Criteria:",
+      "text": "• PD consumption must remain unchanged if user has done consumption change to the articles. The MRL re-generated in the event the consumption has been manually updated by user and the BOM consumption is higher than the PD consumption there should be no change.\n• The only time the requirement for PD to be updated via BOM is during the following two scenarios.\n• The initial BOM creation stage.\n• If there is a change in the consumption on that line item and it is below the PD consumption.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 2",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (empty); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 |  | 26-12-2024 | Document Created.",
+      "locator": "§ Revision History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised On: 26-12-2024; Changes: Document Created.",
+      "locator": "§ Revision History, table 2, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

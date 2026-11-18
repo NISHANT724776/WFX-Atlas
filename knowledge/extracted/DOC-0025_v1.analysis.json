@@ -1,0 +1,142 @@
+{
+  "tables": [],
+  "subject": "Inventory and QC process flow Kisah",
+  "keyTerms": [
+    "inventory",
+    "inventory team",
+    "team",
+    "team manual",
+    "grn",
+    "manual",
+    "supplier",
+    "gdi",
+    "goods",
+    "stock",
+    "gdn",
+    "return supplier",
+    "check",
+    "return",
+    "production"
+  ],
+  "module": "Inventory, QC & WMS",
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 57
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 10
+    },
+    {
+      "module": "Production",
+      "score": 8
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "If QC is selected: stock will be usable only after QC completion.",
+      "locator": "p. 1, § … › Quality",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "If QC is not selected: stock will be directly usable post-GRN, and the system will not prompt for",
+      "locator": "p. 1, § … › Quality",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the pick list is finalized, the inventory team will generate the GDN (Goods Dispatch Note).",
+      "locator": "p. 1, § … › 11 Inventory Production Goods GDN Inventory Team Manual GDN",
+      "module": "Inventory, QC & WMS"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Document Owner: Rohit Singh",
+      "heading": "… › Document Owner: Rohit Singh",
+      "text": "S.No Function Action Role Action Type WFX Transaction To Be",
+      "locator": "p. 1, § … › Document Owner: Rohit Singh",
+      "kind": "section"
+    },
+    {
+      "title": "1 Inventory GRN Inventory Team Manual GRN New",
+      "heading": "… › 1 Inventory GRN Inventory Team Manual GRN New",
+      "text": "The inventory team will receive the GRN and on GRN QR code will be generated\nThe GRN will capture complete information about the article, including color, size, and roll\ndetails.\n2",
+      "locator": "p. 1, § … › 1 Inventory GRN Inventory Team Manual GRN New",
+      "kind": "section"
+    },
+    {
+      "title": "Quality",
+      "heading": "… › Quality",
+      "text": "check QC Check Inventory Team Manual QC check\nDuring GRN creation, the system provides an option to send the goods for Quality Check (QC).\nIf QC is selected: stock will be usable only after QC completion.\nIf QC is not selected: stock will be directly usable post-GRN, and the system will not prompt for\nQC.\nAt the QC stage, the user can receive quantities as per the invoice.\nAny shortage or excess identified can be marked in the QC screen accordingly.\nIn system inspection, user can define the inspection definition 10%, 20% or 100%\n3",
+      "locator": "p. 1, § … › Quality",
+      "kind": "section"
+    },
+    {
+      "title": "Quality",
+      "heading": "… › Quality",
+      "text": "check QC Check Inventory Team Manual QC check\nIn case any stock get rejected then the system will create a debit note in the system that need\nto be return to the supplier.\n4",
+      "locator": "p. 1, § … › Quality",
+      "kind": "section"
+    },
+    {
+      "title": "Merchant Report Notification Procurement Team System Notification",
+      "heading": "… › Merchant Report Notification Procurement Team System Notification",
+      "text": "system will notification to the Procurement Merchant about the RM quality and then they will\ndiscuss the with the supplier for replacement of fabric .\n5",
+      "locator": "p. 1, § … › Merchant Report Notification Procurement Team System Notification",
+      "kind": "section"
+    },
+    {
+      "title": "Supplier Common GDI to Supplier Inventory Team Manual Common GDI",
+      "heading": "… › Supplier Common GDI to Supplier Inventory Team Manual Common GDI",
+      "text": "In case supplier agrees to replace the fabric then the team create the return to the supplier GDI\nand dispatch the goods.\n6",
+      "locator": "p. 1, § … › Supplier Common GDI to Supplier Inventory Team Manual Common GDI",
+      "kind": "section"
+    },
+    {
+      "title": "Return to",
+      "heading": "… › Return to",
+      "text": "Supplier GDI Creation Inventory Team Manual GDI If supplier not agree then that they dispose in system as \"Transfer out of System.\n7",
+      "locator": "p. 1, § … › Return to",
+      "kind": "section"
+    },
+    {
+      "title": "Supplier GDN Creation Inventory Team Manual GDN",
+      "heading": "… › Supplier GDN Creation Inventory Team Manual GDN",
+      "text": "before GDN. Move the rejected stock in on non-inventory site. so that stock taking time if any\ngood not pick by supplier, then that qty not visible in stock report.",
+      "locator": "p. 1, § … › Supplier GDN Creation Inventory Team Manual GDN",
+      "kind": "section"
+    },
+    {
+      "title": "8 Inventory GRN Inventory Team Manual GRN New",
+      "heading": "… › 8 Inventory GRN Inventory Team Manual GRN New",
+      "text": "make sure before GRN. GDN will be created against Rejected goods. Otherwise system not\nallowed to return the goods.",
+      "locator": "p. 1, § … › 8 Inventory GRN Inventory Team Manual GRN New",
+      "kind": "section"
+    },
+    {
+      "title": "9 Inventory Production Material transfer Inventory Team Manual NA",
+      "heading": "… › 9 Inventory Production Material transfer Inventory Team Manual NA",
+      "text": "In the case of production, the production team will raise a GDI (Goods Dispatch Instruction)\nrequest to the inventory team against the respective production order.\n10 Inventory Production GDI & Pick list Inventory Team Manual GDI and Pick list\nThe inventory team will prepare goods as per the requested quantity and create a pick list.\nMultiple pick lists can be generated against a single GDI based on physical stock availability.",
+      "locator": "p. 1, § … › 9 Inventory Production Material transfer Inventory Team Manual NA",
+      "kind": "section"
+    },
+    {
+      "title": "11 Inventory Production Goods GDN Inventory Team Manual GDN",
+      "heading": "… › 11 Inventory Production Goods GDN Inventory Team Manual GDN",
+      "text": "Once the pick list is finalized, the inventory team will generate the GDN (Goods Dispatch Note).\nAfter GDN creation, the system will automatically reduce the dispatched stock from inventory.",
+      "locator": "p. 1, § … › 11 Inventory Production Goods GDN Inventory Team Manual GDN",
+      "kind": "section"
+    }
+  ]
+}

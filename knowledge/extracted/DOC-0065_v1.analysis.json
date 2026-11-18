@@ -1,0 +1,865 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Scenario:2",
+        "Column 2",
+        "Column 3",
+        "Column 4",
+        "Column 5",
+        "Column 6",
+        "Column 7",
+        "Column 8",
+        "Column 9",
+        "Column 10",
+        "Column 11",
+        "Column 12"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Scenario:2"
+      ],
+      "rows": [
+        [
+          "Consumption UOM",
+          "Meter",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Purchase UOM",
+          "Meter",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Storage UOM",
+          "Kgs",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Secondary UOM",
+          "Meter",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Secondary UOM Conversion",
+          "0.09",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Article:",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Setting \"Allow Indent Qty in Storage UOM\" is OFF",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "OC Number",
+          "Article",
+          "Color",
+          "Size",
+          "Indent UOM",
+          "Indent Qty in Indent UOM",
+          "Purchase UOM",
+          "Indent Qty in Purchase UOM",
+          "Order Qty",
+          "In-house",
+          "Un-Reserve",
+          "Order Qty"
+        ],
+        [
+          "10001.1",
+          "S/Jersey 30s Finished Fabric",
+          "Black",
+          "42Inch",
+          "Meter",
+          "52.00",
+          "Meter",
+          "52.00",
+          "-",
+          "-",
+          "-",
+          "52.00"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "2.0",
+          "Ajay Chaudhary",
+          "08-10-25",
+          "Document Revised"
+        ],
+        [
+          "1.0",
+          "Ajay Chaudhary",
+          "20-09-25",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "355229-Required provision to update the GRN in Movement Units in Storage UOM V2",
+  "keyTerms": [
+    "uom",
+    "storage uom",
+    "storage",
+    "movement units",
+    "conversion",
+    "uom conversion",
+    "units",
+    "movement",
+    "tran uom",
+    "conversion factor",
+    "units storage",
+    "secondary uom",
+    "tran",
+    "factor",
+    "stock"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 52
+    },
+    {
+      "module": "Style & BOM",
+      "score": 26
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 25
+    },
+    {
+      "module": "Production",
+      "score": 25
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note",
+    "Apparel Style (Techpack)",
+    "RMPO – Raw Material Purchase Order",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Knit fabric is stored in Kilograms (Kgs).",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Woven fabric is stored in Meters (Mtrs).",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "To ensure accurate stock management, users must have the option to update movement units in storage UOM directly in GRN, along with an auto-calculated UOM Conversion Factor.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If Allow Indent Qty in Storage UOM is enabled → Indents generated in Storage UOM.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "Created in Storage UOM, based on BOM conversion.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 2. 📘Scope:\n1. Techpack Enhancements\n2. Secondary UOM conversion defined in Techpack will auto-populate in Color/Size-wise Conversion.\n3. BOM will store and freeze the Secondary UOM conversion at the time of creation.\n4. MRP & Indent Calculation\n5. On MRP run, system calculates requirements in Storage UOM using conversion from BOM.\n6. If Allow Indent Qty in Storage UOM is enabled → Indents generated in Storage UOM.\n7. If disabled → Indents generated in Consumption UOM.\n8. GRN Enhancements\n9. Add Movement Units (Storage UOM) column in GRN.\n10. Column auto-populates using Conversion Factor.\n11. Both Storage UOM and Conversion Factor remain editable (with reciprocal recalculation).\n12. On GRN confirmation → Inventory updates in Storage UOM.\n13. Production Orders\n14. Created in Storage UOM, based on BOM conversion.\n15. All downstream transactions (Pick List, GDN, Transfers, Adjustments) processed in Storage UOM.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Applicability: Functionality applies only when Order UOM ≠ Storage UOM.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Reporting Impact: Inventory and stock reports must show Storage UOM.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. 📌Assumptions:\n1. Master Data: UOM setup (Consumption, Purchase, Storage & Secondary) is correctly maintained.\n2. Applicability: Functionality applies only when Order UOM ≠ Storage UOM.\n3. Permissions: Only authorized GRN users can edit Storage UOM or Conversion Factor.\n4. System Behaviour:\n5. Updates affect only current GRNs (no impact on historical POs/GRNs).\n6. Inventory, reporting, and stock status consistently reflect Storage UOM post-GRN confirmation.\n7. Data Accuracy: Users are responsible for entering accurate Storage UOM values as per supplier packing lists.\n8. Reporting Impact: Inventory and stock reports must show Storage UOM.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen: Catalog>>Textile/Fabric (Knit Fabric):\n1. Consumption UOM & Purchase UOM (e.g., Meter)\n2. Storage UOM (Kgs)\n3. Secondary UOM (Meter)\n4. Secondary UOM Conversion (0.090)",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the conversion is defined in Techpack, it will auto add the line in Color/Size wise Conversion with option “All Other” in color & size with the same conversion which will be freeze as shown in below screen.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If conversion is not defined for any color/size then it will be calculated with ALL Other conversion factor.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Storage UOM is PCS and Secondary UOM is KG, it means the conversion which is defined on techpack or color/size conversion grid between Storage UOM to Secondary UOM for instance: 1 Pcs is equal to 0.09 KG.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "In above scenario the storage UOM is Kgs & consumption UOM is Meter, based on the secondary UOM conversion system should generate the requirement in Kgs.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "Required visibility in MRP to show the Secondary UOM & Secondary UOM Conversion (Based on Misc.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Setting) so that user can validate how system calculated the requirement in Storage UOM as shown in below screen.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "In case Consumption UOM and Storage UOM is same and user still defined the ‘Secondary UOM Conversion’ so consumption qty not check for secondary UOM conversion, also requirement should not generate based on ‘Secondary UOM Conversion’.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "In case Consumption UOM and Storage UOM is same and user still defined the ‘Secondary UOM Conversion’ so consumption qty not check for secondary UOM conversion, also requirement should not generate based on ‘Secondary UOM Conversion’.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "KG to MTR conversion is defined in the UOM Conversion Master is 0.3590.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "It means 1 KG is equal to 0.359 MTR.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen: MRP:\n1. Cons UOM is MTR.\n2. Storage UOM is KG.\n3. KG to MTR conversion is defined in the UOM Conversion Master is 0.3590. It means 1 KG is equal to 0.359 MTR.\n4. Now, Secondary UOM is defined on techpack as MTR and conversion is defined as 0.5 which means 1 KG (Storage UOM) to 0.5 MTR (Secondary UOM).\n5. On BOM, we have defined the Cons Qty as 1 MTR per pcs.\n6. While run MRP, system generates requirement in Storage UOM which is KG and cons. Qty, cons incl. wastage qty will be shown in KG even the requirement will be calculated based on Conversion defined on techpack (Main Page or Grid) at color/size conversion.\n7. Cons. Qty in secondary UOM, in this case should be 0.5 and requirement for level 2 should be ‘10*0.5= 5 KG’.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen: Sourcing>>Raw Material Purchase Order:\n1. User can choose multiple Purchase UOMs for raw materials (example:\n2. Fabric → Purchase in MTR or YD\n3. Yarn → Purchase in KGS\n4. Buttons → Purchase in DOZ or PCS",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "OC qty is 1000 pcs and consumption defined on BOM is 3 MTR.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Because purchase UOM is also ‘MTR’ so total quantity that need to be purchased is 3000 MTR same need to visible on indent view and user able to create the RMPO with 3000 MTR.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen: Sourcing>>Raw Material Purchase Order:\n1. OC qty is 1000 pcs and consumption defined on BOM is 3 MTR.\n2. Because purchase UOM is also ‘MTR’ so total quantity that need to be purchased is 3000 MTR same need to visible on indent view and user able to create the RMPO with 3000 MTR.\n3. In case user try to change the UOM in Raw material purchase Order, Let’s say we change it to ‘YRD’ (MTR To YRD Conversion is 1.094) so system should create the RMPO (3000 * 1.094 = 3282), But if user try to change the UOM (From MTR To KG) as we defined this on techpack so system should create the RMPO (3000 /1.5 = 2000 KG).\n4. After RMPO creation also indent view and indent log should need to maintain the correct information for better visibility.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Because purchase UOM is also ‘KG’ so total quantity that need to be purchased is 2000 KG same need to visible on indent view and user able to create the RMPO with 2000 KG.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen: Sourcing>>Raw Material Purchase Order:\n1. OC qty is 1000 pcs and consumption defined on BOM is 3 MTR.\n2. Because purchase UOM is also ‘KG’ so total quantity that need to be purchased is 2000 KG same need to visible on indent view and user able to create the RMPO with 2000 KG.\n3. In case user try to change the UOM in Raw material purchase Order, Let’s say we change it to ‘YRD’ (KG to MTR Conversion is 1.5 as per secondary UOM and after that MTR To YRD UOM Conversion is 1.094) so system should create the RMPO (2000 * 1.5 * 1.094 = 3282).\n4. After RMPO creation also indent view and indent log should need to maintain the correct information for better visibility.\n5. After RMPO creation also indent view and indent log should need to maintain the correct information for better visibility.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Only in case order UOM/Purchase UOM is different with storage UOM then user able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’ (UOM & Stock UOM Must Be Different), If Both UOM/Stock UOM is same than user not able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Only in case order UOM/Purchase UOM is different with storage UOM then user able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’ (UOM & Stock UOM Must Be Different), If Both UOM/Stock UOM is same than user not able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Stock is updated as per the Storage UOM.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. Add Movement Units (Storage UOM), column in GRN (configurable via screen layout).\n2. UOM column name should be rename for ‘Tran UOM’.\n3. The field will:\n4. Auto-populate based on the Secondary UOM Conversion Factor.\n5. Be editable for manual updates (recalculating the Conversion Factor).\n6. Only in case order UOM/Purchase UOM is different with storage UOM then user able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’ (UOM & Stock UOM Must Be Different), If Both UOM/Stock UOM is same than user not able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’. In that case ‘UOM Conversion Factory Should be 1’ and ‘Movement Units (Storage UOM) should be same with Movement Units (Tran UOM).\n7. In case user not defined the secondary UOM on techpack the ‘UOM conversion Factor’ will calculate similar as it is working but user able to change the ‘UOM Conversion Factor’ And ‘Movement Units (Storage UOM)’.\n8. Upon confirmation:\n9. Stock is updated as per the Storage UOM.\n10. Rolls, Pick Lists, GDN, Transfer GRNs, Indents, and Re-allocations will all reference Storage UOM units.\n11. Import by service API need to handle one new columns ‘ReceiptRollStorageQty’.\n12. GRN Import/Export feature need to handle the new column to export the data and to import the data at the time of GRN.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Movement Units (Tran UOM) is right now shows the data in ‘Storage UOM’ which is misleading from the GRN screen, So please Rename the column as Movement Units (Storage UOM).",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. New column ‘Tran UOM’ require which will show the UOM of particular source GRN in above case it is ‘Meter0.322Kgs’.\n2. Movement Units (Tran UOM) is right now shows the data in ‘Storage UOM’ which is misleading from the GRN screen, So please Rename the column as Movement Units (Storage UOM).\n3. New column ‘UOM Conversion Factor’ require to see the visibility of UOM Conversion factor at the time of GRN/Enter New Stock.\n4. New column Movement Units (Tran UOM) require which will show the receiving qty in ‘Tran UOM’.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. Stock UOM, Tran UOM & Movement Units (Tran UOM) three new columns required at the time of roll selection.\n2. Movement Units column need to be renamed as ‘Movement Units (Storage UOM)’.\n3. UOM Conversion Factor Column also required to show the GRN time ‘UOM Conversion Factor’ for each roll.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. New columns Tran UOM, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n2. Stock Units need to rename as ‘Movement Units (Storage UOM).\n3. UOM need to be rename as ‘Stock UOM’.\n4. Stock Units need to rename as ‘Movement Units (Storage UOM).\n5. Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. New columns Tran Units, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n2. Need to rename Stock Movement Units As ‘Movement Units (Storage UOM).\n3. Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.\n4. Movement Units (Tran UOM) need to be rename as Movement Units (Storage UOM)",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. New columns Tran UOM, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n2. Need to rename Stock Movement Units As ‘Movement Units (Storage UOM).\n3. Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Enhancements:\n1. UOM need to rename as ‘Tran UOM’.\n2. Movement Units (Tran UOM) need to rename as ‘Movement Units (Storage UOM).\n3. New column addition ‘Movement Units (Tran UOM)’, ‘UOM Conversion Factor’.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "System should need to allow to create the FPO based on the production order qty from user interface as well as from API.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Scenario:2, Column 2, Column 3, Column 4, Column 5, Column 6, Column 7, Column 8, Column 9, Column 10, Column 11, Column 12 (9 rows; identifiers: Scenario:2)",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Against the above Indent if the Production Order is created , system will pick the conversion from selected Techpack & create the Production Order in storage UOM i.e.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "Based on the selected BOM, system will pick the conversion from Techpack & create the Production Order in storage UOM as shown below.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "If Order UOM = Storage UOM → Storage UOM field disabled/hidden.",
+      "locator": "§ Section 5: 🧪 Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 5: 🧪 Acceptance Criteria:\n1. GRN allows entry and auto-population of Movement Units (Storage UOM).\n2. Updating Movement Units (Storage UOM) recalculates Conversion Factor automatically.\n3. Updating Conversion Factor recalculates Movement Units (Storage UOM) automatically.\n4. If Order UOM = Storage UOM → Storage UOM field disabled/hidden.\n5. On GRN confirmation → Inventory updates in Storage UOM.\n6. QC outcomes (rejection, shortage, excess) recorded and reflected in Storage UOM.\n7. All downstream processes (Pick List, GDN, Transfers, Adjustments) reference Storage UOM consistently.\n8. Reports display clear distinction between ordered, received, rejected, shortage, and excess in Storage UOM.",
+      "locator": "§ Section 5: 🧪 Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 1: Auto-population of Storage UOM:\n1. Pre-condition: PO created in Meters; Storage UOM defined as Kgs.\n2. Action: User enters quantity in Transaction UOM (Meters).\n3. Expected Result: Movement Unit (Storage UOM) auto-populates based on default Conversion Factor.\n4. Acceptance Criteria: System correctly calculates Movement Units (Storage UOM) using defined conversion.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 1: Auto-population of Storage UOM",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 2: Manual Update of Storage UOM:\n1. Pre-condition: GRN line with auto-populated Storage UOM.\n2. Action: User manually updates Movement Units (Storage UOM).\n3. Expected Result: Conversion Factor recalculates automatically.\n4. Acceptance Criteria: Conversion Factor is updated correctly and remains consistent with new Movement Units (Storage UOM).",
+      "locator": "§ Section 6: Test Cases › … › Scenario 2: Manual Update of Storage UOM",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 3: Manual Update of Conversion Factor:\n1. Pre-condition: GRN with Movement Units (Transaction UOM) & Movement Units (Storage UOM).\n2. Action: User edits Conversion Factor.\n3. Expected Result: Movement Units (Storage UOM) updates accordingly.\n4. Acceptance Criteria: System recalculates and displays correct Movement Units (Storage UOM) quantity.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 3: Manual Update of Conversion Factor",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 4: GRN Confirmation & Stock Update:\n1. Pre-condition: GRN created with updated Movement Units (Storage UOM) values.\n2. Action: User confirms GRN.\n3. Expected Result: Stock updates as per Movement Units (Storage UOM).\n4. Acceptance Criteria:\n5. Inventory reflects Storage UOM correctly.\n6. Roll Units & subsequent transactions (Pick List, GDN, Transfers, Reallocation, Adjustments) show Storage UOM consistently.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 4: GRN Confirmation & Stock Update",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 5: Validation When Order UOM = Storage UOM:\n1. Pre-condition: PO created with same UOM for both Order & Storage.\n2. Action: User tries to update Storage UOM in GRN.\n3. Expected Result: Storage UOM update option not applicable.\n4. Acceptance Criteria: System disables or hides Storage UOM field in this case.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 5: Validation When Order UOM = Storage UOM",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Rejected quantity is updated in stock in storage UOM.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 6: QC Outcome – Rejection Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 6: QC Outcome – Rejection Handling:\n1. Pre-condition: GRN created and QC performed.\n2. Action: User rejects part of the received quantity during QC.\n3. Expected Result:\n4. Rejected quantity is updated in stock in storage UOM.\n5. Acceptance Criteria:\n6. System records rejected quantity separately with quality as “Rejected” in Storage UOM.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 6: QC Outcome – Rejection Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Shortage is recorded in the GRN.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 7: QC Outcome – Shortage Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Inventory is updated only with the accepted quantity in Storage UOM.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 7: QC Outcome – Shortage Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 7: QC Outcome – Shortage Handling:\n1. Pre-condition: PO created for 100 Meters (equivalent Storage UOM in Kgs available).\n2. Action: During QC, actual received quantity is less than ordered (e.g., 90 Meters).\n3. Expected Result:\n4. GRN reflects shortage quantity.\n5. Storage UOM updates accordingly.\n6. Acceptance Criteria:\n7. Shortage is recorded in the GRN.\n8. Inventory is updated only with the accepted quantity in Storage UOM.\n9. Reports clearly distinguish between ordered vs received.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 7: QC Outcome – Shortage Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Excess is captured in the GRN.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scenario 8: QC Outcome – Excess Handling:\n1. Pre-condition: PO created for 100 Meters.\n2. Action: During QC, actual received quantity is higher (e.g., 105 Meters).\n3. Expected Result:\n4. GRN reflects excess quantity.\n5. Storage UOM updates accordingly.\n6. Acceptance Criteria:\n7. Excess is captured in the GRN.\n8. System updates inventory with excess in Storage UOM.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (2 rows)",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling, table 2",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "355229-Required provision to update the GRN in Movement Units in Storage UOM V2",
+      "heading": "",
+      "text": "Software Requirements Specification\nSoftware Requirements Specification\nUOM Conversion Enhancement\nPoint Id- 391064\nRef id 355229\nUOM Conversion Enhancement\nPoint Id- 391064\nRef id 355229",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "🎯Purpose",
+      "heading": "Section 1: 🧾Overview › 🎯Purpose",
+      "text": "This enhancement introduces functionality of secondary uom conversion & it’s impacts throughout the transactions.",
+      "locator": "§ Section 1: 🧾Overview › 🎯Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "🏢Business Requirement:",
+      "heading": "Section 1: 🧾Overview › 🏢Business Requirement:",
+      "text": "As per company policy:\n• Knit fabric is stored in Kilograms (Kgs).\n• Woven fabric is stored in Meters (Mtrs).\nHowever, the consumption and purchase UOM for knit fabric is Meters, since suppliers invoice and ship in meters. Supplier packing lists also provide details in both purchase UOM (meters) and storage UOM (kilograms).\nTo ensure accurate stock management, users must have the option to update movement units in storage UOM directly in GRN, along with an auto-calculated UOM Conversion Factor.\n.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. 📘Scope",
+      "heading": "Section 2. 📘Scope",
+      "text": "• Techpack Enhancements\n• Secondary UOM conversion defined in Techpack will auto-populate in Color/Size-wise Conversion.\n• BOM will store and freeze the Secondary UOM conversion at the time of creation.\n• MRP & Indent Calculation\n• On MRP run, system calculates requirements in Storage UOM using conversion from BOM.\n• If Allow Indent Qty in Storage UOM is enabled → Indents generated in Storage UOM.\n• If disabled → Indents generated in Consumption UOM.\n• GRN Enhancements\n• Add Movement Units (Storage UOM) column in GRN.\n• Column auto-populates using Conversion Factor.\n• Both Storage UOM and Conversion Factor remain editable (with reciprocal recalculation).\n• On GRN confirmation → Inventory updates in Storage UOM.\n• Production Orders\n• Created in Storage UOM, based on BOM conversion.\n• All downstream transactions (Pick List, GDN, Transfers, Adjustments) processed in Storage UOM.",
+      "locator": "§ Section 2. 📘Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. 📌Assumptions",
+      "heading": "Section 3. 📌Assumptions",
+      "text": "• Master Data: UOM setup (Consumption, Purchase, Storage & Secondary) is correctly maintained.\n• Applicability: Functionality applies only when Order UOM ≠ Storage UOM.\n• Permissions: Only authorized GRN users can edit Storage UOM or Conversion Factor.\n• System Behaviour:\n• Updates affect only current GRNs (no impact on historical POs/GRNs).\n• Inventory, reporting, and stock status consistently reflect Storage UOM post-GRN confirmation.\n• Data Accuracy: Users are responsible for entering accurate Storage UOM values as per supplier packing lists.\n• Reporting Impact: Inventory and stock reports must show Storage UOM.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "heading": "Section 4. 🛠️Solution › … › … › … › Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "text": "In Techpack, users define:\n• Consumption UOM & Purchase UOM (e.g., Meter)\n• Storage UOM (Kgs)\n• Secondary UOM (Meter)\n• Secondary UOM Conversion (0.090)\nOnce the conversion is defined in Techpack, it will auto add the line in Color/Size wise Conversion with option “All Other” in color & size with the same conversion which will be freeze as shown in below screen.\nIf user changed the conversion on techpack main page it will auto update in the “Color/Size Conversion” and user can able to define color & Size wise conversion in the grid. If conversion is not defined for any color/size then it will be calculated with ALL Other conversion factor.\nNote: Conversion will be calculated based on Storage UOM to Secondary UOM ( Just for refernce).\nStorage UOM is PCS and Secondary UOM is KG, it means the conversion which is defined on techpack or color/size conversion grid between Storage UOM to Secondary UOM for instance: 1 Pcs is equal to 0.09 KG.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Catalog>>Textile/Fabric (Knit Fabric)",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: MRP",
+      "heading": "Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "text": "In MRP, Produced Qty page will show the Secondary UOM & Secondary UOM Conversion from Techpack.\nIf user revise the standard conversion in Techpack then system will not auto change the conversion in MRP, but if user rerun the MRP then it will show the latest conversion from techpack & system will generate the requirement accordingly.\nIf Setting “Allow Indent Qty in Storage UOM.” Is enabled then system generates the Indent requirement in Storage UOM. In above scenario the storage UOM is Kgs & consumption UOM is Meter, based on the secondary UOM conversion system should generate the requirement in Kgs. Required visibility in MRP to show the Secondary UOM & Secondary UOM Conversion (Based on Misc. Setting) so that user can validate how system calculated the requirement in Storage UOM as shown in below screen.\n‘Cons. Qty In Secondary UOM’ Should be calculated based on Secondary UOM Conversion, it should be visible if Misc. setting –‘Enable Textile Module’.\nIn case Consumption UOM and Storage UOM is same and user still defined the ‘Secondary UOM Conversion’ so consumption qty not check for secondary UOM conversion, also requirement should not generate based on ‘Secondary UOM Conversion’.\nTo Understand the concept let’s plot one example:\n• Cons UOM is MTR.\n• Storage UOM is KG.\n• KG to MTR conversion is defined in the UOM Conversion Master is 0.3590. It means 1 KG is equal to 0.359 MTR.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: MRP",
+      "heading": "Section 4. 🛠️Solution › … › … › … › Screen: MRP",
+      "text": "• Now, Secondary UOM is defined on techpack as MTR and conversion is defined as 0.5 which means 1 KG (Storage UOM) to 0.5 MTR (Secondary UOM).\n• On BOM, we have defined the Cons Qty as 1 MTR per pcs.\n• While run MRP, system generates requirement in Storage UOM which is KG and cons. Qty, cons incl. wastage qty will be shown in KG even the requirement will be calculated based on Conversion defined on techpack (Main Page or Grid) at color/size conversion.\n• Cons. Qty in secondary UOM, in this case should be 0.5 and requirement for level 2 should be ‘10*0.5= 5 KG’.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: MRP (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: Sourcing>>Raw Material Purchase Order",
+      "heading": "Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "text": "In case purchase UOM setting – Create Raw Material Purchase Order in Purchase UOM is enable system need to show correct visibility on ‘Indent view’ & RMPO should need to create in purchase UOM.\nOn techpack creation/revise user able to choose multiple Purchase UOM and system need to pick the standard UOM conversion at the time of RMPO creation.\nTechpack Creation / Revision\n• User can choose multiple Purchase UOMs for raw materials (example:\n• Fabric → Purchase in MTR or YD\n• Yarn → Purchase in KGS\n• Buttons → Purchase in DOZ or PCS\nIn Above Case-\n• OC qty is 1000 pcs and consumption defined on BOM is 3 MTR.\n• Because purchase UOM is also ‘MTR’ so total quantity that need to be purchased is 3000 MTR same need to visible on indent view and user able to create the RMPO with 3000 MTR.\n• In case user try to change the UOM in Raw material purchase Order, Let’s say we change it to ‘YRD’ (MTR To YRD Conversion is 1.094) so system should create the RMPO (3000 * 1.094 = 3282), But if user try to change the UOM (From MTR To KG) as we defined this on techpack so system should create the RMPO (3000 /1.5 = 2000 KG).\n• After RMPO creation also indent view and indent log should need to maintain the correct information for better visibility.\nIn Above Case-\n• OC qty is 1000 pcs and consumption defined on BOM is 3 MTR.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: Sourcing>>Raw Material Purchase Order",
+      "heading": "Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order",
+      "text": "• Because purchase UOM is also ‘KG’ so total quantity that need to be purchased is 2000 KG same need to visible on indent view and user able to create the RMPO with 2000 KG.\n• In case user try to change the UOM in Raw material purchase Order, Let’s say we change it to ‘YRD’ (KG to MTR Conversion is 1.5 as per secondary UOM and after that MTR To YRD UOM Conversion is 1.094) so system should create the RMPO (2000 * 1.5 * 1.094 = 3282).\n• After RMPO creation also indent view and indent log should need to maintain the correct information for better visibility.\n• After RMPO creation also indent view and indent log should need to maintain the correct information for better visibility.\nPO to Storing UOM Conversion, Storing UOM, Qty (Storing UOM) should need to work on the basis of defined ‘Secondary UOM Conversion defined on techpack master’.\nMOQ/MCQ/MSQ and order qty multiple should need to work same as per based on ‘Ordered Qty’ if user try to apply the MOQ/MCQ/MSQ system will apply the same.",
+      "locator": "§ Section 4. 🛠️Solution › … › … › … › Screen: Sourcing>>Raw Material Purchase Order (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "GRN Enhancements",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements",
+      "text": "• Add Movement Units (Storage UOM), column in GRN (configurable via screen layout).\n• UOM column name should be rename for ‘Tran UOM’.\n• The field will:\n• Auto-populate based on the Secondary UOM Conversion Factor.\n• Be editable for manual updates (recalculating the Conversion Factor).\n• Only in case order UOM/Purchase UOM is different with storage UOM then user able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’ (UOM & Stock UOM Must Be Different), If Both UOM/Stock UOM is same than user not able to change the ‘UOM Conversion Factor’ & ‘Movement Units (Storage UOM)’. In that case ‘UOM Conversion Factory Should be 1’ and ‘Movement Units (Storage UOM) should be same with Movement Units (Tran UOM).\n• In case user not defined the secondary UOM on techpack the ‘UOM conversion Factor’ will calculate similar as it is working but user able to change the ‘UOM Conversion Factor’ And ‘Movement Units (Storage UOM)’.\n• Upon confirmation:\n• Stock is updated as per the Storage UOM.\n• Rolls, Pick Lists, GDN, Transfer GRNs, Indents, and Re-allocations will all reference Storage UOM units.\n• Import by service API need to handle one new columns ‘ReceiptRollStorageQty’.\n• GRN Import/Export feature need to handle the new column to export the data and to import the data at the time of GRN.\nGRN View (If GRN Not Goes In QC)",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements",
+      "kind": "section"
+    },
+    {
+      "title": "GRN Enhancements",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements",
+      "text": "Green color represent the changed column name and Red color represent the new columns additions.\nFrom UOM To Tran UOM.\nFrom Quantity To Quantity (Tran UOM).\nGRN View (If GRN Send In QC)\n• New column ‘Tran UOM’ require which will show the UOM of particular source GRN in above case it is ‘Meter0.322Kgs’.\n• Movement Units (Tran UOM) is right now shows the data in ‘Storage UOM’ which is misleading from the GRN screen, So please Rename the column as Movement Units (Storage UOM).\n• New column ‘UOM Conversion Factor’ require to see the visibility of UOM Conversion factor at the time of GRN/Enter New Stock.\n• New column Movement Units (Tran UOM) require which will show the receiving qty in ‘Tran UOM’.\nRoll Selection In QC\n• Stock UOM, Tran UOM & Movement Units (Tran UOM) three new columns required at the time of roll selection.\n• Movement Units column need to be renamed as ‘Movement Units (Storage UOM)’.\n• UOM Conversion Factor Column also required to show the GRN time ‘UOM Conversion Factor’ for each roll.\nAfter roll selection in QC need to correct the visibility and need to rename the columns as mentioned below-\n• Movement Units (Tran UOM) need to be renamed as Movement Units (Storage UOM).\n• Stock UOM, Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor need to visible at the time of QC Request/Inspection.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "GRN Enhancements",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements",
+      "text": "QC Approval need to show the correct visibility and need to rename the columns as mentioned below-\n• Movement Units (Tran UOM) need to be renamed as Movement Units (Storage UOM).\n• Stock UOM, Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor need to visible at the time of QC Request/Inspection.\nCurrent Stock\n• Add two new columns Tran UOM & Tran Units.\n• UOM should need to be rename as Stock UOM & Units should need to be rename as Stock Units.\nPlease find attached the impact on the GRN view after QC, reflecting both shortages and excess.\nStock Movement Edit Stock -\n• New columns Tran UOM, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n• Stock Units need to rename as ‘Movement Units (Storage UOM).\n• UOM need to be rename as ‘Stock UOM’.\n• Stock Units need to rename as ‘Movement Units (Storage UOM).\n• Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.\nStock Movement Split-\n• New columns Tran Units, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n• Need to rename Stock Movement Units As ‘Movement Units (Storage UOM).",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "GRN Enhancements",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements",
+      "text": "• Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.\n• Movement Units (Tran UOM) need to be rename as Movement Units (Storage UOM)\nStock Movement QC Request-\n• New columns Tran UOM, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n• Need to rename Stock Movement Units As ‘Movement Units (Storage UOM).\n• Three more columns Tran UOM, Movement Units (Tran UOM) & UOM Conversion Factor Is Required, correction qty should correct the stock based on the storage UOM and based on the UOM conversion factor ‘Movement Units (Tran UOM)’ should need to be impacted.\nUpdate Stock Movement-Roll Details-\n• New columns Tran Units, Movement Units (Tran UOM), Stock UOM & UOM Conversion Factor required to show here.\n• Need to rename ‘Movement Units’ As ‘Movement Units (Storage UOM).\nEnter New Stock-\n• UOM need to rename as ‘Tran UOM’.\n• Movement Units (Tran UOM) need to rename as ‘Movement Units (Storage UOM).\n• New column addition ‘Movement Units (Tran UOM)’, ‘UOM Conversion Factor’.\nNote: - In case of enter new stock ‘UOM Conversion Factor’=1 and Movement Units (Tran UOM) is same as per Movement Units (Storage UOM).",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: Production >> Production Order",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Production order Ordered Qty, Allocated Qty & Qty to be Allocated need to work as per storage UOM as based on ‘Secondary UOM Conversion’.\nNote- It should need to show the total order qty based on ‘Color/Size wise conversion from techpack’.\nSystem should need to allow to create the FPO based on the production order qty from user interface as well as from API.\nMaterial allocation in case of single FPO & multiple FPO system need to show the required qty based on the ‘Color-Size Wise Conversion’, In case of FPPO also the requirement of input article should need to work based on the ‘Color-Size Wise Conversion’.\nIf Setting “Allow Indent Qty in Storage UOM.” Is OFF then system generates the Indent requirement in Consumption UOM. In above scenario the Consumption UOM is Meter.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "kind": "section"
+    },
+    {
+      "title": "Screen: Production >> Production Order – Table 1",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Columns: Scenario:2 (text); Column 2 (text); Column 3 (text); Column 4 (text); Column 5 (text); Column 6 (text); Column 7 (text); Column 8 (text); Column 9 (text); Column 10 (text); Column 11 (text); Column 12 (text)\nScenario:2 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 | Column 10 | Column 11 | Column 12\nConsumption UOM | Meter |  |  |  |  |  |  |  |  |  | \nPurchase UOM | Meter |  |  |  |  |  |  |  |  |  | \nStorage UOM | Kgs |  |  |  |  |  |  |  |  |  | \nSecondary UOM | Meter |  |  |  |  |  |  |  |  |  | \nSecondary UOM Conversion | 0.09 |  |  |  |  |  |  |  |  |  | \nArticle: |  |  |  |  |  |  |  |  |  |  | \nSetting \"Allow Indent Qty in Storage UOM\" is OFF |  |  |  |  |  |  |  |  |  |  | \nOC Number | Article | Color | Size | Indent UOM | Indent Qty in Indent UOM | Purchase UOM | Indent Qty in Purchase UOM | Order Qty | In-house | Un-Reserve | Order Qty\n10001.1 | S/Jersey 30s Finished Fabric | Black | 42Inch | Meter | 52.00 | Meter | 52.00 | - | - | - | 52.00",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Consumption UOM; Column 2: Meter",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Purchase UOM; Column 2: Meter",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Storage UOM; Column 2: Kgs",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Secondary UOM; Column 2: Meter",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Secondary UOM Conversion; Column 2: 0.09",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Article:",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: Setting \"Allow Indent Qty in Storage UOM\" is OFF",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: OC Number; Column 2: Article; Column 3: Color; Column 4: Size; Column 5: Indent UOM; Column 6: Indent Qty in Indent UOM; Column 7: Purchase UOM; Column 8: Indent Qty in Purchase UOM; Column 9: Order Qty; Column 10: In-house; Column 11: Un-Reserve; Column 12: Order Qty",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Scenario:2: 10001.1; Column 2: S/Jersey 30s Finished Fabric; Column 3: Black; Column 4: 42Inch; Column 5: Meter; Column 6: 52.00; Column 7: Meter; Column 8: 52.00; Column 9: -; Column 10: -; Column 11: -; Column 12: 52.00",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen: Production >> Production Order",
+      "heading": "Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "text": "Against the above Indent if the Production Order is created , system will pick the conversion from selected Techpack & create the Production Order in storage UOM i.e. Kgs\nBased on the selected BOM, system will pick the conversion from Techpack & create the Production Order in storage UOM as shown below.\nFurther transactions will be process in Storage UOM in Production as per current functionality.\nInput material required qty need to apply ‘Color-Size Wise Conversion’ on FPO material allocation, FPPO dispatch instruction etc.",
+      "locator": "§ Section 4. 🛠️Solution › … › GRN Enhancements › … › Screen: Production >> Production Order",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5: 🧪 Acceptance Criteria",
+      "heading": "Section 5: 🧪 Acceptance Criteria",
+      "text": "• GRN allows entry and auto-population of Movement Units (Storage UOM).\n• Updating Movement Units (Storage UOM) recalculates Conversion Factor automatically.\n• Updating Conversion Factor recalculates Movement Units (Storage UOM) automatically.\n• If Order UOM = Storage UOM → Storage UOM field disabled/hidden.\n• On GRN confirmation → Inventory updates in Storage UOM.\n• QC outcomes (rejection, shortage, excess) recorded and reflected in Storage UOM.\n• All downstream processes (Pick List, GDN, Transfers, Adjustments) reference Storage UOM consistently.\n• Reports display clear distinction between ordered, received, rejected, shortage, and excess in Storage UOM.",
+      "locator": "§ Section 5: 🧪 Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 1: Auto-population of Storage UOM",
+      "heading": "Section 6: Test Cases › … › Scenario 1: Auto-population of Storage UOM",
+      "text": "• Pre-condition: PO created in Meters; Storage UOM defined as Kgs.\n• Action: User enters quantity in Transaction UOM (Meters).\n• Expected Result: Movement Unit (Storage UOM) auto-populates based on default Conversion Factor.\n• Acceptance Criteria: System correctly calculates Movement Units (Storage UOM) using defined conversion.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 1: Auto-population of Storage UOM",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 2: Manual Update of Storage UOM",
+      "heading": "Section 6: Test Cases › … › Scenario 2: Manual Update of Storage UOM",
+      "text": "• Pre-condition: GRN line with auto-populated Storage UOM.\n• Action: User manually updates Movement Units (Storage UOM).\n• Expected Result: Conversion Factor recalculates automatically.\n• Acceptance Criteria: Conversion Factor is updated correctly and remains consistent with new Movement Units (Storage UOM).",
+      "locator": "§ Section 6: Test Cases › … › Scenario 2: Manual Update of Storage UOM",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 3: Manual Update of Conversion Factor",
+      "heading": "Section 6: Test Cases › … › Scenario 3: Manual Update of Conversion Factor",
+      "text": "• Pre-condition: GRN with Movement Units (Transaction UOM) & Movement Units (Storage UOM).\n• Action: User edits Conversion Factor.\n• Expected Result: Movement Units (Storage UOM) updates accordingly.\n• Acceptance Criteria: System recalculates and displays correct Movement Units (Storage UOM) quantity.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 3: Manual Update of Conversion Factor",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 4: GRN Confirmation & Stock Update",
+      "heading": "Section 6: Test Cases › … › Scenario 4: GRN Confirmation & Stock Update",
+      "text": "• Pre-condition: GRN created with updated Movement Units (Storage UOM) values.\n• Action: User confirms GRN.\n• Expected Result: Stock updates as per Movement Units (Storage UOM).\n• Acceptance Criteria:\n• Inventory reflects Storage UOM correctly.\n• Roll Units & subsequent transactions (Pick List, GDN, Transfers, Reallocation, Adjustments) show Storage UOM consistently.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 4: GRN Confirmation & Stock Update",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 5: Validation When Order UOM = Storage UOM",
+      "heading": "Section 6: Test Cases › … › Scenario 5: Validation When Order UOM = Storage UOM",
+      "text": "• Pre-condition: PO created with same UOM for both Order & Storage.\n• Action: User tries to update Storage UOM in GRN.\n• Expected Result: Storage UOM update option not applicable.\n• Acceptance Criteria: System disables or hides Storage UOM field in this case.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 5: Validation When Order UOM = Storage UOM",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 6: QC Outcome – Rejection Handling",
+      "heading": "Section 6: Test Cases › … › Scenario 6: QC Outcome – Rejection Handling",
+      "text": "• Pre-condition: GRN created and QC performed.\n• Action: User rejects part of the received quantity during QC.\n• Expected Result:\n• Rejected quantity is updated in stock in storage UOM.\n• Acceptance Criteria:\n• System records rejected quantity separately with quality as “Rejected” in Storage UOM.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 6: QC Outcome – Rejection Handling",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 7: QC Outcome – Shortage Handling",
+      "heading": "Section 6: Test Cases › … › Scenario 7: QC Outcome – Shortage Handling",
+      "text": "• Pre-condition: PO created for 100 Meters (equivalent Storage UOM in Kgs available).\n• Action: During QC, actual received quantity is less than ordered (e.g., 90 Meters).\n• Expected Result:\n• GRN reflects shortage quantity.\n• Storage UOM updates accordingly.\n• Acceptance Criteria:\n• Shortage is recorded in the GRN.\n• Inventory is updated only with the accepted quantity in Storage UOM.\n• Reports clearly distinguish between ordered vs received.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 7: QC Outcome – Shortage Handling",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 8: QC Outcome – Excess Handling",
+      "heading": "Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "text": "• Pre-condition: PO created for 100 Meters.\n• Action: During QC, actual received quantity is higher (e.g., 105 Meters).\n• Expected Result:\n• GRN reflects excess quantity.\n• Storage UOM updates accordingly.\n• Acceptance Criteria:\n• Excess is captured in the GRN.\n• System updates inventory with excess in Storage UOM.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario 8: QC Outcome – Excess Handling – Table 2",
+      "heading": "Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n2.0 | Ajay Chaudhary | 08-10-25 | Document Revised\n1.0 | Ajay Chaudhary | 20-09-25 | Initial document created.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "text": "Version: 2.0; Revised By: Ajay Chaudhary; Revised On: 08-10-25; Changes: Document Revised",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling",
+      "text": "Version: 1.0; Revised By: Ajay Chaudhary; Revised On: 20-09-25; Changes: Initial document created.",
+      "locator": "§ Section 6: Test Cases › … › Scenario 8: QC Outcome – Excess Handling, table 2, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+﻿mode,input,line,existing_qty,moved_qty,remaining_qty
+Percentage,20 %,Red / S,100,20,80
+Percentage,20 %,Red / M,200,40,160
+Percentage,20 %,Red / L,200,40,160
+Quantity,100 pcs,Red / S,100,20,80
+Quantity,100 pcs,Red / M,200,40,160
+Quantity,100 pcs,Red / L,200,40,160

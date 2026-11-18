@@ -1,0 +1,10 @@
+﻿apparel_code,field,value,how_it_is_set
+NIS-59,Article Code,NIS-59,System coding
+NIS-59,Article Name / Description,Adi TShirt · Adidas,Typed
+NIS-59,Buyer / Department,GAP Kids · Kids-Tops-Knits,Selected
+NIS-59,Division,Gurgaon-24175COM-AD,Selected
+NIS-59,Product Group / Sub-Category,KNITTED! · Knitted_FAB_N,Selected
+NIS-59,Purchase UOM,PCS,Selected
+NIS-59,Color Card / Size Range,Nis_colors · ERPSIZE,From colour and size masters
+NIS-59,Price Per,Color/Size,Selected
+NIS-59,Color Definition / Style Type,Single Colors · Single,"Read-only, from material type"

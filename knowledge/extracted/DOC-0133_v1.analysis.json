@@ -1,0 +1,77 @@
+{
+  "tables": [],
+  "subject": "Manufacturing Base Module 349251 Release Notes",
+  "keyTerms": [
+    "approval",
+    "line",
+    "mrp",
+    "bom",
+    "line wise",
+    "mrp approval",
+    "bom line",
+    "wise",
+    "wise approval",
+    "approval workflow",
+    "material",
+    "wise mrp",
+    "existing mrl",
+    "mrl approval",
+    "workflow"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 11
+    },
+    {
+      "module": "Planning",
+      "score": 10
+    },
+    {
+      "module": "Production",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Introduce a structured and auditable line-wise approval workflow for Material Requirements Planning (MRP), similar to the existing MRL approval functionality, ensuring each material line is validated and approved before procurement or production demand is generated.",
+      "locator": "§ … › Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Added re-assignment option to redirect approval to another approver if required.\n\n- Introduced visual indicators for BOM changes:\n• White background – New BOM line\n• Orange strip – Modified BOM line\n• Grey strip – Unchanged BOM line\n• Red strip – Deleted or rejected BOM line\n\n\nAdded validation to prevent action on MRP records already pending approval.",
+      "locator": "§ … › Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "heading": "… › Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "text": "Business Requirement:\nIntroduce a structured and auditable line-wise approval workflow for Material Requirements Planning (MRP), similar to the existing MRL approval functionality, ensuring each material line is validated and approved before procurement or production demand is generated.\nProblems Encountered:\nEarlier, there was no dedicated line-wise approval workflow for MRP. This limited visibility, reduced control over individual material decisions, and increased the risk of incorrect procurement or production planning.\nType: New Development / Major Enhancement\nRole / Target Audience:\nProcurement/Purchase Department\n\nSolution:\nImplemented a multi-level line-wise MRP approval workflow integrated with the Approval Center. Users can review, approve, reject, or partially approve BOM material lines before generating production or purchase demands. The system also supports incremental approvals, visual identification of BOM changes, and reassignment of approval requests.\nEnhancements / Changes:\nIntroduced new MRP Approval permission in User Group.\n\n\nAdded new section 'MRP' in Approval Center. Enabled line-wise approval or rejection of BOM materials.\n\n\n\nDisplayed approval routing details including 'Sent To' in Action column in MRP activity log.\n\nAdded re-assignment option to redirect approval to another approver if required.\n\n- Introduced visual indicators for BOM changes:",
+      "locator": "§ … › Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "kind": "section"
+    },
+    {
+      "title": "Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "heading": "… › Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251)",
+      "text": "• White background – New BOM line\n• Orange strip – Modified BOM line\n• Grey strip – Unchanged BOM line\n• Red strip – Deleted or rejected BOM line\n\n\nAdded validation to prevent action on MRP records already pending approval.",
+      "locator": "§ … › Need Line wise MRP Approval same as Existing MRL Approval Functionality (349251) (part 2)",
+      "kind": "section"
+    }
+  ]
+}

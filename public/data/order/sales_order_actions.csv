@@ -1,0 +1,12 @@
+﻿action,where_used,needs,result,rule
+Add Delivery,Add Delivery button or + in the left panel,Delivery and article details,Pending → Confirmed,New blank editable delivery; existing ones untouched
+Copy Delivery,Action column or left panel,"Delivery no, date, lines (style prefilled)",Pending → Confirmed,Copies a delivery of the same order
+Delete Delivery,Action column; tick several for a batch,Confirmation naming the deliveries,Delivery removed,Not after its GMPO or ASN is created; no Delete on a Confirmed * order with a draft delivery
+Split Delivery,Sidebar of the edit page,Percentage (default) or quantity,Quantity divided,Save replaces Confirm while splitting
+Cancel Delivery,Context menu,Remarks (required) and OK,Confirmed → Cancelled (red),"Success: ""Delivery OCs Cancel successfully."""
+Close Delivery,Context menu,Remarks (required) and OK,Confirmed → Closed (orange),Stays visible in the list
+Reopen Delivery,Context menu,Remarks (required) and OK,Closed → Open (green),"Only a closed delivery; else ""Please Uncheck Confirmed Delivery OC."""
+Split / Shuffle DOC,Grid context menu,"Target order, target delivery, mode and value",Quantities moved to a new or existing delivery,"Target must be same order, buyer and style, draft or editable, not cancelled or closed"
+Cancel Order,Grid context menu,"Warning, then remarks (required)",Order and all deliveries Cancelled,"Not allowed on Saved, Cancelled or Closed orders"
+Close Order,Grid context menu,Remarks (required),Order Closed,Not allowed on Cancelled or Closed orders
+Revise,Grid context menu / Edit,Reason for revision and Revision Authorized By (mandatory),"New version, visible in Revision Log",Revision Log only for a revised confirmed order

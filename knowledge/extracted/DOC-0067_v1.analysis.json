@@ -1,0 +1,1390 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "#",
+        "Criteria",
+        "Description"
+      ],
+      "types": [
+        "empty",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "Generic Feature",
+          "This will be a generic change."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Area",
+        "Impact"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Area"
+      ],
+      "rows": [
+        [
+          "Parent/Next Transactions",
+          "Yes, Master cost sheet"
+        ],
+        [
+          "Finance",
+          "No Impact"
+        ],
+        [
+          "Reports or Stored Procedures (SP)",
+          "No Impact"
+        ],
+        [
+          "Company/Global Settings",
+          "No Impact"
+        ],
+        [
+          "Historical Data",
+          "View will change of Master cost sheet"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "#",
+        "Criteria",
+        "Description"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Generic Feature Activation",
+          "The size-wise pricing functionality is implemented as a generic feature, configurable via Screen Layout Configuration (SLC)."
+        ],
+        [
+          "2",
+          "Hyperlink Visibility Controlled via SLC",
+          "The price hyperlink icon next to the Purchase Price in the BOM will appear only when enabled through SLC settings."
+        ],
+        [
+          "3",
+          "Size-Wise Price Popup",
+          "Clicking the hyperlink opens a popup window showing the mapping between garment sizes and article sizes, with editable fields for entering size-wise prices."
+        ],
+        [
+          "4",
+          "Copy Options Available",
+          "\"Copy All\" and \"Copy Below\" buttons are available in the popup for faster entry across all size rows."
+        ],
+        [
+          "5",
+          "Default Max Price Selection",
+          "By default, the system selects the maximum size-wise price for each BOM line and uses it for costing calculations."
+        ],
+        [
+          "6",
+          "Max Price Highlighting",
+          "The selected max price is visually highlighted in green in the grid for easy identification."
+        ],
+        [
+          "7",
+          "Consumption Price Calculation",
+          "The system automatically calculates the Consumption Price by applying UOM conversion to the Max Price and displays it in the BOM line."
+        ],
+        [
+          "8",
+          "Price Approval Handling",
+          "If size-wise pricing is used, the Price Approval screen allows updates and approvals on a per-size basis."
+        ],
+        [
+          "9",
+          "Supplier Price List Integration",
+          "When the Supplier Price List feature is active and includes size-wise pricing:\n1. The system auto-fetches the correct price based on the selected supplier and delivery terms.\n2. Prices are updated directly in the BOM."
+        ],
+        [
+          "10",
+          "MRP, Indent, RMPO, GRN Impact",
+          "Once updated in the BOM:\n1. The selected price is propagated to MRP, Indent, RMPO, and GRN modules automatically and consistently."
+        ],
+        [
+          "11",
+          "Finance Impact",
+          "Based on the source price from GRN, inventory value will be calculated. Also Invoice process will be followed from the GRN sourced price."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Area",
+        "Impact"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Area"
+      ],
+      "rows": [
+        [
+          "Parent/Next Transactions",
+          "Yes BOM, Indent, RMPO Price approval, GRN, and Supplier price list could have impact"
+        ],
+        [
+          "Finance",
+          "Inventory Value & Invoicing will be updated based on GRN Price."
+        ],
+        [
+          "Reports or Stored Procedures (SP)",
+          "Costing-related reports and SPs must include logic for Max Price and Consumption Price"
+        ],
+        [
+          "Company/Global Settings",
+          "Controlled via SLC flag for hyperlink and size-wise pricing visibility"
+        ],
+        [
+          "Historical Data",
+          "No changes to existing BOM records; functionality applies to newly created or updated BOMs only"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "#",
+        "Criteria",
+        "Description"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Generic Feature",
+          "Feature is implemented as a generic function, configurable through SLC."
+        ],
+        [
+          "2",
+          "Consumption Modes",
+          "User can select and update consumption using Color-wise, Size-wise, or Color + Size-wise modes via dropdown."
+        ],
+        [
+          "3",
+          "Dynamic Grids",
+          "Consumption grid dynamically updates based on selected mode."
+        ],
+        [
+          "4",
+          "Max Consumption Highlighting",
+          "Max value is auto-calculated and highlighted in green on the BOM line."
+        ],
+        [
+          "5",
+          "SLC Control",
+          "Feature visibility controlled via SLC. Enabled by default; clients can disable as needed."
+        ],
+        [
+          "6",
+          "Copy Options",
+          "“Copy All” and “Copy Below” are available in all entry modes."
+        ],
+        [
+          "7",
+          "Article Consumption Request",
+          "Reflects same dropdown-based consumption mode as BOM."
+        ],
+        [
+          "8",
+          "Downstream Integration",
+          "Consumption values are correctly reflected in:\nMRP\nProduction Orders\nFPPO Input Requirement & Routing\nIndents\nConsumption Marking (New & Old)"
+        ],
+        [
+          "9",
+          "Cost Sheet",
+          "Cost calculations use the max consumption from entries"
+        ],
+        [
+          "10",
+          "Wastage Logic",
+          "Consumption shown in Indents includes wastage, adjusted per GMT color, size, or color+size combination."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Area",
+        "Impact"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Area"
+      ],
+      "rows": [
+        [
+          "Parent/Next Transactions",
+          "Yes, BOM, Routing, MRP, Indent, RMPO, FPO, Material allocation, FPPO, Consumption marking."
+        ],
+        [
+          "Finance",
+          "No Impact"
+        ],
+        [
+          "Reports or Stored Procedures (SP)",
+          "Costing-related reports and stored procedures must include logic to accommodate Color-wise, Size-wise, and Color + Size-wise consumption, including Max Consumption."
+        ],
+        [
+          "Company/Global Settings",
+          "Feature is controlled via Screen Layout Configuration (SLC); consumption hyperlink and dropdown visibility depend on SLC settings."
+        ],
+        [
+          "Historical Data",
+          "No impact on existing BOM records; the functionality is applicable only to newly created or modified BOMs."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "#",
+        "Criteria",
+        "Description"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Exception Approval Trigger",
+          "BOM is routed for exception approval when margin is lower than the last approved BOM and the main setting is enabled."
+        ],
+        [
+          "2",
+          "Initial Version Margin Check",
+          "BOM is routed for exception approval when margin is lower than the initial version and the sub-setting is enabled."
+        ],
+        [
+          "3",
+          "Works Without Costsheet",
+          "The logic works purely within New BOM without the need for generating or referencing a Costsheet object."
+        ],
+        [
+          "4",
+          "Approval Layer Triggered",
+          "Correct exception approver is invoked as per approval hierarchy."
+        ],
+        [
+          "5",
+          "No UI Errors",
+          "New BOM saves and routes correctly without disrupting existing flows."
+        ],
+        [
+          "6",
+          "Configurable",
+          "The feature is controlled via system settings and behaves correctly based on enablement."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "Area",
+        "Impact"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Area"
+      ],
+      "rows": [
+        [
+          "Parent/Next Transactions",
+          "No Impact"
+        ],
+        [
+          "Finance",
+          "No Impact"
+        ],
+        [
+          "Reports or Stored Procedures (SP)",
+          "Approval-related reports and workflows must consider exception approvals triggered from New BOM"
+        ],
+        [
+          "Company/Global Settings",
+          "Controlled via existing system configuration flags"
+        ],
+        [
+          "Historical Data",
+          "No impact on previously approved BOMs or legacy costsheet"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "Area",
+        "Impact"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Area"
+      ],
+      "rows": [
+        [
+          "Parent/Next Transactions",
+          "Yes, there will be imact on multiple transaction such as Indent PO, GRN, FPO, FPPO."
+        ],
+        [
+          "Finance",
+          "No Impact"
+        ],
+        [
+          "Reports or Stored Procedures (SP)",
+          "Destination specific reports and SP will have impact"
+        ],
+        [
+          "Company/Global Settings",
+          "Controlled via existing system configuration flags"
+        ],
+        [
+          "Historical Data",
+          "No impact on previously approved BOMs or legacy costsheet"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "empty",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Rajanikant Pandey",
+          "",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "361027.",
+  "keyTerms": [
+    "size",
+    "color",
+    "size wise",
+    "wise",
+    "bom",
+    "consumption",
+    "color size",
+    "price",
+    "material color",
+    "material",
+    "garment",
+    "wise consumption",
+    "garment color",
+    "line",
+    "approval"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 39
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 15
+    },
+    {
+      "module": "Production",
+      "score": 13
+    },
+    {
+      "module": "Planning",
+      "score": 5
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "GRN – Goods Receipt Note",
+    "RMPO – Raw Material Purchase Order",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "FPO & FPPO"
+  ],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "🏢Business Requirements::\n1. The master cost sheet view should be proper align and well design as per the client needs.\n2. Better visibility of each details of master cost sheet.\n3. The business requires a provision to define size-wise pricing in a single line item within the BOM, similar to how size-wise consumption is currently managed. Users should be able to enter or update the prices for each size under one BOM entry without the need to create multiple variants of the same item. This will simplify the process, ensure data consistency, and align with actual production and costing practices.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Single-line BOM entry for size-wise pricing – The system must support defining prices for multiple sizes within one BOM line item, avoiding the need to create separate item variants.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is a gap in supporting Color-wise and Color + Size-wise entries, which are essential for more precise consumption calculations in multi-variant styles.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Currently the bellow mention setting is not Handel in the new BOM",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sewtech Use Case::\n1. Sewtech requires flexibility to update BOM consumption in the following ways:\n2. Color-wise\n3. Size-wise\n4. Color + Size-wise\n5. Currently, the WFX BOM supports only Size-wise consumption. There is a gap in supporting Color-wise and Color + Size-wise entries, which are essential for more precise consumption calculations in multi-variant styles.\n6. Currently the bellow mention setting is not Handel in the new BOM",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Revised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "When the mention setting(Revised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%) is enable system should send Bom for approval if the margin is less than the previous accepted BOM margin.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When the sub setting is enable(Enable Internal Costsheet for Exceptional Approval if profit / Markup% is less than initial version of internal Costsheet) system will compare the margin from initial level of the bom and then send for approval is it is less than initial level of the bom.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Now the requirement is user don’t want to make item variant then need in single line item, they can select multiple material color wise destination and these material color can also be mapped with single garment color.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sewtech Use Case::\n1. When the mention setting(Revised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%) is enable system should send Bom for approval if the margin is less than the previous accepted BOM margin.\n2. When the sub setting is enable(Enable Internal Costsheet for Exceptional Approval if profit / Markup% is less than initial version of internal Costsheet) system will compare the margin from initial level of the bom and then send for approval is it is less than initial level of the bom.\n3. Need to handle Multiple material color selected destination wise against 1 garment color.\n4. Currently, if there is multiple material color against 1 garment or multiple material color wise destination, then user need to make the item variant then they can map multiple material color wise 1 garment color. And select desire destination.\n5. Now the requirement is user don’t want to make item variant then need in single line item, they can select multiple material color wise destination and these material color can also be mapped with single garment color.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "The system will provide a provision to update article prices based on garment size directly within the BOM, using a single-line entry approach.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When size-wise pricing is selected in the BOM, the Price Approval screen will allow size-wise updates.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If the Supplier Price List is enabled, the system will fetch size-wise prices automatically from the list during BOM entry.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "A Max Price field will be added at the BOM line level for costing purposes, and its consumption equivalent will also be calculated based on UOM.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 2. 📘Scope:\n1. The system will provide a provision to update article prices based on garment size directly within the BOM, using a single-line entry approach.\n2. A hyperlink next to the Purchase Price field will be introduced in the BOM. Clicking this will open a popup screen displaying the mapping between garment size and article size, along with editable fields to enter size-wise prices.\n3. The hyperlink functionality will be controlled through SLC (System Level Configuration) and can be enabled or disabled based on the client requirement.\n4. The popup screen will include \"Copy Below\" and \"Copy All\" features for faster price entry across sizes.\n5. Price Approval workflow will support size-wise pricing. When size-wise pricing is selected in the BOM, the Price Approval screen will allow size-wise updates.\n6. If the Supplier Price List is enabled, the system will fetch size-wise prices automatically from the list during BOM entry.\n7. In the Indent Details and RMPO modules, the system will display the size-wise price as maintained in the BOM.\n8. The system will apply UOM conversion logic to convert Purchase Price to Consumption Price at the size level.\n9. A Max Price field will be added at the BOM line level for costing purposes, and its consumption equivalent will also be calculated based on UOM.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 2. 📘Scope:\n1. Provide a dropdown to select the consumption method: Color, Size, or Color + Size.\n2. Based on the selection, the consumption entry screen should dynamically adapt:\n3. Color-wise: Entry by garment and material color.\n4. Size-wise: Entry by garment and material size.\n5. Color + Size-wise: Entry by both garment color/size and material color/size in a matrix format.\n6. Max consumption across entered values to be shown at the BOM line level.\n7. Integrate with:\n8. MRP\n9. Production Order\n10. Factory Production Order\n11. FPPO Input Requirements\n12. FPPO Local Routing Consumption\n13. Consumption Marking (New & Old)\n14. Extend functionality to Article Consumption Request with the same dropdown options and logic.\n15. “Copy All” and “Copy Below” options for all input modes.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When this setting is active, the Destination field on the main BOM line will be disabled, to avoid conflicting data input.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In the case where there is only one garment color, and the user opens the Color/Size-wise Consumption pop-up:",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 2. 📘Scope:\n1. A new setting needs to be introduced under the BOM or Cost Sheet configuration, titled:\n\"Allow selection of multiple material colors against one style color.\"\n2. When this setting is enabled:\n3. The Color/Size-wise Consumption pop-up will allow multi-selection of material colors.\n4. A Destination field will be available in the same pop-up.\n5. Users will be able to define destinations color-wise directly within this screen.\n6. By default, the Destination will be set to \"All\". However, users can override this by selecting a specific destination for each material color, if required.\n7. When this setting is active, the Destination field on the main BOM line will be disabled, to avoid conflicting data input.\n8. In the case where there is only one garment color, and the user opens the Color/Size-wise Consumption pop-up:\n9. Initially, only one line (based on the garment color) will appear.\n10. If the user maps multiple material colors (e.g., 3) to the same garment color, the system will automatically split the single line into multiple lines—each representing one material color—allowing destination selection per material color.",
+      "locator": "§ Section 2. 📘Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case of Price approval if it is enabled then that also will be impacted",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. 📌Assumptions:\n1. The existing system has already an option to update the size wise consumption.\n2. Same process could be use in the Size wise price update case also.\n3. There could be other impact also on indent and RMPO also.\n4. In case of supplier price list enable then there could also be some impact of change will be needed.\n5. In case of Price approval if it is enabled then that also will be impacted",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Garment and material color and size mappings are already configured in the system.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "UOM conversions and wastage calculations remain unchanged and are already defined.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Feature visibility is controlled via Screen Layout Configuration (SLC).",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The BOM UI is compatible with popup and dynamic grid changes for consumption entry.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. 📌Assumptions:\n1. Garment and material color and size mappings are already configured in the system.\n2. UOM conversions and wastage calculations remain unchanged and are already defined.\n3. The system will use max consumption from entered values for costing calculations.\n4. Feature visibility is controlled via Screen Layout Configuration (SLC).\n5. The BOM UI is compatible with popup and dynamic grid changes for consumption entry.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If no destination is selected for any material color in the color-size pop-up, the system will assume the default value \"All\".",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When multiple material colors are mapped to a single garment color, the system will dynamically split the row into multiple lines for detailed destination assignment.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "This transformation will occur only when the user initiates or modifies the color-size-wise mapping.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. 📌Assumptions:\n1. If no destination is selected for any material color in the color-size pop-up, the system will assume the default value \"All\".\n2. When multiple material colors are mapped to a single garment color, the system will dynamically split the row into multiple lines for detailed destination assignment. This transformation will occur only when the user initiates or modifies the color-size-wise mapping.\n3. Indent, GRN, FPO, and FPPO modules will follow the new material color-to-destination mapping logic.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: #, Criteria, Description (1 rows)",
+      "locator": "§ Section 4. 🛠️Solution, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Area, Impact (5 rows; identifiers: Area)",
+      "locator": "§ Section 4. 🛠️Solution, table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "BOM Module Enhancement. Requirement 2:\n1. A hyperlink icon will be displayed next to the Purchase Price field in each BOM line.\n2. Clicking the hyperlink opens a popup screen showing:\n3. Garment size vs Article size mapping.\n4. Editable price fields per garment size.\n5. Two buttons:\n6. Copy Below: Copies entered price to all sizes below current row\n7. Copy All: Copies price across all size entries.\n8. A new Max Price field will be added in the BOM grid line, capturing the highest price among all sizes for costing.\n9. The Max Price should be displayed at the BOM line level for cost calculation purposes. Based on the UOM conversion, the corresponding Consumption Price should also be automatically calculated.\n10. In case of Price approval System should allow user to update the Price as per size wise.\n11. On Indent details screen and RMPO screen prices should show size wise as updated in the BOM.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: #, Criteria, Description (11 rows)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Area, Impact (5 rows; identifiers: Area)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "A dropdown must be added in the New BOM screen to allow users to select the consumption type: Color-wise, Size-wise, or Color + Size-wise.\n  – If Color is selected, the system will display color-wise details, and users will be able to enter consumption accordingly.\n  – All calculation logic will follow the same process as currently implemented for size-wise consumption.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Same way if color is select from the drop down then details will show as per colors.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "In all types of consumption updates, the Indent module will display consumption data based on the selection made in the BOM:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If Color-wise consumption is selected, the Indent will show consumption values (including wastage) as per the garment color.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If Size-wise consumption is selected, the Indent will display consumption (including wastage) based on the garment size.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "BOM Module Enhancement. Requirement 3:\n1. A dropdown must be added in the New BOM screen to allow users to select the consumption type: Color-wise, Size-wise, or Color + Size-wise.\n  – If Color is selected, the system will display color-wise details, and users will be able to enter consumption accordingly.\n  – All calculation logic will follow the same process as currently implemented for size-wise consumption.\n2. The system should display both garment color and material color, along with their dependency mapping.\n3. If Size-wise consumption is selected:\n  – The system will display size-related fields, allowing users to enter size-wise consumption values.\n  – It will also show garment size and material size, including their dependencies.\n4. If Color + Size is selected:\n  – A tabular interface will be shown, allowing users to enter consumption values for each combination of color and size.\n  – Both garment color/size and material color/size, along with their dependencies, will be presented.\n5. In all cases, the maximum consumption value entered will be highlighted and displayed on the BOM line for cost calculation purposes.\n6. The Article Consumption Request module should also support all three modes:\n  – If Color-wise is selected in the BOM, the same should be editable in the Article Consumption Request.\n  – If Size-wise is selected, the Article Consumption Request should allow size-wise entry.\n  – If Color + Size-wise is selected, the same should be enabled for input in Article Consumption Request.\n7. Same way if color is select from the drop down then details will show as per colors.\n8. If Color + Size will be selected from the Drop Down. Details will show color + size wise.\n9. In all types of consumption updates, the Indent module will display consumption data based on the selection made in the BOM:\n10. If Color-wise consumption is selected, the Indent will show consumption values (including wastage) as per the garment color.\n11. If Size-wise consumption is selected, the Indent will display consumption (including wastage) based on the garment size.\n12. If Color + Size-wise consumption is selected, the Indent will reflect consumption (including wastage) according to the garment color and size combination.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: #, Criteria, Description (10 rows)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Area, Impact (5 rows; identifiers: Area)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "As of now when our bellow mention setting is enable system send costsheet for exception approver in case of reduction of margin but as we are working on new bom for now where we don’t’ need to create costsheet this setting is not handle in the New Bom.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "When the mention setting(Revised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%) is enable system should send Bom for approval if the margin is less then the previous accepted BOM margin.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: #, Criteria, Description (6 rows)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: Area, Impact (5 rows; identifiers: Area)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "BOM line destination will be hide if this setting is enabled and all the destination work flow will happen from this new Destination selection.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In the case where there is only one Material color, and the user opens the Color/Size-wise Consumption pop-up:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "BOM Module Enhancement. Requirement 5:\n1. A new setting needs to be introduced under the BOM or Cost Sheet configuration, titled:\n\"Allow selection of single Garment colors against Multiple color.\"\n2. When this setting is enabled:\n3. The Color/Size-wise Consumption pop-up will allow selection of Garment colors.\n4. A Destination field will be available in the same pop-up.\n5. Users will be able to define destinations color-wise directly within this screen.\n6. By default, the Destination will be set to \"All\". However, users can override this by selecting a specific destination for each material color, if required.\n7. When this setting is active, the Destination field on the main BOM line will be disabled, to avoid conflicting data input.\n8. In the case where there is only one Material color, and the user opens the Color/Size-wise Consumption pop-up:\n9. Initially, only one line (based on the garment color) will appear.\n10. If the user maps same Garment colors (e.g., 3) to the multiple Material color, the system will automatically split the single line into multiple lines—each representing one material color—allowing destination selection per material color.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: Area, Impact (5 rows; identifiers: Area)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 5. Revision History, table 10",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "361027.",
+      "heading": "",
+      "text": "Software Requirements Specification\nSoftware Requirements Specification\nNew BOM Enhancement - 2025 July\nIssue ID: 361027\nNew BOM Enhancement - 2025 July\nIssue ID: 361027\nContents\nSection 1: 🧾Overview 2\n🎯Purpose 2\n🏢Business Requirement: 2\nSection 2. 📘Scope 2\nSection 3. 📌Assumptions 3\nSection 4. 🛠️Solution 4\nSection 5. Revision History 6",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "🎯Purpose",
+      "heading": "Section 1: 🧾Overview › 🎯Purpose",
+      "text": "This document describes the requirement and approach to enhance and modification of New BOM.",
+      "locator": "§ Section 1: 🧾Overview › 🎯Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "🏢Business Requirements:",
+      "heading": "Section 1: 🧾Overview › 🏢Business Requirements:",
+      "text": "• Currently, the master cost sheet view is not as per the client requirement, need to enhance the current master cost sheer view to a new refine and well-structured view.\nKey Needs:\n• The master cost sheet view should be proper align and well design as per the client needs.\n• Better visibility of each details of master cost sheet.\n• The business requires a provision to define size-wise pricing in a single line item within the BOM, similar to how size-wise consumption is currently managed. Users should be able to enter or update the prices for each size under one BOM entry without the need to create multiple variants of the same item. This will simplify the process, ensure data consistency, and align with actual production and costing practices.\nKey Needs:\n• Single-line BOM entry for size-wise pricing – The system must support defining prices for multiple sizes within one BOM line item, avoiding the need to create separate item variants.\n• Matrix-style input for size-wise pricing – A user-friendly interface (similar to size-wise consumption) should be available to input and edit prices for each size easily and efficiently.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements:",
+      "kind": "section"
+    },
+    {
+      "title": "Sewtech Use Case:",
+      "heading": "Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "text": "• Sewtech requires flexibility to update BOM consumption in the following ways:\n• Color-wise\n• Size-wise\n• Color + Size-wise\n• Currently, the WFX BOM supports only Size-wise consumption. There is a gap in supporting Color-wise and Color + Size-wise entries, which are essential for more precise consumption calculations in multi-variant styles.\n• Currently the bellow mention setting is not Handel in the new BOM\nRevised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%\n>>Enable Internal Costsheet for Exceptional Approval if profit / Markup% is less than initial version of internal Costsheet\nKey Needs:\n• When the mention setting(Revised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%) is enable system should send Bom for approval if the margin is less than the previous accepted BOM margin.\n• When the sub setting is enable(Enable Internal Costsheet for Exceptional Approval if profit / Markup% is less than initial version of internal Costsheet) system will compare the margin from initial level of the bom and then send for approval is it is less than initial level of the bom.\n• Need to handle Multiple material color selected destination wise against 1 garment color.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "kind": "section"
+    },
+    {
+      "title": "Sewtech Use Case:",
+      "heading": "Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case:",
+      "text": "• Currently, if there is multiple material color against 1 garment or multiple material color wise destination, then user need to make the item variant then they can map multiple material color wise 1 garment color. And select desire destination.\n• Now the requirement is user don’t want to make item variant then need in single line item, they can select multiple material color wise destination and these material color can also be mapped with single garment color.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirements: › Sewtech Use Case: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. 📘Scope",
+      "heading": "Section 2. 📘Scope",
+      "text": "Requirement 1:\n• Improve the UI/UX of the Master Cost Sheet to align with client preferences.\nRequirement 2:\n• The system will provide a provision to update article prices based on garment size directly within the BOM, using a single-line entry approach.\n• A hyperlink next to the Purchase Price field will be introduced in the BOM. Clicking this will open a popup screen displaying the mapping between garment size and article size, along with editable fields to enter size-wise prices.\n• The hyperlink functionality will be controlled through SLC (System Level Configuration) and can be enabled or disabled based on the client requirement.\n• The popup screen will include \"Copy Below\" and \"Copy All\" features for faster price entry across sizes.\n• Price Approval workflow will support size-wise pricing. When size-wise pricing is selected in the BOM, the Price Approval screen will allow size-wise updates.\n• If the Supplier Price List is enabled, the system will fetch size-wise prices automatically from the list during BOM entry.\n• In the Indent Details and RMPO modules, the system will display the size-wise price as maintained in the BOM.\n• The system will apply UOM conversion logic to convert Purchase Price to Consumption Price at the size level.",
+      "locator": "§ Section 2. 📘Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. 📘Scope",
+      "heading": "Section 2. 📘Scope",
+      "text": "• A Max Price field will be added at the BOM line level for costing purposes, and its consumption equivalent will also be calculated based on UOM.\nRequirement 3:\n• Provide a dropdown to select the consumption method: Color, Size, or Color + Size.\n• Based on the selection, the consumption entry screen should dynamically adapt:\n• Color-wise: Entry by garment and material color.\n• Size-wise: Entry by garment and material size.\n• Color + Size-wise: Entry by both garment color/size and material color/size in a matrix format.\n• Max consumption across entered values to be shown at the BOM line level.\n• Integrate with:\n• MRP\n• Production Order\n• Factory Production Order\n• FPPO Input Requirements\n• FPPO Local Routing Consumption\n• Consumption Marking (New & Old)\n• Extend functionality to Article Consumption Request with the same dropdown options and logic.\n• “Copy All” and “Copy Below” options for all input modes.\nRequirement 4:\n• This change applies only to new Bom page.\nRequirement 5:\n• A new setting needs to be introduced under the BOM or Cost Sheet configuration, titled:\n\"Allow selection of multiple material colors against one style color.\"\n• When this setting is enabled:\n• The Color/Size-wise Consumption pop-up will allow multi-selection of material colors.\n• A Destination field will be available in the same pop-up.",
+      "locator": "§ Section 2. 📘Scope (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. 📘Scope",
+      "heading": "Section 2. 📘Scope",
+      "text": "• Users will be able to define destinations color-wise directly within this screen.\n• By default, the Destination will be set to \"All\". However, users can override this by selecting a specific destination for each material color, if required.\n• When this setting is active, the Destination field on the main BOM line will be disabled, to avoid conflicting data input.\n• In the case where there is only one garment color, and the user opens the Color/Size-wise Consumption pop-up:\n• Initially, only one line (based on the garment color) will appear.\n• If the user maps multiple material colors (e.g., 3) to the same garment color, the system will automatically split the single line into multiple lines—each representing one material color—allowing destination selection per material color.",
+      "locator": "§ Section 2. 📘Scope (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. 📌Assumptions",
+      "heading": "Section 3. 📌Assumptions",
+      "text": "Requirement 2:\n• The existing system has already an option to update the size wise consumption.\n• Same process could be use in the Size wise price update case also.\n• There could be other impact also on indent and RMPO also.\n• In case of supplier price list enable then there could also be some impact of change will be needed.\n• In case of Price approval if it is enabled then that also will be impacted\nRequirement 3:\n• Garment and material color and size mappings are already configured in the system.\n• UOM conversions and wastage calculations remain unchanged and are already defined.\n• The system will use max consumption from entered values for costing calculations.\n• Feature visibility is controlled via Screen Layout Configuration (SLC).\n• The BOM UI is compatible with popup and dynamic grid changes for consumption entry.\nRequirement 4:\n• The existing system already work for Costsheet perfectly. So it should be same for the New BOM as well.\nRequirement 5:\n• If no destination is selected for any material color in the color-size pop-up, the system will assume the default value \"All\".\n• When multiple material colors are mapped to a single garment color, the system will dynamically split the row into multiple lines for detailed destination assignment. This transformation will occur only when the user initiates or modifies the color-size-wise mapping.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. 📌Assumptions",
+      "heading": "Section 3. 📌Assumptions",
+      "text": "• Indent, GRN, FPO, and FPPO modules will follow the new material color-to-destination mapping logic.",
+      "locator": "§ Section 3. 📌Assumptions (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. 🛠️Solution",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "2. Material section view.\n3.a. Routing section view. (Process Tab)\n3.b. Routing section view.\n4. Cost tab.\nAcceptance Criteria:",
+      "locator": "§ Section 4. 🛠️Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. 🛠️Solution – Table 1",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Columns: # (empty); Criteria (text); Description (text)\n# | Criteria | Description\n | Generic Feature | This will be a generic change.",
+      "locator": "§ Section 4. 🛠️Solution, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Criteria: Generic Feature; Description: This will be a generic change.",
+      "locator": "§ Section 4. 🛠️Solution, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Section 4. 🛠️Solution",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "🔄 Impacts on Other Areas:",
+      "locator": "§ Section 4. 🛠️Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. 🛠️Solution – Table 2",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Columns: Area (text); Impact (text)\nArea | Impact\nParent/Next Transactions | Yes, Master cost sheet\nFinance | No Impact\nReports or Stored Procedures (SP) | No Impact\nCompany/Global Settings | No Impact\nHistorical Data | View will change of Master cost sheet",
+      "locator": "§ Section 4. 🛠️Solution, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Area: Parent/Next Transactions; Impact: Yes, Master cost sheet",
+      "locator": "§ Section 4. 🛠️Solution, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Area: Finance; Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Area: Reports or Stored Procedures (SP); Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Area: Company/Global Settings; Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "Area: Historical Data; Impact: View will change of Master cost sheet",
+      "locator": "§ Section 4. 🛠️Solution, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "• A hyperlink icon will be displayed next to the Purchase Price field in each BOM line.\n• Clicking the hyperlink opens a popup screen showing:\n• Garment size vs Article size mapping.\n• Editable price fields per garment size.\n• Two buttons:\n• Copy Below: Copies entered price to all sizes below current row\n• Copy All: Copies price across all size entries.\n• A new Max Price field will be added in the BOM grid line, capturing the highest price among all sizes for costing.\n• The Max Price should be displayed at the BOM line level for cost calculation purposes. Based on the UOM conversion, the corresponding Consumption Price should also be automatically calculated.\n• In case of Price approval System should allow user to update the Price as per size wise.\n• On Indent details screen and RMPO screen prices should show size wise as updated in the BOM.\nAcceptance Criteria:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 2 – Table 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Columns: # (integer); Criteria (text); Description (text)\n# | Criteria | Description\n1 | Generic Feature Activation | The size-wise pricing functionality is implemented as a generic feature, configurable via Screen Layout Configuration (SLC).\n2 | Hyperlink Visibility Controlled via SLC | The price hyperlink icon next to the Purchase Price in the BOM will appear only when enabled through SLC settings.\n3 | Size-Wise Price Popup | Clicking the hyperlink opens a popup window showing the mapping between garment sizes and article sizes, with editable fields for entering size-wise prices.\n4 | Copy Options Available | \"Copy All\" and \"Copy Below\" buttons are available in the popup for faster entry across all size rows.\n5 | Default Max Price Selection | By default, the system selects the maximum size-wise price for each BOM line and uses it for costing calculations.\n6 | Max Price Highlighting | The selected max price is visually highlighted in green in the grid for easy identification.\n7 | Consumption Price Calculation | The system automatically calculates the Consumption Price by applying UOM conversion to the Max Price and displays it in the BOM line.\n8 | Price Approval Handling | If size-wise pricing is used, the Price Approval screen allows updates and approvals on a per-size basis.\n9 | Supplier Price List Integration | When the Supplier Price List feature is active and includes size-wise pricing:\n1. The system auto-fetches the correct price based on the selected supplier and delivery terms.\n2. Prices are updated directly in the BOM.\n10 | MRP, Indent, RMPO, GRN Impact | Once updated in the BOM:\n1. The selected price is propagated to MRP, Indent, RMPO, and GRN modules automatically and consistently.\n11 | Finance Impact | Based on the source price from GRN, inventory value will be calculated. Also Invoice process will be followed from the GRN sourced price.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 1; Criteria: Generic Feature Activation; Description: The size-wise pricing functionality is implemented as a generic feature, configurable via Screen Layout Configuration (SLC).",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 2; Criteria: Hyperlink Visibility Controlled via SLC; Description: The price hyperlink icon next to the Purchase Price in the BOM will appear only when enabled through SLC settings.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 3; Criteria: Size-Wise Price Popup; Description: Clicking the hyperlink opens a popup window showing the mapping between garment sizes and article sizes, with editable fields for entering size-wise prices.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 4; Criteria: Copy Options Available; Description: \"Copy All\" and \"Copy Below\" buttons are available in the popup for faster entry across all size rows.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 5; Criteria: Default Max Price Selection; Description: By default, the system selects the maximum size-wise price for each BOM line and uses it for costing calculations.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 6; Criteria: Max Price Highlighting; Description: The selected max price is visually highlighted in green in the grid for easy identification.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 7; Criteria: Consumption Price Calculation; Description: The system automatically calculates the Consumption Price by applying UOM conversion to the Max Price and displays it in the BOM line.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 8; Criteria: Price Approval Handling; Description: If size-wise pricing is used, the Price Approval screen allows updates and approvals on a per-size basis.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 9; Criteria: Supplier Price List Integration; Description: When the Supplier Price List feature is active and includes size-wise pricing:\n1. The system auto-fetches the correct price based on the selected supplier and delivery terms.\n2. Prices are updated directly in the BOM.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 10; Criteria: MRP, Indent, RMPO, GRN Impact; Description: Once updated in the BOM:\n1. The selected price is propagated to MRP, Indent, RMPO, and GRN modules automatically and consistently.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "#: 11; Criteria: Finance Impact; Description: Based on the source price from GRN, inventory value will be calculated. Also Invoice process will be followed from the GRN sourced price.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "🔄 Impacts on Other Areas:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 2 – Table 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Columns: Area (text); Impact (text)\nArea | Impact\nParent/Next Transactions | Yes BOM, Indent, RMPO Price approval, GRN, and Supplier price list could have impact\nFinance | Inventory Value & Invoicing will be updated based on GRN Price.\nReports or Stored Procedures (SP) | Costing-related reports and SPs must include logic for Max Price and Consumption Price\nCompany/Global Settings | Controlled via SLC flag for hyperlink and size-wise pricing visibility\nHistorical Data | No changes to existing BOM records; functionality applies to newly created or updated BOMs only",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Area: Parent/Next Transactions; Impact: Yes BOM, Indent, RMPO Price approval, GRN, and Supplier price list could have impact",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Area: Finance; Impact: Inventory Value & Invoicing will be updated based on GRN Price.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Area: Reports or Stored Procedures (SP); Impact: Costing-related reports and SPs must include logic for Max Price and Consumption Price",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Area: Company/Global Settings; Impact: Controlled via SLC flag for hyperlink and size-wise pricing visibility",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2",
+      "text": "Area: Historical Data; Impact: No changes to existing BOM records; functionality applies to newly created or updated BOMs only",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 2, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "• A dropdown must be added in the New BOM screen to allow users to select the consumption type: Color-wise, Size-wise, or Color + Size-wise.\n  – If Color is selected, the system will display color-wise details, and users will be able to enter consumption accordingly.\n  – All calculation logic will follow the same process as currently implemented for size-wise consumption.\n• The system should display both garment color and material color, along with their dependency mapping.\n• If Size-wise consumption is selected:\n  – The system will display size-related fields, allowing users to enter size-wise consumption values.\n  – It will also show garment size and material size, including their dependencies.\n• If Color + Size is selected:\n  – A tabular interface will be shown, allowing users to enter consumption values for each combination of color and size.\n  – Both garment color/size and material color/size, along with their dependencies, will be presented.\n• In all cases, the maximum consumption value entered will be highlighted and displayed on the BOM line for cost calculation purposes.\n• The Article Consumption Request module should also support all three modes:\n  – If Color-wise is selected in the BOM, the same should be editable in the Article Consumption Request.\n  – If Size-wise is selected, the Article Consumption Request should allow size-wise entry.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "  – If Color + Size-wise is selected, the same should be enabled for input in Article Consumption Request.\n• Same way if color is select from the drop down then details will show as per colors.\n• If Color + Size will be selected from the Drop Down. Details will show color + size wise.\n• In all types of consumption updates, the Indent module will display consumption data based on the selection made in the BOM:\n• If Color-wise consumption is selected, the Indent will show consumption values (including wastage) as per the garment color.\n• If Size-wise consumption is selected, the Indent will display consumption (including wastage) based on the garment size.\n• If Color + Size-wise consumption is selected, the Indent will reflect consumption (including wastage) according to the garment color and size combination.\nAcceptance Criteria:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3 (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 3 – Table 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Columns: # (integer); Criteria (text); Description (text)\n# | Criteria | Description\n1 | Generic Feature | Feature is implemented as a generic function, configurable through SLC.\n2 | Consumption Modes | User can select and update consumption using Color-wise, Size-wise, or Color + Size-wise modes via dropdown.\n3 | Dynamic Grids | Consumption grid dynamically updates based on selected mode.\n4 | Max Consumption Highlighting | Max value is auto-calculated and highlighted in green on the BOM line.\n5 | SLC Control | Feature visibility controlled via SLC. Enabled by default; clients can disable as needed.\n6 | Copy Options | “Copy All” and “Copy Below” are available in all entry modes.\n7 | Article Consumption Request | Reflects same dropdown-based consumption mode as BOM.\n8 | Downstream Integration | Consumption values are correctly reflected in:\nMRP\nProduction Orders\nFPPO Input Requirement & Routing\nIndents\nConsumption Marking (New & Old)\n9 | Cost Sheet | Cost calculations use the max consumption from entries\n10 | Wastage Logic | Consumption shown in Indents includes wastage, adjusted per GMT color, size, or color+size combination.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 1; Criteria: Generic Feature; Description: Feature is implemented as a generic function, configurable through SLC.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 2; Criteria: Consumption Modes; Description: User can select and update consumption using Color-wise, Size-wise, or Color + Size-wise modes via dropdown.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 3; Criteria: Dynamic Grids; Description: Consumption grid dynamically updates based on selected mode.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 4; Criteria: Max Consumption Highlighting; Description: Max value is auto-calculated and highlighted in green on the BOM line.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 5; Criteria: SLC Control; Description: Feature visibility controlled via SLC. Enabled by default; clients can disable as needed.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 6; Criteria: Copy Options; Description: “Copy All” and “Copy Below” are available in all entry modes.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 7; Criteria: Article Consumption Request; Description: Reflects same dropdown-based consumption mode as BOM.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 8",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 8; Criteria: Downstream Integration; Description: Consumption values are correctly reflected in:\nMRP\nProduction Orders\nFPPO Input Requirement & Routing\nIndents\nConsumption Marking (New & Old)",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 9",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 9; Criteria: Cost Sheet; Description: Cost calculations use the max consumption from entries",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 10",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "#: 10; Criteria: Wastage Logic; Description: Consumption shown in Indents includes wastage, adjusted per GMT color, size, or color+size combination.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 5, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "🔄 Impacts on Other Areas:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 3 – Table 6",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Columns: Area (text); Impact (text)\nArea | Impact\nParent/Next Transactions | Yes, BOM, Routing, MRP, Indent, RMPO, FPO, Material allocation, FPPO, Consumption marking.\nFinance | No Impact\nReports or Stored Procedures (SP) | Costing-related reports and stored procedures must include logic to accommodate Color-wise, Size-wise, and Color + Size-wise consumption, including Max Consumption.\nCompany/Global Settings | Feature is controlled via Screen Layout Configuration (SLC); consumption hyperlink and dropdown visibility depend on SLC settings.\nHistorical Data | No impact on existing BOM records; the functionality is applicable only to newly created or modified BOMs.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Area: Parent/Next Transactions; Impact: Yes, BOM, Routing, MRP, Indent, RMPO, FPO, Material allocation, FPPO, Consumption marking.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Area: Finance; Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Area: Reports or Stored Procedures (SP); Impact: Costing-related reports and stored procedures must include logic to accommodate Color-wise, Size-wise, and Color + Size-wise consumption, including Max Consumption.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Area: Company/Global Settings; Impact: Feature is controlled via Screen Layout Configuration (SLC); consumption hyperlink and dropdown visibility depend on SLC settings.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3",
+      "text": "Area: Historical Data; Impact: No impact on existing BOM records; the functionality is applicable only to newly created or modified BOMs.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 3, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "• Need to handle Exception approver in New Bom Page.\nAs of now when our bellow mention setting is enable system send costsheet for exception approver in case of reduction of margin but as we are working on new bom for now where we don’t’ need to create costsheet this setting is not handle in the New Bom.\nThe working of exception approver will be as mention bellow:\n• When the mention setting(Revised version of approved accepted CS will be routed for Exception approval only if there is reduction in Profit/markup%) is enable system should send Bom for approval if the margin is less then the previous accepted BOM margin.\n• When the sub setting is enable(Enable Internal Costsheet for Exceptional Approval if profit / Markup% is less than initial version of internal Costsheet) system will compare the margin from initial level of the bom and then send for approval is it is less than initial level of the bom.\nAcceptance Criteria:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 4 – Table 7",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Columns: # (integer); Criteria (text); Description (text)\n# | Criteria | Description\n1 | Exception Approval Trigger | BOM is routed for exception approval when margin is lower than the last approved BOM and the main setting is enabled.\n2 | Initial Version Margin Check | BOM is routed for exception approval when margin is lower than the initial version and the sub-setting is enabled.\n3 | Works Without Costsheet | The logic works purely within New BOM without the need for generating or referencing a Costsheet object.\n4 | Approval Layer Triggered | Correct exception approver is invoked as per approval hierarchy.\n5 | No UI Errors | New BOM saves and routes correctly without disrupting existing flows.\n6 | Configurable | The feature is controlled via system settings and behaves correctly based on enablement.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "#: 1; Criteria: Exception Approval Trigger; Description: BOM is routed for exception approval when margin is lower than the last approved BOM and the main setting is enabled.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "#: 2; Criteria: Initial Version Margin Check; Description: BOM is routed for exception approval when margin is lower than the initial version and the sub-setting is enabled.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "#: 3; Criteria: Works Without Costsheet; Description: The logic works purely within New BOM without the need for generating or referencing a Costsheet object.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "#: 4; Criteria: Approval Layer Triggered; Description: Correct exception approver is invoked as per approval hierarchy.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "#: 5; Criteria: No UI Errors; Description: New BOM saves and routes correctly without disrupting existing flows.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "#: 6; Criteria: Configurable; Description: The feature is controlled via system settings and behaves correctly based on enablement.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "🔄 Impacts on Other Areas:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 4 – Table 8",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Columns: Area (text); Impact (text)\nArea | Impact\nParent/Next Transactions | No Impact\nFinance | No Impact\nReports or Stored Procedures (SP) | Approval-related reports and workflows must consider exception approvals triggered from New BOM\nCompany/Global Settings | Controlled via existing system configuration flags\nHistorical Data | No impact on previously approved BOMs or legacy costsheet",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Area: Parent/Next Transactions; Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Area: Finance; Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Area: Reports or Stored Procedures (SP); Impact: Approval-related reports and workflows must consider exception approvals triggered from New BOM",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Area: Company/Global Settings; Impact: Controlled via existing system configuration flags",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4",
+      "text": "Area: Historical Data; Impact: No impact on previously approved BOMs or legacy costsheet",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 4, table 8, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "• Need to handle destination wise material colour without entering variant line.\n• In the hyper link where user will enter color wise or size wise consumption there need to add Destination field. And allow user to select multiple color against one garment color.\nBOM line destination will be hide if this setting is enabled and all the destination work flow will happen from this new Destination selection.\n• If user select multiple Garment color against 1 Material color then based on selection of no of materialnt color system will create multiple line showing Garment color as same and different material color.\nAcceptance Criteria:\n• A new setting needs to be introduced under the BOM or Cost Sheet configuration, titled:\n\"Allow selection of single Garment colors against Multiple color.\"\n• When this setting is enabled:\n• The Color/Size-wise Consumption pop-up will allow selection of Garment colors.\n• A Destination field will be available in the same pop-up.\n• Users will be able to define destinations color-wise directly within this screen.\n• By default, the Destination will be set to \"All\". However, users can override this by selecting a specific destination for each material color, if required.\n• When this setting is active, the Destination field on the main BOM line will be disabled, to avoid conflicting data input.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "• In the case where there is only one Material color, and the user opens the Color/Size-wise Consumption pop-up:\n• Initially, only one line (based on the garment color) will appear.\n• If the user maps same Garment colors (e.g., 3) to the multiple Material color, the system will automatically split the single line into multiple lines—each representing one material color—allowing destination selection per material color.\n🔄 Impacts on Other Areas:",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5 (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Module Enhancement. Requirement 5 – Table 9",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "Columns: Area (text); Impact (text)\nArea | Impact\nParent/Next Transactions | Yes, there will be imact on multiple transaction such as Indent PO, GRN, FPO, FPPO.\nFinance | No Impact\nReports or Stored Procedures (SP) | Destination specific reports and SP will have impact\nCompany/Global Settings | Controlled via existing system configuration flags\nHistorical Data | No impact on previously approved BOMs or legacy costsheet",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "Area: Parent/Next Transactions; Impact: Yes, there will be imact on multiple transaction such as Indent PO, GRN, FPO, FPPO.",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "Area: Finance; Impact: No Impact",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "Area: Reports or Stored Procedures (SP); Impact: Destination specific reports and SP will have impact",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 4",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "Area: Company/Global Settings; Impact: Controlled via existing system configuration flags",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 5",
+      "heading": "Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5",
+      "text": "Area: Historical Data; Impact: No impact on previously approved BOMs or legacy costsheet",
+      "locator": "§ Section 4. 🛠️Solution › BOM Module Enhancement. Requirement 5, table 9, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Section 5. Revision History – Table 10",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (empty); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Rajanikant Pandey |  | Initial document created.",
+      "locator": "§ Section 5. Revision History, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Revised By: Rajanikant Pandey; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 10, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

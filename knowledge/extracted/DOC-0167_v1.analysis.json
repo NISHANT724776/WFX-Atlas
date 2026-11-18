@@ -1,0 +1,368 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "#",
+        "Functionality / Rule",
+        "Expected Behavior"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "[Functionality]",
+          "[Expected behavior]"
+        ],
+        [
+          "2",
+          "[Validation / Rule]",
+          "[Expected behavior]"
+        ],
+        [
+          "3",
+          "[Calculation / Logic]",
+          "[Expected behavior]"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Role",
+        "Name",
+        "Organization",
+        "Signature",
+        "Date"
+      ],
+      "types": [
+        "text",
+        "empty",
+        "text",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Customer Business Owner",
+          "",
+          "Customer",
+          "",
+          ""
+        ],
+        [
+          "Customer SPOC",
+          "",
+          "Customer",
+          "",
+          ""
+        ],
+        [
+          "WFX Representative",
+          "",
+          "WFX",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Version",
+        "Date",
+        "Description of Change",
+        "Prepared By"
+      ],
+      "types": [
+        "text",
+        "empty",
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "V1.0",
+          "",
+          "Initial Version",
+          ""
+        ],
+        [
+          "V1.1",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "WFX ERP Customer Specification & Approval",
+  "keyTerms": [
+    "customer",
+    "business",
+    "requirement",
+    "scope",
+    "process",
+    "expected behavior",
+    "acceptance criteria",
+    "expected",
+    "change",
+    "behavior",
+    "rule",
+    "validation business",
+    "business rule",
+    "specification",
+    "name"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "In Scope:\n1. [Functionality / Process 1]\n2. [Functionality / Process 2]\n3. [Functionality / Process 3]",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: #, Functionality / Rule, Expected Behavior (3 rows)",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "[Validation / Business Rule 1]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "[Validation / Business Rule 2]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "[Validation / Business Rule 3]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Key Validations / Business Rules:\n1. [Validation / Business Rule 1]\n2. [Validation / Business Rule 2]\n3. [Validation / Business Rule 3]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4. Assumptions & Dependencies:\n1. [Customer master/configuration dependency]\n2. [Integration dependency]\n3. [Data availability/dependency]\n4. [Other assumption]",
+      "locator": "§ WFX ERP › 4. Assumptions & Dependencies",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "5. Acceptance Criteria:\n1. [Acceptance Criteria 1]\n2. [Acceptance Criteria 2]\n3. [Acceptance Criteria 3]",
+      "locator": "§ WFX ERP › 5. Acceptance Criteria",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Role, Name, Organization, Signature, Date (3 rows)",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Version, Date, Description of Change, Prepared By (2 rows)",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Customer Specification & Approval Document",
+      "heading": "WFX ERP › Customer Specification & Approval Document",
+      "text": "Project / Customer: [Customer Name]\nModule / Functionality: [Module / Function Name]\nSpecification No.: [WFX-SPEC-XXXX]\nVersion: [V1.0]\nDate: [DD-MMM-YYYY]\nPrepared By: [WFX Team]\nCustomer SPOC: [Customer Name / Designation]",
+      "locator": "§ WFX ERP › Customer Specification & Approval Document",
+      "kind": "section"
+    },
+    {
+      "title": "1. Requirement & Objective",
+      "heading": "WFX ERP › 1. Requirement & Objective",
+      "text": "Business Requirement\nBriefly describe the business requirement/problem to be addressed.\nObjective\nDefine the expected business outcome of the proposed functionality.\nUse Case / Business Scenario\nDescribe the key business scenario in 2–4 points.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "kind": "section"
+    },
+    {
+      "title": "In Scope",
+      "heading": "WFX ERP › 2. Scope › In Scope",
+      "text": "• [Functionality / Process 1]\n• [Functionality / Process 2]\n• [Functionality / Process 3]",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Out of Scope",
+      "heading": "WFX ERP › 2. Scope › Out of Scope",
+      "text": "• [Item / Scenario 1]\n• [Item / Scenario 2]\nAny requirement not explicitly covered under the approved scope will be treated as a change request.",
+      "locator": "§ WFX ERP › 2. Scope › Out of Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Solution Overview",
+      "heading": "WFX ERP › 3. Proposed Solution › Solution Overview",
+      "text": "Briefly explain how WFX will address the requirement.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Solution Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Process / Workflow",
+      "heading": "WFX ERP › 3. Proposed Solution › Process / Workflow",
+      "text": "[Insert workflow diagram or process flow]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Process / Workflow",
+      "kind": "section"
+    },
+    {
+      "title": "Screen / UI",
+      "heading": "WFX ERP › 3. Proposed Solution › Screen / UI",
+      "text": "[Insert approved screen/mockup/prototype screenshots]\nPrototype / Design URL: [URL, if applicable]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Screen / UI",
+      "kind": "section"
+    },
+    {
+      "title": "Key Functional Behavior – Table 1",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "Columns: # (integer); Functionality / Rule (text); Expected Behavior (text)\n# | Functionality / Rule | Expected Behavior\n1 | [Functionality] | [Expected behavior]\n2 | [Validation / Rule] | [Expected behavior]\n3 | [Calculation / Logic] | [Expected behavior]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 1; Functionality / Rule: [Functionality]; Expected Behavior: [Expected behavior]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 2; Functionality / Rule: [Validation / Rule]; Expected Behavior: [Expected behavior]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 3; Functionality / Rule: [Calculation / Logic]; Expected Behavior: [Expected behavior]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Key Validations / Business Rules",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "text": "• [Validation / Business Rule 1]\n• [Validation / Business Rule 2]\n• [Validation / Business Rule 3]",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "kind": "section"
+    },
+    {
+      "title": "4. Assumptions & Dependencies",
+      "heading": "WFX ERP › 4. Assumptions & Dependencies",
+      "text": "• [Customer master/configuration dependency]\n• [Integration dependency]\n• [Data availability/dependency]\n• [Other assumption]",
+      "locator": "§ WFX ERP › 4. Assumptions & Dependencies",
+      "kind": "section"
+    },
+    {
+      "title": "5. Acceptance Criteria",
+      "heading": "WFX ERP › 5. Acceptance Criteria",
+      "text": "The delivered functionality will be considered as meeting the approved specification when:\n• [Acceptance Criteria 1]\n• [Acceptance Criteria 2]\n• [Acceptance Criteria 3]",
+      "locator": "§ WFX ERP › 5. Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "6. Approval & Sign-Off",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "By signing below, the customer confirms that the Requirement, Scope, Proposed Solution, Workflow, Screens/Prototype and Business Rules documented above have been reviewed and approved.\nAny subsequent change or additional requirement will be evaluated and managed through the agreed Change Request / Scope Change process.",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off",
+      "kind": "section"
+    },
+    {
+      "title": "6. Approval & Sign-Off – Table 2",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Columns: Role (text); Name (empty); Organization (text); Signature (empty); Date (empty)\nRole | Name | Organization | Signature | Date\nCustomer Business Owner |  | Customer |  | \nCustomer SPOC |  | Customer |  | \nWFX Representative |  | WFX |  | ",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Role: Customer Business Owner; Organization: Customer",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Role: Customer SPOC; Organization: Customer",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Role: WFX Representative; Organization: WFX",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Document Control – Table 3",
+      "heading": "WFX ERP › 6. Approval & Sign-Off › Document Control",
+      "text": "Columns: Version (text); Date (empty); Description of Change (text); Prepared By (empty)\nVersion | Date | Description of Change | Prepared By\nV1.0 |  | Initial Version | \nV1.1 |  |  | ",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "WFX ERP › 6. Approval & Sign-Off › Document Control",
+      "text": "Version: V1.0; Description of Change: Initial Version",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "WFX ERP › 6. Approval & Sign-Off › Document Control",
+      "text": "Version: V1.1",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

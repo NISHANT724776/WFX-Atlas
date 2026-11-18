@@ -1,0 +1,1660 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "PO Number",
+          "It will display the PO Number"
+        ],
+        [
+          "Article",
+          "It will display the Article name from PO"
+        ],
+        [
+          "Color",
+          "It will display the color name from PO"
+        ],
+        [
+          "Size",
+          "It will display the size from PO"
+        ],
+        [
+          "Qty",
+          "It will display its qty from PO"
+        ],
+        [
+          "Rate",
+          "It will display its rate from PO"
+        ],
+        [
+          "Value",
+          "It will display its value from PO"
+        ],
+        [
+          "Import Duty Benefit Basis",
+          "Advance License / Export Scheme"
+        ],
+        [
+          "Import Duty Benefit reference",
+          "License no./RoSCTL/RoDTEP"
+        ],
+        [
+          "Sanctioned SQM/Value",
+          "It will get the render the total value as per license master/Scrip"
+        ],
+        [
+          "Apportioned SQM/Value",
+          "It will display the total value of already consumed license value/Scrip under the criteria"
+        ],
+        [
+          "Available SQM/Value",
+          "It will show the sanctioned value – apportioned value for the criteria"
+        ],
+        [
+          "Utilized SQM/Value",
+          "It will auto populate the required value as per the line criteria subject to that the available value should be there, if not then it will populate available value (refer Multi License/scroll allocation sheet)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field Name",
+        "Behaviour",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Supplier",
+          "Dropdown",
+          "It will enlist all foreign suppliers with existing import order."
+        ],
+        [
+          "BOE No.",
+          "User input",
+          "It will be input by the user while creating the BOE or else later from the BOE list screen."
+        ],
+        [
+          "BOE Date",
+          "Conditional editable",
+          "It will become editable on putting BOE no. and It will be input by the user while creating the BOE or else later from the list screen"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Field Name",
+        "Behaviour",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field Name"
+      ],
+      "rows": [
+        [
+          "Invoice no.",
+          "Text box",
+          "It will be text box with alphanumeric compatibility to input supplier invoice number."
+        ],
+        [
+          "Authorized Dealer Code",
+          "Dropdown",
+          "It will provide list from bank master"
+        ],
+        [
+          "My Billing Address",
+          "Dropdown",
+          "It will provide list of all recipient billing address"
+        ],
+        [
+          "Document Type",
+          "Fixed / Read-only",
+          "it will be freezed and by default = Import"
+        ],
+        [
+          "Allocate GST Charges",
+          "System-driven",
+          "it will follow the ongoing generic behavior call the GST tax template based on the above My billing Address + Document type"
+        ],
+        [
+          "IGM No.",
+          "Text box",
+          "It will be text box with alphanumeric compatibility, default 50 digit limit where no duplicacy should be allowed"
+        ],
+        [
+          "IGM Date",
+          "Date selection",
+          "it will be provide user to attach date"
+        ],
+        [
+          "IGCR Bond no.",
+          "Text box",
+          "It will be text box with alphanumeric compatibility to input IGCR bond no. under which import license for concessional rate."
+        ],
+        [
+          "License Details",
+          "hyperlink",
+          "(Detailed below)"
+        ],
+        [
+          "Port Of Discharge/Delivery",
+          "Dropdown",
+          "It will provide list of Port from Port master"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "ASN no.",
+          "It will display the ASN no. (with hyper link to access the ASN detail view"
+        ],
+        [
+          "Order no.",
+          "It will display the PO no. (with hyper link to access the PO detail view"
+        ],
+        [
+          "Article",
+          "It will display article name"
+        ],
+        [
+          "Article Description",
+          "This will be manual input alphanumeric field with maximum count of 200 alphabets"
+        ],
+        [
+          "Color",
+          "It will display color name from the ASN"
+        ],
+        [
+          "Size",
+          "It will display size name from the ASN"
+        ],
+        [
+          "UOM",
+          "It will display UOM from the ASN"
+        ],
+        [
+          "ASN Qty",
+          "It will display the line Qty from the ASN"
+        ],
+        [
+          "License no.",
+          "It will display the license no. associated to line from the Import Duty Benefit Reference details above.\nNeed a use permission to make it editable in the form of drop to select any other license no associating to that Article color size UOM combination."
+        ],
+        [
+          "License Qty (Sq Mtrs)",
+          "It will auto-populate from PO Articlewise allocation details on Supplier PI list screen\n(Available SQM)"
+        ],
+        [
+          "ASN Qty (Sq Mtrs)",
+          "It will auto-populate from PO Articlewise allocation details on Supplier PI list screen\n(Utilized SQM)"
+        ],
+        [
+          "License Utilized Value",
+          "ASN Qty Sq mtrs * rate (from the license master of that particular article/color/size )"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Attributes",
+        "Behaviour",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "ASN No.",
+          "Display",
+          "It will provide the ASN No."
+        ],
+        [
+          "Article",
+          "Display",
+          "It will provide the Article Name"
+        ],
+        [
+          "HSN Code",
+          "Display",
+          "HSN Code"
+        ],
+        [
+          "Color",
+          "Display",
+          "Color"
+        ],
+        [
+          "Size",
+          "Display",
+          "Size"
+        ],
+        [
+          "Value (Transaction Currency)",
+          "Display",
+          "Value of the line in invoice at transaction currency (ASN Currency)"
+        ],
+        [
+          "Value (Company Currency)",
+          "Display",
+          "Value of the line in invoice at Company currency"
+        ],
+        [
+          "Custom Duty (Company Currency)",
+          "User input",
+          "It will be user input field. In company currency"
+        ],
+        [
+          "Taxable Value",
+          "System calculated / Editable",
+          "It will show the sum (Value in Company Currency + Custom Duty) It will be editable"
+        ],
+        [
+          "% IGST INPUT",
+          "System derived / Editable",
+          "This will reflect the applicable HSN % for the above HSN from the GST Tax Mapping = Purchase = Inter-state It will be editable"
+        ],
+        [
+          "Amt IGST INPUT",
+          "System calculated / Editable",
+          "It will show the Multiplicated value of (Taxable Value * % IGST INPUT) It will be Editable"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "BOE No.",
+        "It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "BOE No."
+      ],
+      "rows": [
+        [
+          "BOE Date",
+          "It should become editable upon putting above BOE no., until its GRN creation.\nIt should allow to put date of BOE issuance from ice-gate.\nEach update should be recorded in the log"
+        ],
+        [
+          "Port Code",
+          "It will sync the “PORT OF DISCHAGE’ value from the transaction"
+        ],
+        [
+          "Origin",
+          "It will sync the “PORT OF LOADING” value from the transaction"
+        ],
+        [
+          "Supplier Name",
+          "It will sync the “SUPPLIER” value from the transaction."
+        ],
+        [
+          "Invoice",
+          "It will sync the “INVOICE NO.” value from the transaction.\nNo Delicacy allowed at supplier bracket"
+        ],
+        [
+          "Invoice Value(Inr)",
+          "It will sync the “Value in company currency” from the transaction."
+        ],
+        [
+          "Attachments",
+          "It will access to all the attachments in the transactions"
+        ],
+        [
+          "Challan#",
+          ""
+        ],
+        [
+          "GSTIN#",
+          "It will be sync the “MY BILLING ADDRESS“ GSTIN no."
+        ],
+        [
+          "Basic Custom Duty",
+          "It will be sync total of “CUSTOM DUTY PAYABLE” from the transactions"
+        ],
+        [
+          "Social Welfare Surcharge",
+          "It will be sync total of “SOCIAL WELFARE” from the transactions"
+        ],
+        [
+          "Anit Dumping Duty",
+          "It will be sync total of “ANTI DUMPING DUTY” from the transactions"
+        ],
+        [
+          "Total IGST",
+          "It will be sync total of “IGST INPUT AMOUNT” from the transactions"
+        ],
+        [
+          "Actual IGST",
+          "It will be a user input field where user will put the actual input to be paid as per Ice-gate.\nIt will get freezed post payment is done"
+        ],
+        [
+          "Interest on IGST",
+          "It will be linked to additional charge TaxSubCategory = GST Interest\nIt will be editable and user can input here the interest paid.\nIt will get freezed post payment is done"
+        ],
+        [
+          "Penalty Amount",
+          "It will be linked to additional charge TaxSubCategory = GST Penalty\nIt will be editable and user can input here the interest paid.\nIt will get freezed post payment is done"
+        ],
+        [
+          "Remarks",
+          "It will sync the comments details from the transaction"
+        ],
+        [
+          "Sent for Payment",
+          "It will be blank\nIt will reflect the date on which the system auto-trigger the import duty payment drat in F&A Module (detailed below in Screen 04, requirement 03)"
+        ],
+        [
+          "Division Name",
+          "it will be reflect the name of the division in which the BOE is created"
+        ],
+        [
+          "Flex field",
+          "UI generic behaviour"
+        ],
+        [
+          "Out-of-Charge No.",
+          "It will be enabled post the only for the files where the SENT TO PAYMENT dates have been filed.\nIt will provide an alphanumeric textbox for user to input the OCC number generated at icegate.\nNo duplicasy allowed."
+        ],
+        [
+          "Out-of-charge date",
+          "It will get enabled from above OOC no. values filled and allow user to put OOC date"
+        ],
+        [
+          "Status",
+          "Save : UI generic behavior, BOE will be saved as draft.\nWaiting: BOE confirmed but BOE no. and date not updated.\nConfirmed : BOE is confirmed and BOE no. is attached"
+        ],
+        [
+          "Created on",
+          "It will store the created on date of the BOE"
+        ],
+        [
+          "Created by",
+          "It will store the created by username of the BOE"
+        ],
+        [
+          "Confirmed on",
+          "It will store the confirmed on date of the BOE"
+        ],
+        [
+          "Confirmed by",
+          "It will store the confirmed by username of the BOE"
+        ],
+        [
+          "Payment date & time",
+          "It will reflect the payment date of the above BOE request has been paid"
+        ],
+        [
+          "Payment no.",
+          "It will reflect the payment voucher no. and will act a hyperlink to access the payment voucher view"
+        ],
+        [
+          "Import Duty Benefit Basis",
+          "This will reflect the Scheme selection made by the user at the supplier PI screen (Advance License/Export scheme /BANK)\nIt will only be visible for reference and will be uneditable."
+        ],
+        [
+          "Export Scheme Details",
+          "Through option user will be able to access the above attached Scroll details at PI level re confirm it here"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Version",
+        "Created/Revised By",
+        "Created/Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Kalpesh Sharma",
+          "03rd JAN 2026",
+          "Initial document created."
+        ],
+        [
+          "1.1",
+          "Kalpesh Sharma",
+          "09rd JAN 2026",
+          "Document revised"
+        ],
+        [
+          "1.2",
+          "Kalpesh Sharma",
+          "23rd Feb 2026",
+          "Document updated post client discussion"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "391947 - Import Logistics 220226",
+  "keyTerms": [
+    "duty",
+    "import",
+    "value",
+    "license",
+    "boe",
+    "import duty",
+    "list",
+    "asn",
+    "user",
+    "display",
+    "supplier",
+    "date",
+    "payment",
+    "duty benefit",
+    "column"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 11
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Import Purchase.",
+      "locator": "§ Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to enhance the below screens:-",
+      "locator": "§ Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Supplier PI List\n2. Advance license List\n3. Souricng ASN New/List\n4. BOE New/List\n5. Tax Payment\n6. Duty Script Movement",
+      "locator": "§ Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Requirement 01 :-:\n1. Need an additional serial no. to be generated at supplier PI level.\n2. Need the nomenclature composition to be configured from system coding\n3. Its visibility should be controlled through Screen layout configurator.\n4. Column Name : “Transaction No.”",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 01 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If the Import Duty Benefit Basis is selected and no reference is attached then this will get highlighted and will appear in “Red”",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Soon after the allocation is successfully done than this “>>” will start showing the attached license/scroll no..",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Wherein the DDL value for Import Duty Benefit Basis = Advance License,",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "A Copy below tool is also required at each above column at line level",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Requirement 02 :-:\n1. Need a column “Duty Claim”\n2. Multi selection will be allowed,\n3. when user choose Duty Exempt, it will enable the next column “Import Duty Benefit Basis” and populate “Advance License” for selection. (detailed below)\n4. when user select Duty Paid, it will enable the above same column “Import Duty Benefit Basis” and populate “Export Scheme” for selection. (detailed below)\n5. Where user select both Duty Free/Duty Paid it will select both license apportion along with its export scheme.\n6. Columns visibility should be controlled through Screen layout configurator\n7. Updated info in this memo will be saved through Update info utility tool (detailed below)\n8. Column should be search feasibility.\n9. Need a column “Import Duty Benefit Basis”,\n10. Column visibility should be controlled through Screen layout configurator.\n11. Wherein the DDL value for column Duty Claim as “Duty Exempt” then this will auto populate the value “Advance License” and will get freezed.\n12. Wherein the DDL value for column Duty Claim as “Duty Paid” then this will provide the options to be selected by the user\n13. Export Scheme\n14. Cash/Bank\n15. Multiple selection to be allowed.\n16. Column should be search feasibility\n17. Need a column “Import Duty Benefit Reference”,\n18. By default it will show “ >>”\n19. If the Import Duty Benefit Basis is selected and no reference is attached then this will get highlighted and will appear in “Red”\n20. Soon after the allocation is successfully done than this “>>” will start showing the attached license/scroll no..\n21. In case of multiple number it will show all the numbers through hovering over.\n22. Columns visibility should be controlled through Screen layout configurator\n23. It should support search feasibility.\n24. Wherein the DDL value for Import Duty Benefit Basis = Advance License,\n25. Through the above “>>” user can access pop window to attach the Articlewise allocation details.\n26. “Import duty Benefit Basis” will provide a row splitter inorder to align multiple basis in one line.\n27. “Import duty Benefit reference” will provide a row splitter inorder to align multiple license, scroll or both as the per the case.\n28. User need to open this Divv and save the details\n29. A Copy below tool is also required at each above column at line level\n30. Required Columns:",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Attributes, Description (13 rows; identifiers: Attributes)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Wherein the DDL value for Import Duty Benefit Basis = Export Scheme,",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "RoSCTL/RoDTEP scripts on the Duty script screen with status = Ready for Utilization",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Requirement 02 :-:\n1. Required Utility tools:-\n2. Save : to save the changes\n3. Discard : to discard the changes\n4. Exit : to close the pop-up without closing\n5. Import : to import the allocation specified format\n6. Export : to export the specified import format for above.\n7. Wherein the DDL value for Import Duty Benefit Basis = Export Scheme,\n8. it will provide the Scroll no. for selection\n9. RoSCTL/RoDTEP scripts on the Duty script screen with status = Ready for Utilization\n10. As per the division tagged in the scroll, it will appear for selection in that division as per logged in division.\n11. System not allow to clubs RoSCTL/RoDTEP scroll together.\n12. Multiple License/Scroll allocation logic for reference\n13. These allocation details will be saved at backend at item/color/size/HSN level for further report purposes including the details at PO/Supplier PI/Production reference no./GRN level which will be used for export incentive reconciliation and will be to Sales ASN late",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "A utility tool is required in order to update the values at these three fields. “UPDATE INFO”",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "A utility tool is required in order to update the values at these three fields. “UPDATE INFO”",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Logs for all the updates is required to be maintained.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Logs for all the updates is required to be maintained.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Requirement 02 :-:\n1. A utility tool is required in order to update the values at these three fields. “UPDATE INFO”\n2. Logs for all the updates is required to be maintained.\n3. Its visibility should be controlled through user program permissions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Advance License Master – List:\n1. Need column to display the attached Supplier PI no. along with Production reference no. in bracket of the supplier pi against which this license have been attached.\n2. It will act as hyperlink where user can click and access PO Articlewise allocation details from the supplier PI list screen for that particular supplier PI.\n3. Its visibility to be controlled from Screen layout configurator",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 02 | Advance License Master – List",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "This would be generic i.e. if this column is enabled then this will appear here.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 03 | Advance Shipment Notice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 03 | Advance Shipment Notice:\n1. Order Type : Supplier PI\n2. While adding shipping details need column to filter the above “Transaction no.” in the Supplier PI list screen.\n3. This would be generic i.e. if this column is enabled then this will appear here.\n4. Sourcing ASN need to aligned with approver in order to get confirmed and aligned to appear in the BOE creation.\n5. All logistics related details will be updated below on ASN (No change only for reference)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 03 | Advance Shipment Notice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 03 | Advance Shipment Notice:\n1. Need an option in the Utility tool to generate BOE against the Advance shipment note\n2. Multiple ASN can be selected to generate the BOE\n3. BOE generation screen detailed below, Screen 04\n4. This utility tool should be controlled from User program permission.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 03 | Advance Shipment Notice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. This can only created against import ASN.\n2. Need a new screen to create a BILL OF ENTRY transaction in correspondence to facilitate for Indian statutory compliance requirements over import of goods.\n3. This screen will provide 5 segments :\n4. Header",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field Name, Behaviour, Description (3 rows)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 2",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Field Name, Behaviour, Description (10 rows; identifiers: Field Name)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Attributes, Description (12 rows; identifiers: Attributes)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "It will get auto-populated as soon as ASN is selected in the heade",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. Shipment Logistics Details\n2. Utility tools to Add and delete shipment will be available on this section, through which all the Import ASN for the above supplier against which BOE has not been generated will be available for selection.\n3. It will provide the ASN level logistics details for the all the attached ASNs.\n4. Below details for each ASN will be available in the columnar way\n5. Mother/Feeder Vessel no.:\n6. Voyage no.:\n7. Port of Loading:\n8. Port of Discharge:\n9. House B/L No.:\n10. Master B/L No.:\n11. Delivery Terms:\n12. ETD :\n13. ETA :\n14. House B/L Date:\n15. Master B/L Date:\n16. License no.\n17. Transaction no.(Supplier PI)\n18. Articlewise Import Duty Allocation details :\n19. It will provide a comprehensive Artcile+Color+Size+HSN details of the items in getting imported in the ASN.\n20. It will get auto-populated as soon as ASN is selected in the heade",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Attributes, Behaviour, Description (11 rows; identifiers: Attributes)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as the BOE no. and BOE date is attached, it should get auto synced at its corresponding ASN list fields i.e.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. Values for GST % and Amt at each line should be auto-filled when user will click on the Allocate GST Charges based on My billing address and Doc Type.\n2. Need a user level permission to make the HSN code editable at the above Articlewise Import duty allocation details section. It will be drop-down rendering valued from the HSN code master.\n3. Comments & Attachment : UI default behavior\n4. All section along with screen should be available through Screen layout configurator\n5. All sections along with screen should be flex-filed compatible\n6. All sections will have Freeze column feasibility.\n7. As soon as the BOE no. and BOE date is attached, it should get auto synced at its corresponding ASN list fields i.e. Custom Declaration no. ; Custom Declaration Date:",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Post GRN creation BOE cannot be cancelled",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. Utility tool required and should be available in the user program permissions :-\n2. New : to direct to BOE creation screen\n3. Save : in order to save any changes made from the list screen\n4. Cancel : to cancel the transaction. Post GRN creation BOE cannot be cancelled\n5. Revise : In order to revise the selected line. Post GRN creation BOE cannot be cancelled\n6. Log : to view details of all the saved changes in the default format\n7. Revision log: to view version wise changes on the selected line on each revision.\n8. Print / Bi Print : To extract the transaction details on pdf or printer\n9. Export to excel : Extract the complete details in excel\n10. Update flex fields : UI generic behavior, it will enlist all the flex-filed to update\n11. Required Columns :-",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: BOE No., It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket (31 rows; identifiers: BOE No.)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as BOE is updated to Confirmed status then system should automatically push to create a import duty payment entry based on the BOE in F&A Module.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as the BOE no. and BOE date is attached, it should get auto synced at the ASN no. fields i.e.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. As soon as BOE is updated to Confirmed status then system should automatically push to create a import duty payment entry based on the BOE in F&A Module.\n2. Its columns visibility to be controlled from Screen Layout Configurator\n3. As soon as the BOE no. and BOE date is attached, it should get auto synced at the ASN no. fields i.e. Custom Declaration no.:, Custom Declaration Date:",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as the BOE status is updated to confirmed and Scheme selection is Bank/Cash then a payment request will be triggered for the payment of the import custom duty agaisnt this BOE and the trigger date/BOE conifrmation date will be locked here",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. As soon as the BOE status is updated to confirmed and Scheme selection is Bank/Cash then a payment request will be triggered for the payment of the import custom duty agaisnt this BOE and the trigger date/BOE conifrmation date will be locked here\n2. The above BOE will start apprating in the outstanding screen GST tab in tax payment (handelling on tax payment detailed in below Screen 05).\n3. OOC No. and OOC date will become editable as soon as sent for payment date is filled",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Rest no change wherever the info is available will reflect otherwise will be blank.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. Any request pushed from the BOE List screen will start appearing on the tax payment screen for processing the payment of import duty.\n2. Attributes Specification:-\n3. Transaction Type : Import Duty payment\n4. GST Type : IGST\n5. Rest no change wherever the info is available will reflect otherwise will be blank.\n6. Workflow:-\n7. There will the payment processing workflow will be same, user can select the request and proceed for payment processing.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as the OOC No. and OOC date is update on the BOE the same will be available in the GST doc integration page for generation of Eway bill generation against the same.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as the Sourcing ASN is created and its BOE details (Number and Date) are updated that particular ASN will start appearing on the GST doc integration for generating a E-way bill generation against the same.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Doc type = Import Inbound",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Transaction Type = Port-to-warehouse Transfer",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Bill of entry:\n1. As soon as the OOC No. and OOC date is update on the BOE the same will be available in the GST doc integration page for generation of Eway bill generation against the same.\n2. So we need to handle the E-way bill generation through the Clear-Tax integration for Import Inbound – Port to Warehouse Transfer\n3. As soon as the Sourcing ASN is created and its BOE details (Number and Date) are updated that particular ASN will start appearing on the GST doc integration for generating a E-way bill generation against the same.\n4. Attributes :-\n5. Doc type = Import Inbound\n6. Transaction Type = Port-to-warehouse Transfer\n7. Update Transfer details : it will be used to update the vehicle details required for Eway bill\n8. Challan no./date : It will reflect the BOE no./date updated at the ASN list screen\n9. Rest all details are usual\n10. These transactions visibility will be controlled through GST event mapping.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Style Based Material Information is selected on style based individual material procurement request.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Selection of DBK and License Serial Number for Duty paid or License mode clearance calculation",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Query=>Shahi team to advise in color or width based clearance mode validation is required?",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Selection of DBK and License Serial Number for Duty paid or License mode clearance calculation",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "BCD = 54092.01",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Key Data Entry:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "DBK converted Rate will be based on DBK c=percentage of Garment FOB x Exchange rate i.e. 3.65 x 89.10 = 325.15 INR which comes to (3.25.15 x 3%) = 10.73",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under Duty Paid Clearance Mode: › RoSCTL",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Version, Created/Revised By, Created/Revised On, Changes (3 rows)",
+      "locator": "§ Section 5. Revision History, table 7",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "391947 - Import Logistics 220226",
+      "heading": "",
+      "text": "Software Requirements Specification\nImport Logistics - SHAHI\nVersion 1.1 ● 391947\n03 JAN 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nScreen 01 | Supplier Indent List 5\nScreen 02 | Advance License List 10\nScreen 03 | Advance Shipment Notice 11\nScreen 04 | Bill of entry 13\nScreen 05 | Tax Payment 21\nScreen 06 | GST Doc Integration 22\nSection 4. Glossary 23\nSection 5. Revision History 24",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Import Purchase.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Certainly, in order to make the UI more interactive and efficient with regards to Advance License sub-module Enhancement for import purchase.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "The Scope of these specs is to enhance the below screens:-\n• Supplier PI List\n• Advance license List\n• Souricng ASN New/List\n• BOE New/List\n• Tax Payment\n• Duty Script Movement",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 01 | Supplier Indent List",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List",
+      "text": "Path: Sourcing > Supplier PI > Supplier PI List",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List",
+      "kind": "section"
+    },
+    {
+      "title": "Requirement 01 :-",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 01 :-",
+      "text": "• Need an additional serial no. to be generated at supplier PI level.\n• Need the nomenclature composition to be configured from system coding\n• Its visibility should be controlled through Screen layout configurator.\n• Column Name : “Transaction No.”",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 01 :-",
+      "kind": "section"
+    },
+    {
+      "title": "Requirement 02 :-",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "• Need a column “Duty Claim”\n• Multi selection will be allowed,\n• when user choose Duty Exempt, it will enable the next column “Import Duty Benefit Basis” and populate “Advance License” for selection. (detailed below)\n• when user select Duty Paid, it will enable the above same column “Import Duty Benefit Basis” and populate “Export Scheme” for selection. (detailed below)\n• Where user select both Duty Free/Duty Paid it will select both license apportion along with its export scheme.\n• Columns visibility should be controlled through Screen layout configurator\n• Updated info in this memo will be saved through Update info utility tool (detailed below)\n• Column should be search feasibility.\n• Need a column “Import Duty Benefit Basis”,\n• Column visibility should be controlled through Screen layout configurator.\n• Wherein the DDL value for column Duty Claim as “Duty Exempt” then this will auto populate the value “Advance License” and will get freezed.\n• Wherein the DDL value for column Duty Claim as “Duty Paid” then this will provide the options to be selected by the user\n• Export Scheme\n• Cash/Bank\n• Multiple selection to be allowed.\n• Column should be search feasibility\n• Need a column “Import Duty Benefit Reference”,\n• By default it will show “ >>”\n• If the Import Duty Benefit Basis is selected and no reference is attached then this will get highlighted and will appear in “Red”",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "kind": "section"
+    },
+    {
+      "title": "Requirement 02 :-",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "• Soon after the allocation is successfully done than this “>>” will start showing the attached license/scroll no..\n• In case of multiple number it will show all the numbers through hovering over.\n• Columns visibility should be controlled through Screen layout configurator\n• It should support search feasibility.\n• Wherein the DDL value for Import Duty Benefit Basis = Advance License,\n• Through the above “>>” user can access pop window to attach the Articlewise allocation details.\n• “Import duty Benefit Basis” will provide a row splitter inorder to align multiple basis in one line.\n• “Import duty Benefit reference” will provide a row splitter inorder to align multiple license, scroll or both as the per the case.\n• User need to open this Divv and save the details\n• A Copy below tool is also required at each above column at line level\n• Required Columns:",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :- (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Requirement 02 :- – Table 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nPO Number | It will display the PO Number\nArticle | It will display the Article name from PO\nColor | It will display the color name from PO\nSize | It will display the size from PO\nQty | It will display its qty from PO\nRate | It will display its rate from PO\nValue | It will display its value from PO\nImport Duty Benefit Basis | Advance License / Export Scheme\nImport Duty Benefit reference | License no./RoSCTL/RoDTEP\nSanctioned SQM/Value | It will get the render the total value as per license master/Scrip\nApportioned SQM/Value | It will display the total value of already consumed license value/Scrip under the criteria\nAvailable SQM/Value | It will show the sanctioned value – apportioned value for the criteria\nUtilized SQM/Value | It will auto populate the required value as per the line criteria subject to that the available value should be there, if not then it will populate available value (refer Multi License/scroll allocation sheet)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: PO Number; Description: It will display the PO Number",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Article; Description: It will display the Article name from PO",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Color; Description: It will display the color name from PO",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Size; Description: It will display the size from PO",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Qty; Description: It will display its qty from PO",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Rate; Description: It will display its rate from PO",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Value; Description: It will display its value from PO",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Import Duty Benefit Basis; Description: Advance License / Export Scheme",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Import Duty Benefit reference; Description: License no./RoSCTL/RoDTEP",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Sanctioned SQM/Value; Description: It will get the render the total value as per license master/Scrip",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 11",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Apportioned SQM/Value; Description: It will display the total value of already consumed license value/Scrip under the criteria",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 12",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Available SQM/Value; Description: It will show the sanctioned value – apportioned value for the criteria",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 13",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "Attributes: Utilized SQM/Value; Description: It will auto populate the required value as per the line criteria subject to that the available value should be there, if not then it will populate available value (refer Multi License/scroll allocation sheet)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Requirement 02 :-",
+      "heading": "Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "text": "• Required Utility tools:-\n• Save : to save the changes\n• Discard : to discard the changes\n• Exit : to close the pop-up without closing\n• Import : to import the allocation specified format\n• Export : to export the specified import format for above.\n• Wherein the DDL value for Import Duty Benefit Basis = Export Scheme,\n• it will provide the Scroll no. for selection\n• RoSCTL/RoDTEP scripts on the Duty script screen with status = Ready for Utilization\n• As per the division tagged in the scroll, it will appear for selection in that division as per logged in division.\n• System not allow to clubs RoSCTL/RoDTEP scroll together.\n• Multiple License/Scroll allocation logic for reference\n• These allocation details will be saved at backend at item/color/size/HSN level for further report purposes including the details at PO/Supplier PI/Production reference no./GRN level which will be used for export incentive reconciliation and will be to Sales ASN late\nRequirement 03 :-\n• A utility tool is required in order to update the values at these three fields. “UPDATE INFO”\n• Logs for all the updates is required to be maintained.\n• Its visibility should be controlled through user program permissions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 01 | Supplier Indent List › … › Requirement 02 :-",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Advance License Master – List",
+      "heading": "Section 3. Functional Requirement Description › Screen 02 | Advance License Master – List",
+      "text": "Path: Sales > Advance License > List\n• Need column to display the attached Supplier PI no. along with Production reference no. in bracket of the supplier pi against which this license have been attached.\n• It will act as hyperlink where user can click and access PO Articlewise allocation details from the supplier PI list screen for that particular supplier PI.\n• Its visibility to be controlled from Screen layout configurator",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 02 | Advance License Master – List",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Advance Shipment Notice",
+      "heading": "Section 3. Functional Requirement Description › Screen 03 | Advance Shipment Notice",
+      "text": "Path: Sourcing > Charge backs > Sourcing ASN > New / List\nRequirement 01 :-\n• Order Type : Supplier PI\n• While adding shipping details need column to filter the above “Transaction no.” in the Supplier PI list screen.\n• This would be generic i.e. if this column is enabled then this will appear here.\n• Sourcing ASN need to aligned with approver in order to get confirmed and aligned to appear in the BOE creation.\n• All logistics related details will be updated below on ASN (No change only for reference)\nRequirement 02 :-\n• Need an option in the Utility tool to generate BOE against the Advance shipment note\n• Multiple ASN can be selected to generate the BOE\n• BOE generation screen detailed below, Screen 04\n• This utility tool should be controlled from User program permission.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 03 | Advance Shipment Notice",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "To be Path: Sourcing > Bill of Entry > New / List\nRequirement 01 :- New\n• This can only created against import ASN.\n• Need a new screen to create a BILL OF ENTRY transaction in correspondence to facilitate for Indian statutory compliance requirements over import of goods.\n• This screen will provide 5 segments :\n• Header",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry – Table 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Columns: Field Name (text); Behaviour (text); Description (text)\nField Name | Behaviour | Description\nSupplier | Dropdown | It will enlist all foreign suppliers with existing import order.\nBOE No. | User input | It will be input by the user while creating the BOE or else later from the BOE list screen.\nBOE Date | Conditional editable | It will become editable on putting BOE no. and It will be input by the user while creating the BOE or else later from the list screen",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: Supplier; Behaviour: Dropdown; Description: It will enlist all foreign suppliers with existing import order.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: BOE No.; Behaviour: User input; Description: It will be input by the user while creating the BOE or else later from the BOE list screen.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: BOE Date; Behaviour: Conditional editable; Description: It will become editable on putting BOE no. and It will be input by the user while creating the BOE or else later from the list screen",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "• Bill of Entry Information",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry – Table 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Columns: Field Name (text); Behaviour (text); Description (text)\nField Name | Behaviour | Description\nInvoice no. | Text box | It will be text box with alphanumeric compatibility to input supplier invoice number.\nAuthorized Dealer Code | Dropdown | It will provide list from bank master\nMy Billing Address | Dropdown | It will provide list of all recipient billing address\nDocument Type | Fixed / Read-only | it will be freezed and by default = Import\nAllocate GST Charges | System-driven | it will follow the ongoing generic behavior call the GST tax template based on the above My billing Address + Document type\nIGM No. | Text box | It will be text box with alphanumeric compatibility, default 50 digit limit where no duplicacy should be allowed\nIGM Date | Date selection | it will be provide user to attach date\nIGCR Bond no. | Text box | It will be text box with alphanumeric compatibility to input IGCR bond no. under which import license for concessional rate.\nLicense Details | hyperlink | (Detailed below)\nPort Of Discharge/Delivery | Dropdown | It will provide list of Port from Port master",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: Invoice no.; Behaviour: Text box; Description: It will be text box with alphanumeric compatibility to input supplier invoice number.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: Authorized Dealer Code; Behaviour: Dropdown; Description: It will provide list from bank master",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: My Billing Address; Behaviour: Dropdown; Description: It will provide list of all recipient billing address",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: Document Type; Behaviour: Fixed / Read-only; Description: it will be freezed and by default = Import",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: Allocate GST Charges; Behaviour: System-driven; Description: it will follow the ongoing generic behavior call the GST tax template based on the above My billing Address + Document type",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: IGM No.; Behaviour: Text box; Description: It will be text box with alphanumeric compatibility, default 50 digit limit where no duplicacy should be allowed",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: IGM Date; Behaviour: Date selection; Description: it will be provide user to attach date",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: IGCR Bond no.; Behaviour: Text box; Description: It will be text box with alphanumeric compatibility to input IGCR bond no. under which import license for concessional rate.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: License Details; Behaviour: hyperlink; Description: (Detailed below)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Field Name: Port Of Discharge/Delivery; Behaviour: Dropdown; Description: It will provide list of Port from Port master",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "License Details:\n• It will provide the license consumption details",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry – Table 4",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nASN no. | It will display the ASN no. (with hyper link to access the ASN detail view\nOrder no. | It will display the PO no. (with hyper link to access the PO detail view\nArticle | It will display article name\nArticle Description | This will be manual input alphanumeric field with maximum count of 200 alphabets\nColor | It will display color name from the ASN\nSize | It will display size name from the ASN\nUOM | It will display UOM from the ASN\nASN Qty | It will display the line Qty from the ASN\nLicense no. | It will display the license no. associated to line from the Import Duty Benefit Reference details above.\nNeed a use permission to make it editable in the form of drop to select any other license no associating to that Article color size UOM combination.\nLicense Qty (Sq Mtrs) | It will auto-populate from PO Articlewise allocation details on Supplier PI list screen\n(Available SQM)\nASN Qty (Sq Mtrs) | It will auto-populate from PO Articlewise allocation details on Supplier PI list screen\n(Utilized SQM)\nLicense Utilized Value | ASN Qty Sq mtrs * rate (from the license master of that particular article/color/size )",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: ASN no.; Description: It will display the ASN no. (with hyper link to access the ASN detail view",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Order no.; Description: It will display the PO no. (with hyper link to access the PO detail view",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Article; Description: It will display article name",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Article Description; Description: This will be manual input alphanumeric field with maximum count of 200 alphabets",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Color; Description: It will display color name from the ASN",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Size; Description: It will display size name from the ASN",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: UOM; Description: It will display UOM from the ASN",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: ASN Qty; Description: It will display the line Qty from the ASN",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 9",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: License no.; Description: It will display the license no. associated to line from the Import Duty Benefit Reference details above.\nNeed a use permission to make it editable in the form of drop to select any other license no associating to that Article color size UOM combination.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 10",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: License Qty (Sq Mtrs); Description: It will auto-populate from PO Articlewise allocation details on Supplier PI list screen\n(Available SQM)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 11",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: ASN Qty (Sq Mtrs); Description: It will auto-populate from PO Articlewise allocation details on Supplier PI list screen\n(Utilized SQM)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 12",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: License Utilized Value; Description: ASN Qty Sq mtrs * rate (from the license master of that particular article/color/size )",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 4, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "• Shipment Logistics Details\n• Utility tools to Add and delete shipment will be available on this section, through which all the Import ASN for the above supplier against which BOE has not been generated will be available for selection.\n• It will provide the ASN level logistics details for the all the attached ASNs.\n• Below details for each ASN will be available in the columnar way\n• Mother/Feeder Vessel no.:\n• Voyage no.:\n• Port of Loading:\n• Port of Discharge:\n• House B/L No.:\n• Master B/L No.:\n• Delivery Terms:\n• ETD :\n• ETA :\n• House B/L Date:\n• Master B/L Date:\n• License no.\n• Transaction no.(Supplier PI)\n• Articlewise Import Duty Allocation details :\n• It will provide a comprehensive Artcile+Color+Size+HSN details of the items in getting imported in the ASN.\n• It will get auto-populated as soon as ASN is selected in the heade",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry – Table 5",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Columns: Attributes (text); Behaviour (text); Description (text)\nAttributes | Behaviour | Description\nASN No. | Display | It will provide the ASN No.\nArticle | Display | It will provide the Article Name\nHSN Code | Display | HSN Code\nColor | Display | Color\nSize | Display | Size\nValue (Transaction Currency) | Display | Value of the line in invoice at transaction currency (ASN Currency)\nValue (Company Currency) | Display | Value of the line in invoice at Company currency\nCustom Duty (Company Currency) | User input | It will be user input field. In company currency\nTaxable Value | System calculated / Editable | It will show the sum (Value in Company Currency + Custom Duty) It will be editable\n% IGST INPUT | System derived / Editable | This will reflect the applicable HSN % for the above HSN from the GST Tax Mapping = Purchase = Inter-state It will be editable\nAmt IGST INPUT | System calculated / Editable | It will show the Multiplicated value of (Taxable Value * % IGST INPUT) It will be Editable",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: ASN No.; Behaviour: Display; Description: It will provide the ASN No.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Article; Behaviour: Display; Description: It will provide the Article Name",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: HSN Code; Behaviour: Display; Description: HSN Code",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Color; Behaviour: Display; Description: Color",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Size; Behaviour: Display; Description: Size",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Value (Transaction Currency); Behaviour: Display; Description: Value of the line in invoice at transaction currency (ASN Currency)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Value (Company Currency); Behaviour: Display; Description: Value of the line in invoice at Company currency",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 8",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Custom Duty (Company Currency); Behaviour: User input; Description: It will be user input field. In company currency",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 9",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Taxable Value; Behaviour: System calculated / Editable; Description: It will show the sum (Value in Company Currency + Custom Duty) It will be editable",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 10",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: % IGST INPUT; Behaviour: System derived / Editable; Description: This will reflect the applicable HSN % for the above HSN from the GST Tax Mapping = Purchase = Inter-state It will be editable",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 11",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Attributes: Amt IGST INPUT; Behaviour: System calculated / Editable; Description: It will show the Multiplicated value of (Taxable Value * % IGST INPUT) It will be Editable",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 5, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "• Values for GST % and Amt at each line should be auto-filled when user will click on the Allocate GST Charges based on My billing address and Doc Type.\n• Need a user level permission to make the HSN code editable at the above Articlewise Import duty allocation details section. It will be drop-down rendering valued from the HSN code master.\n• Comments & Attachment : UI default behavior\n• All section along with screen should be available through Screen layout configurator\n• All sections along with screen should be flex-filed compatible\n• All sections will have Freeze column feasibility.\n• As soon as the BOE no. and BOE date is attached, it should get auto synced at its corresponding ASN list fields i.e. Custom Declaration no. ; Custom Declaration Date:\nRequirement 02 :- List\n• Utility tool required and should be available in the user program permissions :-\n• New : to direct to BOE creation screen\n• Save : in order to save any changes made from the list screen\n• Cancel : to cancel the transaction. Post GRN creation BOE cannot be cancelled\n• Revise : In order to revise the selected line. Post GRN creation BOE cannot be cancelled\n• Log : to view details of all the saved changes in the default format\n• Revision log: to view version wise changes on the selected line on each revision.\n• Print / Bi Print : To extract the transaction details on pdf or printer",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "• Export to excel : Extract the complete details in excel\n• Update flex fields : UI generic behavior, it will enlist all the flex-filed to update\n• Required Columns :-",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry – Table 6",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "Columns: BOE No. (text); It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket (text)\nBOE No. | It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket\nBOE Date | It should become editable upon putting above BOE no., until its GRN creation.\nIt should allow to put date of BOE issuance from ice-gate.\nEach update should be recorded in the log\nPort Code | It will sync the “PORT OF DISCHAGE’ value from the transaction\nOrigin | It will sync the “PORT OF LOADING” value from the transaction\nSupplier Name | It will sync the “SUPPLIER” value from the transaction.\nInvoice | It will sync the “INVOICE NO.” value from the transaction.\nNo Delicacy allowed at supplier bracket\nInvoice Value(Inr) | It will sync the “Value in company currency” from the transaction.\nAttachments | It will access to all the attachments in the transactions\nChallan# | \nGSTIN# | It will be sync the “MY BILLING ADDRESS“ GSTIN no.\nBasic Custom Duty | It will be sync total of “CUSTOM DUTY PAYABLE” from the transactions\nSocial Welfare Surcharge | It will be sync total of “SOCIAL WELFARE” from the transactions\nAnit Dumping Duty | It will be sync total of “ANTI DUMPING DUTY” from the transactions\nTotal IGST | It will be sync total of “IGST INPUT AMOUNT” from the transactions\nActual IGST | It will be a user input field where user will put the actual input to be paid as per Ice-gate.\nIt will get freezed post payment is done\nInterest on IGST | It will be linked to additional charge TaxSubCategory = GST Interest\nIt will be editable and user can input here the interest paid.\nIt will get freezed post payment is done\nPenalty Amount | It will be linked to additional charge TaxSubCategory = GST Penalty\nIt will be editable and user can input here the interest paid.\nIt will get freezed post payment is done\nRemarks | It will sync the comments details from the transaction\nSent for Payment | It will be blank\nIt will reflect the date on which the system auto-trigger the import duty payment drat in F&A Module (detailed below in Screen 04, requirement 03)\nDivision Name | it will be reflect the name of the division in which the BOE is created\nFlex field | UI generic behaviour\n… 11 more rows",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: BOE Date; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It should become editable upon putting above BOE no., until its GRN creation.\nIt should allow to put date of BOE issuance from ice-gate.\nEach update should be recorded in the log",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Port Code; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will sync the “PORT OF DISCHAGE’ value from the transaction",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Origin; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will sync the “PORT OF LOADING” value from the transaction",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Supplier Name; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will sync the “SUPPLIER” value from the transaction.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Invoice; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will sync the “INVOICE NO.” value from the transaction.\nNo Delicacy allowed at supplier bracket",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 6",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Invoice Value(Inr); It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will sync the “Value in company currency” from the transaction.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 7",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Attachments; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will access to all the attachments in the transactions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 8",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Challan#",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 9",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: GSTIN#; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be sync the “MY BILLING ADDRESS“ GSTIN no.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 10",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Basic Custom Duty; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be sync total of “CUSTOM DUTY PAYABLE” from the transactions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 11",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Social Welfare Surcharge; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be sync total of “SOCIAL WELFARE” from the transactions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 12",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Anit Dumping Duty; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be sync total of “ANTI DUMPING DUTY” from the transactions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 13",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Total IGST; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be sync total of “IGST INPUT AMOUNT” from the transactions",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 14",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Actual IGST; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be a user input field where user will put the actual input to be paid as per Ice-gate.\nIt will get freezed post payment is done",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 15",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Interest on IGST; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be linked to additional charge TaxSubCategory = GST Interest\nIt will be editable and user can input here the interest paid.\nIt will get freezed post payment is done",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 16",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Penalty Amount; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be linked to additional charge TaxSubCategory = GST Penalty\nIt will be editable and user can input here the interest paid.\nIt will get freezed post payment is done",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 17",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Remarks; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will sync the comments details from the transaction",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 18",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Sent for Payment; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be blank\nIt will reflect the date on which the system auto-trigger the import duty payment drat in F&A Module (detailed below in Screen 04, requirement 03)",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 19",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Division Name; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: it will be reflect the name of the division in which the BOE is created",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 20",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Flex field; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: UI generic behaviour",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 21",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Out-of-Charge No.; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will be enabled post the only for the files where the SENT TO PAYMENT dates have been filed.\nIt will provide an alphanumeric textbox for user to input the OCC number generated at icegate.\nNo duplicasy allowed.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 22",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Out-of-charge date; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will get enabled from above OOC no. values filled and allow user to put OOC date",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 23",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Status; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: Save : UI generic behavior, BOE will be saved as draft.\nWaiting: BOE confirmed but BOE no. and date not updated.\nConfirmed : BOE is confirmed and BOE no. is attached",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 24",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Created on; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will store the created on date of the BOE",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 25",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Created by; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will store the created by username of the BOE",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 26",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Confirmed on; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will store the confirmed on date of the BOE",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 27",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Confirmed by; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will store the confirmed by username of the BOE",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 28",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Payment date & time; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will reflect the payment date of the above BOE request has been paid",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 29",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Payment no.; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: It will reflect the payment voucher no. and will act a hyperlink to access the payment voucher view",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 30",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Import Duty Benefit Basis; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: This will reflect the Scheme selection made by the user at the supplier PI screen (Advance License/Export scheme /BANK)\nIt will only be visible for reference and will be uneditable.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 31",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "BOE No.: Export Scheme Details; It will be editable until its GRN creation\nshould allow to enter 18-digit numeric BOE no. generated over ice-gate\nEach update should be recorded in the log\nNo Duplicacy allowed at Port Bracket: Through option user will be able to access the above attached Scroll details at PI level re confirm it here",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry, table 6, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "• As soon as BOE is updated to Confirmed status then system should automatically push to create a import duty payment entry based on the BOE in F&A Module.\n• Its columns visibility to be controlled from Screen Layout Configurator\n• As soon as the BOE no. and BOE date is attached, it should get auto synced at the ASN no. fields i.e. Custom Declaration no.:, Custom Declaration Date:\nRequirement 03 :- List\n• As soon as the BOE status is updated to confirmed and Scheme selection is Bank/Cash then a payment request will be triggered for the payment of the import custom duty agaisnt this BOE and the trigger date/BOE conifrmation date will be locked here\n• The above BOE will start apprating in the outstanding screen GST tab in tax payment (handelling on tax payment detailed in below Screen 05).\n• OOC No. and OOC date will become editable as soon as sent for payment date is filled\nScreen 05 | Tax Payment\nPath : FA >> Taxation & Compliances >> Tax Payment >> New\nRequirement :-\n• Any request pushed from the BOE List screen will start appearing on the tax payment screen for processing the payment of import duty.\n• Attributes Specification:-\n• Transaction Type : Import Duty payment\n• GST Type : IGST\n• Rest no change wherever the info is available will reflect otherwise will be blank.\n• Workflow:-",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Bill of entry",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry",
+      "text": "• There will the payment processing workflow will be same, user can select the request and proceed for payment processing.\nScreen 06 | GST Doc Integration\nPath: FA > GST Doc integration\nRequirement :-\n• As soon as the OOC No. and OOC date is update on the BOE the same will be available in the GST doc integration page for generation of Eway bill generation against the same.\n• So we need to handle the E-way bill generation through the Clear-Tax integration for Import Inbound – Port to Warehouse Transfer\n• As soon as the Sourcing ASN is created and its BOE details (Number and Date) are updated that particular ASN will start appearing on the GST doc integration for generating a E-way bill generation against the same.\n• Attributes :-\n• Doc type = Import Inbound\n• Transaction Type = Port-to-warehouse Transfer\n• Update Transfer details : it will be used to update the vehicle details required for Eway bill\n• Challan no./date : It will reflect the BOE no./date updated at the ASN list screen\n• Rest all details are usual\n• These transactions visibility will be controlled through GST event mapping.\nScreen 07 | Merchant Sheet – Duty vs License Clearance\nDuty vs License Clearance screen is used to decide which clearance mode to be used for import shipments.\nThis function covers below information:",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Selection of DBK and License Serial Number for Duty paid or License mode clearance calculation",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Selection of DBK and License Serial Number for Duty paid or License mode clearance calculation",
+      "text": "Style Based Material Information is selected on style based individual material procurement request. In WFX, User Indent List will be used for this purpose.\nQuery=>Shahi team to advise in color or width based clearance mode validation is required?\nUser Indent List\nUser will select style based material line and click on “Duty vs License Clearance” link.\nOn Click on “Duty vs License Clearance” Button, system will open similar screen in WFX with below listed fields.\nQuery=>Impact of other fields on calculation yet to be clarified by Shahi team.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Selection of DBK and License Serial Number for Duty paid or License mode clearance calculation",
+      "kind": "section"
+    },
+    {
+      "title": "Key Data Entry:",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Key Data Entry:",
+      "text": "Imp. Ex Rate: Import Exchange Rate to be entered\nImp Item HS Code: Import Item HSCODE will be selected by user for Material. WFX to have Import HSCODE master to facilitate this.\nImp HSCODE %: Import duty % will be auto populated based on HSCODE Selected.\nBCD (Basic Custom Duty): This value will be auto populated based on “Fabric Qty” * Fabric Price Per Yrd/ Mtr” * “Imp Ex Rate” i.e. in this case is\n1747 x 3.41 x 90.80 = 540920.11\nBCD = 54092.01",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › … › Key Data Entry:",
+      "kind": "section"
+    },
+    {
+      "title": "Selection on Value under Duty Paid Clearance Mode:",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under Duty Paid Clearance Mode:",
+      "text": "In this screen, values under field number 27, 31 & 35 will be selected by user based on serial number applicable for this import which is based on garment type and material type. These serial number will list from Chapter master data recorded in WFX. Refer sample below:",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under Duty Paid Clearance Mode:",
+      "kind": "section"
+    },
+    {
+      "title": "RoSCTL",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under Duty Paid Clearance Mode: › RoSCTL",
+      "text": "Other Fields will be auto populated based on Serial number selected.\nFor example,\nDBK Rate (INR) will auto populate based on serial chapter i.e. 3.3%.\nDBK converted Rate will be based on DBK c=percentage of Garment FOB x Exchange rate i.e. 3.65 x 89.10 = 325.15 INR which comes to (3.25.15 x 3%) = 10.73\nDBK Cap Value will auto populate as per Serial Number Selected.\nLowest of DBK Converted rate and Cap value will be considered for calculation.",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under Duty Paid Clearance Mode: › RoSCTL",
+      "kind": "section"
+    },
+    {
+      "title": "Selection on Value under License (SAAS) Clearance Mode:",
+      "heading": "Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under License (SAAS) Clearance Mode:",
+      "text": "Method of fields value selection and calculation will be the same as “Duty Paid” mode. However, Serial numbers for selection will be driven from SAAS chapter.\nBased on above value final summary will be populated as below.\nSummary of Clearance Mode Selection\nQuery=>Calculation of Net amount yet to be clarified by Shahi team.\nBased on conclusion, system will auto populate mode of clearance in “Supplier PI list” under column “Import Duty Claim”. User will be able to change if required",
+      "locator": "§ Section 3. Functional Requirement Description › Screen 04 | Bill of entry › Selection on Value under License (SAAS) Clearance Mode:",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Glossary",
+      "heading": "Section 4. Glossary",
+      "text": "• No Glossary",
+      "locator": "§ Section 4. Glossary",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5. Revision History – Table 7",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Created/Revised By (text); Created/Revised On (text); Changes (text)\nVersion | Created/Revised By | Created/Revised On | Changes\n1.0 | Kalpesh Sharma | 03rd JAN 2026 | Initial document created.\n1.1 | Kalpesh Sharma | 09rd JAN 2026 | Document revised\n1.2 | Kalpesh Sharma | 23rd Feb 2026 | Document updated post client discussion",
+      "locator": "§ Section 5. Revision History, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 03rd JAN 2026; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.1; Created/Revised By: Kalpesh Sharma; Created/Revised On: 09rd JAN 2026; Changes: Document revised",
+      "locator": "§ Section 5. Revision History, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.2; Created/Revised By: Kalpesh Sharma; Created/Revised On: 23rd Feb 2026; Changes: Document updated post client discussion",
+      "locator": "§ Section 5. Revision History, table 7, row 3",
+      "kind": "data_row"
+    }
+  ]
+}

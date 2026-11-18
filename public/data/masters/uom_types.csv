@@ -1,0 +1,4 @@
+﻿id,group_name,name,option_value,definition,where_used,example
+uom-storage,UOM,Storage UOM,,"The unit in which the material is kept and counted in stock (warehouse, GRN, issue). Stock balances are held in this unit.",Raw material techpack,Fabric stored in KG_Nis.
+uom-consumption,UOM,Consumption UOM,,"The unit in which the BOM states how much of the material one garment uses (Cons Qty, Final Consumption).",BOM Materials,Fabric consumed in meter per garment.
+uom-purchase,UOM,Purchase UOM,,"The unit in which the material is bought from the supplier (RMPO, price). When it differs from the Consumption UOM a conversion factor turns the purchase price into the Cons UOM Price.","Raw material techpack, RMPO","Fabric bought in KG_Nis, consumed in meter: Cons UOM Price = Purchase Price × Conversion Factor."

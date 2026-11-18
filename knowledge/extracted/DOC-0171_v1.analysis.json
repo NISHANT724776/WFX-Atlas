@@ -1,0 +1,262 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Technology",
+        "Version",
+        "Purpose"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Technology"
+      ],
+      "rows": [
+        [
+          "**Angular**",
+          "21.2.x",
+          "Core framework (Zoneless, Signals-driven state)"
+        ],
+        [
+          "**Nx**",
+          "22.6.x",
+          "Monorepo orchestration, module boundaries, build caching"
+        ],
+        [
+          "**pnpm**",
+          "10.33.0",
+          "Ultra-fast package manager (symlinked `node_modules`)"
+        ],
+        [
+          "**PrimeNG**",
+          "21.1.3",
+          "Enterprise UI library (Styled Mode with Aura preset)"
+        ],
+        [
+          "**AG Grid Enterprise**",
+          "35.2.0",
+          "High-performance data grid with inline editing"
+        ],
+        [
+          "**Native Federation**",
+          "21.2.x",
+          "Micro-frontend foundation (Angular 15 + React support planned)"
+        ],
+        [
+          "**Tailwind CSS**",
+          "4.2.2",
+          "Utility-first CSS (integrated via `@apply` in SCSS)"
+        ],
+        [
+          "**TypeScript**",
+          "5.9.3",
+          "Strict mode enabled (`noImplicitAny`, `strictNullChecks`)"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "WFX ARCHITECTURE BLUEPRINT",
+  "keyTerms": [
+    "grid",
+    "layer",
+    "primeng",
+    "mode",
+    "tailwind",
+    "css",
+    "scss",
+    "color",
+    "preset",
+    "theme",
+    "layer tailwind",
+    "grid cols",
+    "color var",
+    "design",
+    "utilities"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Technology, Version, Purpose (8 rows; identifiers: Technology)",
+      "locator": "§ … › 1. Technology Stack, table 1",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Tailwind is used **only** for layout and responsive design:",
+      "locator": "§ … › 2. Design System & Theming › Layer 2: Tailwind CSS",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "All component styles follow **BEM** (Block Element Modifier):",
+      "locator": "§ … › 2. Design System & Theming › Layer 3: SCSS + BEM",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": ".wfx-sales-order {\n  // Block\n  &__header {\n    // Element\n    font-size: 1.5rem;\n  }\n\n  &__input--error {\n    // Element + Modifier\n    border-color: red;\n  }\n}",
+      "locator": "§ … › 2. Design System & Theming › Layer 3: SCSS + BEM",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dark Mode:\n1. **Light Mode**: No class on `<html>`.\n2. **Dark Mode**: `.wfx-dark` class on `<html>`.\n3. Service: `WfxThemeService` toggles the class.",
+      "locator": "§ … › 2. Design System & Theming › Dark Mode",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "1. Technology Stack – Table 1",
+      "heading": "… › 1. Technology Stack",
+      "text": "Columns: Technology (text); Version (text); Purpose (text)\nTechnology | Version | Purpose\n**Angular** | 21.2.x | Core framework (Zoneless, Signals-driven state)\n**Nx** | 22.6.x | Monorepo orchestration, module boundaries, build caching\n**pnpm** | 10.33.0 | Ultra-fast package manager (symlinked `node_modules`)\n**PrimeNG** | 21.1.3 | Enterprise UI library (Styled Mode with Aura preset)\n**AG Grid Enterprise** | 35.2.0 | High-performance data grid with inline editing\n**Native Federation** | 21.2.x | Micro-frontend foundation (Angular 15 + React support planned)\n**Tailwind CSS** | 4.2.2 | Utility-first CSS (integrated via `@apply` in SCSS)\n**TypeScript** | 5.9.3 | Strict mode enabled (`noImplicitAny`, `strictNullChecks`)",
+      "locator": "§ … › 1. Technology Stack, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **Angular**; Version: 21.2.x; Purpose: Core framework (Zoneless, Signals-driven state)",
+      "locator": "§ … › 1. Technology Stack, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **Nx**; Version: 22.6.x; Purpose: Monorepo orchestration, module boundaries, build caching",
+      "locator": "§ … › 1. Technology Stack, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **pnpm**; Version: 10.33.0; Purpose: Ultra-fast package manager (symlinked `node_modules`)",
+      "locator": "§ … › 1. Technology Stack, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **PrimeNG**; Version: 21.1.3; Purpose: Enterprise UI library (Styled Mode with Aura preset)",
+      "locator": "§ … › 1. Technology Stack, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **AG Grid Enterprise**; Version: 35.2.0; Purpose: High-performance data grid with inline editing",
+      "locator": "§ … › 1. Technology Stack, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **Native Federation**; Version: 21.2.x; Purpose: Micro-frontend foundation (Angular 15 + React support planned)",
+      "locator": "§ … › 1. Technology Stack, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **Tailwind CSS**; Version: 4.2.2; Purpose: Utility-first CSS (integrated via `@apply` in SCSS)",
+      "locator": "§ … › 1. Technology Stack, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "… › 1. Technology Stack",
+      "text": "Technology: **TypeScript**; Version: 5.9.3; Purpose: Strict mode enabled (`noImplicitAny`, `strictNullChecks`)",
+      "locator": "§ … › 1. Technology Stack, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "1. Technology Stack",
+      "heading": "… › 1. Technology Stack",
+      "text": "---",
+      "locator": "§ … › 1. Technology Stack",
+      "kind": "section"
+    },
+    {
+      "title": "Three-Layer UI Architecture",
+      "heading": "… › 2. Design System & Theming › Three-Layer UI Architecture",
+      "text": "┌────────────────────────────────┐\n│   1. PrimeNG Design Tokens     │  ← Core look & feel (colors, spacing, typography)\n└────────────────────────────────┘\n               ↓\n┌────────────────────────────────┐\n│   2. Tailwind 4 Utilities      │  ← Layout & responsive utilities\n└────────────────────────────────┘\n               ↓\n┌────────────────────────────────┐\n│   3. SCSS Organization (BEM)   │  ← Component-specific styles\n└────────────────────────────────┘",
+      "locator": "§ … › 2. Design System & Theming › Three-Layer UI Architecture",
+      "kind": "section"
+    },
+    {
+      "title": "Layer 1: PrimeNG Styled Mode",
+      "heading": "… › 2. Design System & Theming › Layer 1: PrimeNG Styled Mode",
+      "text": "We use a **custom Aura-based preset** (`wfx-preset.ts`):\n• Defines color palettes, spacing scale, border radii, shadows.\n• Applied globally via `providePrimeNG({ theme: { preset: WFX_PRESET } })`.",
+      "locator": "§ … › 2. Design System & Theming › Layer 1: PrimeNG Styled Mode",
+      "kind": "section"
+    },
+    {
+      "title": "Layer 2: Tailwind CSS",
+      "heading": "… › 2. Design System & Theming › Layer 2: Tailwind CSS",
+      "text": "Tailwind is used **only** for layout and responsive design:\n• We use `@apply` in SCSS (not inline classes in HTML).\n• Example:\n```scss .wfx-form-grid { @apply grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3; } ```",
+      "locator": "§ … › 2. Design System & Theming › Layer 2: Tailwind CSS",
+      "kind": "section"
+    },
+    {
+      "title": "Layer 3: SCSS + BEM",
+      "heading": "… › 2. Design System & Theming › Layer 3: SCSS + BEM",
+      "text": "All component styles follow **BEM** (Block Element Modifier):\n.wfx-sales-order {\n  // Block\n  &__header {\n    // Element\n    font-size: 1.5rem;\n  }\n\n  &__input--error {\n    // Element + Modifier\n    border-color: red;\n  }\n}",
+      "locator": "§ … › 2. Design System & Theming › Layer 3: SCSS + BEM",
+      "kind": "section"
+    },
+    {
+      "title": "Dark Mode",
+      "heading": "… › 2. Design System & Theming › Dark Mode",
+      "text": "Controlled globally via a CSS class:\n• **Light Mode**: No class on `<html>`.\n• **Dark Mode**: `.wfx-dark` class on `<html>`.\n• Service: `WfxThemeService` toggles the class.",
+      "locator": "§ … › 2. Design System & Theming › Dark Mode",
+      "kind": "section"
+    },
+    {
+      "title": "CSS Layer Ordering",
+      "heading": "… › 2. Design System & Theming › CSS Layer Ordering",
+      "text": "We use `@layer` to control specificity:\n@import 'tailwindcss/base' layer(tailwind-base);\n@import 'primeng/resources/primeng.css' layer(primeng);\n@import 'tailwindcss/utilities' layer(tailwind-utilities);\n@import './wfx-overrides.scss' layer(wfx-overrides);\n---",
+      "locator": "§ … › 2. Design System & Theming › CSS Layer Ordering",
+      "kind": "section"
+    },
+    {
+      "title": "Custom Theme: `ag-theme-wfx`",
+      "heading": "… › 3. AG Grid Integration › Custom Theme: `ag-theme-wfx`",
+      "text": "We created a custom AG Grid theme that inherits from **Quartz** and maps to our PrimeNG design tokens.\n.ag-theme-wfx {\n  --ag-background-color: var(--p-surface-0);\n  --ag-foreground-color: var(--p-text-color);\n  --ag-border-color: var(--p-surface-border);\n}",
+      "locator": "§ … › 3. AG Grid Integration › Custom Theme: `ag-theme-wfx`",
+      "kind": "section"
+    },
+    {
+      "title": "Grid Configuration Example",
+      "heading": "… › 3. AG Grid Integration › Grid Configuration Example",
+      "text": "columnDefs: ColDef[] = [\n  {\n    field: 'orderNumber',\n    cellClass: 'wfx-cell-editable',\n    editable: true\n  }\n];",
+      "locator": "§ … › 3. AG Grid Integration › Grid Configuration Example",
+      "kind": "section"
+    }
+  ]
+}

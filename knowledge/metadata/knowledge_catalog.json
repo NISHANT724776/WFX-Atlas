@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-11-18T09:02:26.025Z",
+  "hierarchy": "WFX ERP › Modules › Submodules › Transactions › (fields, rules, calculations, validations, workflows, data models, dependencies, examples, FAQs)",
+  "modules": [
+    {
+      "id": "MOD-BOOKING",
+      "name": "Booking & sourcing"
+    },
+    {
+      "id": "MOD-INVENTORY",
+      "name": "Inventory, QC & WMS"
+    },
+    {
+      "id": "MOD-PLANNING",
+      "name": "Planning"
+    },
+    {
+      "id": "MOD-PRODUCTION",
+      "name": "Production"
+    },
+    {
+      "id": "MOD-SALES",
+      "name": "Sales Order"
+    },
+    {
+      "id": "MOD-RULES",
+      "name": "Setup rules"
+    },
+    {
+      "id": "MOD-STYLE",
+      "name": "Style & BOM"
+    },
+    {
+      "id": "MOD-TNA",
+      "name": "TNA"
+    }
+  ],
+  "entries_by_type_and_status": {
+    "case": {
+      "Active": 21
+    },
+    "dependency": {
+      "Active": 39
+    },
+    "field": {
+      "Active": 142
+    },
+    "model": {
+      "Active": 28
+    },
+    "module": {
+      "Active": 8
+    },
+    "procedure": {
+      "Active": 85,
+      "Under Review": 1
+    },
+    "rule": {
+      "Active": 150,
+      "Under Review": 6
+    },
+    "term": {
+      "Active": 161,
+      "Under Review": 1
+    },
+    "transaction": {
+      "Active": 15
+    },
+    "workflow": {
+      "Active": 12
+    }
+  },
+  "files": [
+    {
+      "file": "knowledge/business_rules/general_rules.txt",
+      "entries": 30
+    },
+    {
+      "file": "knowledge/business_rules/planning_rules.txt",
+      "entries": 3
+    },
+    {
+      "file": "knowledge/business_rules/sales_rules.txt",
+      "entries": 68
+    },
+    {
+      "file": "knowledge/calculations/planning_calculations.txt",
+      "entries": 8
+    },
+    {
+      "file": "knowledge/calculations/production_calculations.txt",
+      "entries": 5
+    },
+    {
+      "file": "knowledge/calculations/sales_calculations.txt",
+      "entries": 10
+    },
+    {
+      "file": "knowledge/calculations/sourcing_calculations.txt",
+      "entries": 10
+    },
+    {
+      "file": "knowledge/calculations/style_bom_calculations.txt",
+      "entries": 22
+    },
+    {
+      "file": "knowledge/data_models/admin_documents.txt",
+      "entries": 4
+    },
+    {
+      "file": "knowledge/data_models/order_documents.txt",
+      "entries": 10
+    },
+    {
+      "file": "knowledge/data_models/sales_documents.txt",
+      "entries": 7
+    },
+    {
+      "file": "knowledge/data_models/setup_documents.txt",
+      "entries": 7
+    },
+    {
+      "file": "knowledge/glossary/erp_terms.txt",
+      "entries": 136
+    },
+    {
+      "file": "knowledge/glossary/garment_manufacturing_terms.txt",
+      "entries": 26
+    },
+    {
+      "file": "knowledge/modules/inventory.txt",
+      "entries": 15
+    },
+    {
+      "file": "knowledge/modules/planning.txt",
+      "entries": 1
+    },
+    {
+      "file": "knowledge/modules/production.txt",
+      "entries": 1
+    },
+    {
+      "file": "knowledge/modules/sales.txt",
+      "entries": 21
+    },
+    {
+      "file": "knowledge/modules/setup.txt",
+      "entries": 1
+    },
+    {
+      "file": "knowledge/modules/sourcing.txt",
+      "entries": 26
+    },
+    {
+      "file": "knowledge/modules/style_bom.txt",
+      "entries": 19
+    },
+    {
+      "file": "knowledge/modules/tna.txt",
+      "entries": 10
+    },
+    {
+      "file": "knowledge/transactions/field_definitions.txt",
+      "entries": 142
+    },
+    {
+      "file": "knowledge/transactions/transaction_cases.txt",
+      "entries": 21
+    },
+    {
+      "file": "knowledge/transactions/transaction_definitions.txt",
+      "entries": 15
+    },
+    {
+      "file": "knowledge/transactions/transaction_dependencies.txt",
+      "entries": 39
+    },
+    {
+      "file": "knowledge/workflows/workflows.txt",
+      "entries": 12
+    }
+  ],
+  "documents": [
+    {
+      "type": "change_request",
+      "knowledge_status": "proposed",
+      "count": 64
+    },
+    {
+      "type": "data",
+      "knowledge_status": "proposed",
+      "count": 21
+    },
+    {
+      "type": "data",
+      "knowledge_status": "source-documented",
+      "count": 1
+    },
+    {
+      "type": "image",
+      "knowledge_status": "proposed",
+      "count": 9
+    },
+    {
+      "type": "image",
+      "knowledge_status": "source-documented",
+      "count": 1
+    },
+    {
+      "type": "manual",
+      "knowledge_status": "source-documented",
+      "count": 10
+    },
+    {
+      "type": "other",
+      "knowledge_status": "proposed",
+      "count": 30
+    },
+    {
+      "type": "other",
+      "knowledge_status": "source-documented",
+      "count": 8
+    },
+    {
+      "type": "specification",
+      "knowledge_status": "proposed",
+      "count": 16
+    },
+    {
+      "type": "specification",
+      "knowledge_status": "source-documented",
+      "count": 22
+    }
+  ],
+  "format_problems": [],
+  "invalid_entries": []
+}

@@ -1,0 +1,264 @@
+# Cases recorded while capturing transactions: rules, observations and mismatches
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+CASE ID: CASE-MASTERS-1
+TITLE: Conversion lives in the BOM, not the RM techpack
+KIND: mismatch
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+MODULE: Style & BOM
+DESCRIPTION: The RM techpack for N-8 shows Secondary UOM Conversion = 0, while the BOM uses 1,000. The factor had to be back-calculated from the BOM price. Keep the conversion on the material master so every transaction reads the same value.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-APPAREL-STYLE-1
+TITLE: Colour must be on the style before it can be ordered
+KIND: rule
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+DESCRIPTION: The OC colour × size breakup offers only base-list colours. TBA is in the colour card but not on the style, so it can never reach an order for Flannel Shirt Adi (NIS-58).
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BOM-MATERIALS-1
+TITLE: Dependency covers more than the order
+KIND: observation
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+DESCRIPTION: Three colours (372, 3909, 475) and three sizes (34S, 38M, 42L1) are mapped, but the OC only orders 372 and 3909 in 34S and 38M. Mapping is a capability, not a demand – MRP only explodes what is ordered.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BOM-MATERIALS-2
+TITLE: No UOM conversion maintained → factor 1 (default)
+KIND: rule
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+DESCRIPTION: Adi TShirt (NIS-59) line 2 (T-1) is bought in PCS and consumed in meter. No PCS→meter conversion is maintained, so WFX uses the default factor 1: Cons UOM Price = Purchase Price (10 = 10). Maintain a material-wise UOM conversion when the units really differ (e.g. metres per cone).
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BOM-MATERIALS-3
+TITLE: Purchase UOM differs from the RM techpack
+KIND: mismatch
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+DESCRIPTION: BOM purchase UOM is meter while the RM techpack says KG_Nis. Indents and POs followed the techpack (KG_Nis), while the BOM price is per meter. Check which UOM the supplier really invoices.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BOM-ROUTING-1
+TITLE: Every routing process becomes an FPPO
+KIND: rule
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+DESCRIPTION: When the FPO is released, each of VCutting, Sewing and VPacking receives the full FPO quantity per colour/size as Required Qty.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BOM-COSTING-1
+TITLE: Profit uses the discounted price, Markup does not
+KIND: rule
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+DESCRIPTION: Adi TShirt (NIS-59): Profit = 4,000 − 10 % − 25,115.72 = −21,515.72 (−597.66 % of 3,600). Markup = 4,000 − 25,115.72 = −21,115.72 (−84.07 % of cost). The 400 difference is exactly the discount.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BOM-COSTING-2
+TITLE: Costing is in INR, the OC is in USD
+KIND: observation
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+DESCRIPTION: Costing selling price is 3,000 INR while the OC selling price is 33.3333 USD per piece. Costing does not read the OC price; keep them aligned manually or through the costing-sheet currency.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-RM-TECHPACK-1
+TITLE: Trims are techpacks too
+KIND: observation
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+DESCRIPTION: Sewing thread T-1, cufflinks NS1-1 and polybag PP-1 are each a Trims techpack with their own Consumption UOM and Price Per = Article. Unlike fabric N-8 they are not priced per colour/size.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-RM-TECHPACK-2
+TITLE: Four cross-document mismatches
+KIND: mismatch
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+DESCRIPTION: Purchase UOM (KG_Nis vs meter on BOM), conversion (0 vs 1,000), season (Fall 2024 vs AW26) and supplier/rate (NS_N1 at 5 on the indent vs GAP Kids_Nis at 10 on the RMPO). WFX allows each override, so they need review rather than a system fix.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BUYER-BLOCK-BOOKING-1
+TITLE: Happy Pink is booked but never ordered
+KIND: observation
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+MODULE: Booking & sourcing
+DESCRIPTION: PPJ179 booked 200 KG_Nis of Happy Pink (475). The confirmed OC has no Happy Pink, so that stock stays unreserved after MRP. Use the colour tracker to see it.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BUYER-BLOCK-BOOKING-2
+TITLE: Booking qty vs linked OC qty
+KIND: mismatch
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+MODULE: Booking & sourcing
+DESCRIPTION: Booking line qty is 100 PCS while the linked OC GAPS.NEWOC -249.1 is 1,000 PCS. The booking under-projected the order 10×.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-ADHOC-INDENT-1
+TITLE: Supplier and rate change between indent and PO
+KIND: mismatch
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+MODULE: Booking & sourcing
+DESCRIPTION: Header supplier is NS_N1 at rate 5; the RMPO was placed on GAP Kids_Nis at 10. Indent rate is a reference, the PO price is what values the purchase.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-RMPO-1
+TITLE: PO line order ≠ indent line order
+KIND: rule
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+MODULE: Booking & sourcing
+DESCRIPTION: RMPO 1229 line 1 comes from indent line 2. Always join PO to indent by the Indent Line Ref, never by line number.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-GRN-1
+TITLE: Stock remembers its booking
+KIND: rule
+TRANSACTION: GRN – Goods Receipt Note (grn)
+MODULE: Booking & sourcing
+DESCRIPTION: Received stock carries Booking No PPJ179. That tag is what lets the later production indent find it and adjust 100 KG_Nis per colour/size in-house.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-BUYER-PO-1
+TITLE: MRP auto-runs on confirmation
+KIND: rule
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+DESCRIPTION: Reference on the MRP list: "Indent generated automatically on confirmation of OC". Both production indents (Level 1 and Level 2) were created by that run.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-MRP-1
+TITLE: Garment purchase demand creates an RMPO
+KIND: mismatch
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+DESCRIPTION: When a garment is bought instead of made, WFX should raise a GMPO (Garment Purchase Order). It currently raises an RMPO.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-MRP-2
+TITLE: Indent type depends on level
+KIND: rule
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+DESCRIPTION: Level 1 → Manufacture indent (PPM-000737-001). Level 2 → Production indent (PPM-000738-001).
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-PRODUCTION-INDENTS-1
+TITLE: Purchase UOM qty looks huge
+KIND: observation
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+MODULE: Planning
+DESCRIPTION: 1,500 KG_Nis × 1,000 = 1,500,000 meter. The factor is correct for the master data, but confirm 1 KG = 1,000 meter is realistic for this fabric before releasing the PO.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-FPO-1
+TITLE: Open material = RMPO 1230
+KIND: observation
+TRANSACTION: FPO & FPPO (fpo)
+MODULE: Production
+DESCRIPTION: FPO material open qty (1100) equals RMPO 1230 open qty (1100). Cutting can start only for the 400 KG_Nis already instructed until that PO is received.
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+CASE ID: CASE-INDENT-COMPARISON
+TITLE: BBB Adhoc Indent vs Manufacture Indent (L1) vs Production Indent (L2)
+KIND: comparison
+TRANSACTION: Adhoc Indent; MRP; Production Indents
+MODULE: Booking & sourcing; Planning
+DESCRIPTION:
+  Raised by: BBB Adhoc Indent = A person, manually; Manufacture Indent (L1) = MRP, automatically; Production Indent (L2) = MRP, automatically
+  Raised against: BBB Adhoc Indent = Buyer Block Booking PPJ179; Manufacture Indent (L1) = Sales order GAPS.NEWOC -249.1; Production Indent (L2) = Sales order GAPS.NEWOC -249.1
+  Asks to: BBB Adhoc Indent = Buy fabric; Manufacture Indent (L1) = Make the garment; Production Indent (L2) = Buy fabric
+  Quantity comes from: BBB Adhoc Indent = Booked balance units; Manufacture Indent (L1) = OC colour × size qty; Production Indent (L2) = Garment qty × BOM final consumption
+  Example: BBB Adhoc Indent = PPM-000735-001 · 600 KG; Manufacture Indent (L1) = PPM-000737-001 · 1,000 pcs; Production Indent (L2) = PPM-000738-001 · 1,500 KG
+  Stock check: BBB Adhoc Indent = None; Manufacture Indent (L1) = None; Production Indent (L2) = Reserves BBB stock first (400 KG)
+  Next document: BBB Adhoc Indent = RMPO 1229; Manufacture Indent (L1) = Production Order; Production Indent (L2) = RMPO 1230 (1,100 KG)
+NOTES: The owner insists these are different flows and must never be merged.
+SOURCE: Knowledge Hub v1 (src/app/data/theory-extras.ts), from the NIS-58 trial and the owner's explanation.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

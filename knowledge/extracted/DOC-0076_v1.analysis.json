@@ -1,0 +1,558 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Parameter",
+        "Value / Formula"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {
+        "Value / Formula": "amount (currency of the row)"
+      },
+      "identifiers": [
+        "Parameter"
+      ],
+      "rows": [
+        [
+          "Cost of Sub Operation Value",
+          "5 / min"
+        ],
+        [
+          "Production Time",
+          "60 min"
+        ],
+        [
+          "Efficiency",
+          "80%"
+        ],
+        [
+          "SAM (as per Efficiency %)",
+          "60 × 80% = 48 min"
+        ],
+        [
+          "Process Cost",
+          "60 × 5 = 300 (Production Time * Cost)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Site Code",
+        "Site Name",
+        "Line Code",
+        "Line Name",
+        "Active",
+        "Cost Template",
+        "Cost Component"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Cost Template": "amount (currency of the row)",
+        "Cost Component": "amount (currency of the row)"
+      },
+      "identifiers": [
+        "Site Code",
+        "Line Code"
+      ],
+      "rows": [
+        [
+          "1GFABBS01",
+          "1G-Central Stores - Fabric (Raw)",
+          "6532",
+          "75453",
+          "Yes",
+          "OCT-Shiggaon-Sewing-01",
+          "Regular"
+        ],
+        [
+          "1GFABBS01",
+          "1G-Central Stores - Fabric (Raw)",
+          "L1111",
+          "L1111",
+          "Yes",
+          "OCT-Shiggaon-Sewing-01",
+          "PCS Rate"
+        ],
+        [
+          "1GFABBS01",
+          "1G-Central Stores - Fabric (Raw)",
+          "L1112",
+          "L1112",
+          "Yes",
+          "OCT-Shiggaon-Finishing-01",
+          "OT"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "389725",
+  "keyTerms": [
+    "cost",
+    "cost template",
+    "factory",
+    "template",
+    "routing",
+    "cost component",
+    "process",
+    "line",
+    "component",
+    "operation cost",
+    "section",
+    "operation",
+    "master",
+    "colour",
+    "figure"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 38
+    },
+    {
+      "module": "Production",
+      "score": 9
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "BOM – Costing",
+    "BOM – Materials & Dependency",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Operation Cost Templates cannot be tagged to a specific factory, which prevents factory-specific costing.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business Requirement:\n1. Operation Cost Templates cannot be tagged to a specific factory, which prevents factory-specific costing.\n2. A cost template supports only a single cost component, with no ability to separate costs by operation type (Regular, PCS Rate, Idle, OT).\n3. SAM, Qty per Hour, and process cost are not auto-calculated on the Routing page, requiring manual entry and increasing the risk of error.\n4. The system does not support maintaining different process costs for the same process across different colours, forcing users to create duplicate routings.\n5. The Master Costsheet does not provide fields to capture additional charges (e.g., Freight Cost) against Fabric and Trims line items.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The enhancements described in this document are intended to remove these limitations.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Users can create an Operation Cost Template, but the template cannot be tagged to a particular factory.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Current Behaviour",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "As a result, the same template applies system-wide and cannot reflect factory-specific cost differences.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Current Behaviour",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Proposed Enhancement:\n1. Add a Factory selection field to the Operation Cost Template Master screen.\n2. Each cost template can be tagged to one particular or multiple factory at the time of creation or edit.\n3. Once tagged, the template becomes specific to that factory and should be usable wherever that factory is selected in routing.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Proposed Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Standard Operating Procedure / Business Rule:\n1. The system distinguishes between \"Global Factory\" (used for Costsheet/budget) and \"Actual Factory\" (used to calculate actual production cost).\n2. Global factory setup: The Shahi team will create one Global Factory per division, named accordingly — e.g., Shahi Exports Pvt Ltd-MNB, Shahi Exports Pvt Ltd-LSD, etc.\n3. Usage in costing: These Global Factories are used to calculate the budget in the Costsheet. Users select the Global Factory in Routing, and the system calculates the total cost based on the cost template mapped to that factory.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Standard Operating Procedure / Business Rule",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no way to differentiate cost by operation section such as Regular, PCS Rate, Idle, or OT within the same template.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.2 Addition of Sections in Cost Component › Current Behaviour",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The Cost of Sub Operation per minute is fetched automatically based on this selection.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Step 4: An additional field, SAM, is auto-calculated as Production Time × Efficiency percentage — the user does not enter this value manually.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.1.3 Routing Page — SAM Calculation Workflow:\n1. Step 1: The user selects the Factory. The Cost of Sub Operation per minute is fetched automatically based on this selection.\n2. Step 2: The user enters the Efficiency percentage in the Efficiency column.\n3. Step 3: The user enters the Production Time.\n4. Step 4: An additional field, SAM, is auto-calculated as Production Time × Efficiency percentage — the user does not enter this value manually.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Parameter, Value / Formula (5 rows; identifiers: Parameter)",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Note: Process Cost is calculated on the Run Time (Production Time), not on SAM — in this example, Run Time = 60, so Process Cost = 60 × 5 = 300.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The following extra fields are required on the Routing page:",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The following extra fields are required on the Routing page:",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Qty per Hour: Auto-calculated as 60 / SAM.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Example: if SAM = 30, Qty per Hour = 60 / 30 = 2.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Black Colour → Bleach Cost = 10",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "White Colour → Bleach Cost = 12",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Red Colour → Bleach Cost = 8",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Existing Scenario:\n1. Black Colour → Bleach Cost = 10\n2. White Colour → Bleach Cost = 12\n3. Red Colour → Bleach Cost = 8",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "If a user wants different prices per colour, they must create a separate routing per colour.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Same window to update cost color wise is required on Billing on Input as well.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Same window to update cost color wise is required on Billing on Input as well.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If this BOM is used as a manufacturing BOM, then system should pick the process cost as per the material color used for the material line.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case multiple colors are mapped then system will take the higher cost.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "As a result, line-level cost cannot be derived from the Operation Cost Templates, and cost differences between lines within the same factory cannot be captured.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Current Behaviour",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Only those Cost Templates that are tagged to the selected factory (refer Section 3.1.1) will be available for selection against a line.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Proposed Enhancement:\n1. Add a Cost Template field against each line in the Factory Line Master, so that every line can be mapped to the cost template applicable to it.\n2. Only those Cost Templates that are tagged to the selected factory (refer Section 3.1.1) will be available for selection against a line.\n3. Against each line, the user will first tag the Cost Template and then the applicable Cost Component section — PCS Rate, Regular, OT or Idle — as introduced in Section 3.1.2.\n4. The Cost Template and Cost Component tagged at line level will drive the line-wise process cost used in Routing and in the Costsheet.\n5. We need to maintain the effective date wise log for cost calculation.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Site Code, Site Name, Line Code, Line Name, Active, Cost Template, Cost Component (3 rows; identifiers: Site Code, Line Code)",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement, table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Shaded columns (Cost Template and Cost Component) are the newly proposed fields; all other columns remain as per the current screen.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If a template's factory tagging is subsequently changed, the existing line mappings must be revalidated.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "If a template's factory tagging is subsequently changed, the existing line mappings must be revalidated.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "389725",
+      "heading": "",
+      "text": "Software Requirements Specification\nNeed some enhancements in BOM Routing\n# 389725\nVersion 1.0●28 July 2025\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. 3\nAssumptions 3\nSection 3. 3\nFunctional Requirements 4\n3.1 Changes in Operation Cost Templates 4\n3.1.1 Addition of Factory in Operation Cost Template Master 4\n3.1.2 Addition of Sections in Cost Component 5\n3.1.3 Routing Page — SAM Calculation Workflow 8\n3.1.4 Additional Fields on the Routing Page 9\n3.2 Colour-wise Process Cost in Routing 10\n3.3 Changes in Master Costsheet 13\n3.4 Changes in Factory Line Master 14\n3.4.1 Tagging of Cost Template and Cost Component with Lines 14\n3.5 Changes in FPPO GRN 15",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Need some enhancements in BOM Routing.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The current BOM Routing and Operation Cost Template functionality has the following limitations that this specification addresses:\n• Operation Cost Templates cannot be tagged to a specific factory, which prevents factory-specific costing.\n• A cost template supports only a single cost component, with no ability to separate costs by operation type (Regular, PCS Rate, Idle, OT).\n• SAM, Qty per Hour, and process cost are not auto-calculated on the Routing page, requiring manual entry and increasing the risk of error.\n• The system does not support maintaining different process costs for the same process across different colours, forcing users to create duplicate routings.\n• The Master Costsheet does not provide fields to capture additional charges (e.g., Freight Cost) against Fabric and Trims line items.\nThe enhancements described in this document are intended to remove these limitations.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Current Behaviour",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Current Behaviour",
+      "text": "• Users can create an Operation Cost Template, but the template cannot be tagged to a particular factory.\n• As a result, the same template applies system-wide and cannot reflect factory-specific cost differences.\nFigure 1: Current Screen — Operation Cost Template Master (no factory field)",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Current Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Enhancement",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Proposed Enhancement",
+      "text": "• Add a Factory selection field to the Operation Cost Template Master screen.\n• Each cost template can be tagged to one particular or multiple factory at the time of creation or edit.\n• Once tagged, the template becomes specific to that factory and should be usable wherever that factory is selected in routing.\nFigure 2: Proposed Screen — Operation Cost Template Master with Factory field",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Proposed Enhancement",
+      "kind": "section"
+    },
+    {
+      "title": "Standard Operating Procedure / Business Rule",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Standard Operating Procedure / Business Rule",
+      "text": "• The system distinguishes between \"Global Factory\" (used for Costsheet/budget) and \"Actual Factory\" (used to calculate actual production cost).\n• Global factory setup: The Shahi team will create one Global Factory per division, named accordingly — e.g., Shahi Exports Pvt Ltd-MNB, Shahi Exports Pvt Ltd-LSD, etc.\n• Usage in costing: These Global Factories are used to calculate the budget in the Costsheet. Users select the Global Factory in Routing, and the system calculates the total cost based on the cost template mapped to that factory.\nNote: Global Factory drives budgeted/Costsheet cost; the Actual Factory continues to be used to compute the actual in-production cost.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.1 Addition of Factory in Operation Cost Template Master › Standard Operating Procedure / Business Rule",
+      "kind": "section"
+    },
+    {
+      "title": "Current Behaviour",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.2 Addition of Sections in Cost Component › Current Behaviour",
+      "text": "• A cost template supports attaching only a single cost component.\n• There is no way to differentiate cost by operation section such as Regular, PCS Rate, Idle, or OT within the same template.\nFigure 3: Current Screen — single cost component, no section bifurcation",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.2 Addition of Sections in Cost Component › Current Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Enhancement",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.2 Addition of Sections in Cost Component › Proposed Enhancement",
+      "text": "• Introduce distinct Sections within a single cost template: Regular, PCS Rate, Idle, and OT.\n• Each section can carry its own cost component and its own validity period, independent of the other sections.\nFigure 4: Proposed Screen — cost template with sections\n• On the \"Cost Values\" screen, the system will first display the available sections; each section then shows its own cost component and validity.\nFigure 5: Cost Values screen — sections with cost component and validity\n• Users can copy a cost component from one section to another within the same template, to avoid re-entering identical values.\nFigure 6: Copy Cost Component option across sections\n• Once user selects the Cost template in routing then system picks the value of the “Regular Section” of this cost template.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.2 Addition of Sections in Cost Component › Proposed Enhancement",
+      "kind": "section"
+    },
+    {
+      "title": "3.1.3 Routing Page — SAM Calculation Workflow",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow",
+      "text": "We required a new field in Routing as Effective SAM whose calculation will be based on the steps below:\n• Step 1: The user selects the Factory. The Cost of Sub Operation per minute is fetched automatically based on this selection.\n• Step 2: The user enters the Efficiency percentage in the Efficiency column.\n• Step 3: The user enters the Production Time.\n• Step 4: An additional field, SAM, is auto-calculated as Production Time × Efficiency percentage — the user does not enter this value manually.\nFigure 7: Routing page — Sub Operation Cost, Efficiency, Production Time, and auto-calculated SAM",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow",
+      "kind": "section"
+    },
+    {
+      "title": "Calculation Example – Table 1",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Columns: Parameter (text); Value / Formula (text, amount (currency of the row))\nParameter | Value / Formula\nCost of Sub Operation Value | 5 / min\nProduction Time | 60 min\nEfficiency | 80%\nSAM (as per Efficiency %) | 60 × 80% = 48 min\nProcess Cost | 60 × 5 = 300 (Production Time * Cost)",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Parameter: Cost of Sub Operation Value; Value / Formula: 5 / min",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Parameter: Production Time; Value / Formula: 60 min",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Parameter: Efficiency; Value / Formula: 80%",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Parameter: SAM (as per Efficiency %); Value / Formula: 60 × 80% = 48 min",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Parameter: Process Cost; Value / Formula: 60 × 5 = 300 (Production Time * Cost)",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Calculation Example",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "text": "Note: Process Cost is calculated on the Run Time (Production Time), not on SAM — in this example, Run Time = 60, so Process Cost = 60 × 5 = 300.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.3 Routing Page — SAM Calculation Workflow › Calculation Example",
+      "kind": "section"
+    },
+    {
+      "title": "3.1.4 Additional Fields on the Routing Page",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page",
+      "text": "The following extra fields are required on the Routing page:\nFigure 8: Routing page with extra fields highlighted\n• Qty per Hour: Auto-calculated as 60 / SAM. Example: if SAM = 30, Qty per Hour = 60 / 30 = 2.\n• No of Stitches: Entered manually by the user.\nNote: A process can be added to the routing without filling these fields, since some processes (e.g., Packing) do not require this data.",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page",
+      "kind": "section"
+    },
+    {
+      "title": "Summary of Steps 5 and 6",
+      "heading": "Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page › Summary of Steps 5 and 6",
+      "text": "• Step 5: Qty per Hour is auto-calculated from the SAM value.\n• Step 6 (Final Step): The user manually enters \"No of Stitches\".",
+      "locator": "§ Functional Requirements › 3.1 Changes in Operation Cost Templates › 3.1.4 Additional Fields on the Routing Page › Summary of Steps 5 and 6",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 Colour-wise Process Cost in Routing",
+      "heading": "Functional Requirements › 3.2 Colour-wise Process Cost in Routing",
+      "text": "Requirement 2: The system should provide an option in Routing Creation to maintain separate process costs colour-wise for the same routing process.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Objective",
+      "text": "To allow users to maintain different process costs for different colours within the same routing, without duplicating the routing itself.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Objective",
+      "kind": "section"
+    },
+    {
+      "title": "Existing Scenario",
+      "heading": "Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "text": "For example, during routing creation there is a process named \"Bleach\". The Bleach process itself remains the same, but its cost can vary depending on colour:\n• Black Colour → Bleach Cost = 10\n• White Colour → Bleach Cost = 12\n• Red Colour → Bleach Cost = 8\nCurrently, the system allows only one common cost for a process irrespective of colour. If a user wants different prices per colour, they must create a separate routing per colour.\nFigure 9: Existing routing screen — single cost per process, irrespective of colour",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Existing Scenario",
+      "kind": "section"
+    },
+    {
+      "title": "Requirement",
+      "heading": "Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Requirement",
+      "text": "• Provide an option in Routing Creation to enter separate process costs colour-wise for the same routing process.\n• The system should support maintaining different costs for different colours without requiring creation of multiple routings for the same process.\nFigure 10: Routing screen — option to enter colour-wise process cost\n• Here need to open a window which will allow to put cost at color level.\nFigure 11: Colour-level cost entry window — Add Colour with an “All Colours” option\n• When user click on Add color then dropdown will also have an option of All colors.\n• Same window to update cost color wise is required on Billing on Input as well.\nFigure 12: Billing on Input — same colour-wise cost update window\n• Higher cost to be included in Add to cost.\n• If this BOM is used as a manufacturing BOM, then system should pick the process cost as per the material color used for the material line. In case multiple colors are mapped then system will take the higher cost.",
+      "locator": "§ Functional Requirements › 3.2 Colour-wise Process Cost in Routing › … › Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "3.3 Changes in Master Costsheet",
+      "heading": "Functional Requirements › 3.3 Changes in Master Costsheet",
+      "text": "Requirement: Need Additional Charges fields in the Fabric and Trims Detail Table present in the Master Costsheet.\nFigure 13: Master Costsheet — Fabric and Trims Detail Table\nClicking the relevant button on this screen opens the Additional Charges entry screen shown below and same to be included in Cost/gmt, total, total (in lac) and % of realization.\nFigure 14: Additional Charges entry screen (e.g., Freight Cost)\nThis table needs fields for additional charges such as Freight Cost.\nNote: Add these fields after \"Section Total\" so that the additional charges are added to the Section Total, after which the system displays the \"Grand Total\".",
+      "locator": "§ Functional Requirements › 3.3 Changes in Master Costsheet",
+      "kind": "section"
+    },
+    {
+      "title": "Current Behaviour",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Current Behaviour",
+      "text": "• The Factory Line Master currently allows production lines to be defined against a factory, but there is no provision to tag a Cost Template or a Cost Component to an individual line.\n• As a result, line-level cost cannot be derived from the Operation Cost Templates, and cost differences between lines within the same factory cannot be captured.\nFigure 15: Current Screen — Factory Line Master (no Cost Template / Cost Component tagging)",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Current Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Enhancement",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "text": "• Add a Cost Template field against each line in the Factory Line Master, so that every line can be mapped to the cost template applicable to it.\n• Only those Cost Templates that are tagged to the selected factory (refer Section 3.1.1) will be available for selection against a line.\n• Against each line, the user will first tag the Cost Template and then the applicable Cost Component section — PCS Rate, Regular, OT or Idle — as introduced in Section 3.1.2.\n• The Cost Template and Cost Component tagged at line level will drive the line-wise process cost used in Routing and in the Costsheet.\n• We need to maintain the effective date wise log for cost calculation.\nUNIT – 35. Shiggaon › Factory Capacity Information",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Enhancement – Table 2",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "text": "Columns: Site Code (text); Site Name (text); Line Code (text); Line Name (text); Active (boolean); Cost Template (text, amount (currency of the row)); Cost Component (text, amount (currency of the row))\nSite Code | Site Name | Line Code | Line Name | Active | Cost Template | Cost Component\n1GFABBS01 | 1G-Central Stores - Fabric (Raw) | 6532 | 75453 | Yes | OCT-Shiggaon-Sewing-01 | Regular\n1GFABBS01 | 1G-Central Stores - Fabric (Raw) | L1111 | L1111 | Yes | OCT-Shiggaon-Sewing-01 | PCS Rate\n1GFABBS01 | 1G-Central Stores - Fabric (Raw) | L1112 | L1112 | Yes | OCT-Shiggaon-Finishing-01 | OT",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "text": "Site Code: 1GFABBS01; Site Name: 1G-Central Stores - Fabric (Raw); Line Code: 6532; Line Name: 75453; Active: Yes; Cost Template: OCT-Shiggaon-Sewing-01; Cost Component: Regular",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "text": "Site Code: 1GFABBS01; Site Name: 1G-Central Stores - Fabric (Raw); Line Code: L1111; Line Name: L1111; Active: Yes; Cost Template: OCT-Shiggaon-Sewing-01; Cost Component: PCS Rate",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "text": "Site Code: 1GFABBS01; Site Name: 1G-Central Stores - Fabric (Raw); Line Code: L1112; Line Name: L1112; Active: Yes; Cost Template: OCT-Shiggaon-Finishing-01; Cost Component: OT",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Proposed Enhancement",
+      "heading": "Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "text": "Figure 16: Proposed Screen — Factory Line Master with Cost Template and Cost Component tagging (indicative layout)\nShaded columns (Cost Template and Cost Component) are the newly proposed fields; all other columns remain as per the current screen.\nNote: Only cost templates tagged to the same factory as the line will be listed for selection. If a template's factory tagging is subsequently changed, the existing line mappings must be revalidated.",
+      "locator": "§ Functional Requirements › 3.4 Changes in Factory Line Master › 3.4.1 Tagging of Cost Template and Cost Component with Lines › Proposed Enhancement",
+      "kind": "section"
+    }
+  ]
+}

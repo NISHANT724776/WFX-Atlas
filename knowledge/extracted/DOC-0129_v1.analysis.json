@@ -1,0 +1,229 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Transaction Sequence",
+        "Equivalent Article"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Article A"
+        ],
+        [
+          "2",
+          "Article B"
+        ],
+        [
+          "3",
+          "Article C"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Ankit",
+          "13-05-2026",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Issue ID  382251 - Equivalent Article adjustment column detail Issue in FPO-FPPO",
+  "keyTerms": [
+    "article",
+    "equivalent article",
+    "equivalent",
+    "adjustment",
+    "material allocation",
+    "fpo",
+    "fpo material",
+    "equivalent adjustment",
+    "article article",
+    "material",
+    "allocation",
+    "inhouse equivalent",
+    "adjustment transactions",
+    "transaction",
+    "latest"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 26
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "FPO & FPPO"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to ensure that the FPO Material Allocation screen displays the most recently adjusted equivalent article when multiple inhouse equivalent adjustment transactions are created for the same indent/article.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Transaction Sequence, Equivalent Article (3 rows)",
+      "locator": "§ Business Requirement, table 1",
+      "module": "Production"
+    },
+    {
+      "kind": "formula",
+      "text": "Equivalent Article = Article A",
+      "locator": "§ Business Requirement › … › Current Behavior",
+      "module": "Production"
+    },
+    {
+      "kind": "formula",
+      "text": "Equivalent Article = Article C",
+      "locator": "§ Business Requirement › … › Required Behaviour",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Proposed Solution:\n1. Fetch all equivalent adjustment transactions for the respective indent/article.\n2. Identify the latest transaction based on:\n3. Transaction creation time.\n4. Display the equivalent article from the latest adjustment transaction in FPO Material Allocation.\n5. The same details will show in GDI creation screen as well.",
+      "locator": "§ Proposed Solution",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 4. Revision History, table 2",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Issue ID  382251 - Equivalent Article adjustment column detail Issue in FPO-FPPO",
+      "heading": "",
+      "text": "Equivalent Article adjustment column detail Issue in FPO\nDevelopment ID: 382251\nEquivalent Article adjustment column detail Issue in FPO\nDevelopment ID: 382251",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n2. Purpose 2\n3. Solution 2\n4. Revision History 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this enhancement is to ensure that the FPO Material Allocation screen displays the most recently adjusted equivalent article when multiple inhouse equivalent adjustment transactions are created for the same indent/article.\nThis will provide accurate and updated equivalent article information to users during material allocation processing.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Currently, when multiple inhouse equivalent adjustment transactions are created in an indent, the system displays the first equivalent article adjusted in the indent within the FPO Material Allocation screen.\nThis results in outdated article information being displayed when subsequent equivalent adjustments are performed.\nBusiness requires that:\n• The system should display the latest equivalent article adjusted through inhouse equivalent adjustment transactions.\n• The latest adjustment should override the previously displayed equivalent article in FPO Material Allocation.\nExample:",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement – Table 1",
+      "heading": "Business Requirement",
+      "text": "Columns: Transaction Sequence (integer); Equivalent Article (text)\nTransaction Sequence | Equivalent Article\n1 | Article A\n2 | Article B\n3 | Article C",
+      "locator": "§ Business Requirement, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Business Requirement",
+      "text": "Transaction Sequence: 1; Equivalent Article: Article A",
+      "locator": "§ Business Requirement, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Business Requirement",
+      "text": "Transaction Sequence: 2; Equivalent Article: Article B",
+      "locator": "§ Business Requirement, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Business Requirement",
+      "text": "Transaction Sequence: 3; Equivalent Article: Article C",
+      "locator": "§ Business Requirement, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Current Behavior",
+      "heading": "Business Requirement › … › Current Behavior",
+      "text": "Equivalent Article = Article A",
+      "locator": "§ Business Requirement › … › Current Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Required Behaviour",
+      "heading": "Business Requirement › … › Required Behaviour",
+      "text": "Equivalent Article = Article C",
+      "locator": "§ Business Requirement › … › Required Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Solution",
+      "heading": "Proposed Solution",
+      "text": "Modify the equivalent article fetching logic in FPO Material Allocation to retrieve the latest inhouse equivalent adjustment transaction instead of the first transaction.\nThe system should:\n• Fetch all equivalent adjustment transactions for the respective indent/article.\n• Identify the latest transaction based on:\n• Transaction creation time.\n• Display the equivalent article from the latest adjustment transaction in FPO Material Allocation.\n• The same details will show in GDI creation screen as well.",
+      "locator": "§ Proposed Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Revision History – Table 2",
+      "heading": "Section 4. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Ankit | 13-05-2026 | Initial document created.",
+      "locator": "§ Section 4. Revision History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 1.0; Revised By: Ankit; Revised On: 13-05-2026; Changes: Initial document created.",
+      "locator": "§ Section 4. Revision History, table 2, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

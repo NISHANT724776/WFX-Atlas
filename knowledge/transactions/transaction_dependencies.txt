@@ -1,0 +1,474 @@
+# Transaction dependencies (upstream → downstream)
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+DEPENDENCY ID: DEP-MASTERS-APPAREL-STYLE
+RELATIONSHIP: Masters – Colour, Size, UOM → Apparel Style (Techpack)
+FROM TRANSACTION: Masters – Colour, Size, UOM (masters)
+TO TRANSACTION: Apparel Style (Techpack) (apparel-style)
+DESCRIPTION: Base colour list and base size list
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-MASTERS-BOM-MATERIALS
+RELATIONSHIP: Masters – Colour, Size, UOM → BOM – Materials & Dependency
+FROM TRANSACTION: Masters – Colour, Size, UOM (masters)
+TO TRANSACTION: BOM – Materials & Dependency (bom-materials)
+DESCRIPTION: UOM conversion factor (Cons UOM Price)
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-MASTERS-BUYER-BLOCK-BOOKING
+RELATIONSHIP: Masters – Colour, Size, UOM → Buyer Block Booking (BBB)
+FROM TRANSACTION: Masters – Colour, Size, UOM (masters)
+TO TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+DESCRIPTION: Colour and size on material lines
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-MASTERS-BUYER-PO
+RELATIONSHIP: Masters – Colour, Size, UOM → Purchase Order from Buyer (OC)
+FROM TRANSACTION: Masters – Colour, Size, UOM (masters)
+TO TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+DESCRIPTION: Colour × size quantity breakup
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-APPAREL-STYLE-BOM-MATERIALS
+RELATIONSHIP: Apparel Style (Techpack) → BOM – Materials & Dependency
+FROM TRANSACTION: Apparel Style (Techpack) (apparel-style)
+TO TRANSACTION: BOM – Materials & Dependency (bom-materials)
+DESCRIPTION: BOM header (article) and colour/size dependency rows
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-APPAREL-STYLE-BUYER-BLOCK-BOOKING
+RELATIONSHIP: Apparel Style (Techpack) → Buyer Block Booking (BBB)
+FROM TRANSACTION: Apparel Style (Techpack) (apparel-style)
+TO TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+DESCRIPTION: Buyer and buyer department
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-APPAREL-STYLE-BUYER-PO
+RELATIONSHIP: Apparel Style (Techpack) → Purchase Order from Buyer (OC)
+FROM TRANSACTION: Apparel Style (Techpack) (apparel-style)
+TO TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+DESCRIPTION: Style, buyer, department and UOM on the OC
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-APPAREL-STYLE-MRP
+RELATIONSHIP: Apparel Style (Techpack) → MRP – Material Requirement Planning
+FROM TRANSACTION: Apparel Style (Techpack) (apparel-style)
+TO TRANSACTION: MRP – Material Requirement Planning (mrp)
+DESCRIPTION: Article code and name of Level 1 demand
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-MATERIALS-BOM-ROUTING
+RELATIONSHIP: BOM – Materials & Dependency → BOM – Routing
+FROM TRANSACTION: BOM – Materials & Dependency (bom-materials)
+TO TRANSACTION: BOM – Routing (bom-routing)
+DESCRIPTION: Material linkage to a process
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-MATERIALS-BOM-COSTING
+RELATIONSHIP: BOM – Materials & Dependency → BOM – Costing
+FROM TRANSACTION: BOM – Materials & Dependency (bom-materials)
+TO TRANSACTION: BOM – Costing (bom-costing)
+DESCRIPTION: Material cost by section
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-MATERIALS-BUYER-PO
+RELATIONSHIP: BOM – Materials & Dependency → Purchase Order from Buyer (OC)
+FROM TRANSACTION: BOM – Materials & Dependency (bom-materials)
+TO TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+DESCRIPTION: BOM selected on the delivery OC
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-MATERIALS-MRP
+RELATIONSHIP: BOM – Materials & Dependency → MRP – Material Requirement Planning
+FROM TRANSACTION: BOM – Materials & Dependency (bom-materials)
+TO TRANSACTION: MRP – Material Requirement Planning (mrp)
+DESCRIPTION: Final Consumption and dependency for BOM explosion
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-MATERIALS-PRODUCTION-INDENTS
+RELATIONSHIP: BOM – Materials & Dependency → Sales Order Indents (MRP)
+FROM TRANSACTION: BOM – Materials & Dependency (bom-materials)
+TO TRANSACTION: Sales Order Indents (MRP) (production-indents)
+DESCRIPTION: Cons, wastage, CSV and price on the fabric indent
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-MATERIALS-FPO
+RELATIONSHIP: BOM – Materials & Dependency → FPO & FPPO
+FROM TRANSACTION: BOM – Materials & Dependency (bom-materials)
+TO TRANSACTION: FPO & FPPO (fpo)
+DESCRIPTION: Final Consumption for fabric requirement
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-ROUTING-BOM-COSTING
+RELATIONSHIP: BOM – Routing → BOM – Costing
+FROM TRANSACTION: BOM – Routing (bom-routing)
+TO TRANSACTION: BOM – Costing (bom-costing)
+DESCRIPTION: Process rates → Production Cost
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-ROUTING-PRODUCTION-INDENTS
+RELATIONSHIP: BOM – Routing → Sales Order Indents (MRP)
+FROM TRANSACTION: BOM – Routing (bom-routing)
+TO TRANSACTION: Sales Order Indents (MRP) (production-indents)
+DESCRIPTION: "Required For" process on the fabric indent
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BOM-ROUTING-FPO
+RELATIONSHIP: BOM – Routing → FPO & FPPO
+FROM TRANSACTION: BOM – Routing (bom-routing)
+TO TRANSACTION: FPO & FPPO (fpo)
+DESCRIPTION: Processes of the FPPO
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-RM-TECHPACK-BOM-MATERIALS
+RELATIONSHIP: Raw Material Techpack → BOM – Materials & Dependency
+FROM TRANSACTION: Raw Material Techpack (rm-techpack)
+TO TRANSACTION: BOM – Materials & Dependency (bom-materials)
+DESCRIPTION: Material line article, UOM
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-RM-TECHPACK-BUYER-BLOCK-BOOKING
+RELATIONSHIP: Raw Material Techpack → Buyer Block Booking (BBB)
+FROM TRANSACTION: Raw Material Techpack (rm-techpack)
+TO TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+DESCRIPTION: Material on booking lines
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-RM-TECHPACK-ADHOC-INDENT
+RELATIONSHIP: Raw Material Techpack → BBB Adhoc Indent
+FROM TRANSACTION: Raw Material Techpack (rm-techpack)
+TO TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+DESCRIPTION: Article and UOM on indent lines
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-RM-TECHPACK-MRP
+RELATIONSHIP: Raw Material Techpack → MRP – Material Requirement Planning
+FROM TRANSACTION: Raw Material Techpack (rm-techpack)
+TO TRANSACTION: MRP – Material Requirement Planning (mrp)
+DESCRIPTION: Article of Level 2 demand
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BUYER-BLOCK-BOOKING-ADHOC-INDENT
+RELATIONSHIP: Buyer Block Booking (BBB) → BBB Adhoc Indent
+FROM TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+TO TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+DESCRIPTION: Booked units and booking line reference
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-ADHOC-INDENT-RMPO
+RELATIONSHIP: BBB Adhoc Indent → RMPO – Raw Material Purchase Order
+FROM TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+TO TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+DESCRIPTION: Indent lines → RMPO 1229 lines
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-ADHOC-INDENT-BUYER-BLOCK-BOOKING
+RELATIONSHIP: BBB Adhoc Indent → Buyer Block Booking (BBB)
+FROM TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+TO TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+DESCRIPTION: Indented qty
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-RMPO-GRN
+RELATIONSHIP: RMPO – Raw Material Purchase Order → GRN – Goods Receipt Note
+FROM TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+TO TRANSACTION: GRN – Goods Receipt Note (grn)
+DESCRIPTION: PO lines to receive
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-RMPO-ADHOC-INDENT
+RELATIONSHIP: RMPO – Raw Material Purchase Order → BBB Adhoc Indent
+FROM TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+TO TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+DESCRIPTION: Ordered qty / indent log
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-GRN-RMPO
+RELATIONSHIP: GRN – Goods Receipt Note → RMPO – Raw Material Purchase Order
+FROM TRANSACTION: GRN – Goods Receipt Note (grn)
+TO TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+DESCRIPTION: Shipped qty
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-GRN-PRODUCTION-INDENTS
+RELATIONSHIP: GRN – Goods Receipt Note → Sales Order Indents (MRP)
+FROM TRANSACTION: GRN – Goods Receipt Note (grn)
+TO TRANSACTION: Sales Order Indents (MRP) (production-indents)
+DESCRIPTION: Stock available for in-house adjustment
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BUYER-PO-MRP
+RELATIONSHIP: Purchase Order from Buyer (OC) → MRP – Material Requirement Planning
+FROM TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+TO TRANSACTION: MRP – Material Requirement Planning (mrp)
+DESCRIPTION: Level 1 demand per colour/size
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BUYER-PO-PRODUCTION-ORDER
+RELATIONSHIP: Purchase Order from Buyer (OC) → Production Order
+FROM TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+TO TRANSACTION: Production Order (production-order)
+DESCRIPTION: OC qty and delivery date
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BUYER-PO-BUYER-BLOCK-BOOKING
+RELATIONSHIP: Purchase Order from Buyer (OC) → Buyer Block Booking (BBB)
+FROM TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+TO TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+DESCRIPTION: Linked OC detail
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-MRP-PRODUCTION-INDENTS
+RELATIONSHIP: MRP – Material Requirement Planning → Sales Order Indents (MRP)
+FROM TRANSACTION: MRP – Material Requirement Planning (mrp)
+TO TRANSACTION: Sales Order Indents (MRP) (production-indents)
+DESCRIPTION: Level 1 manufacture indent and Level 2 production indent
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-PRODUCTION-INDENTS-RMPO
+RELATIONSHIP: Sales Order Indents (MRP) → RMPO – Raw Material Purchase Order
+FROM TRANSACTION: Sales Order Indents (MRP) (production-indents)
+TO TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+DESCRIPTION: RMPO 1230 for open qty
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-PRODUCTION-INDENTS-FPO
+RELATIONSHIP: Sales Order Indents (MRP) → FPO & FPPO
+FROM TRANSACTION: Sales Order Indents (MRP) (production-indents)
+TO TRANSACTION: FPO & FPPO (fpo)
+DESCRIPTION: Indent lines for material allocation
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-PRODUCTION-ORDER-FPO
+RELATIONSHIP: Production Order → FPO & FPPO
+FROM TRANSACTION: Production Order (production-order)
+TO TRANSACTION: FPO & FPPO (fpo)
+DESCRIPTION: Allocated qty per colour
+BASIS: Downstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-MASTERS-RM-TECHPACK
+RELATIONSHIP: Masters – Colour, Size, UOM → Raw Material Techpack
+FROM TRANSACTION: Masters – Colour, Size, UOM (masters)
+TO TRANSACTION: Raw Material Techpack (rm-techpack)
+DESCRIPTION: Colour card and size range
+BASIS: Upstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-BUYER-BLOCK-BOOKING-BUYER-PO
+RELATIONSHIP: Buyer Block Booking (BBB) → Purchase Order from Buyer (OC)
+FROM TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+TO TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+DESCRIPTION: Block Booking No PPJ179/1
+BASIS: Upstream link recorded in the v1 transaction page
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+DEPENDENCY ID: DEP-APPAREL-STYLE-BUYER-PO-PRICE-PER
+RELATIONSHIP: Apparel Style (Techpack) → Purchase Order from Buyer (OC)
+FROM TRANSACTION: Apparel Style (Techpack) (apparel-style)
+TO TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+DESCRIPTION: Price Per of the techpack (Article, Color, Size or Color/Size) decides how the delivery-level grid of the Sales Order / Purchase Order from Buyer is formed.
+BASIS: Owner's explanation (DOC-0181); see also RULE-SO-PRICE-PER
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+DEPENDENCY ID: DEP-MASTERS-APPAREL-STYLE-SIZE-RANGE
+RELATIONSHIP: Masters – Colour, Size, UOM → Apparel Style (Techpack)
+FROM TRANSACTION: Masters – Colour, Size, UOM (masters)
+TO TRANSACTION: Apparel Style (Techpack) (apparel-style)
+DESCRIPTION: The size range and the colour card of a techpack are selected from those made in the masters.
+BASIS: Owner's explanation (DOC-0181)
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================

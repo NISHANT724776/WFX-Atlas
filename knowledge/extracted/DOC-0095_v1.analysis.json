@@ -1,0 +1,158 @@
+{
+  "tables": [],
+  "subject": "412883 - TP Mapping configuration setup is required on the UI Updated",
+  "keyTerms": [
+    "orders",
+    "configuration",
+    "mapping",
+    "update",
+    "mapping configuration",
+    "created",
+    "updated",
+    "through",
+    "users",
+    "end customer",
+    "latest",
+    "configuration setup",
+    "setup required",
+    "previously created",
+    "orders latest"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "TP Mapping configuration setup is required on the UI : 412883",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "TP Mapping configuration setup is required on the UI : 412883",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once the TP configuration is set and orders are created, the TP mapping cannot be modified through the UI.",
+      "locator": "§ … › Current System Behavior",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Once the TP configuration is set and orders are created, the TP mapping cannot be modified through the UI.",
+      "locator": "§ … › Current System Behavior",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Applicable Scenarios:\n1. New orders created after TP updates\n2. Future split orders generated from existing orders\n3. New orders created using the \"Add New Summary\" option under previously created Main OCs",
+      "locator": "§ … › Current System Behavior › Applicable Scenarios",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functional Flow – TP Mapping Configuration:\n1. User navigates to TP Configuration UI.\n2. User updates:\n3. TP Mapping\n4. End Customer\n5. System saves updated TP configuration.\n6. System marks updated configuration as active.\n7. Any subsequent order creation process uses the latest configuration.",
+      "locator": "§ … › Functional Flow – TP Mapping Configuration",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "When a new TP configuration is introduced, users should have the option to update previously created open orders using the latest TP pricing and End Customer details.",
+      "locator": "§ 2. Previous Orders Update › Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Orders already ASN saved or confirmed should not be updated.",
+      "locator": "§ 2. Previous Orders Update › Requirement",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "412883 - TP Mapping configuration setup is required on the UI Updated",
+      "heading": "",
+      "text": "TP Mapping configuration setup is required on the UI : 412883\nTP Mapping configuration setup is required on the UI : 412883",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n3. Solution 2\n4. Acceptance Criteria 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Business Requirement",
+      "text": "TP (Transfer Price) Mapping Configuration through UI",
+      "locator": "§ … › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "… › Objective",
+      "text": "Enable users to configure and update Transfer Price mapping directly through the UI instead of relying on backend configuration. The system should support new TP configurations for future orders and provide an option to update previously created open orders with the latest TP details.",
+      "locator": "§ … › Objective",
+      "kind": "section"
+    },
+    {
+      "title": "Current System Behavior",
+      "heading": "… › Current System Behavior",
+      "text": "Currently, TP mapping in Martex is configured through backend processes. Once the TP configuration is set and orders are created, the TP mapping cannot be modified through the UI.",
+      "locator": "§ … › Current System Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "1. TP Mapping Update through UI",
+      "heading": "… › Current System Behavior › 1. TP Mapping Update through UI",
+      "text": "Enable UI-based TP mapping configuration updates by allowing users to add a new TP mapping against the same buyer. Upon saving, the system should automatically replace and update the existing TP configuration with the newly configured TP mapping.\nWhen TP Mapping or End Customer information is updated:\n• All newly created orders should use the latest TP configuration.\n• Existing TP configurations should remain unchanged for already created orders unless explicitly updated using the previous order update functionality.",
+      "locator": "§ … › Current System Behavior › 1. TP Mapping Update through UI",
+      "kind": "section"
+    },
+    {
+      "title": "Applicable Scenarios",
+      "heading": "… › Current System Behavior › Applicable Scenarios",
+      "text": "The latest TP configuration should automatically apply to:\n• New orders created after TP updates\n• Future split orders generated from existing orders\n• New orders created using the \"Add New Summary\" option under previously created Main OCs",
+      "locator": "§ … › Current System Behavior › Applicable Scenarios",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Flow – TP Mapping Configuration",
+      "heading": "… › Functional Flow – TP Mapping Configuration",
+      "text": "• User navigates to TP Configuration UI.\n• User updates:\n• TP Mapping\n• End Customer\n• System saves updated TP configuration.\n• System marks updated configuration as active.\n• Any subsequent order creation process uses the latest configuration.",
+      "locator": "§ … › Functional Flow – TP Mapping Configuration",
+      "kind": "section"
+    },
+    {
+      "title": "Requirement",
+      "heading": "2. Previous Orders Update › Requirement",
+      "text": "When a new TP configuration is introduced, users should have the option to update previously created open orders using the latest TP pricing and End Customer details.\nThese updates will be done through the Delivery Update UI:\nAction: \"Update Previous Orders\"\nUsers can:\n• Select End Customer\n• Initiate TP update for previous orders\nUpdate should apply only to:\n• Orders not yet ASN Saved\n• Orders not yet ASN Confirmed\nOrders already ASN saved or confirmed should not be updated.\nValidations:\n• Users should be able to search for orders using either the Style Number or Main OC Number to identify and update orders associated with a specific Main OC.\n• The system should provide Copy Below and Copy All functionalities for both columns, enabling users to efficiently replicate values across records.",
+      "locator": "§ 2. Previous Orders Update › Requirement",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,538 @@
+{
+  "tables": [],
+  "subject": "332558 Procurement against Buyer Block Booking 06-10-2025",
+  "keyTerms": [
+    "booking",
+    "block booking",
+    "block",
+    "indent",
+    "buyer block",
+    "buyer",
+    "material",
+    "adhoc indent",
+    "user",
+    "remarks",
+    "section",
+    "adhoc",
+    "article",
+    "impl remarks",
+    "booking adhoc"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 84
+    },
+    {
+      "module": "Sales Order",
+      "score": 13
+    },
+    {
+      "module": "Planning",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "Buyer Block Booking (BBB)",
+    "BBB Adhoc Indent",
+    "Purchase Order from Buyer (OC)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Procurement against Buyer Block Booking",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Block Booking Changes 4",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Block Booking Details: - 5",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Linking of Block Booking to Adhoc Indent 7",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Which tools will work in case of this Indent Type=’Buyer Block Booking’ 11",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Auto Material allocation for OCs where this Buyer Block Booking is tagged. 13",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer gives block booking against the fabric and Products to Fashion Accessories.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Team wants to track the procurement done against that block booking.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "This will be a text field and it’s visibility and mandatory will be controlled via Screen layout Configurator.",
+      "locator": "§ Buyer Block Booking Changes › Header Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "What is the expected length and data type of the field?",
+      "locator": "§ Buyer Block Booking Changes › Header Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "In Block Booking, required a New Field called “Material Details”, in this we required a Hyperlink which will open a new grid: -",
+      "locator": "§ Buyer Block Booking Changes › Buyer Block Booking Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Please mention the material detail section will applicable for all block booking type & Category ?",
+      "locator": "§ Buyer Block Booking Changes › Buyer Block Booking Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Units: - This will be mandatory if any article is added.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Rate: - Non-mandatory",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Currency: - Non- mandatory",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "UOM: - This will be mandatory if any article is added.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Details Section: -:\n1. The material detail section will show below fields: -\n2. Article Name\n3. Color\n4. Size\n5. Units: - This will be mandatory if any article is added.\n6. Rate: - Non-mandatory\n7. Currency: - Non- mandatory\n8. UOM: - This will be mandatory if any article is added. By default, it will be purchase UOM",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "What is the validation of rate and currency?",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "What is the validation of rate and currency?",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "And also advise the validation if any.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "However, it is not mandatory to put rate and currency here.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If no rate and currency is defined then no validation on Adhoc indent.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If no rate and currency is defined then no validation on Adhoc indent.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Provision revision of this rate and currency is required.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: - If any material has been entered in the Material Details section, then when the user tags this Block Booking on an Adhoc Indent (Section 2.3), the system will only allow adding the article listed in the Material section to the Adhoc Indent and will enforce quantity validation.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If particular material has been used for indent creation and indent is not cancelled then user should not be able to delete respective material from this material tab.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Currently, in adhoc indent screen, there is no option to attach buyer block booking no.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "So, our requirement is to have one more indent type that would be “Buyer Block Booking”.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Linking of Block Booking to Adhoc Indent:\n1. Currently, in adhoc indent screen, there is no option to attach buyer block booking no.\n2. So, our requirement is to have one more indent type that would be “Buyer Block Booking”.\n3. After this booking no, the user will select the booking no and it’s respective lines and will attach the articles accordingly.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "New Indent Type: - Buyer Block Booking",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Header Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: - (This is required of Indent Type: - SR.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Header Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "No, OC, Buyer Block Booking)",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Header Details: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Block Booking Line (Multi Selection)",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Indent Details Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Indent Details Tab: -:\n1. Indent Details Tab to Show Booking Details\n2. Booking No (Booking Ref.) (Single Selection)\n3. Block Booking Line (Multi Selection)\n4. Buyer\n5. Article\n6. Total Qty\n7. OC Cut Off Date",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Indent Details Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "System should show list as per lines defined in block booking.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If for example: - Block booking have 5 lines then it will also show 5 lines to select.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "List should show all block booking lines with all the fields available in block booking transactions:-",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Block Booking No",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Block Booking Line No",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "When click on “Add” button below screen will open.:\n1. Buyer\n2. Buyer Department\n3. Block Booking No\n4. Booking Ref\n5. Block Booking Line No\n6. Product Group\n7. Sub Category\n8. Article\n9. Season\n10. Qty\n11. OC Cut Off date\n12. Month\n13. Year\n14. Start Date\n15. End Date\n16. From this screen, user will select the Booking and will click ok. After click OK, the booking details will get added to indent details tab.\n17. The User Can select only one Booking No from this screen. So, the selection will be radio button.\nPD Remarks: What alert you are expecting here? Please mention.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user has entered any article in the Material Details section of this attached block booking (Section 1.3), the system will automatically display that article and will not allow any modifications.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The units for that article will also be fetched automatically, with a validation ensuring that the user cannot exceed the specified units.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Article Tab: -:\n1. The Article Tab will contain below fields: -\n2. Article\n3. Color\n4. Size\n5. Booking No\n6. Booking Line No\n7. Prev Indent Qty\n8. Units\n9. Balance Units (Total Booking Qty - (Prev Indent Qty+ Units)\n10. Rate\n11. Currency\n12. UOM\n13. Remarks\n14. User Group\n15. Purchase Officer\n16. Supplier\n17. Delivery Terms\n18. If the user has entered any article in the Material Details section of this attached block booking (Section 1.3), the system will automatically display that article and will not allow any modifications. The units for that article will also be fetched automatically, with a validation ensuring that the user cannot exceed the specified units. However, the user will be allowed to reduce the quantity.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The rate and currency defined in Block Booking will become the budget for this indent.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If no rate is defined in Block Booking then on indent any rate can be taken.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If no rate is defined in Block Booking then on indent any rate can be taken.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "After confirmation, the indent will get created with Indent Type: - Buyer Block Booking",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Download Import Format: - The import format in case of indent type =’Buyer Block Booking’ will be as below: -",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Which tools will work in case of this Indent Type=’Buyer Block Booking’:\n1. Confirm tool will be required to confirm the details. After confirmation, the indent will get created with Indent Type: - Buyer Block Booking\n2. Cancel will be used to Cancel the changes.\n3. Download Import Format: - The import format in case of indent type =’Buyer Block Booking’ will be as below: -\n4. Import: - Import format will be used to import the details. The format will be as per above.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If buyer block booking is created in one company or division then indent can be created in another company?",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If buyer block booking is created in one company or division then indent can be created in another company?",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "What all permission user will have for creating adhoc indent and buyer block booking?",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Impl Remarks: - User will have permission of indent type Block Booking just like we have for OC, None, Buyer SR.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If OC has been confirmed linking to buyer block booking will user be allowed to create adhoc indent linked with OC for the material which has adhoc indent exist linked with buyer block booking.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "If OC has been confirmed linking to buyer block booking will user be allowed to create adhoc indent linked with OC for the material which has adhoc indent exist linked with buyer block booking.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If OC has been confirmed linking to buyer block booking and user had generated the MRP for OC please explain the impact of OC indent fulfillment.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Impl Remarks: - The system will allocate the material of block booking indents to this OC Indents.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The OCs where this block booking is tagged, once MRP is generated for these OC then material will be auto adjustment from this adhoc indent to the OC Indents.",
+      "locator": "§ Auto Material allocation for OCs where this Buyer Block Booking is tagged.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The OCs where this block booking is tagged, once MRP is generated for these OC then material will be auto adjustment from this adhoc indent to the OC Indents.",
+      "locator": "§ Auto Material allocation for OCs where this Buyer Block Booking is tagged.",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "332558 Procurement against Buyer Block Booking 06-10-2025",
+      "heading": "",
+      "text": "Software Requirements Specification\nProcurement against Buyer Block Booking\n# 332558\nVersion 1.0●19 Feb 2025",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Purpose 3\nBusiness Requirement 3\nAssumptions 3\nFunctional Requirements 4\n1. Buyer Block Booking Changes 4\n1.1. Header Details: - 4\n1.2. Buyer Block Booking Details: - 5\n1.3. Material Details Section: - 5\n2. Linking of Block Booking to Adhoc Indent 7\n2.1. Header Details: - 7\n2.2. Indent Details Tab: - 7\n2.2.1. How to add booking no in the adhoc indent. 8\n2.2.2. When click on “Add” button below screen will open. 8\n2.2.3. How to Delete booking no in the adhoc indent. 9\n2.3. Article Tab: - 10\n2.4. Attachment Tab: - 11\n2.5. Which tools will work in case of this Indent Type=’Buyer Block Booking’ 11\n3. Auto Material allocation for OCs where this Buyer Block Booking is tagged. 13",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Procurement against Buyer Block Booking",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Buyer gives block booking against the fabric and Products to Fashion Accessories. Team wants to track the procurement done against that block booking.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Header Details: -",
+      "heading": "Buyer Block Booking Changes › Header Details: -",
+      "text": "• In header details section, we require a new Field called “Booking Ref”. This will be a text field and it’s visibility and mandatory will be controlled via Screen layout Configurator.\nPD Remarks: Can user can enter the duplicate number in different buyer blocking.\nWhat is the expected length and data type of the field?\nImpl Remarks: - Yes, user can enter duplicate value. Expected length to be of 100 Characters.\n• This booking ref field will be used in next section where we will be linking this booking to adhoc indent.",
+      "locator": "§ Buyer Block Booking Changes › Header Details: -",
+      "kind": "section"
+    },
+    {
+      "title": "Buyer Block Booking Details: -",
+      "heading": "Buyer Block Booking Changes › Buyer Block Booking Details: -",
+      "text": "• In Block Booking, required a New Field called “Material Details”, in this we required a Hyperlink which will open a new grid: -\nPD Remarks:- The material detail tab will be a generic change or need this setting base ?\nPlease mention the scenario where we need to have material details.\nPlease mention the material detail section will applicable for all block booking type & Category ?\nImpl Remarks: - It will be controlled from Screen layout configurator. Sometimes buyer gives the material details instead of products. So, it will help control the procurement based on buyer booking. It will be applicable for all booking types and apparel category.",
+      "locator": "§ Buyer Block Booking Changes › Buyer Block Booking Details: -",
+      "kind": "section"
+    },
+    {
+      "title": "Material Details Section: -",
+      "heading": "Buyer Block Booking Changes › Material Details Section: -",
+      "text": "• The material detail section will show below fields: -\n• Article Name\n• Color\n• Size\n• Units: - This will be mandatory if any article is added.\n• Rate: - Non-mandatory\n• Currency: - Non- mandatory\n• UOM: - This will be mandatory if any article is added. By default, it will be purchase UOM",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: -",
+      "kind": "section"
+    },
+    {
+      "title": "Tools",
+      "heading": "Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "text": "• Add: - It will be used to add the article\nPD Remarks: - Is price list & default buying price impact will come here?\nWhat is the validation of rate and currency? And also advise the validation if any.\nImpl Remarks: - No need to prices list & Default buyer price impact here. The rate and currency will become the budget for that indent. However, it is not mandatory to put rate and currency here. If no rate and currency is defined then no validation on Adhoc indent. Provision revision of this rate and currency is required.\n• Delete: - It will be used to delete the article\nNote: - If any material has been entered in the Material Details section, then when the user tags this Block Booking on an Adhoc Indent (Section 2.3), the system will only allow adding the article listed in the Material section to the Adhoc Indent and will enforce quantity validation.\nIf particular material has been used for indent creation and indent is not cancelled then user should not be able to delete respective material from this material tab.",
+      "locator": "§ Buyer Block Booking Changes › Material Details Section: - › … › Tools",
+      "kind": "section"
+    },
+    {
+      "title": "Linking of Block Booking to Adhoc Indent",
+      "heading": "Linking of Block Booking to Adhoc Indent",
+      "text": "• Currently, in adhoc indent screen, there is no option to attach buyer block booking no.\n• So, our requirement is to have one more indent type that would be “Buyer Block Booking”.\n• After this booking no, the user will select the booking no and it’s respective lines and will attach the articles accordingly.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent",
+      "kind": "section"
+    },
+    {
+      "title": "Header Details: -",
+      "heading": "Linking of Block Booking to Adhoc Indent › Header Details: -",
+      "text": "• New Indent Type: - Buyer Block Booking\n• Material Delivery Date: - New Column of Material Delivery Date required. Note: - (This is required of Indent Type: - SR. No, OC, Buyer Block Booking)",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Header Details: -",
+      "kind": "section"
+    },
+    {
+      "title": "Indent Details Tab: -",
+      "heading": "Linking of Block Booking to Adhoc Indent › Indent Details Tab: -",
+      "text": "• Indent Details Tab to Show Booking Details\n• Booking No (Booking Ref.) (Single Selection)\n• Block Booking Line (Multi Selection)\n• Buyer\n• Article\n• Total Qty\n• OC Cut Off Date",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Indent Details Tab: -",
+      "kind": "section"
+    },
+    {
+      "title": "How to add booking no in the adhoc indent.",
+      "heading": "Linking of Block Booking to Adhoc Indent › How to add booking no in the adhoc indent.",
+      "text": "• The user will click on “Add” button to add the booking details.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › How to add booking no in the adhoc indent.",
+      "kind": "section"
+    },
+    {
+      "title": "When click on “Add” button below screen will open.",
+      "heading": "Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "text": "System should show list as per lines defined in block booking. If for example: - Block booking have 5 lines then it will also show 5 lines to select.\nList should show all block booking lines with all the fields available in block booking transactions:-\n• Buyer\n• Buyer Department\n• Block Booking No\n• Booking Ref\n• Block Booking Line No\n• Product Group\n• Sub Category\n• Article\n• Season\n• Qty\n• OC Cut Off date\n• Month\n• Year\n• Start Date\n• End Date\n• From this screen, user will select the Booking and will click ok. After click OK, the booking details will get added to indent details tab.\n• The User Can select only one Booking No from this screen. So, the selection will be radio button.\nPD Remarks: What alert you are expecting here? Please mention.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › When click on “Add” button below screen will open.",
+      "kind": "section"
+    },
+    {
+      "title": "How to Delete booking no in the adhoc indent.",
+      "heading": "Linking of Block Booking to Adhoc Indent › How to Delete booking no in the adhoc indent.",
+      "text": "• To delete the booking, the user will use the delete option.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › How to Delete booking no in the adhoc indent.",
+      "kind": "section"
+    },
+    {
+      "title": "Article Tab: -",
+      "heading": "Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "text": "• The Article Tab will contain below fields: -\n• Article\n• Color\n• Size\n• Booking No\n• Booking Line No\n• Prev Indent Qty\n• Units\n• Balance Units (Total Booking Qty - (Prev Indent Qty+ Units)\n• Rate\n• Currency\n• UOM\n• Remarks\n• User Group\n• Purchase Officer\n• Supplier\n• Delivery Terms\n• If the user has entered any article in the Material Details section of this attached block booking (Section 1.3), the system will automatically display that article and will not allow any modifications. The units for that article will also be fetched automatically, with a validation ensuring that the user cannot exceed the specified units. However, the user will be allowed to reduce the quantity.\nPD Remarks: - Is price list & default buying price impact will come here?\nWhat is the validation of rate and currency? And also advise the validation if any.\nImpl Remarks: - No need to prices list & Default buyer price impact here. The rate and currency defined in Block Booking will become the budget for this indent. If no rate is defined in Block Booking then on indent any rate can be taken.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Article Tab: -",
+      "kind": "section"
+    },
+    {
+      "title": "Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "heading": "Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "text": "• Confirm tool will be required to confirm the details. After confirmation, the indent will get created with Indent Type: - Buyer Block Booking\n• Cancel will be used to Cancel the changes.\n• Download Import Format: - The import format in case of indent type =’Buyer Block Booking’ will be as below: -\n• Import: - Import format will be used to import the details. The format will be as per above.\nPD Remarks:-\n• If buyer block booking is created in one company or division then indent can be created in another company?\nImpl Remarks: - Can be created in another division.\n• What all permission user will have for creating adhoc indent and buyer block booking?\nImpl Remarks: - User will have permission of indent type Block Booking just like we have for OC, None, Buyer SR.\n• If OC has been confirmed linking to buyer block booking will user be allowed to create adhoc indent linked with OC for the material which has adhoc indent exist linked with buyer block booking.\nImpl Remarks: - Yes\n• If OC has been confirmed linking to buyer block booking and user had generated the MRP for OC please explain the impact of OC indent fulfillment. Also advise the impact in case of split and revise of OC.",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "kind": "section"
+    },
+    {
+      "title": "Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "heading": "Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’",
+      "text": "Impl Remarks: - The system will allocate the material of block booking indents to this OC Indents. In case of split, the system will allocate the material based on the existing setting “Material Re-Allocation on Manual MRL Generation”\n• How user will be track the indent fulfillment, what all reports/datamodel(Sp) changes required ?\nImpl Remarks: - There are existing reports where system shows the stock correction. Like Stock Correction Report under inventory Section and Indent Adjustment Report in Sourcing module. and same to be shown on indent log",
+      "locator": "§ Linking of Block Booking to Adhoc Indent › Which tools will work in case of this Indent Type=’Buyer Block Booking’ (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Auto Material allocation for OCs where this Buyer Block Booking is tagged.",
+      "heading": "Auto Material allocation for OCs where this Buyer Block Booking is tagged.",
+      "text": "• The OCs where this block booking is tagged, once MRP is generated for these OC then material will be auto adjustment from this adhoc indent to the OC Indents.\n• The adjustment to be done from any stage (PO, ASN, GRN).",
+      "locator": "§ Auto Material allocation for OCs where this Buyer Block Booking is tagged.",
+      "kind": "section"
+    }
+  ]
+}

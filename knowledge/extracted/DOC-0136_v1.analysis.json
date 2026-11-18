@@ -1,0 +1,67 @@
+{
+  "tables": [],
+  "subject": "Manufacturing Base Module 414433 Release Notes",
+  "keyTerms": [
+    "approval",
+    "consumption request",
+    "request",
+    "consumption",
+    "request price",
+    "price approval",
+    "price",
+    "sent approval",
+    "users",
+    "once",
+    "sent",
+    "approval users"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "Users can select the Cancel Price/Consumption Request option at the BOM line level after the request has been sent for approval.",
+      "locator": "§ Need to add feature of recall once its sent for approval in consumption request and price approval (414433)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once the request is cancelled by user, then respective enter will be removed from Approval Center as well like Cancelled/Rejected Record.",
+      "locator": "§ Need to add feature of recall once its sent for approval in consumption request and price approval (414433)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The selected line is opened with existing data pre-filled, allowing users to modify relevant consumption and pricing details.",
+      "locator": "§ Need to add feature of recall once its sent for approval in consumption request and price approval (414433)",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Need to add feature of recall once its sent for approval in consumption request and price approval (414433)",
+      "heading": "Need to add feature of recall once its sent for approval in consumption request and price approval (414433)",
+      "text": "Business requirement: To improve the flexibility and efficiency of the approval workflow for Consumption Request and Price Approval processes, users should be able to revise and re-submit requests after they have been sent for approval, along with the ability to update the approver before re-submission.\nProblem encountered: Previously, once a Consumption Request or Price Approval was submitted for approval, users were unable to make modifications or reassign the approver. This resulted in delays, dependency on manual interventions, and process inefficiencies.\n\nType: Enhancement.\nRoles/ Target Audience: Merchandising.\nSolution: The Revise functionality has been implemented for Consumption Request and Price Approval. Users can select the Cancel Price/Consumption Request option at the BOM line level after the request has been sent for approval. Once the request is cancelled by user, then respective enter will be removed from Approval Center as well like Cancelled/Rejected Record. The selected line is opened with existing data pre-filled, allowing users to modify relevant consumption and pricing details.",
+      "locator": "§ Need to add feature of recall once its sent for approval in consumption request and price approval (414433)",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "tables": [],
+  "subject": "PRice Mismatch case on GRN",
+  "keyTerms": [
+    "order",
+    "price",
+    "fppo",
+    "status",
+    "rejected",
+    "section",
+    "shown",
+    "wrong",
+    "grn",
+    "revision",
+    "90rs",
+    "approval",
+    "order status",
+    "status shown",
+    "supplier invoice"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 11
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "On view page order status is shown as cancelled and outside it is showing rejected. 5.",
+      "locator": "p. 2, § … › New Section 2 Page 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If order status is completed beforehand and GRN is already completed, if we revise the order and FPPO has been rejected by the approver.",
+      "locator": "p. 4, § … › NOTE:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Price Should not get Updated on order overview.(should remain 80 as shown above).",
+      "locator": "p. 4, § … › NOTE:",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "PRice Mismatch case on GRN",
+      "heading": "",
+      "text": "GRN with 80 rs for Production process Before Revision 1.",
+      "locator": "p. 1",
+      "kind": "section"
+    },
+    {
+      "title": "FPPO revision (80rs to 90rs)",
+      "heading": "… › FPPO revision (80rs to 90rs)",
+      "text": "price inc(O/P) - 90 rs\nsent for approval",
+      "locator": "p. 1, § … › FPPO revision (80rs to 90rs)",
+      "kind": "section"
+    },
+    {
+      "title": "New Section 2 Page 1",
+      "heading": "… › New Section 2 Page 1",
+      "text": "On view page order status is shown as cancelled and outside it is showing rejected. 5.\nFirst order was confirmed with 80 I revised the FPPO to 90 and it is shown here as 90rs which is wrong. 6.\nProd process order follow up report 7.\nstatus shown wrong",
+      "locator": "p. 1, § … › New Section 2 Page 1",
+      "kind": "section"
+    },
+    {
+      "title": "Price is also wrong",
+      "heading": "… › Price is also wrong",
+      "text": "Supplier Invoice 8.",
+      "locator": "p. 2, § … › Price is also wrong",
+      "kind": "section"
+    },
+    {
+      "title": "New Section 2 Page 2",
+      "heading": "… › New Section 2 Page 2",
+      "text": "Rate automatically getting picked up as 90Rs.",
+      "locator": "p. 2, § … › New Section 2 Page 2",
+      "kind": "section"
+    },
+    {
+      "title": "Stock over view report (Price coming as 90)",
+      "heading": "… › Stock over view report (Price coming as 90)",
+      "text": "i.\n9.",
+      "locator": "p. 3, § … › Stock over view report (Price coming as 90)",
+      "kind": "section"
+    },
+    {
+      "title": "New Section 2 Page 3",
+      "heading": "… › New Section 2 Page 3",
+      "text": "ii.\nOn FPO List 10.\nFPPO hyperlink showing the wrong qty.(It should be 500)",
+      "locator": "p. 3, § … › New Section 2 Page 3",
+      "kind": "section"
+    },
+    {
+      "title": "NOTE:",
+      "heading": "… › NOTE:",
+      "text": "1. If order status is completed beforehand and GRN is already completed, if we revise the order and FPPO has been rejected by the approver. Then what should be the status of the order?\n2. What should come on Overview(Inside and outside the status should be same).\n3. Price Should not get Updated on order overview.(should remain 80 as shown above).",
+      "locator": "p. 4, § … › NOTE:",
+      "kind": "section"
+    }
+  ]
+}

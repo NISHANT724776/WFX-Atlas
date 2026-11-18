@@ -1,0 +1,72 @@
+{
+  "tables": [],
+  "subject": "Stock write off Auto OC closure stock transfer configuration",
+  "keyTerms": [
+    "site",
+    "stock",
+    "writeoff site",
+    "writeoff",
+    "configuration",
+    "closure",
+    "stock transfer",
+    "closure setup",
+    "transfer",
+    "setup",
+    "stock writeoff",
+    "writeoff auto",
+    "auto closure",
+    "closure stock",
+    "transfer configuration"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 17
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "Stock write off Auto OC closure stock transfer configuration:\n1. Company.\n2. General site (In case you want to use multiple site configuration)\n3. Write off site (click on hyper link and select from site - to site)\n4. Category.\n5. Stock Rule(OC stock transfer out of system / Oc stock unreserve)\n6. Transaction type (FPPO)\n7. Execution type (Factory/ Outsource)",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "After enabling this configuration once the OC is closed all the leftover stock will be transfer to the write off site.",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the given configuration is done you don’t need to use the miscellaneous setting Enable Write off for Site:",
+      "locator": "start",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Stock write off Auto OC closure stock transfer configuration",
+      "heading": "",
+      "text": "Stock write off Auto OC closure stock transfer configuration:\nAngular screen for OC Closure setup & Field input types.\nNavigation: - Admin >> Configurator >> Configuration rules >> OC Closure Setup\n• Add a new submenu in Admin > Configurator > Configuration Rules menu, name of the submenu will be OC Closure Setup\nFrom backend need to enable new consumption marking.\nCreation of Write off site under site master.\nSo that material can be transfer to the write off site directly.\nUnder Oc closure setup you need to select the flowing details:\n• Company.\n• General site (In case you want to use multiple site configuration)\n• Write off site (click on hyper link and select from site - to site)\n• Category.\n• Stock Rule(OC stock transfer out of system / Oc stock unreserve)\n• Transaction type (FPPO)\n• Execution type (Factory/ Outsource)\nAfter enabling this configuration once the OC is closed all the leftover stock will be transfer to the write off site.\nOnce the given configuration is done you don’t need to use the miscellaneous setting Enable Write off for Site:",
+      "locator": "start",
+      "kind": "section"
+    }
+  ]
+}

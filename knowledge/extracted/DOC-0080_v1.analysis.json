@@ -1,0 +1,708 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Status",
+        "OCR state (Pending, In-progress, Closed). – need to define how status will change."
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Status"
+      ],
+      "rows": [
+        [
+          "Location",
+          "State of Factory/ office (e.g., Bengaluru, India)."
+        ],
+        [
+          "Company Division",
+          "Internal business unit (e.g., MNB)."
+        ],
+        [
+          "Style",
+          "WFX style Name"
+        ],
+        [
+          "Season",
+          "Season of the style"
+        ],
+        [
+          "Merchant",
+          "Nam eo fthe merchant from Style Techpack (e.g., Rajesh, Sanjeev)."
+        ],
+        [
+          "Buyer",
+          "Customer entity (e.g., Walmart, Target, H&M, Zara, Uniqlo)."
+        ],
+        [
+          "Order Quantity",
+          "Total Sales Order Units"
+        ],
+        [
+          "Shipment Qty",
+          "Total units shipped."
+        ],
+        [
+          "Return Qty",
+          "ASN Return Qty"
+        ],
+        [
+          "Net Shipment Qty",
+          "Total Units Shipped – Return Qty"
+        ],
+        [
+          "% of Net Shipment Qty",
+          "% of the total net shipped qty out of total order qty"
+        ],
+        [
+          "Open OCs",
+          "Count of open orders. Since this screen will primarily designed for to run om Summary oc so sales order count will be one only. However, in future if customer requirement will be run OCR on style level then this count will have values based on total number of summary OCs in open state for a particular season"
+        ],
+        [
+          "Open Indents",
+          "Count of Active Indents including OC liked Adhoc Indents"
+        ],
+        [
+          "Transit PO",
+          "In Transit Pos for which full receiving is not done."
+        ],
+        [
+          "Production Unit",
+          "Manufacturing units where sales order has been produced (e.g., Unit 1, Unit 2, Unit 5). The columns after the production unit will be split as per unit selection will be based on sewing process"
+        ],
+        [
+          "In-Transit Stock",
+          "In transit Material GDNs –only transfer GDIs data need to be shown."
+        ],
+        [
+          "Open Production Order",
+          "Count of active production orders."
+        ],
+        [
+          "Open Production Jobwork",
+          "Count of active internal or external production jobwork orders."
+        ],
+        [
+          "Last Shipment Date",
+          "Date of the most recent shipment."
+        ],
+        [
+          "OCR Initiated Date",
+          "Date the closure request was started."
+        ],
+        [
+          "Last FG Output Date",
+          "Last recorded finished goods production date."
+        ],
+        [
+          "Audit Completed On",
+          "Date the final audit was finalized."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Yudeesh Kumar",
+          "10-05-2026",
+          "Document Created."
+        ],
+        [
+          "1.1",
+          "Sumit Sharma",
+          "01-07-2026",
+          "Document Revision"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "392088 - OCR Functionality",
+  "keyTerms": [
+    "ocr",
+    "user",
+    "open",
+    "shipment",
+    "order",
+    "closure",
+    "stock",
+    "style",
+    "team",
+    "respective",
+    "closed",
+    "status",
+    "merchant",
+    "user able",
+    "open indents"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 30
+    },
+    {
+      "module": "Production",
+      "score": 13
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 10
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 4
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "Apparel Style (Techpack)",
+    "FPO & FPPO"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Purpose of this document is to describe understanding of OCR functionality practiced in Shahi Exports.",
+      "locator": "§ Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Once a style is flagged as closed by all the relevant department, subject style is submitted for BI Team review.",
+      "locator": "§ Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Styles post OCR closure are taken in periodic MIS for various management meetings.",
+      "locator": "§ Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "During this OCR multiple activities are performed in control environment which are explained in detail in this document.",
+      "locator": "§ Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Why we are not handling this through buyer shipment tolerance.",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If shipment tolerance is enabled, the configured OCR threshold shall include the shipment tolerance defined in the Buyer Master during shipment validation.",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If shipment tolerance is enabled, the configured OCR threshold shall include the shipment tolerance defined in the Buyer Master during shipment validation.",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Buyer Master Shipment Tolerance = 10%",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "OCR Rule Threshold = 90%",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Tolerance Enabled = Yes",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OCR Rules:\n1. Buyer Master Shipment Tolerance = 10%\n2. OCR Rule Threshold = 90%\n3. Tolerance Enabled = Yes\n4. System calculates 10% of the Order Qty",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "It will also have option to include buyer shipment tolerance while considering sales order quantity for threshold validation if needed.",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OCR Rules:\n1. Quick Searching Parameter – Buyer and Category\n2. Filter Parameter – Buyer and Category\n3. Context Menu – In Context menu we need to provide Activity timeline option once user will clicks on it logs details need to be shown as per wfx standard.\n4. Above screen will be used to define OCR logic with respect to customer and category with shipment threshold.\n5. It will also have option to include buyer shipment tolerance while considering sales order quantity for threshold validation if needed.\n6. User will be able to make a rule as Active or In-Active using status option.\n7. User will be able to edit and delete the rule, if needed.\n8. Change of rule will be applicable only for order falling in the criteria post the change.\n9. Change Log will be available to record changes made in this grid.",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Status, OCR state (Pending, In-progress, Closed). – need to define how status will change. (22 rows; identifiers: Status)",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "On clicking Order Closure, a pop-up should appear with a text area where the user must enter remarks.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace › … › List Controls",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Which means if any task is open for more than 2 days then it will go for escalation.",
+      "locator": "§ Functional Requirement. › OCR work flow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Auto Email notification is also required to the email’s ids for these responsible users when an OCR is initiated.",
+      "locator": "§ Functional Requirement. › OCR work flow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Below are the open indents and Open Pos assigned to you.",
+      "locator": "§ Functional Requirement. › OCR work flow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "System will restrict duplicate workflow.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › … › Controls:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "While mapping user is able to select single category and multiple product group and sub category for a single user.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › … › Controls:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Below are the In Transit Transaction pending with you.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Inventory team",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Once all above transactions are closed then request will move to factory team.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Factory team",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If Summary Ocs are not closed then those will be highlighted in RED color.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Controls & Validations",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Controls & Validations:\n1. If Summary Ocs are not closed then those will be highlighted in RED color.\n2. All Apparel type FPO & FPPOs should be closed.\n3. In case of Material Jobwork, FPO & FPPOs can be open which will not be considered here.\n4. Once Style OC falls in condition of OCR i.e. 90% of shipment. Shipment will send a notification to merchant for OCR Pending\n5. Once Merchant trigger the OC for OCR, a notification will be sent to Sourcing then inventory then production\n6. OCR Month will considered based on OCR completion date if it falls on and before 25th of the months else it will be marked for next month.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Controls & Validations",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the QC status is still Pending or In Progress, and the user clicks the Transfer link, the system should display an appropriate alert message as “QC is not completed, so you cannot Transfer the Stock”",
+      "locator": "§ Functional Requirement. › OCR Summary › OCR FG Stock",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the QC status is still Pending or In Progress, and the user clicks the Transfer link, the system should display an appropriate alert message as “QC is not completed, so you cannot Transfer the Stock”",
+      "locator": "§ Functional Requirement. › OCR Summary › OCR FG Stock",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Stock Reuse:\n1. OCR will be user base configurable\n2. Return Qty. should also consider for threshold calculation.\n3. Order Quantity: 1,000 pcs\n4. Shipment Threshold: 90%\n5. Return Quantity: 50 pcs\n6. Net Shipped Quantity: 850 pcs (900 shipped − 50 returned)",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Required for OCR = 900 pcs",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Net Shipment = 850 pcs",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "After OCR closure auditor is not able to re-open an OCR.",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "After initiation user is not able to cancel OCR.",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Stock Reuse:\n1. Required for OCR = 900 pcs\n2. Net Shipment = 850 pcs\n3. Result: OCR Not Eligible because return quantity is deducted from the shipped quantity while calculating the threshold.\n4. if shipment quantity changes after OCR has already started then it will show in – progress.\n5. Merchant will not open a completed task.\n6. After OCR closure auditor is not able to re-open an OCR.\n7. After initiation user is not able to cancel OCR.",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (2 rows)",
+      "locator": "§ Revision History, table 2",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "392088 - OCR Functionality",
+      "heading": "",
+      "text": "Software Requirements Specification\nOCR Functionality\nDocument: - 392088\nVersion 1.0 ● 10 May 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nWorkflow 3\nSection 2. Assumptions 4\nAssumptions 4\nSection 3. Solution 4\nFunctional Requirement. 4\n1. OCR Rules 4\n2. Order Closure Workplace 5\n3. OCR work flow 8\n4. OCR Summary 11\nOCR statistics 11\nOCR FG Stock 12\nStock Reuse 12\nSection 4. 12\nRevision History 12",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Purpose of this document is to describe understanding of OCR functionality practiced in Shahi Exports.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "In Shahi, once all of the sales orders are shipped then Style moves to OCR category. These styles start listing in OCR workplace where different department teams perform different action and update.\nOnce a style is flagged as closed by all the relevant department, subject style is submitted for BI Team review. Upon receipt of style BI team analyse transaction status related to respective style and confirm on OCR closure.\nStyles post OCR closure are taken in periodic MIS for various management meetings. In essence, OCR is the formal closure of a styles and respective sales orders.\nDuring this OCR multiple activities are performed in control environment which are explained in detail in this document.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "OCR Rules",
+      "heading": "Functional Requirement. › OCR Rules",
+      "text": "There will be a configuration windows where admin can define OCR rules based on Buyer and Product Categories as shown below:\n\nQ . Why we are not handling this through buyer shipment tolerance.\nIf shipment tolerance is enabled, the configured OCR threshold shall include the shipment tolerance defined in the Buyer Master during shipment validation.\n• Buyer Master Shipment Tolerance = 10%\n• OCR Rule Threshold = 90%\n• Tolerance Enabled = Yes\n• System calculates 10% of the Order Qty\nNavigation: - Admin Configurator Configuration Rules OCR Rules\n• Quick Searching Parameter – Buyer and Category\n• Filter Parameter – Buyer and Category\n• Context Menu – In Context menu we need to provide Activity timeline option once user will clicks on it logs details need to be shown as per wfx standard.\n• Above screen will be used to define OCR logic with respect to customer and category with shipment threshold.\n• It will also have option to include buyer shipment tolerance while considering sales order quantity for threshold validation if needed.\n• User will be able to make a rule as Active or In-Active using status option.\n• User will be able to edit and delete the rule, if needed.\n• Change of rule will be applicable only for order falling in the criteria post the change.\n• Change Log will be available to record changes made in this grid.\nPrototype - OCR Rules - WFX",
+      "locator": "§ Functional Requirement. › OCR Rules",
+      "kind": "section"
+    },
+    {
+      "title": "Order Closure Workplace",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "There will be a new menu option as “Order Closure Workplace” under Sales >>Purchase Order from Buyers”.\n• Data need shown OC wise in below screen.\n• This page should include angular features like increasing column width rearranging columns, Pin sorting etc.\nGrid Column Summary: -",
+      "locator": "§ Functional Requirement. › Order Closure Workplace",
+      "kind": "section"
+    },
+    {
+      "title": "Order Closure Workplace – Table 1",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Columns: Status (text); OCR state (Pending, In-progress, Closed). – need to define how status will change. (text)\nStatus | OCR state (Pending, In-progress, Closed). – need to define how status will change.\nLocation | State of Factory/ office (e.g., Bengaluru, India).\nCompany Division | Internal business unit (e.g., MNB).\nStyle | WFX style Name\nSeason | Season of the style\nMerchant | Nam eo fthe merchant from Style Techpack (e.g., Rajesh, Sanjeev).\nBuyer | Customer entity (e.g., Walmart, Target, H&M, Zara, Uniqlo).\nOrder Quantity | Total Sales Order Units\nShipment Qty | Total units shipped.\nReturn Qty | ASN Return Qty\nNet Shipment Qty | Total Units Shipped – Return Qty\n% of Net Shipment Qty | % of the total net shipped qty out of total order qty\nOpen OCs | Count of open orders. Since this screen will primarily designed for to run om Summary oc so sales order count will be one only. However, in future if customer requirement will be run OCR on style level then this count will have values based on total number of summary OCs in open state for a particular season\nOpen Indents | Count of Active Indents including OC liked Adhoc Indents\nTransit PO | In Transit Pos for which full receiving is not done.\nProduction Unit | Manufacturing units where sales order has been produced (e.g., Unit 1, Unit 2, Unit 5). The columns after the production unit will be split as per unit selection will be based on sewing process\nIn-Transit Stock | In transit Material GDNs –only transfer GDIs data need to be shown.\nOpen Production Order | Count of active production orders.\nOpen Production Jobwork | Count of active internal or external production jobwork orders.\nLast Shipment Date | Date of the most recent shipment.\nOCR Initiated Date | Date the closure request was started.\n… 2 more rows",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Location; OCR state (Pending, In-progress, Closed). – need to define how status will change.: State of Factory/ office (e.g., Bengaluru, India).",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Company Division; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Internal business unit (e.g., MNB).",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Style; OCR state (Pending, In-progress, Closed). – need to define how status will change.: WFX style Name",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Season; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Season of the style",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Merchant; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Nam eo fthe merchant from Style Techpack (e.g., Rajesh, Sanjeev).",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Buyer; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Customer entity (e.g., Walmart, Target, H&M, Zara, Uniqlo).",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Order Quantity; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Total Sales Order Units",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Shipment Qty; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Total units shipped.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Return Qty; OCR state (Pending, In-progress, Closed). – need to define how status will change.: ASN Return Qty",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Net Shipment Qty; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Total Units Shipped – Return Qty",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 11",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: % of Net Shipment Qty; OCR state (Pending, In-progress, Closed). – need to define how status will change.: % of the total net shipped qty out of total order qty",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 12",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Open OCs; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Count of open orders. Since this screen will primarily designed for to run om Summary oc so sales order count will be one only. However, in future if customer requirement will be run OCR on style level then this count will have values based on total number of summary OCs in open state for a particular season",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 13",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Open Indents; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Count of Active Indents including OC liked Adhoc Indents",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 14",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Transit PO; OCR state (Pending, In-progress, Closed). – need to define how status will change.: In Transit Pos for which full receiving is not done.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 15",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Production Unit; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Manufacturing units where sales order has been produced (e.g., Unit 1, Unit 2, Unit 5). The columns after the production unit will be split as per unit selection will be based on sewing process",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 16",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: In-Transit Stock; OCR state (Pending, In-progress, Closed). – need to define how status will change.: In transit Material GDNs –only transfer GDIs data need to be shown.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 17",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Open Production Order; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Count of active production orders.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 18",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Open Production Jobwork; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Count of active internal or external production jobwork orders.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 19",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Last Shipment Date; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Date of the most recent shipment.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 20",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: OCR Initiated Date; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Date the closure request was started.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 21",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Last FG Output Date; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Last recorded finished goods production date.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 22",
+      "heading": "Functional Requirement. › Order Closure Workplace",
+      "text": "Status: Audit Completed On; OCR state (Pending, In-progress, Closed). – need to define how status will change.: Date the final audit was finalized.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace, table 1, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "List Controls",
+      "heading": "Functional Requirement. › Order Closure Workplace › … › List Controls",
+      "text": "Initiate OCR : This will user level configuration field which will be visible only once configured for respective user. User will be able to trigger OCR process selecting a OCR line and click on Initiate OCR Process tool.\nClose Audit: This will user level configuration field which will be visible only once configured for respective user. User will be able to close OCR process by click on this tool. User will be able to Accept and Reject OCR request with comments. These comments will be visible on Line level Action history.\nLog: There should be an Audit log covering date of initiation and Auditor comments with approval and rejection.\nTask Closure: - Each department will have an option to close the task. However, if his responsible task (Like Open Indents, In Transit PO) are not zero then system will not allow to close the task. User can also select multiple lines to close the task.\nx\nReason for delay: - If after 3 days of OCR initiation, if any task is not closed then there will be a reason for deploy which team has to mention. It will a dropdown and required a master in Sales Codes Reason for Delay for OCR.\nOn clicking Order Closure, a pop-up should appear with a text area where the user must enter remarks. The pop-up should also provide two buttons: Approve and Reject.\n• When the user clicks Approve, the OCR will be closed, and its status should be updated to Closed.",
+      "locator": "§ Functional Requirement. › Order Closure Workplace › … › List Controls",
+      "kind": "section"
+    },
+    {
+      "title": "List Controls",
+      "heading": "Functional Requirement. › Order Closure Workplace › … › List Controls",
+      "text": "• When the user clicks Reject, a new OCR should be initiated, and its status should be set to In Progress.\nPrototype - Order Closure Workspace - WEX",
+      "locator": "§ Functional Requirement. › Order Closure Workplace › … › List Controls (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "OCR work flow",
+      "heading": "Functional Requirement. › OCR work flow",
+      "text": "There will be a OCR responsibility matrix to define OCR responsibilities work flow as below:\nNavigation:- Admin Configurator Configuration Rules OCR Workflow\nWhen user clicks on Set Matrix of “Escalation Matrix”, then below screen will open where we can set the escalation matrix for that user:-\nIt days threshold will be default greater than. Which means if any task is open for more than 2 days then it will go for escalation.\nMin Value for days would be 1 and max value would be 99\nThis escalation will go to email and also in App.\nSubject of all these emails: - OCR Initiation for OC No: - “”\nPrototype -\nThis grid will provide option to define name of the person who is responsible for action against respective categories like action:\n• Apparel for Sales Order closure\n• Fabric & Trims for Indent closures.\nAuto Email notification is also required to the email’s ids for these responsible users when an OCR is initiated.\nDear [UserName],\nFor OC: - [OC No (PO Ref)], OCR is initiate. Below are the open indents and Open Pos assigned to you. Please close them.\nOpen Indents\nOpen Pos\nThank You,\nTeam WFX",
+      "locator": "§ Functional Requirement. › OCR work flow",
+      "kind": "section"
+    },
+    {
+      "title": "Controls:",
+      "heading": "Functional Requirement. › OCR work flow › … › … › Controls:",
+      "text": "There will be single person responsible for one action. System will restrict duplicate workflow.\nWhile mapping user is able to select single category and multiple product group and sub category for a single user.\nBased on this grid, OCR workflow will be triggered.\nValues changed in this grid will impact on upcoming orders only.\nThere will be checkbox as Auditor against apparel category which will be used to define role of the Auditor.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › … › Controls:",
+      "kind": "section"
+    },
+    {
+      "title": "Merchant",
+      "heading": "Functional Requirement. › OCR work flow › … › Responsibility workflow › Merchant",
+      "text": "Once shipment against OC reach to 90%, system will list that OC in above OCR due list. Same time system will show OCR request on “Actions Pending” widget of respective merchant who has marked as merchant in Techpack.\nName of the merchant:\nThis will be visible to the user selected as “Production Merchant” in respective style techpack. An auto Email will also go this user as per the email defined in the user master.\nAction:\nOn the basis of alert, production merchant will review and close all open OC falling in OCR scope.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Merchant",
+      "kind": "section"
+    },
+    {
+      "title": "Sourcing Team",
+      "heading": "Functional Requirement. › OCR work flow › … › Responsibility workflow › Sourcing Team",
+      "text": "Sourcing team will ensure that all open indents and In Transit POs are closed. Auto Email notification will route to the respective users.\nEmail format:-\nDear [UserName],\nFor OC: - [OC No (PO Ref)], OCR is initiate. Below are the open indents and Open Pos assigned to you. Please close them.\nOpen Indents\nOpen Pos\nThank You,\nTeam WFX",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Sourcing Team",
+      "kind": "section"
+    },
+    {
+      "title": "Inventory team",
+      "heading": "Functional Requirement. › OCR work flow › … › Responsibility workflow › Inventory team",
+      "text": "Inventory team will ensure that all in-transit transaction are closed. Auto Email notification will route to the respective users.\nEmail format:-\nDear [UserName],\nFor OC: - [OC No (PO Ref)], OCR is initiate. Below are the In Transit Transaction pending with you. Please close them.\nIn Transit Stock:-\nThank You,\nTeam WFX",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Inventory team",
+      "kind": "section"
+    },
+    {
+      "title": "Factory team",
+      "heading": "Functional Requirement. › OCR work flow › … › Responsibility workflow › Factory team",
+      "text": "Once all above transactions are closed then request will move to factory team. Auto Email notification will route to the respective users. Factory team will have an option to send it to auditor.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Factory team",
+      "kind": "section"
+    },
+    {
+      "title": "Auditor",
+      "heading": "Functional Requirement. › OCR work flow › … › Responsibility workflow › Auditor",
+      "text": "This role will be defined as auditor against apparel category. There can be only one auditor for a customer and department.\nOnce all above actions are closed. OCR request will become visible in Auditor.\nUpon closure of respective transactions, respective flag from Pending task widget will be removed.\nEmail format: -\nDear [UserName],\nFor OC: - [OC No (PO Ref)], OCR is initiated and all departments have closed the open items. Kindly review and close.\nThank You,\nTeam WFX",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Responsibility workflow › Auditor",
+      "kind": "section"
+    },
+    {
+      "title": "Controls & Validations",
+      "heading": "Functional Requirement. › OCR work flow › … › Controls & Validations",
+      "text": "• If Summary Ocs are not closed then those will be highlighted in RED color.\n• All Apparel type FPO & FPPOs should be closed.\n• In case of Material Jobwork, FPO & FPPOs can be open which will not be considered here.\n• Once Style OC falls in condition of OCR i.e. 90% of shipment. Shipment will send a notification to merchant for OCR Pending\n• Once Merchant trigger the OC for OCR, a notification will be sent to Sourcing then inventory then production\n• OCR Month will considered based on OCR completion date if it falls on and before 25th of the months else it will be marked for next month.",
+      "locator": "§ Functional Requirement. › OCR work flow › … › Controls & Validations",
+      "kind": "section"
+    },
+    {
+      "title": "OCR Summary",
+      "heading": "Functional Requirement. › OCR Summary",
+      "text": "There will be a link on respective OCR line in OCR Closure Workspace screen to show OCR Sumamry which multiple tabs\nOCR Statistic\nOCR FG Stock\nOCR Stock Use",
+      "locator": "§ Functional Requirement. › OCR Summary",
+      "kind": "section"
+    },
+    {
+      "title": "OCR statistics",
+      "heading": "Functional Requirement. › OCR Summary › OCR statistics",
+      "text": "There will be a tab under OCR Closure Workspace which will be list present status of materials related to respective style OC. -\nThis screen will show style, OC level material information with present stock status like:\nIn-QC\nRejected\nIn-Transit\nTotal Stock\nThis screen will also have option to transfer materials using “Transfer” link if needed.",
+      "locator": "§ Functional Requirement. › OCR Summary › OCR statistics",
+      "kind": "section"
+    },
+    {
+      "title": "OCR FG Stock",
+      "heading": "Functional Requirement. › OCR Summary › OCR FG Stock",
+      "text": "This screen will show all FGs with quality status. system should also facilitate quality categorization of rejected PCS like, rejected, B Grade etc. –\nThis screen will also have option to Trigger QC inspection Request and FG transfer request.\nMax aging will be calculated from First GRN of that Stock.\nIf the QC status is still Pending or In Progress, and the user clicks the Transfer link, the system should display an appropriate alert message as “QC is not completed, so you cannot Transfer the Stock”\nWhen user will click on QC then QC List will open and it will filter the QC request for the selected line stock.\nWhen user click on Transfer link then system will open the Adhoc transfer to Site Screen. The to warehouse will the store of the stock.",
+      "locator": "§ Functional Requirement. › OCR Summary › OCR FG Stock",
+      "kind": "section"
+    },
+    {
+      "title": "Stock Reuse",
+      "heading": "Functional Requirement. › OCR Summary › Stock Reuse",
+      "text": "Any leftover material allocation to other Style OC post or during OCR will be listed here.\nIn case, reallocation of stock is pending for approval then status will be shown as “In-progress” else it will “Closed”.\nValidations:\n• OCR will be user base configurable\n• Return Qty. should also consider for threshold calculation.\n• Order Quantity: 1,000 pcs\n• Shipment Threshold: 90%\n• Return Quantity: 50 pcs\n• Net Shipped Quantity: 850 pcs (900 shipped − 50 returned)\nCalculation:\n• Required for OCR = 900 pcs\n• Net Shipment = 850 pcs\n• Result: OCR Not Eligible because return quantity is deducted from the shipped quantity while calculating the threshold.\n• if shipment quantity changes after OCR has already started then it will show in – progress.\n• Merchant will not open a completed task.\n• After OCR closure auditor is not able to re-open an OCR.\n• After initiation user is not able to cancel OCR.",
+      "locator": "§ Functional Requirement. › OCR Summary › Stock Reuse",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 2",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Yudeesh Kumar | 10-05-2026 | Document Created.\n1.1 | Sumit Sharma | 01-07-2026 | Document Revision",
+      "locator": "§ Revision History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised By: Yudeesh Kumar; Revised On: 10-05-2026; Changes: Document Created.",
+      "locator": "§ Revision History, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Revision History",
+      "text": "Version: 1.1; Revised By: Sumit Sharma; Revised On: 01-07-2026; Changes: Document Revision",
+      "locator": "§ Revision History, table 2, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

@@ -1,0 +1,583 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Validation Type",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Validation Type"
+      ],
+      "rows": [
+        [
+          "Available Stock",
+          "Ensure sufficient stock exists"
+        ],
+        [
+          "Free Stock Check",
+          "Only unreserved stock allowed"
+        ],
+        [
+          "Product Group Validation",
+          "Not Applicable (Removed)"
+        ],
+        [
+          "Requirement Validation",
+          "Not Required"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Risk",
+        "Impact",
+        "Mitigation"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Incorrect stock transfer",
+          "Inventory mismatch",
+          "Restrict access via roles"
+        ],
+        [
+          "Misuse of feature",
+          "Data inconsistency",
+          "Maintain audit logs"
+        ],
+        [
+          "Cross-article confusion",
+          "Reporting complexity",
+          "Include clear transaction tagging"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Version",
+        "Created By",
+        "Created On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Rohit Singh",
+          "16/04/2026",
+          "Document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "In-House stock adjustment (Equivalent Article) for different Article Product Group [THANH]",
+  "keyTerms": [
+    "stock",
+    "product group",
+    "article",
+    "stock transfer",
+    "product",
+    "transfer",
+    "sku",
+    "transaction",
+    "adjustment",
+    "group",
+    "validation",
+    "free stock",
+    "article sku",
+    "requirements",
+    "articles"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to define the requirements for enabling SKU-level stock transfer between different articles without enforcing existing system restrictions such as Product Group validation or requirement linkage.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The purpose of this document is to define the requirements for enabling SKU-level stock transfer between different articles without enforcing existing system restrictions such as Product Group validation or requirement linkage.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure stock movement is restricted only to free stock",
+      "locator": "§ 1.2 Scope",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Ensure stock movement is restricted only to free stock",
+      "locator": "§ 1.2 Scope",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1.2 Scope:\n1. Transfer stock between any two articles at SKU level\n2. Perform transfers without dependency on:\n3. Product Group\n4. Indent/Order requirement\n5. Ensure stock movement is restricted only to free stock",
+      "locator": "§ 1.2 Scope",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Backend validation updates",
+      "locator": "§ 1.2 Scope",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1.2 Scope:\n1. UI changes in Stock Transfer/Adjustment screen\n2. Backend validation updates\n3. Transaction logging\n4. Reporting enhancements",
+      "locator": "§ 1.2 Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Article creation is governed by Product Group classification",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Stock transfer (Equivalent Adjustment) is allowed only when:",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Stock transfer (Equivalent Adjustment) is allowed only when:",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "There is an active requirement (Indent/Order)",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Cross-product-group transfers are restricted",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Current Functionality:\n1. Article creation is governed by Product Group classification\n2. Stock transfer (Equivalent Adjustment) is allowed only when:\n3. Both articles belong to the same Product Group\n4. Both share the same Storage UOM\n5. There is an active requirement (Indent/Order)\n6. Cross-product-group transfers are restricted\n7. Indent inhouse adjustment screen",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Limitations:\n1. Inflexibility in stock correction\n2. Difficulty in handling wrongly classified stock\n3. Dependency on order/indent creates operational delays",
+      "locator": "§ Functional Requirements › … › Limitations",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Product Group validation",
+      "locator": "§ Functional Requirements › 3. Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3. Business Requirement:\n1. Unrestricted SKU-level stock transfer between articles\n2. Removal of:\n3. Product Group validation\n4. Requirement dependency\n5. Ability to transfer stock even if:\n6. Articles belong to different Product Groups\n7. No active order/indent exists",
+      "locator": "§ Functional Requirements › 3. Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business Use Cases:\n1. Correction of wrongly mapped articles\n2. Reclassification of similar materials\n3. Adjustment of excess or misallocated stock\n4. Warehouse reconciliation scenarios",
+      "locator": "§ Functional Requirements › 3. Business Requirement › Business Use Cases",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "We required that system should allow the material adjustment without validation the product group sub category or UOM.",
+      "locator": "§ Functional Requirements › 4. Functional Requirements",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "System should only allow to allocate the free stock and it should be user restricted by which only the selected user can be given permission to perform such activity.",
+      "locator": "§ Functional Requirements › 4. Functional Requirements",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Allow Adjustment (No Validation Check)",
+      "locator": "§ Functional Requirements › 4. Functional Requirements",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "System must validate:",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Validation Type, Description (4 rows; identifiers: Validation Type)",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic, table 1",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Upon successful validation:",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 4: Stock Movement Execution",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Step 4: Stock Movement Execution:\n1. Deduct stock from:\n2. From Article + SKU\n3. Add stock to:\n4. To Article + SKU",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 4: Stock Movement Execution",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "System must generate a unique transaction record with:",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 5: Transaction Recording",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Transaction Type\n→ Inter-Article Stock Transfer (No Validation)",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 5: Transaction Recording",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Step 5: Transaction Recording:\n1. Transaction ID\n2. Transaction Date & Time\n3. From Article / SKU\n4. To Article / SKU\n5. Quantity & UOM\n6. Price\n7. Transaction Type\n→ Inter-Article Stock Transfer (No Validation)\n8. User ID\n9. Remarks",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 5: Transaction Recording",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Access restricted via Role-Based Access Control (RBAC)",
+      "locator": "§ Functional Requirements › 5. Non-Functional Requirements › 5.2 Security",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "5.3 Auditability:\n1. Complete audit trail required for:\n2. Creation\n3. Modification\n4. Reversal",
+      "locator": "§ Functional Requirements › 5. Non-Functional Requirements › 5.3 Auditability",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "6.1 Stock Transfer Report:\n1. Transaction Number\n2. Date & Time\n3. From Article / SKU\n4. To Article / SKU\n5. Quantity & UOM\n6. Price\n7. Product Group (Both Articles)\n8. User ID\n9. Remarks\n10. Transaction Type",
+      "locator": "§ Functional Requirements › 6. Reporting Requirements › 6.1 Stock Transfer Report",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "6.2 Filters:\n1. Date Range\n2. Article\n3. SKU\n4. User\n5. Transaction Type",
+      "locator": "§ Functional Requirements › 6. Reporting Requirements › 6.2 Filters",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Reversal must follow standard stock reversal flow",
+      "locator": "§ Functional Requirements › Constraints",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Constraints:\n1. Only Free Stock can be transferred\n2. Storage UOM remains non-editable\n3. No impact on existing equivalent adjustment functionality\n4. Reversal must follow standard stock reversal flow",
+      "locator": "§ Functional Requirements › Constraints",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Risk, Impact, Mitigation (3 rows)",
+      "locator": "§ Functional Requirements › Risks & Mitigation, table 2",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Only free stock is transferable",
+      "locator": "§ Functional Requirements › Acceptance Criteria",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Transaction logs are generated correctly",
+      "locator": "§ Functional Requirements › Acceptance Criteria",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Role-based restriction is enforced",
+      "locator": "§ Functional Requirements › Acceptance Criteria",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria:\n1. User can transfer stock across different Product Groups\n2. No dependency on indent/order exists\n3. Only free stock is transferable\n4. Transaction logs are generated correctly\n5. Reports reflect accurate transfer data\n6. Role-based restriction is enforced",
+      "locator": "§ Functional Requirements › Acceptance Criteria",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Version, Created By, Created On, Changes (1 rows)",
+      "locator": "§ Functional Requirements › Acceptance Criteria, table 3",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "In-House stock adjustment (Equivalent Article) for different Article Product Group [THANH]",
+      "heading": "",
+      "text": "Software Requirements Specification\nIn-House stock adjustment (Equivalent Article) for different Article Product Group [THANH]\n# 379413\nVersion 1● 16th April. 2026\nContents\nSection 1: Overview 3\nPurpose 3\n1.2 Scope 3\nSection 2. 4\nAssumptions 4\nSection 3. 4\nFunctional Requirements 4\nCurrent Functionality 4\nLimitations 4\n3. Business Requirement 4\nBusiness Use Cases 4\n4. Functional Requirements 5\n4.1 Stock Transfer Process Flow 5\n5. Non-Functional Requirements 6\n5.1 Performance 6\n5.2 Security 6\n5.3 Auditability 6\n5.4 Data Integrity 6\n6. Reporting Requirements 6\n6.1 Stock Transfer Report 6\n6.2 Filters 7\nConstraints 7\nRisks & Mitigation 7\nAcceptance Criteria 7",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this document is to define the requirements for enabling SKU-level stock transfer between different articles without enforcing existing system restrictions such as Product Group validation or requirement linkage.\nThis enhancement aims to provide operational flexibility in managing stock reclassification, correction, and adjustments across articles.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "1.2 Scope",
+      "heading": "1.2 Scope",
+      "text": "This functionality will allow authorized users to:\n• Transfer stock between any two articles at SKU level\n• Perform transfers without dependency on:\n• Product Group\n• Indent/Order requirement\n• Ensure stock movement is restricted only to free stock\nThe scope includes:\n• UI changes in Stock Transfer/Adjustment screen\n• Backend validation updates\n• Transaction logging\n• Reporting enhancements",
+      "locator": "§ 1.2 Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Current Functionality",
+      "heading": "Functional Requirements › … › Current Functionality",
+      "text": "In the existing system:\n• Article creation is governed by Product Group classification\n• Stock transfer (Equivalent Adjustment) is allowed only when:\n• Both articles belong to the same Product Group\n• Both share the same Storage UOM\n• There is an active requirement (Indent/Order)\n• Cross-product-group transfers are restricted\n• Indent inhouse adjustment screen\nMaterial reallocation screen.",
+      "locator": "§ Functional Requirements › … › Current Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "Limitations",
+      "heading": "Functional Requirements › … › Limitations",
+      "text": "• Inflexibility in stock correction\n• Difficulty in handling wrongly classified stock\n• Dependency on order/indent creates operational delays",
+      "locator": "§ Functional Requirements › … › Limitations",
+      "kind": "section"
+    },
+    {
+      "title": "3. Business Requirement",
+      "heading": "Functional Requirements › 3. Business Requirement",
+      "text": "The client requires:\n• Unrestricted SKU-level stock transfer between articles\n• Removal of:\n• Product Group validation\n• Requirement dependency\n• Ability to transfer stock even if:\n• Articles belong to different Product Groups\n• No active order/indent exists",
+      "locator": "§ Functional Requirements › 3. Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Business Use Cases",
+      "heading": "Functional Requirements › 3. Business Requirement › Business Use Cases",
+      "text": "• Correction of wrongly mapped articles\n• Reclassification of similar materials\n• Adjustment of excess or misallocated stock\n• Warehouse reconciliation scenarios",
+      "locator": "§ Functional Requirements › 3. Business Requirement › Business Use Cases",
+      "kind": "section"
+    },
+    {
+      "title": "4. Functional Requirements",
+      "heading": "Functional Requirements › 4. Functional Requirements",
+      "text": "We required that system should allow the material adjustment without validation the product group sub category or UOM.\nIn both Indent inhouse adjustment page and material reallocation page.\nSystem should only allow to allocate the free stock and it should be user restricted by which only the selected user can be given permission to perform such activity.\nProcess flow\nUser Initiates Adjustment\n↓\nSelect From Material / SKU\n↓\nSelect To Material / SKU\n↓\nSystem Checks Free Stock\n↓\n[If Free Stock Available]\n↓\nAllow Adjustment (No Validation Check)\n↓\nUpdate Stock\n↓\nGenerate Transaction Log",
+      "locator": "§ Functional Requirements › 4. Functional Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Step 3: Validation Logic",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "text": "System must validate:",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "kind": "section"
+    },
+    {
+      "title": "Step 3: Validation Logic – Table 1",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "text": "Columns: Validation Type (text); Description (text)\nValidation Type | Description\nAvailable Stock | Ensure sufficient stock exists\nFree Stock Check | Only unreserved stock allowed\nProduct Group Validation | Not Applicable (Removed)\nRequirement Validation | Not Required",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "text": "Validation Type: Available Stock; Description: Ensure sufficient stock exists",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "text": "Validation Type: Free Stock Check; Description: Only unreserved stock allowed",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "text": "Validation Type: Product Group Validation; Description: Not Applicable (Removed)",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic",
+      "text": "Validation Type: Requirement Validation; Description: Not Required",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 3: Validation Logic, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Step 4: Stock Movement Execution",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 4: Stock Movement Execution",
+      "text": "Upon successful validation:\n• Deduct stock from:\n• From Article + SKU\n• Add stock to:\n• To Article + SKU",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 4: Stock Movement Execution",
+      "kind": "section"
+    },
+    {
+      "title": "Step 5: Transaction Recording",
+      "heading": "Functional Requirements › 4. Functional Requirements › … › Step 5: Transaction Recording",
+      "text": "System must generate a unique transaction record with:\n• Transaction ID\n• Transaction Date & Time\n• From Article / SKU\n• To Article / SKU\n• Quantity & UOM\n• Price\n• Transaction Type\n→ Inter-Article Stock Transfer (No Validation)\n• User ID\n• Remarks",
+      "locator": "§ Functional Requirements › 4. Functional Requirements › … › Step 5: Transaction Recording",
+      "kind": "section"
+    },
+    {
+      "title": "5.1 Performance",
+      "heading": "Functional Requirements › 5. Non-Functional Requirements › 5.1 Performance",
+      "text": "• Transaction execution time should be < 3 seconds\n• System should support bulk SKU selection without lag",
+      "locator": "§ Functional Requirements › 5. Non-Functional Requirements › 5.1 Performance",
+      "kind": "section"
+    },
+    {
+      "title": "5.2 Security",
+      "heading": "Functional Requirements › 5. Non-Functional Requirements › 5.2 Security",
+      "text": "• Access restricted via Role-Based Access Control (RBAC)\n• Only authorized users can perform transfers",
+      "locator": "§ Functional Requirements › 5. Non-Functional Requirements › 5.2 Security",
+      "kind": "section"
+    },
+    {
+      "title": "5.3 Auditability",
+      "heading": "Functional Requirements › 5. Non-Functional Requirements › 5.3 Auditability",
+      "text": "• Complete audit trail required for:\n• Creation\n• Modification\n• Reversal",
+      "locator": "§ Functional Requirements › 5. Non-Functional Requirements › 5.3 Auditability",
+      "kind": "section"
+    },
+    {
+      "title": "5.4 Data Integrity",
+      "heading": "Functional Requirements › 5. Non-Functional Requirements › 5.4 Data Integrity",
+      "text": "• Ensure no negative stock scenarios\n• Ensure transactional consistency (atomic operations)",
+      "locator": "§ Functional Requirements › 5. Non-Functional Requirements › 5.4 Data Integrity",
+      "kind": "section"
+    },
+    {
+      "title": "6.1 Stock Transfer Report",
+      "heading": "Functional Requirements › 6. Reporting Requirements › 6.1 Stock Transfer Report",
+      "text": "Enhance existing or create new report including:\n• Transaction Number\n• Date & Time\n• From Article / SKU\n• To Article / SKU\n• Quantity & UOM\n• Price\n• Product Group (Both Articles)\n• User ID\n• Remarks\n• Transaction Type",
+      "locator": "§ Functional Requirements › 6. Reporting Requirements › 6.1 Stock Transfer Report",
+      "kind": "section"
+    },
+    {
+      "title": "6.2 Filters",
+      "heading": "Functional Requirements › 6. Reporting Requirements › 6.2 Filters",
+      "text": "• Date Range\n• Article\n• SKU\n• User\n• Transaction Type",
+      "locator": "§ Functional Requirements › 6. Reporting Requirements › 6.2 Filters",
+      "kind": "section"
+    },
+    {
+      "title": "Constraints",
+      "heading": "Functional Requirements › Constraints",
+      "text": "• Only Free Stock can be transferred\n• Storage UOM remains non-editable\n• No impact on existing equivalent adjustment functionality\n• Reversal must follow standard stock reversal flow",
+      "locator": "§ Functional Requirements › Constraints",
+      "kind": "section"
+    },
+    {
+      "title": "Risks & Mitigation – Table 2",
+      "heading": "Functional Requirements › Risks & Mitigation",
+      "text": "Columns: Risk (text); Impact (text); Mitigation (text)\nRisk | Impact | Mitigation\nIncorrect stock transfer | Inventory mismatch | Restrict access via roles\nMisuse of feature | Data inconsistency | Maintain audit logs\nCross-article confusion | Reporting complexity | Include clear transaction tagging",
+      "locator": "§ Functional Requirements › Risks & Mitigation, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Functional Requirements › Risks & Mitigation",
+      "text": "Risk: Incorrect stock transfer; Impact: Inventory mismatch; Mitigation: Restrict access via roles",
+      "locator": "§ Functional Requirements › Risks & Mitigation, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Functional Requirements › Risks & Mitigation",
+      "text": "Risk: Misuse of feature; Impact: Data inconsistency; Mitigation: Maintain audit logs",
+      "locator": "§ Functional Requirements › Risks & Mitigation, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Functional Requirements › Risks & Mitigation",
+      "text": "Risk: Cross-article confusion; Impact: Reporting complexity; Mitigation: Include clear transaction tagging",
+      "locator": "§ Functional Requirements › Risks & Mitigation, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Acceptance Criteria",
+      "heading": "Functional Requirements › Acceptance Criteria",
+      "text": "The feature will be considered complete when:\n• User can transfer stock across different Product Groups\n• No dependency on indent/order exists\n• Only free stock is transferable\n• Transaction logs are generated correctly\n• Reports reflect accurate transfer data\n• Role-based restriction is enforced",
+      "locator": "§ Functional Requirements › Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria – Table 3",
+      "heading": "Functional Requirements › Acceptance Criteria",
+      "text": "Columns: Version (decimal); Created By (text); Created On (date); Changes (text)\nVersion | Created By | Created On | Changes\n1.0 | Rohit Singh | 16/04/2026 | Document created.",
+      "locator": "§ Functional Requirements › Acceptance Criteria, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Functional Requirements › Acceptance Criteria",
+      "text": "Version: 1.0; Created By: Rohit Singh; Created On: 16/04/2026; Changes: Document created.",
+      "locator": "§ Functional Requirements › Acceptance Criteria, table 3, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

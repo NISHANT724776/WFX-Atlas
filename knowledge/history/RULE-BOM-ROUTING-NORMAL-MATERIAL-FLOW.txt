@@ -1,0 +1,23 @@
+# History of RULE-BOM-ROUTING-NORMAL-MATERIAL-FLOW. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:22:56.734Z · superseded by v2
+================================================================================
+RULE ID: RULE-BOM-ROUTING-NORMAL-MATERIAL-FLOW
+RULE NAME: Routing: a normal material flow
+MODULE: Style & BOM
+TRANSACTION: BOM – Routing (bom-routing)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: The routing maps raw materials to the processes that use them.
+FORMULA / LOGIC: In a normal flow: the fabric goes through cutting; then the fabric, thread and the other items go to sewing; and the final garment with the polybag goes to packing. The owner gave this as the example that runs a normal flow without hindrance.
+RELATED RULES: CALC-ROUTING-LINKAGE
+SCREEN / LOCATION: BOM › Routing (material linkage)
+EXAMPLE: Cutting: fabric · Sewing: fabric, thread, other items · Packing: final garment with polybag.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Superseded
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+

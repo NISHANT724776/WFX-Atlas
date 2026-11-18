@@ -1,0 +1,7 @@
+﻿step,cost_sheet_price,oc_price,state
+1. Cost sheet set,10,—,"Style 1, destination IN, price 10"
+2. OC created,10,10,Price picked automatically: in sync
+3. User types 20 on the OC,10,20,Desynced (blue)
+4. Desync tool,10,10,Sync (green): OC overwritten with the cost sheet price
+5. Cost sheet revised to 15 and confirmed,15,10,Mismatch again
+6. Update OC with latest cost sheet price,15,15,OC updated from 10 to 15

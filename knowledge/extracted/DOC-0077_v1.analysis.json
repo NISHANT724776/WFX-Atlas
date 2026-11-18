@@ -1,0 +1,69 @@
+{
+  "tables": [],
+  "subject": "389725 BOM Changes",
+  "keyTerms": [
+    "section",
+    "routing",
+    "colour",
+    "size wise",
+    "wise sam",
+    "wise",
+    "bom",
+    "requirements",
+    "enhancements bom",
+    "bom routing",
+    "section overview",
+    "overview purpose",
+    "business requirement",
+    "requirement section",
+    "section assumptions"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 20
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "BOM – Costing"
+  ],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "389725 BOM Changes",
+      "heading": "",
+      "text": "Software Requirements Specification\nNeed some enhancements in BOM Routing\n# 389725\nVersion 1.0●28 July 2025\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. 3\nAssumptions 3\nSection 3. 3\nFunctional Requirements 3\n3.1 Colour-Size wise SAM in Routing 3\n3.3 Changes in Master Cost-sheet 8\nColour-wise Process Cost in Routing 9",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Need some enhancements in BOM Routing.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Colour-Size wise SAM in Routing",
+      "heading": "Functional Requirements › 3.1 Colour-Size wise SAM in Routing",
+      "text": "Figure 11: Colour-level cost entry window — Add Colour with an “All Colours” option\nWe required the option to add color size wise SAM and production time is also required.",
+      "locator": "§ Functional Requirements › 3.1 Colour-Size wise SAM in Routing",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+﻿apparel_code,entered_at,mrp_adjustment,level_1_qty,net_level_1_qty,final_consumption,child_indent_qty,result
+NIS-58,No adjustment,0,500,500,1.5,750,Child indent generated in full
+NIS-58,Level 1 (parent),-200,500,300,1.5,450,Child indent reduced
+NIS-58,Level 1 (parent),-500,500,0,1.5,0,Child indent cancelled
+NIS-58,Level 2 (child),-200,500,500,1.5,550,Only the child quantity changes; parent unchanged

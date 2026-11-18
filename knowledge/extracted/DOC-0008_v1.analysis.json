@@ -1,0 +1,95 @@
+{
+  "tables": [],
+  "subject": "Auto FPOJob Order Creation Setup",
+  "keyTerms": [
+    "job order",
+    "order",
+    "order creation",
+    "auto",
+    "job",
+    "selection",
+    "creation setup",
+    "mrp mrl",
+    "creation",
+    "fpo",
+    "setup",
+    "auto fpo",
+    "fpo job",
+    "mrp",
+    "mrl"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 6
+    },
+    {
+      "module": "Planning",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "FPO & FPPO",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "The user must manually update the status to “Release for Production” from the FPO List.",
+      "locator": "§ Solution › … › PPC Selection",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the status is updated to “Release for Production” and the process is defined, the Auto Job Order creation will proceed accordingly.",
+      "locator": "§ Solution › … › PPC Selection",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "PPC Selection:\n1. The system will freeze the FPO status at “Release to Factory.”\nThe user can perform actions on Process, Auto Job Order, and Job Order Search.\n2. The user must manually update the status to “Release for Production” from the FPO List.\n3. Once the status is updated to “Release for Production” and the process is defined, the Auto Job Order creation will proceed accordingly.",
+      "locator": "§ Solution › … › PPC Selection",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Auto FPO/Job Order Creation Setup › … › … › … › … › Contents",
+      "text": "Solution 3\n1. MRP/MRL (Default Selection) 3\n2. PPC Selection 3",
+      "locator": "§ Auto FPO/Job Order Creation Setup › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "Solution",
+      "text": "Under the Auto FPO / Job Order Creation setup, a new column “Trigger Point” will be introduced.\n• By default, the value will be MRP/MRL.\n• The user will have the option to change it to PPC via a dropdown.\nBehaviour Based on Trigger Point Selection:",
+      "locator": "§ Solution",
+      "kind": "section"
+    },
+    {
+      "title": "MRP/MRL (Default Selection)",
+      "heading": "Solution › … › MRP/MRL (Default Selection)",
+      "text": "• The system will function as per the existing behaviour (no change in current flow).",
+      "locator": "§ Solution › … › MRP/MRL (Default Selection)",
+      "kind": "section"
+    },
+    {
+      "title": "PPC Selection",
+      "heading": "Solution › … › PPC Selection",
+      "text": "• The system will freeze the FPO status at “Release to Factory.”\nThe user can perform actions on Process, Auto Job Order, and Job Order Search.\n• The user must manually update the status to “Release for Production” from the FPO List.\n• Once the status is updated to “Release for Production” and the process is defined, the Auto Job Order creation will proceed accordingly.",
+      "locator": "§ Solution › … › PPC Selection",
+      "kind": "section"
+    }
+  ]
+}

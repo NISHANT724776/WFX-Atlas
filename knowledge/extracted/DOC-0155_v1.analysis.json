@@ -1,0 +1,35 @@
+{
+  "tables": [],
+  "subject": "sales asn fg allocation workflow final",
+  "keyTerms": [],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "sales asn fg allocation workflow final",
+      "heading": "",
+      "text": "sales asn fg allocation workflow final. Image stored unchanged. Text and diagrams inside images are not read: that needs a vision model, which is not authorised or configured. Add a written description to make it searchable.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

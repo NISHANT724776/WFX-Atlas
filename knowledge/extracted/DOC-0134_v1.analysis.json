@@ -1,0 +1,112 @@
+{
+  "tables": [],
+  "subject": "Manufacturing Base Module 352391 Release Notes",
+  "keyTerms": [
+    "buyer block",
+    "block booking",
+    "block",
+    "buyer",
+    "booking",
+    "adhoc",
+    "indent",
+    "block bookings",
+    "adhoc indent",
+    "create",
+    "indents",
+    "allocation",
+    "procurement",
+    "linked",
+    "material"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 20
+    },
+    {
+      "module": "Sales Order",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Buyer Block Booking (BBB)",
+    "BBB Adhoc Indent",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Enable tracking and procurement of materials against Buyer Block Bookings so that procurement activities can be linked, monitored, and validated against buyer-provided block booking commitments.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Business Requirement:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Previously, there was no structured mechanism to link procurement and adhoc indents directly with Buyer Block Bookings, resulting in limited traceability and manual tracking.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Problems Encountered:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Introduced enhancements to Buyer Block Booking and Adhoc Indent modules to allow linking of block bookings with procurement indents.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Added new 'Booking Ref' field in Buyer Block Booking header (configurable via Screen Layout).",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Introduced 'Material Details' section in Buyer Block Booking with article-level controls.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Added new Indent Type'Buyer Block Booking'.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Enabled linking of Buyer Block Booking lines to Adhoc Indents.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Business Requirement:",
+      "heading": "… › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Business Requirement:",
+      "text": "Enable tracking and procurement of materials against Buyer Block Bookings so that procurement activities can be linked, monitored, and validated against buyer-provided block booking commitments.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Business Requirement:",
+      "kind": "section"
+    },
+    {
+      "title": "Problems Encountered:",
+      "heading": "… › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Problems Encountered:",
+      "text": "Previously, there was no structured mechanism to link procurement and adhoc indents directly with Buyer Block Bookings, resulting in limited traceability and manual tracking.",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Problems Encountered:",
+      "kind": "section"
+    },
+    {
+      "title": "Solution:",
+      "heading": "… › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "text": "Introduced enhancements to Buyer Block Booking and Adhoc Indent modules to allow linking of block bookings with procurement indents. Added new fields, validations, and automated material allocation logic to ensure accurate tracking and fulfillment. Added new 'Booking Ref' field in Buyer Block Booking header (configurable via Screen Layout).\nIntroduced 'Material Details' section in Buyer Block Booking with article-level controls.\nAdded new Indent Type'Buyer Block Booking'. Enabled linking of Buyer Block Booking lines to Adhoc Indents.\n\n\n\nFor Auto allocation\nCreate a BBB---Attach materials---created a Adhoc indent (of created BBB)---Fulfill adhoc indent----GRN\nCreate a Oc ---attach the BBB ---Create OC kinked Indent ---Auto allocation of SAME SKU LEVEL will be seen",
+      "locator": "§ … › Need an option to create Buyer Block booking linked indents and also need material allocation (MRL) to linked OCs (352391 ) › Solution:",
+      "kind": "section"
+    }
+  ]
+}

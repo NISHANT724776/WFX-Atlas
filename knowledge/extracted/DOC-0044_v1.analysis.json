@@ -1,0 +1,39 @@
+{
+  "tables": [],
+  "subject": "bom kit pack cost rollup flow",
+  "keyTerms": [],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 9
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "bom kit pack cost rollup flow",
+      "heading": "",
+      "text": "bom kit pack cost rollup flow. Image stored unchanged. Text and diagrams inside images are not read: that needs a vision model, which is not authorised or configured. Add a written description to make it searchable.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

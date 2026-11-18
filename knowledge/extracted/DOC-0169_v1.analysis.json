@@ -1,0 +1,35 @@
+{
+  "tables": [],
+  "subject": "WFX scanned joining docs compressed",
+  "keyTerms": [],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "WFX scanned joining docs compressed",
+      "heading": "",
+      "text": "WFX scanned joining docs compressed. No text layer found: the PDF looks scanned (images only). Text in images needs OCR or a vision model.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

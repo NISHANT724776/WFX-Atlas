@@ -1,0 +1,54 @@
+# WFX Knowledge Hub
+
+> Knowledge base of WFX ERP transactions: definitions, keys, field sources, calculation formulas with worked examples, verification checks against the WFX screens, and cases. All examples are traced on apparel style NIS-58 (Flannel Shirt Adi, buyer GAP Kids) and fabric N-8.
+
+There are three workflows: style setup, buyer block booking (BBB Adhoc Indent, raised manually) and sales order (MRP raises the Manufacture and Production Indents). They meet at the stock: fabric bought on the block booking is adjusted in-house by the sales-order Production Indent.
+Formulas marked "To confirm" could not be proved by the sample data and carry an open question.
+
+## Workflows
+
+- [Buyer Block Booking](https://wfx-knowledge-hub.vercel.app/workflows/block-booking): Buyer Block Booking with BOM → material requirement → system Adhoc Indent → PO / ASN / GRN → link to sales order → automatic On Order or In-House adjustment.
+- [Sales Order to factory](https://wfx-knowledge-hub.vercel.app/workflows/sales-order): Sales order → MRP → Manufacture and Sales Order Indents → adjustment from booking stock → PO for the gap → Production Order → FPO and process orders.
+- [Style setup](https://wfx-knowledge-hub.vercel.app/workflows/style-setup): Masters, fabric and trim techpacks, apparel techpack, BOM materials, routing operations, material linkage, costing and approval – captured live for Adi TShirt (NIS-59).
+- [End to end](https://wfx-knowledge-hub.vercel.app/workflows/end-to-end): The complete Flannel Shirt Adi (NIS-58) journey across style setup, buyer block booking, sales order, adjustment and production.
+
+## Transactions (theory)
+
+- [Masters – Colour, Size, UOM](https://wfx-knowledge-hub.vercel.app/theory/masters): Colour card, size range, UOM master and material-wise UOM conversion that every WFX transaction reads from.
+- [Apparel Style (Techpack)](https://wfx-knowledge-hub.vercel.app/theory/apparel-style): Style Flannel Shirt Adi (NIS-58) header, base colour list and base size list that drive BOM dependencies and order breakups.
+- [BOM – Materials & Dependency](https://wfx-knowledge-hub.vercel.app/theory/bom-materials): BOM material lines with consumption, wastage, loss and shrinkage maths, price conversion and colour/size dependency.
+- [BOM – Routing](https://wfx-knowledge-hub.vercel.app/theory/bom-routing): Production processes, operations and material linkage of BOM #1 DP, which later become FPPO process orders.
+- [BOM – Costing](https://wfx-knowledge-hub.vercel.app/theory/bom-costing): Material cost, production cost, total cost, profit, profit % and markup % for BOM #1 DP.
+- [Raw Material Techpack](https://wfx-knowledge-hub.vercel.app/theory/rm-techpack): Fabric article N-8 master: UOMs, colour card, dependency, buying price and cross-document checks.
+- [Buyer Block Booking (BBB)](https://wfx-knowledge-hub.vercel.app/theory/buyer-block-booking): Projection booking PPJ179 that reserves fabric by colour and size before a confirmed buyer order exists.
+- [BBB Adhoc Indent](https://wfx-knowledge-hub.vercel.app/theory/adhoc-indent): Manual indent PPM-000735-001 of type Buyer Block Booking: buys the booked fabric before any sales order exists.
+- [RMPO – Raw Material Purchase Order](https://wfx-knowledge-hub.vercel.app/theory/rmpo): Purchase orders 1229 (against the adhoc indent) and 1230 (against the MRP production indent) with value and open qty maths.
+- [GRN – Goods Receipt Note](https://wfx-knowledge-hub.vercel.app/theory/grn): Receipt of RMPO 1229 into the cut store: balance, received, rejected, accepted qty and stock keys.
+- [Purchase Order from Buyer (OC)](https://wfx-knowledge-hub.vercel.app/theory/buyer-po): Order confirmation GAPS.NEWOC -249 with delivery OC, colour × size quantity breakup and selling value.
+- [MRP – Material Requirement Planning](https://wfx-knowledge-hub.vercel.app/theory/mrp): MRP run for the OC: Level 1 garment production demand and Level 2 fabric purchase demand from BOM explosion.
+- [Sales Order Indents (MRP)](https://wfx-knowledge-hub.vercel.app/theory/production-indents): Indents MRP raises for the sales order: Manufacture Indent (Level 1, garment) and Production Indent (Level 2, fabric) with in-house adjustment from BBB stock.
+- [Production Order](https://wfx-knowledge-hub.vercel.app/theory/production-order): Production order PPS12SO/11325 and colour-wise style quantities allocated to the factory production order.
+- [FPO & FPPO](https://wfx-knowledge-hub.vercel.app/theory/fpo): Factory production order PPS12FP0158, fabric requirement, stock material allocation and process orders per colour and size.
+
+## Reference
+
+- [Workflow Builder](https://wfx-knowledge-hub.vercel.app/workflows): Pick any start and end point in WFX and get the workflow as a blueprint, a live scenario simulator and a step-by-step storyboard.
+- [WFX Data Model](https://wfx-knowledge-hub.vercel.app/data-model): The WFX data model as real screens: 17 documents from techpack and BOM to MRP, purchase, GRN and FPO, with their actual rows, how each column is filled and where it flows next.
+- [WFX Data Lookup](https://wfx-knowledge-hub.vercel.app/data): Look up the WFX records behind every transaction in simple tables: pick an area and a topic, search the records and see them in plain words.
+- [WFX Theory](https://wfx-knowledge-hub.vercel.app/theory): Short, precise explanations of every WFX transaction with key numbers, formulas, fields and cases from the Flannel Shirt Adi (NIS-58) trial.
+- [Colour Tracking](https://wfx-knowledge-hub.vercel.app/color-cards): Follow any colour of colour card Nis_colors through booking, purchase, buyer order, MRP and factory production.
+- [Formula Library](https://wfx-knowledge-hub.vercel.app/calculations): Every WFX formula from BOM consumption to FPO fabric requirement, with worked examples from Adi TShirt (NIS-59) and Flannel Shirt Adi (NIS-58) and verification status.
+- [WFX Glossary](https://wfx-knowledge-hub.vercel.app/glossary): Plain-language definitions of WFX ERP terms such as Cons UOM, CSV, MRP %, in-house adjustment and FPPO.
+- [WFX Assistant](https://wfx-knowledge-hub.vercel.app/assistant): One place to ask about WFX: build a workflow from the steps you choose, understand a data model, a formula or a theory page, and open large answers in full view.
+- [Ask the Knowledge Base](https://wfx-knowledge-hub.vercel.app/ask): Search WFX transaction knowledge and get the nearest matching definition, calculation or case.
+
+## Colour tracking
+
+- [BALSAM TREE (372)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/balsam-tree-372)
+- [Cosmic sky purple (3909)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/cosmic-sky-purple-3909)
+- [Happy Pink (475)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/happy-pink-475)
+- [New Off White (968)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/new-off-white-968)
+- [Primitive (762)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/primitive-762)
+- [True Black (291)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/true-black-291)
+- [Light Green (201)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/light-green-201)
+- [TBA (TBA)](https://wfx-knowledge-hub.vercel.app/color-cards/nis-colors/tba)

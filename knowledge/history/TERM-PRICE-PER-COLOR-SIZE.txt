@@ -1,0 +1,19 @@
+# History of TERM-PRICE-PER-COLOR-SIZE. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:22:55.140Z · superseded by v2
+================================================================================
+TERM ID: TERM-PRICE-PER-COLOR-SIZE
+TERM: Price Per – Color/Size
+DEFINITION: Price Per set to Color/Size: the delivery-level grid works like Article, but colour-wise.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+OPEN QUESTION: The layout of sizes in this grid is not stated by the owner; confirm.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Superseded
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+

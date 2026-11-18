@@ -1,0 +1,33 @@
+﻿apparel_code,bom,bom_line_article,colour_code,master_value,on_article,material_value,status
+NIS-59,#1 DP,N-8,372,BALSAM TREE (372),Yes,BALSAM TREE (372),mapped
+NIS-59,#1 DP,N-8,3909,Cosmic sky purple (3909),Yes,Cosmic sky purple (3909),mapped
+NIS-59,#1 DP,N-8,475,Happy Pink (475),Yes,Happy Pink (475),mapped
+NIS-59,#1 DP,N-8,968,New Off White (968),No,,not-on-article
+NIS-59,#1 DP,N-8,762,Primitive (762),No,,not-on-article
+NIS-59,#1 DP,N-8,291,True Black (291),No,,not-on-article
+NIS-59,#1 DP,N-8,201,Light Green (201),No,,not-on-article
+NIS-59,#1 DP,N-8,TBA,TBA (TBA),No,,not-on-article
+NIS-59,#1 DP,T-1,372,BALSAM TREE (372),Yes,BALSAM TREE (372),mapped
+NIS-59,#1 DP,T-1,3909,Cosmic sky purple (3909),Yes,Cosmic sky purple (3909),mapped
+NIS-59,#1 DP,T-1,475,Happy Pink (475),Yes,,not-captured
+NIS-59,#1 DP,T-1,968,New Off White (968),No,,not-on-article
+NIS-59,#1 DP,T-1,762,Primitive (762),No,,not-on-article
+NIS-59,#1 DP,T-1,291,True Black (291),No,,not-on-article
+NIS-59,#1 DP,T-1,201,Light Green (201),No,,not-on-article
+NIS-59,#1 DP,T-1,TBA,TBA (TBA),No,,not-on-article
+NIS-59,#1 DP,NS1-1,372,BALSAM TREE (372),Yes,BALSAM TREE (372),mapped
+NIS-59,#1 DP,NS1-1,3909,Cosmic sky purple (3909),Yes,Cosmic sky purple (3909),mapped
+NIS-59,#1 DP,NS1-1,475,Happy Pink (475),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,968,New Off White (968),No,,not-on-article
+NIS-59,#1 DP,NS1-1,762,Primitive (762),No,,not-on-article
+NIS-59,#1 DP,NS1-1,291,True Black (291),No,,not-on-article
+NIS-59,#1 DP,NS1-1,201,Light Green (201),No,,not-on-article
+NIS-59,#1 DP,NS1-1,TBA,TBA (TBA),No,,not-on-article
+NIS-59,#1 DP,PP-1,372,BALSAM TREE (372),Yes,BALSAM TREE (372),mapped
+NIS-59,#1 DP,PP-1,3909,Cosmic sky purple (3909),Yes,Cosmic sky purple (3909),mapped
+NIS-59,#1 DP,PP-1,475,Happy Pink (475),Yes,,not-captured
+NIS-59,#1 DP,PP-1,968,New Off White (968),No,,not-on-article
+NIS-59,#1 DP,PP-1,762,Primitive (762),No,,not-on-article
+NIS-59,#1 DP,PP-1,291,True Black (291),No,,not-on-article
+NIS-59,#1 DP,PP-1,201,Light Green (201),No,,not-on-article
+NIS-59,#1 DP,PP-1,TBA,TBA (TBA),No,,not-on-article

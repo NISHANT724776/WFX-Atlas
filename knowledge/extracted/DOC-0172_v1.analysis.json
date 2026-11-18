@@ -1,0 +1,214 @@
+{
+  "tables": [
+    {
+      "name": "BOM Change Tracker",
+      "headers": [
+        "WFX BOM – TECHPACK CHANGE TRACKER",
+        "Column 2",
+        "Column 3",
+        "Column 4",
+        "Column 5"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "WFX BOM – TECHPACK CHANGE TRACKER"
+      ],
+      "rows": [
+        [
+          "Garment Manufacturing | PDF Techpack → WFX BOM Update Register",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "S.No.",
+          "Change Category",
+          "BOM Field / Section",
+          "What Changed in Techpack (PDF)",
+          "Merchants Comments"
+        ],
+        [
+          "1",
+          "Article / Item",
+          "Item Code & Description",
+          "New trim item added to style",
+          "Yes, Merchants Redownload the Updated techpack from buyer portal in case if any is added to the existing bom. Items mostly packing trims are newly added into the techpack. In updated techpack previous Items will always remain constant,only new added items will get added into new line"
+        ],
+        [
+          "2",
+          "Article / Item",
+          "Item Code & Description",
+          "Existing item removed from BOM",
+          "Yes, there is possibility that existing item will be removed from the techpack and New Item code for the same catagory will be added . In this case if RMPO is created for the deleted item then user do not want to remove the line , instead add a new line for the new material code"
+        ],
+        [
+          "3",
+          "Color",
+          "Color Code / Name",
+          "Pantone reference revised(Material Color or Reference Code revised)",
+          "Yes, There is possiblity to add New colors into the updated techpack with existing materials. \r\nEven there are cases where existing colors get updated for the same material in updated techpack"
+        ],
+        [
+          "4",
+          "Color",
+          "Color – New Colorway",
+          "New colorway added to order",
+          "Yes, There are cases where Buyer send additional style colors in order which were not there in inital stage of Techpack creation."
+        ],
+        [
+          "5",
+          "Size & Grading",
+          "Size Range",
+          "Size range expanded",
+          "Yes, There are cases where Buyer send additional style Sizes in order which were not there in inital stage of Techpack creation."
+        ],
+        [
+          "6",
+          "Trim & Accessories",
+          "Hang Tag",
+          "New compliance hang tag added",
+          "Yes, Merchants Redownload the Updated techpack from buyer portal in case if any new item is added to the existing bom. Items mostly like packing trims are newly added into the techpack. In updated techpack previous Items will always remain constant,only new added items will get added into a new line"
+        ],
+        [
+          "7",
+          "Style",
+          "",
+          "Style Information Changes",
+          "There is no change in any of the Style Header level information in Techpack Updation"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "WFX BOM Techpack Change AF",
+  "keyTerms": [
+    "techpack",
+    "added",
+    "item",
+    "updated techpack",
+    "bom",
+    "updated",
+    "code",
+    "style",
+    "existing",
+    "items",
+    "change",
+    "color",
+    "column column",
+    "item code",
+    "column"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 40
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Apparel Style (Techpack)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "BOM Change Tracker: WFX BOM – TECHPACK CHANGE TRACKER, Column 2, Column 3, Column 4, Column 5 (9 rows; identifiers: WFX BOM – TECHPACK CHANGE TRACKER)",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: BOM Change Tracker – BOM Change Tracker",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "Columns: WFX BOM – TECHPACK CHANGE TRACKER (text); Column 2 (text); Column 3 (text); Column 4 (text); Column 5 (text)\nWFX BOM – TECHPACK CHANGE TRACKER | Column 2 | Column 3 | Column 4 | Column 5\nGarment Manufacturing | PDF Techpack → WFX BOM Update Register |  |  |  | \nS.No. | Change Category | BOM Field / Section | What Changed in Techpack (PDF) | Merchants Comments\n1 | Article / Item | Item Code & Description | New trim item added to style | Yes, Merchants Redownload the Updated techpack from buyer portal in case if any is added to the existing bom. Items mostly packing trims are newly added into the techpack. In updated techpack previous Items will always remain constant,only new added items will get added into new line\n2 | Article / Item | Item Code & Description | Existing item removed from BOM | Yes, there is possibility that existing item will be removed from the techpack and New Item code for the same catagory will be added . In this case if RMPO is created for the deleted item then user do not want to remove the line , instead add a new line for the new material code\n3 | Color | Color Code / Name | Pantone reference revised(Material Color or Reference Code revised) | Yes, There is possiblity to add New colors into the updated techpack with existing materials. \r\nEven there are cases where existing colors get updated for the same material in updated techpack\n4 | Color | Color – New Colorway | New colorway added to order | Yes, There are cases where Buyer send additional style colors in order which were not there in inital stage of Techpack creation.\n5 | Size & Grading | Size Range | Size range expanded | Yes, There are cases where Buyer send additional style Sizes in order which were not there in inital stage of Techpack creation.\n6 | Trim & Accessories | Hang Tag | New compliance hang tag added | Yes, Merchants Redownload the Updated techpack from buyer portal in case if any new item is added to the existing bom. Items mostly like packing trims are newly added into the techpack. In updated techpack previous Items will always remain constant,only new added items will get added into a new line\n7 | Style |  | Style Information Changes | There is no change in any of the Style Header level information in Techpack Updation",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "BOM Change Tracker row 1",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: Garment Manufacturing | PDF Techpack → WFX BOM Update Register",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 2",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: S.No.; Column 2: Change Category; Column 3: BOM Field / Section; Column 4: What Changed in Techpack (PDF); Column 5: Merchants Comments",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 3",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 1; Column 2: Article / Item; Column 3: Item Code & Description; Column 4: New trim item added to style; Column 5: Yes, Merchants Redownload the Updated techpack from buyer portal in case if any is added to the existing bom. Items mostly packing trims are newly added into the techpack. In updated techpack previous Items will always remain constant,only new added items will get added into new line",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 4",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 2; Column 2: Article / Item; Column 3: Item Code & Description; Column 4: Existing item removed from BOM; Column 5: Yes, there is possibility that existing item will be removed from the techpack and New Item code for the same catagory will be added . In this case if RMPO is created for the deleted item then user do not want to remove the line , instead add a new line for the new material code",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 5",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 3; Column 2: Color; Column 3: Color Code / Name; Column 4: Pantone reference revised(Material Color or Reference Code revised); Column 5: Yes, There is possiblity to add New colors into the updated techpack with existing materials. \r\nEven there are cases where existing colors get updated for the same material in updated techpack",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 6",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 4; Column 2: Color; Column 3: Color – New Colorway; Column 4: New colorway added to order; Column 5: Yes, There are cases where Buyer send additional style colors in order which were not there in inital stage of Techpack creation.",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 7",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 5; Column 2: Size & Grading; Column 3: Size Range; Column 4: Size range expanded; Column 5: Yes, There are cases where Buyer send additional style Sizes in order which were not there in inital stage of Techpack creation.",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 8",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 6; Column 2: Trim & Accessories; Column 3: Hang Tag; Column 4: New compliance hang tag added; Column 5: Yes, Merchants Redownload the Updated techpack from buyer portal in case if any new item is added to the existing bom. Items mostly like packing trims are newly added into the techpack. In updated techpack previous Items will always remain constant,only new added items will get added into a new line",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "BOM Change Tracker row 9",
+      "heading": "Sheet: BOM Change Tracker",
+      "text": "WFX BOM – TECHPACK CHANGE TRACKER: 7; Column 2: Style; Column 4: Style Information Changes; Column 5: There is no change in any of the Style Header level information in Techpack Updation",
+      "locator": "sheet \"BOM Change Tracker\", § Sheet: BOM Change Tracker, table 1, row 9",
+      "kind": "data_row"
+    }
+  ]
+}

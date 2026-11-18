@@ -1,0 +1,148 @@
+{
+  "tables": [],
+  "subject": "Desync Price OC List",
+  "keyTerms": [
+    "cost sheet",
+    "price",
+    "cost",
+    "sheet",
+    "selling price",
+    "update",
+    "order",
+    "destination",
+    "selling",
+    "desync price",
+    "price list",
+    "order buyer",
+    "buyer",
+    "delivery",
+    "sheet price"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 33
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The destination-wise price is also defined in the cost sheet under the Cost Sheet Summary section.",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This ensures that the OC Selling Price is directly mapped from the Cost Sheet based on:",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The price for Destination India (IN) is updated from 10 to 15",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "OC Selling Price / Customer Price is displayed per line item.",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Cost Sheet Selling Price is displayed alongside it.",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Desync Price OC list:\n1. OC Selling Price / Customer Price is displayed per line item.\n2. Cost Sheet Selling Price is displayed alongside it.\n3. Different destinations may have different price values.\n4. The system reflects destination-wise pricing correctly.",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Pricing is maintained destination-wise.",
+      "locator": "§ Solution › Desync Price OC list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery update:\n1. Buyer Delivery Date\n2. OC Delivery Date\n3. Buyer Order Date\n4. PCD Date\n5. PO Packet Date\n6. GAC Date",
+      "locator": "§ Solution › Delivery update",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery update:\n1. Once saved, the system will update the edited fields.\n2. The updated values will be reflected in:\n3. The respective OC (Order Confirmation)\n4. The related transaction screens",
+      "locator": "§ Solution › Delivery update",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Verify that the modified dates are correctly updated in the OC.",
+      "locator": "§ Solution › Delivery update",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure that the latest saved data is visible across all relevant sections.",
+      "locator": "§ Solution › Delivery update",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Desync Price OC List",
+      "heading": "",
+      "text": "Purchase Order from buyer",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\nPurcahse order from buyer 2\n1. Desync Price OC list 2\n2. Delivery Updated……………………………………………………………………………………..2\n3. OC Import………………………………………………………………………………………………2",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Desync Price OC list",
+      "heading": "Solution › Desync Price OC list",
+      "text": "Sales -> Purchase Order from buyer -> Desync Price OC list\nIn this screen, only the data that has been created through the cost sheet will be visible. The destination-wise price is also defined in the cost sheet under the Cost Sheet Summary section.\n1. Initial Cost Sheet Setup\nStyle 1 → Cost Sheet\nFor Destination India (IN), the selling price is set as 10 in the Cost Sheet.\n2. OC Creation – Auto Price Pickup\nWhen creating an OC (Order Confirmation):\n• Select Style 1\n• Select Destination India (IN)\nThe system should automatically pick the Selling Price from the confirmed Cost Sheet.\nIn this case, the Selling Price in OC should automatically populate as:\n10\nThis ensures that the OC Selling Price is directly mapped from the Cost Sheet based on:\n• Style\n• Destination\n3. Cost Sheet Revision\nLater, if the Cost Sheet is revised:\n• The price for Destination India (IN) is updated from 10 to 15\n• The revised Cost Sheet is confirmed\nThe updated price (15) will now be visible in the Cost Sheet screen.\n4. Update OC with Latest Cost Sheet Price\nIf an OC was already created earlier with price 10, and the Cost Sheet price is revised to 15, then:\nUpon clicking:\n“Update OC With Latest Costsheet Price”\nThe system will:\n• Fetch the latest confirmed Cost Sheet price\n• Automatically update the Selling Price in the OC from 10 to 15\n5. Price Display & Range (As Per Image)\nAs shown in the screen:",
+      "locator": "§ Solution › Desync Price OC list",
+      "kind": "section"
+    },
+    {
+      "title": "Desync Price OC list",
+      "heading": "Solution › Desync Price OC list",
+      "text": "• OC Selling Price / Customer Price is displayed per line item.\n• Cost Sheet Selling Price is displayed alongside it.\n• Different destinations may have different price values.\n• The system reflects destination-wise pricing correctly.\nThe price range displayed in the image confirms that:\n• Pricing is maintained destination-wise.\n• The OC reflects the mapped Cost Sheet price accordingly.",
+      "locator": "§ Solution › Desync Price OC list (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery update",
+      "heading": "Solution › Delivery update",
+      "text": "Sales -> Purchase order from buyer -> Delivery Update\nEditable Fields\nIn the Purchase Orders from Buyers – Delivery Update screen, the following fields are editable:\n• Buyer Delivery Date\n• OC Delivery Date\n• Buyer Order Date\n• PCD Date\n• PO Packet Date\n• GAC Date\nUpdate Process\n• The user can modify the required editable fields directly in the grid.\n• After making the necessary changes, click on Save.\nSystem Behavior After Save\n• Once saved, the system will update the edited fields.\n• The updated values will be reflected in:\n• The respective OC (Order Confirmation)\n• The related transaction screens\nValidation\nAfter updating and saving:\n• Verify that the modified dates are correctly updated in the OC.\n• Ensure that the latest saved data is visible across all relevant sections.",
+      "locator": "§ Solution › Delivery update",
+      "kind": "section"
+    }
+  ]
+}

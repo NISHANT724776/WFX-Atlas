@@ -1,0 +1,184 @@
+{
+  "tables": [],
+  "subject": "Sample Order Manual final1 V11",
+  "keyTerms": [
+    "sample",
+    "sample order",
+    "user",
+    "order",
+    "buyer",
+    "after",
+    "sample receipt",
+    "dispatch",
+    "style",
+    "below",
+    "type",
+    "receipt",
+    "copy",
+    "path sales",
+    "sales sample"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 17
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Below is the transactional screen shot of New Sample Order.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Above screen is New Sample Order where user will fill all the necessary details which are explained below.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "After filling all the above fields there is an another option on the same screen as “Sample Order Details” Where user will first select the required Sizes for which he/she has to create a sample and after that user will click on “ADD” button as shown in below screenshot.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Fields in red are mandatory to be filled.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Fields in red are mandatory to be filled.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the requirement is Released and indent will be generated in the indent list.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the sample is ready in the Sample Room user has to receive the sample from the Sample Room so that he/she can Dispatch it to the buyer, that transaction is explained in the below screen shot.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The above screen is used to create Sample Receipt for the sample order.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once sample orders are selected then user will click on “Confirm”",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the Receipt is completed now the user is ready to Dispatch the sample to the buyer.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Below is the Forwarder dispatch screen.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Non-returnable: - If we select non-returnable type then we cannot receive any of the samples which buyer is returning back.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Below is the Sample Order Dispatch List.",
+      "locator": "§ Introduction › … › Business Case.",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sample Order Manual final1 V11",
+      "heading": "",
+      "text": "Sample Order Manual\nClient :Classic Fashion",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction",
+      "heading": "Introduction",
+      "text": "This document describes about the working of Sample Order related transaction in wfx system.",
+      "locator": "§ Introduction",
+      "kind": "section"
+    },
+    {
+      "title": "Business Case.",
+      "heading": "Introduction › … › Business Case.",
+      "text": "This business case elaborate functioning of Sample Order transactions such as Creating a sample Order, Sample BOM, sample Supplier PO Creation, Sample Receipt/Dispatch.\nStep 1: Path\nSales -> Sample Order-> New Sample Order.\nBelow is the transactional screen shot of New Sample Order.\nWe can copy style information and SWN information from below options.\nOnce we will click on copy below screen will come.\nCopy and create new style: - This option will facilitate users to copy style information and creates new techpack after confirmation.\nCopy and create variant: - This option will facilitate users to copy style information and creates new techpack after confirmation, and maintains a link between parent style and copied styles.\nCopy Style: - This option will facilitate users to copy style information without creating new techpack after confirmation.\nCopy sample order: - This option will facilitate users to copy sample information without creating new techpack after confirmation.\nAbove screen is New Sample Order where user will fill all the necessary details which are explained below.\nSample Order No.:-It is system generated\nCreated On: -sample Order Creation date\nArticle Code: -Here user will enter article Code\nBuyer: - Buyer Name\nBuyer Department: Buyer Department\nSeason: Season\nSupplier Name: Supplier Name will come here",
+      "locator": "§ Introduction › … › Business Case.",
+      "kind": "section"
+    },
+    {
+      "title": "Business Case.",
+      "heading": "Introduction › … › Business Case.",
+      "text": "Buyer Contact: - Name of the responsible person from buyer side who is looking after the style\nSupplier Contact: Name of the responsible person from Supplier side who is looking after the style\nWorksheet Recd. On: Date on which sample order given by buyer.\nBuyer Delivery Date: Buyer Delivery date\nStyle Details: Style details to be filled here\nMaterial Type: Material type\nFabric/Main Material: Main material name\nProduct Group/Sub Category: Product Group/Sub Category\nGender: Gender\nArticle Description: Style description\nBuyer Target Price: Buyer Target Price\nBuyer Quoted Price: Buyer Quoted Price\nSupplier Quoted Price: Supplier Quoted Price\nUOM: UOM\nInternal Reference: Internal Reference\nWash Type: Wash Type\nProduct Finishing: Product Finishing\nIron Type: Iron Type\nEmbroidery Type: Embroidery Type\nPrint Type: Print Type\nMaster Style: Main Master Style\nAfter filling all the above fields there is an another option on the same screen as “Sample Order Details” Where user will first select the required Sizes for which he/she has to create a sample and after that user will click on “ADD” button as shown in below screenshot.\nAfter selecting the “Required Sizes”, clicking on “ADD” Button the screen will show all the related details to be filled by the user.\nFields in red are mandatory to be filled. After user fills all the details he/she will click on “Confirm” at the top of the page.",
+      "locator": "§ Introduction › … › Business Case. (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Business Case.",
+      "heading": "Introduction › … › Business Case.",
+      "text": "Once the user Confirm the sample Order, all the details filled by him will come on the next screen which is known as “Sample Order View Screen “where the user will Create the “Bill of material”\nAfter clicking on the “Bill of Material” below screen will appear where user will find three option to create “BOM”.\n1 Create New BOM using Layout:- In this option users can select any existing layout and create BOM.\n2.Copy From Article:- This option facilitates users to copy BOM from another article sampling BOM.\n3.Copy from this articles Production Bill of Material:- This option facilitates users to copy BOM, if current sample order style is copied from existing style.\nAfter selecting one of the above option User will click on “Ok” button\nFor example: - We are taking the first option i.e. Create New BOM using Layout.\nAfter clicking on OK button the above screen will come where user will find two categories (Fabric and Trims) because here the BOM layout user has selected includes only two categories, it will vary on the Type of BOM Layout selected by the user.\nAfter that the user will click on the “Add Button” and will fill all the details such as Article, Body Type, Color, Size, UOM, Consumption Qty, wastage, Product Qty etc.\nOnce users will specify all required informations. He/she will click on “View Requirement”",
+      "locator": "§ Introduction › … › Business Case. (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Business Case.",
+      "heading": "Introduction › … › Business Case.",
+      "text": "After user clicks on the “View Requirements” below screen will appear where user has to check all the details, after checking all details user will click on “Release Requirements” so that Indents can be generated where user will fullfill indent(requirement).\nOnce the requirement is Released and indent will be generated in the indent list.\nPath\nSourcing -> Indent Management -> User Indent List\nOnce the Indent List Opens you will find your Indents there.\nNote: -For Indent Fulfilment and receiving material Please refer Indent Management and inventory Manual.\nOnce the sample is ready in the Sample Room user has to receive the sample from the Sample Room so that he/she can Dispatch it to the buyer, that transaction is explained in the below screen shot.\nPath: - Sales -> Sample Order -> Sample Receipt.\nThe above screen is used to create Sample Receipt for the sample order.\nOnce user goes to the screen he/she will find the below screen where user will fill all the necessary details so that he/she can receive his/her sample Orders from the Sample room.\nHere in the above screen user will fill the Supplier, supplier Document Ref No and the Site where he/she wants to receive the sample. After that user will click on the “ADD” button where he/she will add sample orders which belongs to him/her. In this Sample Order Orders screen user can select multiple sample orders.",
+      "locator": "§ Introduction › … › Business Case. (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Business Case.",
+      "heading": "Introduction › … › Business Case.",
+      "text": "Once sample orders are selected then user will click on “Confirm”\nAfter that the below screen will appear. Where all the details filled by the users will appear.\nUser can find his/her sample order Receipt in the Sample Receipt List.\nPath: - Sales->Sample Order->Sample Receipt List.\nSample Order Receipt List.\nOnce the Receipt is completed now the user is ready to Dispatch the sample to the buyer.\nFor Dispatch user has two Dispatch Options.\n1.Sample Courier Dispatch: - for dispatching sample through courier user will select this option.\nPath -> Sales -> Sample Order -> sample Courier Dispatch.\nFill all the details, select your order and Confirm.\n2.Sample Forwarder Dispatch: -Here for Dispatching sample orders user will select forwarder.\nPath -> Sales -> Sample Order -> sample Forwarder Dispatch.\nBelow is the Forwarder dispatch screen.\nNote: - When user sends the sample to the buyer on dispatch screen there is an option “Type” where two radio buttons are given to mark the sample as\n• Returnable\n• Non-Returnable\nNon-returnable: - If we select non-returnable type then we cannot receive any of the samples which buyer is returning back.\nReturnable: - - If we select returnable type then we can receive any of the samples which buyer is returning back. Here user will do one more transection i.e. Buyer Returned Sample Receipt. In order to receive the buyer dispatched sample.",
+      "locator": "§ Introduction › … › Business Case. (part 5)",
+      "kind": "section"
+    },
+    {
+      "title": "Business Case.",
+      "heading": "Introduction › … › Business Case.",
+      "text": "Path -> Sales -> Sample Order -> Buyer Returned Sample Receipt.\nBuyer Returned Sample Receipt screen shot shown below.\nOnce the user done with the buyer returned sample Receipt transection then it will reflect in the Buyer Returned Sample Receipt list.\nPath -> Sales -> Sample Order -> Buyer Returned Sample Receipt List.\nIf the user wants to see the number of dispatch order he/she can go and see it in the dispatch order list.\nPath -> Sales -> Sample Order -> sample Dispatch List.\nBelow is the Sample Order Dispatch List.\nFor creating Invoices against courier dispatches user will create Courier invoice\nPath Sales>Sample order > Courier Invoice\nAfter clicking on courier invoice below screen will come.\nHere user can consolidate multiple dispatches and create one courier dispatch as shown in below screenshot.\nAfter selecting dispatches user will click on “OK” and confirm",
+      "locator": "§ Introduction › … › Business Case. (part 6)",
+      "kind": "section"
+    }
+  ]
+}

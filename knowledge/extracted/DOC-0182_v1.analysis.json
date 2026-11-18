@@ -1,0 +1,37 @@
+{
+  "tables": [],
+  "subject": "Apparel techpack screen - Adi TShirt (NIS-59), owner screenshot 2026-11-18",
+  "keyTerms": [],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 9
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "Apparel techpack screen - Adi TShirt (NIS-59), owner screenshot 2026-11-18",
+      "heading": "",
+      "text": "Apparel techpack screen - Adi TShirt (NIS-59), owner screenshot 2026-11-18. Image stored unchanged. Text and diagrams inside images are not read: that needs a vision model, which is not authorised or configured. Add a written description to make it searchable.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

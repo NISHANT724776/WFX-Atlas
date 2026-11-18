@@ -1,0 +1,339 @@
+# Calculation rules: Sales Order
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: CALC-OC-VALUE
+RULE NAME: Breakup Value
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Colour × size value of the delivery OC.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Qty
+  Selling Price
+  CM Price
+FORMULA / LOGIC: Total Value = Qty × (Selling Price + CM Price)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Total Value
+VALIDATIONS:
+EXAMPLE: 300 × 33.3333 = 9,999.99 for Cosmic sky purple / Small; OC total 33,333.30 USD.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  qty | Qty | quantity | required
+  selling_price | Selling Price | money | required
+  cm_price | CM Price | money | default 0
+EXPRESSION: total_value = qty * (selling_price + cm_price)
+CALC OUTPUT: total_value
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-SPLIT-PCT
+RULE NAME: Split by percentage
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Per the Sales Order specification. The percentage must be above 0 and not above 100; the remaining quantity stays in the source delivery.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Existing Quantity
+  Split Percentage
+FORMULA / LOGIC: Split Quantity = Existing Quantity × Split Percentage ÷ 100 (per article colour/size line, rounded to the UOM precision); Remaining = Existing − Split
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Split Quantity
+VALIDATIONS:
+EXAMPLE: 20 % of Red/S 100, Red/M 200, Red/L 200 moves 20, 40 and 40.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  existing_qty | Existing Quantity | quantity | required
+  split_pct | Split Percentage | percent | required
+EXPRESSION: split_qty = existing_qty * split_pct / 100
+CALC OUTPUT: split_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-SPLIT-QTY
+RULE NAME: Split by quantity
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: The entered quantity is spread proportionately over the selected colour/size lines (specification wording: "distributed proportionately"). Quantity must be above zero and not above the delivery quantity.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Entered Quantity
+  Line Qty
+  Total of the selected lines
+FORMULA / LOGIC: Line Split Qty = Entered Quantity × Line Qty ÷ Total of the selected lines
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Line Split Qty
+VALIDATIONS:
+EXAMPLE: 100 pcs over 100 / 200 / 200 moves 20 / 40 / 40.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  entered_qty | Entered Quantity | quantity | required
+  line_qty | Line Qty | quantity | required
+  total_selected_qty | Total of the selected lines | quantity | required
+EXPRESSION: line_split_qty = entered_qty * line_qty / total_selected_qty
+CALC OUTPUT: line_split_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-UPCHARGE
+RULE NAME: Final Selling Price (upcharge / discount)
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Base price comes from the Tech Pack; the final price is read-only and recalculated whenever the upcharge or discount changes. Only when "Enable Base Price and Upcharge in Summary OC" is ON.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Base Selling Price
+  Upcharge (+) / Discount (−)
+FORMULA / LOGIC: Final Selling Price = Base Selling Price ± Upcharge/Discount (positive = upcharge, negative = discount)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Final Selling Price
+VALIDATIONS:
+EXAMPLE: 100 + 10 = 110; 100 − 5 = 95.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  base_selling_price | Base Selling Price | money | required
+  upcharge | Upcharge (+) / Discount (−) | money | default 0
+EXPRESSION: final_selling_price = base_selling_price + upcharge
+CALC OUTPUT: final_selling_price
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-SUBTOTAL
+RULE NAME: Sub Total (sales order currency)
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Print and Proforma Invoice show a Sub Total column in the sales order currency, grouped at delivery / OC level.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Delivery Value
+  Exchange Rate to the Sales Order Currency
+FORMULA / LOGIC: Sub Total = Delivery Value × Exchange Rate to the Sales Order Currency
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Sub Total
+VALIDATIONS:
+EXAMPLE: 800 USD at 1 USD = 84 INR = 67,200 INR. 600 VDN at 1 INR = 300 VDN is about 2 INR (the specification shows 1.98).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  delivery_value | Delivery Value | money | required
+  exchange_rate | Exchange Rate to the Sales Order Currency | number | default 1
+EXPRESSION: sub_total = delivery_value * exchange_rate
+CALC OUTPUT: sub_total
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-EX-FACTORY
+RULE NAME: OC Delivery Date from ex-factory days
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Fills as soon as the Buyer Delivery Date is entered. Without a master entry the OC Delivery Date equals the Buyer Delivery Date.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: OC Delivery Date = Buyer Delivery Date − Ex-factory days (master by shipment mode, order company, buyer and buyer department)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: OC Delivery Date
+VALIDATIONS:
+EXAMPLE: 10 days: 31 Mar → 21 Mar.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-APPROVAL-LIMIT
+RULE NAME: Approval value rule
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: A value equal to the limit does not go for approval.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Approval value of the approver
+  Order Value
+FORMULA / LOGIC: Limit 0 → never approval; Limit -1 → always approval; Limit > 0 → approval only if Order Value > Limit
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Approval value rule
+VALIDATIONS:
+EXAMPLE: Limit 1,000: order 1,000 → no approval; order 1,500 → approval.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  approval_limit | Approval value of the approver | number | required
+  order_value | Order Value | money | required
+EXPRESSION: goes_for_approval = IF(approval_limit == 0, 0, IF(approval_limit == -1, 1, IF(order_value > approval_limit, 1, 0)))
+CALC OUTPUT: goes_for_approval
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-PURCHASE-DEMAND
+RULE NAME: Material indents after Purchase Demand
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Purchase Demand at Level 1 is style quantity bought finished. On the next MRP run the material indents shrink by it; with the whole quantity there are none. The style indent with purchase demand goes to an RMPO.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Level 1 Style Qty
+  Purchase Demand
+  BOM Final Consumption
+FORMULA / LOGIC: Material Indent Qty = (Level 1 Style Qty − Purchase Demand) × BOM Final Consumption
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Material Indent Qty
+VALIDATIONS:
+EXAMPLE: Order 1,000, Final Consumption 1.5: Purchase Demand 0 → 1,500; 400 → 900; 1,000 → 0.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  level1_style_qty | Level 1 Style Qty | quantity | required
+  purchase_demand | Purchase Demand | quantity | default 0
+  final_consumption | BOM Final Consumption | quantity | required
+EXPRESSION: material_indent_qty = (level1_style_qty - purchase_demand) * final_consumption
+CALC OUTPUT: material_indent_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-PACK-PCS
+RULE NAME: Pieces from prepack ratio
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Wording of the specification. Worked here as pack ratio per size × number of packs.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Solid Color / Assorted Size: PCS = PP × Size + PP × Size … ; Multiple Prepack: PCS = PP × TBA
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Solid Color / Assorted Size: PCS
+VALIDATIONS:
+EXAMPLE: Ratio 1:2:1 over S/M/L with 10 packs = 10 + 20 + 10 = 40 pcs.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+OPEN QUESTION: Confirm what "Size" and "TBA" stand for in PCS = PP × Size and PCS = PP × TBA (ratio × packs?).
+V1 STATUS: assumed (inferred, waiting for confirmation)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-SO-DESYNC
+RULE NAME: Desync price check
+MODULE: Sales Order
+SUBMODULE:
+TRANSACTION: Purchase Order from Buyer (OC)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: The cost sheet or BOM is the source of truth. Update OC with latest cost sheet price re-reads a revised confirmed price.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Desynced when OC Selling Price ≠ Cost Sheet / BOM Selling Price for the style and destination; Sync sets OC Selling Price = Cost Sheet / BOM Selling Price
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Desynced when OC Selling Price ≠ Cost Sheet / BOM Selling Price for the style and destination; Sync sets OC Selling Price
+VALIDATIONS:
+EXAMPLE: Cost sheet 10, OC 20 → desynced → sync gives OC 10; cost sheet revised to 15 → update gives OC 15.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

@@ -1,0 +1,29 @@
+﻿apparel_code,bom,bom_line_article,size_code,master_value,on_article,material_value,status
+NIS-59,#1 DP,N-8,34S,Small S (34S),Yes,Small S (34S),mapped
+NIS-59,#1 DP,N-8,38M,Medium M (38M),Yes,Medium M (38M),mapped
+NIS-59,#1 DP,N-8,42L1,Large L1 (42L1),Yes,Large L1 (42L1),mapped
+NIS-59,#1 DP,N-8,46XL,Extra Large XL (46XL),Yes,[Not Used],not-used
+NIS-59,#1 DP,N-8,50XXL,Double XL XXL (50XXL),Yes,[Not Used],not-used
+NIS-59,#1 DP,N-8,22/10,hgdhj (22/10),Yes,[Not Used],not-used
+NIS-59,#1 DP,N-8,TBA,TBA (TBA),Yes,[Not Used],not-used
+NIS-59,#1 DP,T-1,34S,Small S (34S),Yes,Small S (34S),mapped
+NIS-59,#1 DP,T-1,38M,Medium M (38M),Yes,,not-captured
+NIS-59,#1 DP,T-1,42L1,Large L1 (42L1),Yes,,not-captured
+NIS-59,#1 DP,T-1,46XL,Extra Large XL (46XL),Yes,,not-captured
+NIS-59,#1 DP,T-1,50XXL,Double XL XXL (50XXL),Yes,,not-captured
+NIS-59,#1 DP,T-1,22/10,hgdhj (22/10),Yes,,not-captured
+NIS-59,#1 DP,T-1,TBA,TBA (TBA),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,34S,Small S (34S),Yes,Small S (34S),mapped
+NIS-59,#1 DP,NS1-1,38M,Medium M (38M),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,42L1,Large L1 (42L1),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,46XL,Extra Large XL (46XL),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,50XXL,Double XL XXL (50XXL),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,22/10,hgdhj (22/10),Yes,,not-captured
+NIS-59,#1 DP,NS1-1,TBA,TBA (TBA),Yes,,not-captured
+NIS-59,#1 DP,PP-1,34S,Small S (34S),Yes,Small S (34S),mapped
+NIS-59,#1 DP,PP-1,38M,Medium M (38M),Yes,,not-captured
+NIS-59,#1 DP,PP-1,42L1,Large L1 (42L1),Yes,,not-captured
+NIS-59,#1 DP,PP-1,46XL,Extra Large XL (46XL),Yes,,not-captured
+NIS-59,#1 DP,PP-1,50XXL,Double XL XXL (50XXL),Yes,,not-captured
+NIS-59,#1 DP,PP-1,22/10,hgdhj (22/10),Yes,,not-captured
+NIS-59,#1 DP,PP-1,TBA,TBA (TBA),Yes,,not-captured

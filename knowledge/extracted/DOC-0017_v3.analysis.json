@@ -1,0 +1,1654 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Field",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Buyer",
+          "External buyer for whom the order is created."
+        ],
+        [
+          "Order Company",
+          "Order-owning company where buyer-side order is managed."
+        ],
+        [
+          "Order Company Division",
+          "Division of the Order Company"
+        ],
+        [
+          "Execution Company",
+          "Manufacturing company where production is executed."
+        ],
+        [
+          "Execution Company Division",
+          "Division of the Execution Company"
+        ],
+        [
+          "Effective Date",
+          "Date from which this TP Mapping becomes valid."
+        ],
+        [
+          "End Customer",
+          "Must be mapped in Order Company Info first and then used in TP Mapping."
+        ],
+        [
+          "Price Applicable On",
+          "Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Based On",
+          "Source transaction on which mapping will work, for example GMPO"
+        ],
+        [
+          "Auto Transaction",
+          "Documents to be auto-created, such as Techpack, OC."
+        ],
+        [
+          "Effective Date",
+          "Date from which this TP Mapping becomes valid."
+        ],
+        [
+          "Execution Company",
+          "Manufacturing company where production is executed."
+        ],
+        [
+          "Execution Company Division",
+          "Division of the Execution Company"
+        ],
+        [
+          "End Customer",
+          "End Customer used for the TP transaction as per company setup."
+        ],
+        [
+          "Order Company",
+          "Order-owning company where buyer-side order / GMPO is managed"
+        ],
+        [
+          "Order Company Division",
+          "Division of the Order Company."
+        ],
+        [
+          "Supplier",
+          "Supplier mapped for inter-company transaction, usually the supplier linked with Execution Company."
+        ],
+        [
+          "Fulfillment Type",
+          "Defines how the order will be fulfilled, for example Manufacture or Back Order."
+        ],
+        [
+          "Dispatch Site",
+          "Dispatch location/site from where finished goods will be dispatched, if applicable."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales Order Sprint - 3 V1",
+  "keyTerms": [
+    "order",
+    "user",
+    "company",
+    "sales order",
+    "sales",
+    "delivery",
+    "price",
+    "order company",
+    "execution company",
+    "qty",
+    "article",
+    "context menu",
+    "size",
+    "selling price",
+    "execution"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 85
+    },
+    {
+      "module": "Style & BOM",
+      "score": 38
+    },
+    {
+      "module": "TNA",
+      "score": 25
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 15
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "Apparel Style (Techpack)",
+    "BOM – Costing",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "Buyer Block Booking (BBB)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "System shall validate Tool Permissions before executing any Context Menu Tool and restrict unauthorized access.",
+      "locator": "§ Solution › Tool Permission for Context Menu Actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If no Tool Permission is assigned to a User Group, no Context Menu Tools shall be visible or accessible to its users.",
+      "locator": "§ Solution › Tool Permission for Context Menu Actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tool Permission for Context Menu Actions:\n1. System shall provide a Tool Permission multi-select dropdown under Sales Order New Program Permissions to assign one or multiple Context Menu Tools to a User Group.\n2. System shall display only the Grid Level and Header Level Context Menu Tools assigned to the logged-in user's User Group.\n3. System shall validate Tool Permissions before executing any Context Menu Tool and restrict unauthorized access.\n4. System shall support assigning multiple Tool Permissions to a User Group, allowing access to all selected Context Menu Tools.\n5. If no Tool Permission is assigned to a User Group, no Context Menu Tools shall be visible or accessible to its users.",
+      "locator": "§ Solution › Tool Permission for Context Menu Actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Below are the Grid Level Context menu Fields:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Source Delivery (Display Only)\n2. Target Sales Order\n3. Target Deliveries\n4. From Sales Order\n5. From Deliveries\n6. Confirm\n7. Discard\n8. Edit\n9. Load",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Target Sales Order = New Sales Order (Fully Editable)",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This field shall not be copied from the Source Delivery and must be entered manually by the user before saving or confirming the Delivery.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Target Sales Order = Existing Sales Order",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Disable and freeze the Target Delivery lookup.\n2. Automatically create a new Draft Delivery upon clicking Load.\n3. Copy all Delivery level information from the Source Delivery to the newly created Delivery.\n4. Copy all selected Articles along with their Color/Size combinations, Selling Prices, Delivery details, Instructions, and all other applicable Delivery information.\n5. Generate the new Delivery in Draft status.\n6. Automatically open the newly created Delivery in editable mode after successful creation.\n7. Keep the Buyer Order Reference blank. This field shall not be copied from the Source Delivery and must be entered manually by the user before saving or confirming the Delivery.\n8. Target Sales Order = Existing Sales Order",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Enable the Target Sales Order lookup.\n2. Display only eligible Deliveries belonging to the same Sales Order for selection.\n3. Allow the user to select one Target Delivery.\n4. Transfer the split/shuffled quantities to the selected Target Delivery after confirmation.\n5. No new Delivery shall be created in this scenario.\n6. Recalculate the quantities and values for both the Source Delivery and Target Delivery.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Belong to the same Sales Order.\n2. Belong to the same Buyer.\n3. Belong to the same Style/OC.\n4. Are in Draft or Editable status.\n5. Are not Cancelled.\n6. Are not Closed.\n7. User has modification permission for the Delivery.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Source Delivery shall not be available for selection as the Target Delivery.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. The user shall enter the quantity to be transferred.\n2. The entered quantity shall be distributed proportionately across all selected Article Color/Size combinations.\n3. The transferred quantity shall be deducted from the Source Delivery.\n4. The Target Delivery shall receive the calculated quantities.\n5. All Delivery totals shall be recalculated automatically.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Split Quantity = Existing Quantity × Split Percentage / 100",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Quantities shall be rounded according to the configured UOM precision.\n2. The calculated quantity shall be transferred to the Target Delivery.\n3. Remaining quantity shall stay in the Source Delivery.\n4. Delivery totals shall be recalculated automatically.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall validate the following before processing Split/Shuffle:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Split Mode is mandatory.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Split Value is mandatory.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At least one Article must exist.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At least one Color/Size combination must exist.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Source Delivery must be editable.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Delivery Status shall not be Cancelled or Closed.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Split Mode is mandatory.\n2. Split Value is mandatory.\n3. At least one Article must exist.\n4. At least one Color/Size combination must exist.\n5. Source Delivery must be editable.\n6. Delivery Status shall not be Cancelled or Closed.\n7. Copy functionality works as per the fields entered in the Previous.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery selection is mandatory.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Source Delivery and Target Delivery cannot be the same.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery must belong to the same Sales Order.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery must belong to the same Buyer.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery must be editable.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery shall not be Cancelled or Closed.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Target Delivery selection is mandatory.\n2. Source Delivery and Target Delivery cannot be the same.\n3. Target Delivery must belong to the same Sales Order.\n4. Target Delivery must belong to the same Buyer.\n5. Target Delivery must be editable.\n6. Target Delivery shall not be Cancelled or Closed.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity must be greater than zero.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity cannot exceed available Delivery quantity.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity cannot be negative.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Quantity must be greater than zero.\n2. Quantity cannot exceed available Delivery quantity.\n3. Quantity cannot be negative.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Percentage must be greater than 0.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Percentage cannot exceed 100.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle DOC:\n1. Percentage must be greater than 0.\n2. Percentage cannot exceed 100.\n3. Decimal values shall be accepted as per configured precision.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If mandatory Fields Are not filled then throw an error.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "On Main OC & Style level this functionality will work same, when user Clicks on Update TNA from Grid Level Context menu Tool, then the selected TNA template will be removed and Pop-up opens to select the new TNA template, but this works only when already a template was selected for that article.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Update TNA",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This error message to be shown as per Angular standard.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Update TNA",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When No TNA template was selected previously and user clicks on Delete track then it will show an alert message\n\n\nShow the alerts information As per angular standard",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Delete Track",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Notes (Mandatory Dropdown)",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. Notes (Mandatory Dropdown)\n2. Save\n3. Cancel",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. Associate the selected Note with the current Delivery OC.\n2. Record the User Name.\n3. Record Date & Time.\n4. Add a new entry in the Activity Timeline of the Delivery.\n5. Close the popup.\n6. Display a success message.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. Note Description\n2. User Name\n3. Date & Time\n4. Activity Type = \"OC Note Added\"",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. The popup shall close.\n2. No Note shall be associated with the Delivery.\n3. No Activity Timeline entry shall be created.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. Add\n2. Save\n3. Delete\n4. Discard/Cancel",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Note field shall be mandatory.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. A new editable row shall be added to the grid.\n2. The user shall enter the OC Note.\n3. Active shall be checked by default.\n4. The Note field shall be mandatory.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall validate:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Duplicate Notes are not allowed.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicate Notes are not allowed.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Upon successful validation:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. The Note shall be saved.\n2. The Note shall become available for selection in every Delivery OC Notes popup.\n3. Success message shall be displayed.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. Selected Note(s) shall be deleted.\n2. Deleted Notes shall no longer appear in the Delivery Notes dropdown.\n3. If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The user shall enter the Remarks / Reason (Mandatory) and click OK.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cancel Sales Order:\n1. If the user clicks Continue, the system shall open the Cancellation Remarks pop-up.\n2. The user shall enter the Remarks / Reason (Mandatory) and click OK.\n3. Upon clicking OK, the system shall:\n4. Cancel the selected Main Order (OC).\n5. Cancel all associated Delivery OC(s).\n6. Save the cancellation remarks.\n7. Update the Order Status to Cancelled.\n8. If the user clicks Cancel on either pop-up, the cancellation process shall be aborted, and no changes shall be made.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the user attempts to cancel an Order whose status is Saved, Cancelled, or Closed, the system shall not initiate the cancellation process.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user attempts to cancel an Order whose status is Saved, Cancelled, or Closed, the system shall not initiate the cancellation process.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Title: Order Cancellation Not Allowed",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "You cannot cancel a Saved, Cancelled, or Closed Order.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The pop-up shall display a Remarks / Reason field, which is mandatory for closing the Order.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validate that the Remarks / Reason field is populated.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Close:\n1. When the user selects Close from the Grid Level Context Menu, the system shall display the Close Order pop-up.\n2. The pop-up shall display a Remarks / Reason field, which is mandatory for closing the Order.\n3. The user shall enter the closing remarks and click Close Order.\n4. Upon clicking Close Order, the system shall:\n5. Validate that the Remarks / Reason field is populated.\n6. Close the selected Order (OC).\n7. Update the Order Status to Closed.\n8. Save the closing remarks for audit and tracking purposes.\n9. Display a success message confirming that the Order has been closed successfully.\n10. If the user clicks Cancel or closes the pop-up, the closing process shall be aborted, and no changes shall be made.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the user attempts to close an Order whose status is already Closed or Cancelled, the system shall not proceed with the close operation.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user attempts to close an Order whose status is already Closed or Cancelled, the system shall not proceed with the close operation.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Title: Order Closure Not Allowed",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "You cannot close a Cancelled or Closed Order.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Print:\n1. Delivery\n2. Market\n3. Destination",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Print",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Destination Is mandatory to be filled.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Now when articles are selected then Dispatch allocation Grid will show information as given in Image.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dispatch:\n1. Destination Is mandatory to be filled.\n2. After that user selects dates. Based on the destination filled in the Sales Order.\n3. User clicks on Article a pop-up opens and user can select either single or multiple articles. (as there are multiple article inside a single delivery)\n4. Now when articles are selected then Dispatch allocation Grid will show information as given in Image.\n5. Now when User clicks on Material Re-Allocation then a new screen opens up",
+      "locator": "§ Solution › Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "And then Free stock is also shown there",
+      "locator": "§ Solution › Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "TNA Template selection is provided by filtering in two ways:",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Once TNA template is confirmed it cannot be edited directly, user need to use the Update TNA or Delete Track Tools from context menu.",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Main OC wise",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Once TNA template is confirmed it cannot be edited directly, user need to use the Update TNA or Delete Track Tools from context menu.",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Main OC wise",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When Filter is set to style wise, the only change is now user will select the TNA template based on Article, All the Other Functionality defined above for TNA template selection for Main OC wise remains same.",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Style Wise",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "TNA is selected then it will be shown as:",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Style Wise",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When no TNA Template is selected then it will be shown as:",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Style Wise",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "· Note: Production % should NOT be considered, so the planned (PD) quantity must remain 1300.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Additional QTY",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "· Note: Additional quantity should NOT be considered, but again, the PD quantity should be 1300.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Additional QTY",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "· Regardless of whether Extra Production % or Additional Quantity is excluded in MRL generation, the PD (planned) quantity should still be calculated as 1300, matching the Total OC Qty derived from the Sales Order.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Additional QTY",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user attempts to enter PP ratios for more than one Color, the system shall display the following validation message:",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Solid Color / Assorted Size",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "PCS = PP × Size + PP x Size…..",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Solid Color / Assorted Size",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "PCS = PP × TBA",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Multiple Prepack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "No Color restriction shall be applied for this Packing Type.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Multiple Prepack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Inseam is a size categorization used to differentiate garments based on the inside leg length.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Inseam:\n1. Petite\n2. Missy\n3. Regular\n4. Tall\n5. Long\n6. Short",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "All Inseam values are maintained in the Size Master.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Inseam values configured in the Size Master become available throughout the system wherever Inseam-based size classification is required.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Inseam:\n1. All Inseam values are maintained in the Size Master.\n2. Each Size Master record can be associated with an Inseam category.\n3. The Inseam values configured in the Size Master become available throughout the system wherever Inseam-based size classification is required.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The configured Inseam values are displayed in the Inseam dropdown available within the Color/Size Selection pop-up.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The selected Inseam value is stored against the respective Color/Size combination.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Inseam:\n1. The user selects the appropriate Inseam value for each size.\n2. This selection classifies the size under the corresponding Inseam group.\n3. Multiple sizes can belong to the same Inseam category.\n4. The selected Inseam value is stored against the respective Color/Size combination.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "In case of textile fabric if no linked customers are present then it will auto pick from the techpack. & if not present anywhere on tehcpack then same configuration will work i.e. to be present for editable mode.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Add Qty Breakup tool shall be enabled only when the Packing Type is selected as:",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Qty Breakup Grid shall be associated only with the selected article and shall not affect any other article on the screen.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If multiple articles are displayed, the Add Qty Breakup functionality shall work independently for each article.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tools at Article Level:\n1. Collapse and Expand all feature & even single expand collapse article feature present.\n2. View Change tool – Grid/Tabluar\n3. User Can add Multiple articles irrespective of kit/pack or non – kit articles. But for Kit type article only Grid view will be enabled.\n4. Showcase Article Name and Article ID and Buyer Style Reference on the header.\n5. For buyer Style reference it should be auto picked from techpack.\n6. If not present at techpack then user should be able to enter it manually.\n7. In case of textile-fabric the primary source of fetching Buyer style reference will be from Linked Customer column (this will be based on Buyer selection as Sales order)\n8. In case of textile fabric if no linked customers are present then it will auto pick from the techpack. & if not present anywhere on tehcpack then same configuration will work i.e. to be present for editable mode.\n9. Provide Link BBB tool.\n10. Color/size selection tool\n11. Delete Button to delete that article\n12. Add Qty tool will be configured through View Configurator.\n13. Add Article Tool (To handle Per pack Cases)\n14. The Add Qty Breakup tool shall be enabled only when the Packing Type is selected as:\n15. Solid Color / Assorted Size, or\n16. Multiple Prepack.\n17. For all other Packing Types, the Add Qty Breakup tool shall remain disabled.\n18. When the user clicks the Add Qty Breakup tool, a new Qty Breakup Grid shall be displayed immediately below the corresponding article.\n19. The Qty Breakup Grid shall be associated only with the selected article and shall not affect any other article on the screen.\n20. Each click on the Add Qty Breakup tool shall create a new, independent Qty Breakup Grid for the same article.\n21. The system shall allow the user to add multiple Qty Breakup Grids for a single article, with no predefined limit.\n22. If multiple articles are displayed, the Add Qty Breakup functionality shall work independently for each article.\n23. Each Qty Breakup Grid shall be visually grouped under its respective parent article to clearly distinguish it from the Qty Breakup Grids of other articles.\n24. All Qty Breakup Grids created for an article shall support the same functionality, validations, and operations as the standard Qty Breakup Grid.\n25. The parent article information shall remain visible to maintain a clear parent-child relationship between the article and its associated Qty Breakup Grids.\n26. To remove the Add Qty breakup you can use the Delete button.\n27. Master Expand/Collapse & Per – Article Expand/Collapse\n28. Delete Button",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The scope of this document is to define the functional requirement and system behaviour for Transfer Price Mapping and Transfer Price Order processing in WFX ERP, covering both Forward TP and Backward TP flows between the Order Company and Execution Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This document is limited to functional mapping and process flow definition and does not cover detailed technical design, test scenarios, API details, accounting configuration, or open points.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to formalize the required system behaviour for Transfer Price Order.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The key objective is to ensure that company-wise documents are created in the correct sequence and that auto-created documents remain linked between the Order Company and Execution Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The process is used when an order involves two related companies: one company owns the buyer order and another company executes production, procurement, shipment and internal billing.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Overview",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Before using Transfer Price Mapping, the user must first map the End Customer in Company Info.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In Order Company → Company Info, the user must map Buyer (End Customer) with the the Order Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In Order Company → Company Info, only the Buyer mapping is required as per this TP setup.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In Execution Company → Company Info, the user must map Supplier with the as the Execution Company supplier.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This Company Info setup is mandatory before creating or using TP Mapping.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This Company Info setup is mandatory before creating or using TP Mapping.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Field, Description (8 rows; identifiers: Field)",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "There are four ways to apply price applicable on",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Transfer Price Mapping:\n1. Default Margin % on FOB,\n2. Default Margin % on Material Cost in Internal Costsheet,\n3. Default Margin Rate,\n4. Default Selling Price.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field, Description (11 rows; identifiers: Field)",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Execution Company Selling Price is auto-populated from Execution Company Default Selling Price.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Backward Transfer Price:\n1. User creates OC in Execution Company.\n2. User selects Buyer.\n3. User selects Buyer Department.\n4. User selects End Customer.\n5. Execution Company Selling Price is auto-populated from Execution Company Default Selling Price.\n6. System auto-creates GMPO / OC in Order Company with .Auto suffix.\n7. Execution Company completes RM procurement.\n8. Execution Company completes production.\n9. User creates Sales ASN in Execution Company.\n10. User enters proper Execution Company and ETD / ETA Date in Sales ASN Shipping Info.\n11. System auto-creates GMPO GRN in Order Company.\n12. System auto-creates Supplier Invoice in Order Company.\n13. System auto-creates OC Sales ASN in Order Company.\n14. User manually creates Consignment Sales Invoice in Order Company.\n15. User manually performs clearing and posting in Order Company.\n16. System auto-creates Sales Invoice in Execution Company.\n17. Settings: Auto Misc Sales Invoice for Transfer Price, Enable Auto Invoice for GMPO.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "dependency",
+      "text": "System creates FPPO based on Auto PD selected in BOM.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "FG is dispatched from Execution Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Forward Transfer Price:\n1. User creates Techpack in Order Company.\n2. User creates OC in Order Company.\n3. User creates and approves costing in Order Company.\n4. User creates GMPO in Order Company.\n5. System auto-creates Techpack in Execution Company.\n6. System auto-creates OC in Execution Company.\n7. System auto-creates costing in open mode in Execution Company.\n8. User adds local purchase articles in Execution Company costing.\n9. User approves costing in Execution Company.\n10. User creates BOM manually in Execution Company.\n11. System generates MRL after BOM and OC creation.\n12. System generates production after MRL.\n13. User creates FPO manually.\n14. System creates FPPO based on Auto PD selected in BOM.\n15. User performs output against FPPO.\n16. System / user performs SF / FG QC.\n17. User creates Sales ASN manually in Execution Company.\n18. FG is dispatched from Execution Company.\n19. System auto-creates Sourcing ASN in Order Company.\n20. System auto-creates Inter Purchase Invoice in Order Company.\n21. System auto-creates Sales ASN in Order Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Data In Dropdown Field is going to be populated Master as is currently working.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Payment Method",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "It is going to be a mandatory text field, where user going to write the reason for revision.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Reason for order revision",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "It is going to be a mandatory text field, where user going to write the reason for revision.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Reason for order revision",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "It is going to be a mandatory text field, where user going to fill who authorised to revise the order.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Revision Authorized By",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "It is going to be a mandatory text field, where user going to fill who authorised to revise the order.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Revision Authorized By",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Upcharge/ Discount:\n1. Upcharge and selling price will be calculated inside the pop-up, which opens when clicked on selling price at table level.\n2. Selling Price shall be maintained at the Color × Size combination level.\n3. Colors shall be displayed as rows and Sizes as columns, allowing a separate Selling Price for each Color and Size combination.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The selling price shown here is the Max Selling price for that color/size level.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: Price Per shown here is just for Mock Purposes in development it should not be shown here as it will be directly driven from Techpack.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Base Price + (discount) = Selling Price",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Final Selling Price shall be automatically calculated using the following formula:",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Upcharge/ Discount:\n1. The Price Per configuration shall be inherited from the linked Tech Pack.\n2. Base Selling Price shall be fetched from the Tech Pack.\n3. When user fills Upcharge then discount column or row will be freezed based on the price per coming from tech pack.\n4. Users shall enter positive (+) values to apply an Upcharge. Base Price + (discount) = Selling Price\n5. Users shall enter negative (-) values to apply a Discount. E.g. Base Price – (discount) = Selling Price\n6. Final Selling Price shall be automatically calculated using the following formula:",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Final Selling Price = Base Selling Price ± Upcharge/Discount",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When article of kit type is added then view for that kit article be fixed as grid view(locked and cannot change to table view) & for non – kit articles user can switch to any view weather it is a grid view or table view.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Kit Pack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When article of kit type is added then view for that kit article be fixed as grid view(locked and cannot change to table view) & for non – kit articles user can switch to any view weather it is a grid view or table view.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Kit Pack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "There is going to be an indication as well to show it is a kit type article and when user hovers on i tool it shows a message",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Kit Pack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "After filling the configuration then that field get updated on left side under Additional Fields section(right now it is not visible on sales order view page), once user drags it to right side under selected fields section , then it will be visible now user can take actions on it such as Mandatory or Editable.",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Flex field:\n1. Dropdown – Provided a option out side as you can see in above image a toggle button is provided to make it multi select dropdown or single select.\n2. Date\n3. Numeric Box\n4. Text Box",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Type:",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Flex field:\n1. None\n2. Alphanumeric\n3. Numeric",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Mandatory and Edit fields are not required on SLC list Screen.",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory and Edit fields are not required on SLC list Screen.",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Sales Order New page View Configurator should not have Right pin or left pin tool.",
+      "locator": "§ Solution › Flex field",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If BSR is maintained in the Techpack:",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If BSR is not maintained in the Techpack:",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.):\n1. If BSR is maintained in the Techpack:\n2. The BSR should be automatically populated in the Sales Order.\n3. Based on the BSR configuration setting:\n4. Editable BSR: The populated BSR can be modified by the user.\n5. Non-Editable BSR: The populated BSR should be displayed as read-only.\n6. If BSR is not maintained in the Techpack:\n7. The BSR field should remain blank in the Sales Order.\n8. The field's editability should still follow the BSR configuration setting:\n9. Editable BSR: The user can manually enter the BSR.\n10. Non-Editable BSR: The field should remain blank and read-only.",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If a BSR is configured in the Linked Customer table for the selected buyer, that BSR should be picked first.",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If no BSR is found in the Linked Customer table, the system should check the Techpack.",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If a BSR is available in the Techpack:",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If no BSR is available in either the Linked Customer table or the Techpack:",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "For Textile/Fabric Items:\n1. Linked Customer Table (Highest Priority)\n2. If a BSR is configured in the Linked Customer table for the selected buyer, that BSR should be picked first.\n3. Example:\n4. GAPS → BSR 1\n5. Adidas → BSR 2\n6. The BSR corresponding to the selected buyer should be automatically populated in the Sales Order.\n7. Techpack BSR (Second Priority)\n8. If no BSR is found in the Linked Customer table, the system should check the Techpack.\n9. If a BSR is available in the Techpack:\n10. It should be automatically populated in the Sales Order.\n11. Based on the BSR configuration:\n12. Editable BSR: The user can modify the value.\n13. Non-Editable BSR: The value should be read-only.\n14. No BSR Available\n15. If no BSR is available in either the Linked Customer table or the Techpack:\n16. The BSR field should remain blank.\n17. The field's editability should follow the BSR configuration setting:\n18. Editable BSR: The user can manually enter the BSR.\n19. Non-Editable BSR: The field should remain blank and read-only.",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Sales -> Buyer Block Booking -> New",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Block Booking Type - Projection",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Block Details Screen",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "BOM Column where user will see approved BOM’s Related to the Article Selected, it is not mandatory to select.",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Now when user clicks on confirm then it gets saved inside the Buyer Block Booking List.",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When User fills color/size qty which is mandatory OW it will show an alert, after that user clicks on Link Buyer Block Booking then a pop-up opens.",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When User fills color/size qty which is mandatory OW it will show an alert, after that user clicks on Link Buyer Block Booking then a pop-up opens.",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Sales Order Re-Write Developments – Sprint-3 › … › … › … › … › Contents",
+      "text": "Scope 3\nPurpose 3\nSolution 3\nTool Permission for Context Menu Actions 3\nSales Order List (New Addition) 5\nGrid Level Context Menu 5\nHeader Level Context Menu 6\nASN/GDN showcase with Order Qty Tab 6\nSales invoice 6\nDispatch 6\nTNA Template Selection 6\nSales Order View/Edit Page with Functionalities 6\nBBB 6\nAdditional QTY 6\nPacking Type 6\nInseam 6\nTP Mapping 6\nEX Factory Functionalities 6\nPayment Method 6\nReason for order revision 6\nRevision Authorized By 6\nUse My Address 6\nCopy Below (Price/qty.) in Add Qty breakup / Additional Qty Breakup. 6\nDelivery OC Currency 7\nUpcharge/ Discount 7\nFlex field 7\nWorking Prototype: 10\nhttps://sprint3-salesorder.vercel.app/ 10\nNote: Every transaction or activity done above will generate a log and will be catered in Activity Timeline. 10",
+      "locator": "§ Sales Order Re-Write Developments – Sprint-3 › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Tool Permission for Context Menu Actions",
+      "heading": "Solution › Tool Permission for Context Menu Actions",
+      "text": "Navigation:\nAdmin → Organisation Structure → User Master → User Groups → Program Permissions → Sales Order New → Tool Permission\nA new permission section named Tool Permission shall be available under Sales Order New Program Permissions.\nAdministrators can assign tool access permissions to User Groups through a multi-select dropdown. Based on the selected permissions, the system shall control the visibility and execution of Context Menu Tools available in the Sales Order New screen.\nValidations:\n• System shall provide a Tool Permission multi-select dropdown under Sales Order New Program Permissions to assign one or multiple Context Menu Tools to a User Group.\n• System shall display only the Grid Level and Header Level Context Menu Tools assigned to the logged-in user's User Group.\n• System shall validate Tool Permissions before executing any Context Menu Tool and restrict unauthorized access.\n• System shall support assigning multiple Tool Permissions to a User Group, allowing access to all selected Context Menu Tools.\n• If no Tool Permission is assigned to a User Group, no Context Menu Tools shall be visible or accessible to its users.\nUI Correction under Tool Permission there will be a multi – select dropdown.",
+      "locator": "§ Solution › Tool Permission for Context Menu Actions",
+      "kind": "section"
+    },
+    {
+      "title": "Grid Level Context Menu",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu",
+      "text": "Below are the Grid Level Context menu Fields:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle DOC",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "text": "Navigation: Sales Order List -> Grid Level Context Menu -> Split Shuffle OC/DOC\nSplit / Shuffle DOC:\nThe Split / Shuffle DOC functionality shall enable the user to distribute the quantities of an existing Delivery either by creating a New Delivery or by transferring the quantities to an Existing Delivery belonging to the same Sales Order.\nUpon clicking the Split/Shuffle action against a Delivery, the system shall open the Split / Shuffle popup. The popup shall contain the following fields:\n• Source Delivery (Display Only)\n• Target Sales Order\n• Target Deliveries\n• From Sales Order\n• From Deliveries\n• Confirm\n• Discard\n• Edit\n• Load\nTarget Sales Order\nThe Target Sales Order field shall contain the following values:\n• New Sales Order\n• Existing Sales Order\nThe behaviour of the screen shall change dynamically based on the selected value.\n• Target Sales Order = New Sales Order (Fully Editable)\nWhen the user selects New Sales Order, the system shall:\n• Disable and freeze the Target Delivery lookup.\n• Automatically create a new Draft Delivery upon clicking Load.\n• Copy all Delivery level information from the Source Delivery to the newly created Delivery.\n• Copy all selected Articles along with their Color/Size combinations, Selling Prices, Delivery details, Instructions, and all other applicable Delivery information.\n• Generate the new Delivery in Draft status.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle DOC",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "text": "• Automatically open the newly created Delivery in editable mode after successful creation.\n• Keep the Buyer Order Reference blank. This field shall not be copied from the Source Delivery and must be entered manually by the user before saving or confirming the Delivery.\n• Target Sales Order = Existing Sales Order\nWhen the user selects Existing Sales Order, the system shall:\n• Enable the Target Sales Order lookup.\n• Display only eligible Deliveries belonging to the same Sales Order for selection.\n• Allow the user to select one Target Delivery.\n• Transfer the split/shuffled quantities to the selected Target Delivery after confirmation.\n• No new Delivery shall be created in this scenario.\n• Recalculate the quantities and values for both the Source Delivery and Target Delivery.\nTarget Delivery Eligibility\nThe Target Delivery lookup shall display only those Deliveries that satisfy all of the following conditions:\n• Belong to the same Sales Order.\n• Belong to the same Buyer.\n• Belong to the same Style/OC.\n• Are in Draft or Editable status.\n• Are not Cancelled.\n• Are not Closed.\n• User has modification permission for the Delivery.\nThe Source Delivery shall not be available for selection as the Target Delivery.\nFrom Target Delivery, user can even create a new Delivery under that sales order.\nSplit Mode\nThe Split Mode shall contain two options:\n• Quantity\n• Percentage",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle DOC",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "text": "Only one mode can be selected at a time.\nSplit by Quantity\nWhen Quantity mode is selected:\n• The user shall enter the quantity to be transferred.\n• The entered quantity shall be distributed proportionately across all selected Article Color/Size combinations.\n• The transferred quantity shall be deducted from the Source Delivery.\n• The Target Delivery shall receive the calculated quantities.\n• All Delivery totals shall be recalculated automatically.\nSplit by Percentage\nWhen Percentage mode is selected:\n• The user shall enter the split percentage.\n• The system shall calculate the quantity for each Article Color/Size combination using:\nSplit Quantity = Existing Quantity × Split Percentage / 100\n• Quantities shall be rounded according to the configured UOM precision.\n• The calculated quantity shall be transferred to the Target Delivery.\n• Remaining quantity shall stay in the Source Delivery.\n• Delivery totals shall be recalculated automatically.\nValidations\nThe system shall validate the following before processing Split/Shuffle:\nGeneral Validations\n• Split Mode is mandatory.\n• Split Value is mandatory.\n• At least one Article must exist.\n• At least one Color/Size combination must exist.\n• Source Delivery must be editable.\n• Delivery Status shall not be Cancelled or Closed.\n• Copy functionality works as per the fields entered in the Previous.\nTarget Sales Order Validations",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle DOC",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC",
+      "text": "For New Sales order\n• Target Delivery lookup shall remain disabled.\n• No Target Delivery selection shall be permitted.\nFor Existing Sales Order\n• Target Delivery selection is mandatory.\n• Source Delivery and Target Delivery cannot be the same.\n• Target Delivery must belong to the same Sales Order.\n• Target Delivery must belong to the same Buyer.\n• Target Delivery must be editable.\n• Target Delivery shall not be Cancelled or Closed.\nQuantity Validations\nWhen Split Mode is Quantity:\n• Quantity must be greater than zero.\n• Quantity cannot exceed available Delivery quantity.\n• Quantity cannot be negative.\nPercentage Validations\nWhen Split Mode is Percentage:\n• Percentage must be greater than 0.\n• Percentage cannot exceed 100.\n• Decimal values shall be accepted as per configured precision.\nSuccess Messages\n• \"Delivery has been successfully split into a new Delivery.\"(From and To)\nError Messages\n• If mandatory Fields Are not filled then throw an error.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle DOC (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Update TNA",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Update TNA",
+      "text": "On Main OC & Style level this functionality will work same, when user Clicks on Update TNA from Grid Level Context menu Tool, then the selected TNA template will be removed and Pop-up opens to select the new TNA template, but this works only when already a template was selected for that article.\nWhen no TNA previous TNA template was selected previously then will show an Alert as shown below.\nThis error message to be shown as per Angular standard.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Update TNA",
+      "kind": "section"
+    },
+    {
+      "title": "Delete Track",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Delete Track",
+      "text": "When user go to Grid Level context menu, when clicks on Delete track for an article under an order for which TNA template is selected then it will directly remove the TNA template.\nWhen No TNA template was selected previously and user clicks on Delete track then it will show an alert message\n\n\nShow the alerts information As per angular standard",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Delete Track",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery OC Notes",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "text": "Within a Delivery OC, the user shall be able to add Notes through the Notes action.\nNotes Popup\nWhen the user clicks Notes, the system shall open the Notes popup.\nThe popup shall contain:\n• Notes (Mandatory Dropdown)\n• Save\n• Cancel\nThe Notes dropdown shall display only Active OC Notes configured from:\nSales → Codes → OC Notes\nThe dropdown shall be searchable.\nSave\nWhen the user selects a Note and clicks Save:\nThe system shall:\n• Associate the selected Note with the current Delivery OC.\n• Record the User Name.\n• Record Date & Time.\n• Add a new entry in the Activity Timeline of the Delivery.\n• Close the popup.\n• Display a success message.\nThe Activity Timeline entry shall include:\n• Note Description\n• User Name\n• Date & Time\n• Activity Type = \"OC Note Added\"\nA Delivery may have multiple Notes added over time.\nEach Save action shall create a separate Activity Timeline entry.\nCancel\nWhen the user clicks Cancel:\n• The popup shall close.\n• No Note shall be associated with the Delivery.\n• No Activity Timeline entry shall be created.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "kind": "section"
+    },
+    {
+      "title": "OC Notes Master Configuration",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "text": "Navigation\nSales → Codes → OC Notes\nThe OC Notes master shall allow users to maintain the list of standard Notes available throughout the Sales module.\nScreen Behaviour\nThe screen shall display the following columns:\n• OC Notes\n• Active\nThe following actions shall be available from the toolbar:\n• Add\n• Save\n• Delete\n• Discard/Cancel\nAdd Note\nWhen the user clicks Add:\n• A new editable row shall be added to the grid.\n• The user shall enter the OC Note.\n• Active shall be checked by default.\n• The Note field shall be mandatory.\nSave Note\nWhen the user clicks Save:\nThe system shall validate:\n• OC Note is entered.\n• Duplicate Notes are not allowed.\nUpon successful validation:\n• The Note shall be saved.\n• The Note shall become available for selection in every Delivery OC Notes popup.\n• Success message shall be displayed.\nDelete Note\nWhen the user clicks Delete:\n• Selected Note(s) shall be deleted.\n• Deleted Notes shall no longer appear in the Delivery Notes dropdown.\n• If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.\nDiscard\nWhen the user clicks Discard:\n• All unsaved changes shall be reverted.\n• No data shall be saved.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "kind": "section"
+    },
+    {
+      "title": "Cancel Sales Order",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "text": "Navigation\nSales → Sales Order List → Grid Level Context Menu → Cancel\nProcess Flow\n• When the user selects Cancel from the Grid Level Context Menu, the system shall display a Cancel Order confirmation pop-up.\nMessage:\nPlease note that this action will cancel all Delivery OC(s) associated with this Main OC. Do you want to continue?\n• If the user clicks Continue, the system shall open the Cancellation Remarks pop-up.\n• The user shall enter the Remarks / Reason (Mandatory) and click OK.\n• Upon clicking OK, the system shall:\n• Cancel the selected Main Order (OC).\n• Cancel all associated Delivery OC(s).\n• Save the cancellation remarks.\n• Update the Order Status to Cancelled.\n• If the user clicks Cancel on either pop-up, the cancellation process shall be aborted, and no changes shall be made.\nValidation\nIf the user attempts to cancel an Order whose status is Saved, Cancelled, or Closed, the system shall not initiate the cancellation process.\nInstead, the system shall display the following information message:\nTitle: Order Cancellation Not Allowed\nMessage:\nYou cannot cancel a Saved, Cancelled, or Closed Order.\nClicking OK shall close the dialog, and the Order Gets closed and status gets updated.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Cancel Sales Order",
+      "kind": "section"
+    },
+    {
+      "title": "Close",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "text": "Navigation\nSales → Sales Order List → Grid Level Context Menu → Close\nProcess Flow\n• When the user selects Close from the Grid Level Context Menu, the system shall display the Close Order pop-up.\n• The pop-up shall display a Remarks / Reason field, which is mandatory for closing the Order.\n• The user shall enter the closing remarks and click Close Order.\n• Upon clicking Close Order, the system shall:\n• Validate that the Remarks / Reason field is populated.\n• Close the selected Order (OC).\n• Update the Order Status to Closed.\n• Save the closing remarks for audit and tracking purposes.\n• Display a success message confirming that the Order has been closed successfully.\n• If the user clicks Cancel or closes the pop-up, the closing process shall be aborted, and no changes shall be made.\nValidation\nIf the user attempts to close an Order whose status is already Closed or Cancelled, the system shall not proceed with the close operation.\nThe system shall display the following information message:\nTitle: Order Closure Not Allowed\nMessage:\nYou cannot close a Cancelled or Closed Order.\nClicking OK shall close the dialog, and no changes shall be made to the Order.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "kind": "section"
+    },
+    {
+      "title": "Performa Invoice",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Performa Invoice",
+      "text": "Navigation:\nSales -> Sales Order List -> Grid Level Context Menu -> Performa Invoice",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Performa Invoice",
+      "kind": "section"
+    },
+    {
+      "title": "Print",
+      "heading": "Solution › Sales Order List (New Addition) › Grid Level Context Menu › Print",
+      "text": "Working Prototype: file:///C:/Users/nishant.s/Downloads/PrintView%202.html\n• Delivery\n• Market\n• Destination",
+      "locator": "§ Solution › Sales Order List (New Addition) › Grid Level Context Menu › Print",
+      "kind": "section"
+    },
+    {
+      "title": "RUN MRP",
+      "heading": "Solution › Sales Order List (New Addition) › Header Level Context Menu › RUN MRP",
+      "text": "User selects the order clicks on Header Level Context menu and clicks on Run MRP then it will open MRP screen showing level wise material details.\nRUN MRP ICON:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Header Level Context Menu › RUN MRP",
+      "kind": "section"
+    },
+    {
+      "title": "Update Notes",
+      "heading": "Solution › Sales Order List (New Addition) › Header Level Context Menu › Update Notes",
+      "text": "When User clicks on Update Notes then a pop-up opens as per Angular Framework from where we can input the excel to upload the Notes.",
+      "locator": "§ Solution › Sales Order List (New Addition) › Header Level Context Menu › Update Notes",
+      "kind": "section"
+    },
+    {
+      "title": "ASN/GDN showcase with Order Qty Tab",
+      "heading": "Solution › Sales Order List (New Addition) › ASN/GDN showcase with Order Qty Tab",
+      "text": "Under Order Qty Column we need a Hyperlink on ASN and GDN. Upon clicking on ASN and GDN a Pop-up opens showcasing ASN and GDN Qty.\nUpon switching Tab you can see ASN and GDN qty Related to that Delivery OC.",
+      "locator": "§ Solution › Sales Order List (New Addition) › ASN/GDN showcase with Order Qty Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Sales invoice",
+      "heading": "Solution › Sales Order List (New Addition) › Sales invoice",
+      "text": "When user Clicks on No.as a hyperlink, as shown in Sales Invoice Column for that particular delivery then it will open a pop-up named Sales Invoice Detail.\nInvoice No.:\nInvoice Date:\nQty:\nValue:",
+      "locator": "§ Solution › Sales Order List (New Addition) › Sales invoice",
+      "kind": "section"
+    },
+    {
+      "title": "Dispatch",
+      "heading": "Solution › Sales Order List (New Addition) › Dispatch",
+      "text": "Under Dispatch Column user clicks on Hyperlink, it will open a new page name Buyer Dispatch Note\n• Destination Is mandatory to be filled.\n• After that user selects dates. Based on the destination filled in the Sales Order.\n• User clicks on Article a pop-up opens and user can select either single or multiple articles. (as there are multiple article inside a single delivery)\n• Now when articles are selected then Dispatch allocation Grid will show information as given in Image.\n• Now when User clicks on Material Re-Allocation then a new screen opens up\nNow when user selects a particular order status then when In-House material is present then it will show inside Reserve Stock. As shown below\nAnd then Free stock is also shown there",
+      "locator": "§ Solution › Sales Order List (New Addition) › Dispatch",
+      "kind": "section"
+    },
+    {
+      "title": "TNA Template Selection",
+      "heading": "Solution › Sales Order List (New Addition) › TNA Template Selection",
+      "text": "TNA Template selection is provided by filtering in two ways:",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection",
+      "kind": "section"
+    },
+    {
+      "title": "Main OC wise",
+      "heading": "Solution › Sales Order List (New Addition) › TNA Template Selection › Main OC wise",
+      "text": "In this filtering TNA template Column will show the number of articles present in that Order, on side of which a “i” icon is shown which show a hover screen, showing details of article and weather TNA template is selected or not.\n\n\nUser clicks on the Number then a pop-up opens showing Article name/code and lead time and Select Template.\nWhen user selects a template from the dropdown then clicks on confirm to attach that TNA template with that article.\nBefore Confirming the above pop-up looks like this.\nAfter confirming the TNA template, a alert is shown(show it in standard angular format).\nOnce TNA template is confirmed it cannot be edited directly, user need to use the Update TNA or Delete Track Tools from context menu.\nCopy below option will copy the TNA template to lower line.\nNow when User clicks on Clipboard with tick sign it will open the TNA tracker that is made under TNA Master.",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Main OC wise",
+      "kind": "section"
+    },
+    {
+      "title": "Style Wise",
+      "heading": "Solution › Sales Order List (New Addition) › TNA Template Selection › Style Wise",
+      "text": "When Filter is set to style wise, the only change is now user will select the TNA template based on Article, All the Other Functionality defined above for TNA template selection for Main OC wise remains same.\nTNA is selected then it will be shown as:\nWhen no TNA Template is selected then it will be shown as:\n*Note: When the same article is present in multiple deliveries, the system shall consider the earliest delivery date and apply the TNA template accordingly.",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Style Wise",
+      "kind": "section"
+    },
+    {
+      "title": "Auto TNA",
+      "heading": "Solution › Sales Order List (New Addition) › TNA Template Selection › Auto TNA",
+      "text": "When user maps the Auto TNA mapping then based on the mapping the TNA templates will be attached to the list but user need to confirm to attach that TNA, if user want to change the TNA, can do it by changing it from dropdown.\nAuto TNA will be implemented on list itself.\nAuto TNA Attached. Now user will confirm.",
+      "locator": "§ Solution › Sales Order List (New Addition) › TNA Template Selection › Auto TNA",
+      "kind": "section"
+    },
+    {
+      "title": "Additional QTY",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Additional QTY",
+      "text": "To add additional Qty user need to switch to tab and then user can add Qty and selling price based on Color/Size level.\nAnd need a reason from dropdown to be selected\n\nTable Level Break-up\nGrid level Break – up\nWe also need to handle following setting: -\nCase: -\nThe table shows two different configuration options and how they influence the final required quantity (Req) used for MRL generation.\nA. Exclude Extra Production % in MRL Generation\n· OC Qty: 1200\n· Calculated Req qty: 1320\n· Note: Production % should NOT be considered, so the planned (PD) quantity must remain 1300.\nB. Exclude Additional Production Quantities in MRL Generation\n· OC Qty: 1100\n· Calculated Req qty: 1210\n· Note: Additional quantity should NOT be considered, but again, the PD quantity should be 1300.\nSummary\nThe key point being demonstrated:\n· Regardless of whether Extra Production % or Additional Quantity is excluded in MRL generation, the PD (planned) quantity should still be calculated as 1300, matching the Total OC Qty derived from the Sales Order.\nThe table shows how different exclusion settings alter the intermediate required quantities, but the final PD quantity should remain consistent",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Additional QTY",
+      "kind": "section"
+    },
+    {
+      "title": "Solid Color / Solid Size",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Solid Color / Solid Size",
+      "text": "When the user selects Solid Color / Solid Size as the Packing Type, the system shall open the existing Color/Size popup without any layout changes.\nThe user shall be allowed to enter quantities only for a single Color and a single Size combination as per the existing functionality.\nAll existing validations, including Additional Quantity validations, shall remain unchanged.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Solid Color / Solid Size",
+      "kind": "section"
+    },
+    {
+      "title": "Solid Color / Assorted Size",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Solid Color / Assorted Size",
+      "text": "When the user selects Solid Color / Assorted Size, the system shall open the existing Color/Size popup and display a new editable column named PP immediately after the Color/Size column.\nThe user shall be allowed to define a PP Ratio for a single Color across multiple Sizes.\nIf the user attempts to enter PP ratios for more than one Color, the system shall display the following validation message:\nOnly one color can be entered for this packing type.\nThe PCS value shall be calculated using:\nPCS = PP × Size + PP x Size…..\nWhen shift to Grid View the Prepack Code Moves upward & user put ratio.\nNow to add additional prepack then user will click on Add Qty Tool that gets enabled once user switch to Solid color/assorted size or multi prepack then a new grid gets added for that article and on Add Qty a count is also shown about how many Add qty are added for that article & if user want to remove the additional prepack type then user can remove it by clicking on Delete button.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Solid Color / Assorted Size",
+      "kind": "section"
+    },
+    {
+      "title": "Multiple Prepack",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Multiple Prepack",
+      "text": "When the user selects Multiple Prepack, the system shall open the existing Color/Size popup with the additional PP column.\nThe user shall be allowed to define PP ratios across multiple Colors and multiple Sizes simultaneously.\nThe PCS value shall be automatically calculated using:\nPCS = PP × TBA\nNo Color restriction shall be applied for this Packing Type.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Multiple Prepack",
+      "kind": "section"
+    },
+    {
+      "title": "No. of Cartons",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Packing Type › No. of Cartons",
+      "text": "Numeric field that captures the total number of cartons to be used for transporting the style during shipment",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › No. of Cartons",
+      "kind": "section"
+    },
+    {
+      "title": "Prepack Code",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Prepack Code",
+      "text": "When shift to Grid View the Prepack Code Moves upward & user put ratio.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Packing Type › Prepack Code",
+      "kind": "section"
+    },
+    {
+      "title": "Inseam",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "text": "Inseam is a size categorization used to differentiate garments based on the inside leg length. It allows the same waist or garment size to be offered in multiple length variants to meet the sizing standards of different regions, countries, or customer groups.\nExamples of Inseam categories include:\n• Petite\n• Missy\n• Regular\n• Tall\n• Long\n• Short\nConfiguration\n• All Inseam values are maintained in the Size Master.\n• Each Size Master record can be associated with an Inseam category.\n• The Inseam values configured in the Size Master become available throughout the system wherever Inseam-based size classification is required.\nUsage\nThe configured Inseam values are displayed in the Inseam dropdown available within the Color/Size Selection pop-up.\nWhen creating or editing Color/Size combinations:\n• The user selects the appropriate Inseam value for each size.\n• This selection classifies the size under the corresponding Inseam group.\n• Multiple sizes can belong to the same Inseam category.\n• The selected Inseam value is stored against the respective Color/Size combination.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Inseam",
+      "kind": "section"
+    },
+    {
+      "title": "Tools at Article Level",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "text": "• Collapse and Expand all feature & even single expand collapse article feature present.\n• View Change tool – Grid/Tabluar\n• User Can add Multiple articles irrespective of kit/pack or non – kit articles. But for Kit type article only Grid view will be enabled.\n• Showcase Article Name and Article ID and Buyer Style Reference on the header.\n• For buyer Style reference it should be auto picked from techpack.\n• If not present at techpack then user should be able to enter it manually.\n• In case of textile-fabric the primary source of fetching Buyer style reference will be from Linked Customer column (this will be based on Buyer selection as Sales order)\n• In case of textile fabric if no linked customers are present then it will auto pick from the techpack. & if not present anywhere on tehcpack then same configuration will work i.e. to be present for editable mode.\n• Provide Link BBB tool.\n• Color/size selection tool\n• Delete Button to delete that article\n• Add Qty tool will be configured through View Configurator.\n• Add Article Tool (To handle Per pack Cases)\n• The Add Qty Breakup tool shall be enabled only when the Packing Type is selected as:\n• Solid Color / Assorted Size, or\n• Multiple Prepack.\n• For all other Packing Types, the Add Qty Breakup tool shall remain disabled.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "kind": "section"
+    },
+    {
+      "title": "Tools at Article Level",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level",
+      "text": "• When the user clicks the Add Qty Breakup tool, a new Qty Breakup Grid shall be displayed immediately below the corresponding article.\n• The Qty Breakup Grid shall be associated only with the selected article and shall not affect any other article on the screen.\n• Each click on the Add Qty Breakup tool shall create a new, independent Qty Breakup Grid for the same article.\n• The system shall allow the user to add multiple Qty Breakup Grids for a single article, with no predefined limit.\n• If multiple articles are displayed, the Add Qty Breakup functionality shall work independently for each article.\n• Each Qty Breakup Grid shall be visually grouped under its respective parent article to clearly distinguish it from the Qty Breakup Grids of other articles.\n• All Qty Breakup Grids created for an article shall support the same functionality, validations, and operations as the standard Qty Breakup Grid.\n• The parent article information shall remain visible to maintain a clear parent-child relationship between the article and its associated Qty Breakup Grids.\n• To remove the Add Qty breakup you can use the Delete button.\n• Master Expand/Collapse & Per – Article Expand/Collapse\n• Delete Button\nThis Functionality deletes the Article from that delivery.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Tools at Article Level (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Scope",
+      "text": "The scope of this document is to define the functional requirement and system behaviour for Transfer Price Mapping and Transfer Price Order processing in WFX ERP, covering both Forward TP and Backward TP flows between the Order Company and Execution Company. It includes Company Info Mapping, TP Mapping setup, buyer/end customer/supplier/division mapping, price applicability, document auto-creation, and the complete transaction sequence across both companies, including OC, Techpack, Costing, GMPO, BOM, MRL, production, ASN, invoices, clearing and posting. This document is limited to functional mapping and process flow definition and does not cover detailed technical design, test scenarios, API details, accounting configuration, or open points.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Purpose",
+      "text": "The purpose of this document is to formalize the required system behaviour for Transfer Price Order. The document explains the required mapping, assumptions, and functional solution for Forward TP and Backward TP without including detailed test scenarios or open-point sections.\nThe key objective is to ensure that company-wise documents are created in the correct sequence and that auto-created documents remain linked between the Order Company and Execution Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Overview",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Overview",
+      "text": "This document defines the requirement for the Transfer Price Order process in WFX ERP. The process is used when an order involves two related companies: one company owns the buyer order and another company executes production, procurement, shipment and internal billing.\nThe requirement covers both Forward TP and Backward TP flows. In Forward TP, the order starts in the Order Company and the required execution documents are auto-created in the Execution Company. In Backward TP, the order starts in the Execution Company and the linked order is auto-created in the Parent / Order Company.\nAs per the Forward TP production cycle, the Order Company starts with Techpack, OC, Costing and GMPO. After that, Techpack, OC and Costing are created in the Execution Company, followed by BOM, MRL, procurement, production, Sales ASN and auto document generation back in the Order Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Company Info Mapping",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "text": "Before using Transfer Price Mapping, the user must first map the End Customer in Company Info.\nIn Order Company → Company Info, the user must map Buyer (End Customer) with the the Order Company.\nIn Order Company → Company Info, only the Buyer mapping is required as per this TP setup.\nIn Execution Company → Company Info, the user must map Supplier with the as the Execution Company supplier.\nThis Company Info setup is mandatory before creating or using TP Mapping.\nTP Mapping shall use the Company Info setup to identify the correct internal buyer/supplier relationship between Order Company and Execution Company.\nPath: Admin Company Info",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Company Info Mapping",
+      "kind": "section"
+    },
+    {
+      "title": "Transfer Price Mapping",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Path: FA Master Definations AR Masters Transfer Price Default Transfer price Mapping\nBackward Transfer Price\nIn Backward TP, the mapping is created in Default Transfer Price Mapping by selecting the Backward TP radio button. This mapping will decide how the system will auto-create OC / GMPO in Order Company when the user creates the source OC in Execution Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "kind": "section"
+    },
+    {
+      "title": "Transfer Price Mapping – Table 1",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Columns: Field (text); Description (text)\nField | Description\nBuyer | External buyer for whom the order is created.\nOrder Company | Order-owning company where buyer-side order is managed.\nOrder Company Division | Division of the Order Company\nExecution Company | Manufacturing company where production is executed.\nExecution Company Division | Division of the Execution Company\nEffective Date | Date from which this TP Mapping becomes valid.\nEnd Customer | Must be mapped in Order Company Info first and then used in TP Mapping.\nPrice Applicable On | Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Buyer; Description: External buyer for whom the order is created.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Order Company; Description: Order-owning company where buyer-side order is managed.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Order Company Division; Description: Division of the Order Company",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Execution Company; Description: Manufacturing company where production is executed.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Execution Company Division; Description: Division of the Execution Company",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Effective Date; Description: Date from which this TP Mapping becomes valid.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: End Customer; Description: Must be mapped in Order Company Info first and then used in TP Mapping.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Price Applicable On; Description: Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Transfer Price Mapping",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "There are four ways to apply price applicable on\n• Default Margin % on FOB,\n• Default Margin % on Material Cost in Internal Costsheet,\n• Default Margin Rate,\n• Default Selling Price.\nForward Transfer Price\nIn Forward TP, the mapping is created in Default Transfer Price Mapping by selecting the Forward TP radio button. This mapping decides how the system will auto-create Techpack / Costsheet / OC in Execution Company when the source transaction is created from Order Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "kind": "section"
+    },
+    {
+      "title": "Transfer Price Mapping – Table 2",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Columns: Field (text); Description (text)\nField | Description\nBased On | Source transaction on which mapping will work, for example GMPO\nAuto Transaction | Documents to be auto-created, such as Techpack, OC.\nEffective Date | Date from which this TP Mapping becomes valid.\nExecution Company | Manufacturing company where production is executed.\nExecution Company Division | Division of the Execution Company\nEnd Customer | End Customer used for the TP transaction as per company setup.\nOrder Company | Order-owning company where buyer-side order / GMPO is managed\nOrder Company Division | Division of the Order Company.\nSupplier | Supplier mapped for inter-company transaction, usually the supplier linked with Execution Company.\nFulfillment Type | Defines how the order will be fulfilled, for example Manufacture or Back Order.\nDispatch Site | Dispatch location/site from where finished goods will be dispatched, if applicable.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Based On; Description: Source transaction on which mapping will work, for example GMPO",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Auto Transaction; Description: Documents to be auto-created, such as Techpack, OC.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Effective Date; Description: Date from which this TP Mapping becomes valid.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Execution Company; Description: Manufacturing company where production is executed.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Execution Company Division; Description: Division of the Execution Company",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: End Customer; Description: End Customer used for the TP transaction as per company setup.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Order Company; Description: Order-owning company where buyer-side order / GMPO is managed",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Order Company Division; Description: Division of the Order Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Supplier; Description: Supplier mapped for inter-company transaction, usually the supplier linked with Execution Company.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Fulfillment Type; Description: Defines how the order will be fulfilled, for example Manufacture or Back Order.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Field: Dispatch Site; Description: Dispatch location/site from where finished goods will be dispatched, if applicable.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price Mapping, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Backward Transfer Price",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "text": "In Backward TP, the order starts in the Execution Company.\nThe process is:\n• User creates OC in Execution Company.\n• User selects Buyer.\n• User selects Buyer Department.\n• User selects End Customer.\n• Execution Company Selling Price is auto-populated from Execution Company Default Selling Price.\n• System auto-creates GMPO / OC in Order Company with .Auto suffix.\n• Execution Company completes RM procurement.\n• Execution Company completes production.\n• User creates Sales ASN in Execution Company.\n• User enters proper Execution Company and ETD / ETA Date in Sales ASN Shipping Info.\n• System auto-creates GMPO GRN in Order Company.\n• System auto-creates Supplier Invoice in Order Company.\n• System auto-creates OC Sales ASN in Order Company.\n• User manually creates Consignment Sales Invoice in Order Company.\n• User manually performs clearing and posting in Order Company.\n• System auto-creates Sales Invoice in Execution Company.\n• Settings: Auto Misc Sales Invoice for Transfer Price, Enable Auto Invoice for GMPO.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "kind": "section"
+    },
+    {
+      "title": "Forward Transfer Price",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "text": "In Forward TP, the order starts in the Order Company.\nThe process is:\n• User creates Techpack in Order Company.\n• User creates OC in Order Company.\n• User creates and approves costing in Order Company.\n• User creates GMPO in Order Company.\n• System auto-creates Techpack in Execution Company.\n• System auto-creates OC in Execution Company.\n• System auto-creates costing in open mode in Execution Company.\n• User adds local purchase articles in Execution Company costing.\n• User approves costing in Execution Company.\n• User creates BOM manually in Execution Company.\n• System generates MRL after BOM and OC creation.\n• System generates production after MRL.\n• User creates FPO manually.\n• System creates FPPO based on Auto PD selected in BOM.\n• User performs output against FPPO.\n• System / user performs SF / FG QC.\n• User creates Sales ASN manually in Execution Company.\n• FG is dispatched from Execution Company.\n• System auto-creates Sourcing ASN in Order Company.\n• System auto-creates Inter Purchase Invoice in Order Company.\n• System auto-creates Sales ASN in Order Company.\nNOTE: When we Select Buyer of TP order then it shows “It is a TP order as a current functionality” when hover on “i” icon.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "kind": "section"
+    },
+    {
+      "title": "EX Factory Functionalities",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › EX Factory Functionalities",
+      "text": "Setup Navigation:\nSales – Codes – Ex Factory Calculation\nLike I have put 10 Days in the Ex-factory Calculation master Against Shipment mode, Order Company, Buyer and Buyer dept now as soon as I put on Buyer Delivery Date it will automatically populate the OC delivery Date with 10 Days before Date.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › EX Factory Functionalities",
+      "kind": "section"
+    },
+    {
+      "title": "Payment Method",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Payment Method",
+      "text": "Data In Dropdown Field is going to be populated Master as is currently working.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Payment Method",
+      "kind": "section"
+    },
+    {
+      "title": "Reason for order revision",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Reason for order revision",
+      "text": "It is going to be a mandatory text field, where user going to write the reason for revision.\nWhen user clicks on revise tool from Grid Level context menu then from there this field should be enabled as well.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Reason for order revision",
+      "kind": "section"
+    },
+    {
+      "title": "Revision Authorized By",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Revision Authorized By",
+      "text": "It is going to be a mandatory text field, where user going to fill who authorised to revise the order.\nWhen user clicks on revise tool from Grid Level context menu then from there this field should be enabled as well.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Revision Authorized By",
+      "kind": "section"
+    },
+    {
+      "title": "Use My Address",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Use My Address",
+      "text": "Dropdown Field pickup Addresses from the same master as done in Purchase Order From Buyer.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Use My Address",
+      "kind": "section"
+    },
+    {
+      "title": "Copy Below (Price/qty.) in Add Qty breakup / Additional Qty Breakup.",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Copy Below (Price/qty.) in Add Qty breakup / Additional Qty Breakup.",
+      "text": "This Functionalities helps to copy the Qty in both Add Qty and in Additional Qty in two ways.\n1. By Right Click: A menu will menu list opens from there we can access Copy Below option.\n2. Provide a context menu under Selling price column from where a menu list option showing copy below option.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Copy Below (Price/qty.) in Add Qty breakup / Additional Qty Breakup.",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery OC Currency",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Delivery OC Currency",
+      "text": "Delivery OC currency should be editable inside Delivery.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Delivery OC Currency",
+      "kind": "section"
+    },
+    {
+      "title": "Upcharge/ Discount",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "text": "The Upcharge/Discount functionality shall be driven by the Price Per configuration defined in the associated Tech Pack. Based on the inherited Price Per value, the Selling Price shall be maintained at one of the following levels:\n1. Article:\n• Selling Price shall be maintained at the Article level.\n• The Selling Price field shall be displayed under the New Delivery section of the Sales Order.\n2. Color:\n• Selling Price shall be maintained at the Color level.\n• The Selling Price field shall be displayed against each Color, alongside the corresponding Size matrix.\n3. Size:\n• Selling Price shall be maintained at the Size level.\n• Sizes shall be displayed as columns, with the Selling Price maintained for each Size irrespective of Color.\n4. Color/Size:\n• Upcharge and selling price will be calculated inside the pop-up, which opens when clicked on selling price at table level.\n• Selling Price shall be maintained at the Color × Size combination level.\n• Colors shall be displayed as rows and Sizes as columns, allowing a separate Selling Price for each Color and Size combination.\nColor Coding\nThe selling price shown here is the Max Selling price for that color/size level.\nNote: Price Per shown here is just for Mock Purposes in development it should not be shown here as it will be directly driven from Techpack.\nBusiness Rules",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "kind": "section"
+    },
+    {
+      "title": "Upcharge/ Discount",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount",
+      "text": "• The Price Per configuration shall be inherited from the linked Tech Pack.\n• Base Selling Price shall be fetched from the Tech Pack.\n• When user fills Upcharge then discount column or row will be freezed based on the price per coming from tech pack.\n• Users shall enter positive (+) values to apply an Upcharge. Base Price + (discount) = Selling Price\n• Users shall enter negative (-) values to apply a Discount. E.g. Base Price – (discount) = Selling Price\n• Final Selling Price shall be automatically calculated using the following formula:\nFinal Selling Price = Base Selling Price ± Upcharge/Discount\n• The Final Selling Price shall be displayed as Read Only and shall be recalculated automatically whenever the Upcharge/Discount value is modified.",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Upcharge/ Discount (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Kit Pack",
+      "heading": "Solution › Sales Order View/Edit Page with Functionalities › Kit Pack",
+      "text": "When article of kit type is added then view for that kit article be fixed as grid view(locked and cannot change to table view) & for non – kit articles user can switch to any view weather it is a grid view or table view.\n\nAnd only Kit name with Kit Id be shown\nThere is going to be an indication as well to show it is a kit type article and when user hovers on i tool it shows a message",
+      "locator": "§ Solution › Sales Order View/Edit Page with Functionalities › Kit Pack",
+      "kind": "section"
+    },
+    {
+      "title": "Flex field",
+      "heading": "Solution › Flex field",
+      "text": "Admin - > Configurator -> SLC -> Sales Order -> Setup (New, List)\nThis Flex fields name to be changed to Additional Fields.\nAdd Field: This tool will open a pop-up with heading name Add field, where user can select the fields based on the configuration, user want. After filling the configuration then that field get updated on left side under Additional Fields section(right now it is not visible on sales order view page), once user drags it to right side under selected fields section , then it will be visible now user can take actions on it such as Mandatory or Editable.\nField Type:\n1. Alphanumeric\n• Dropdown – Provided a option out side as you can see in above image a toggle button is provided to make it multi select dropdown or single select.\n• Date\n• Numeric Box\n• Text Box\nValidation Type:\n• None\n• Alphanumeric\n• Numeric\nCorrections:\n1. Mandatory and Edit fields are not required on SLC list Screen.\n2. Sales Order New page View Configurator should not have Right pin or left pin tool.",
+      "locator": "§ Solution › Flex field",
+      "kind": "section"
+    },
+    {
+      "title": "Sales Order Revision Approval/ Multi Level Approval",
+      "heading": "Solution › Settings/Permission › Sales Order Revision Approval/ Multi Level Approval",
+      "text": "Need a New Permission in Program permission with name “Sales Order Revision”",
+      "locator": "§ Solution › Settings/Permission › Sales Order Revision Approval/ Multi Level Approval",
+      "kind": "section"
+    },
+    {
+      "title": "For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.)",
+      "heading": "Solution › Settings/Permission › Buyer style ref › For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.)",
+      "text": "The BSR value on the Sales Order should be determined as follows:\n• If BSR is maintained in the Techpack:\n• The BSR should be automatically populated in the Sales Order.\n• Based on the BSR configuration setting:\n• Editable BSR: The populated BSR can be modified by the user.\n• Non-Editable BSR: The populated BSR should be displayed as read-only.\n• If BSR is not maintained in the Techpack:\n• The BSR field should remain blank in the Sales Order.\n• The field's editability should still follow the BSR configuration setting:\n• Editable BSR: The user can manually enter the BSR.\n• Non-Editable BSR: The field should remain blank and read-only.",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Non-Textile Items (Apparel, Yarn, Trims, Accessories, etc.)",
+      "kind": "section"
+    },
+    {
+      "title": "For Textile/Fabric Items",
+      "heading": "Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "text": "The BSR should be determined based on the following priority:\n• Linked Customer Table (Highest Priority)\n• If a BSR is configured in the Linked Customer table for the selected buyer, that BSR should be picked first.\n• Example:\n• GAPS → BSR 1\n• Adidas → BSR 2\n• The BSR corresponding to the selected buyer should be automatically populated in the Sales Order.\n• Techpack BSR (Second Priority)\n• If no BSR is found in the Linked Customer table, the system should check the Techpack.\n• If a BSR is available in the Techpack:\n• It should be automatically populated in the Sales Order.\n• Based on the BSR configuration:\n• Editable BSR: The user can modify the value.\n• Non-Editable BSR: The value should be read-only.\n• No BSR Available\n• If no BSR is available in either the Linked Customer table or the Techpack:\n• The BSR field should remain blank.\n• The field's editability should follow the BSR configuration setting:\n• Editable BSR: The user can manually enter the BSR.\n• Non-Editable BSR: The field should remain blank and read-only.",
+      "locator": "§ Solution › Settings/Permission › Buyer style ref › For Textile/Fabric Items",
+      "kind": "section"
+    },
+    {
+      "title": "BBB",
+      "heading": "Solution › Settings/Permission › BBB",
+      "text": "Navigation:\nSales -> Buyer Block Booking -> New\nBuyer Block Booking Type - Projection\nReservation\nBuyer Block Details Screen\nBOM Column where user will see approved BOM’s Related to the Article Selected, it is not mandatory to select. Now when user selects the BOM then on opening the material pop-up through hyperlink then inside material details screen pop-up the article gets auto populated related to the BOM selected outside and no tool of add to Catalog will be present.\nNow when user does not select any BOM Now inside Material Details screen Add from Catalog tool be present as working currently in the system.\nNow when Add and Close\nUOM Column add – on.\n\nGenerate Indent Requirement\nWhen user clicks on this tool from the Header then it will generate Adhoc indent automatically.\nNow when user clicks on confirm then it gets saved inside the Buyer Block Booking List.\nWhen User fills color/size qty which is mandatory OW it will show an alert, after that user clicks on Link Buyer Block Booking then a pop-up opens.",
+      "locator": "§ Solution › Settings/Permission › BBB",
+      "kind": "section"
+    }
+  ]
+}

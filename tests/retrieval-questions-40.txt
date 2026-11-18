@@ -1,0 +1,40 @@
+how roll functionality works in wfx and why we are using it ?
+what is the difference between indent and RMPO
+why do we need MRP if we already have BOM
+how does block booking work and when should I use it
+what happens if I change the BOM after MRP is run
+can I create a PO without indent
+how is shrinkage applied in consumption
+what is the use of supplier portal
+how to close an OC
+how to handle excess quantity received from supplier
+what is GRN
+how do I issue fabric to cutting
+explain the complete flow from sales order to production
+what is the difference between sample order and bulk order
+why is my indent quantity zero
+what is lead time in garment sourcing
+how does WFX calculate fabric requirement for a style
+what is a techpack
+what is the difference between style and article
+how to cancel a purchase order
+how do I approve a sales order
+what is size wise consumption
+how does colour dependency affect indent
+what is an ASN and why do suppliers send it
+how to do stock write off
+what is the purpose of QC inspection percentage
+how does TNA get attached to an order automatically
+what is a debit note
+how to transfer stock between sites
+what is shade and lot in fabric
+how is price calculated in sales order
+what is FOB price
+can one RMPO have multiple suppliers
+how to split a PO delivery
+what reports are available for inventory
+what is the difference between GDI and GDN
+how to reserve stock for an order
+what is a recipe in dyeing
+how do I know which material is short for production
+what does MRP adjustment mean

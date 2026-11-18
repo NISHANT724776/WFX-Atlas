@@ -1,0 +1,1205 @@
+{
+  "tables": [],
+  "subject": "Sprint-02",
+  "keyTerms": [
+    "sales order",
+    "order",
+    "delivery",
+    "sales",
+    "user",
+    "approval",
+    "buyer",
+    "action",
+    "status",
+    "price",
+    "edi",
+    "level",
+    "data",
+    "package",
+    "deliveries"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 123
+    },
+    {
+      "module": "Style & BOM",
+      "score": 18
+    },
+    {
+      "module": "TNA",
+      "score": 9
+    },
+    {
+      "module": "Planning",
+      "score": 6
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "MRP – Material Requirement Planning"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "3.1 Auto price pickup from Cost Sheet\n3.2 Destination-wise price validation\n3.3 Update OC with latest Cost Sheet price\n3.4 Desync Price OC List management",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "4.1 Editable date updates without OC revision\n4.2 Validation and system-wide reflection of updated data",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "5.1 Package Configuration setup\n5.2 Package Mapping logic\n5.3 EDI Buyer PO import process\n5.4 Error Resolution workflow\n5.5 Transaction creation and status management\n5.6 Delivery-level and Color/Size-level validation\n5.7 Confirmation and Export functionality",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this specification is to define the functional enhancements and rewrites introduced in Sprint-2 of the Sales Order Re-Write module.",
+      "locator": "§ Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The objective is to strengthen the Sales Order workflow by:",
+      "locator": "§ Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Purpose:\n1. Introducing structured approval mechanisms (Single, Multi-Level, and Multiple Approval)\n2. Enhancing delivery management actions (Add, Copy, Split, Delete, Cancel, Close, Reopen)\n3. Enabling editable delivery updates without revision\n4. Integrating EDI Buyer PO processing for automated Buyer Order creation\n5. Enhancing audit visibility through History/Log tracking\n6. Supporting customized print configurations via Layout Mapping Engine",
+      "locator": "§ Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Limit > 0 → Document will go for approval only if value exceeds the specified limit",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. On hovering over the info (i) icon, the system should display the following conditions:\n2. 0 → Document will not go for approval\n3. -1 → Document will always go for approval\n4. Limit > 0 → Document will go for approval only if value exceeds the specified limit\n5. This tooltip ensures user clarity and correct configuration of approval logic.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. In the Sales Order New screen, the following three fields should be available as shown in the configuration screen:\n2. Approval Value (INR)\n3. Approver(s)\n4. [All] / Selection Field (User Selection Control)\n5. These fields will be used to define the approval workflow and threshold logic.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the value is set to 1000 INR, the approval workflow will be triggered when the Sales Order total value is greater than 1000 INR.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the Sales Order value is less than or equal to 1000 INR, the approval process will not be triggered.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. If the value is set to 1000 INR, the approval workflow will be triggered when the Sales Order total value is greater than 1000 INR.\n2. If the Sales Order value is less than or equal to 1000 INR, the approval process will not be triggered.\n3. In case of 0, no approval will work.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Sales order is then sent for approval to the assigned user, which can be verified in the Sales Order section.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. In case of New Sales Order (Purchase Order from Buyer):\n2. The document will be displayed as “Sales Order” in the Document Approval Centre.\n3. On clicking the OC Number (Document Reference):\n4. If the record belongs to New Sales Order, the system will open the New Sales Order screen.\n5. If the record belongs to an existing/old flow, the system will open the existing Purchase Order screen.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. Pending Approval\n2. Approved / Confirmed\n3. Rejected",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. Name of the Approver\n2. Approval / Rejection Status\n3. Approver Comments\n4. Date and Time of Action",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Click on the Home icon\n2. Go to Approval Centre\n3. Open Sales Order – Pending Approval",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Go to Home\n2. Open Approval Centre\n3. Select Sales Order – Pending Approval",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Pending Approval\n2. Approved / Confirmed\n3. Rejected",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Name of the Approver\n2. Approval / Rejection Status\n3. Approver Comments\n4. Date and Time of Action",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This ensures that if one approver is unavailable, the other approver can approve the Sales Order without delay.",
+      "locator": "§ Solution › Approval Mechanism › Multiple Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When multiple approvers are configured, a default approver can also be set.",
+      "locator": "§ Solution › Approval Mechanism › Multiple Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multiple Approval:\n1. Pending Approval\n2. Approved / Confirmed\n3. Rejected",
+      "locator": "§ Solution › Approval Mechanism › Multiple Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multiple Approval:\n1. Name of the Approver\n2. Approval / Rejection Status\n3. Approver Comments\n4. Date and Time of Action",
+      "locator": "§ Solution › Approval Mechanism › Multiple Approval",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Add Delivery option is a main function placed just above the delivery header in the Deliveries section.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add Delivery:\n1. A new blank entry appears under the Deliveries section.\n2. It shows:\n3. Delivery – # _____ (blank)\n4. Style – ______ (blank)\n5. Both fields remain empty until the user fills and confirms the delivery.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Some fields are mandatory and marked with “*” its need to shown as per Standard Angular UI.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Some fields are mandatory and marked with “*” its need to shown as per Standard Angular UI.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The user must fill the required fields before confirming.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add Delivery:\n1. All fields are blank.\n2. All fields are editable.\n3. Some fields are mandatory and marked with “*” its need to shown as per Standard Angular UI.\n4. The user must fill the required fields before confirming.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "All fields are blank and editable for the new entry.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Existing deliveries are not affected.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add Delivery:\n1. Previously created deliveries and styles remain visible in their original positions.\n2. Existing deliveries are not affected.\n3. Only the new delivery appears as a blank editable entry.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Sales Order Number is displayed at the top.",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add Delivery:\n1. Buyer Name\n2. Order Value\n3. Deliveries Section",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add Delivery:\n1. All created deliveries are listed\n2. Each delivery shows:\n3. Delivery number\n4. Style code",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The blank delivery line is updated with:",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add Delivery:\n1. Delivery number\n2. Style\n3. Delivery date\n4. Line items\n5. Status",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Copy Delivery is a secondary option that is used to copy an already created delivery under the same sales order.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Action column is placed next to the Status column.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Action bar at the header is right-pinned, meaning it stays fixed on the right side.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Copy icon is also available on the side of particular deliveries shown.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Copy Delivery:\n1. In the Main Delivery Table\n2. The Action column is placed next to the Status column.\n3. The Action bar at the header is right-pinned, meaning it stays fixed on the right side.\n4. Under this Action column, the Copy icon is available vertically for each delivery row.\n5. This allows copying a specific delivery directly from the table.\n6. In the Left Sidebar\n7. The Copy icon is also available on the side of particular deliveries shown.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Style code is already present (copied from the selected delivery).",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Fields like delivery date, line, and style (prefilled) must be filled again by the user.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "All copied fields are editable so that the new delivery can be modified if needed.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Copy Delivery:\n1. Delivery number is blank.\n2. Style code is already present (copied from the selected delivery).\n3. Fields like delivery date, line, and style (prefilled) must be filled again by the user.\n4. All copied fields are editable so that the new delivery can be modified if needed.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "A new line is added on the main page showing:",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Copy Delivery:\n1. The blank row gets updated with the entered details.\n2. A new line is added on the main page showing:\n3. Delivery\n4. Style\n5. Date\n6. Line items\n7. Status",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Splitting is possible from sidebar in Edit Sales order page.",
+      "locator": "§ Solution › Actions Status › Split action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "User enters remarks and clicks Save and these remarks are shown in the history as well when user open the sales order delivery.",
+      "locator": "§ Solution › Actions Status › Cancel Action › Initial Step –",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Cancel Action › Initial Step –",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Initial Step –:\n1. First, the user views deliveries in non-editable mode.\n2. User can select single or multiple deliveries using checkboxes.\n3. User clicks on the context menu at the header level.\n4. Selects Cancel option.\n5. A popup appears to enter Remarks.\n6. User enters remarks and clicks Save and these remarks are shown in the history as well when user open the sales order delivery.\n7. After saving, the status changes from Confirmed to Cancelled in Red color.\n8. All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Cancel Action › Initial Step –",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "A Deliveries panel is displayed on the left side.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. User opens an already created Sales Order.\n2. A Deliveries panel is displayed on the left side.\n3. The panel shows a list of all deliveries with checkboxes.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. User can select:\n2. A single delivery, or\n3. Multiple deliveries using checkboxes.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. Click on the context menu in the Deliveries section.\n2. The following options are displayed:\n3. Reopen\n4. Close\n5. Cancel",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Remarks are required to proceed.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Remarks are required to proceed.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. Options available:\n2. OK → Proceed with cancellation\n3. Cancel → Abort the process",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. On clicking OK:\n2. The system cancels the selected delivery(s).\n3. A success message is displayed:",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The delivery status is updated to Cancelled.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The updated status is displayed at the top of the page.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. The entered remarks are:\n2. Saved in the system\n3. Displayed in the Remarks section for reference when you hover on it.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Initial Step –:\n1. First, the user views deliveries in non-editable mode.\n2. User can select single or multiple deliveries using checkboxes.\n3. User clicks on the context menu at the header level.\n4. Selects Close action.\n5. A popup appears to enter Remarks.\n6. User enters remarks and clicks Save and these remarks are shown in the history as well when user open the sales order delivery.\n7. After saving, the status changes from Confirmed to Close in Orange color.\n8. All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Close Action › Initial Step –",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. Open Sales order:\n2. User opens an already created Sales Order.\n3. A Deliveries panel is displayed on the left side.\n4. The panel shows a list of all deliveries with checkboxes.\n5. Select Delivery",
+      "locator": "§ Solution › Actions Status › Close Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. A single delivery, or\n2. Multiple deliveries using checkboxes.\n3. Access Action Menu\n4. Click on the context menu (⋮) in the Deliveries section.\n5. The following options are displayed:\n6. Open\n7. Close\n8. Cancel\n9. Initiate Close Action\n10. User clicks on Close.\n11. A popup appears to capture Remarks.\n12. Enter Remarks\n13. User enters remarks in the provided field.\n14. Remarks are required to proceed.\n15. Save Remarks\n16. User Clicks on the Save Button.\n17. Confirmation Prompt\n18. System displays a confirmation message:",
+      "locator": "§ Solution › Actions Status › Close Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The delivery status is updated to Closed.",
+      "locator": "§ Solution › Actions Status › Close Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. Options available:\n2. OK → Proceed with closing\n3. Cancel → Abort the process\n4. Status Update\n5. The delivery status is updated to Closed.\n6. The updated status is displayed at the top of the page.\n7. The delivery remains visible in the list with Closed status.\n8. Remarks Display\n9. The entered remarks are:\n10. Saved in the system\n11. Displayed in the Remarks section for reference (visible on hover)",
+      "locator": "§ Solution › Actions Status › Close Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Initial Step –:\n1. First, the user views deliveries in non-editable mode and open action can only be done when the delivery is closed previously.\n2. User can select single or multiple deliveries using checkboxes.\n3. User clicks on the context menu at the header level.\n4. Selects Open (Re – Open) action.\n5. A popup appears to enter Remarks.\n6. User enters remarks and clicks Save.\n7. After saving, the status changes from Confirmed to Open in Green color.\n8. All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › Initial Step –",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Deliveries panel is visible on the left with list of deliveries and checkboxes.",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Case",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Status is updated at the top of the page.",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Remarks are saved and visible in the Remarks section (on hover).",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In editable mode-:\n1. Open Sales Order\n2. User opens an already created Sales Order.\n3. Deliveries panel is visible on the left with list of deliveries and checkboxes.\n4. Select Delivery\n5. User selects single or multiple deliveries.\n6. Access Action Menu\n7. Click on context menu (⋮).\n8. Options available: Reopen, Close, Cancel.\n9. Perform Reopen Action\n10. Click on Reopen.\n11. Remarks popup appears → user enters remarks and clicks Save.\n12. Confirmation\n13. System shows message:\n\"Do you want to ReOpen the selected Delivery Order(s)?\"\n14. Click OK to proceed or Cancel to abort.\n15. Successful Reopen\n16. Selected delivery(s) are reopened.\n17. Status changes from Closed → Open/Active.\n18. Delivery becomes editable again.\n19. Validation Case\n20. If delivery is not closed:\n21. System shows message:\n\"Please Uncheck Confirmed Delivery OC.\"\n22. Final Update\n23. Status is updated at the top of the page.\n24. Remarks are saved and visible in the Remarks section (on hover).",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "History/Log section::\n1. Sales Order status updates\n2. Date and time of each action\n3. Username of the person who performed the action",
+      "locator": "§ Solution › Actions Status › History/Log section:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "History/Log section::\n1. Approval trail (showing approver name and status such as Approved or Pending)\n2. Approver comments\n3. Comments and notes related to the Sales Order",
+      "locator": "§ Solution › Actions Status › History/Log section:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "History/Log section::\n1. Delivery reference (Delivery number or name)\n2. Action performed on that delivery (e.g., Closed, Cancelled, Reopened)\n3. Corresponding date, time, and user details & remarks.",
+      "locator": "§ Solution › Actions Status › History/Log section:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This option is available at Grid Level Context menu in the system:",
+      "locator": "§ Solution › Data modelling action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "After mapping this is the Navigation Impact:",
+      "locator": "§ Solution › Data modelling action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Data modelling action:\n1. To create customized transaction reports.\n2. To map BI reports with specific transactions.\n3. To generate flexible and structured print formats as per business needs.",
+      "locator": "§ Solution › Data modelling action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "• Enable the setting:\n“OC Price Validation with selling price in cost sheet” = ON",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This setting ensures that the OC Selling Price is validated and picked from the Cost Sheet/ New BOM.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This setting ensures that the OC Selling Price is validated and picked from the Cost Sheet/ New BOM.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Destination-wise pricing is defined in the Cost Sheet Summary / BOM.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The desync tool will be enabled only when there is selling price mismatch in the cost-sheet summary/New BOM and Sales Order.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The desync tool will be enabled only when there is selling price mismatch in the cost-sheet summary/New BOM and Sales Order.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Desync Price OC List::\n1. In the Sales Order List screen, a Desync Tool icon should be provided for each Sales Order.\n2. The desync tool will be enabled only when there is selling price mismatch in the cost-sheet summary/New BOM and Sales Order.\n3. Along with the icon, a hyperlink should be available.\n4. On clicking this hyperlink, the system will open the OC Details screen.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Cost Sheet/BOM Price = 10",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "OC Price = 20",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Desync Price OC List::\n1. If the user changes the Selling Price either:\n2. In Cost Sheet / BOM, or\n3. In OC (Order Confirmation)\n4. The system will mark the record as Desynced and in Blue Color.",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Desync Price OC List::\n1. User clicks on the Desync Tool icon from the Sales Order List.\n2. System will:\n3. Status changes to Sync and in Green color.\n4. Fetch the latest Selling Price from Cost Sheet / BOM\n5. Override the OC Selling Price\n6. Example:\nOC Price: 20 → 10",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Desync Price OC List::\n1. Destination\n2. Delivery Date\n3. Color / Size\n4. OC Selling Price\n5. Cost Sheet/BOM Selling Price",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Price Display & Validation",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "OC Selling Price / Customer Price is shown per line item",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Cost Sheet/BOM Selling Price is shown alongside",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Pricing is maintained destination-wise",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Desync Price OC List::\n1. OC Selling Price / Customer Price is shown per line item\n2. Cost Sheet/BOM Selling Price is shown alongside\n3. Pricing is maintained destination-wise\n4. System ensures correct mapping after sync",
+      "locator": "§ Solution › Desync Price OC List:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "dependency",
+      "text": "• Any mismatch between OC and Cost Sheet/BOM price triggers desync\n• Sync action always aligns OC price with Cost Sheet/BOM price only",
+      "locator": "§ Solution › Desync Price OC List: › Key Logic",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery Update::\n1. Delivery Update can also be accessed from the Header level context menu (⋮).\n2. Click on the context menu → Select Delivery Updates option.\n3. The menu name will be updated as “Sales Order” (currently displayed as Summary OC).",
+      "locator": "§ Solution › Delivery Update:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery Update::\n1. Buyer Delivery Date\n2. OC Delivery Date\n3. Buyer Order Date\n4. PCD Date\n5. PO Packet Date\n6. GAC Date",
+      "locator": "§ Solution › Delivery Update:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery Update::\n1. Once saved, the system will update the edited fields.\n2. The updated values will be reflected in:\n3. The respective OC (Order Confirmation)\n4. The related transaction screens",
+      "locator": "§ Solution › Delivery Update:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Verify that the modified dates are correctly updated in the OC.",
+      "locator": "§ Solution › Delivery Update:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure that the latest saved data is visible across all relevant sections.",
+      "locator": "§ Solution › Delivery Update:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "EDI Buyer PO is an electronically transmitted Purchase Order received from the buyer’s system through Electronic Data Interchange (EDI) and automatically processed in WFX ERP to create a Buyer Purchase Order based on predefined mapping, validation, and business rules.",
+      "locator": "§ Solution › EDI Buyer PO:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "EDI Buyer PO is an electronically transmitted Purchase Order received from the buyer’s system through Electronic Data Interchange (EDI) and automatically processed in WFX ERP to create a Buyer Purchase Order based on predefined mapping, validation, and business rules.",
+      "locator": "§ Solution › EDI Buyer PO:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "EDI Buyer PO::\n1. It saves time.\n2. Reduce manual errors.\n3. Faster order execution.\n4. Improves data accuracy.",
+      "locator": "§ Solution › EDI Buyer PO:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Before creating an EDI Buyer PO, the following configurations must be completed:",
+      "locator": "§ Solution › EDI Buyer PO:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Package Configuration is an administrative setup used to define and manage EDI integration packages that control how EDI transactions are processed within the system.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Configuration:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Import - Data is received from an external system into WFX ERP.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Configuration:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Export - Data is sent from WFX ERP to an external system.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Configuration:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Package Configuration::\n1. Company: Company for which EDI integration is configured.\n2. Package Company Division: It shows all selected company divisions.\n3. Entity Type: Defines the entity level at which the transaction is processed.\n4. Company\n5. Buyer\n6. Supplier\n7. Transaction Type: Specifies the type of EDI transaction such as Buyer PO, TechPack, Sales Order or BOM.\n8. Package Type: Package Type defines the direction of data flow between an external system (Buyer/Supplier) and WFX ERP during EDI integration.\n9. Import - Data is received from an external system into WFX ERP.\n10. Export - Data is sent from WFX ERP to an external system.\n11. SSIS Package: Backend integration package responsible for processing and executing EDI data transactions.\n12. Standard Package Name: Standard reference name used by the system for package identification and processing.\n13. Folder Path: File location from where EDI data files are picked or stored for processing.\n14. Article: Defines the applicable article for the transaction, if required.\n15. Purchase Officer: Assigned responsible user for the package configuration (optional).\n16. Active: Enables or disables the package for EDI transaction processing.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Configuration:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Package Mapping is used to define the mapping between incoming EDI package data and fields required for processing Buyer Orders.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "It ensures that data received through EDI is correctly interpreted and linked with system fields before creating transactions.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "For mapping first select package type and package which are configured in package configuration.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Each row represents a WFX transaction field and defines how its value will be populated during EDI Buyer PO processing.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "System Data: Value is derived automatically from system configuration or master data.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Dependent On Field Name: Specifies the parent or related field on which the current field depends for validation or value derivation.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory: Indicates whether the field is compulsory for successful Buyer PO creation.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Package Mapping::\n1. WFX Field: Displays the target field where the EDI data will be stored during Buyer PO creation.\n2. Package Field: Represents the source field received from the EDI package which will populate the corresponding field.\n3. Mapping Resolution Type: Defines how the system assigns or resolves the value for the field during EDI processing. The available values are:\n4. Data: System automatically takes the value directly from the EDI file when mapping exists.\n5. System Data: Value is derived automatically from system configuration or master data.\n6. User Input: User manually enters the value during transaction processing.\n7. Review & Create: User reviews the incoming value and creates a new master record if it does not exist.\n8. Review & Map: User maps the incoming EDI value with an existing master value.\n9. Review & Resolve: User reviews and corrects mismatched data before processing continues.\n10. Review & Select: User selects the appropriate value from available system options.\n11. Dependent On Field Name: Specifies the parent or related field on which the current field depends for validation or value derivation.\n12. Mandatory: Indicates whether the field is compulsory for successful Buyer PO creation.\n13. Transaction Visibility: Defines whether the field will be visible during transaction processing.\n14. Editable: Determines whether the mapped value can be modified by the user after processing.\n15. Sort Order: Defines the sequence in which fields appear during transaction processing.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "After completing the mapping configuration, the user must save the setup by clicking on the Save button.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This screen is used to import buyer purchase order data received through EDI and convert it into Buyer Orders within WFX ERP.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system reads the uploaded file, validates the data based on configured mappings and business rules, and prepares the data for transaction creation.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "During this stage, the system checks mandatory fields, mapping configurations, and master data validations.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If any mapping mismatch or validation error is identified during processing, the records are routed to the Error Resolution stage.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If any mapping mismatch or validation error is identified during processing, the records are routed to the Error Resolution stage.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation failures",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "EDI Buyer PO creation::\n1. Missing master data\n2. Incorrect mappings\n3. Unrecognized values\n4. Validation failures",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Once error resolution is completed, the processed records appear in the Pending stage.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "These tabs help users manage Buyer Orders during different stages of validation and processing.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "These orders are available for review and validation before confirmation.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "These orders are available for review and validation before confirmation.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This view displays the detailed breakup of ordered quantities based on color and size combinations, allowing users to validate item-level information received through EDI",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Export option allows users to download or view the processed EDI transaction data file for reference, validation, or external sharing purposes.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "dependency",
+      "text": "Under this scenario, the MRP (Material Requirement Planning) logic shall be enhanced to ensure that all purchase demands linked to the final product are automatically fulfilled by the system.",
+      "locator": "§ Solution › MRL Related changes:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MRL Related changes::\n1. A new column “Purchase Price” should be added adjacent to Selling Price.\n2. Purchase Price will be entered row-wise (per color).\n3. The field should be manually editable.",
+      "locator": "§ Solution › MRL Related changes:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MRL Related changes::\n1. A new row “Purchase Price” should be added below Selling Price.\n2. Purchase Price will be entered column-wise (per size).\n3. The field should be manually editable.",
+      "locator": "§ Solution › MRL Related changes:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MRL Related changes::\n1. Currently, the Selling Price is being picked as GMPO price, which is incorrect.\n2. The system should instead pick Purchase Price as GMPO price for CM orders.\n3. Purchase Price can be entered manually as well on sales order.",
+      "locator": "§ Solution › MRL Related changes:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When no TNA template is attached, a specific icon will be displayed.",
+      "locator": "§ Solution › TNA:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When a TNA template is attached, a different icon will be displayed to indicate that TNA is already configured.",
+      "locator": "§ Solution › TNA:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "In case a TNA template is not attached:",
+      "locator": "§ Solution › TNA:",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Sales Order Re-Write Developments – Sprint-2 › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 4\nSolution 4\nApproval Mechanism 4\n1. Single-Level Approval 4\n2. Multi-Level Approval 8\n3. Multiple Approval 12\nActions Status 13\n1. Add Delivery 13\n2. Copy Delivery 14\n3. Delete action 14\n4. Split action 14\n5. Cancel Action 14\n6. Close Action 17\n7. Open (Re – Open) Action 20\n8. History/Log section: 23\nData modelling action 23\nDesync Price OC List: 23\nKey Logic 23\nBOM Information access via Context menu: 23\nDelivery Update: 23\nEDI Buyer PO: 23\na. Package Configuration: 23\nb. Package Mapping: 23\nc. EDI Buyer PO creation: 23\nMRL Related changes: 23\nMaterial Requirement Status via Context Menu: 23\nTNA: 23\nFigma Link: 25",
+      "locator": "§ Sales Order Re-Write Developments – Sprint-2 › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This specification covers:\n1. Sales Order Approval Mechanisms\n1.1 Single-Level Approval\n1.2 Multi-Level Approval\n1.3 Multiple Approval (Parallel Approval)\n1.4 Approval status tracking and audit visibility\n2. Delivery-Level Functional Enhancements\n2.1 Add Delivery (new & additional)\n2.2 Copy Delivery\n2.3 Delete Delivery\n2.4 Split Delivery (by % and Quantity)\n2.5 Cancel Delivery\n2.6 Close & Reopen Delivery\n2.7 Multi - delivery action handling\n2.8 Automatic history logging for all actions\n3. Price Synchronization & Cost Sheet Integration\n3.1 Auto price pickup from Cost Sheet\n3.2 Destination-wise price validation\n3.3 Update OC with latest Cost Sheet price\n3.4 Desync Price OC List management\n4. Delivery Date Update Functionality\n4.1 Editable date updates without OC revision\n4.2 Validation and system-wide reflection of updated data\n5. EDI Buyer PO Integration\n5.1 Package Configuration setup\n5.2 Package Mapping logic\n5.3 EDI Buyer PO import process\n5.4 Error Resolution workflow\n5.5 Transaction creation and status management\n5.6 Delivery-level and Color/Size-level validation\n5.7 Confirmation and Export functionality\n6. Reporting & Printing Enhancements\n6.1 UI Print\n6.2 BI Print (Custom Transaction Report Mapping)\n7. Audit & Traceability\n7.1 Complete History/Log tracking\n7.2 Status visibility and approval trail\n7.3 Action-based transaction logging",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this specification is to define the functional enhancements and rewrites introduced in Sprint-2 of the Sales Order Re-Write module.\nThe objective is to strengthen the Sales Order workflow by:\n• Introducing structured approval mechanisms (Single, Multi-Level, and Multiple Approval)\n• Enhancing delivery management actions (Add, Copy, Split, Delete, Cancel, Close, Reopen)\n• Enabling editable delivery updates without revision\n• Integrating EDI Buyer PO processing for automated Buyer Order creation\n• Enhancing audit visibility through History/Log tracking\n• Supporting customized print configurations via Layout Mapping Engine\nThis document ensures standardized, controlled, and traceable Sales Order processing within the system.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Single-Level Approval",
+      "heading": "Solution › Approval Mechanism › Single-Level Approval",
+      "text": "In Single Level Approval, the approval process works between two users.\nFirst, we log in with the user Rishabh. There by user permissions will set another user as the approver. This permission will be applied based on current development of sales order rewrite in which we are introducing a new permission for sales order.\nInfo Tooltip (i Icon Behavior)\n• On hovering over the info (i) icon, the system should display the following conditions:\n• 0 → Document will not go for approval\n• -1 → Document will always go for approval\n• Limit > 0 → Document will go for approval only if value exceeds the specified limit\n• This tooltip ensures user clarity and correct configuration of approval logic.\nSales Order (New) – Approval Configuration Fields\n• In the Sales Order New screen, the following three fields should be available as shown in the configuration screen:\n• Approval Value (INR)\n• Approver(s)\n• [All] / Selection Field (User Selection Control)\n• These fields will be used to define the approval workflow and threshold logic.\nApproval Value Configuration\nThe value “-1.000 INR” represents the minimum threshold amount from which the Sales Order approval mechanism is triggered.\nFor example:\n• If the value is set to 1000 INR, the approval workflow will be triggered when the Sales Order total value is greater than 1000 INR.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "kind": "section"
+    },
+    {
+      "title": "Single-Level Approval",
+      "heading": "Solution › Approval Mechanism › Single-Level Approval",
+      "text": "• If the Sales Order value is less than or equal to 1000 INR, the approval process will not be triggered.\n• In case of 0, no approval will work.\nThis configuration allows the system to control and trigger the approval workflow based on the Sales Order amount threshold.\nAfter creating a Sales Order and clicking on Confirm, a pop-up message appears for approval. The Sales order is then sent for approval to the assigned user, which can be verified in the Sales Order section.\nFrom Other user account: Click on the Home icon -> Approval Centre -> Sales Order –> Pending Approval. Here, the pending Sales Order will be visible.\nFrom this section, the user approves the Sales order\nOnce approved, the Sales Order status becomes Confirmed, and this can be verified from the Sales Order List.\nDocument Approval Screen Behaviour\n• In case of New Sales Order (Purchase Order from Buyer):\n• The document will be displayed as “Sales Order” in the Document Approval Centre.\n• On clicking the OC Number (Document Reference):\n• If the record belongs to New Sales Order, the system will open the New Sales Order screen.\n• If the record belongs to an existing/old flow, the system will open the existing Purchase Order screen.\nStatus Display\nThe Sales Order status will be clearly visible in the system, such as:\n• Pending Approval\n• Approved / Confirmed\n• Rejected\nThe system will also display:",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Single-Level Approval",
+      "heading": "Solution › Approval Mechanism › Single-Level Approval",
+      "text": "• Name of the Approver\n• Approval / Rejection Status\n• Approver Comments\n• Date and Time of Action\nThis ensures complete visibility and tracking of the approval process.\nNOTE:\nAll remarks entered during the approval process will be saved and updated in the History tab for tracking and audit purposes.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Multi-Level Approval",
+      "heading": "Solution › Approval Mechanism › Multi-Level Approval",
+      "text": "In the case of Multi Level Approval.\nAdmin -> Company Setup -> Multi level approval Settings -> Sales Order Check list.\nSetting Enhancement:\n• Introduce a new document name “Sales Order” in the Multi-Level Approval Settings.\n• This will be available in addition to “Purchase Order From Buyer” as shown in the screenshot.\nApproval Flow Chain:\nRishabh (Sales Order Creator) → 1st Approver (assigned by Rishabh) → 2nd Approver (assigned by 1st approver and set as Final Approver)\nAfter enabling this setting, the approval flow works in multiple stages.\nFirst, we log in with the first user Rishabh and create the Sales order.\nRishabh assigns second user (Nishu) as the first approver, same as done in the Single Level Approval process.\nAfter confirming the Sales Order, a pop-up message appears, and the Sales order is sent for approval.\nNext, we log in with second user (Nishu).\nFrom Second user (Nishu’s) account:\n• Click on the Home icon\n• Go to Approval Centre\n• Open Sales Order – Pending Approval\nSecond user (Nishu) approves the Sales Order.\nAfter second user (Nishu’s) approval, the Sales Order does not get confirmed yet. It moves to the next level of approval.\nSecond user (Nishu) assigns WFX Admin as the final approver.\nNow, we log in with WFX Admin.\nFrom WFX Admin’s account:\n• Go to Home\n• Open Approval Centre\n• Select Sales Order – Pending Approval\nWFX Admin approves the Sales Order.",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "kind": "section"
+    },
+    {
+      "title": "Multi-Level Approval",
+      "heading": "Solution › Approval Mechanism › Multi-Level Approval",
+      "text": "After the final approval, the Sales Order status becomes Confirmed, and this can be verified from the PO List.\nStatus Display\nThe Sales Order status will be clearly visible in the system, such as:\n• Pending Approval\n• Approved / Confirmed\n• Rejected\nThe system will also display:\n• Name of the Approver\n• Approval / Rejection Status\n• Approver Comments\n• Date and Time of Action\nThis ensures complete visibility and tracking of the approval process.\nNote:\nAll remarks entered during the approval process will be saved and updated in the History tab for tracking and audit purposes.",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Multiple Approval",
+      "heading": "Solution › Approval Mechanism › Multiple Approval",
+      "text": "To introduce a Multiple Approval option for Sales Order, allowing more than one approver to be assigned. This ensures that if one approver is unavailable, the other approver can approve the Sales Order without delay.\nMultiple approvers can be assigned for Sales Order approval.\nWhen multiple approvers are configured, a default approver can also be set. The default approver will be automatically displayed in the dropdown, while the remaining approvers will be available for selection within the dropdown list.\nPermission Navigation\nWe need to introduce a new permission under Sales Order, which will include the following options:\n• Sales Order – List\n• Sales Order – New\nIn addition, in the last column, a view selection (dropdown/div option) should be provided.\nThis option will open the views created through the View Configurator, allowing the user to select a buyer-wise view.\nStatus Display\nThe Sales Order status will be clearly visible in the History, such as:\n• Pending Approval\n• Approved / Confirmed\n• Rejected\nThe system will also display:\n• Name of the Approver\n• Approval / Rejection Status\n• Approver Comments\n• Date and Time of Action\nThis ensures complete visibility and tracking of the approval process.",
+      "locator": "§ Solution › Approval Mechanism › Multiple Approval",
+      "kind": "section"
+    },
+    {
+      "title": "Add Delivery",
+      "heading": "Solution › Actions Status › Add Delivery",
+      "text": "The Add Delivery option is a main function placed just above the delivery header in the Deliveries section.\nA new delivery can be added in two ways:\n• By clicking on the Add Delivery button from the main page.\n• By clicking on the “+” (plus) icon is a primary action placed next to the Deliveries section in the left sidebar(This is present inside the pop-up screen present at the side of Deliveries Heading). This works only in the case of additional deliveries to be made, not for new/ Fresh delivery.\nWhen We Click on “Add Delivery” for That Sales Order\n*Note: Line Item column should be removed from the column level.\nA detailed pop-up page opens\nBehaviour for a Fully New Delivery\nIn the Left Sidebar:\n• A new blank entry appears under the Deliveries section.\n• It shows:\n• Delivery – # _____ (blank)\n• Style – ______ (blank)\n• Both fields remain empty until the user fills and confirms the delivery.\nIn the Main Pop-up Page\nThe page contains two main sections:\n• Delivery Information\n• Article Information\nFor a completely new delivery:\n• All fields are blank.\n• All fields are editable.\n• Some fields are mandatory and marked with “*” its need to shown as per Standard Angular UI.\n• The user must fill the required fields before confirming.\nWhen Creating a New Delivery Under the Same Sales Order\nA New delivery under the same Sales Order can be created in two ways:",
+      "locator": "§ Solution › Actions Status › Add Delivery",
+      "kind": "section"
+    },
+    {
+      "title": "Add Delivery",
+      "heading": "Solution › Actions Status › Add Delivery",
+      "text": "• By clicking the Add Delivery button from the main page.\n• By clicking the “+” (plus) icon next to the Deliveries section in the left sidebar.\nBoth methods perform the same action.\nWhat the System Does\nWhen a new delivery is added:\n• The delivery detail page opens.\n• All fields are blank and editable for the new entry.\nUI Behaviour:\n• Previously created deliveries and styles remain visible in their original positions.\n• Existing deliveries are not affected.\n• Only the new delivery appears as a blank editable entry.\nLeft Sidebar Structure (Reference)\nOn the left side bar, the following details are shown:\n• Header Section:\nSales Order Number is displayed at the top.\n• Buyer Section:\nUnder the Sales Order Number:\n• Buyer Name\n• Order Value\n• Deliveries Section\nBelow Buyer and Order Value, there is a Deliveries section where:\n• All created deliveries are listed\n• Each delivery shows:\n• Delivery number\n• Style code\nA plus (+) icon is available next to the Deliveries header.\nThis icon allows adding a new delivery directly from the sidebar.\nAfter Confirmation\nOnce the user fills all required details and clicks Confirm:\nThe blank delivery line is updated with:\n• Delivery number\n• Style\n• Delivery date\n• Line items\n• Status\nThe status changes from Pending to Confirmed under Status header bar.\nThe delivery becomes part of the list under the Deliveries section.",
+      "locator": "§ Solution › Actions Status › Add Delivery (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Add Delivery",
+      "heading": "Solution › Actions Status › Add Delivery",
+      "text": "Note: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Add Delivery (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Copy Delivery",
+      "heading": "Solution › Actions Status › Copy Delivery",
+      "text": "The Copy Delivery is a secondary option that is used to copy an already created delivery under the same sales order.\nCopy Icon will be available in following areas:\n• In the Main Delivery Table\n• The Action column is placed next to the Status column.\n• The Action bar at the header is right-pinned, meaning it stays fixed on the right side.\n• Under this Action column, the Copy icon is available vertically for each delivery row.\n• This allows copying a specific delivery directly from the table.\n• In the Left Sidebar\n• The Copy icon is also available on the side of particular deliveries shown.\nWhen you click on copy\n• A pop-up window opens.\n• A new blank row appears in the deliveries section (at the left-most side).\nIn the new row\n• Delivery number is blank.\n• Style code is already present (copied from the selected delivery).\n• Fields like delivery date, line, and style (prefilled) must be filled again by the user.\n• All copied fields are editable so that the new delivery can be modified if needed.\nAfter Confirmation\n• The blank row gets updated with the entered details.\n• A new line is added on the main page showing:\n• Delivery\n• Style\n• Date\n• Line items\n• Status\nThe status changes from Pending to Confirmed, and the new delivery becomes active in the system.\nNote: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Copy Delivery",
+      "kind": "section"
+    },
+    {
+      "title": "Delete action",
+      "heading": "Solution › Actions Status › Delete action",
+      "text": "When you click on the Delete option under the Action Status column for a particular delivery:\nA confirmation pop-up appears stating “Are you sure you want to Remove Delivery” it need to be shown as per Angular standard.\nWhen user delete multiple delivery at same time. A confirmation pop-up appears stating “Are you sure you want to Remove mentioned Delivery (Delivery 001, 002 & 003)” it need to be shown as per Angular standard.\nBy checking the checkbox you can delete multiple deliveries at a single time.\nNote: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Delete action",
+      "kind": "section"
+    },
+    {
+      "title": "Split action",
+      "heading": "Solution › Actions Status › Split action",
+      "text": "When you click on the Split option under Action Status:\n• A pop-up window appears.\n• It shows only the delivery information.\nYou can split the delivery quantity in two ways:\n• By Percentage (%) – It comes by default then add no. in text field. (toggled on)\n• By Quantity – when you toggle off, split pop is shown like this.\nOn the header, only:\n• Split Quantity\n• Percentage will be shown (by default based on toggler`)\nWhen you click on Split, the system performs the splitting action based on the method selected.\nSplitting is possible from sidebar in Edit Sales order page.\nWhile splitting a Save option will be present at the place of confirm to save the sales order changes.\nNote: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Split action",
+      "kind": "section"
+    },
+    {
+      "title": "Initial Step –",
+      "heading": "Solution › Actions Status › Cancel Action › Initial Step –",
+      "text": "• First, the user views deliveries in non-editable mode.\n• User can select single or multiple deliveries using checkboxes.\n• User clicks on the context menu at the header level.\n• Selects Cancel option.\n• A popup appears to enter Remarks.\n• User enters remarks and clicks Save and these remarks are shown in the history as well when user open the sales order delivery.\n• After saving, the status changes from Confirmed to Cancelled in Red color.\n• All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Cancel Action › Initial Step –",
+      "kind": "section"
+    },
+    {
+      "title": "In editable mode-",
+      "heading": "Solution › Actions Status › Cancel Action › In editable mode-",
+      "text": "1. Open Sales Order\n• User opens an already created Sales Order.\n• A Deliveries panel is displayed on the left side.\n• The panel shows a list of all deliveries with checkboxes.\n2. Select Delivery\n• User can select:\n• A single delivery, or\n• Multiple deliveries using checkboxes.\n3. Access Action Menu\n• Click on the context menu in the Deliveries section.\n• The following options are displayed:\n• Reopen\n• Close\n• Cancel\n4. Initiate Cancel Action\n• User clicks on Cancel.\n• A popup appears to capture Remarks.\n5. Enter Remarks\n• User enters remarks in the provided field.\n• Remarks are required to proceed.\n6. Save Remarks\n• User clicks on the Save button.\n7. Confirmation Prompt\n• System displays a confirmation message:\n\"Do you want to Cancel the selected Delivery Order(s)?\"\n• Options available:\n• OK → Proceed with cancellation\n• Cancel → Abort the process\n8. Successful Cancellation\n• On clicking OK:\n• The system cancels the selected delivery(s).\n• A success message is displayed:\n\"Delivery OCs Cancel successfully.\"\n9. Status Update\n• The delivery status is updated to Cancelled.\n• The updated status is displayed at the top of the page.\n10. Remarks Display\n• The entered remarks are:\n• Saved in the system\n• Displayed in the Remarks section for reference when you hover on it.\nNote: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Cancel Action › In editable mode-",
+      "kind": "section"
+    },
+    {
+      "title": "Initial Step –",
+      "heading": "Solution › Actions Status › Close Action › Initial Step –",
+      "text": "• First, the user views deliveries in non-editable mode.\n• User can select single or multiple deliveries using checkboxes.\n• User clicks on the context menu at the header level.\n• Selects Close action.\n• A popup appears to enter Remarks.\n• User enters remarks and clicks Save and these remarks are shown in the history as well when user open the sales order delivery.\n• After saving, the status changes from Confirmed to Close in Orange color.\n• All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Close Action › Initial Step –",
+      "kind": "section"
+    },
+    {
+      "title": "In editable mode-",
+      "heading": "Solution › Actions Status › Close Action › In editable mode-",
+      "text": "• Open Sales order:\n• User opens an already created Sales Order.\n• A Deliveries panel is displayed on the left side.\n• The panel shows a list of all deliveries with checkboxes.\n• Select Delivery\nUser can select:\n• A single delivery, or\n• Multiple deliveries using checkboxes.\n• Access Action Menu\n• Click on the context menu (⋮) in the Deliveries section.\n• The following options are displayed:\n• Open\n• Close\n• Cancel\n• Initiate Close Action\n• User clicks on Close.\n• A popup appears to capture Remarks.\n• Enter Remarks\n• User enters remarks in the provided field.\n• Remarks are required to proceed.\n• Save Remarks\n• User Clicks on the Save Button.\n• Confirmation Prompt\n• System displays a confirmation message:\n\"Do you want to Close the selected Delivery Order(s)?\"\n• Options available:\n• OK → Proceed with closing\n• Cancel → Abort the process\n• Status Update\n• The delivery status is updated to Closed.\n• The updated status is displayed at the top of the page.\n• The delivery remains visible in the list with Closed status.\n• Remarks Display\n• The entered remarks are:\n• Saved in the system\n• Displayed in the Remarks section for reference (visible on hover)\nNote: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Close Action › In editable mode-",
+      "kind": "section"
+    },
+    {
+      "title": "Initial Step –",
+      "heading": "Solution › Actions Status › Open (Re – Open) Action › Initial Step –",
+      "text": "• First, the user views deliveries in non-editable mode and open action can only be done when the delivery is closed previously.\n• User can select single or multiple deliveries using checkboxes.\n• User clicks on the context menu at the header level.\n• Selects Open (Re – Open) action.\n• A popup appears to enter Remarks.\n• User enters remarks and clicks Save.\n• After saving, the status changes from Confirmed to Open in Green color.\n• All of this is reflected in the UI as shown in the attached screenshot.",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › Initial Step –",
+      "kind": "section"
+    },
+    {
+      "title": "In editable mode-",
+      "heading": "Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "text": "• Open Sales Order\n• User opens an already created Sales Order.\n• Deliveries panel is visible on the left with list of deliveries and checkboxes.\n• Select Delivery\n• User selects single or multiple deliveries.\n• Access Action Menu\n• Click on context menu (⋮).\n• Options available: Reopen, Close, Cancel.\n• Perform Reopen Action\n• Click on Reopen.\n• Remarks popup appears → user enters remarks and clicks Save.\n• Confirmation\n• System shows message:\n\"Do you want to ReOpen the selected Delivery Order(s)?\"\n• Click OK to proceed or Cancel to abort.\n• Successful Reopen\n• Selected delivery(s) are reopened.\n• Status changes from Closed → Open/Active.\n• Delivery becomes editable again.\n• Validation Case\n• If delivery is not closed:\n• System shows message:\n\"Please Uncheck Confirmed Delivery OC.\"\n• Final Update\n• Status is updated at the top of the page.\n• Remarks are saved and visible in the Remarks section (on hover).\nNote: Transaction performed under this action is automatically logged in the History section.",
+      "locator": "§ Solution › Actions Status › Open (Re – Open) Action › In editable mode-",
+      "kind": "section"
+    },
+    {
+      "title": "History/Log section:",
+      "heading": "Solution › Actions Status › History/Log section:",
+      "text": "When we click on the History tab on the Add/Edit Sales Order page, it displays the complete activity details of that Sales Order.\nThe History section shows:\n• Sales Order status updates\n• Date and time of each action\n• Username of the person who performed the action\nIt also includes:\n• Approval trail (showing approver name and status such as Approved or Pending)\n• Approver comments\n• Comments and notes related to the Sales Order\nIn addition, the history will also capture delivery-level actions within the Sales Order activity logs.\nFor example:\nDelivery order - <Event> - #<Delivery ID> - <Action Performed date & time> - <Action Performed by> - < Remarks>\nDelivery Order Closed (1) 12:22:02 PM | 26/12/2026 Nishant Test Case [Sample Example]\nThis will display details such as:\n• Delivery reference (Delivery number or name)\n• Action performed on that delivery (e.g., Closed, Cancelled, Reopened)\n• Corresponding date, time, and user details & remarks.",
+      "locator": "§ Solution › Actions Status › History/Log section:",
+      "kind": "section"
+    },
+    {
+      "title": "Data modelling action",
+      "heading": "Solution › Data modelling action",
+      "text": "First, we have to map the BI Print report from this path\nNavigation:\n“Admin → Layout Mapping Engine → Custom Transaction Report Mapping”\nIn the Layout Mapping Engine.\n• BI Print (Custom Print)\nThe BI Print action allows the user to generate and print the Sales Order details.\nThis option is available at Grid Level Context menu in the system:\n• After mapping this is the Navigation Impact:\nSales Order List -> Grid Level Context Menu -> BI Print -> Open Print BI Report\nPrint action works in non-editable mode.\nPurpose of BI Print\n• To create customized transaction reports.\n• To map BI reports with specific transactions.\n• To generate flexible and structured print formats as per business needs.\nNote: Data of the newly created Sales Order should also be saved in the stored procedures related to Purchase Order from Buyer.",
+      "locator": "§ Solution › Data modelling action",
+      "kind": "section"
+    },
+    {
+      "title": "Desync Price OC List:",
+      "heading": "Solution › Desync Price OC List:",
+      "text": "Setting Configuration:\nAdmin → Global Setup → Company Setup → Miscellaneous Settings\n• Enable the setting:\n“OC Price Validation with selling price in cost sheet” = ON\nThis setting ensures that the OC Selling Price is validated and picked from the Cost Sheet/ New BOM.\nNavigation: (Current System Navigation)\nSales -> Purchase Order from buyer -> Desync Price OC list\nIn this screen, only the data created through the Cost Sheet/BOM will be visible.\nDestination-wise pricing is defined in the Cost Sheet Summary / BOM.\nAdditional UI Enhancement (Sales Order List)\n• In the Sales Order List screen, a Desync Tool icon should be provided for each Sales Order.\n• The desync tool will be enabled only when there is selling price mismatch in the cost-sheet summary/New BOM and Sales Order.\n• Along with the icon, a hyperlink should be available.\n• On clicking this hyperlink, the system will open the OC Details screen.\n1. Initial Cost Sheet Setup\nStyle 1 → Cost Sheet\nFor Destination India (IN), the selling price is set as 10 in the Cost Sheet.\n2. OC Creation – Manual Price Entry (Desync Scenario)\nWhen creating an OC (Order Confirmation):\n• Select Style 1\n• Select Destination India (IN)\n• User manually enters Selling Price in OC as:\n20 INR\nThis creates a desync condition, where:\n• Cost Sheet/BOM Price = 10\n• OC Price = 20\n3. Desync Trigger Condition\n• If the user changes the Selling Price either:",
+      "locator": "§ Solution › Desync Price OC List:",
+      "kind": "section"
+    },
+    {
+      "title": "Desync Price OC List:",
+      "heading": "Solution › Desync Price OC List:",
+      "text": "• In Cost Sheet / BOM, or\n• In OC (Order Confirmation)\n• The system will mark the record as Desynced and in Blue Color.\n4. Sync Action using Desync Tool\n• User clicks on the Desync Tool icon from the Sales Order List.\n• System will:\n• Status changes to Sync and in Green color.\n• Fetch the latest Selling Price from Cost Sheet / BOM\n• Override the OC Selling Price\n• Example:\nOC Price: 20 → 10\nThe final price will always be taken from the Cost Sheet / BOM (source of truth).\n5. OC Details View\nOn clicking the hyperlink, system opens OC Details screen\nThe screen displays:\n• Destination\n• Delivery Date\n• Color / Size\n• OC Selling Price\n• Cost Sheet/BOM Selling Price\n6. Price Display & Validation\n• OC Selling Price / Customer Price is shown per line item\n• Cost Sheet/BOM Selling Price is shown alongside\n• Pricing is maintained destination-wise\n• System ensures correct mapping after sync",
+      "locator": "§ Solution › Desync Price OC List: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Key Logic",
+      "heading": "Solution › Desync Price OC List: › Key Logic",
+      "text": "• Any mismatch between OC and Cost Sheet/BOM price triggers desync\n• Sync action always aligns OC price with Cost Sheet/BOM price only",
+      "locator": "§ Solution › Desync Price OC List: › Key Logic",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Information access via Context menu:",
+      "heading": "Solution › BOM Information access via Context menu:",
+      "text": "On clicking the context menu, the user will see an option named “BOM Information.”\nUpon clicking over this option BOM of style will be opened that is being attached in that particular delivery but only in view mode.",
+      "locator": "§ Solution › BOM Information access via Context menu:",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery Update:",
+      "heading": "Solution › Delivery Update:",
+      "text": "Old Navigation - (Current System Navigation)\n“Sales -> Purchase order from buyer -> Delivery Update”\nAccess from UI (Header Level)\n• Delivery Update can also be accessed from the Header level context menu (⋮).\n• Click on the context menu → Select Delivery Updates option.\n• The menu name will be updated as “Sales Order” (currently displayed as Summary OC).\nEditable Fields\nIn the Sales Order – Delivery Update screen, the following fields are editable:\n• Buyer Delivery Date\n• OC Delivery Date\n• Buyer Order Date\n• PCD Date\n• PO Packet Date\n• GAC Date\nUpdate Process\n• The user can modify the required editable fields directly in the grid.\n• After making the necessary changes, click on Save.\nSystem Behaviour After Save\n• Once saved, the system will update the edited fields.\n• The updated values will be reflected in:\n• The respective OC (Order Confirmation)\n• The related transaction screens\nValidation\nAfter updating and saving:\n• Verify that the modified dates are correctly updated in the OC.\n• Ensure that the latest saved data is visible across all relevant sections.",
+      "locator": "§ Solution › Delivery Update:",
+      "kind": "section"
+    },
+    {
+      "title": "EDI Buyer PO:",
+      "heading": "Solution › EDI Buyer PO:",
+      "text": "EDI Buyer PO is an electronically transmitted Purchase Order received from the buyer’s system through Electronic Data Interchange (EDI) and automatically processed in WFX ERP to create a Buyer Purchase Order based on predefined mapping, validation, and business rules.\nThe benefits of EDI:\n• It saves time.\n• Reduce manual errors.\n• Faster order execution.\n• Improves data accuracy.\nBefore creating an EDI Buyer PO, the following configurations must be completed:\n• Package Configuration\n• Package Mapping",
+      "locator": "§ Solution › EDI Buyer PO:",
+      "kind": "section"
+    },
+    {
+      "title": "Package Configuration:",
+      "heading": "Solution › EDI Buyer PO: › Package Configuration:",
+      "text": "Package Configuration is an administrative setup used to define and manage EDI integration packages that control how EDI transactions are processed within the system.\nPath: Admin Integration Package Configuration\nIn this screen user can fill the required fields to configure the packages while adding new configuration by clicking on Add button and the fields are as follows:\n• Company: Company for which EDI integration is configured.\n• Package Company Division: It shows all selected company divisions.\n• Entity Type: Defines the entity level at which the transaction is processed.\n• Company\n• Buyer\n• Supplier\n• Transaction Type: Specifies the type of EDI transaction such as Buyer PO, TechPack, Sales Order or BOM.\n• Package Type: Package Type defines the direction of data flow between an external system (Buyer/Supplier) and WFX ERP during EDI integration.\n• Import - Data is received from an external system into WFX ERP.\n• Export - Data is sent from WFX ERP to an external system.\n• SSIS Package: Backend integration package responsible for processing and executing EDI data transactions.\n• Standard Package Name: Standard reference name used by the system for package identification and processing.\n• Folder Path: File location from where EDI data files are picked or stored for processing.\n• Article: Defines the applicable article for the transaction, if required.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Configuration:",
+      "kind": "section"
+    },
+    {
+      "title": "Package Configuration:",
+      "heading": "Solution › EDI Buyer PO: › Package Configuration:",
+      "text": "• Purchase Officer: Assigned responsible user for the package configuration (optional).\n• Active: Enables or disables the package for EDI transaction processing.\nAfter filling all the details, we have to save the configuration by clicking on Save button.\nIf we want to delete the configuration, we can do that by clicking on Delete button.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Configuration: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Package Mapping:",
+      "heading": "Solution › EDI Buyer PO: › Package Mapping:",
+      "text": "Package Mapping is used to define the mapping between incoming EDI package data and fields required for processing Buyer Orders. It ensures that data received through EDI is correctly interpreted and linked with system fields before creating transactions.\nPath: Admin Integration Package Mapping\nIn the Process Mapping screen, users configure the mapping logic for EDI transactions. The system displays mapping fields based on the selected Package Type and Package, allowing users to map EDI data elements with corresponding Buyer Order fields.\nThis configuration enables accurate data transformation and successful creation of EDI Buyer Purchase Orders.\nFor mapping first select package type and package which are configured in package configuration.\nAfter selecting both, the mapped fields are visible. Each row represents a WFX transaction field and defines how its value will be populated during EDI Buyer PO processing.\nIn that screen, there are different columns as follows:\n• WFX Field: Displays the target field where the EDI data will be stored during Buyer PO creation.\n• Package Field: Represents the source field received from the EDI package which will populate the corresponding field.\n• Mapping Resolution Type: Defines how the system assigns or resolves the value for the field during EDI processing. The available values are:",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping:",
+      "kind": "section"
+    },
+    {
+      "title": "Package Mapping:",
+      "heading": "Solution › EDI Buyer PO: › Package Mapping:",
+      "text": "• Data: System automatically takes the value directly from the EDI file when mapping exists.\n• System Data: Value is derived automatically from system configuration or master data.\n• User Input: User manually enters the value during transaction processing.\n• Review & Create: User reviews the incoming value and creates a new master record if it does not exist.\n• Review & Map: User maps the incoming EDI value with an existing master value.\n• Review & Resolve: User reviews and corrects mismatched data before processing continues.\n• Review & Select: User selects the appropriate value from available system options.\n• Dependent On Field Name: Specifies the parent or related field on which the current field depends for validation or value derivation.\n• Mandatory: Indicates whether the field is compulsory for successful Buyer PO creation.\n• Transaction Visibility: Defines whether the field will be visible during transaction processing.\n• Editable: Determines whether the mapped value can be modified by the user after processing.\n• Sort Order: Defines the sequence in which fields appear during transaction processing.\nAfter completing the mapping configuration, the user must save the setup by clicking on the Save button.",
+      "locator": "§ Solution › EDI Buyer PO: › Package Mapping: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "EDI Buyer PO creation:",
+      "heading": "Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "text": "Path: Sales Purchase Order from Buyer EDI Buyer PO\nAfter navigating to the EDI Buyer PO path, the EDI Buyer PO screen is displayed. This screen is used to import buyer purchase order data received through EDI and convert it into Buyer Orders within WFX ERP.\nThe screen allows the user to select the required Buyer and configured Package, which determines the mapping and processing logic for the incoming EDI data.\nImport Functionality\nTo initiate the EDI Buyer PO creation process, the user selects the desired Buyer and Package and clicks on the Import button. This action starts the file import process for the selected configuration.\nFile Selection\nUpon clicking Import, the system prompts the user to select the EDI file from the local system. The user selects the required Excel file containing buyer order data and proceeds with the upload.\nProcess Package\nAfter selecting the file, the user clicks on Process Package. The system reads the uploaded file, validates the data based on configured mappings and business rules, and prepares the data for transaction creation.\nDuring this stage, the system checks mandatory fields, mapping configurations, and master data validations.\nError Resolution\nIf any mapping mismatch or validation error is identified during processing, the records are routed to the Error Resolution stage.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "kind": "section"
+    },
+    {
+      "title": "EDI Buyer PO creation:",
+      "heading": "Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "text": "After Process Package, the uploaded file visible in Error Resolution, and it is accessible from the\nIn the Error Resolution screen, the user reviews and resolves issues such as:\n• Missing master data\n• Incorrect mappings\n• Unrecognized values\n• Validation failures\nAfter resolving all errors, the records become eligible for transaction creation.\nPending and Create Transaction\nOnce error resolution is completed, the processed records appear in the Pending stage. The user reviews the data and clicks on Create Transaction or Pending to generate Buyer Orders in the system.\nThis step converts the imported EDI data into actual Buyer Order transactions in WFX ERP.\nTabs and Transaction Status\nAfter creating the transaction, the EDI Buyer PO records are categorized into different tabs based on their processing status. These tabs help users manage Buyer Orders during different stages of validation and processing.\nNew Tab:\nDisplays newly created Buyer Orders imported through EDI. These orders are available for review and validation before confirmation.\nRevision Tab:\nDisplays Buyer Orders that are updated through EDI import where existing orders are modified. Users can review the revised information before processing.\nOn Hold Tab:\nDisplays orders that are manually placed on hold by the user to delay confirmation or further processing by clicking OnHold Button.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "EDI Buyer PO creation:",
+      "heading": "Solution › EDI Buyer PO: › EDI Buyer PO creation:",
+      "text": "And from this we can also Unhold the Buyer order by clicking on Unhold Button.\nProcessed Tab:\nDisplays Buyer Orders that have been confirmed and successfully processed by the system.\nDelivery Level View:\nFrom the transaction tabs, users can open the Buyer Order by clicking the available hyperlink under Delivery Detail column. This opens the Delivery Level View, where order information is displayed shipment-wise or delivery-wise.\nThe screen allows users to review delivery details such as delivery dates, quantities, and associated shipment information before final confirmation.\nColor / Size Level View:\nWithin the Delivery Level View, users can further drill down to the Color and Size Level details.\nThis view displays the detailed breakup of ordered quantities based on color and size combinations, allowing users to validate item-level information received through EDI\nConfirm Functionality\nAfter reviewing delivery and color-size details, users can confirm the Buyer Order using the Confirm Button.\nConfirmation finalizes the transaction and converts the EDI data into an active Buyer Order within the system.\nExport Functionality\nThe Export option allows users to download or view the processed EDI transaction data file for reference, validation, or external sharing purposes.",
+      "locator": "§ Solution › EDI Buyer PO: › EDI Buyer PO creation: (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "MRL Related changes:",
+      "heading": "Solution › MRL Related changes:",
+      "text": "When the user selects the Order Type as ‘CM’ in Sales Order, the system shall automatically generate a GMPO (Garment Purchase Order) against the corresponding final product indent.\nUnder this scenario, the MRP (Material Requirement Planning) logic shall be enhanced to ensure that all purchase demands linked to the final product are automatically fulfilled by the system. The demand generation and allocation will be system-driven, without requiring any manual intervention.\nAdditionally, once the purchase demand is created through this process, it shall be locked for editing. Users will not be allowed to modify, override, or delete the auto-fulfilled demand, ensuring data consistency and adherence to the defined process flow.\nCM Order – Pricing Enhancement\n• In case of CM type orders, the system should capture and use Purchase Price instead of Selling Price for GMPO generation.\nUI Changes\n1. Color Level\n• A new column “Purchase Price” should be added adjacent to Selling Price.\n• Purchase Price will be entered row-wise (per color).\n• The field should be manually editable.\n2. Size Level\n• A new row “Purchase Price” should be added below Selling Price.\n• Purchase Price will be entered column-wise (per size).\n• The field should be manually editable.\nLogic Correction\n• Currently, the Selling Price is being picked as GMPO price, which is incorrect.",
+      "locator": "§ Solution › MRL Related changes:",
+      "kind": "section"
+    },
+    {
+      "title": "MRL Related changes:",
+      "heading": "Solution › MRL Related changes:",
+      "text": "• The system should instead pick Purchase Price as GMPO price for CM orders.\n• Purchase Price can be entered manually as well on sales order.",
+      "locator": "§ Solution › MRL Related changes: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Material Requirement Status via Context Menu:",
+      "heading": "Solution › Material Requirement Status via Context Menu:",
+      "text": "On clicking the context menu, the user will see an option named “Material Requirement Status.”\nMR Status Report -> Material Status Pop- up opens for that particular style present in that delivery.",
+      "locator": "§ Solution › Material Requirement Status via Context Menu:",
+      "kind": "section"
+    },
+    {
+      "title": "TNA:",
+      "heading": "Solution › TNA:",
+      "text": "A TNA option will be available at the delivery column level for all deliveries.\n• When no TNA template is attached, a specific icon will be displayed.\n• When a TNA template is attached, a different icon will be displayed to indicate that TNA is already configured.\nCompleted (T/A):\n<svg width=\"13\" height=\"17\" viewBox=\"0 0 13 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M8.78571 3.92856C8.86149 3.92856 8.93416 3.89845 8.98774 3.84487C9.04132 3.79129 9.07143 3.71862 9.07143 3.64284V1.92857C9.07143 1.85279 9.04132 1.78012 8.98774 1.72654C8.93416 1.67295 8.86149 1.64285 8.78571 1.64285H7.35715C7.35715 1.33975 7.23674 1.04906 7.02241 0.834734C6.80809 0.620407 6.5174 0.5 6.2143 0.5C5.91119 0.5 5.6205 0.620407 5.40618 0.834734C5.19185 1.04906 5.07144 1.33975 5.07144 1.64285H3.64288C3.5671 1.64285 3.49443 1.67295 3.44085 1.72654C3.38727 1.78012 3.35717 1.85279 3.35717 1.92857V3.64284C3.35717 3.71862 3.38727 3.79129 3.44085 3.84487C3.49443 3.89845 3.5671 3.92856 3.64288 3.92856H8.78571ZM6.2143 1.07143C6.36585 1.07143 6.51119 1.13163 6.61836 1.23879C6.72552 1.34596 6.78572 1.4913 6.78572 1.64285H5.64287C5.64287 1.4913 5.70307 1.34596 5.81024 1.23879C5.9174 1.13163 6.06274 1.07143 6.2143 1.07143Z\" fill=\"black\"/>",
+      "locator": "§ Solution › TNA:",
+      "kind": "section"
+    },
+    {
+      "title": "TNA:",
+      "heading": "Solution › TNA:",
+      "text": "<path d=\"M5.89381 11.5C5.94199 11.5001 5.98868 11.4794 6.02577 11.4414L8.5 8.89252L8.23608 8.5L5.91856 10.8883L4.8134 9.66865L4.5 10L5.73711 11.4108C5.75647 11.4388 5.7805 11.4612 5.80755 11.4766C5.8346 11.492 5.86403 11.5 5.89381 11.5Z\" stroke=\"black\"/>\n<path d=\"M8.78571 3.92856C8.86149 3.92856 8.93416 3.89845 8.98774 3.84487C9.04132 3.79129 9.07143 3.71862 9.07143 3.64284V1.92857C9.07143 1.85279 9.04132 1.78012 8.98774 1.72654C8.93416 1.67295 8.86149 1.64285 8.78571 1.64285H7.35715C7.35715 1.33975 7.23674 1.04906 7.02241 0.834734C6.80809 0.620407 6.5174 0.5 6.2143 0.5C5.91119 0.5 5.6205 0.620407 5.40618 0.834734C5.19185 1.04906 5.07144 1.33975 5.07144 1.64285H3.64288C3.5671 1.64285 3.49443 1.67295 3.44085 1.72654C3.38727 1.78012 3.35717 1.85279 3.35717 1.92857V3.64284C3.35717 3.71862 3.38727 3.79129 3.44085 3.84487C3.49443 3.89845 3.5671 3.92856 3.64288 3.92856H8.78571ZM6.2143 1.07143C6.36585 1.07143 6.51119 1.13163 6.61836 1.23879C6.72552 1.34596 6.78572 1.4913 6.78572 1.64285H5.64287C5.64287 1.4913 5.70307 1.34596 5.81024 1.23879C5.9174 1.13163 6.06274 1.07143 6.2143 1.07143Z\" stroke=\"black\"/>\n</svg>\nIn case a TNA template is not attached:\nT/A General:\n<svg width=\"13\" height=\"17\" viewBox=\"0 0 13 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">",
+      "locator": "§ Solution › TNA: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "TNA:",
+      "heading": "Solution › TNA:",
+      "text": "<path d=\"M3 8H4.5M5.5 8H9.5M3 10.5H4.5M5.5 10.5H9.5M3 13H4.5M5.5 13H9.5M11.9285 16.2143V2.50006C11.9285 2.42429 11.8984 2.35161 11.8448 2.29803C11.7913 2.24445 11.7186 2.21435 11.6428 2.21435H9.64282V3.64291C9.64282 3.87024 9.55251 4.08826 9.39177 4.249C9.23102 4.40975 9.01301 4.50005 8.78568 4.50005H3.64284C3.41552 4.50005 3.1975 4.40975 3.03675 4.249C2.87601 4.08826 2.7857 3.87024 2.7857 3.64291V2.21435H0.785713C0.709937 2.21435 0.637265 2.24445 0.583683 2.29803C0.530102 2.35161 0.5 2.42429 0.5 2.50006V16.2143C0.5 16.2901 0.530102 16.3627 0.583683 16.4163C0.637265 16.4699 0.709937 16.5 0.785713 16.5H11.6428C11.7186 16.5 11.7913 16.4699 11.8448 16.4163C11.8984 16.3627 11.9285 16.2901 11.9285 16.2143ZM8.78571 3.92856C8.86149 3.92856 8.93416 3.89845 8.98774 3.84487C9.04132 3.79129 9.07143 3.71862 9.07143 3.64284V1.92857C9.07143 1.85279 9.04132 1.78012 8.98774 1.72654C8.93416 1.67295 8.86149 1.64285 8.78571 1.64285H7.35715C7.35715 1.33975 7.23674 1.04906 7.02241 0.834734C6.80809 0.620407 6.5174 0.5 6.2143 0.5C5.91119 0.5 5.6205 0.620407 5.40618 0.834734C5.19185 1.04906 5.07144 1.33975 5.07144 1.64285H3.64288C3.5671 1.64285 3.49443 1.67295 3.44085 1.72654C3.38727 1.78012 3.35717 1.85279 3.35717 1.92857V3.64284C3.35717 3.71862 3.38727 3.79129 3.44085 3.84487C3.49443 3.89845 3.5671 3.92856 3.64288 3.92856H8.78571ZM6.2143 1.07143C6.36585 1.07143 6.51119 1.13163 6.61836 1.23879C6.72552 1.34596 6.78572 1.4913 6.78572 1.64285H5.64287C5.64287 1.4913 5.70307 1.34596 5.81024 1.23879C5.9174 1.13163 6.06274 1.07143 6.2143 1.07143Z\" stroke=\"black\"/>",
+      "locator": "§ Solution › TNA: (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "TNA:",
+      "heading": "Solution › TNA:",
+      "text": "</svg>\n• On clicking the icon, a TNA template list will be displayed with a smart search option.\n• Upon selecting a template, a pop-up window will be opened.\nWithin the pop-up:\n• The user will assign the Responsible Manager/User against the defined role.\nAfter filling in the required details and clicking on Save, the TNA will be created and associated with the respective delivery.",
+      "locator": "§ Solution › TNA: (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Figma Link:",
+      "heading": "Solution › Figma Link:",
+      "text": "Sales Order Updated – Figma",
+      "locator": "§ Solution › Figma Link:",
+      "kind": "section"
+    }
+  ]
+}

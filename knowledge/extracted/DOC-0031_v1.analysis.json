@@ -1,0 +1,2936 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "#",
+        "Screen",
+        "Route",
+        "Purpose"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "S-1",
+          "BU & Role Setup shell (3 tabs)",
+          "/admin/bu-role-setup?tab={business-units|roles|users}",
+          "Tabbed container hosting the three lists. /admin and /admin/bu-role-setup land on the Business Units tab."
+        ],
+        [
+          "S-2",
+          "Business Units List",
+          "tab business-units",
+          "Search, filter and manage all Business Units."
+        ],
+        [
+          "S-3",
+          "Business Unit Detail (New / Edit)",
+          "/admin/business-units/new · /admin/business-units/{id}",
+          "Create/edit a BU: ledger, companies, divisions, reference codes. Auto-save."
+        ],
+        [
+          "S-4",
+          "Roles List",
+          "tab roles",
+          "Search, filter and manage all Roles."
+        ],
+        [
+          "S-5",
+          "Role Detail (New / Edit)",
+          "/admin/roles/new · /admin/roles/{id}",
+          "Author a role and its permission matrix; copy from another role; Activate. Auto-save."
+        ],
+        [
+          "S-6",
+          "Assign User List",
+          "tab users",
+          "Search, filter and manage all Users."
+        ],
+        [
+          "S-7",
+          "Assign User Detail (New / Edit)",
+          "/admin/users/new · /admin/users/{id}",
+          "Pick a person; assign roles per Business Unit; per-user permission overrides; view effective permissions. Auto-save."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Convention",
+        "Definition"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Convention"
+      ],
+      "rows": [
+        [
+          "Enforcement",
+          "The server enforces every rule; client validation is a convenience, not the enforcement. Every status transition is re-validated server-side."
+        ],
+        [
+          "Auto-save",
+          "Detail screens have NO Save button. A debounced engine saves on every change once the record exists. Loaded values never count as dirty (opening a record must not trigger a save). The save-status indicator shows idle → saving → saved / error; a failed save keeps the error until a later save succeeds."
+        ],
+        [
+          "Seed fields",
+          "The field(s) that must be valid before the record is first inserted. Until then the record does not exist and dependent editors (permissions, assignments, overrides) are disabled."
+        ],
+        [
+          "Text fields",
+          "Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum."
+        ],
+        [
+          "Company scope",
+          "Roles and Business Units are company/tenant-scoped in the real build: lists are filtered to the current company and code/name-uniqueness is enforced within it (Q-9)."
+        ],
+        [
+          "Status badge",
+          "Rendered as a wfx-badge chip, never plain text. Severity: Draft = secondary (grey), Active = success (green), Inactive = warning (amber)."
+        ],
+        [
+          "Reference Code",
+          "A shared, multi-select tag list applied to a Business Unit and to a User. Codes come from the reference-code master (mock: 8 static values — D-6, Q-1)."
+        ],
+        [
+          "Date display",
+          "All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale. Date columns use a date filter (calendar picker; equals / before / after / from–to)."
+        ],
+        [
+          "Set Inactive",
+          "Retiring a record opens a modal with one mandatory Reason textarea (4 rows); a blank reason is rejected (M-2). The reason is stored (mock: in Comments) — real build: a dedicated field with an audit entry (D-4)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Column",
+        "Content",
+        "Filter",
+        "Format / behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "(selection)",
+          "Row + header checkbox",
+          "—",
+          "Multi-row; header checkbox selects the filtered set only."
+        ],
+        [
+          "Status",
+          "Badge chip",
+          "Set (Active, Inactive)",
+          "Per Status badge convention."
+        ],
+        [
+          "Business Unit",
+          "Combined — Name (link, opens detail) over Code",
+          "Text",
+          "autoHeight; blank renders “—”."
+        ],
+        [
+          "Primary Ledger",
+          "Ledger name",
+          "Set",
+          "Resolved from LedgerCode via the ledger catalog."
+        ],
+        [
+          "Companies",
+          "Chip list; the primary company is starred and sorted first",
+          "—",
+          "autoHeight; names resolved from the company catalog; blank renders “—”."
+        ],
+        [
+          "Divisions",
+          "Chip list, or a single “All divisions” chip",
+          "—",
+          "autoHeight; when IsAllDivisions, shows “All divisions”; else the chosen division names."
+        ],
+        [
+          "Reference Codes",
+          "Chip list of reference-code names",
+          "—",
+          "autoHeight; blank renders “—”."
+        ],
+        [
+          "Created By",
+          "Avatar + name",
+          "Set",
+          "Mock stamps a fixed user (no login) — D-3."
+        ],
+        [
+          "Created On",
+          "Creation date",
+          "Date",
+          "Date convention."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Rules",
+        "Options / source"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Name",
+          "Text input",
+          "Yes (seed)",
+          "V-1",
+          "Free text"
+        ],
+        [
+          "Code",
+          "Text input",
+          "Yes (seed)",
+          "V-2",
+          "Free text (letters, numbers, dashes)"
+        ],
+        [
+          "Reference Code",
+          "Multi-select (chips)",
+          "No",
+          "Reference Code convention",
+          "Reference-code master (mock: Export, Domestic, Sampling, Bulk Production, OEM, Private Label, Retail, E-Commerce)"
+        ],
+        [
+          "Ledger",
+          "Single-select (searchable)",
+          "Yes (seed)",
+          "V-3",
+          "Ledger catalog (mock: INR / USD / BDT / VND ledgers) — D-6"
+        ],
+        [
+          "Companies",
+          "Multi-select (chips)",
+          "No*",
+          "V-4",
+          "Company catalog (mock: WFX India / Bangladesh / Vietnam / USA)"
+        ],
+        [
+          "Primary Company",
+          "Single-select",
+          "No*",
+          "V-4 (must be one of Companies)",
+          "Constrained to the chosen Companies; disabled until at least one is chosen"
+        ],
+        [
+          "All divisions",
+          "Toggle",
+          "—",
+          "When ON, the Divisions list is hidden and stored empty",
+          "—"
+        ],
+        [
+          "Divisions",
+          "Multi-select (chips)",
+          "No",
+          "Used only when All divisions is OFF",
+          "Division catalog (mock: Menswear, Womenswear, Knits, Woven, Denim, Kids)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Column",
+        "Content",
+        "Filter",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Status",
+          "Badge chip",
+          "Set (Draft, Active, Inactive)",
+          "Roles have three states (unlike BU/User)."
+        ],
+        [
+          "Role",
+          "Combined — Name (link) over Description",
+          "Text",
+          "Opens the role detail."
+        ],
+        [
+          "Modules",
+          "Count of modules with at least one grant (GrantedModuleCount)",
+          "Number",
+          "Derived on save."
+        ],
+        [
+          "Permissions",
+          "Count of granted (resource, action) pairs (GrantedPermissionCount)",
+          "Number",
+          "Derived on save."
+        ],
+        [
+          "Created By",
+          "Avatar + name",
+          "Set",
+          "D-3."
+        ],
+        [
+          "Created On",
+          "Creation date",
+          "Date",
+          "Date convention."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Role Name",
+          "Text input",
+          "Yes (seed)",
+          "V-5"
+        ],
+        [
+          "Description",
+          "Textarea",
+          "No",
+          "≤ 500"
+        ],
+        [
+          "Copy from role",
+          "Action (select a source role)",
+          "—",
+          "Replaces the current permissions with a copy of the chosen role’s, after confirm (M-6)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Column",
+        "Content",
+        "Filter",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Status",
+          "Badge chip",
+          "Set (Active, Inactive)",
+          "—"
+        ],
+        [
+          "User",
+          "Combined — avatar + Full Name over Username (one merged column)",
+          "Text",
+          "Clicking the cell opens the user detail."
+        ],
+        [
+          "Email",
+          "Email",
+          "Text",
+          "—"
+        ],
+        [
+          "Roles",
+          "Distinct role-name chips across all Business Units, plus an amber override flag (sliders icon + count) when the user has any permission override",
+          "—",
+          "autoHeight; blank renders “—”; the override flag tooltip reads “N permission override(s)”."
+        ],
+        [
+          "Business Units",
+          "Distinct Business-Unit-name chips across all the user’s assignments",
+          "—",
+          "autoHeight."
+        ],
+        [
+          "Created By",
+          "Avatar + name",
+          "Set",
+          "D-3."
+        ],
+        [
+          "Created On",
+          "Creation date",
+          "Date",
+          "Date convention."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Rules / behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "User",
+          "Searchable single-select (staff directory)",
+          "Yes (seed)",
+          "V-9. Selecting a person auto-fills Full Name, Username and Email. People already assigned to another user are hidden from the list so the same person cannot be added twice."
+        ],
+        [
+          "Full Name",
+          "Read-only text",
+          "—",
+          "Auto-filled from the selected person."
+        ],
+        [
+          "Email",
+          "Read-only text",
+          "—",
+          "Auto-filled from the selected person."
+        ],
+        [
+          "Reference Code",
+          "Multi-select (chips)",
+          "No",
+          "Reference Code convention."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "#",
+        "Screen · trigger",
+        "Kind",
+        "Title",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "M-1",
+          "Any list · Delete confirm",
+          "Confirm",
+          "Confirm Delete",
+          "Delete {name}? This cannot be undone. (bulk: Delete {n} selected …(s)? This cannot be undone.)"
+        ],
+        [
+          "M-2",
+          "Any · Set Inactive, blank reason",
+          "Warning",
+          "Validation",
+          "Reason is mandatory."
+        ],
+        [
+          "M-3",
+          "BU detail · unknown id",
+          "Error",
+          "Not Found",
+          "That business unit does not exist."
+        ],
+        [
+          "M-4",
+          "User detail · add a BU already on the user",
+          "Warning",
+          "Business Unit Already Added",
+          "{BUName} is already on this user. Add the roles to the existing row instead."
+        ],
+        [
+          "M-5",
+          "User detail · add assignment/override before a user is picked",
+          "Warning",
+          "Enter user details first",
+          "Give the user a name and username before assigning roles. (overrides: … before adding overrides.)"
+        ],
+        [
+          "M-6",
+          "Role detail · Copy from role",
+          "Confirm",
+          "Copy Permissions",
+          "Replace the current permissions with a copy of “{RoleName}”?"
+        ],
+        [
+          "M-7",
+          "Role detail · Activate, invalid form",
+          "Warning",
+          "Validation",
+          "Please fix the highlighted fields before activating."
+        ],
+        [
+          "M-8",
+          "Role detail · Activate, no permissions",
+          "Warning",
+          "No Permissions",
+          "Grant at least one permission before activating the role."
+        ],
+        [
+          "M-9",
+          "Roles list · Activate, no permissions",
+          "Warning",
+          "Cannot Activate",
+          "{RoleName} has no permissions granted yet. Grant at least one before activating."
+        ],
+        [
+          "M-10",
+          "Roles list · Duplicate succeeded",
+          "Success",
+          "Role Duplicated",
+          "Created {RoleName}."
+        ],
+        [
+          "M-11",
+          "Roles list · Delete on an Active role",
+          "Warning",
+          "Not Allowed",
+          "{RoleName} is Active and cannot be deleted. Set it Inactive (with a reason) first."
+        ],
+        [
+          "M-12",
+          "User detail · override screen already added",
+          "Warning",
+          "Already Added / All screens added",
+          "That transaction / list already has an override row. / Every transaction / list already has an override row."
+        ],
+        [
+          "M-13",
+          "Role/BU/User · Activate/Reactivate/Set Inactive succeeded",
+          "Success",
+          "Activated / Reactivated / Set Inactive",
+          "{name} is now active. / {name} is active again. / {name} was set inactive."
+        ],
+        [
+          "M-14",
+          "Role/User detail · unknown id",
+          "Error",
+          "Not Found",
+          "That role does not exist. / That user does not exist."
+        ],
+        [
+          "M-15",
+          "Any · load / save failed",
+          "Error",
+          "Load Failed / Save Failed",
+          "Could not load {items} from the mock store. / Could not save the {item}. (real: drop “from the mock store”.)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "Entity",
+        "Status",
+        "Meaning"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Role",
+          "Draft",
+          "Auto-saved; being authored; not yet assignable; deletable."
+        ],
+        [
+          "Role",
+          "Active",
+          "Assignable to users; not deletable; stays editable."
+        ],
+        [
+          "Role",
+          "Inactive",
+          "Retired with a reason; not assignable; editable; deletable; re-activatable."
+        ],
+        [
+          "Business Unit / User",
+          "Active",
+          "In use; not deletable via the “Active” guard where applicable; editable."
+        ],
+        [
+          "Business Unit / User",
+          "Inactive",
+          "Retired with a reason (User) ; excluded from the assignable BU / role pickers; re-activatable."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "#",
+        "Transition",
+        "Trigger",
+        "Where"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "T-1",
+          "(new) → Draft/Active",
+          "Automatic: seed fields valid → record inserted (Role → Draft; BU / User → Active)",
+          "Detail, auto-save"
+        ],
+        [
+          "T-2",
+          "Role Draft/Inactive → Active",
+          "Manual Activate; gate: form valid + ≥ 1 permission",
+          "Role detail toolbar / list context menu"
+        ],
+        [
+          "T-3",
+          "Active → Inactive",
+          "Manual Set Inactive + mandatory reason",
+          "List context menu / detail"
+        ],
+        [
+          "T-4",
+          "Inactive → Active",
+          "Manual Reactivate (Role re-applies the Activate gate)",
+          "List context menu / detail"
+        ],
+        [
+          "T-5",
+          "(record) → deleted",
+          "Manual Delete + confirm; an Active Role is blocked (V-8)",
+          "List context menu / bulk bar"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 12",
+      "headers": [
+        "#",
+        "Rule (testable statement)",
+        "Where",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "V-1",
+          "BU Name — required (seed); trimmed, not blank; ≤ 120.",
+          "BU detail + server",
+          "Name is required / cannot be blank"
+        ],
+        [
+          "V-2",
+          "BU Code — required (seed); trimmed; ≤ 30; letters, numbers and dashes only; unique (case-insensitive) within the company.",
+          "BU detail + server",
+          "Code is required · Code: letters, numbers and dashes only · A business unit with this code already exists"
+        ],
+        [
+          "V-3",
+          "BU Ledger — required (seed); exactly one ledger.",
+          "BU detail + server",
+          "—"
+        ],
+        [
+          "V-4",
+          "BU Primary Company — must be one of the chosen Companies; auto-repaired when a company is removed.",
+          "BU detail + server",
+          "—"
+        ],
+        [
+          "V-5",
+          "Role Name — required (seed); trimmed, not blank; ≤ 120; unique (case-insensitive) within the company.",
+          "Role detail + server",
+          "Role name is required / A role with this name already exists"
+        ],
+        [
+          "V-6",
+          "Role Activate — form valid AND at least one permission granted.",
+          "Role detail + list + server",
+          "Please fix the highlighted fields before activating. / Grant at least one permission before activating the role."
+        ],
+        [
+          "V-7",
+          "Permission grant — a List resource may carry only View / Export; the other six actions can never be granted on it.",
+          "Role detail + server",
+          "— (cells disabled)"
+        ],
+        [
+          "V-8",
+          "Delete a Role — allowed only when Draft or Inactive; an Active role must be set Inactive first.",
+          "Roles list + server",
+          "{RoleName} is Active and cannot be deleted. Set it Inactive (with a reason) first."
+        ],
+        [
+          "V-9",
+          "User — required (seed) person from the directory; a person already assigned to another user is not selectable; the resulting Username is unique.",
+          "User detail + server",
+          "— (filtered out of the picker)"
+        ],
+        [
+          "V-10",
+          "User assignment — one row per Business Unit (no BU twice); the Roles list is disabled until a BU is chosen.",
+          "User detail + server",
+          "{BUName} is already on this user. Add the roles to the existing row instead."
+        ],
+        [
+          "V-11",
+          "User override — one row per screen (no resource twice); Effect is Allow or Deny; an optional From–To window (From ≤ To).",
+          "User detail + server",
+          "That transaction / list already has an override row."
+        ],
+        [
+          "V-12",
+          "Set Inactive — reason required (non-blank).",
+          "Detail/list dialog + server",
+          "Reason is mandatory."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 13",
+      "headers": [
+        "#",
+        "Mock shortcut",
+        "Real behaviour required"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "D-1",
+          "Each record embeds its child collections (Role.Permissions map; User.Assignments and User.Overrides arrays); the whole record is PUT as one unit.",
+          "Split header from lines into their own tables/endpoints (role-permission, user-assignment, user-override), PATCH the header and CRUD the lines."
+        ],
+        [
+          "D-2",
+          "Client-side grids over the full list.",
+          "Server-side row model with server paging, sorting and filtering from day one."
+        ],
+        [
+          "D-3",
+          "Created By is a fixed user name (no login); only CreatedOn is real.",
+          "Take Created By from the authenticated session; add ModifiedBy / ModifiedOn and store ids, not just display names. Q-8."
+        ],
+        [
+          "D-4",
+          "The Set Inactive reason is stored in the free-text Comments field.",
+          "Store the reason in a dedicated field with an audit entry (who/when). Q-8."
+        ],
+        [
+          "D-5",
+          "The staff directory (the User picker source), roles and business units are all local mock lists.",
+          "Source people from the HR/identity master; roles and BUs from their own masters filtered to the company. Q-3."
+        ],
+        [
+          "D-6",
+          "Reference codes, ledgers, companies and divisions are static catalogs in code.",
+          "Source each from its master/DDL (reference-code master, ledger master, legal-entity master, division master). Q-1."
+        ],
+        [
+          "D-7",
+          "The permission model uses six representative modules with a sample of Transactions/Lists and eight actions.",
+          "Enumerate every real module, resource and action from the application map; confirm the action set per resource. Q-4, Q-5."
+        ],
+        [
+          "D-8",
+          "Names for roles/BUs are denormalised onto the user (RoleNames, BU chips) for display.",
+          "Resolve display names by id at read time (or keep a denormalised copy deliberately with a refresh strategy). Q-6."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 14",
+      "headers": [
+        "#",
+        "Finding",
+        "Corrected rule for the real build"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "F-1",
+          "List row actions are reachable only by right-click (no visible actions column).",
+          "Add a pinned-right kebab actions column with the same items; right-click stays as a shortcut (grid standard)."
+        ],
+        [
+          "F-2",
+          "An Active Business Unit or User can be hard-deleted from the list (only Active Roles are blocked).",
+          "Decide and enforce a consistent delete rule: block (or soft-delete) a BU/User that is referenced by any assignment; never orphan an assignment. Q-7."
+        ],
+        [
+          "F-3",
+          "An override’s Apply Date Range is stored and shown but does not actually gate the Effective Permissions view by today’s date.",
+          "Apply the window when computing effective permissions (an override outside its From–To does not apply). Q-12."
+        ],
+        [
+          "F-4",
+          "Deactivating a Role/BU does not re-validate users that reference it — a user can still show an Inactive role/BU chip.",
+          "On deactivation, warn about (or cascade to) affected users; exclude Inactive roles/BUs from effective permissions. Q-7."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 15",
+      "headers": [
+        "#",
+        "Question",
+        "Proposed default",
+        "Owner"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "Q-1",
+          "What is the authoritative Reference Code list and its master? (mock uses 8 representative values)",
+          "Source from the reference-code master; treat the mock 8 as representative.",
+          "Product owner"
+        ],
+        [
+          "Q-2",
+          "Must a Business Unit have at least one company and exactly one primary? Are Companies/Divisions mandatory?",
+          "Require ≥1 company + exactly one primary; Divisions optional (All by default).",
+          "Product owner"
+        ],
+        [
+          "Q-3",
+          "Directory source for the User picker, and can a person hold accounts in more than one tenant?",
+          "HR/identity master; one user record per person per tenant.",
+          "Product owner"
+        ],
+        [
+          "Q-4",
+          "The authoritative module / resource (Transaction & List) catalog and which map feeds it?",
+          "Application screen map; mock 6 modules are representative.",
+          "Product owner"
+        ],
+        [
+          "Q-5",
+          "The authoritative action set, and whether it varies per resource beyond the List = View/Export rule.",
+          "Eight actions; List = View/Export; confirm per-resource exceptions.",
+          "Product owner"
+        ],
+        [
+          "Q-6",
+          "Do roles/BUs resolve display names by id at read time, or keep a denormalised copy?",
+          "Resolve by id; denormalise only for list performance with a refresh path.",
+          "Product owner"
+        ],
+        [
+          "Q-7",
+          "Delete/deactivate rules for a BU/User/Role referenced by assignments — block, soft-delete or cascade?",
+          "Block hard delete when referenced; soft-delete + exclude from effective permissions.",
+          "Product owner"
+        ],
+        [
+          "Q-8",
+          "Audit & the Inactive reason — track CreatedBy/ModifiedBy/ModifiedOn and store the reason in its own field?",
+          "Yes to both.",
+          "Product owner"
+        ],
+        [
+          "Q-9",
+          "Company/tenant scoping and uniqueness for Role Name and BU Code — per company, from the session?",
+          "Company from session; Role Name and BU Code unique within company.",
+          "Product owner"
+        ],
+        [
+          "Q-10",
+          "List default sort, page size and preserved back-navigation (including the active tab)?",
+          "Created On descending; page 20; restore filters/sort/page/tab on back.",
+          "Product owner"
+        ],
+        [
+          "Q-11",
+          "Where are permissions actually enforced at runtime (this feature only defines them)?",
+          "Enforced in each module/route guard + server; config-only here.",
+          "Product owner"
+        ],
+        [
+          "Q-12",
+          "Should an override’s date range gate the effective permission (active only within From–To)?",
+          "Yes — an override outside its window does not apply.",
+          "Product owner"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 16",
+      "headers": [
+        "Field",
+        "Type",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "id / BUID",
+          "string / number",
+          "Row id (routing) / header PK."
+        ],
+        [
+          "BUName / BUCode",
+          "string (≤120 / ≤30)",
+          "Seed fields; Code unique within company (V-2)."
+        ],
+        [
+          "Status",
+          "enum: Active | Inactive",
+          "Lifecycle only."
+        ],
+        [
+          "LedgerCode",
+          "string",
+          "Single primary ledger (seed)."
+        ],
+        [
+          "CompanyCodes / PrimaryCompanyCode",
+          "string[] / string",
+          "Primary ∈ CompanyCodes (V-4)."
+        ],
+        [
+          "IsAllDivisions / DivisionCodes",
+          "boolean / string[]",
+          "DivisionCodes empty when IsAllDivisions."
+        ],
+        [
+          "ReferenceCodes",
+          "string[]",
+          "Reference-code tags."
+        ],
+        [
+          "CreatedBy / CreatedOn / Comments",
+          "string / datetime / string",
+          "D-3; Comments holds the Inactive reason (D-4)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 17",
+      "headers": [
+        "Field",
+        "Type",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "id / RoleID",
+          "string / number",
+          "Row id / header PK."
+        ],
+        [
+          "RoleName / Description",
+          "string (≤120 / ≤500)",
+          "Name is the seed field, unique within company (V-5)."
+        ],
+        [
+          "Status",
+          "enum: Draft | Active | Inactive",
+          "Assignable only when Active."
+        ],
+        [
+          "Permissions",
+          "map<ResourceCode, ActionCode[]>",
+          "Only applicable actions stored (List = View/Export). Real: own table (D-1)."
+        ],
+        [
+          "GrantedModuleCount / GrantedPermissionCount",
+          "number / number",
+          "Derived on save; drive the list counts."
+        ],
+        [
+          "CreatedBy / CreatedOn / Comments",
+          "string / datetime / string",
+          "D-3 / D-4."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 18",
+      "headers": [
+        "Field",
+        "Type",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "id / UserID",
+          "string / number",
+          "Row id / header PK."
+        ],
+        [
+          "FullName / Username / Email",
+          "string",
+          "Auto-filled from the directory; FullName+Username are the seed fields."
+        ],
+        [
+          "Status",
+          "enum: Active | Inactive",
+          "Lifecycle only."
+        ],
+        [
+          "Assignments",
+          "array<{ AssignID, BusinessUnitCode, RoleIDs[], RoleNames[] }>",
+          "One entry per Business Unit. Real: own table (D-1)."
+        ],
+        [
+          "Overrides",
+          "array<{ ResourceCode, ActionCode, Effect: Allow|Deny, FromDate?, ToDate? }>",
+          "Inherit rows not stored; dates ISO yyyy-mm-dd (F-3)."
+        ],
+        [
+          "ReferenceCodes",
+          "string[]",
+          "Reference-code tags."
+        ],
+        [
+          "CreatedBy / CreatedOn / Comments",
+          "string / datetime / string",
+          "D-3 / D-4."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 19",
+      "headers": [
+        "Mock method",
+        "Real endpoint (to define)"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {
+        "Real endpoint (to define)": "to define"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "fetch* / get*(id) / save*(rec) / delete*(id) per master",
+          "GET /business-units|roles|users (server paging), GET /{id}, POST (insert on seed) / PATCH /{id} + line CRUD, DELETE /{id} (server re-validates the delete rule)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 20",
+      "headers": [
+        "Version",
+        "Owner",
+        "Git user",
+        "Date",
+        "Summary"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "V1",
+          "Varun Kumar (VP - Technology)",
+          "Varun Kumar",
+          "01 Aug 2026",
+          "Embed screen screenshots; Screen specifications edited; 6 images added"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "wfx-erp-product-bu-role-setup-spec",
+  "keyTerms": [
+    "role",
+    "user",
+    "list",
+    "business",
+    "business unit",
+    "roles",
+    "inactive",
+    "business units",
+    "active",
+    "name",
+    "unit",
+    "one",
+    "per",
+    "code",
+    "permission"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 3
+    },
+    {
+      "module": "Style & BOM",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 2
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "Masters – Colour, Size, UOM"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The mock is intentionally lenient; this specification is not — it is the contract the development team builds from, and it goes to QA and then to live production.",
+      "locator": "§ BU & Role Setup — Access Control",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Items marked ASSUMED are pending product-team sign-off (see Open questions).",
+      "locator": "§ BU & Role Setup — Access Control",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "BU & Role Setup is the ERP’s access-control workbench.",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Purpose",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "It answers three questions for every person who signs in: where they work (Business Units), what a job can do (Roles = permission bundles), and who holds which role in which Business Unit (Assign User), with optional per-user exceptions.",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Three masters are maintained here — Business Units, Roles and Users — under one tabbed screen.",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The permission model is Module → Resource → Action: six modules (Catalog, Sales, Sourcing, Production, Inventory, Finance), each exposing Transaction screens and List screens as resources, and eight actions (View, Create, Edit, Delete, Approve, Post, Export, Cancel).",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Where it sits in the ERP",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A List resource is read-only navigation — only View and Export apply to it.",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Where it sits in the ERP",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Runtime enforcement of permissions inside each transaction is out of scope (Q-11).",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Where it sits in the ERP",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: #, Screen, Route, Purpose (7 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The three slugs are business-units, roles, users.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "Detail → List: the back arrow returns to the shell with the matching ?tab= preserved.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The real screen must restore search, filters, sort, page and tab exactly as the user left them (QA checklist §5) — Q-10.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Navigation rules:\n1. Tabs sync to the URL: switching tab writes ?tab=; deep-linking a tab opens it directly. The three slugs are business-units, roles, users.\n2. List → Detail (edit): click the primary link cell in a row (BU name, Role name, or the combined User cell), or right-click → Edit. List → Detail (new): the “+ Add” button on each tab.\n3. Detail → List: the back arrow returns to the shell with the matching ?tab= preserved. Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.\n4. Unknown id on a detail route: error toast (M-3 / M-8 / M-14) and the user is returned to the list.\n5. Browser/page titles: “BU & Role Setup” (shell); “Business Unit”, “Role”, “User” (edit); the New routes are untitled (fall back to the app title).\n6. Back-navigation state: the mock does not preserve list state (filters, page, active tab beyond the slug). The real screen must restore search, filters, sort, page and tab exactly as the user left them (QA checklist §5) — Q-10.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Convention, Definition (9 rows; identifiers: Convention)",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Screenshots are pending capture.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The active tab is mirrored in ?tab= so a tab is shareable and survives a refresh.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › BU & Role Setup shell (S-1)",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "The active tab is mirrored in ?tab= so a tab is shareable and survives a refresh.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › BU & Role Setup shell (S-1)",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Layout & toolbar:\n1. Page header: breadcrumb “Access Control”, title “Business Units”, and a primary “+ Add New Business Unit” button.\n2. Content toolbar: quick-search (“Search by name or code”, case-insensitive substring on Name OR Code, trimmed; real build debounce 300 ms) and a clearable Status dropdown (Active, Inactive).\n3. Grid in a surface card; floating filter row; pagination footer (page sizes 20 / 50 / 100, default 20). Floating selection bar with count + Clear + Delete when rows are selected.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Layout & toolbar",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Column, Content, Filter, Format / behaviour (9 rows; identifiers: Column)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Real build must also add a pinned-right kebab actions column — right-click alone is not discoverable (F-1).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Row & bulk actions",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Bulk delete validates the selection and reloads the list on success.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Row & bulk actions",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Row & bulk actions:\n1. Context menu (right-click): Edit (always); Reactivate (Inactive only); Set Inactive (Active only); Delete. Real build must also add a pinned-right kebab actions column — right-click alone is not discoverable (F-1).\n2. Delete: confirmation dialog (M-1), then hard delete. Bulk delete validates the selection and reloads the list on success.\n3. Set Inactive / Reactivate per the Set Inactive convention and the lifecycle (Section Workflow).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Row & bulk actions",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Field, Type, Required, Rules, Options / source (8 rows; identifiers: Field)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The record is inserted once all three are valid; only then does the rest persist.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Behaviours",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Reference Code is a free tag list; order is preserved as entered.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Behaviours",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Behaviours:\n1. Seed fields: Name + Code + Ledger. The record is inserted once all three are valid; only then does the rest persist.\n2. Choosing Companies keeps the Primary valid: if the current primary is deselected it falls back to the first remaining company (or blank when none remain).\n3. Turning “All divisions” ON clears and hides the explicit Divisions list; the stored DivisionCodes is emptied.\n4. Reference Code is a free tag list; order is preserved as entered.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Behaviours",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Column, Content, Filter, Notes (6 rows; identifiers: Column)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Context menu: Edit; Duplicate (copies the role and its permissions to a new Draft — success M-10); Activate (Draft/Inactive, gated on ≥1 permission — M-9); Set Inactive (Active); Delete (blocked while Active — M-11 / V-8).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Field, Type, Required, Rules (3 rows)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details, table 6",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A module that already has grants but is not selected is surfaced as a hidden-grants count so grants are never silently lost.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Permission matrix",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Grants are stored as a map of Resource code → array of granted action codes; only applicable actions are ever stored.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Permission matrix",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "GrantedModuleCount / GrantedPermissionCount are derived from it on save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Permission matrix",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Permission matrix:\n1. A top Module selector bar lists the six modules with “Select all” / “Clear”. Only the modules the user selects appear below for permission editing; an empty selection shows an empty-state prompt. A module that already has grants but is not selected is surfaced as a hidden-grants count so grants are never silently lost.\n2. For each selected module, a grid of its resources (rows) × the eight actions (columns) of checkboxes. Actions: View, Create, Edit, Delete, Approve, Post, Export, Cancel.\n3. List resources accept only View and Export; the other six action cells are rendered disabled/greyed on a List row and can never be granted (V-7). Transaction resources accept all eight.\n4. Grants are stored as a map of Resource code → array of granted action codes; only applicable actions are ever stored. GrantedModuleCount / GrantedPermissionCount are derived from it on save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Permission matrix",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "On success Status = Active and the role becomes assignable to users; success toast M-13.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Activate",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Column, Content, Filter, Notes (7 rows; identifiers: Column)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: Field, Type, Required, Rules / behaviour (4 rows; identifiers: Field)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details, table 8",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Roles multi-select is disabled until the Business Unit is chosen.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Business Unit Assignments (roles per BU)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A Business Unit already on the user is blocked from being added twice (M-4) — add the extra roles to the existing row instead.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Business Unit Assignments (roles per BU)",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "A Business Unit already on the user is blocked from being added twice (M-4) — add the extra roles to the existing row instead.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Business Unit Assignments (roles per BU)",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business Unit Assignments (roles per BU):\n1. One row per Business Unit: pick a Business Unit (single-select from the Active BU master), then the role(s) the user holds within it (multi-select from Active roles). “+ Add Business Unit” adds a row; the trash icon removes it.\n2. The Roles multi-select is disabled until the Business Unit is chosen. A Business Unit already on the user is blocked from being added twice (M-4) — add the extra roles to the existing row instead.\n3. Stored as an array of { BusinessUnitCode, RoleIDs[], RoleNames[] } (one entry per BU).\n4. Adding assignments requires the record to exist first (pick a User) — else the guard M-5 fires.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Business Unit Assignments (roles per BU)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Each action cell is a tri-state the user clicks to cycle — (Inherit) → Allow → Deny, colour-coded grey / green / red.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Permission Overrides (grid)",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "Empty = applies always.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Permission Overrides (grid)",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Permission Overrides (grid):\n1. A grid, one row per overridden screen. Columns: Module / Transaction (searchable picker of any resource, each screen only once — M-12), Apply Date Range, then one column per action (View … Cancel), then a delete action.\n2. Each action cell is a tri-state the user clicks to cycle — (Inherit) → Allow → Deny, colour-coded grey / green / red. Cells for actions that do not apply to a List screen show a muted “·” and are not clickable.\n3. Apply Date Range: clicking the cell opens a dialog with a range date-picker; the window (From–To, inclusive) scopes the whole row. Empty = applies always. Captured per Module/Transaction row, so every action override on that screen shares the window.\n4. “+ Add Override” adds a row for the first screen not already overridden; the guard M-5 applies before the record exists.\n5. Meaning: Allow force-grants a permission no assigned role gives; Deny force-removes one a role grants. Deny always wins. Stored as an array of { ResourceCode, ActionCode, Effect: Allow|Deny, FromDate?, ToDate? } (only Allow/Deny rows are persisted; Inherit stores nothing).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Permission Overrides (grid)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Override cells are tinted green (forced Allow) / red (forced Deny).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Effective Permissions (read-only)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Note the date range on an override is captured but does NOT currently filter the effective view by today’s date (F-3).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Effective Permissions (read-only)",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: #, Screen · trigger, Kind, Title, Message (15 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Roles have three (Draft → Active ⇄ Inactive), because a role must be authored before it can be assigned.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: Entity, Status, Meaning (5 rows)",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: #, Transition, Trigger, Where (5 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Every rule is testable as written; the server enforces all of them.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 12: #, Rule (testable statement), Where, Message (12 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 13: #, Mock shortcut, Real behaviour required (8 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 14: #, Finding, Corrected rule for the real build (4 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build), table 14",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 15: #, Question, Proposed default, Owner (12 rows; identifiers: #)",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Field names are PascalCase DTO names.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 16: Field, Type, Notes (8 rows; identifiers: Field)",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 17: Field, Type, Notes (6 rows; identifiers: Field)",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 18: Field, Type, Notes (7 rows; identifiers: Field)",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "Absence of an override = inherit from the roles. (Real build should also gate by the override’s date window — F-3 / Q-12.)",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Effective-permission computation",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 19: Mock method, Real endpoint (to define) (1 rows)",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Service surface (mock → real, per master), table 19",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 20: Version, Owner, Git user, Date, Summary (1 rows)",
+      "locator": "§ BU & Role Setup — Access Control › Version History, table 20",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "BU & Role Setup — Access Control",
+      "heading": "BU & Role Setup — Access Control",
+      "text": "Feature: wfx-erp-product-admin (screen group “BU & Role Setup”) · Owner: Varun Kumar (VP - Technology)\nFunctional Specification for the development team, generated from the finished, product-team-approved Product Mock Studio screens (feature library wfx-erp-product-admin, screen group “BU & Role Setup”). The mock is intentionally lenient; this specification is not — it is the contract the development team builds from, and it goes to QA and then to live production. Items marked ASSUMED are pending product-team sign-off (see Open questions).",
+      "locator": "§ BU & Role Setup — Access Control",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "BU & Role Setup — Access Control › Overview › Purpose",
+      "text": "BU & Role Setup is the ERP’s access-control workbench. It answers three questions for every person who signs in: where they work (Business Units), what a job can do (Roles = permission bundles), and who holds which role in which Business Unit (Assign User), with optional per-user exceptions. Three masters are maintained here — Business Units, Roles and Users — under one tabbed screen.",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Who uses it",
+      "heading": "BU & Role Setup — Access Control › Overview › Who uses it",
+      "text": "• System / access administrators — define Business Units, author Roles and their permission matrix, and assign roles to users per Business Unit.\n• Every other module — reads the effective permissions to decide what a signed-in user may see and do (enforcement lives in each module, not here).",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Who uses it",
+      "kind": "section"
+    },
+    {
+      "title": "Where it sits in the ERP",
+      "heading": "BU & Role Setup — Access Control › Overview › Where it sits in the ERP",
+      "text": "The feature lives in the Admin module (mock library wfx-erp-product-admin, route /admin; on promotion the library drops its -product segment → libs/angular/features/wfx-erp/wfx-erp-admin). It shares the Admin library with the Business Process Engine (specified separately). /admin redirects to /admin/bu-role-setup. The permission model is Module → Resource → Action: six modules (Catalog, Sales, Sourcing, Production, Inventory, Finance), each exposing Transaction screens and List screens as resources, and eight actions (View, Create, Edit, Delete, Approve, Post, Export, Cancel). A List resource is read-only navigation — only View and Export apply to it.\nScope of this spec: the tabbed shell and the List + Detail screens for Business Units, Roles and Users, including the permission matrix, per-user overrides and effective-permission view. Runtime enforcement of permissions inside each transaction is out of scope (Q-11).",
+      "locator": "§ BU & Role Setup — Access Control › Overview › Where it sits in the ERP",
+      "kind": "section"
+    },
+    {
+      "title": "Screen inventory & navigation flow – Table 1",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "Columns: # (text); Screen (text); Route (text); Purpose (text)\n# | Screen | Route | Purpose\nS-1 | BU & Role Setup shell (3 tabs) | /admin/bu-role-setup?tab={business-units|roles|users} | Tabbed container hosting the three lists. /admin and /admin/bu-role-setup land on the Business Units tab.\nS-2 | Business Units List | tab business-units | Search, filter and manage all Business Units.\nS-3 | Business Unit Detail (New / Edit) | /admin/business-units/new · /admin/business-units/{id} | Create/edit a BU: ledger, companies, divisions, reference codes. Auto-save.\nS-4 | Roles List | tab roles | Search, filter and manage all Roles.\nS-5 | Role Detail (New / Edit) | /admin/roles/new · /admin/roles/{id} | Author a role and its permission matrix; copy from another role; Activate. Auto-save.\nS-6 | Assign User List | tab users | Search, filter and manage all Users.\nS-7 | Assign User Detail (New / Edit) | /admin/users/new · /admin/users/{id} | Pick a person; assign roles per Business Unit; per-user permission overrides; view effective permissions. Auto-save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-1; Screen: BU & Role Setup shell (3 tabs); Route: /admin/bu-role-setup?tab={business-units|roles|users}; Purpose: Tabbed container hosting the three lists. /admin and /admin/bu-role-setup land on the Business Units tab.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-2; Screen: Business Units List; Route: tab business-units; Purpose: Search, filter and manage all Business Units.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-3; Screen: Business Unit Detail (New / Edit); Route: /admin/business-units/new · /admin/business-units/{id}; Purpose: Create/edit a BU: ledger, companies, divisions, reference codes. Auto-save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-4; Screen: Roles List; Route: tab roles; Purpose: Search, filter and manage all Roles.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-5; Screen: Role Detail (New / Edit); Route: /admin/roles/new · /admin/roles/{id}; Purpose: Author a role and its permission matrix; copy from another role; Activate. Auto-save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-6; Screen: Assign User List; Route: tab users; Purpose: Search, filter and manage all Users.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow",
+      "text": "#: S-7; Screen: Assign User Detail (New / Edit); Route: /admin/users/new · /admin/users/{id}; Purpose: Pick a person; assign roles per Business Unit; per-user permission overrides; view effective permissions. Auto-save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Navigation rules",
+      "heading": "BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "text": "• Tabs sync to the URL: switching tab writes ?tab=; deep-linking a tab opens it directly. The three slugs are business-units, roles, users.\n• List → Detail (edit): click the primary link cell in a row (BU name, Role name, or the combined User cell), or right-click → Edit. List → Detail (new): the “+ Add” button on each tab.\n• Detail → List: the back arrow returns to the shell with the matching ?tab= preserved. Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.\n• Unknown id on a detail route: error toast (M-3 / M-8 / M-14) and the user is returned to the list.\n• Browser/page titles: “BU & Role Setup” (shell); “Business Unit”, “Role”, “User” (edit); the New routes are untitled (fall back to the app title).\n• Back-navigation state: the mock does not preserve list state (filters, page, active tab beyond the slug). The real screen must restore search, filters, sort, page and tab exactly as the user left them (QA checklist §5) — Q-10.",
+      "locator": "§ BU & Role Setup — Access Control › Screen inventory & navigation flow › Navigation rules",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Rules referenced throughout the field tables and the Validations master list are defined once here, so no field restates them.",
+      "locator": "§ BU & Role Setup — Access Control › Conventions",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions – Table 2",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Columns: Convention (text); Definition (text)\nConvention | Definition\nEnforcement | The server enforces every rule; client validation is a convenience, not the enforcement. Every status transition is re-validated server-side.\nAuto-save | Detail screens have NO Save button. A debounced engine saves on every change once the record exists. Loaded values never count as dirty (opening a record must not trigger a save). The save-status indicator shows idle → saving → saved / error; a failed save keeps the error until a later save succeeds.\nSeed fields | The field(s) that must be valid before the record is first inserted. Until then the record does not exist and dependent editors (permissions, assignments, overrides) are disabled.\nText fields | Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum.\nCompany scope | Roles and Business Units are company/tenant-scoped in the real build: lists are filtered to the current company and code/name-uniqueness is enforced within it (Q-9).\nStatus badge | Rendered as a wfx-badge chip, never plain text. Severity: Draft = secondary (grey), Active = success (green), Inactive = warning (amber).\nReference Code | A shared, multi-select tag list applied to a Business Unit and to a User. Codes come from the reference-code master (mock: 8 static values — D-6, Q-1).\nDate display | All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale. Date columns use a date filter (calendar picker; equals / before / after / from–to).\nSet Inactive | Retiring a record opens a modal with one mandatory Reason textarea (4 rows); a blank reason is rejected (M-2). The reason is stored (mock: in Comments) — real build: a dedicated field with an audit entry (D-4).",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Enforcement; Definition: The server enforces every rule; client validation is a convenience, not the enforcement. Every status transition is re-validated server-side.",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Auto-save; Definition: Detail screens have NO Save button. A debounced engine saves on every change once the record exists. Loaded values never count as dirty (opening a record must not trigger a save). The save-status indicator shows idle → saving → saved / error; a failed save keeps the error until a later save succeeds.",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Seed fields; Definition: The field(s) that must be valid before the record is first inserted. Until then the record does not exist and dependent editors (permissions, assignments, overrides) are disabled.",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Text fields; Definition: Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum.",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Company scope; Definition: Roles and Business Units are company/tenant-scoped in the real build: lists are filtered to the current company and code/name-uniqueness is enforced within it (Q-9).",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Status badge; Definition: Rendered as a wfx-badge chip, never plain text. Severity: Draft = secondary (grey), Active = success (green), Inactive = warning (amber).",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Reference Code; Definition: A shared, multi-select tag list applied to a Business Unit and to a User. Codes come from the reference-code master (mock: 8 static values — D-6, Q-1).",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Date display; Definition: All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale. Date columns use a date filter (calendar picker; equals / before / after / from–to).",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "BU & Role Setup — Access Control › Conventions",
+      "text": "Convention: Set Inactive; Definition: Retiring a record opens a modal with one mandatory Reason textarea (4 rows); a blank reason is rejected (M-2). The reason is stored (mock: in Comments) — real build: a dedicated field with an audit entry (D-4).",
+      "locator": "§ BU & Role Setup — Access Control › Conventions, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen specifications",
+      "heading": "BU & Role Setup — Access Control › Screen specifications",
+      "text": "Screenshots are pending capture. Attach each figure from the AI preview of the BU & Role Setup screens (light mode; Practice-Copy data for any edited state) before sign-off — one per list and detail: Business Units, Roles (permission matrix + module selector), Assign User (directory picker, per-BU assignments, overrides grid + date-range dialog, effective permissions).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications",
+      "kind": "section"
+    },
+    {
+      "title": "BU & Role Setup shell (S-1)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › BU & Role Setup shell (S-1)",
+      "text": "Purpose: one screen, three tabs — Business Units, Role, Assign User — each embedding its list as-is. The active tab is mirrored in ?tab= so a tab is shareable and survives a refresh. No data of its own; it is a router+tab container.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › BU & Role Setup shell (S-1)",
+      "kind": "section"
+    },
+    {
+      "title": "Business Units List (S-2)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2)",
+      "text": "Purpose: working list of all Business Units with search, a status filter, bulk selection, row actions and navigation into the detail.\nBusiness Units List (S-2) — Reference Codes chip column, primary-company star, resolved ledger/company/division names.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2)",
+      "kind": "section"
+    },
+    {
+      "title": "Layout & toolbar",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Layout & toolbar",
+      "text": "• Page header: breadcrumb “Access Control”, title “Business Units”, and a primary “+ Add New Business Unit” button.\n• Content toolbar: quick-search (“Search by name or code”, case-insensitive substring on Name OR Code, trimmed; real build debounce 300 ms) and a clearable Status dropdown (Active, Inactive).\n• Grid in a surface card; floating filter row; pagination footer (page sizes 20 / 50 / 100, default 20). Floating selection bar with count + Clear + Delete when rows are selected.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Layout & toolbar",
+      "kind": "section"
+    },
+    {
+      "title": "Grid specification – Table 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Columns: Column (text); Content (text); Filter (text); Format / behaviour (text)\nColumn | Content | Filter | Format / behaviour\n(selection) | Row + header checkbox | — | Multi-row; header checkbox selects the filtered set only.\nStatus | Badge chip | Set (Active, Inactive) | Per Status badge convention.\nBusiness Unit | Combined — Name (link, opens detail) over Code | Text | autoHeight; blank renders “—”.\nPrimary Ledger | Ledger name | Set | Resolved from LedgerCode via the ledger catalog.\nCompanies | Chip list; the primary company is starred and sorted first | — | autoHeight; names resolved from the company catalog; blank renders “—”.\nDivisions | Chip list, or a single “All divisions” chip | — | autoHeight; when IsAllDivisions, shows “All divisions”; else the chosen division names.\nReference Codes | Chip list of reference-code names | — | autoHeight; blank renders “—”.\nCreated By | Avatar + name | Set | Mock stamps a fixed user (no login) — D-3.\nCreated On | Creation date | Date | Date convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: (selection); Content: Row + header checkbox; Filter: —; Format / behaviour: Multi-row; header checkbox selects the filtered set only.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Status; Content: Badge chip; Filter: Set (Active, Inactive); Format / behaviour: Per Status badge convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Business Unit; Content: Combined — Name (link, opens detail) over Code; Filter: Text; Format / behaviour: autoHeight; blank renders “—”.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Primary Ledger; Content: Ledger name; Filter: Set; Format / behaviour: Resolved from LedgerCode via the ledger catalog.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Companies; Content: Chip list; the primary company is starred and sorted first; Filter: —; Format / behaviour: autoHeight; names resolved from the company catalog; blank renders “—”.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Divisions; Content: Chip list, or a single “All divisions” chip; Filter: —; Format / behaviour: autoHeight; when IsAllDivisions, shows “All divisions”; else the chosen division names.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Reference Codes; Content: Chip list of reference-code names; Filter: —; Format / behaviour: autoHeight; blank renders “—”.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Created By; Content: Avatar + name; Filter: Set; Format / behaviour: Mock stamps a fixed user (no login) — D-3.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification",
+      "text": "Column: Created On; Content: Creation date; Filter: Date; Format / behaviour: Date convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Grid specification, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Row & bulk actions",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Row & bulk actions",
+      "text": "• Context menu (right-click): Edit (always); Reactivate (Inactive only); Set Inactive (Active only); Delete. Real build must also add a pinned-right kebab actions column — right-click alone is not discoverable (F-1).\n• Delete: confirmation dialog (M-1), then hard delete. Bulk delete validates the selection and reloads the list on success.\n• Set Inactive / Reactivate per the Set Inactive convention and the lifecycle (Section Workflow).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Units List (S-2) › Row & bulk actions",
+      "kind": "section"
+    },
+    {
+      "title": "Business Unit Detail (S-3)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3)",
+      "text": "Purpose: create and edit a Business Unit. Auto-save; Set Inactive / Reactivate are the only manual lifecycle actions. Panels: Business Unit Details, Primary Ledger, Companies (Legal Entities), Company Divisions.\nBusiness Unit Detail (S-3) — Details panel with the Reference Code multi-select, Primary Ledger, Companies and Company Divisions.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3)",
+      "kind": "section"
+    },
+    {
+      "title": "Field table – Table 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Columns: Field (text); Type (text); Required (text); Rules (text); Options / source (text)\nField | Type | Required | Rules | Options / source\nName | Text input | Yes (seed) | V-1 | Free text\nCode | Text input | Yes (seed) | V-2 | Free text (letters, numbers, dashes)\nReference Code | Multi-select (chips) | No | Reference Code convention | Reference-code master (mock: Export, Domestic, Sampling, Bulk Production, OEM, Private Label, Retail, E-Commerce)\nLedger | Single-select (searchable) | Yes (seed) | V-3 | Ledger catalog (mock: INR / USD / BDT / VND ledgers) — D-6\nCompanies | Multi-select (chips) | No* | V-4 | Company catalog (mock: WFX India / Bangladesh / Vietnam / USA)\nPrimary Company | Single-select | No* | V-4 (must be one of Companies) | Constrained to the chosen Companies; disabled until at least one is chosen\nAll divisions | Toggle | — | When ON, the Divisions list is hidden and stored empty | —\nDivisions | Multi-select (chips) | No | Used only when All divisions is OFF | Division catalog (mock: Menswear, Womenswear, Knits, Woven, Denim, Kids)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Name; Type: Text input; Required: Yes (seed); Rules: V-1; Options / source: Free text",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Code; Type: Text input; Required: Yes (seed); Rules: V-2; Options / source: Free text (letters, numbers, dashes)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Reference Code; Type: Multi-select (chips); Required: No; Rules: Reference Code convention; Options / source: Reference-code master (mock: Export, Domestic, Sampling, Bulk Production, OEM, Private Label, Retail, E-Commerce)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Ledger; Type: Single-select (searchable); Required: Yes (seed); Rules: V-3; Options / source: Ledger catalog (mock: INR / USD / BDT / VND ledgers) — D-6",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Companies; Type: Multi-select (chips); Required: No*; Rules: V-4; Options / source: Company catalog (mock: WFX India / Bangladesh / Vietnam / USA)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Primary Company; Type: Single-select; Required: No*; Rules: V-4 (must be one of Companies); Options / source: Constrained to the chosen Companies; disabled until at least one is chosen",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: All divisions; Type: Toggle; Required: —; Rules: When ON, the Divisions list is hidden and stored empty; Options / source: —",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "Field: Divisions; Type: Multi-select (chips); Required: No; Rules: Used only when All divisions is OFF; Options / source: Division catalog (mock: Menswear, Womenswear, Knits, Woven, Denim, Kids)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Field table",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "text": "*Companies/Primary Company are not hard-required by the mock, but a real build should require at least one company with exactly one primary — Q-2.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Field table",
+      "kind": "section"
+    },
+    {
+      "title": "Behaviours",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Behaviours",
+      "text": "• Seed fields: Name + Code + Ledger. The record is inserted once all three are valid; only then does the rest persist.\n• Choosing Companies keeps the Primary valid: if the current primary is deselected it falls back to the first remaining company (or blank when none remain).\n• Turning “All divisions” ON clears and hides the explicit Divisions list; the stored DivisionCodes is emptied.\n• Reference Code is a free tag list; order is preserved as entered.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Business Unit Detail (S-3) › Behaviours",
+      "kind": "section"
+    },
+    {
+      "title": "Roles List (S-4)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Purpose: working list of all Roles. Same list frame as Business Units (search, Status filter, selection bar, context menu, pagination).\nRoles List (S-4) — derived Modules and Permissions counts per role.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "kind": "section"
+    },
+    {
+      "title": "Roles List (S-4) – Table 5",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Columns: Column (text); Content (text); Filter (text); Notes (text)\nColumn | Content | Filter | Notes\nStatus | Badge chip | Set (Draft, Active, Inactive) | Roles have three states (unlike BU/User).\nRole | Combined — Name (link) over Description | Text | Opens the role detail.\nModules | Count of modules with at least one grant (GrantedModuleCount) | Number | Derived on save.\nPermissions | Count of granted (resource, action) pairs (GrantedPermissionCount) | Number | Derived on save.\nCreated By | Avatar + name | Set | D-3.\nCreated On | Creation date | Date | Date convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Column: Status; Content: Badge chip; Filter: Set (Draft, Active, Inactive); Notes: Roles have three states (unlike BU/User).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Column: Role; Content: Combined — Name (link) over Description; Filter: Text; Notes: Opens the role detail.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Column: Modules; Content: Count of modules with at least one grant (GrantedModuleCount); Filter: Number; Notes: Derived on save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Column: Permissions; Content: Count of granted (resource, action) pairs (GrantedPermissionCount); Filter: Number; Notes: Derived on save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Column: Created By; Content: Avatar + name; Filter: Set; Notes: D-3.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "Column: Created On; Content: Creation date; Filter: Date; Notes: Date convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4), table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Roles List (S-4)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "text": "• Context menu: Edit; Duplicate (copies the role and its permissions to a new Draft — success M-10); Activate (Draft/Inactive, gated on ≥1 permission — M-9); Set Inactive (Active); Delete (blocked while Active — M-11 / V-8).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Roles List (S-4)",
+      "kind": "section"
+    },
+    {
+      "title": "Role Detail (S-5)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5)",
+      "text": "Purpose: author a role — its name/description and its permission matrix — then Activate it so it can be assigned. Auto-save; Activate / Set Inactive are the manual lifecycle actions.\nRole Detail (S-5) — module selector bar with the Sales module expanded to its resource × action matrix; List rows show the disabled non-View/Export cells.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5)",
+      "kind": "section"
+    },
+    {
+      "title": "Field table — Role Details – Table 6",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details",
+      "text": "Columns: Field (text); Type (text); Required (text); Rules (text)\nField | Type | Required | Rules\nRole Name | Text input | Yes (seed) | V-5\nDescription | Textarea | No | ≤ 500\nCopy from role | Action (select a source role) | — | Replaces the current permissions with a copy of the chosen role’s, after confirm (M-6).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details",
+      "text": "Field: Role Name; Type: Text input; Required: Yes (seed); Rules: V-5",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details",
+      "text": "Field: Description; Type: Textarea; Required: No; Rules: ≤ 500",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details",
+      "text": "Field: Copy from role; Type: Action (select a source role); Required: —; Rules: Replaces the current permissions with a copy of the chosen role’s, after confirm (M-6).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Field table — Role Details, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Permission matrix",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Permission matrix",
+      "text": "• A top Module selector bar lists the six modules with “Select all” / “Clear”. Only the modules the user selects appear below for permission editing; an empty selection shows an empty-state prompt. A module that already has grants but is not selected is surfaced as a hidden-grants count so grants are never silently lost.\n• For each selected module, a grid of its resources (rows) × the eight actions (columns) of checkboxes. Actions: View, Create, Edit, Delete, Approve, Post, Export, Cancel.\n• List resources accept only View and Export; the other six action cells are rendered disabled/greyed on a List row and can never be granted (V-7). Transaction resources accept all eight.\n• Grants are stored as a map of Resource code → array of granted action codes; only applicable actions are ever stored. GrantedModuleCount / GrantedPermissionCount are derived from it on save.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Permission matrix",
+      "kind": "section"
+    },
+    {
+      "title": "Activate",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Activate",
+      "text": "• Gate: the form is valid AND at least one permission is granted (M-7 / M-8 from the detail; M-9 from the list). Activate/Re-activate confirm dialogs per the messages table.\n• On success Status = Active and the role becomes assignable to users; success toast M-13.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Role Detail (S-5) › Activate",
+      "kind": "section"
+    },
+    {
+      "title": "Assign User List (S-6)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Purpose: working list of all Users. Same list frame as the others.\nAssign User List (S-6) — merged User column (avatar + name over username); the Roles column shows the amber override flag (“2”) on a user with permission overrides.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "kind": "section"
+    },
+    {
+      "title": "Assign User List (S-6) – Table 7",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Columns: Column (text); Content (text); Filter (text); Notes (text)\nColumn | Content | Filter | Notes\nStatus | Badge chip | Set (Active, Inactive) | —\nUser | Combined — avatar + Full Name over Username (one merged column) | Text | Clicking the cell opens the user detail.\nEmail | Email | Text | —\nRoles | Distinct role-name chips across all Business Units, plus an amber override flag (sliders icon + count) when the user has any permission override | — | autoHeight; blank renders “—”; the override flag tooltip reads “N permission override(s)”.\nBusiness Units | Distinct Business-Unit-name chips across all the user’s assignments | — | autoHeight.\nCreated By | Avatar + name | Set | D-3.\nCreated On | Creation date | Date | Date convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: Status; Content: Badge chip; Filter: Set (Active, Inactive); Notes: —",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: User; Content: Combined — avatar + Full Name over Username (one merged column); Filter: Text; Notes: Clicking the cell opens the user detail.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: Email; Content: Email; Filter: Text; Notes: —",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: Roles; Content: Distinct role-name chips across all Business Units, plus an amber override flag (sliders icon + count) when the user has any permission override; Filter: —; Notes: autoHeight; blank renders “—”; the override flag tooltip reads “N permission override(s)”.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: Business Units; Content: Distinct Business-Unit-name chips across all the user’s assignments; Filter: —; Notes: autoHeight.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: Created By; Content: Avatar + name; Filter: Set; Notes: D-3.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 7",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "Column: Created On; Content: Creation date; Filter: Date; Notes: Date convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6), table 7, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Assign User List (S-6)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "text": "• Context menu: Edit; Reactivate (Inactive); Set Inactive (Active); Delete. Bulk delete supported.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User List (S-6)",
+      "kind": "section"
+    },
+    {
+      "title": "Assign User Detail (S-7)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7)",
+      "text": "Purpose: define a user’s access — pick the person, tag them, assign roles per Business Unit, and fine-tune with per-user overrides — and see the net effective permissions. Auto-save; Set Inactive / Reactivate are the manual lifecycle actions. Panels: User Details, Business Unit Assignments, Permission Overrides, Effective Permissions.\nAssign User Detail (S-7) — staff-directory picker with auto-filled Full Name/Email and Reference Code, per-Business-Unit role assignments, the Permission Overrides grid (with an Apply Date Range on the FIN.GL View override), and the read-only Effective Permissions matrix.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7)",
+      "kind": "section"
+    },
+    {
+      "title": "Field table — User Details – Table 8",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details",
+      "text": "Columns: Field (text); Type (text); Required (text); Rules / behaviour (text)\nField | Type | Required | Rules / behaviour\nUser | Searchable single-select (staff directory) | Yes (seed) | V-9. Selecting a person auto-fills Full Name, Username and Email. People already assigned to another user are hidden from the list so the same person cannot be added twice.\nFull Name | Read-only text | — | Auto-filled from the selected person.\nEmail | Read-only text | — | Auto-filled from the selected person.\nReference Code | Multi-select (chips) | No | Reference Code convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details",
+      "text": "Field: User; Type: Searchable single-select (staff directory); Required: Yes (seed); Rules / behaviour: V-9. Selecting a person auto-fills Full Name, Username and Email. People already assigned to another user are hidden from the list so the same person cannot be added twice.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details",
+      "text": "Field: Full Name; Type: Read-only text; Required: —; Rules / behaviour: Auto-filled from the selected person.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details",
+      "text": "Field: Email; Type: Read-only text; Required: —; Rules / behaviour: Auto-filled from the selected person.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details",
+      "text": "Field: Reference Code; Type: Multi-select (chips); Required: No; Rules / behaviour: Reference Code convention.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Field table — User Details, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Business Unit Assignments (roles per BU)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Business Unit Assignments (roles per BU)",
+      "text": "• One row per Business Unit: pick a Business Unit (single-select from the Active BU master), then the role(s) the user holds within it (multi-select from Active roles). “+ Add Business Unit” adds a row; the trash icon removes it.\n• The Roles multi-select is disabled until the Business Unit is chosen. A Business Unit already on the user is blocked from being added twice (M-4) — add the extra roles to the existing row instead.\n• Stored as an array of { BusinessUnitCode, RoleIDs[], RoleNames[] } (one entry per BU).\n• Adding assignments requires the record to exist first (pick a User) — else the guard M-5 fires.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Business Unit Assignments (roles per BU)",
+      "kind": "section"
+    },
+    {
+      "title": "Permission Overrides (grid)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Permission Overrides (grid)",
+      "text": "• A grid, one row per overridden screen. Columns: Module / Transaction (searchable picker of any resource, each screen only once — M-12), Apply Date Range, then one column per action (View … Cancel), then a delete action.\n• Each action cell is a tri-state the user clicks to cycle — (Inherit) → Allow → Deny, colour-coded grey / green / red. Cells for actions that do not apply to a List screen show a muted “·” and are not clickable.\n• Apply Date Range: clicking the cell opens a dialog with a range date-picker; the window (From–To, inclusive) scopes the whole row. Empty = applies always. Captured per Module/Transaction row, so every action override on that screen shares the window.\n• “+ Add Override” adds a row for the first screen not already overridden; the guard M-5 applies before the record exists.\n• Meaning: Allow force-grants a permission no assigned role gives; Deny force-removes one a role grants. Deny always wins. Stored as an array of { ResourceCode, ActionCode, Effect: Allow|Deny, FromDate?, ToDate? } (only Allow/Deny rows are persisted; Inherit stores nothing).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Permission Overrides (grid)",
+      "kind": "section"
+    },
+    {
+      "title": "Effective Permissions (read-only)",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Effective Permissions (read-only)",
+      "text": "• A read-only matrix (accordion per module, resources × actions) showing the net result: union of every role the user holds in any Business Unit, then overrides applied (Deny wins over Allow wins over Inherit). Override cells are tinted green (forced Allow) / red (forced Deny). A granted-count badge sits on the panel header.\n• This view never edits — it reflects the panels above. Note the date range on an override is captured but does NOT currently filter the effective view by today’s date (F-3).",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Effective Permissions (read-only)",
+      "kind": "section"
+    },
+    {
+      "title": "Alerts & messages (exact wording) – Table 9",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "Columns: # (text); Screen · trigger (text); Kind (text); Title (text); Message (text)\n# | Screen · trigger | Kind | Title | Message\nM-1 | Any list · Delete confirm | Confirm | Confirm Delete | Delete {name}? This cannot be undone. (bulk: Delete {n} selected …(s)? This cannot be undone.)\nM-2 | Any · Set Inactive, blank reason | Warning | Validation | Reason is mandatory.\nM-3 | BU detail · unknown id | Error | Not Found | That business unit does not exist.\nM-4 | User detail · add a BU already on the user | Warning | Business Unit Already Added | {BUName} is already on this user. Add the roles to the existing row instead.\nM-5 | User detail · add assignment/override before a user is picked | Warning | Enter user details first | Give the user a name and username before assigning roles. (overrides: … before adding overrides.)\nM-6 | Role detail · Copy from role | Confirm | Copy Permissions | Replace the current permissions with a copy of “{RoleName}”?\nM-7 | Role detail · Activate, invalid form | Warning | Validation | Please fix the highlighted fields before activating.\nM-8 | Role detail · Activate, no permissions | Warning | No Permissions | Grant at least one permission before activating the role.\nM-9 | Roles list · Activate, no permissions | Warning | Cannot Activate | {RoleName} has no permissions granted yet. Grant at least one before activating.\nM-10 | Roles list · Duplicate succeeded | Success | Role Duplicated | Created {RoleName}.\nM-11 | Roles list · Delete on an Active role | Warning | Not Allowed | {RoleName} is Active and cannot be deleted. Set it Inactive (with a reason) first.\nM-12 | User detail · override screen already added | Warning | Already Added / All screens added | That transaction / list already has an override row. / Every transaction / list already has an override row.\nM-13 | Role/BU/User · Activate/Reactivate/Set Inactive succeeded | Success | Activated / Reactivated / Set Inactive | {name} is now active. / {name} is active again. / {name} was set inactive.\nM-14 | Role/User detail · unknown id | Error | Not Found | That role does not exist. / That user does not exist.\nM-15 | Any · load / save failed | Error | Load Failed / Save Failed | Could not load {items} from the mock store. / Could not save the {item}. (real: drop “from the mock store”.)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-1; Screen · trigger: Any list · Delete confirm; Kind: Confirm; Title: Confirm Delete; Message: Delete {name}? This cannot be undone. (bulk: Delete {n} selected …(s)? This cannot be undone.)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-2; Screen · trigger: Any · Set Inactive, blank reason; Kind: Warning; Title: Validation; Message: Reason is mandatory.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-3; Screen · trigger: BU detail · unknown id; Kind: Error; Title: Not Found; Message: That business unit does not exist.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 4",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-4; Screen · trigger: User detail · add a BU already on the user; Kind: Warning; Title: Business Unit Already Added; Message: {BUName} is already on this user. Add the roles to the existing row instead.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 5",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-5; Screen · trigger: User detail · add assignment/override before a user is picked; Kind: Warning; Title: Enter user details first; Message: Give the user a name and username before assigning roles. (overrides: … before adding overrides.)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 6",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-6; Screen · trigger: Role detail · Copy from role; Kind: Confirm; Title: Copy Permissions; Message: Replace the current permissions with a copy of “{RoleName}”?",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 7",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-7; Screen · trigger: Role detail · Activate, invalid form; Kind: Warning; Title: Validation; Message: Please fix the highlighted fields before activating.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 8",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-8; Screen · trigger: Role detail · Activate, no permissions; Kind: Warning; Title: No Permissions; Message: Grant at least one permission before activating the role.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 9",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-9; Screen · trigger: Roles list · Activate, no permissions; Kind: Warning; Title: Cannot Activate; Message: {RoleName} has no permissions granted yet. Grant at least one before activating.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 10",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-10; Screen · trigger: Roles list · Duplicate succeeded; Kind: Success; Title: Role Duplicated; Message: Created {RoleName}.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 11",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-11; Screen · trigger: Roles list · Delete on an Active role; Kind: Warning; Title: Not Allowed; Message: {RoleName} is Active and cannot be deleted. Set it Inactive (with a reason) first.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 12",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-12; Screen · trigger: User detail · override screen already added; Kind: Warning; Title: Already Added / All screens added; Message: That transaction / list already has an override row. / Every transaction / list already has an override row.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 13",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-13; Screen · trigger: Role/BU/User · Activate/Reactivate/Set Inactive succeeded; Kind: Success; Title: Activated / Reactivated / Set Inactive; Message: {name} is now active. / {name} is active again. / {name} was set inactive.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 14",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-14; Screen · trigger: Role/User detail · unknown id; Kind: Error; Title: Not Found; Message: That role does not exist. / That user does not exist.",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 15",
+      "heading": "BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording)",
+      "text": "#: M-15; Screen · trigger: Any · load / save failed; Kind: Error; Title: Load Failed / Save Failed; Message: Could not load {items} from the mock store. / Could not save the {item}. (real: drop “from the mock store”.)",
+      "locator": "§ BU & Role Setup — Access Control › Screen specifications › Assign User Detail (S-7) › Alerts & messages (exact wording), table 9, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Workflow & status lifecycle",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Business Units and Users have two states (Active ⇄ Inactive). Roles have three (Draft → Active ⇄ Inactive), because a role must be authored before it can be assigned.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "kind": "section"
+    },
+    {
+      "title": "Workflow & status lifecycle – Table 10",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Columns: Entity (text); Status (text); Meaning (text)\nEntity | Status | Meaning\nRole | Draft | Auto-saved; being authored; not yet assignable; deletable.\nRole | Active | Assignable to users; not deletable; stays editable.\nRole | Inactive | Retired with a reason; not assignable; editable; deletable; re-activatable.\nBusiness Unit / User | Active | In use; not deletable via the “Active” guard where applicable; editable.\nBusiness Unit / User | Inactive | Retired with a reason (User) ; excluded from the assignable BU / role pickers; re-activatable.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Entity: Role; Status: Draft; Meaning: Auto-saved; being authored; not yet assignable; deletable.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Entity: Role; Status: Active; Meaning: Assignable to users; not deletable; stays editable.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Entity: Role; Status: Inactive; Meaning: Retired with a reason; not assignable; editable; deletable; re-activatable.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Entity: Business Unit / User; Status: Active; Meaning: In use; not deletable via the “Active” guard where applicable; editable.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Entity: Business Unit / User; Status: Inactive; Meaning: Retired with a reason (User) ; excluded from the assignable BU / role pickers; re-activatable.",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Workflow & status lifecycle – Table 11",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "Columns: # (text); Transition (text); Trigger (text); Where (text)\n# | Transition | Trigger | Where\nT-1 | (new) → Draft/Active | Automatic: seed fields valid → record inserted (Role → Draft; BU / User → Active) | Detail, auto-save\nT-2 | Role Draft/Inactive → Active | Manual Activate; gate: form valid + ≥ 1 permission | Role detail toolbar / list context menu\nT-3 | Active → Inactive | Manual Set Inactive + mandatory reason | List context menu / detail\nT-4 | Inactive → Active | Manual Reactivate (Role re-applies the Activate gate) | List context menu / detail\nT-5 | (record) → deleted | Manual Delete + confirm; an Active Role is blocked (V-8) | List context menu / bulk bar",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "#: T-1; Transition: (new) → Draft/Active; Trigger: Automatic: seed fields valid → record inserted (Role → Draft; BU / User → Active); Where: Detail, auto-save",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "#: T-2; Transition: Role Draft/Inactive → Active; Trigger: Manual Activate; gate: form valid + ≥ 1 permission; Where: Role detail toolbar / list context menu",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "#: T-3; Transition: Active → Inactive; Trigger: Manual Set Inactive + mandatory reason; Where: List context menu / detail",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 4",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "#: T-4; Transition: Inactive → Active; Trigger: Manual Reactivate (Role re-applies the Activate gate); Where: List context menu / detail",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 5",
+      "heading": "BU & Role Setup — Access Control › Workflow & status lifecycle",
+      "text": "#: T-5; Transition: (record) → deleted; Trigger: Manual Delete + confirm; an Active Role is blocked (V-8); Where: List context menu / bulk bar",
+      "locator": "§ BU & Role Setup — Access Control › Workflow & status lifecycle, table 11, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Validations master list",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "One line per field, its checks combined; shared rules are defined once under Conventions. Every rule is testable as written; the server enforces all of them.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list – Table 12",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "Columns: # (text); Rule (testable statement) (text); Where (text); Message (text)\n# | Rule (testable statement) | Where | Message\nV-1 | BU Name — required (seed); trimmed, not blank; ≤ 120. | BU detail + server | Name is required / cannot be blank\nV-2 | BU Code — required (seed); trimmed; ≤ 30; letters, numbers and dashes only; unique (case-insensitive) within the company. | BU detail + server | Code is required · Code: letters, numbers and dashes only · A business unit with this code already exists\nV-3 | BU Ledger — required (seed); exactly one ledger. | BU detail + server | —\nV-4 | BU Primary Company — must be one of the chosen Companies; auto-repaired when a company is removed. | BU detail + server | —\nV-5 | Role Name — required (seed); trimmed, not blank; ≤ 120; unique (case-insensitive) within the company. | Role detail + server | Role name is required / A role with this name already exists\nV-6 | Role Activate — form valid AND at least one permission granted. | Role detail + list + server | Please fix the highlighted fields before activating. / Grant at least one permission before activating the role.\nV-7 | Permission grant — a List resource may carry only View / Export; the other six actions can never be granted on it. | Role detail + server | — (cells disabled)\nV-8 | Delete a Role — allowed only when Draft or Inactive; an Active role must be set Inactive first. | Roles list + server | {RoleName} is Active and cannot be deleted. Set it Inactive (with a reason) first.\nV-9 | User — required (seed) person from the directory; a person already assigned to another user is not selectable; the resulting Username is unique. | User detail + server | — (filtered out of the picker)\nV-10 | User assignment — one row per Business Unit (no BU twice); the Roles list is disabled until a BU is chosen. | User detail + server | {BUName} is already on this user. Add the roles to the existing row instead.\nV-11 | User override — one row per screen (no resource twice); Effect is Allow or Deny; an optional From–To window (From ≤ To). | User detail + server | That transaction / list already has an override row.\nV-12 | Set Inactive — reason required (non-blank). | Detail/list dialog + server | Reason is mandatory.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12",
+      "kind": "table"
+    },
+    {
+      "title": "Table 12 row 1",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-1; Rule (testable statement): BU Name — required (seed); trimmed, not blank; ≤ 120.; Where: BU detail + server; Message: Name is required / cannot be blank",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 2",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-2; Rule (testable statement): BU Code — required (seed); trimmed; ≤ 30; letters, numbers and dashes only; unique (case-insensitive) within the company.; Where: BU detail + server; Message: Code is required · Code: letters, numbers and dashes only · A business unit with this code already exists",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 3",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-3; Rule (testable statement): BU Ledger — required (seed); exactly one ledger.; Where: BU detail + server; Message: —",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 4",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-4; Rule (testable statement): BU Primary Company — must be one of the chosen Companies; auto-repaired when a company is removed.; Where: BU detail + server; Message: —",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 5",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-5; Rule (testable statement): Role Name — required (seed); trimmed, not blank; ≤ 120; unique (case-insensitive) within the company.; Where: Role detail + server; Message: Role name is required / A role with this name already exists",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 6",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-6; Rule (testable statement): Role Activate — form valid AND at least one permission granted.; Where: Role detail + list + server; Message: Please fix the highlighted fields before activating. / Grant at least one permission before activating the role.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 7",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-7; Rule (testable statement): Permission grant — a List resource may carry only View / Export; the other six actions can never be granted on it.; Where: Role detail + server; Message: — (cells disabled)",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 8",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-8; Rule (testable statement): Delete a Role — allowed only when Draft or Inactive; an Active role must be set Inactive first.; Where: Roles list + server; Message: {RoleName} is Active and cannot be deleted. Set it Inactive (with a reason) first.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 9",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-9; Rule (testable statement): User — required (seed) person from the directory; a person already assigned to another user is not selectable; the resulting Username is unique.; Where: User detail + server; Message: — (filtered out of the picker)",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 10",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-10; Rule (testable statement): User assignment — one row per Business Unit (no BU twice); the Roles list is disabled until a BU is chosen.; Where: User detail + server; Message: {BUName} is already on this user. Add the roles to the existing row instead.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 11",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-11; Rule (testable statement): User override — one row per screen (no resource twice); Effect is Allow or Deny; an optional From–To window (From ≤ To).; Where: User detail + server; Message: That transaction / list already has an override row.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 12",
+      "heading": "BU & Role Setup — Access Control › Validations master list",
+      "text": "#: V-12; Rule (testable statement): Set Inactive — reason required (non-blank).; Where: Detail/list dialog + server; Message: Reason is mandatory.",
+      "locator": "§ BU & Role Setup — Access Control › Validations master list, table 12, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Mock shortcuts (real behaviour the dev team must implement) – Table 13",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "Columns: # (text); Mock shortcut (text); Real behaviour required (text)\n# | Mock shortcut | Real behaviour required\nD-1 | Each record embeds its child collections (Role.Permissions map; User.Assignments and User.Overrides arrays); the whole record is PUT as one unit. | Split header from lines into their own tables/endpoints (role-permission, user-assignment, user-override), PATCH the header and CRUD the lines.\nD-2 | Client-side grids over the full list. | Server-side row model with server paging, sorting and filtering from day one.\nD-3 | Created By is a fixed user name (no login); only CreatedOn is real. | Take Created By from the authenticated session; add ModifiedBy / ModifiedOn and store ids, not just display names. Q-8.\nD-4 | The Set Inactive reason is stored in the free-text Comments field. | Store the reason in a dedicated field with an audit entry (who/when). Q-8.\nD-5 | The staff directory (the User picker source), roles and business units are all local mock lists. | Source people from the HR/identity master; roles and BUs from their own masters filtered to the company. Q-3.\nD-6 | Reference codes, ledgers, companies and divisions are static catalogs in code. | Source each from its master/DDL (reference-code master, ledger master, legal-entity master, division master). Q-1.\nD-7 | The permission model uses six representative modules with a sample of Transactions/Lists and eight actions. | Enumerate every real module, resource and action from the application map; confirm the action set per resource. Q-4, Q-5.\nD-8 | Names for roles/BUs are denormalised onto the user (RoleNames, BU chips) for display. | Resolve display names by id at read time (or keep a denormalised copy deliberately with a refresh strategy). Q-6.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13",
+      "kind": "table"
+    },
+    {
+      "title": "Table 13 row 1",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-1; Mock shortcut: Each record embeds its child collections (Role.Permissions map; User.Assignments and User.Overrides arrays); the whole record is PUT as one unit.; Real behaviour required: Split header from lines into their own tables/endpoints (role-permission, user-assignment, user-override), PATCH the header and CRUD the lines.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 2",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-2; Mock shortcut: Client-side grids over the full list.; Real behaviour required: Server-side row model with server paging, sorting and filtering from day one.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 3",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-3; Mock shortcut: Created By is a fixed user name (no login); only CreatedOn is real.; Real behaviour required: Take Created By from the authenticated session; add ModifiedBy / ModifiedOn and store ids, not just display names. Q-8.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 4",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-4; Mock shortcut: The Set Inactive reason is stored in the free-text Comments field.; Real behaviour required: Store the reason in a dedicated field with an audit entry (who/when). Q-8.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 5",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-5; Mock shortcut: The staff directory (the User picker source), roles and business units are all local mock lists.; Real behaviour required: Source people from the HR/identity master; roles and BUs from their own masters filtered to the company. Q-3.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 6",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-6; Mock shortcut: Reference codes, ledgers, companies and divisions are static catalogs in code.; Real behaviour required: Source each from its master/DDL (reference-code master, ledger master, legal-entity master, division master). Q-1.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 7",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-7; Mock shortcut: The permission model uses six representative modules with a sample of Transactions/Lists and eight actions.; Real behaviour required: Enumerate every real module, resource and action from the application map; confirm the action set per resource. Q-4, Q-5.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 8",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-8; Mock shortcut: Names for roles/BUs are denormalised onto the user (RoleNames, BU chips) for display.; Real behaviour required: Resolve display names by id at read time (or keep a denormalised copy deliberately with a refresh strategy). Q-6.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 13, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Findings (fix in the real build) – Table 14",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "Columns: # (text); Finding (text); Corrected rule for the real build (text)\n# | Finding | Corrected rule for the real build\nF-1 | List row actions are reachable only by right-click (no visible actions column). | Add a pinned-right kebab actions column with the same items; right-click stays as a shortcut (grid standard).\nF-2 | An Active Business Unit or User can be hard-deleted from the list (only Active Roles are blocked). | Decide and enforce a consistent delete rule: block (or soft-delete) a BU/User that is referenced by any assignment; never orphan an assignment. Q-7.\nF-3 | An override’s Apply Date Range is stored and shown but does not actually gate the Effective Permissions view by today’s date. | Apply the window when computing effective permissions (an override outside its From–To does not apply). Q-12.\nF-4 | Deactivating a Role/BU does not re-validate users that reference it — a user can still show an Inactive role/BU chip. | On deactivation, warn about (or cascade to) affected users; exclude Inactive roles/BUs from effective permissions. Q-7.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build), table 14",
+      "kind": "table"
+    },
+    {
+      "title": "Table 14 row 1",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-1; Finding: List row actions are reachable only by right-click (no visible actions column).; Corrected rule for the real build: Add a pinned-right kebab actions column with the same items; right-click stays as a shortcut (grid standard).",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build), table 14, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 2",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-2; Finding: An Active Business Unit or User can be hard-deleted from the list (only Active Roles are blocked).; Corrected rule for the real build: Decide and enforce a consistent delete rule: block (or soft-delete) a BU/User that is referenced by any assignment; never orphan an assignment. Q-7.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build), table 14, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 3",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-3; Finding: An override’s Apply Date Range is stored and shown but does not actually gate the Effective Permissions view by today’s date.; Corrected rule for the real build: Apply the window when computing effective permissions (an override outside its From–To does not apply). Q-12.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build), table 14, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 4",
+      "heading": "BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-4; Finding: Deactivating a Role/BU does not re-validate users that reference it — a user can still show an Inactive role/BU chip.; Corrected rule for the real build: On deactivation, warn about (or cascade to) affected users; exclude Inactive roles/BUs from effective permissions. Q-7.",
+      "locator": "§ BU & Role Setup — Access Control › Out-of-scope & deltas › Findings (fix in the real build), table 14, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Open questions – Table 15",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "Columns: # (text); Question (text); Proposed default (text); Owner (text)\n# | Question | Proposed default | Owner\nQ-1 | What is the authoritative Reference Code list and its master? (mock uses 8 representative values) | Source from the reference-code master; treat the mock 8 as representative. | Product owner\nQ-2 | Must a Business Unit have at least one company and exactly one primary? Are Companies/Divisions mandatory? | Require ≥1 company + exactly one primary; Divisions optional (All by default). | Product owner\nQ-3 | Directory source for the User picker, and can a person hold accounts in more than one tenant? | HR/identity master; one user record per person per tenant. | Product owner\nQ-4 | The authoritative module / resource (Transaction & List) catalog and which map feeds it? | Application screen map; mock 6 modules are representative. | Product owner\nQ-5 | The authoritative action set, and whether it varies per resource beyond the List = View/Export rule. | Eight actions; List = View/Export; confirm per-resource exceptions. | Product owner\nQ-6 | Do roles/BUs resolve display names by id at read time, or keep a denormalised copy? | Resolve by id; denormalise only for list performance with a refresh path. | Product owner\nQ-7 | Delete/deactivate rules for a BU/User/Role referenced by assignments — block, soft-delete or cascade? | Block hard delete when referenced; soft-delete + exclude from effective permissions. | Product owner\nQ-8 | Audit & the Inactive reason — track CreatedBy/ModifiedBy/ModifiedOn and store the reason in its own field? | Yes to both. | Product owner\nQ-9 | Company/tenant scoping and uniqueness for Role Name and BU Code — per company, from the session? | Company from session; Role Name and BU Code unique within company. | Product owner\nQ-10 | List default sort, page size and preserved back-navigation (including the active tab)? | Created On descending; page 20; restore filters/sort/page/tab on back. | Product owner\nQ-11 | Where are permissions actually enforced at runtime (this feature only defines them)? | Enforced in each module/route guard + server; config-only here. | Product owner\nQ-12 | Should an override’s date range gate the effective permission (active only within From–To)? | Yes — an override outside its window does not apply. | Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15",
+      "kind": "table"
+    },
+    {
+      "title": "Table 15 row 1",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-1; Question: What is the authoritative Reference Code list and its master? (mock uses 8 representative values); Proposed default: Source from the reference-code master; treat the mock 8 as representative.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 2",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-2; Question: Must a Business Unit have at least one company and exactly one primary? Are Companies/Divisions mandatory?; Proposed default: Require ≥1 company + exactly one primary; Divisions optional (All by default).; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 3",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-3; Question: Directory source for the User picker, and can a person hold accounts in more than one tenant?; Proposed default: HR/identity master; one user record per person per tenant.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 4",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-4; Question: The authoritative module / resource (Transaction & List) catalog and which map feeds it?; Proposed default: Application screen map; mock 6 modules are representative.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 5",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-5; Question: The authoritative action set, and whether it varies per resource beyond the List = View/Export rule.; Proposed default: Eight actions; List = View/Export; confirm per-resource exceptions.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 6",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-6; Question: Do roles/BUs resolve display names by id at read time, or keep a denormalised copy?; Proposed default: Resolve by id; denormalise only for list performance with a refresh path.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 7",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-7; Question: Delete/deactivate rules for a BU/User/Role referenced by assignments — block, soft-delete or cascade?; Proposed default: Block hard delete when referenced; soft-delete + exclude from effective permissions.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 8",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-8; Question: Audit & the Inactive reason — track CreatedBy/ModifiedBy/ModifiedOn and store the reason in its own field?; Proposed default: Yes to both.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 9",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-9; Question: Company/tenant scoping and uniqueness for Role Name and BU Code — per company, from the session?; Proposed default: Company from session; Role Name and BU Code unique within company.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 10",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-10; Question: List default sort, page size and preserved back-navigation (including the active tab)?; Proposed default: Created On descending; page 20; restore filters/sort/page/tab on back.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 11",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-11; Question: Where are permissions actually enforced at runtime (this feature only defines them)?; Proposed default: Enforced in each module/route guard + server; config-only here.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 12",
+      "heading": "BU & Role Setup — Access Control › Open questions",
+      "text": "#: Q-12; Question: Should an override’s date range gate the effective permission (active only within From–To)?; Proposed default: Yes — an override outside its window does not apply.; Owner: Product owner",
+      "locator": "§ BU & Role Setup — Access Control › Open questions, table 15, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Technical appendix — Data & API contract provisional",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional",
+      "text": "The committed mock JSON files (mock-data/wfx-erp-product-business-units.mock.json, -roles.mock.json, -users.mock.json) are the draft API contract. Field names are PascalCase DTO names. Reconcile field-by-field against the real backend during promotion (see D-1).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional",
+      "kind": "section"
+    },
+    {
+      "title": "Business Unit record – Table 16",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Columns: Field (text); Type (text); Notes (text)\nField | Type | Notes\nid / BUID | string / number | Row id (routing) / header PK.\nBUName / BUCode | string (≤120 / ≤30) | Seed fields; Code unique within company (V-2).\nStatus | enum: Active | Inactive | Lifecycle only.\nLedgerCode | string | Single primary ledger (seed).\nCompanyCodes / PrimaryCompanyCode | string[] / string | Primary ∈ CompanyCodes (V-4).\nIsAllDivisions / DivisionCodes | boolean / string[] | DivisionCodes empty when IsAllDivisions.\nReferenceCodes | string[] | Reference-code tags.\nCreatedBy / CreatedOn / Comments | string / datetime / string | D-3; Comments holds the Inactive reason (D-4).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16",
+      "kind": "table"
+    },
+    {
+      "title": "Table 16 row 1",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: id / BUID; Type: string / number; Notes: Row id (routing) / header PK.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 2",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: BUName / BUCode; Type: string (≤120 / ≤30); Notes: Seed fields; Code unique within company (V-2).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 3",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: Status; Type: enum: Active | Inactive; Notes: Lifecycle only.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 4",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: LedgerCode; Type: string; Notes: Single primary ledger (seed).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 5",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: CompanyCodes / PrimaryCompanyCode; Type: string[] / string; Notes: Primary ∈ CompanyCodes (V-4).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 6",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: IsAllDivisions / DivisionCodes; Type: boolean / string[]; Notes: DivisionCodes empty when IsAllDivisions.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 7",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: ReferenceCodes; Type: string[]; Notes: Reference-code tags.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 8",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record",
+      "text": "Field: CreatedBy / CreatedOn / Comments; Type: string / datetime / string; Notes: D-3; Comments holds the Inactive reason (D-4).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Business Unit record, table 16, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Role record – Table 17",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Columns: Field (text); Type (text); Notes (text)\nField | Type | Notes\nid / RoleID | string / number | Row id / header PK.\nRoleName / Description | string (≤120 / ≤500) | Name is the seed field, unique within company (V-5).\nStatus | enum: Draft | Active | Inactive | Assignable only when Active.\nPermissions | map<ResourceCode, ActionCode[]> | Only applicable actions stored (List = View/Export). Real: own table (D-1).\nGrantedModuleCount / GrantedPermissionCount | number / number | Derived on save; drive the list counts.\nCreatedBy / CreatedOn / Comments | string / datetime / string | D-3 / D-4.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17",
+      "kind": "table"
+    },
+    {
+      "title": "Table 17 row 1",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Field: id / RoleID; Type: string / number; Notes: Row id / header PK.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 2",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Field: RoleName / Description; Type: string (≤120 / ≤500); Notes: Name is the seed field, unique within company (V-5).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 3",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Field: Status; Type: enum: Draft | Active | Inactive; Notes: Assignable only when Active.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 4",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Field: Permissions; Type: map<ResourceCode, ActionCode[]>; Notes: Only applicable actions stored (List = View/Export). Real: own table (D-1).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 5",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Field: GrantedModuleCount / GrantedPermissionCount; Type: number / number; Notes: Derived on save; drive the list counts.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 6",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record",
+      "text": "Field: CreatedBy / CreatedOn / Comments; Type: string / datetime / string; Notes: D-3 / D-4.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Role record, table 17, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "User record – Table 18",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Columns: Field (text); Type (text); Notes (text)\nField | Type | Notes\nid / UserID | string / number | Row id / header PK.\nFullName / Username / Email | string | Auto-filled from the directory; FullName+Username are the seed fields.\nStatus | enum: Active | Inactive | Lifecycle only.\nAssignments | array<{ AssignID, BusinessUnitCode, RoleIDs[], RoleNames[] }> | One entry per Business Unit. Real: own table (D-1).\nOverrides | array<{ ResourceCode, ActionCode, Effect: Allow|Deny, FromDate?, ToDate? }> | Inherit rows not stored; dates ISO yyyy-mm-dd (F-3).\nReferenceCodes | string[] | Reference-code tags.\nCreatedBy / CreatedOn / Comments | string / datetime / string | D-3 / D-4.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18",
+      "kind": "table"
+    },
+    {
+      "title": "Table 18 row 1",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: id / UserID; Type: string / number; Notes: Row id / header PK.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 18 row 2",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: FullName / Username / Email; Type: string; Notes: Auto-filled from the directory; FullName+Username are the seed fields.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 18 row 3",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: Status; Type: enum: Active | Inactive; Notes: Lifecycle only.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 18 row 4",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: Assignments; Type: array<{ AssignID, BusinessUnitCode, RoleIDs[], RoleNames[] }>; Notes: One entry per Business Unit. Real: own table (D-1).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 18 row 5",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: Overrides; Type: array<{ ResourceCode, ActionCode, Effect: Allow|Deny, FromDate?, ToDate? }>; Notes: Inherit rows not stored; dates ISO yyyy-mm-dd (F-3).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 18 row 6",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: ReferenceCodes; Type: string[]; Notes: Reference-code tags.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 18 row 7",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record",
+      "text": "Field: CreatedBy / CreatedOn / Comments; Type: string / datetime / string; Notes: D-3 / D-4.",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › User record, table 18, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Effective-permission computation",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Effective-permission computation",
+      "text": "For each (resource, action): start from whether ANY role the user holds in ANY Business Unit grants it (union), then apply overrides — Allow adds, Deny removes, Deny applied last so it always wins. Absence of an override = inherit from the roles. (Real build should also gate by the override’s date window — F-3 / Q-12.)",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Effective-permission computation",
+      "kind": "section"
+    },
+    {
+      "title": "Service surface (mock → real, per master) – Table 19",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Service surface (mock → real, per master)",
+      "text": "Columns: Mock method (text); Real endpoint (to define) (text, to define)\nMock method | Real endpoint (to define)\nfetch* / get*(id) / save*(rec) / delete*(id) per master | GET /business-units|roles|users (server paging), GET /{id}, POST (insert on seed) / PATCH /{id} + line CRUD, DELETE /{id} (server re-validates the delete rule).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Service surface (mock → real, per master), table 19",
+      "kind": "table"
+    },
+    {
+      "title": "Table 19 row 1",
+      "heading": "BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Service surface (mock → real, per master)",
+      "text": "Mock method: fetch* / get*(id) / save*(rec) / delete*(id) per master; Real endpoint (to define): GET /business-units|roles|users (server paging), GET /{id}, POST (insert on seed) / PATCH /{id} + line CRUD, DELETE /{id} (server re-validates the delete rule).",
+      "locator": "§ BU & Role Setup — Access Control › Technical appendix — Data & API contract provisional › Service surface (mock → real, per master), table 19, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Version History – Table 20",
+      "heading": "BU & Role Setup — Access Control › Version History",
+      "text": "Columns: Version (text); Owner (text); Git user (text); Date (date); Summary (text)\nVersion | Owner | Git user | Date | Summary\nV1 | Varun Kumar (VP - Technology) | Varun Kumar | 01 Aug 2026 | Embed screen screenshots; Screen specifications edited; 6 images added",
+      "locator": "§ BU & Role Setup — Access Control › Version History, table 20",
+      "kind": "table"
+    },
+    {
+      "title": "Table 20 row 1",
+      "heading": "BU & Role Setup — Access Control › Version History",
+      "text": "Version: V1; Owner: Varun Kumar (VP - Technology); Git user: Varun Kumar; Date: 01 Aug 2026; Summary: Embed screen screenshots; Screen specifications edited; 6 images added",
+      "locator": "§ BU & Role Setup — Access Control › Version History, table 20, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

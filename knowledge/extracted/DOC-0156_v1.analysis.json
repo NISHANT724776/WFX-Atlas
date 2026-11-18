@@ -1,0 +1,2167 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "ASN Type",
+        "Setting “FG Allocation without GDN”",
+        "FG Allocation tab",
+        "Automatic stock transactions on Confirm"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "With GDN",
+          "not used",
+          "Shown by default",
+          "None, normal ASN flow"
+        ],
+        [
+          "Without GDN",
+          "ON",
+          "Shown",
+          "Enter New Stock, then Transfer Out of System (when at least one row has a Site and Trf. GDI Qty above 0)"
+        ],
+        [
+          "Without GDN",
+          "OFF",
+          "Hidden",
+          "None, standard ASN"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "#",
+        "Screen",
+        "Route",
+        "Purpose"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "S-1",
+          "New ASN",
+          "/sales/asn/new, then /sales/asn/{id}",
+          "Raise an ASN: header, eight tabs, Summary Total and Flex Field, with manual Save / Confirm / Exit. A Confirmed ASN opens read-only. Includes the Select Order picker (S-1a)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Convention",
+        "Definition"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Convention"
+      ],
+      "rows": [
+        [
+          "Enforcement",
+          "Unless a rule says otherwise, every validation is enforced inline on the screen and re-validated on the server."
+        ],
+        [
+          "Manual-save screen",
+          "A screen with Save / Confirm buttons: nothing is stored until Save or Confirm, and leaving with unsaved edits is always asked first. (A product-team instruction — this screen is not auto-saved.)"
+        ],
+        [
+          "Quantity and weight",
+          "Shown with 4 decimals (e.g. 50.0000); never negative."
+        ],
+        [
+          "Money",
+          "Shown with 2 decimals; line total = quantity × price, rounded half-up to 2 decimals. Company-currency value = document-currency value × exchange rate. The exchange rate shows 8 decimals."
+        ],
+        [
+          "Date display",
+          "All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Field",
+        "Choices / source",
+        "Default",
+        "Rule"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "ASN For",
+          "Article, Kit",
+          "Article",
+          "Required. Kit only changes the label of the Style column in the grids — nothing else differs (ASSUMED, Q-1)."
+        ],
+        [
+          "ASN Type",
+          "With GDN, Without GDN",
+          "With GDN",
+          "Required. Decides whether the FG Allocation tab shows and whether stock transactions are raised."
+        ],
+        [
+          "ASN Against",
+          "Order; Pre shipment export invoice; Factory packing List; Buyer order dispatch; Buyer order dispatch with pre shipment export invoice; Shipment plan",
+          "Order",
+          "Required. “Buyer order dispatch” never has FG Allocation."
+        ],
+        [
+          "Buyer",
+          "Buyer master (mock: Max TP, Gap Kids)",
+          "—",
+          "Required. Changing it after orders were added asks “Changing the buyer removes the orders already added to this ASN. Continue?” and, on OK, clears every order, shipment, allocation and style row. It also loads the buyer’s exchange rate."
+        ],
+        [
+          "Ship From Company, Ship From",
+          "Company / location masters",
+          "—",
+          "Optional."
+        ],
+        [
+          "Exchange Rate",
+          "From the buyer",
+          "Buyer’s rate",
+          "Read-only, 8 decimals. Company-currency values = document-currency value × this rate."
+        ],
+        [
+          "Shipping Template",
+          "The same Shipping Template master Shipment Tracking uses",
+          "—",
+          "Optional."
+        ],
+        [
+          "Invoice Type",
+          "CSB -V, FG, Free Sample, MTT, Trade Sample",
+          "FG",
+          "Required."
+        ],
+        [
+          "Logistics Lead",
+          "User directory",
+          "—",
+          "Required."
+        ],
+        [
+          "Shipment Type, REX Type",
+          "Masters (REX: W, P)",
+          "— / W",
+          "Optional."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "ASN Type",
+        "ASN Against",
+        "Setting “FG Allocation without GDN”",
+        "FG Allocation tab"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "With GDN",
+          "any except Buyer order dispatch",
+          "not used",
+          "Shown"
+        ],
+        [
+          "Without GDN",
+          "any except Buyer order dispatch",
+          "ON",
+          "Shown"
+        ],
+        [
+          "Without GDN",
+          "any except Buyer order dispatch",
+          "OFF",
+          "Hidden"
+        ],
+        [
+          "any",
+          "Buyer order dispatch",
+          "not used",
+          "Hidden"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Tab",
+        "What it holds"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Tab"
+      ],
+      "rows": [
+        [
+          "Additional Charge",
+          "Add / Delete rows (Delete asks “Delete n additional charge(s)?”). Columns: Additional Charge (name, required on Confirm), Basis (% or Amount), Based On (Invoice Value or Running Amount), Value, Round Off (Yes / No), Amount, Running Amount. Amount = Value % of the base, or the Value itself when Basis is Amount; the base is the invoice value, or the running amount after the rows above. Round Off “Yes” rounds the Amount to a whole number, otherwise 2 decimals."
+        ],
+        [
+          "Style Details",
+          "One row per added order style: Style Colors, Style Sizes, Merchant, Style Description, H.T.S No/HS Code, Fabric Description, Goods Description, Scheme Type, Gender, Quota Category, DBK, RoSCTL, RoDTEP (editable)."
+        ],
+        [
+          "Advance License",
+          "Grid with SNo, Article, Color, Size, Consumption Per Pc (As Per BOM), Total Requirement (As Per BOM), Consumption Per Pc (Actual), Total Consumption (Actual), Total Allocated Qty, Balance Qty, UOM, Allocated License, Attach License. Empty in the mock — F-4."
+        ],
+        [
+          "EPCG License",
+          "Same layout as Advance License with an Attach button (a stub — F-3)."
+        ],
+        [
+          "Shipping Info",
+          "Sections: Commercial Invoice, Packing Information, Shipment Mode (Sea blocks, Air blocks or both, following the chosen mode), Commercial Terms (Consignee, Consignor, Bill To, Ship To, Notify 1/2 with their address lines), Attachments. Defaults: Shipment Mode SEA/AIR, Port of Discharge “CCU- Calcutta”, Country of Origin India, Invoice Date today."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "ASN status",
+        "Badge",
+        "Meaning"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Saved",
+          "Secondary (grey)",
+          "Stored by the user’s Save; fully editable; no Shipment No. yet."
+        ],
+        [
+          "Confirmed",
+          "Success (green)",
+          "Has a Shipment No.; read-only; for Without GDN with allocation, its stock transactions exist."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "#",
+        "Transition",
+        "Trigger",
+        "Who / where"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "T-1",
+          "(new) → Saved",
+          "Manual Save with the six required header fields (V-1)",
+          "New ASN toolbar"
+        ],
+        [
+          "T-2",
+          "Saved → Saved",
+          "Manual Save again; the record is updated",
+          "New ASN toolbar"
+        ],
+        [
+          "T-3",
+          "(new) / Saved → Confirmed",
+          "Manual Confirm with every Confirm requirement (V-2, V-3) and the confirmation dialog. Assigns the Shipment No. and, for Without GDN with allocation, raises the two stock transactions in the same action.",
+          "New ASN toolbar"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "#",
+        "Rule (testable statement)",
+        "Where enforced",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "V-1",
+          "ASN Save — ASN For, ASN Type, ASN Against, Buyer, Invoice Type and Logistics Lead are all required.",
+          "New ASN + server",
+          "“Fill in: {missing fields}.” (title “Cannot Save”)"
+        ],
+        [
+          "V-2",
+          "ASN Confirm — everything in V-1, plus Invoice Date, Shipment Mode, Shipping Bill Date and Bill To are required. Shown inline at the field once Confirm was tried.",
+          "New ASN + server",
+          "“{Field} is required”; “Fill in: …” (title “Cannot Confirm”)"
+        ],
+        [
+          "V-3",
+          "ASN Confirm — at least one order in Order Details; a Price above 0 on every Shipment Details row; a name on every Additional Charge row.",
+          "New ASN + server",
+          "“Fill in: at least one order in Order Details / Price on every Shipment Details row / Additional Charge name on every charge row.”"
+        ],
+        [
+          "V-4",
+          "Add orders — a Buyer must be chosen; Dispatch Site and ETD are required; every order of one ASN dispatches from the same site.",
+          "New ASN, picker + server",
+          "“Choose the Buyer before adding orders.” / “Choose the Dispatch Site and the ETD first.” (Search) / “Tick at least one order.” (OK, Add and Continue) / “This ASN already dispatches from {site}. Orders from another site need a separate ASN.”"
+        ],
+        [
+          "V-5",
+          "FG Allocation — Trf. GDI Qty is 0 or more and never above the smaller of Stock and Balance To Allocate; a larger entry is cut back. Balance To Allocate = Ship Qty − Dispatched Qty, never below 0.",
+          "FG Allocation + server",
+          "“Trf. GDI Qty cannot exceed {limit} — the smaller of the stock and the balance to allocate.”"
+        ],
+        [
+          "V-6",
+          "Changing the Buyer when orders were added needs a confirmation; on OK all added orders and their rows are cleared.",
+          "New ASN",
+          "“Changing the buyer removes the orders already added to this ASN. Continue?”"
+        ],
+        [
+          "V-7",
+          "Exchange Rate cannot be typed: it comes from the Buyer. Shipping Qty — 0 or more and at most ordered − already shipped (ASSUMED — Q-2; not enforced in the mock, D-2).",
+          "New ASN + server",
+          "—"
+        ],
+        [
+          "V-8",
+          "A Confirmed ASN is read-only: no Save, no Confirm, no edit, no Add / Delete. The server refuses any change to a Confirmed ASN.",
+          "New ASN + server",
+          "Banner “Shipment {no} is confirmed. This ASN can no longer be edited.”"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "#",
+        "Mock shortcut",
+        "Required real behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "D-1",
+          "The whole ASN (header, orders, shipment rows, allocation, charges, styles) is kept as one record in the browser mock, and totals, charge amounts and the exchange maths are worked out on the client.",
+          "Stored in proper tables; the server works out totals, charges and company-currency values on every save and again on Confirm. The client numbers are only a preview."
+        ],
+        [
+          "D-2",
+          "Shipping Qty is not capped: the user can type more than ordered − already shipped.",
+          "The server refuses a quantity above the open balance and a negative quantity (V-7, Q-2)."
+        ],
+        [
+          "D-3",
+          "The Select Order list and the stock per site are seed data. The filter (buyer, site stock, delivery date up to ETD, open balance) runs in the browser; two ASNs can use the same stock.",
+          "The server runs the filter on live orders and live site stock, pages the result, and holds (reserves) the allocated stock so two ASNs cannot take the same units."
+        ],
+        [
+          "D-4",
+          "The setting “FG Allocation without GDN” is a mock record, ON by default.",
+          "Read from the system settings module; changing it takes effect for the next ASN screen opened and the next Confirm."
+        ],
+        [
+          "D-5",
+          "Enter New Stock and Transfer Out of System are mock records; no stock is really moved. If saving the transactions fails the ASN is not confirmed, but nothing is rolled back across modules.",
+          "The Inventory module posts both documents and updates site stock in the SAME database transaction as the Confirm — all or nothing. Numbering follows Inventory (Q-3). What happens to them if an ASN is ever reopened or cancelled is decided under Q-5."
+        ],
+        [
+          "D-6",
+          "The Shipment No. is worked out in the browser (next after the highest in use, from 125001).",
+          "Server-assigned sequential number at Confirm; never client-generated."
+        ],
+        [
+          "D-7",
+          "No permissions and no audit trail on Save, Confirm or the automatic stock transactions; Attachments, Import and the license and EPCG attach actions do nothing lasting (F-3, F-5).",
+          "Role-based permissions for Save / Confirm; Save, Confirm and every raised transaction logged with user and time; attachments stored with the ASN."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "#",
+        "Type",
+        "Screen / area",
+        "Finding (verified in code)",
+        "Corrected rule in this spec"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "F-1",
+          "Open item",
+          "New ASN — FG Allocation rules",
+          "The allocation rules are not final. The mock does this: Trf. GDI Qty is at most the Stock and at most the Balance To Allocate; Auto Fill = the smaller of Stock and Balance; “Auto Fill As per Total Ship Qty” = the Balance; Dispatched Qty stays 0 until a dispatch exists.",
+          "Build these rules as written in S-1 and V-5 until the product team gives the final ones (Q-6)."
+        ],
+        [
+          "F-2",
+          "Open item",
+          "New ASN — FG Allocation “Free” and Confirmed page",
+          "The reference pictures for the FG Allocation tab with stock type “Free” and for the Confirmed ASN page were not supplied. The mock shows “Free” on every Without-GDN row, and the Confirmed page as the same screen, read-only, with a green banner.",
+          "Layout of the two screens to be checked against the product team’s pictures once supplied (Q-8); behaviour as in S-1 and V-8."
+        ],
+        [
+          "F-3",
+          "Mock stub",
+          "New ASN — Import, “Additional Items Details »”, EPCG “Attach”",
+          "The three buttons only show a message; nothing is imported, opened or attached.",
+          "Not specified: the real behaviour of each is a separate piece of work, to be defined by the product team (Q-4)."
+        ],
+        [
+          "F-4",
+          "Open item",
+          "New ASN — Advance License grid; picker Contract columns",
+          "The Advance License grid has no rows (the BOM consumption and license data do not exist in the mock), and the picker’s Contract Amount and Contract Balance Amount columns are blank.",
+          "Columns are specified as shown; their data comes from the BOM and the buyer contract in the real build."
+        ],
+        [
+          "F-5",
+          "Open item",
+          "New ASN — Attachments (Shipping Info)",
+          "Files added in the Attachments area are not saved with the ASN; they are gone after Save and reload.",
+          "Attachments are stored with the ASN and listed again on reopening (D-7)."
+        ],
+        [
+          "F-6",
+          "Open item",
+          "New ASN — FG Allocation row split",
+          "The reference screen has an icon on each FG row to split one row across several sites. It is not built; one row has one Site.",
+          "Not specified; the product team to say how a split row behaves (Q-6)."
+        ],
+        [
+          "F-7",
+          "Open item",
+          "New ASN — dropdown values",
+          "The lists for Ship From Company, Ship From, Shipping Template, Logistics Lead, Forwarder, Ports, Addresses, Countries and others hold a few sample values, not the real masters.",
+          "Every list comes from its real master, inactive values hidden for new entry. Which master feeds which field is Q-7."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 12",
+      "headers": [
+        "#",
+        "Question",
+        "Adopted default (ASSUMED)",
+        "Used in"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Adopted default (ASSUMED)": "ASSUMED"
+      },
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "Q-1",
+          "What does ASN For “Kit” change besides the Style column heading?",
+          "Nothing — it only relabels the Style column as “Kit”.",
+          "S-1"
+        ],
+        [
+          "Q-2",
+          "May Shipping Qty go above ordered − already shipped (over-shipment)?",
+          "No. It is 0 or more and at most the open balance; any tolerance belongs to the shipment module.",
+          "V-7, D-2"
+        ],
+        [
+          "Q-3",
+          "How are the two automatic stock transactions numbered, and what do they carry?",
+          "Numbers come from the Inventory module, one sequence per transaction type; each carries the Shipment No., the Site and the allocated lines. The mock’s ENS-nnnnnn / TOS-nnnnnn is only a placeholder.",
+          "S-1, D-5"
+        ],
+        [
+          "Q-4",
+          "What do Import, “Additional Items Details »” and EPCG Attach do?",
+          "Not built in the mock. Proposed: Import loads orders from an Excel template; Additional Items Details opens the extra item data of the order; EPCG Attach stores a license file with the row.",
+          "F-3"
+        ],
+        [
+          "Q-5",
+          "Can a Confirmed ASN be un-confirmed, edited, revised or cancelled? What happens to its stock transactions then?",
+          "No — Confirmed is final on this screen. Any later change is a separate process, outside this spec.",
+          "T-3, D-5"
+        ],
+        [
+          "Q-6",
+          "Final FG Allocation rules: limits on Trf. GDI Qty, Auto Fill, “As per Total Ship Qty”, the Dispatched Qty column, and the row-split icon.",
+          "As the mock does today (F-1); no row split.",
+          "F-1, F-6, V-5"
+        ],
+        [
+          "Q-7",
+          "Which real master feeds each header and Shipping Info list, and who owns the setting “FG Allocation without GDN”?",
+          "The existing masters of the same names; the setting is kept in system settings and is owned by the Tech and Product teams jointly.",
+          "F-7, D-4"
+        ],
+        [
+          "Q-8",
+          "Please supply the pictures for the FG Allocation tab with stock type “Free” and for the Confirmed ASN page.",
+          "Until then: the screens as in S-1.",
+          "F-2"
+        ],
+        [
+          "Q-9",
+          "Is “one dispatch site per ASN” a business rule, and is the exchange rate frozen when the Buyer is chosen or when the ASN is confirmed?",
+          "The one-site rule stays. The rate is taken from the Buyer when the Buyer is chosen and kept as it is.",
+          "V-4, S-1"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 13",
+      "headers": [
+        "Collection / field",
+        "Type",
+        "Example",
+        "Used by"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Collection / field"
+      ],
+      "rows": [
+        [
+          "sales-asns — Detail (NEW)",
+          "object",
+          "—",
+          "S-1 (saved ASN)"
+        ],
+        [
+          "Detail.Form",
+          "object — every header, Shipping Info and Flex Field value; dates as ISO 8601 strings",
+          "asnType: Without GDN",
+          "All tabs"
+        ],
+        [
+          "Detail.DispatchSite",
+          "string",
+          "ACHIEVER CUT STORE PPJ",
+          "Picker"
+        ],
+        [
+          "Detail.OrderLines[], ShipmentLines[], FgLines[], Charges[], StyleDetails[]",
+          "arrays, one row per grid row; shipment, FG and style rows point back to their order row",
+          "—",
+          "Their tabs"
+        ],
+        [
+          "Detail.TransactionNos[]",
+          "string[] — numbers raised on Confirm; empty when none",
+          "ENS-000001, TOS-000001",
+          "Confirmed banner"
+        ],
+        [
+          "ShipmentNo, Status, BuyerCompanyName, Style, Destination, ShippedQty",
+          "list columns, refreshed from the ASN on every Save and Confirm",
+          "125001, Confirmed",
+          "ASN List"
+        ],
+        [
+          "sales-asn-lookups — Group, Code, Name",
+          "string (one row per list value)",
+          "Buyer, MAXTP, Max TP",
+          "All dropdowns"
+        ],
+        [
+          "CurrencyCode, ExchangeRate (Buyer rows); Extra (Address rows)",
+          "string, decimal(8); string",
+          "USD, 90.90909",
+          "Exchange Rate, address sub-lines"
+        ],
+        [
+          "sales-asn-orders — BuyerCode, LinkedToBuyerCode, OcNo, Style, BuyerOrderRef, ContractNo",
+          "string",
+          "GAPS.NEWOC-229.1",
+          "Select Order picker"
+        ],
+        [
+          "Market, Destination, DeliveryOrderRef, DeliveryDate, DeliveryTermType, ShipToAddress, Currency, FulfillmentType, EndCustomer",
+          "string / ISO 8601 datetime",
+          "USA, 2026-10-27",
+          "Picker columns"
+        ],
+        [
+          "DispatchSites[]",
+          "string[] — sites that hold stock for the delivery",
+          "—",
+          "Picker filter"
+        ],
+        [
+          "Lines[] — Article, Color, Size, UOM, OrderedQty, ShippedQty, Price, Stock[] (Site, Qty)",
+          "colour × size lines with stock per site",
+          "100, 50, 3.3333",
+          "Shipment and FG rows"
+        ],
+        [
+          "sales-asn-settings — SettingName, Enabled",
+          "string, boolean",
+          "FG Allocation without GDN, true",
+          "FG tab rule, Confirm"
+        ],
+        [
+          "sales-asn-stock-transactions — AsnId, ShipmentNo, TransactionNo, TransactionType, Site, TotalQty, CreatedBy, CreatedOn",
+          "string / number / ISO 8601; TransactionType is Enter New Stock | Transfer Out of System",
+          "ENS-000001",
+          "Confirm"
+        ],
+        [
+          "Lines[] — Article, Color, Size, UOM, Qty",
+          "array",
+          "—",
+          "Transaction detail"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 14",
+      "headers": [
+        "Method (mock today)",
+        "Real endpoint (to define)",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Method (mock today)": "mock today",
+        "Real endpoint (to define)": "to define"
+      },
+      "identifiers": [
+        "Method (mock today)"
+      ],
+      "rows": [
+        [
+          "fetchLookups(), isSettingOn(name)",
+          "GET /sales-asns/lookups, GET /settings/{name}",
+          "Lists are cached for the life of the screen; fetched once."
+        ],
+        [
+          "fetchOrderPool()",
+          "GET /sales-asns/open-deliveries?buyer&linked&site&etd",
+          "Server runs the picker filter and pages the result (D-3)."
+        ],
+        [
+          "saveAsn(asn)",
+          "POST /sales-asns, PUT /sales-asns/{id}",
+          "Server re-checks V-1 and recalculates every total (D-1)."
+        ],
+        [
+          "— (new)",
+          "POST /sales-asns/{id}/confirm",
+          "Server re-checks V-2 / V-3, assigns the Shipment No., and in the same database transaction posts Enter New Stock and Transfer Out of System (D-5, D-6)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 15",
+      "headers": [
+        "Version",
+        "Owner",
+        "Git user",
+        "Date",
+        "Summary"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "empty",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.1",
+          "Nishant",
+          "—",
+          "28 Oct 2026",
+          "Added Problem statement & proposed solution, Business workflow (diagram, steps, scenarios). Clarified that FG Allocation stock type Free is not linked to any OC and that the automatic Enter New Stock and Transfer Out of System take Site and quantity from the FG Allocation tab. Purpose updated for dispatch without system inventory. Removed the read-only Dispatch Site from the FG Allocation tab."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales ASN Product Spec v1.1",
+  "keyTerms": [
+    "asn",
+    "stock",
+    "order",
+    "allocation",
+    "shipment",
+    "site",
+    "qty",
+    "sales",
+    "without gdn",
+    "confirm",
+    "buyer",
+    "gdn",
+    "without",
+    "tab",
+    "sales asn"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 23
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 10
+    },
+    {
+      "module": "Style & BOM",
+      "score": 10
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "Masters – Colour, Size, UOM",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Changes are listed under Version History.",
+      "locator": "§ Sales ASN — Product Mock Spec",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The mock is intentionally lenient; this specification is not — it is the contract the development team builds from.",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "An Advance Shipment Notice (ASN) tells the system what is being shipped to a buyer: which open order deliveries, how many pieces, at what price, from which dispatch site, with which charges and shipping details.",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This lets the warehouse dispatch finished goods that are not yet held in system inventory, while keeping a full stock record against the ASN and its sales order.",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Who uses it:\n1. Logistics / shipping coordinators — raise, save and confirm ASNs.\n2. Inventory team — receive the automatic Enter New Stock and Transfer Out of System transactions.\n3. Finance and customs teams — read the confirmed ASN (values, charges, licence and shipping details).",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Who uses it",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The ASN List itself is not specified here.",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Where it sits in the ERP",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Without system stock a GDN-based dispatch cannot be made, so the shipment is either held or dispatched outside the system, and the stock and shipment records are lost.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Problem statement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When the setting is ON and the ASN Type is Without GDN, the FG Allocation tab is shown on the ASN.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Proposed solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The goods are dispatched without existing inventory, with no manual stock entries, no leftover stock, and full traceability to the ASN and its sales order.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Proposed solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The whole flow is switched on or off by the one setting.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Proposed solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The sales order is created in the Sales module.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Its open order deliveries are the base for the ASN.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Stock Type is Free, not linked to any OC.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The automatic transactions are controlled by the setting.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business workflow:\n1. Sales order created. The sales order is created in the Sales module. Its open order deliveries are the base for the ASN.\n2. Sales ASN created against the sales order. The user raises a new ASN (ASN For: Article or Kit), chooses the Buyer and adds the open order deliveries through the Select Order picker (S-1a).\n3. ASN Type check. With GDN: the FG Allocation tab is shown by default and the normal ASN flow applies; no automatic stock transactions are raised. Without GDN: the setting decides (step 4).\n4. Setting check, “FG Allocation without GDN”. ON: the FG Allocation tab is added to the ASN. OFF: no FG Allocation tab; the ASN works as a standard ASN and no stock transactions are raised.\n5. FG allocation entry. In the FG Allocation tab the user enters the Site and the quantity to allocate (Trf. GDI Qty) on each row. Stock Type is Free, not linked to any OC.\n6. Confirm sales ASN. The user confirms the ASN (V-2, V-3). The automatic transactions are controlled by the setting.\n7. Automatic stock transactions. For each Site the system raises Enter New Stock, then Transfer Out of System, using the Site and quantity from the FG Allocation tab, in the same action as the Confirm.\n8. Sales ASN confirmed. The ASN gets its Shipment No., becomes read-only, and the confirmation banner lists the stock transaction numbers.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: ASN Type, Setting “FG Allocation without GDN”, FG Allocation tab, Automatic stock transactions on Confirm (3 rows)",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: #, Screen, Route, Purpose (1 rows)",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen inventory & navigation flow, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "With unsaved edits the user is first asked “You have unsaved changes to this ASN.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Navigation rules:\n1. ASN List → New ASN: the primary “New ASN” button in the ASN List toolbar opens /sales/asn/new. A row’s link in the ASN List opens the saved ASN at /sales/asn/{id}, the same screen.\n2. New ASN → saved: the first Save or Confirm keeps the user on the screen and changes the address to /sales/asn/{id} without adding a history entry, so the back button does not return to a blank “new” page.\n3. New ASN → ASN List: the Exit button and the back arrow. With unsaved edits the user is first asked “You have unsaved changes to this ASN. Leave without saving?”. The same question guards the browser reload and tab close.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Convention, Definition (5 rows; identifiers: Convention)",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The screen is the same for a new ASN and for opening a saved one.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Tabs, left to right: Order Details · Shipment Details · FG Allocation (only when the rule below shows it) · Additional Charge · Style Details · Advance License · EPCG License · Shipping Info.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Layout",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Layout:\n1. Page header: breadcrumb “Sales › Sales ASN List”, title “New ASN” (after the first Save it reads “ASN (not confirmed)”; after Confirm “ASN {shipment no}”), a status chip (Saved grey, Confirmed green), a back arrow and the buttons Save, Confirm (primary) and Exit.\n2. Below the header panel sit the tabs, then the Summary Total panel and the Flex Field panel (Custom Declaration Bill of Entry No).\n3. Tabs, left to right: Order Details · Shipment Details · FG Allocation (only when the rule below shows it) · Additional Charge · Style Details · Advance License · EPCG License · Shipping Info.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Layout",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Field, Choices / source, Default, Rule (10 rows; identifiers: Field)",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: ASN Type, ASN Against, Setting “FG Allocation without GDN”, FG Allocation tab (4 rows)",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows, table 5",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This follows the product team’s ASN workflow (see Business workflow): With GDN shows the tab by default; Without GDN shows it only when the setting is ON.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Orders already on the ASN are not offered again.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Adding an order creates its Shipment Details rows (one per article × colour × size) with Shipping Qty = ordered − already shipped, its FG Allocation rows, and its Style Details row, and fills the Shipping Info defaults.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Order Details tab, and the Select Order picker (S-1a):\n1. Toolbar: Export (Excel), Import (a stub — Q-4), Add, Delete (needs a ticked row; asks “Remove n order(s) from this ASN? Their shipment, FG allocation and style rows are removed too.”).\n2. Columns: Style (headed “Kit” when ASN For is Kit), Buyer Order Ref No., OC/PI No., Contract No., Order Delivery Date, Ordered Qty, Total No. of Cartons, Total Gross Weight, Total Net Weight, Total Volume, Total Shipping Qty, then an “Edit »” link (opens the Shipment Details tab) and an “Additional Items Details »” link (a stub — F-3). Cartons, weights and volume are editable; a pinned Total row sums the numbers. Quantities show 4 decimals.\n3. Add needs the Buyer first (otherwise “Choose the Buyer before adding orders.”). It opens the picker with: Include Linked Buyers (checkbox), Dispatch Site (required), ETD (required) and Search.\n4. The picker lists the buyer’s order deliveries that: belong to the header buyer (or to a linked buyer when the checkbox is ticked); hold stock at the chosen Dispatch Site; have a Delivery Date on or before the ETD; and still have an open balance above 0 (ordered − already shipped).\n5. Picker columns: Buyer, Style, OC No./Buyer Order Ref., Contract No., Contract Amount, Contract Balance Amount, Market, Destination, Delivery Order Ref, Delivery Date, Delivery Term Type, Ship To Address, OC Qty., Prev. Shipped Qty, Current Ship Qty (Balance), Currency, Del OC Currency, OC Value, Fulfillment Type, End Customer. Orders already on the ASN are not offered again.\n6. Buttons: Close · Add and Continue (adds the ticked rows and keeps the picker open) · OK (adds and closes).\n7. One dispatch site per ASN. The first added order fixes it; adding an order from another site is refused with “This ASN already dispatches from {site}. Orders from another site need a separate ASN.”.\n8. Adding an order creates its Shipment Details rows (one per article × colour × size) with Shipping Qty = ordered − already shipped, its FG Allocation rows, and its Style Details row, and fills the Shipping Info defaults.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Total = Shipping Qty × Price, 2 decimals.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Shipment Details tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Shipment Details tab:\n1. One row per article × colour × size of every added order. Columns: Order No, Market, Destination, Delivery Order Ref, Del. Date, Article, Color, Size, Ordered Qty, Shipped Qty, Shipping Qty, UOM, Main OC Price, Hanger Cost, KGS, Expected CBM, Expected Gross Weight, Expected Net Weight, Total No. Of Cartons, BarCode Detail, Invoice Item S.No., Remarks, then a Total column.\n2. Editable: Shipping Qty, Price (starts from the order price), Hanger Cost, KGS, expected CBM and weights, cartons, invoice item no. and remarks. Total = Shipping Qty × Price, 2 decimals. The pinned Total row sums quantity and value.\n3. Real rule (ASSUMED — Q-2): Shipping Qty is 0 or more and never above ordered − already shipped. The mock does not stop the user from typing a larger number — D-2.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Shipment Details tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "GDI Qty are editable, and the Site and Trf.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "GDI Qty entered here are the values the two automatic stock transactions use on Confirm; a note explains that the two stock transactions are raised on Confirm.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "GDI Qty cannot exceed the smaller of the Stock and the Balance To Allocate; a larger entry is cut back with the message “Trf.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "GDI Qty cannot exceed {limit} — the smaller of the stock and the balance to allocate.”.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "GDI Qty = Balance To Allocate), Auto Fill (the smaller of Stock and Balance To Allocate), Clear All.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Dispatched Qty is 0 until a dispatch exists; once a dispatch is created its quantity appears there.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Exact allocation rules are not final — F-1.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "FG Allocation tab:\n1. Shows the finished-goods stock that covers each shipment row. Columns: Article, Color, Size, UOM, OC No., Ship Qty., Dispatched Qty, Avail. On Dispatch Site, Balance To Allocate, Site, Stock Type, Stock, Prev. Instructed, Trf. GDI Qty.\n2. Without GDN: Stock Type is “Free” (not linked to any OC); Site, Stock and Trf. GDI Qty are editable, and the Site and Trf. GDI Qty entered here are the values the two automatic stock transactions use on Confirm; a note explains that the two stock transactions are raised on Confirm. Changing a row’s Site loads that site’s stock and caps the transfer quantity to it.\n3. Trf. GDI Qty cannot exceed the smaller of the Stock and the Balance To Allocate; a larger entry is cut back with the message “Trf. GDI Qty cannot exceed {limit} — the smaller of the stock and the balance to allocate.”.\n4. Buttons: Auto Fill As per Total Ship Qty (Trf. GDI Qty = Balance To Allocate), Auto Fill (the smaller of Stock and Balance To Allocate), Clear All. They act on the ticked rows, or on all rows when none is ticked.\n5. Dispatched Qty is 0 until a dispatch exists; once a dispatch is created its quantity appears there. Exact allocation rules are not final — F-1.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Tab, What it holds (5 rows; identifiers: Tab)",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When all is present a dialog asks “Confirm this ASN?",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "A Confirmed page is the same screen with every field and grid locked, the Save and Confirm buttons gone, and a green banner: “Shipment {no} is confirmed.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Exit returns to the ASN List (asking first when there are unsaved edits).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The list row is refreshed on every Save and Confirm: Shipment No., Buyer, Style, Destination, Shipped Qty, Status.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Save, Confirm and Exit:\n1. Save needs ASN For, ASN Type, ASN Against, Buyer, Invoice Type and Logistics Lead; otherwise the warning “Fill in: …” lists what is missing. A first Save stores the ASN as Saved and moves the address to /sales/asn/{id}; the page stays open and editable. Success: “The ASN was saved.”\n2. Confirm needs everything Save needs plus Invoice Date, Shipment Mode, Shipping Bill Date, Bill To, at least one order, a Price above 0 on every Shipment Details row, and a charge name on every charge row. A missing item shows “Fill in: …”. When all is present a dialog asks “Confirm this ASN? A confirmed ASN can no longer be edited.” On OK the ASN gets its Shipment No. (the next number after the highest in use, starting at 125001), becomes Confirmed and the page turns read-only.\n3. A Confirmed page is the same screen with every field and grid locked, the Save and Confirm buttons gone, and a green banner: “Shipment {no} is confirmed. This ASN can no longer be edited.” For Without GDN it adds the numbers of the stock transactions that were raised, or says none were raised because nothing was allocated or the setting is off.\n4. Exit returns to the ASN List (asking first when there are unsaved edits).\n5. The list row is refreshed on every Save and Confirm: Shipment No., Buyer, Style, Destination, Shipped Qty, Status.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Raised only when ASN Type is Without GDN, the FG Allocation tab is shown (setting “FG Allocation without GDN” ON), and at least one allocation row has a Site and a Trf.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Raised only when ASN Type is Without GDN, the FG Allocation tab is shown (setting “FG Allocation without GDN” ON), and at least one allocation row has a Site and a Trf.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "For each Site two transactions are created, in this order: Enter New Stock (stock comes in at the site) and Transfer Out of System (the same quantity goes out against this ASN).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Site and quantities are populated from the FG Allocation tab; the user does not enter them again.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Confirm is one action: if the transactions cannot be stored, the ASN is not confirmed and “Could not confirm the ASN.” shows.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Confirm is one action: if the transactions cannot be stored, the ASN is not confirmed and “Could not confirm the ASN.” shows.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Automatic stock transactions on Confirm (ASN Type Without GDN):\n1. Raised only when ASN Type is Without GDN, the FG Allocation tab is shown (setting “FG Allocation without GDN” ON), and at least one allocation row has a Site and a Trf. GDI Qty above 0.\n2. For each Site two transactions are created, in this order: Enter New Stock (stock comes in at the site) and Transfer Out of System (the same quantity goes out against this ASN). Each carries the ASN’s Shipment No., the Site, the allocated lines (article, colour, size, UOM, quantity) and the total quantity. Site and quantities are populated from the FG Allocation tab; the user does not enter them again. Numbers run per type: ENS-000001, ENS-000002 … and TOS-000001 … (mock format; the real numbering is Q-3).\n3. The Confirm is one action: if the transactions cannot be stored, the ASN is not confirmed and “Could not confirm the ASN.” shows.\n4. With GDN, or with the setting OFF, or with nothing allocated, no transaction is raised.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: ASN status, Badge, Meaning (2 rows)",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle, table 7",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: #, Transition, Trigger, Who / where (3 rows)",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 8",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Confirmed is final on this screen: no edit, no un-confirm, no cancel (ASSUMED — Q-5).",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Every rule is testable as written.",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: #, Rule (testable statement), Where enforced, Message (8 rows; identifiers: #)",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real build must implement the FULL behaviour in the right-hand column; none of these shortcuts may silently become the product.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: #, Mock shortcut, Required real behaviour (7 rows; identifiers: #)",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: #, Type, Screen / area, Finding (verified in code), Corrected rule in this spec (7 rows; identifiers: #)",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Each assumption is marked “ASSUMED” where it is used in the body.",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 12: #, Question, Adopted default (ASSUMED), Used in (9 rows; identifiers: #)",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The committed mock JSON files are the draft API contract.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Field names are PascalCase DTO names.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real backend must be reconciled field-by-field against this table during promotion.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 13: Collection / field, Type, Example, Used by (15 rows; identifiers: Collection / field)",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 14: Method (mock today), Real endpoint (to define), Notes (4 rows; identifiers: Method (mock today))",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define), table 14",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Server is the source of truth for every rule in the Validations section — client validation is a convenience, not the enforcement.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Server is the source of truth for every rule in the Validations section — client validation is a convenience, not the enforcement.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 15: Version, Owner, Git user, Date, Summary (1 rows)",
+      "locator": "§ Sales ASN — Product Mock Spec › Version History, table 15",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sales ASN — Product Mock Spec",
+      "heading": "Sales ASN — Product Mock Spec",
+      "text": "Feature: wfx-erp-product-asn · Owner: Nishant\nRevision 1.1 (28 Oct 2026): updated with the FG allocation without GDN business workflow. Changes are listed under Version History.",
+      "locator": "§ Sales ASN — Product Mock Spec",
+      "kind": "section"
+    },
+    {
+      "title": "Overview",
+      "heading": "Sales ASN — Product Mock Spec › Overview",
+      "text": "Functional specification for the development team, generated from the finished New ASN mock screens in the Product Mock Studio (feature library wfx-erp-product-sales, menu Sales ▸ ASN). The mock is intentionally lenient; this specification is not — it is the contract the development team builds from. It contains ASSUMED answers pending product-team sign-off (see Open questions).",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Sales ASN — Product Mock Spec › Overview › Purpose",
+      "text": "An Advance Shipment Notice (ASN) tells the system what is being shipped to a buyer: which open order deliveries, how many pieces, at what price, from which dispatch site, with which charges and shipping details. The New ASN screen lets the logistics team raise an ASN, save it as a draft, and confirm it. Confirming gives the ASN its Shipment No., locks it, and — for an ASN without a GDN — raises the two stock transactions that bring the finished goods into stock and send them out of the system. This lets the warehouse dispatch finished goods that are not yet held in system inventory, while keeping a full stock record against the ASN and its sales order.",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Who uses it",
+      "heading": "Sales ASN — Product Mock Spec › Overview › Who uses it",
+      "text": "• Logistics / shipping coordinators — raise, save and confirm ASNs.\n• Inventory team — receive the automatic Enter New Stock and Transfer Out of System transactions.\n• Finance and customs teams — read the confirmed ASN (values, charges, licence and shipping details).",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Who uses it",
+      "kind": "section"
+    },
+    {
+      "title": "Where it sits in the ERP",
+      "heading": "Sales ASN — Product Mock Spec › Overview › Where it sits in the ERP",
+      "text": "Sales module, menu Sales ▸ ASN (real target: libs/angular/features/wfx-erp/wfx-erp-sales, route /sales/asn). Orders come from Sales Orders; the stock transactions land in Inventory.\nScope of this spec: the New ASN screen (S-1) with its Select Order picker (S-1a), the same screen opened read-only once Confirmed, and the “New ASN” button on the ASN List. The ASN List itself is not specified here.",
+      "locator": "§ Sales ASN — Product Mock Spec › Overview › Where it sits in the ERP",
+      "kind": "section"
+    },
+    {
+      "title": "Problem statement",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Problem statement",
+      "text": "Finished goods need to be dispatched from the warehouse against a sales order, but the stock is not available in the system's inventory. Without system stock a GDN-based dispatch cannot be made, so the shipment is either held or dispatched outside the system, and the stock and shipment records are lost.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Problem statement",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed solution",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Proposed solution",
+      "text": "A new system setting, FG Allocation without GDN, enables a stock-less dispatch flow in the Sales ASN. When the setting is ON and the ASN Type is Without GDN, the FG Allocation tab is shown on the ASN. The user enters the Site and the stock quantity to allocate, with stock type Free (not linked to any OC). When the user confirms the sales ASN, the system automatically raises two transactions using the Site and quantity from the FG Allocation tab:\n• Enter New Stock: brings the free stock into the selected Site.\n• Transfer Out of System: moves the same stock out of the system against the ASN.\nThe goods are dispatched without existing inventory, with no manual stock entries, no leftover stock, and full traceability to the ASN and its sales order. The whole flow is switched on or off by the one setting.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Proposed solution",
+      "kind": "section"
+    },
+    {
+      "title": "Business workflow",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "text": "Sales ASN workflow: FG allocation without GDN\n• Sales order created. The sales order is created in the Sales module. Its open order deliveries are the base for the ASN.\n• Sales ASN created against the sales order. The user raises a new ASN (ASN For: Article or Kit), chooses the Buyer and adds the open order deliveries through the Select Order picker (S-1a).\n• ASN Type check. With GDN: the FG Allocation tab is shown by default and the normal ASN flow applies; no automatic stock transactions are raised. Without GDN: the setting decides (step 4).\n• Setting check, “FG Allocation without GDN”. ON: the FG Allocation tab is added to the ASN. OFF: no FG Allocation tab; the ASN works as a standard ASN and no stock transactions are raised.\n• FG allocation entry. In the FG Allocation tab the user enters the Site and the quantity to allocate (Trf. GDI Qty) on each row. Stock Type is Free, not linked to any OC.\n• Confirm sales ASN. The user confirms the ASN (V-2, V-3). The automatic transactions are controlled by the setting.\n• Automatic stock transactions. For each Site the system raises Enter New Stock, then Transfer Out of System, using the Site and quantity from the FG Allocation tab, in the same action as the Confirm.\n• Sales ASN confirmed. The ASN gets its Shipment No., becomes read-only, and the confirmation banner lists the stock transaction numbers.",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Business workflow",
+      "kind": "section"
+    },
+    {
+      "title": "Scenarios – Table 1",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios",
+      "text": "Columns: ASN Type (text); Setting “FG Allocation without GDN” (text); FG Allocation tab (text); Automatic stock transactions on Confirm (text)\nASN Type | Setting “FG Allocation without GDN” | FG Allocation tab | Automatic stock transactions on Confirm\nWith GDN | not used | Shown by default | None, normal ASN flow\nWithout GDN | ON | Shown | Enter New Stock, then Transfer Out of System (when at least one row has a Site and Trf. GDI Qty above 0)\nWithout GDN | OFF | Hidden | None, standard ASN",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios",
+      "text": "ASN Type: With GDN; Setting “FG Allocation without GDN”: not used; FG Allocation tab: Shown by default; Automatic stock transactions on Confirm: None, normal ASN flow",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios",
+      "text": "ASN Type: Without GDN; Setting “FG Allocation without GDN”: ON; FG Allocation tab: Shown; Automatic stock transactions on Confirm: Enter New Stock, then Transfer Out of System (when at least one row has a Site and Trf. GDI Qty above 0)",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios",
+      "text": "ASN Type: Without GDN; Setting “FG Allocation without GDN”: OFF; FG Allocation tab: Hidden; Automatic stock transactions on Confirm: None, standard ASN",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Scenarios",
+      "heading": "Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios",
+      "text": "ASN Against “Buyer order dispatch” never shows the FG Allocation tab, whatever the ASN Type and setting (see FG Allocation tab, when it shows).",
+      "locator": "§ Sales ASN — Product Mock Spec › Problem statement & proposed solution › Scenarios",
+      "kind": "section"
+    },
+    {
+      "title": "Screen inventory & navigation flow – Table 2",
+      "heading": "Sales ASN — Product Mock Spec › Screen inventory & navigation flow",
+      "text": "Columns: # (text); Screen (text); Route (text); Purpose (text)\n# | Screen | Route | Purpose\nS-1 | New ASN | /sales/asn/new, then /sales/asn/{id} | Raise an ASN: header, eight tabs, Summary Total and Flex Field, with manual Save / Confirm / Exit. A Confirmed ASN opens read-only. Includes the Select Order picker (S-1a).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen inventory & navigation flow, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Screen inventory & navigation flow",
+      "text": "#: S-1; Screen: New ASN; Route: /sales/asn/new, then /sales/asn/{id}; Purpose: Raise an ASN: header, eight tabs, Summary Total and Flex Field, with manual Save / Confirm / Exit. A Confirmed ASN opens read-only. Includes the Select Order picker (S-1a).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen inventory & navigation flow, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Navigation rules",
+      "heading": "Sales ASN — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "text": "• ASN List → New ASN: the primary “New ASN” button in the ASN List toolbar opens /sales/asn/new. A row’s link in the ASN List opens the saved ASN at /sales/asn/{id}, the same screen.\n• New ASN → saved: the first Save or Confirm keeps the user on the screen and changes the address to /sales/asn/{id} without adding a history entry, so the back button does not return to a blank “new” page.\n• New ASN → ASN List: the Exit button and the back arrow. With unsaved edits the user is first asked “You have unsaved changes to this ASN. Leave without saving?”. The same question guards the browser reload and tab close.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Rules referenced throughout the field tables and the Validations master list are defined once here, so no field restates them.",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions – Table 3",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Columns: Convention (text); Definition (text)\nConvention | Definition\nEnforcement | Unless a rule says otherwise, every validation is enforced inline on the screen and re-validated on the server.\nManual-save screen | A screen with Save / Confirm buttons: nothing is stored until Save or Confirm, and leaving with unsaved edits is always asked first. (A product-team instruction — this screen is not auto-saved.)\nQuantity and weight | Shown with 4 decimals (e.g. 50.0000); never negative.\nMoney | Shown with 2 decimals; line total = quantity × price, rounded half-up to 2 decimals. Company-currency value = document-currency value × exchange rate. The exchange rate shows 8 decimals.\nDate display | All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale.",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Convention: Enforcement; Definition: Unless a rule says otherwise, every validation is enforced inline on the screen and re-validated on the server.",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Convention: Manual-save screen; Definition: A screen with Save / Confirm buttons: nothing is stored until Save or Confirm, and leaving with unsaved edits is always asked first. (A product-team instruction — this screen is not auto-saved.)",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Convention: Quantity and weight; Definition: Shown with 4 decimals (e.g. 50.0000); never negative.",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Convention: Money; Definition: Shown with 2 decimals; line total = quantity × price, rounded half-up to 2 decimals. Company-currency value = document-currency value × exchange rate. The exchange rate shows 8 decimals.",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Conventions",
+      "text": "Convention: Date display; Definition: All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale.",
+      "locator": "§ Sales ASN — Product Mock Spec › Conventions, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "New ASN (S-1)",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1)",
+      "text": "Purpose: raise an Advance Shipment Notice for a buyer. The user picks the buyer, adds the open order deliveries to ship, enters the shipment quantities, prices, charges and shipping details, then Saves or Confirms. The screen is the same for a new ASN and for opening a saved one.\nNew ASN — header and Order Details tab with three orders added",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1)",
+      "kind": "section"
+    },
+    {
+      "title": "Layout",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Layout",
+      "text": "• Page header: breadcrumb “Sales › Sales ASN List”, title “New ASN” (after the first Save it reads “ASN (not confirmed)”; after Confirm “ASN {shipment no}”), a status chip (Saved grey, Confirmed green), a back arrow and the buttons Save, Confirm (primary) and Exit.\n• Below the header panel sit the tabs, then the Summary Total panel and the Flex Field panel (Custom Declaration Bill of Entry No).\n• Tabs, left to right: Order Details · Shipment Details · FG Allocation (only when the rule below shows it) · Additional Charge · Style Details · Advance License · EPCG License · Shipping Info.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Layout",
+      "kind": "section"
+    },
+    {
+      "title": "Header fields – Table 4",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Columns: Field (text); Choices / source (text); Default (text); Rule (text)\nField | Choices / source | Default | Rule\nASN For | Article, Kit | Article | Required. Kit only changes the label of the Style column in the grids — nothing else differs (ASSUMED, Q-1).\nASN Type | With GDN, Without GDN | With GDN | Required. Decides whether the FG Allocation tab shows and whether stock transactions are raised.\nASN Against | Order; Pre shipment export invoice; Factory packing List; Buyer order dispatch; Buyer order dispatch with pre shipment export invoice; Shipment plan | Order | Required. “Buyer order dispatch” never has FG Allocation.\nBuyer | Buyer master (mock: Max TP, Gap Kids) | — | Required. Changing it after orders were added asks “Changing the buyer removes the orders already added to this ASN. Continue?” and, on OK, clears every order, shipment, allocation and style row. It also loads the buyer’s exchange rate.\nShip From Company, Ship From | Company / location masters | — | Optional.\nExchange Rate | From the buyer | Buyer’s rate | Read-only, 8 decimals. Company-currency values = document-currency value × this rate.\nShipping Template | The same Shipping Template master Shipment Tracking uses | — | Optional.\nInvoice Type | CSB -V, FG, Free Sample, MTT, Trade Sample | FG | Required.\nLogistics Lead | User directory | — | Required.\nShipment Type, REX Type | Masters (REX: W, P) | — / W | Optional.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: ASN For; Choices / source: Article, Kit; Default: Article; Rule: Required. Kit only changes the label of the Style column in the grids — nothing else differs (ASSUMED, Q-1).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: ASN Type; Choices / source: With GDN, Without GDN; Default: With GDN; Rule: Required. Decides whether the FG Allocation tab shows and whether stock transactions are raised.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: ASN Against; Choices / source: Order; Pre shipment export invoice; Factory packing List; Buyer order dispatch; Buyer order dispatch with pre shipment export invoice; Shipment plan; Default: Order; Rule: Required. “Buyer order dispatch” never has FG Allocation.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Buyer; Choices / source: Buyer master (mock: Max TP, Gap Kids); Default: —; Rule: Required. Changing it after orders were added asks “Changing the buyer removes the orders already added to this ASN. Continue?” and, on OK, clears every order, shipment, allocation and style row. It also loads the buyer’s exchange rate.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Ship From Company, Ship From; Choices / source: Company / location masters; Default: —; Rule: Optional.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Exchange Rate; Choices / source: From the buyer; Default: Buyer’s rate; Rule: Read-only, 8 decimals. Company-currency values = document-currency value × this rate.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Shipping Template; Choices / source: The same Shipping Template master Shipment Tracking uses; Default: —; Rule: Optional.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Invoice Type; Choices / source: CSB -V, FG, Free Sample, MTT, Trade Sample; Default: FG; Rule: Required.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 9",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Logistics Lead; Choices / source: User directory; Default: —; Rule: Required.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 10",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields",
+      "text": "Field: Shipment Type, REX Type; Choices / source: Masters (REX: W, P); Default: — / W; Rule: Optional.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Header fields, table 4, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "FG Allocation tab — when it shows – Table 5",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "text": "Columns: ASN Type (text); ASN Against (text); Setting “FG Allocation without GDN” (text); FG Allocation tab (text)\nASN Type | ASN Against | Setting “FG Allocation without GDN” | FG Allocation tab\nWith GDN | any except Buyer order dispatch | not used | Shown\nWithout GDN | any except Buyer order dispatch | ON | Shown\nWithout GDN | any except Buyer order dispatch | OFF | Hidden\nany | Buyer order dispatch | not used | Hidden",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "text": "ASN Type: With GDN; ASN Against: any except Buyer order dispatch; Setting “FG Allocation without GDN”: not used; FG Allocation tab: Shown",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "text": "ASN Type: Without GDN; ASN Against: any except Buyer order dispatch; Setting “FG Allocation without GDN”: ON; FG Allocation tab: Shown",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "text": "ASN Type: Without GDN; ASN Against: any except Buyer order dispatch; Setting “FG Allocation without GDN”: OFF; FG Allocation tab: Hidden",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "text": "ASN Type: any; ASN Against: Buyer order dispatch; Setting “FG Allocation without GDN”: not used; FG Allocation tab: Hidden",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "FG Allocation tab — when it shows",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "text": "When the tab appears or disappears the screen returns to the Order Details tab. This follows the product team’s ASN workflow (see Business workflow): With GDN shows the tab by default; Without GDN shows it only when the setting is ON.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab — when it shows",
+      "kind": "section"
+    },
+    {
+      "title": "Order Details tab, and the Select Order picker (S-1a)",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a)",
+      "text": "• Toolbar: Export (Excel), Import (a stub — Q-4), Add, Delete (needs a ticked row; asks “Remove n order(s) from this ASN? Their shipment, FG allocation and style rows are removed too.”).\n• Columns: Style (headed “Kit” when ASN For is Kit), Buyer Order Ref No., OC/PI No., Contract No., Order Delivery Date, Ordered Qty, Total No. of Cartons, Total Gross Weight, Total Net Weight, Total Volume, Total Shipping Qty, then an “Edit »” link (opens the Shipment Details tab) and an “Additional Items Details »” link (a stub — F-3). Cartons, weights and volume are editable; a pinned Total row sums the numbers. Quantities show 4 decimals.\n• Add needs the Buyer first (otherwise “Choose the Buyer before adding orders.”). It opens the picker with: Include Linked Buyers (checkbox), Dispatch Site (required), ETD (required) and Search.\n• The picker lists the buyer’s order deliveries that: belong to the header buyer (or to a linked buyer when the checkbox is ticked); hold stock at the chosen Dispatch Site; have a Delivery Date on or before the ETD; and still have an open balance above 0 (ordered − already shipped).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a)",
+      "kind": "section"
+    },
+    {
+      "title": "Order Details tab, and the Select Order picker (S-1a)",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a)",
+      "text": "• Picker columns: Buyer, Style, OC No./Buyer Order Ref., Contract No., Contract Amount, Contract Balance Amount, Market, Destination, Delivery Order Ref, Delivery Date, Delivery Term Type, Ship To Address, OC Qty., Prev. Shipped Qty, Current Ship Qty (Balance), Currency, Del OC Currency, OC Value, Fulfillment Type, End Customer. Orders already on the ASN are not offered again.\n• Buttons: Close · Add and Continue (adds the ticked rows and keeps the picker open) · OK (adds and closes).\n• One dispatch site per ASN. The first added order fixes it; adding an order from another site is refused with “This ASN already dispatches from {site}. Orders from another site need a separate ASN.”.\n• Adding an order creates its Shipment Details rows (one per article × colour × size) with Shipping Qty = ordered − already shipped, its FG Allocation rows, and its Style Details row, and fills the Shipping Info defaults.\nSelect Order picker — Dispatch Site and ETD filled, open order deliveries listed",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Order Details tab, and the Select Order picker (S-1a) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Details tab",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Shipment Details tab",
+      "text": "• One row per article × colour × size of every added order. Columns: Order No, Market, Destination, Delivery Order Ref, Del. Date, Article, Color, Size, Ordered Qty, Shipped Qty, Shipping Qty, UOM, Main OC Price, Hanger Cost, KGS, Expected CBM, Expected Gross Weight, Expected Net Weight, Total No. Of Cartons, BarCode Detail, Invoice Item S.No., Remarks, then a Total column.\n• Editable: Shipping Qty, Price (starts from the order price), Hanger Cost, KGS, expected CBM and weights, cartons, invoice item no. and remarks. Total = Shipping Qty × Price, 2 decimals. The pinned Total row sums quantity and value.\n• Real rule (ASSUMED — Q-2): Shipping Qty is 0 or more and never above ordered − already shipped. The mock does not stop the user from typing a larger number — D-2.\nShipment Details tab — priced rows with the pinned Total row",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Shipment Details tab",
+      "kind": "section"
+    },
+    {
+      "title": "FG Allocation tab",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "text": "• Shows the finished-goods stock that covers each shipment row. Columns: Article, Color, Size, UOM, OC No., Ship Qty., Dispatched Qty, Avail. On Dispatch Site, Balance To Allocate, Site, Stock Type, Stock, Prev. Instructed, Trf. GDI Qty.\n• Without GDN: Stock Type is “Free” (not linked to any OC); Site, Stock and Trf. GDI Qty are editable, and the Site and Trf. GDI Qty entered here are the values the two automatic stock transactions use on Confirm; a note explains that the two stock transactions are raised on Confirm. Changing a row’s Site loads that site’s stock and caps the transfer quantity to it.\n• Trf. GDI Qty cannot exceed the smaller of the Stock and the Balance To Allocate; a larger entry is cut back with the message “Trf. GDI Qty cannot exceed {limit} — the smaller of the stock and the balance to allocate.”.\n• Buttons: Auto Fill As per Total Ship Qty (Trf. GDI Qty = Balance To Allocate), Auto Fill (the smaller of Stock and Balance To Allocate), Clear All. They act on the ticked rows, or on all rows when none is ticked.\n• Dispatched Qty is 0 until a dispatch exists; once a dispatch is created its quantity appears there. Exact allocation rules are not final — F-1.\nFG Allocation tab for an ASN Without GDN",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › FG Allocation tab",
+      "kind": "section"
+    },
+    {
+      "title": "Other tabs – Table 6",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Columns: Tab (text); What it holds (text)\nTab | What it holds\nAdditional Charge | Add / Delete rows (Delete asks “Delete n additional charge(s)?”). Columns: Additional Charge (name, required on Confirm), Basis (% or Amount), Based On (Invoice Value or Running Amount), Value, Round Off (Yes / No), Amount, Running Amount. Amount = Value % of the base, or the Value itself when Basis is Amount; the base is the invoice value, or the running amount after the rows above. Round Off “Yes” rounds the Amount to a whole number, otherwise 2 decimals.\nStyle Details | One row per added order style: Style Colors, Style Sizes, Merchant, Style Description, H.T.S No/HS Code, Fabric Description, Goods Description, Scheme Type, Gender, Quota Category, DBK, RoSCTL, RoDTEP (editable).\nAdvance License | Grid with SNo, Article, Color, Size, Consumption Per Pc (As Per BOM), Total Requirement (As Per BOM), Consumption Per Pc (Actual), Total Consumption (Actual), Total Allocated Qty, Balance Qty, UOM, Allocated License, Attach License. Empty in the mock — F-4.\nEPCG License | Same layout as Advance License with an Attach button (a stub — F-3).\nShipping Info | Sections: Commercial Invoice, Packing Information, Shipment Mode (Sea blocks, Air blocks or both, following the chosen mode), Commercial Terms (Consignee, Consignor, Bill To, Ship To, Notify 1/2 with their address lines), Attachments. Defaults: Shipment Mode SEA/AIR, Port of Discharge “CCU- Calcutta”, Country of Origin India, Invoice Date today.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Tab: Additional Charge; What it holds: Add / Delete rows (Delete asks “Delete n additional charge(s)?”). Columns: Additional Charge (name, required on Confirm), Basis (% or Amount), Based On (Invoice Value or Running Amount), Value, Round Off (Yes / No), Amount, Running Amount. Amount = Value % of the base, or the Value itself when Basis is Amount; the base is the invoice value, or the running amount after the rows above. Round Off “Yes” rounds the Amount to a whole number, otherwise 2 decimals.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Tab: Style Details; What it holds: One row per added order style: Style Colors, Style Sizes, Merchant, Style Description, H.T.S No/HS Code, Fabric Description, Goods Description, Scheme Type, Gender, Quota Category, DBK, RoSCTL, RoDTEP (editable).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Tab: Advance License; What it holds: Grid with SNo, Article, Color, Size, Consumption Per Pc (As Per BOM), Total Requirement (As Per BOM), Consumption Per Pc (Actual), Total Consumption (Actual), Total Allocated Qty, Balance Qty, UOM, Allocated License, Attach License. Empty in the mock — F-4.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Tab: EPCG License; What it holds: Same layout as Advance License with an Attach button (a stub — F-3).",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Tab: Shipping Info; What it holds: Sections: Commercial Invoice, Packing Information, Shipment Mode (Sea blocks, Air blocks or both, following the chosen mode), Commercial Terms (Consignee, Consignor, Bill To, Ship To, Notify 1/2 with their address lines), Attachments. Defaults: Shipment Mode SEA/AIR, Port of Discharge “CCU- Calcutta”, Country of Origin India, Invoice Date today.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other tabs",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "text": "Additional Charge tab — a 5 % Freight charge on the invoice value\nShipping Info tab",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Other tabs",
+      "kind": "section"
+    },
+    {
+      "title": "Summary Total",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Summary Total",
+      "text": "• One row, always visible: Total Quantity; Value In Doc Currency (sum of shipment Totals); Value In Company Currency (= doc value × Exchange Rate); Additional Charge Value in Doc and in Company Currency; Net Value in Doc and in Company Currency (= value + charges). Money shows 2 decimals.\n• Worked example from the reference screen: 666.68 × 90.90909 = 60,607.27.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Summary Total",
+      "kind": "section"
+    },
+    {
+      "title": "Save, Confirm and Exit",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "text": "• Save needs ASN For, ASN Type, ASN Against, Buyer, Invoice Type and Logistics Lead; otherwise the warning “Fill in: …” lists what is missing. A first Save stores the ASN as Saved and moves the address to /sales/asn/{id}; the page stays open and editable. Success: “The ASN was saved.”\n• Confirm needs everything Save needs plus Invoice Date, Shipment Mode, Shipping Bill Date, Bill To, at least one order, a Price above 0 on every Shipment Details row, and a charge name on every charge row. A missing item shows “Fill in: …”. When all is present a dialog asks “Confirm this ASN? A confirmed ASN can no longer be edited.” On OK the ASN gets its Shipment No. (the next number after the highest in use, starting at 125001), becomes Confirmed and the page turns read-only.\n• A Confirmed page is the same screen with every field and grid locked, the Save and Confirm buttons gone, and a green banner: “Shipment {no} is confirmed. This ASN can no longer be edited.” For Without GDN it adds the numbers of the stock transactions that were raised, or says none were raised because nothing was allocated or the setting is off.\n• Exit returns to the ASN List (asking first when there are unsaved edits).\n• The list row is refreshed on every Save and Confirm: Shipment No., Buyer, Style, Destination, Shipped Qty, Status.\nConfirmed ASN — read-only, with the banner naming the two stock transactions",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Save, Confirm and Exit",
+      "kind": "section"
+    },
+    {
+      "title": "Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "heading": "Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "text": "• Raised only when ASN Type is Without GDN, the FG Allocation tab is shown (setting “FG Allocation without GDN” ON), and at least one allocation row has a Site and a Trf. GDI Qty above 0.\n• For each Site two transactions are created, in this order: Enter New Stock (stock comes in at the site) and Transfer Out of System (the same quantity goes out against this ASN). Each carries the ASN’s Shipment No., the Site, the allocated lines (article, colour, size, UOM, quantity) and the total quantity. Site and quantities are populated from the FG Allocation tab; the user does not enter them again. Numbers run per type: ENS-000001, ENS-000002 … and TOS-000001 … (mock format; the real numbering is Q-3).\n• The Confirm is one action: if the transactions cannot be stored, the ASN is not confirmed and “Could not confirm the ASN.” shows.\n• With GDN, or with the setting OFF, or with nothing allocated, no transaction is raised.",
+      "locator": "§ Sales ASN — Product Mock Spec › Screen specifications › New ASN (S-1) › Automatic stock transactions on Confirm (ASN Type Without GDN)",
+      "kind": "section"
+    },
+    {
+      "title": "Workflow & status lifecycle",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle",
+      "text": "An ASN has its own status. This screen sets only Saved and Confirmed; any later status is set elsewhere and is not specified here.",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle",
+      "kind": "section"
+    },
+    {
+      "title": "Workflow & status lifecycle – Table 7",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Columns: ASN status (text); Badge (text); Meaning (text)\nASN status | Badge | Meaning\nSaved | Secondary (grey) | Stored by the user’s Save; fully editable; no Shipment No. yet.\nConfirmed | Success (green) | Has a Shipment No.; read-only; for Without GDN with allocation, its stock transactions exist.",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle",
+      "text": "ASN status: Saved; Badge: Secondary (grey); Meaning: Stored by the user’s Save; fully editable; no Shipment No. yet.",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle",
+      "text": "ASN status: Confirmed; Badge: Success (green); Meaning: Has a Shipment No.; read-only; for Without GDN with allocation, its stock transactions exist.",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Allowed transitions – Table 8",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "Columns: # (text); Transition (text); Trigger (text); Who / where (text)\n# | Transition | Trigger | Who / where\nT-1 | (new) → Saved | Manual Save with the six required header fields (V-1) | New ASN toolbar\nT-2 | Saved → Saved | Manual Save again; the record is updated | New ASN toolbar\nT-3 | (new) / Saved → Confirmed | Manual Confirm with every Confirm requirement (V-2, V-3) and the confirmation dialog. Assigns the Shipment No. and, for Without GDN with allocation, raises the two stock transactions in the same action. | New ASN toolbar",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-1; Transition: (new) → Saved; Trigger: Manual Save with the six required header fields (V-1); Who / where: New ASN toolbar",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-2; Transition: Saved → Saved; Trigger: Manual Save again; the record is updated; Who / where: New ASN toolbar",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-3; Transition: (new) / Saved → Confirmed; Trigger: Manual Confirm with every Confirm requirement (V-2, V-3) and the confirmation dialog. Assigns the Shipment No. and, for Without GDN with allocation, raises the two stock transactions in the same action.; Who / where: New ASN toolbar",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Allowed transitions",
+      "heading": "Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "Confirmed is final on this screen: no edit, no un-confirm, no cancel (ASSUMED — Q-5). A new or unsaved ASN can be confirmed directly, without a separate Save first.",
+      "locator": "§ Sales ASN — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "One line per field or rule — its checks combined; shared rules are defined once under Conventions. Every rule is testable as written.",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list – Table 9",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "Columns: # (text); Rule (testable statement) (text); Where enforced (text); Message (text)\n# | Rule (testable statement) | Where enforced | Message\nV-1 | ASN Save — ASN For, ASN Type, ASN Against, Buyer, Invoice Type and Logistics Lead are all required. | New ASN + server | “Fill in: {missing fields}.” (title “Cannot Save”)\nV-2 | ASN Confirm — everything in V-1, plus Invoice Date, Shipment Mode, Shipping Bill Date and Bill To are required. Shown inline at the field once Confirm was tried. | New ASN + server | “{Field} is required”; “Fill in: …” (title “Cannot Confirm”)\nV-3 | ASN Confirm — at least one order in Order Details; a Price above 0 on every Shipment Details row; a name on every Additional Charge row. | New ASN + server | “Fill in: at least one order in Order Details / Price on every Shipment Details row / Additional Charge name on every charge row.”\nV-4 | Add orders — a Buyer must be chosen; Dispatch Site and ETD are required; every order of one ASN dispatches from the same site. | New ASN, picker + server | “Choose the Buyer before adding orders.” / “Choose the Dispatch Site and the ETD first.” (Search) / “Tick at least one order.” (OK, Add and Continue) / “This ASN already dispatches from {site}. Orders from another site need a separate ASN.”\nV-5 | FG Allocation — Trf. GDI Qty is 0 or more and never above the smaller of Stock and Balance To Allocate; a larger entry is cut back. Balance To Allocate = Ship Qty − Dispatched Qty, never below 0. | FG Allocation + server | “Trf. GDI Qty cannot exceed {limit} — the smaller of the stock and the balance to allocate.”\nV-6 | Changing the Buyer when orders were added needs a confirmation; on OK all added orders and their rows are cleared. | New ASN | “Changing the buyer removes the orders already added to this ASN. Continue?”\nV-7 | Exchange Rate cannot be typed: it comes from the Buyer. Shipping Qty — 0 or more and at most ordered − already shipped (ASSUMED — Q-2; not enforced in the mock, D-2). | New ASN + server | —\nV-8 | A Confirmed ASN is read-only: no Save, no Confirm, no edit, no Add / Delete. The server refuses any change to a Confirmed ASN. | New ASN + server | Banner “Shipment {no} is confirmed. This ASN can no longer be edited.”",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-1; Rule (testable statement): ASN Save — ASN For, ASN Type, ASN Against, Buyer, Invoice Type and Logistics Lead are all required.; Where enforced: New ASN + server; Message: “Fill in: {missing fields}.” (title “Cannot Save”)",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-2; Rule (testable statement): ASN Confirm — everything in V-1, plus Invoice Date, Shipment Mode, Shipping Bill Date and Bill To are required. Shown inline at the field once Confirm was tried.; Where enforced: New ASN + server; Message: “{Field} is required”; “Fill in: …” (title “Cannot Confirm”)",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-3; Rule (testable statement): ASN Confirm — at least one order in Order Details; a Price above 0 on every Shipment Details row; a name on every Additional Charge row.; Where enforced: New ASN + server; Message: “Fill in: at least one order in Order Details / Price on every Shipment Details row / Additional Charge name on every charge row.”",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-4; Rule (testable statement): Add orders — a Buyer must be chosen; Dispatch Site and ETD are required; every order of one ASN dispatches from the same site.; Where enforced: New ASN, picker + server; Message: “Choose the Buyer before adding orders.” / “Choose the Dispatch Site and the ETD first.” (Search) / “Tick at least one order.” (OK, Add and Continue) / “This ASN already dispatches from {site}. Orders from another site need a separate ASN.”",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-5; Rule (testable statement): FG Allocation — Trf. GDI Qty is 0 or more and never above the smaller of Stock and Balance To Allocate; a larger entry is cut back. Balance To Allocate = Ship Qty − Dispatched Qty, never below 0.; Where enforced: FG Allocation + server; Message: “Trf. GDI Qty cannot exceed {limit} — the smaller of the stock and the balance to allocate.”",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 6",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-6; Rule (testable statement): Changing the Buyer when orders were added needs a confirmation; on OK all added orders and their rows are cleared.; Where enforced: New ASN; Message: “Changing the buyer removes the orders already added to this ASN. Continue?”",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 7",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-7; Rule (testable statement): Exchange Rate cannot be typed: it comes from the Buyer. Shipping Qty — 0 or more and at most ordered − already shipped (ASSUMED — Q-2; not enforced in the mock, D-2).; Where enforced: New ASN + server; Message: —",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 8",
+      "heading": "Sales ASN — Product Mock Spec › Validations master list",
+      "text": "#: V-8; Rule (testable statement): A Confirmed ASN is read-only: no Save, no Confirm, no edit, no Add / Delete. The server refuses any change to a Confirmed ASN.; Where enforced: New ASN + server; Message: Banner “Shipment {no} is confirmed. This ASN can no longer be edited.”",
+      "locator": "§ Sales ASN — Product Mock Spec › Validations master list, table 9, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Mock shortcuts — full real behaviour required",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "The mock simplified reality in the following places. The real build must implement the FULL behaviour in the right-hand column; none of these shortcuts may silently become the product.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "kind": "section"
+    },
+    {
+      "title": "Mock shortcuts — full real behaviour required – Table 10",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "Columns: # (text); Mock shortcut (text); Required real behaviour (text)\n# | Mock shortcut | Required real behaviour\nD-1 | The whole ASN (header, orders, shipment rows, allocation, charges, styles) is kept as one record in the browser mock, and totals, charge amounts and the exchange maths are worked out on the client. | Stored in proper tables; the server works out totals, charges and company-currency values on every save and again on Confirm. The client numbers are only a preview.\nD-2 | Shipping Qty is not capped: the user can type more than ordered − already shipped. | The server refuses a quantity above the open balance and a negative quantity (V-7, Q-2).\nD-3 | The Select Order list and the stock per site are seed data. The filter (buyer, site stock, delivery date up to ETD, open balance) runs in the browser; two ASNs can use the same stock. | The server runs the filter on live orders and live site stock, pages the result, and holds (reserves) the allocated stock so two ASNs cannot take the same units.\nD-4 | The setting “FG Allocation without GDN” is a mock record, ON by default. | Read from the system settings module; changing it takes effect for the next ASN screen opened and the next Confirm.\nD-5 | Enter New Stock and Transfer Out of System are mock records; no stock is really moved. If saving the transactions fails the ASN is not confirmed, but nothing is rolled back across modules. | The Inventory module posts both documents and updates site stock in the SAME database transaction as the Confirm — all or nothing. Numbering follows Inventory (Q-3). What happens to them if an ASN is ever reopened or cancelled is decided under Q-5.\nD-6 | The Shipment No. is worked out in the browser (next after the highest in use, from 125001). | Server-assigned sequential number at Confirm; never client-generated.\nD-7 | No permissions and no audit trail on Save, Confirm or the automatic stock transactions; Attachments, Import and the license and EPCG attach actions do nothing lasting (F-3, F-5). | Role-based permissions for Save / Confirm; Save, Confirm and every raised transaction logged with user and time; attachments stored with the ASN.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-1; Mock shortcut: The whole ASN (header, orders, shipment rows, allocation, charges, styles) is kept as one record in the browser mock, and totals, charge amounts and the exchange maths are worked out on the client.; Required real behaviour: Stored in proper tables; the server works out totals, charges and company-currency values on every save and again on Confirm. The client numbers are only a preview.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-2; Mock shortcut: Shipping Qty is not capped: the user can type more than ordered − already shipped.; Required real behaviour: The server refuses a quantity above the open balance and a negative quantity (V-7, Q-2).",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-3; Mock shortcut: The Select Order list and the stock per site are seed data. The filter (buyer, site stock, delivery date up to ETD, open balance) runs in the browser; two ASNs can use the same stock.; Required real behaviour: The server runs the filter on live orders and live site stock, pages the result, and holds (reserves) the allocated stock so two ASNs cannot take the same units.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-4; Mock shortcut: The setting “FG Allocation without GDN” is a mock record, ON by default.; Required real behaviour: Read from the system settings module; changing it takes effect for the next ASN screen opened and the next Confirm.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-5; Mock shortcut: Enter New Stock and Transfer Out of System are mock records; no stock is really moved. If saving the transactions fails the ASN is not confirmed, but nothing is rolled back across modules.; Required real behaviour: The Inventory module posts both documents and updates site stock in the SAME database transaction as the Confirm — all or nothing. Numbering follows Inventory (Q-3). What happens to them if an ASN is ever reopened or cancelled is decided under Q-5.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 6",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-6; Mock shortcut: The Shipment No. is worked out in the browser (next after the highest in use, from 125001).; Required real behaviour: Server-assigned sequential number at Confirm; never client-generated.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 7",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-7; Mock shortcut: No permissions and no audit trail on Save, Confirm or the automatic stock transactions; Attachments, Import and the license and EPCG attach actions do nothing lasting (F-3, F-5).; Required real behaviour: Role-based permissions for Save / Confirm; Save, Confirm and every raised transaction logged with user and time; attachments stored with the ASN.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 10, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Findings — open items and mock defects (do NOT implement as shown)",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "Items the product team told us to leave open for now, recorded here so the developer sees them later. The spec text above states the behaviour to build.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "kind": "section"
+    },
+    {
+      "title": "Findings — open items and mock defects (do NOT implement as shown) – Table 11",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "Columns: # (text); Type (text); Screen / area (text); Finding (verified in code) (text); Corrected rule in this spec (text)\n# | Type | Screen / area | Finding (verified in code) | Corrected rule in this spec\nF-1 | Open item | New ASN — FG Allocation rules | The allocation rules are not final. The mock does this: Trf. GDI Qty is at most the Stock and at most the Balance To Allocate; Auto Fill = the smaller of Stock and Balance; “Auto Fill As per Total Ship Qty” = the Balance; Dispatched Qty stays 0 until a dispatch exists. | Build these rules as written in S-1 and V-5 until the product team gives the final ones (Q-6).\nF-2 | Open item | New ASN — FG Allocation “Free” and Confirmed page | The reference pictures for the FG Allocation tab with stock type “Free” and for the Confirmed ASN page were not supplied. The mock shows “Free” on every Without-GDN row, and the Confirmed page as the same screen, read-only, with a green banner. | Layout of the two screens to be checked against the product team’s pictures once supplied (Q-8); behaviour as in S-1 and V-8.\nF-3 | Mock stub | New ASN — Import, “Additional Items Details »”, EPCG “Attach” | The three buttons only show a message; nothing is imported, opened or attached. | Not specified: the real behaviour of each is a separate piece of work, to be defined by the product team (Q-4).\nF-4 | Open item | New ASN — Advance License grid; picker Contract columns | The Advance License grid has no rows (the BOM consumption and license data do not exist in the mock), and the picker’s Contract Amount and Contract Balance Amount columns are blank. | Columns are specified as shown; their data comes from the BOM and the buyer contract in the real build.\nF-5 | Open item | New ASN — Attachments (Shipping Info) | Files added in the Attachments area are not saved with the ASN; they are gone after Save and reload. | Attachments are stored with the ASN and listed again on reopening (D-7).\nF-6 | Open item | New ASN — FG Allocation row split | The reference screen has an icon on each FG row to split one row across several sites. It is not built; one row has one Site. | Not specified; the product team to say how a split row behaves (Q-6).\nF-7 | Open item | New ASN — dropdown values | The lists for Ship From Company, Ship From, Shipping Template, Logistics Lead, Forwarder, Ports, Addresses, Countries and others hold a few sample values, not the real masters. | Every list comes from its real master, inactive values hidden for new entry. Which master feeds which field is Q-7.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-1; Type: Open item; Screen / area: New ASN — FG Allocation rules; Finding (verified in code): The allocation rules are not final. The mock does this: Trf. GDI Qty is at most the Stock and at most the Balance To Allocate; Auto Fill = the smaller of Stock and Balance; “Auto Fill As per Total Ship Qty” = the Balance; Dispatched Qty stays 0 until a dispatch exists.; Corrected rule in this spec: Build these rules as written in S-1 and V-5 until the product team gives the final ones (Q-6).",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-2; Type: Open item; Screen / area: New ASN — FG Allocation “Free” and Confirmed page; Finding (verified in code): The reference pictures for the FG Allocation tab with stock type “Free” and for the Confirmed ASN page were not supplied. The mock shows “Free” on every Without-GDN row, and the Confirmed page as the same screen, read-only, with a green banner.; Corrected rule in this spec: Layout of the two screens to be checked against the product team’s pictures once supplied (Q-8); behaviour as in S-1 and V-8.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-3; Type: Mock stub; Screen / area: New ASN — Import, “Additional Items Details »”, EPCG “Attach”; Finding (verified in code): The three buttons only show a message; nothing is imported, opened or attached.; Corrected rule in this spec: Not specified: the real behaviour of each is a separate piece of work, to be defined by the product team (Q-4).",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-4; Type: Open item; Screen / area: New ASN — Advance License grid; picker Contract columns; Finding (verified in code): The Advance License grid has no rows (the BOM consumption and license data do not exist in the mock), and the picker’s Contract Amount and Contract Balance Amount columns are blank.; Corrected rule in this spec: Columns are specified as shown; their data comes from the BOM and the buyer contract in the real build.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-5; Type: Open item; Screen / area: New ASN — Attachments (Shipping Info); Finding (verified in code): Files added in the Attachments area are not saved with the ASN; they are gone after Save and reload.; Corrected rule in this spec: Attachments are stored with the ASN and listed again on reopening (D-7).",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 6",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-6; Type: Open item; Screen / area: New ASN — FG Allocation row split; Finding (verified in code): The reference screen has an icon on each FG row to split one row across several sites. It is not built; one row has one Site.; Corrected rule in this spec: Not specified; the product team to say how a split row behaves (Q-6).",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 7",
+      "heading": "Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown)",
+      "text": "#: F-7; Type: Open item; Screen / area: New ASN — dropdown values; Finding (verified in code): The lists for Ship From Company, Ship From, Shipping Template, Logistics Lead, Forwarder, Ports, Addresses, Countries and others hold a few sample values, not the real masters.; Corrected rule in this spec: Every list comes from its real master, inactive values hidden for new entry. Which master feeds which field is Q-7.",
+      "locator": "§ Sales ASN — Product Mock Spec › Out-of-scope & deltas › Findings — open items and mock defects (do NOT implement as shown), table 11, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Open questions",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "The product team was not available to answer the question batch, so every question below carries the proposed default, which this spec ADOPTS AS ASSUMED. Each assumption is marked “ASSUMED” where it is used in the body. Owner for every item: Product team (Sales) — confirmation required before development sign-off; any changed answer amends the referenced sections.",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions",
+      "kind": "section"
+    },
+    {
+      "title": "Open questions – Table 12",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "Columns: # (text); Question (text); Adopted default (ASSUMED) (text, ASSUMED); Used in (text)\n# | Question | Adopted default (ASSUMED) | Used in\nQ-1 | What does ASN For “Kit” change besides the Style column heading? | Nothing — it only relabels the Style column as “Kit”. | S-1\nQ-2 | May Shipping Qty go above ordered − already shipped (over-shipment)? | No. It is 0 or more and at most the open balance; any tolerance belongs to the shipment module. | V-7, D-2\nQ-3 | How are the two automatic stock transactions numbered, and what do they carry? | Numbers come from the Inventory module, one sequence per transaction type; each carries the Shipment No., the Site and the allocated lines. The mock’s ENS-nnnnnn / TOS-nnnnnn is only a placeholder. | S-1, D-5\nQ-4 | What do Import, “Additional Items Details »” and EPCG Attach do? | Not built in the mock. Proposed: Import loads orders from an Excel template; Additional Items Details opens the extra item data of the order; EPCG Attach stores a license file with the row. | F-3\nQ-5 | Can a Confirmed ASN be un-confirmed, edited, revised or cancelled? What happens to its stock transactions then? | No — Confirmed is final on this screen. Any later change is a separate process, outside this spec. | T-3, D-5\nQ-6 | Final FG Allocation rules: limits on Trf. GDI Qty, Auto Fill, “As per Total Ship Qty”, the Dispatched Qty column, and the row-split icon. | As the mock does today (F-1); no row split. | F-1, F-6, V-5\nQ-7 | Which real master feeds each header and Shipping Info list, and who owns the setting “FG Allocation without GDN”? | The existing masters of the same names; the setting is kept in system settings and is owned by the Tech and Product teams jointly. | F-7, D-4\nQ-8 | Please supply the pictures for the FG Allocation tab with stock type “Free” and for the Confirmed ASN page. | Until then: the screens as in S-1. | F-2\nQ-9 | Is “one dispatch site per ASN” a business rule, and is the exchange rate frozen when the Buyer is chosen or when the ASN is confirmed? | The one-site rule stays. The rate is taken from the Buyer when the Buyer is chosen and kept as it is. | V-4, S-1",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12",
+      "kind": "table"
+    },
+    {
+      "title": "Table 12 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-1; Question: What does ASN For “Kit” change besides the Style column heading?; Adopted default (ASSUMED): Nothing — it only relabels the Style column as “Kit”.; Used in: S-1",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-2; Question: May Shipping Qty go above ordered − already shipped (over-shipment)?; Adopted default (ASSUMED): No. It is 0 or more and at most the open balance; any tolerance belongs to the shipment module.; Used in: V-7, D-2",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-3; Question: How are the two automatic stock transactions numbered, and what do they carry?; Adopted default (ASSUMED): Numbers come from the Inventory module, one sequence per transaction type; each carries the Shipment No., the Site and the allocated lines. The mock’s ENS-nnnnnn / TOS-nnnnnn is only a placeholder.; Used in: S-1, D-5",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-4; Question: What do Import, “Additional Items Details »” and EPCG Attach do?; Adopted default (ASSUMED): Not built in the mock. Proposed: Import loads orders from an Excel template; Additional Items Details opens the extra item data of the order; EPCG Attach stores a license file with the row.; Used in: F-3",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-5; Question: Can a Confirmed ASN be un-confirmed, edited, revised or cancelled? What happens to its stock transactions then?; Adopted default (ASSUMED): No — Confirmed is final on this screen. Any later change is a separate process, outside this spec.; Used in: T-3, D-5",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 6",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-6; Question: Final FG Allocation rules: limits on Trf. GDI Qty, Auto Fill, “As per Total Ship Qty”, the Dispatched Qty column, and the row-split icon.; Adopted default (ASSUMED): As the mock does today (F-1); no row split.; Used in: F-1, F-6, V-5",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 7",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-7; Question: Which real master feeds each header and Shipping Info list, and who owns the setting “FG Allocation without GDN”?; Adopted default (ASSUMED): The existing masters of the same names; the setting is kept in system settings and is owned by the Tech and Product teams jointly.; Used in: F-7, D-4",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 8",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-8; Question: Please supply the pictures for the FG Allocation tab with stock type “Free” and for the Confirmed ASN page.; Adopted default (ASSUMED): Until then: the screens as in S-1.; Used in: F-2",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 9",
+      "heading": "Sales ASN — Product Mock Spec › Open questions",
+      "text": "#: Q-9; Question: Is “one dispatch site per ASN” a business rule, and is the exchange rate frozen when the Buyer is chosen or when the ASN is confirmed?; Adopted default (ASSUMED): The one-site rule stays. The rate is taken from the Buyer when the Buyer is chosen and kept as it is.; Used in: V-4, S-1",
+      "locator": "§ Sales ASN — Product Mock Spec › Open questions, table 12, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Technical appendix — Data & API contract (provisional)",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "The committed mock JSON files are the draft API contract. Field names are PascalCase DTO names. The real backend must be reconciled field-by-field against this table during promotion. Five mock collections back S-1; field types live here only — the body above names the fields and their rules. The ASN list collection sales-asns gains one optional object, Detail.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "kind": "section"
+    },
+    {
+      "title": "Technical appendix — Data & API contract (provisional) – Table 13",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Columns: Collection / field (text); Type (text); Example (text); Used by (text)\nCollection / field | Type | Example | Used by\nsales-asns — Detail (NEW) | object | — | S-1 (saved ASN)\nDetail.Form | object — every header, Shipping Info and Flex Field value; dates as ISO 8601 strings | asnType: Without GDN | All tabs\nDetail.DispatchSite | string | ACHIEVER CUT STORE PPJ | Picker\nDetail.OrderLines[], ShipmentLines[], FgLines[], Charges[], StyleDetails[] | arrays, one row per grid row; shipment, FG and style rows point back to their order row | — | Their tabs\nDetail.TransactionNos[] | string[] — numbers raised on Confirm; empty when none | ENS-000001, TOS-000001 | Confirmed banner\nShipmentNo, Status, BuyerCompanyName, Style, Destination, ShippedQty | list columns, refreshed from the ASN on every Save and Confirm | 125001, Confirmed | ASN List\nsales-asn-lookups — Group, Code, Name | string (one row per list value) | Buyer, MAXTP, Max TP | All dropdowns\nCurrencyCode, ExchangeRate (Buyer rows); Extra (Address rows) | string, decimal(8); string | USD, 90.90909 | Exchange Rate, address sub-lines\nsales-asn-orders — BuyerCode, LinkedToBuyerCode, OcNo, Style, BuyerOrderRef, ContractNo | string | GAPS.NEWOC-229.1 | Select Order picker\nMarket, Destination, DeliveryOrderRef, DeliveryDate, DeliveryTermType, ShipToAddress, Currency, FulfillmentType, EndCustomer | string / ISO 8601 datetime | USA, 2026-10-27 | Picker columns\nDispatchSites[] | string[] — sites that hold stock for the delivery | — | Picker filter\nLines[] — Article, Color, Size, UOM, OrderedQty, ShippedQty, Price, Stock[] (Site, Qty) | colour × size lines with stock per site | 100, 50, 3.3333 | Shipment and FG rows\nsales-asn-settings — SettingName, Enabled | string, boolean | FG Allocation without GDN, true | FG tab rule, Confirm\nsales-asn-stock-transactions — AsnId, ShipmentNo, TransactionNo, TransactionType, Site, TotalQty, CreatedBy, CreatedOn | string / number / ISO 8601; TransactionType is Enter New Stock | Transfer Out of System | ENS-000001 | Confirm\nLines[] — Article, Color, Size, UOM, Qty | array | — | Transaction detail",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13",
+      "kind": "table"
+    },
+    {
+      "title": "Table 13 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: sales-asns — Detail (NEW); Type: object; Example: —; Used by: S-1 (saved ASN)",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Detail.Form; Type: object — every header, Shipping Info and Flex Field value; dates as ISO 8601 strings; Example: asnType: Without GDN; Used by: All tabs",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Detail.DispatchSite; Type: string; Example: ACHIEVER CUT STORE PPJ; Used by: Picker",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Detail.OrderLines[], ShipmentLines[], FgLines[], Charges[], StyleDetails[]; Type: arrays, one row per grid row; shipment, FG and style rows point back to their order row; Example: —; Used by: Their tabs",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 5",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Detail.TransactionNos[]; Type: string[] — numbers raised on Confirm; empty when none; Example: ENS-000001, TOS-000001; Used by: Confirmed banner",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 6",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: ShipmentNo, Status, BuyerCompanyName, Style, Destination, ShippedQty; Type: list columns, refreshed from the ASN on every Save and Confirm; Example: 125001, Confirmed; Used by: ASN List",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 7",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: sales-asn-lookups — Group, Code, Name; Type: string (one row per list value); Example: Buyer, MAXTP, Max TP; Used by: All dropdowns",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 8",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: CurrencyCode, ExchangeRate (Buyer rows); Extra (Address rows); Type: string, decimal(8); string; Example: USD, 90.90909; Used by: Exchange Rate, address sub-lines",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 9",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: sales-asn-orders — BuyerCode, LinkedToBuyerCode, OcNo, Style, BuyerOrderRef, ContractNo; Type: string; Example: GAPS.NEWOC-229.1; Used by: Select Order picker",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 10",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Market, Destination, DeliveryOrderRef, DeliveryDate, DeliveryTermType, ShipToAddress, Currency, FulfillmentType, EndCustomer; Type: string / ISO 8601 datetime; Example: USA, 2026-10-27; Used by: Picker columns",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 11",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: DispatchSites[]; Type: string[] — sites that hold stock for the delivery; Example: —; Used by: Picker filter",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 12",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Lines[] — Article, Color, Size, UOM, OrderedQty, ShippedQty, Price, Stock[] (Site, Qty); Type: colour × size lines with stock per site; Example: 100, 50, 3.3333; Used by: Shipment and FG rows",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 13",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: sales-asn-settings — SettingName, Enabled; Type: string, boolean; Example: FG Allocation without GDN, true; Used by: FG tab rule, Confirm",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 14",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: sales-asn-stock-transactions — AsnId, ShipmentNo, TransactionNo, TransactionType, Site, TotalQty, CreatedBy, CreatedOn; Type: string / number / ISO 8601; TransactionType is Enter New Stock | Transfer Out of System; Example: ENS-000001; Used by: Confirm",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 15",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional)",
+      "text": "Collection / field: Lines[] — Article, Color, Size, UOM, Qty; Type: array; Example: —; Used by: Transaction detail",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional), table 13, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Service surface (real API to define) – Table 14",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "text": "Columns: Method (mock today) (text, mock today); Real endpoint (to define) (text, to define); Notes (text)\nMethod (mock today) | Real endpoint (to define) | Notes\nfetchLookups(), isSettingOn(name) | GET /sales-asns/lookups, GET /settings/{name} | Lists are cached for the life of the screen; fetched once.\nfetchOrderPool() | GET /sales-asns/open-deliveries?buyer&linked&site&etd | Server runs the picker filter and pages the result (D-3).\nsaveAsn(asn) | POST /sales-asns, PUT /sales-asns/{id} | Server re-checks V-1 and recalculates every total (D-1).\n— (new) | POST /sales-asns/{id}/confirm | Server re-checks V-2 / V-3, assigns the Shipment No., and in the same database transaction posts Enter New Stock and Transfer Out of System (D-5, D-6).",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define), table 14",
+      "kind": "table"
+    },
+    {
+      "title": "Table 14 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "text": "Method (mock today): fetchLookups(), isSettingOn(name); Real endpoint (to define): GET /sales-asns/lookups, GET /settings/{name}; Notes: Lists are cached for the life of the screen; fetched once.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define), table 14, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 2",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "text": "Method (mock today): fetchOrderPool(); Real endpoint (to define): GET /sales-asns/open-deliveries?buyer&linked&site&etd; Notes: Server runs the picker filter and pages the result (D-3).",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define), table 14, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 3",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "text": "Method (mock today): saveAsn(asn); Real endpoint (to define): POST /sales-asns, PUT /sales-asns/{id}; Notes: Server re-checks V-1 and recalculates every total (D-1).",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define), table 14, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 4",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "text": "Method (mock today): — (new); Real endpoint (to define): POST /sales-asns/{id}/confirm; Notes: Server re-checks V-2 / V-3, assigns the Shipment No., and in the same database transaction posts Enter New Stock and Transfer Out of System (D-5, D-6).",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define), table 14, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Service surface (real API to define)",
+      "heading": "Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "text": "• All reads and writes go through one thin per-feature service; components never call HTTP directly.\n• Server is the source of truth for every rule in the Validations section — client validation is a convenience, not the enforcement.",
+      "locator": "§ Sales ASN — Product Mock Spec › Technical appendix — Data & API contract (provisional) › Service surface (real API to define)",
+      "kind": "section"
+    },
+    {
+      "title": "Version History – Table 15",
+      "heading": "Sales ASN — Product Mock Spec › Version History",
+      "text": "Columns: Version (decimal); Owner (text); Git user (empty); Date (date); Summary (text)\nVersion | Owner | Git user | Date | Summary\n1.1 | Nishant | — | 28 Oct 2026 | Added Problem statement & proposed solution, Business workflow (diagram, steps, scenarios). Clarified that FG Allocation stock type Free is not linked to any OC and that the automatic Enter New Stock and Transfer Out of System take Site and quantity from the FG Allocation tab. Purpose updated for dispatch without system inventory. Removed the read-only Dispatch Site from the FG Allocation tab.",
+      "locator": "§ Sales ASN — Product Mock Spec › Version History, table 15",
+      "kind": "table"
+    },
+    {
+      "title": "Table 15 row 1",
+      "heading": "Sales ASN — Product Mock Spec › Version History",
+      "text": "Version: 1.1; Owner: Nishant; Git user: —; Date: 28 Oct 2026; Summary: Added Problem statement & proposed solution, Business workflow (diagram, steps, scenarios). Clarified that FG Allocation stock type Free is not linked to any OC and that the automatic Enter New Stock and Transfer Out of System take Site and quantity from the FG Allocation tab. Purpose updated for dispatch without system inventory. Removed the read-only Dispatch Site from the FG Allocation tab.",
+      "locator": "§ Sales ASN — Product Mock Spec › Version History, table 15, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

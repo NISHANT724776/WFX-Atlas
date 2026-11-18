@@ -1,0 +1,20 @@
+﻿rule,material_type,product_group,sub_category,code_section,value,sort
+1,"FABRIC,NIKITAMATERIALTYPE",ALL Other,ALL Other,Company Name,,10
+1,"FABRIC,NIKITAMATERIALTYPE",ALL Other,ALL Other,Separator,/,20
+1,"FABRIC,NIKITAMATERIALTYPE",ALL Other,ALL Other,Counter,01,30
+2,cottonlinen,leninfab,linefabric,Text,sys,10
+2,cottonlinen,leninfab,linefabric,Separator,-,20
+2,cottonlinen,leninfab,linefabric,Counter,01,30
+3,"Woven,NIKITA_FABRIC",ALL Other,ALL Other,Text,Code,10
+3,"Woven,NIKITA_FABRIC",ALL Other,ALL Other,Separator,/,20
+3,"Woven,NIKITA_FABRIC",ALL Other,ALL Other,Counter,01,30
+4,cottonfabricpremsir,cottonfabrickk,organiccotton,Text,asda,10
+4,cottonfabricpremsir,cottonfabrickk,organiccotton,Separator,-,20
+4,cottonfabricpremsir,cottonfabrickk,organiccotton,Counter,01,30
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Material Type,,10
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Separator,/,20
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Product Group,,30
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Separator,/,40
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Sub-Category,,50
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Separator,/,60
+5,VCotton,VFabric,"V Woven Fabric, V Knitted Fabric",Counter,100,70

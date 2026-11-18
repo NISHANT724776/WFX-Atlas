@@ -1,0 +1,245 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Sumit Sharma",
+          "28th January 2025",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "337356 - OC Closer Setup New Angular Page",
+  "keyTerms": [
+    "site",
+    "type",
+    "company",
+    "rule",
+    "header label",
+    "label column",
+    "column contain",
+    "contain specified",
+    "specified input",
+    "input type",
+    "user",
+    "input",
+    "transfer",
+    "type ddl",
+    "stock"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 33
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 14
+    },
+    {
+      "module": "Production",
+      "score": 13
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "FPO & FPPO",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "In case OC is closed then system will Auto return & Transfer out of system of the material or OC stock for that respected closed OC.",
+      "locator": "§ Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Write off site are those sites for which user enabled the option of “Is write off site”, so those site need to be shown in the dropdown.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case user selected Stock rule then WIP rule field will be non-mandatory.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case user selected OC stock write off + Un-reserve from the dropdown then CM Company Rule field will be freeze and “Write Off Site”, Cost Centre, Inventory Reason(CM Transfer To Site) are mandatory.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "For example OC is created in Company A and Production is happening in Company B then first material will return back in company A Site and then respected action need to take as selected rule.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the CM Company Rule is enabled, the process flow will proceed as outlined below.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "OC is created in Company A.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Then material is returned back to the Company B site from the production floor site for that system will create auto GDI & GDN & GRN in Company B (Receipt type will – Transfer to site).",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Then material is returned back to the Company A site from the Company B site for that system will create auto GDI & GDN & GRN (Receipt type will – Transfer to site).",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.1 Angular screen for OC Closure setup & Field input types.:\n1. Add a new submenu in Admin > Configurator > Configuration Rules menu, name of the submenu will be OC Closure Setup.\n2. Once user will click on OC Closure Setup sub-menu then user will be redirected on below mentioned screen.\n3. Page Title - OC Closure Setup\n4. Add – Add row in a grid\n5. Add Category - The instance occurs between “Write Off Site” and the “Stock Rule”, allowing for the addition of multiple Transaction type for a single customer.\n6. Add Transaction Type - The instance occurs between “Stock Rule” and the “Execution Type”, allowing for the addition of multiple Transaction type for a single customer.\n7. Add Execution Type - The instance occurs between “Transaction Type” and the “WIP Rule”, allowing for the addition of multiple Transaction type for a single customer.\n8. Delete – Delete row from the grid.\n9. Activity Timeline – To Open Activity timelines.\n10. On clicking on activity timeline tool, a pop will be generated where user is able to view 2 tabs (1.) Activity log and 2.) Change log).\n11. Activity Log – System will capture the activity of changes.\n12. Change Log – User is able to view changes or activity history records in the system.\n13. Page Content- It will have details in the table. Below mentioned the column details.\n14. Member Company – The header label of the column which will contain details specified by the Input type – DDL, it’s a single selection field.\n15. Inventory Site - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given Inventory site, Data need to pick from Site Master.\n16. Site need to be shown as per selected member company.\n17. Write Off Site - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given values.\n18. Write off site are those sites for which user enabled the option of “Is write off site”, so those site need to be shown in the dropdown.\n19. Site need to be shown as per selected member company.\n20. Category – The header label of the column which will contain details specified by the Input type – DDL, it’s a single selection field, data need to be capture from category master.\n21. Stock Rule - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given hardcoded value, Values are mentioned below.\n22. OC Stock write off + Un-Reserve - After OC closure, if any stock related to closed OC is available in Inventory then in this rule 1st OC stock will transfer in write off in write off site and Unreserved the stock from that site\n23. OC Stock Transfer out of system - After OC closure, if any stock related to closed OC is available in Inventory then in this rule system will do auto transfer out of system for that stock.\n24. In case user selected Stock rule then WIP rule field will be non-mandatory.\n25. Transaction Type - The header label of the column which will contain details specified by the Input type – DDL, it’s a Single selection field.\n26. Execution Type – The header label of the column which will contain details specified by the Input type – DDL, it’s a single selection field.\n27. Factory – Factory need to be considered for Own factory & Other factory.\n28. Outsourced\n29. Enable - The header label of the column which will contain details specified by the Input type – Toggle button this toggle button will be enabled & disabled the setting.\n30. WIP Rule - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given hardcoded value, Values are mentioned below.\n31. We need to provide a blank option in the WIP rule. If a user selects the Stock rule but accidentally selects the WIP rule instead, they are currently unable to change it. Adding a blank option would allow the user to correct this mistake.\n32. Issued Return + Transfer Out of system – After OC closure In this case 1st material will return to the site then material will transfer out of system automatically if user selected this rule.\n33. For Example: -\n34. 100 MTR assigned on floor for the production\n35. 90 MTR consumed in production Oc will close\n36. 10 MTR will auto return to site and auto transfer out of system.\n37. Issued Return - After OC closure in this case material will auto return to the site.\n38. Issued Return + write off - After OC closure In this case 1st material will return to the site then material will transfer material on write off site automatically.\n39. In case user selected OC stock write off + Un-reserve from the dropdown then CM Company Rule field will be freeze and “Write Off Site”, Cost Centre, Inventory Reason(CM Transfer To Site) are mandatory.\n40. Inventory Reason (TOS) - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given Inventory Reason (TOS) value, Data need to pick “Reason for correction” Master (Inventory > Codes > Reason for Corrections).\n41. Only those Inventory reason (TOS) need to be shown which transaction type in Reason for correction master is “Transfer Out of system” or “All” so those transaction type reason need to be shown in the Inventory Reason (TOS).\n42. CM Company Rule - The header label of the column which will contain details specified by the Input type – Toggle button this toggle button will be enabled & disabled then CM company rule need applicable on CM company. In this case rule will be apply on CM company.\n43. For example OC is created in Company A and Production is happening in Company B then first material will return back in company A Site and then respected action need to take as selected rule.\n44. If the CM Company Rule is enabled, the process flow will proceed as outlined below.\n45. OC is created in Company A.\n46. Production takes place in Company B.\n47. User closed the OC from Company A.\n48. Then material is returned back to the Company B site from the production floor site for that system will create auto GDI & GDN & GRN in Company B (Receipt type will – Transfer to site).\n49. Upon material return to Company B Site.\n50. Then material is returned back to the Company A site from the Company B site for that system will create auto GDI & GDN & GRN (Receipt type will – Transfer to site).\n51. Upon material return to Company A, the relevant action is taken according to the selected WIP or Stock rule.\n52. Cost Center - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given cost center values, data need to capture from Cost center master (FA > Master definition > General Master > Cost Center category).\n53. Inventory Reason (CM Transfer to Site) - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given Inventory reason for CM transfer to site values.\n54. Only those Inventory reason (CM Transfer to site) need to be shown which transaction type in Reason for correction master is “Transfer Out of system” or “All” so those transaction type reason need to be shown in the Inventory Reason (TOS).\n55. If we enable toggle of cm then only cm reason can be entered",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "One WIP site need to select mandatory in member company.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicity will not allowed.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 4. Revision History, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "337356 - OC Closer Setup New Angular Page",
+      "heading": "",
+      "text": "Software Requirements Specification\nSoftware Requirements Specification\nOC/FPO/FPPO Closure Setup\nDevelopment ID: 337356138\nAuto Production process order input returns own factory has not defined cost center for factory wise\nDevelopment ID: 333304\nOC/FPO/FPPO Closure Setup\nDevelopment ID: 337356138\nAuto Production process order input returns own factory has not defined cost center for factory wise\nDevelopment ID: 333304\nContents\nSection 1: Overview 1\nPurpose 2\nBusiness Requirement: 2\nScope 2\nSection 2. Assumptions 2\nSection 3. Solution 2\nFunctional Requirements 2\n3.1 Angular screen for Company setup & Field input types. 2\nSection 4. Revision History 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "In case OC is closed then system will Auto return & Transfer out of system of the material or OC stock for that respected closed OC.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement:",
+      "heading": "Business Requirement:",
+      "text": "In case OC is closed then system will Auto return & Transfer out of system of the material or OC stock for that respected closed OC.",
+      "locator": "§ Business Requirement:",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "• Angular screen for OC Closure setup",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• NA",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Angular screen for OC Closure setup & Field input types.",
+      "heading": "Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "text": "Navigation: - Admin >> Configurator >> Configuration rules >> OC Closure Setup\n• Add a new submenu in Admin > Configurator > Configuration Rules menu, name of the submenu will be OC Closure Setup.\n• Once user will click on OC Closure Setup sub-menu then user will be redirected on below mentioned screen.\n• Page Title - OC Closure Setup\n• Add – Add row in a grid\n• Add Category - The instance occurs between “Write Off Site” and the “Stock Rule”, allowing for the addition of multiple Transaction type for a single customer.\n• Add Transaction Type - The instance occurs between “Stock Rule” and the “Execution Type”, allowing for the addition of multiple Transaction type for a single customer.\n• Add Execution Type - The instance occurs between “Transaction Type” and the “WIP Rule”, allowing for the addition of multiple Transaction type for a single customer.\n• Delete – Delete row from the grid.\n• Activity Timeline – To Open Activity timelines.\n• On clicking on activity timeline tool, a pop will be generated where user is able to view 2 tabs (1.) Activity log and 2.) Change log).\n• Activity Log – System will capture the activity of changes.\n• Change Log – User is able to view changes or activity history records in the system.\n• Page Content- It will have details in the table. Below mentioned the column details.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Angular screen for OC Closure setup & Field input types.",
+      "heading": "Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "text": "• Member Company – The header label of the column which will contain details specified by the Input type – DDL, it’s a single selection field.\n• Inventory Site - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given Inventory site, Data need to pick from Site Master.\n• Site need to be shown as per selected member company.\n• Write Off Site - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given values.\n• Write off site are those sites for which user enabled the option of “Is write off site”, so those site need to be shown in the dropdown.\n• Site need to be shown as per selected member company.\n• Category – The header label of the column which will contain details specified by the Input type – DDL, it’s a single selection field, data need to be capture from category master.\n• Stock Rule - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given hardcoded value, Values are mentioned below.\n• OC Stock write off + Un-Reserve - After OC closure, if any stock related to closed OC is available in Inventory then in this rule 1st OC stock will transfer in write off in write off site and Unreserved the stock from that site",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types. (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Angular screen for OC Closure setup & Field input types.",
+      "heading": "Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "text": "• OC Stock Transfer out of system - After OC closure, if any stock related to closed OC is available in Inventory then in this rule system will do auto transfer out of system for that stock.\n• In case user selected Stock rule then WIP rule field will be non-mandatory.\n• Transaction Type - The header label of the column which will contain details specified by the Input type – DDL, it’s a Single selection field.\n• Execution Type – The header label of the column which will contain details specified by the Input type – DDL, it’s a single selection field.\n• Factory – Factory need to be considered for Own factory & Other factory.\n• Outsourced\n• Enable - The header label of the column which will contain details specified by the Input type – Toggle button this toggle button will be enabled & disabled the setting.\n• WIP Rule - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given hardcoded value, Values are mentioned below.\n• We need to provide a blank option in the WIP rule. If a user selects the Stock rule but accidentally selects the WIP rule instead, they are currently unable to change it. Adding a blank option would allow the user to correct this mistake.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types. (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Angular screen for OC Closure setup & Field input types.",
+      "heading": "Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "text": "• Issued Return + Transfer Out of system – After OC closure In this case 1st material will return to the site then material will transfer out of system automatically if user selected this rule.\n• For Example: -\n• 100 MTR assigned on floor for the production\n• 90 MTR consumed in production Oc will close\n• 10 MTR will auto return to site and auto transfer out of system.\n• Issued Return - After OC closure in this case material will auto return to the site.\n• Issued Return + write off - After OC closure In this case 1st material will return to the site then material will transfer material on write off site automatically.\n• In case user selected OC stock write off + Un-reserve from the dropdown then CM Company Rule field will be freeze and “Write Off Site”, Cost Centre, Inventory Reason(CM Transfer To Site) are mandatory.\n• Inventory Reason (TOS) - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given Inventory Reason (TOS) value, Data need to pick “Reason for correction” Master (Inventory > Codes > Reason for Corrections).\n• Only those Inventory reason (TOS) need to be shown which transaction type in Reason for correction master is “Transfer Out of system” or “All” so those transaction type reason need to be shown in the Inventory Reason (TOS).",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types. (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Angular screen for OC Closure setup & Field input types.",
+      "heading": "Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "text": "• CM Company Rule - The header label of the column which will contain details specified by the Input type – Toggle button this toggle button will be enabled & disabled then CM company rule need applicable on CM company. In this case rule will be apply on CM company.\n• For example OC is created in Company A and Production is happening in Company B then first material will return back in company A Site and then respected action need to take as selected rule.\n• If the CM Company Rule is enabled, the process flow will proceed as outlined below.\n• OC is created in Company A.\n• Production takes place in Company B.\n• User closed the OC from Company A.\n• Then material is returned back to the Company B site from the production floor site for that system will create auto GDI & GDN & GRN in Company B (Receipt type will – Transfer to site).\n• Upon material return to Company B Site.\n• Then material is returned back to the Company A site from the Company B site for that system will create auto GDI & GDN & GRN (Receipt type will – Transfer to site).\n• Upon material return to Company A, the relevant action is taken according to the selected WIP or Stock rule.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types. (part 5)",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Angular screen for OC Closure setup & Field input types.",
+      "heading": "Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types.",
+      "text": "• Cost Center - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given cost center values, data need to capture from Cost center master (FA > Master definition > General Master > Cost Center category).\n• Inventory Reason (CM Transfer to Site) - The header label of the column which will contain details specified by the Input type – DDL user will choose single option from the given Inventory reason for CM transfer to site values.\n• Only those Inventory reason (CM Transfer to site) need to be shown which transaction type in Reason for correction master is “Transfer Out of system” or “All” so those transaction type reason need to be shown in the Inventory Reason (TOS).\n• If we enable toggle of cm then only cm reason can be entered\nValidations need to maintain\n• One WIP site need to select mandatory in member company.\n• Duplicity will not allowed.",
+      "locator": "§ Functional Requirements › 3.1 Angular screen for OC Closure setup & Field input types. (part 6)",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Revision History – Table 1",
+      "heading": "Section 4. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (text); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Sumit Sharma | 28th January 2025 | Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 1.0; Revised By: Sumit Sharma; Revised On: 28th January 2025; Changes: Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

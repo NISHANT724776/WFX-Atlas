@@ -1,0 +1,372 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Example",
+        "Column 2",
+        "Column 3",
+        "Column 4"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Article",
+          "Price",
+          "Applicable Size",
+          "Add to Cost"
+        ],
+        [
+          "Thread",
+          "0.22",
+          "Small",
+          "Yes"
+        ],
+        [
+          "Thread",
+          "0.28",
+          "Medium",
+          "No"
+        ],
+        [
+          "Thread",
+          "0.35",
+          "Large",
+          "No"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "empty",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "",
+          "30-07-2026",
+          "Document Created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Multi Style KIT COSTING",
+  "keyTerms": [
+    "cost",
+    "kit cost",
+    "cost sheets",
+    "article",
+    "style",
+    "kit",
+    "cost sheet",
+    "add cost",
+    "multi style",
+    "style kit",
+    "add",
+    "sheets",
+    "duplicate",
+    "duplicate articles",
+    "style cost"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 11
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to support Size/Color-specific pricing for the same article in Multi-Style KIT Cost Sheets.",
+      "locator": "§ Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Since the Splitter functionality is not available for KIT Cost Sheets, users are unable to maintain different prices for the same article based on size.",
+      "locator": "§ Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Purpose:\n1. The purpose of this enhancement is to support Size/Color-specific pricing for the same article in Multi-Style KIT Cost Sheets.\n2. Currently, Single Style Cost Sheets provide a Splitter functionality that allows users to split the same article across sizes/colors while maintaining a single cost contribution using the Add to Cost option\n3. Since the Splitter functionality is not available for KIT Cost Sheets, users are unable to maintain different prices for the same article based on size.\n4. This enhancement provides an alternative solution by allowing duplicate articles in KIT Cost Sheets while ensuring only one occurrence contributes to the final costing.",
+      "locator": "§ Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business Requirement:\n1. Split the same article across different sizes.\n2. Maintain different prices for each size or color\n3. Mark only one split record as Add to Cost, ensuring the article is costed only once.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Different prices cannot be maintained for the same article.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Merchants are forced to use a common price across all sizes/colors",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business Requirement:\n1. Different prices cannot be maintained for the same article.\n2. Merchants are forced to use a common price across all sizes/colors\n3. The calculated Material Cost becomes inaccurate.\n4. Since Material Cost directly impacts EPM calculation, the displayed EPM becomes incorrect\n5. Cost Sheet approvers rely on the EPM displayed on the UI during the approval process, making accurate EPM visibility a business-critical requirement.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "An alternate proposal to provide EPM visibility through a BI Report was not accepted by the client, as the EPM must be visible directly on the Cost Sheet during approval.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This enhancement is a client-specific customization for Hyphen.",
+      "locator": "§ Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Assumptions:\n1. This enhancement applies only to Multi-Style KIT Cost Sheets.\n2. Existing functionality for Single Style Cost Sheets will remain unchanged.\n3. Users may add the same article multiple times within a Multi-Style KIT Cost Sheet.\n4. Duplicate articles may have different prices and different article tagging.\n5. Only one duplicate article shall contribute towards cost calculation.\n6. Existing article tagging functionality (Top/Bottom/Both) shall remain unchanged.\n7. This enhancement is a client-specific customization for Hyphen.",
+      "locator": "§ Assumptions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functional Requirement:\n1. Create multiple entries for the same article.\n2. Maintain different prices for different sizes and colors\n3. Include only one occurrence in costing through the Add to Cost option.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This functionality is unavailable in Multi-Style KIT Cost Sheets.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functional Requirement:\n1. Different Price\n2. Different Consumption (if applicable)\n3. Different Article Tagging (Top / Bottom / Both)",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Add to Cost Validation",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Only one duplicate article may remain selected as Add to Cost = Yes.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Remaining duplicate articles shall be marked as Add to Cost = No.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "During cost calculation, only the article marked as Add to Cost = Yes shall contribute towards Material Cost and EPM calculation.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functional Requirement:\n1. The Add to Cost checkbox shall be editable only for duplicate articles.\n2. Only one duplicate article may remain selected as Add to Cost = Yes.\n3. Remaining duplicate articles shall be marked as Add to Cost = No.\n4. During cost calculation, only the article marked as Add to Cost = Yes shall contribute towards Material Cost and EPM calculation.",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Cost Sheet Editing Restriction",
+      "locator": "§ Functional Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Example, Column 2, Column 3, Column 4 (4 rows)",
+      "locator": "§ Functional Requirement, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The Add to Cost checkbox is editable only for duplicate articles in Multi-Style KIT Cost Sheets.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Only one duplicate article can remain selected as Add to Cost = Yes",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Material Cost and EPM are calculated only using the article marked as Add to Cost = Yes.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Material Cost and EPM are calculated only using the article marked as Add to Cost = Yes.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria::\n1. Users can add duplicate articles within a Multi-Style KIT Cost Sheet.\n2. Duplicate articles may have different prices.\n3. Duplicate articles continue to support existing article tagging.\n4. The Add to Cost checkbox is editable only for duplicate articles in Multi-Style KIT Cost Sheets.\n5. Only one duplicate article can remain selected as Add to Cost = Yes\n6. Material Cost and EPM are calculated only using the article marked as Add to Cost = Yes.\n7. Only the KIT Cost Sheet is editable.\n8. Style Cost Sheets generated from KIT Cost Sheets remain read-only.\n9. Existing Single Style Cost Sheet functionality, including Splitter behavior, remains unchanged.\n10. Existing article tagging and Style Cost Sheet generation logic remain unchanged.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Revision History, table 2",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Multi Style KIT COSTING",
+      "heading": "",
+      "text": "Software Requirements Specification\nMulti Style KIT Cost Sheet Article splitter Alternative required\nDocument #427380\nVersion 1.0 ● 22nd Dec 2024\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 3\nAssumptions 3\nSection 3. Solution 3\nFunctional Requirement 3\n1. Add the same article multiple times within the KIT Cost Sheet 3\nSection 4. 5\nRevision History 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "• The purpose of this enhancement is to support Size/Color-specific pricing for the same article in Multi-Style KIT Cost Sheets.\n• Currently, Single Style Cost Sheets provide a Splitter functionality that allows users to split the same article across sizes/colors while maintaining a single cost contribution using the Add to Cost option\n• Since the Splitter functionality is not available for KIT Cost Sheets, users are unable to maintain different prices for the same article based on size.\n• This enhancement provides an alternative solution by allowing duplicate articles in KIT Cost Sheets while ensuring only one occurrence contributes to the final costing.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "• Currently, the Splitter option is available only for Single Style Cost Sheets.\nUsing the Splitter, users can:\n• Split the same article across different sizes.\n• Maintain different prices for each size or color\n• Mark only one split record as Add to Cost, ensuring the article is costed only once.\nHowever, this functionality is unavailable in Multi-Style KIT Cost Sheets\nAs a result:\n• Different prices cannot be maintained for the same article.\n• Merchants are forced to use a common price across all sizes/colors\n• The calculated Material Cost becomes inaccurate.\n• Since Material Cost directly impacts EPM calculation, the displayed EPM becomes incorrect\n• Cost Sheet approvers rely on the EPM displayed on the UI during the approval process, making accurate EPM visibility a business-critical requirement.\nMultiple discussions were held with both the client and the internal product team. An alternate proposal to provide EPM visibility through a BI Report was not accepted by the client, as the EPM must be visible directly on the Cost Sheet during approval.\nSince implementing the Splitter functionality within Multi-Style KIT Cost Sheets is not feasible, the agreed solution is to introduce controlled support for duplicate articles together with the ability to exclude duplicate entries from cost calculation using the Add to Cost option.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "This enhancement will be delivered as a Hyphen-specific customization.",
+      "locator": "§ Business Requirement (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This enhancement applies only to Multi-Style KIT Cost Sheets.\n• Existing functionality for Single Style Cost Sheets will remain unchanged.\n• Users may add the same article multiple times within a Multi-Style KIT Cost Sheet.\n• Duplicate articles may have different prices and different article tagging.\n• Only one duplicate article shall contribute towards cost calculation.\n• Existing article tagging functionality (Top/Bottom/Both) shall remain unchanged.\n• This enhancement is a client-specific customization for Hyphen.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirement",
+      "heading": "Functional Requirement",
+      "text": "• Existing Behaviour\nIn Single Style Cost Sheets, users can utilize the Splitter functionality to:\n• Create multiple entries for the same article.\n• Maintain different prices for different sizes and colors\n• Include only one occurrence in costing through the Add to Cost option.\nThis functionality is unavailable in Multi-Style KIT Cost Sheets.\n• Proposed Functionality\nThe following functionality shall be introduced only for Multi-Style KIT Cost Sheets\nDuplicate Article Support\nUsers shall be allowed to add the same article multiple times within a Multi-Style KIT Cost Sheet.\nEach duplicate article may have:\n• Different Price\n• Different Consumption (if applicable)\n• Different Article Tagging (Top / Bottom / Both)\nAdd to Cost Validation\nWhen duplicate articles exist:\n• The Add to Cost checkbox shall be editable only for duplicate articles.\n• Only one duplicate article may remain selected as Add to Cost = Yes.\n• Remaining duplicate articles shall be marked as Add to Cost = No.\n• During cost calculation, only the article marked as Add to Cost = Yes shall contribute towards Material Cost and EPM calculation.\nCost Sheet Editing Restriction\nTo maintain consistency between the KIT Cost Sheet and the generated Style Cost Sheets:\n• Only the KIT Cost Sheet shall remain editable.\n• Style Cost Sheets generated from the KIT shall be read-only.",
+      "locator": "§ Functional Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirement – Table 1",
+      "heading": "Functional Requirement",
+      "text": "Columns: Example (text); Column 2 (text); Column 3 (text); Column 4 (text)\nExample | Column 2 | Column 3 | Column 4\nArticle | Price | Applicable Size | Add to Cost\nThread | 0.22 | Small | Yes\nThread | 0.28 | Medium | No\nThread | 0.35 | Large | No",
+      "locator": "§ Functional Requirement, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirement",
+      "text": "Example: Article; Column 2: Price; Column 3: Applicable Size; Column 4: Add to Cost",
+      "locator": "§ Functional Requirement, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirement",
+      "text": "Example: Thread; Column 2: 0.22; Column 3: Small; Column 4: Yes",
+      "locator": "§ Functional Requirement, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirement",
+      "text": "Example: Thread; Column 2: 0.28; Column 3: Medium; Column 4: No",
+      "locator": "§ Functional Requirement, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirement",
+      "text": "Example: Thread; Column 2: 0.35; Column 3: Large; Column 4: No",
+      "locator": "§ Functional Requirement, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "Functional Requirement › Acceptance Criteria:",
+      "text": "• Users can add duplicate articles within a Multi-Style KIT Cost Sheet.\n• Duplicate articles may have different prices.\n• Duplicate articles continue to support existing article tagging.\n• The Add to Cost checkbox is editable only for duplicate articles in Multi-Style KIT Cost Sheets.\n• Only one duplicate article can remain selected as Add to Cost = Yes\n• Material Cost and EPM are calculated only using the article marked as Add to Cost = Yes.\n• Only the KIT Cost Sheet is editable.\n• Style Cost Sheets generated from KIT Cost Sheets remain read-only.\n• Existing Single Style Cost Sheet functionality, including Splitter behavior, remains unchanged.\n• Existing article tagging and Style Cost Sheet generation logic remain unchanged.",
+      "locator": "§ Functional Requirement › Acceptance Criteria:",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 2",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (empty); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 |  | 30-07-2026 | Document Created.",
+      "locator": "§ Revision History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised On: 30-07-2026; Changes: Document Created.",
+      "locator": "§ Revision History, table 2, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

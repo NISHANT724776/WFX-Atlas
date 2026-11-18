@@ -1,0 +1,35 @@
+{
+  "tables": [],
+  "subject": "wfxqa.worldfashionexchange.com WFXBase4.0 WFXTNAConfig.aspx Action=New&GUID=e32f7e55-0d84-4ea9-985a-916f0ebd6a6a 1LXy6u",
+  "keyTerms": [],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "wfxqa.worldfashionexchange.com WFXBase4.0 WFXTNAConfig.aspx Action=New&GUID=e32f7e55-0d84-4ea9-985a-916f0ebd6a6a 1LXy6u",
+      "heading": "",
+      "text": "wfxqa.worldfashionexchange.com WFXBase4.0 WFXTNAConfig.aspx Action=New&GUID=e32f7e55-0d84-4ea9-985a-916f0ebd6a6a 1LXy6u. Image stored unchanged. Text and diagrams inside images are not read: that needs a vision model, which is not authorised or configured. Add a written description to make it searchable.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

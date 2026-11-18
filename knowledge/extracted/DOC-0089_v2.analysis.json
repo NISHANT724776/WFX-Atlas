@@ -1,0 +1,285 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "FPPO",
+        "Column 2",
+        "Column 3",
+        "Column 4",
+        "Column 5",
+        "Column 6"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "FPPo",
+          "Rate",
+          "FPPO Qty",
+          "billable",
+          "unit per rate",
+          "Billable FPPO Value"
+        ],
+        [
+          "Schifly",
+          "20",
+          "100",
+          "30",
+          "3.333333333",
+          "600"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "FPPO Qty / Billable Qty",
+          "Rate * Billable"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Rahul Narwal",
+          "14-Mar-26",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "409855 Billable Qty Provision if FPPO for Part Schifly Handling",
+  "keyTerms": [
+    "qty",
+    "fppo",
+    "billable",
+    "billable qty",
+    "provision fppo",
+    "rate",
+    "qty provision",
+    "fppo part",
+    "part schifly",
+    "schifly handling",
+    "provision",
+    "schifly",
+    "column column",
+    "part",
+    "handling"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "There are cases, where the embroidery is being done in a very specific area of the fabric.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Client requirement is that, a provision needs to be defined where they can specify that rate is appliable for a particular qty rather that the total qty of that fabric.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "This cannot be edited by user.",
+      "locator": "§ Functional Requirements › FPPO Changes",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "FPPO Changes:\n1. In FPPO (Old and New UI), we required additional of below three fields.\n2. Billable Qty: - Here user will enter that out of the total output qty, the rate is applicable on how much qty.\n3. Unit / Rate: - This will be calculated automatically based on the Total FPPO qty / Billable Qty. This cannot be edited by user.\n4. Billable Value: - This will also be calculated automatically based on Billable Qty * Rate.",
+      "locator": "§ Functional Requirements › FPPO Changes",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: FPPO, Column 2, Column 3, Column 4, Column 5, Column 6 (3 rows)",
+      "locator": "§ Functional Requirements › FPPO Changes, table 1",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If against a process the checkbox (Billable Qty) is enabled then for that process FPPO these fields will get visible in FPPO.",
+      "locator": "§ Functional Requirements › FPPO Changes",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "FPPO Changes:\n1. The GST and additional charges and APR will also get calculated with this Billable FPPO Value.\n2. The provision will be for New UI of FPPO and Blanket FPPO.\n3. These addition of these 3 fields in FPPO will be enabled via a checkbox in Article (Service) master. If against a process the checkbox (Billable Qty) is enabled then for that process FPPO these fields will get visible in FPPO. This checkbox will be enabled from screen layout configurator.",
+      "locator": "§ Functional Requirements › FPPO Changes",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "In case of GRN, since this is required for only roll based Stock.",
+      "locator": "§ Functional Requirements › GRN Changes",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "In GRN, there will be a mandatory field as Is Billable?",
+      "locator": "§ Functional Requirements › GRN Changes",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If against a roll line. it is selected as No.",
+      "locator": "§ Functional Requirements › GRN Changes",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "GRN Changes:\n1. In case of GRN, since this is required for only roll based Stock. In GRN, there will be a mandatory field as Is Billable?\n2. It will have two options as Yes and No.\n3. If against a roll line, it is selected as Yes. Then system will add the process charge (Original) to that roll qty.\n4. If against a roll line. it is selected as No. Then system will not add the process charge to that roll qty.\n5. Same field will be handled in Export format of rolls and as well as while importing.",
+      "locator": "§ Functional Requirements › GRN Changes",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Revision History, table 2",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "409855 Billable Qty Provision if FPPO for Part Schifly Handling",
+      "heading": "",
+      "text": "Software Requirements Specification\nBillable Qty Provision if FPPO for Part Schifly Handling\n409855\nVersion 1●14 Mar 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nAssumptions 3\nSection 3. 3\nFunctional Requirements 3\nBillable Qty Provision if FPPO for Part Schifly Handling 3\nRevision History 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "• Billable Qty Provision if FPPO for Part Schifly Handling.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "There are cases, where the embroidery is being done in a very specific area of the fabric. So, the rate that is finalized with supplier is also for that specific area. Client requirement is that, a provision needs to be defined where they can specify that rate is appliable for a particular qty rather that the total qty of that fabric.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "FPPO Changes",
+      "heading": "Functional Requirements › FPPO Changes",
+      "text": "• In FPPO (Old and New UI), we required additional of below three fields.\n• Billable Qty: - Here user will enter that out of the total output qty, the rate is applicable on how much qty.\n• Unit / Rate: - This will be calculated automatically based on the Total FPPO qty / Billable Qty. This cannot be edited by user.\n• Billable Value: - This will also be calculated automatically based on Billable Qty * Rate.",
+      "locator": "§ Functional Requirements › FPPO Changes",
+      "kind": "section"
+    },
+    {
+      "title": "FPPO Changes – Table 1",
+      "heading": "Functional Requirements › FPPO Changes",
+      "text": "Columns: FPPO (text); Column 2 (text); Column 3 (text); Column 4 (text); Column 5 (text); Column 6 (text)\nFPPO | Column 2 | Column 3 | Column 4 | Column 5 | Column 6\nFPPo | Rate | FPPO Qty | billable | unit per rate | Billable FPPO Value\nSchifly | 20 | 100 | 30 | 3.333333333 | 600\n |  |  |  | FPPO Qty / Billable Qty | Rate * Billable",
+      "locator": "§ Functional Requirements › FPPO Changes, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirements › FPPO Changes",
+      "text": "FPPO: FPPo; Column 2: Rate; Column 3: FPPO Qty; Column 4: billable; Column 5: unit per rate; Column 6: Billable FPPO Value",
+      "locator": "§ Functional Requirements › FPPO Changes, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirements › FPPO Changes",
+      "text": "FPPO: Schifly; Column 2: 20; Column 3: 100; Column 4: 30; Column 5: 3.333333333; Column 6: 600",
+      "locator": "§ Functional Requirements › FPPO Changes, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirements › FPPO Changes",
+      "text": "Column 5: FPPO Qty / Billable Qty; Column 6: Rate * Billable",
+      "locator": "§ Functional Requirements › FPPO Changes, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "FPPO Changes",
+      "heading": "Functional Requirements › FPPO Changes",
+      "text": "• The GST and additional charges and APR will also get calculated with this Billable FPPO Value.\n• The provision will be for New UI of FPPO and Blanket FPPO.\n• These addition of these 3 fields in FPPO will be enabled via a checkbox in Article (Service) master. If against a process the checkbox (Billable Qty) is enabled then for that process FPPO these fields will get visible in FPPO. This checkbox will be enabled from screen layout configurator.",
+      "locator": "§ Functional Requirements › FPPO Changes",
+      "kind": "section"
+    },
+    {
+      "title": "GRN Changes",
+      "heading": "Functional Requirements › GRN Changes",
+      "text": "• In case of GRN, since this is required for only roll based Stock. In GRN, there will be a mandatory field as Is Billable?\n• It will have two options as Yes and No.\n• If against a roll line, it is selected as Yes. Then system will add the process charge (Original) to that roll qty.\n• If against a roll line. it is selected as No. Then system will not add the process charge to that roll qty.\n• Same field will be handled in Export format of rolls and as well as while importing.",
+      "locator": "§ Functional Requirements › GRN Changes",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 2",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Rahul Narwal | 14-Mar-26 | Initial document created.",
+      "locator": "§ Revision History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised By: Rahul Narwal; Revised On: 14-Mar-26; Changes: Initial document created.",
+      "locator": "§ Revision History, table 2, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

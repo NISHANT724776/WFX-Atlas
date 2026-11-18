@@ -1,0 +1,89 @@
+{
+  "tables": [],
+  "subject": "Production Costs",
+  "keyTerms": [
+    "process",
+    "production cost",
+    "cost",
+    "process wise",
+    "production",
+    "wise",
+    "setting",
+    "wise production",
+    "setting enabled",
+    "production costs",
+    "cost displayed",
+    "displayed process",
+    "enabled",
+    "process cost",
+    "scenario setting"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 16
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Production cost should be displayed process-wise in the ‘Cost’ tab of the new BOM only if the ‘Enable Process-wise Production Costs’ setting is enabled.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Otherwise, it should not be mapped to any process and should be shown as a Other Process Cost.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "If this setting is enabled then Process wise production Cost should Come",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "In this screen you can see that production cost is coming process wise.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "If this setting is disabled then Production Cost should come as an Other Process cost instead of process wise.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Production Costs",
+      "heading": "",
+      "text": "Software Requirements Specification\nChanges in the Production Cost\n12th Dec 2025",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Production cost should be displayed process-wise in the ‘Cost’ tab of the new BOM only if the ‘Enable Process-wise Production Costs’ setting is enabled. Otherwise, it should not be mapped to any process and should be shown as a Other Process Cost.\nScenario 1: When Setting is enabled.\nIf this setting is enabled then Process wise production Cost should Come\nIn this screen you can see that production cost is coming process wise.\nScenario 2: When Setting is disabled.\nIf this setting is disabled then Production Cost should come as an Other Process cost instead of process wise.\nIn this screen, the production cost is not displayed process-wise; instead, it appears under the generic name 'Other Process'.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    }
+  ]
+}

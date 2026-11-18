@@ -1,0 +1,911 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "PO No.",
+        "Style",
+        "OC Num",
+        "Additional article",
+        "Colour",
+        "Size",
+        "Dispatched\nQty.",
+        "Prev. Consumed Qty",
+        "UOM",
+        "Actual Cons. Qty"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Dispatched\nQty.": "quantity (unit of the row)",
+        "Prev. Consumed Qty": "quantity (unit of the row)",
+        "Actual Cons. Qty": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Additional process PO No.",
+          "Related style of the additional article",
+          "Related OC No. of the additional article",
+          "Additional article name and code",
+          "Additional article colour",
+          "Additional article size",
+          "Total dispatched qty of the additional article",
+          "Total prev. consumed qty of the article, from previous GRNs (Goods Receipt Note)",
+          "Additional article UOM",
+          "Actual consumed qty for the current GRN"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "S.No",
+        "Field Names",
+        "Character length"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "S.No"
+      ],
+      "rows": [
+        [
+          "1.",
+          "Order No.",
+          ""
+        ],
+        [
+          "2.",
+          "Article",
+          "200 characters length"
+        ],
+        [
+          "3.",
+          "Color",
+          "100"
+        ],
+        [
+          "4.",
+          "Size",
+          "50"
+        ],
+        [
+          "5.",
+          "Supplier Ref.",
+          ""
+        ],
+        [
+          "6.",
+          "UOM",
+          ""
+        ],
+        [
+          "7.",
+          "Season",
+          ""
+        ],
+        [
+          "8.",
+          "Ordered Qty",
+          ""
+        ],
+        [
+          "9.",
+          "Rate",
+          ""
+        ],
+        [
+          "10.",
+          "Currency code",
+          ""
+        ],
+        [
+          "11.",
+          "Prev. Recd. Qty",
+          ""
+        ],
+        [
+          "12.",
+          "Returned Qty",
+          ""
+        ],
+        [
+          "13.",
+          "Received Qty",
+          ""
+        ],
+        [
+          "14.",
+          "Rejected Qty",
+          ""
+        ],
+        [
+          "15.",
+          "Location",
+          ""
+        ],
+        [
+          "16.",
+          "Material Allocation",
+          ""
+        ],
+        [
+          "17.",
+          "Storage UOM",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "242752",
+        "Make Return Go down Checkbox checked by default for Production Process Order Input return (242752)"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {
+        "Make Return Go down Checkbox checked by default for Production Process Order Input return (242752)": "242752"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "248595",
+          "BC Number Not required for Local General Purchase return"
+        ],
+        [
+          "249168",
+          "Return to Go down not working in Outsource cases"
+        ],
+        [
+          "250938",
+          "Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return)"
+        ],
+        [
+          "256519",
+          "The additional article value is not Included in the Alteration output GRN"
+        ],
+        [
+          "254902",
+          "Need Block Unblock Invoice Provision on the new GRN list"
+        ],
+        [
+          "256707",
+          "Site Category selected on the on the site is not working as per selection"
+        ],
+        [
+          "263606",
+          "supplier ref number Enhancements on transaction screen plus system reports"
+        ],
+        [
+          "263290",
+          "Return to processor does not have the invoice no. filter and not able to return against the particular invoice no"
+        ],
+        [
+          "251502",
+          "GRN screen wrapping"
+        ],
+        [
+          "263283",
+          "GRN document handover to Accounts team"
+        ],
+        [
+          "263603",
+          "Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\""
+        ],
+        [
+          "263432",
+          "Need to add additional fields on GRN screen from screen layout configurator"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "GRN Enhancements",
+  "keyTerms": [
+    "grn",
+    "return",
+    "additional",
+    "process",
+    "order input",
+    "input return",
+    "alteration",
+    "user",
+    "process order",
+    "production process",
+    "site",
+    "against",
+    "input",
+    "return down",
+    "additional article"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 41
+    },
+    {
+      "module": "Production",
+      "score": 27
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 4
+    },
+    {
+      "module": "Sales Order",
+      "score": 3
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note",
+    "FPO & FPPO",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The additional article value is not Included in the Alteration output GRN (256519) 5",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Need Block Unblock Invoice Provision on the new GRN list (254902) 11",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Site Category selected on the on the site is not working as per selection (256707) 12",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The additional article value is not Included in the Alteration output GRN (256519)",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Need Block Unblock Invoice Provision on the new GRN list. (254902)",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Site Category selected on the on the site is not working as per selection (256707)",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "Based on Auto Mat. allocation on FPO (Factory Production Order) Setting need to handle \"Transfer from site\" (263603)",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Business Requirement:\n1. Make Return to Go down Checkbox checked by default for Production Process Order Input return (242752)\n2. BC Number Not required for Local General Purchase return (248595)\n3. Return to Go down not working in Outsource cases (249168)\n4. Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938)\n5. The additional article value is not Included in the Alteration output GRN (256519)\n6. Need Block Unblock Invoice Provision on the new GRN list. (254902)\n7. Site Category selected on the on the site is not working as per selection (256707)\n8. supplier ref number Enhancements on transaction screen plus system reports (263606)\n9. Return to processor does not have the invoice no. filter and not able to return against the particular invoice no.\n10. GRN screen wrapping (251502)\n11. GRN document handover to Accounts team (263283)\n12. Based on Auto Mat. allocation on FPO (Factory Production Order) Setting need to handle \"Transfer from site\" (263603)\n13. Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If material is received with Bea Cukai Number, then we need to have Bea Cukai number while sending back, but if material is received without Bea Cukai number, then it can be dispatched without Bea Cukai Number.",
+      "locator": "§ Solution › BC Number Not required for Local General Purchase return (248595)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "It is only handled for Production process order input return against PO.",
+      "locator": "§ Solution › Return to Go down not working in Outsource cases. Need to add a checkbox for return to go down (249168)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Requirement is shade wise receiving hyperlink in GRN New while doing the receiving of Production Process Order Input Return.",
+      "locator": "§ Solution › Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The business requirement is to automatically include the Additional Article Value into Alteration Receiving GRN (Additional Process GRN)",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: PO No., Style, OC Num, Additional article, Colour, Size, Dispatched\nQty., Prev. Consumed Qty, UOM, Actual Cons. Qty (1 rows)",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519), table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "In case the Dispatched qty =0, the user is not allowed to mark the actual consumption for that article",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the Actual consumption is marked for any process, the transaction’s value shall get revalued along with all of its subsequent transactions including Alteration transactions (be it in OC company or CM company).",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "As per current system functionality we have a provision to Block/Unblock Invoice on Old GRN List Screen.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "In this change we need to provide Block/Unblock hyperlink/button/functionality on New GRN List Screen.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "So that if GRN is blocked then system could not generate Supplier Invoice of that GRN.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "So that if GRN is blocked then system could not generate Supplier Invoice of that GRN.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "When user try to create supplier invoice of blocked GRN then system does not show that GRN as shown in below figure.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "User tried to search blocked GRN to create Supplier Invoice and that GRN is unsearchable.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: - The above functionality must work as it is working from Old GRN List Screen and button of Block/Unblock Invoice should be disable/enable from both screens i.e., Old GRN List or New GRN List.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Site Category selected on the on the site is not working as per selection (256707):\n1. Process Order Input Return – Against PO.\n2. ASN from supplier- Against ASN.\n3. ASN from supplier- Against GDN (Goods Dispatch Note).\n4. Alteration Output.\n5. Alteration Output – Against GIN.\n6. Alteration Input.\n7. Alteration Input – Against GIN.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "As in below image PO - “WFXCompany/1324/FABrmpo” can only be received in UjjFabSite1 which is mapped with Textile/Fabric in Site Master and cannot be received on UjjTrimSite1 which is mapped with Trims.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Site Category selected on the on the site is not working as per selection (256707):\n1. Order Input Return – Against PO.\n2. ASN from supplier- Against ASN.\n3. ASN from supplier- Against GDN.\n4. Alteration Output.\n5. Alteration Output – Against GIN.\n6. Alteration Input.\n7. Alteration Input – Against GIN.\n8. Enter New Store transection will be based on the category tagged in the site.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: - If receiving is already done for respective GDN No. then system will restrict and give an alert as shown below.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Above functionality must be enable from Report Rights as shown below.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Supplier material reference is maintained in catalog.",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Same is visible in detail view of GRN as well.",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "However same is not visible while doing transfer to site or transfer out of system transaction.",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Same is required for user reference to move the material",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Same is required for user reference to move the material",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Supplier Ref is missing in the points below that need to be handled.",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "As of now on GRN page, there are multiple columns and user must scroll right to fill their necessary details like qty and it use to take unnecessary time.",
+      "locator": "§ Solution › GRN screen wrapping (251502)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: S.No, Field Names, Character length (17 rows; identifiers: S.No)",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "NOTE: Based on this change user must scroll less to right side by wrapping those column",
+      "locator": "§ Solution › GRN screen wrapping (251502)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "It is working fine as material is getting allocated when the stock is present in the same factory.",
+      "locator": "§ Solution › Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\" (263603)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "But in case of transfer from site the material is not getting auto allocated as shown in the below screen.",
+      "locator": "§ Solution › Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\" (263603)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "With reference to recent GST norms updates there is certain necessary information which will be mandatorily required to be mentioned while creating the GRN",
+      "locator": "§ Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Currently user update this from GRN List which is illogical as this info is always available while creating GRN.",
+      "locator": "§ Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "In case the setting mentioned below in the screen is enabled the vehicle no.",
+      "locator": "§ Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "NOTE: in case GIN fields are configured on any client and are marked as mandatory.",
+      "locator": "§ Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "On discarding GIN setting “Enable transporter details on GIN” the fields will still be visible and marked as mandatory.",
+      "locator": "§ Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: 242752, Make Return Go down Checkbox checked by default for Production Process Order Input return (242752) (12 rows)",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "GRN Enhancements",
+      "heading": "",
+      "text": "Improvement in GRN\nDevelopment ID: 242752\nImprovement in GRN\nDevelopment ID: 242752",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Business Requirement 2\nSolution 3\n1. Make Return Go down Checkbox checked by default for Production Process Order Input return (242752) 3\n2. BC Number Not required for Local General Purchase return (248595) 3\n3. Return to Go down not working in Outsource cases. Need to add a checkbox for return to go down (249168) 4\n4. Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938) 4\n5. The additional article value is not Included in the Alteration output GRN (256519) 5\n6. Need Block Unblock Invoice Provision on the new GRN list (254902) 11\n7. Site Category selected on the on the site is not working as per selection (256707) 12\n8. Supplier ref number Enhancements on transaction screen plus system reports (263606) 15\n9. Return to processor does not have the invoice no. filter and not able to return against the particular invoice no. (263290) 17\n10. GRN screen wrapping (251502) 17\n11. GRN document handover to Accounts team (263283) 18\n12. Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\" (263603) 19\n13. Need to add additional fields on GRN screen from screen layout configurator (263432) 20\nMerging Summary with Point IDs: 23",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "GRN (Goods Receipt Note) Enhancements\n• Make Return to Go down Checkbox checked by default for Production Process Order Input return (242752)\n• BC Number Not required for Local General Purchase return (248595)\n• Return to Go down not working in Outsource cases (249168)\n• Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938)\n• The additional article value is not Included in the Alteration output GRN (256519)\n• Need Block Unblock Invoice Provision on the new GRN list. (254902)\n• Site Category selected on the on the site is not working as per selection (256707)\n• supplier ref number Enhancements on transaction screen plus system reports (263606)\n• Return to processor does not have the invoice no. filter and not able to return against the particular invoice no.\n• GRN screen wrapping (251502)\n• GRN document handover to Accounts team (263283)\n• Based on Auto Mat. allocation on FPO (Factory Production Order) Setting need to handle \"Transfer from site\" (263603)\n• Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Make Return Go down Checkbox checked by default for Production Process Order Input return (242752)",
+      "heading": "Solution › Make Return Go down Checkbox checked by default for Production Process Order Input return (242752)",
+      "text": "Need RTG check box checked by default. We need Return to Go down check box checked by default while doing GRN with RTG for receipt type production process order input return and production process order input return against GIN (Goods Inward Note)",
+      "locator": "§ Solution › Make Return Go down Checkbox checked by default for Production Process Order Input return (242752)",
+      "kind": "section"
+    },
+    {
+      "title": "BC Number Not required for Local General Purchase return (248595)",
+      "heading": "Solution › BC Number Not required for Local General Purchase return (248595)",
+      "text": "Items purchased from local market do not come in the form of “ALS” or “AKG” and BC number, hence we have created a BC number as “9999” for these items. In case of Return to supplier, we do not have any option from where we can select 9999 as BC number.\nHere we need an option in Dispatch Note screen from where user can select from type “ALS” for Ameya division and “AKG” for Anggun division. Also, select BC number “9999” against ALS/AKG from dropdown.\nimage of Goods Receipt note where we have a provision to select the BC number “9999”\nImage of Goods Dispatch Note screen, where we need option to select form type as “ALS” for Ameya or “AKG” for Anggun and BC number as “9999”\nNote: - Few materials are local, but it can have Bea Cukai number (BC Number). If material is received with Bea Cukai Number, then we need to have Bea Cukai number while sending back, but if material is received without Bea Cukai number, then it can be dispatched without Bea Cukai Number.",
+      "locator": "§ Solution › BC Number Not required for Local General Purchase return (248595)",
+      "kind": "section"
+    },
+    {
+      "title": "Return to Go down not working in Outsource cases. Need to add a checkbox for return to go down (249168)",
+      "heading": "Solution › Return to Go down not working in Outsource cases. Need to add a checkbox for return to go down (249168)",
+      "text": "Currently for Receipt Type - Production process order input return against GIN the Return to Go down check box is not coming. As of now, the users are not able to do the Return to Go down GRN for Production process order input return against GIN as Return to Go down Checkbox is not coming. It is only handled for Production process order input return against PO. System should show return to Go down Checkbox in case of Production process order input return against GIN while doing the GRN.",
+      "locator": "§ Solution › Return to Go down not working in Outsource cases. Need to add a checkbox for return to go down (249168)",
+      "kind": "section"
+    },
+    {
+      "title": "Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938)",
+      "heading": "Solution › Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938)",
+      "text": "Requirement is shade wise receiving hyperlink in GRN New while doing the receiving of Production Process Order Input Return. In GRN New, we need the hyperlink when user do the receiving of multiple shade article of Production Process Order Input Return then will user click on hyperlink to define the receiving of shade.\nWhen user will click on the hyperlink the system will shows the below screen where user will define the receiving of the article shade wise as same is working on the Old GRN Production Process Order Input Return.",
+      "locator": "§ Solution › Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return) (250938)",
+      "kind": "section"
+    },
+    {
+      "title": "The additional article value is not Included in the Alteration output GRN (256519)",
+      "heading": "Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "text": "The business requirement is to automatically include the Additional Article Value into Alteration Receiving GRN (Additional Process GRN)\nFor Alteration Receiving, the Additional Article value will be included in the alteration output value\nNavigation:\n• Additional Process:\nProduction > Additional Process > New\n• Alteration Receiving:\nInventory > Receiving > GRN receiving – New (Receipt type as Alteration Output)\nFigure 1\nSuppose that the Additional process PO has valuable additional Articles (Figure 1), and the additional stock is dispatched to the supplier (Figure 2), then the dispatched additional value will be included in the Alteration Receiving value in case the Actual consumption marking is confirmed at the time of GRN – Alteration Output\nFigure 2\nFigure 3\nTo be more specific, in case there is any Additional Article dispatched against the Additional Process, when the user creates a new GRN for the output, there will be a notification as in Figure 3.\nThis notification will pop up when the user clicks on Confirm, then if the user continues to click on “OK,” the system will allow him to proceed the additional material consumption marking, else the user can click on Cancel.\nIf the user does not mark actual consumption for the GRN, the value of dispatched additional material will be excluded in the GRN value.\nFigure 4",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "kind": "section"
+    },
+    {
+      "title": "The additional article value is not Included in the Alteration output GRN (256519)",
+      "heading": "Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "text": "On the other hand, if the user clicks on “OK,” the next pop up will appear as per Figure 4. This pop up generally resembles that of the PRPO material consumption with a few differences.\nFigure 5\nFrom the pop up, the user can view details of all Additional Articles included in the Additional process PO, including:",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "The additional article value is not Included in the Alteration output GRN (256519) – Table 1",
+      "heading": "Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "text": "Columns: PO No. (text); Style (text); OC Num (text); Additional article (text); Colour (text); Size (text); Dispatched\nQty. (text, quantity (unit of the row)); Prev. Consumed Qty (text, quantity (unit of the row)); UOM (text); Actual Cons. Qty (text, quantity (unit of the row))\nPO No. | Style | OC Num | Additional article | Colour | Size | Dispatched\nQty. | Prev. Consumed Qty | UOM | Actual Cons. Qty\nAdditional process PO No. | Related style of the additional article | Related OC No. of the additional article | Additional article name and code | Additional article colour | Additional article size | Total dispatched qty of the additional article | Total prev. consumed qty of the article, from previous GRNs (Goods Receipt Note) | Additional article UOM | Actual consumed qty for the current GRN",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519), table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "text": "PO No.: Additional process PO No.; Style: Related style of the additional article; OC Num: Related OC No. of the additional article; Additional article: Additional article name and code; Colour: Additional article colour; Size: Additional article size; Dispatched\nQty.: Total dispatched qty of the additional article; Prev. Consumed Qty: Total prev. consumed qty of the article, from previous GRNs (Goods Receipt Note); UOM: Additional article UOM; Actual Cons. Qty: Actual consumed qty for the current GRN",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519), table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "The additional article value is not Included in the Alteration output GRN (256519)",
+      "heading": "Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "text": "In case the Dispatched qty =0, the user is not allowed to mark the actual consumption for that article\n• The system will allow up to mark the actual consumed qty which equal or less than the balance available dispatched qty\nFor example, if the dispatched qty is 30 pcs, and previously consumed qty for the previous GRNs is 20, the user can only mark Actual Cons. Qty for the current GRN up to 10 pcs.\nFigure 6\nAfter update the Actual Cons Qty for Additional Articles, the user can click on “Create GRN” - Figure 6 to confirm the GRN\nBased on the Actual consumption marking qty, the consumed qty and value of the Additional Articles will be included in the GRN",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "kind": "section"
+    },
+    {
+      "title": "The additional article value is not Included in the Alteration output GRN (256519)",
+      "heading": "Solution › The additional article value is not Included in the Alteration output GRN (256519)",
+      "text": "CASE 2: In Case where Alteration/Additional process is applied in Production, the GRN- Alteration receiving value does not get revalued in case actual consumption is marked for any process. In our case the process was performed in CM company and alteration was performed in Parent company, so it was observed that once the consumption is marked for the process in CM company, the Alteration issue value got revalued but there was no effect on the value of Alteration receiving. Due to this problem, the subsequent transactions also are not getting revalued. Once the Actual consumption is marked for any process, the transaction’s value shall get revalued along with all of its subsequent transactions including Alteration transactions (be it in OC company or CM company). All the transactions post the Actual consumption GRN should get revalued including the one for which actual consumption is marked (including Alteration/Additional Process). All the subsequent transaction (including Alteration/Additional Process) along with the one for which FCR/TCR is confirmed should get revalued.\nThis needs to be corrected as system shall update the total value (GDN value + alteration received output value)",
+      "locator": "§ Solution › The additional article value is not Included in the Alteration output GRN (256519) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "heading": "Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "text": "• As per current system functionality we have a provision to Block/Unblock Invoice on Old GRN List Screen. So, in this change, need a same functionality on New GRN List screen also.\nIn this change we need to provide Block/Unblock hyperlink/button/functionality on New GRN List Screen. So that if GRN is blocked then system could not generate Supplier Invoice of that GRN.\nCurrent visbility on Old GRN List Screen.\nRequired Screen: -\nPath: - Inventory>Receiving>GRN Receiving New>GRN List.\nWhen user try to create supplier invoice of blocked GRN then system does not show that GRN as shown in below figure.\nUser tried to search blocked GRN to create Supplier Invoice and that GRN is unsearchable.\nNote: - The above functionality must work as it is working from Old GRN List Screen and button of Block/Unblock Invoice should be disable/enable from both screens i.e., Old GRN List or New GRN List. If below setting disable or enabled.",
+      "locator": "§ Solution › Need Block Unblock Invoice Provision on the new GRN list (254902)",
+      "kind": "section"
+    },
+    {
+      "title": "Site Category selected on the on the site is not working as per selection (256707)",
+      "heading": "Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "text": "As per current system functionality the category control on the site is only handle on the mentioned receipt type ASN (Advance Shipment Notice) from supplier- Against PO.\nSo, in this change we need to provide the same functionality on mentioned receipt type.\n• Process Order Input Return – Against PO.\n• ASN from supplier- Against ASN.\n• ASN from supplier- Against GDN (Goods Dispatch Note).\n• Alteration Output.\n• Alteration Output – Against GIN.\n• Alteration Input.\n• Alteration Input – Against GIN.\nThis functionality will be governed by setting “Allow GRN based on the Category mapped in the respective site.”\n• Receiving should be done based on the category mapped with the respective site.\nIn this change we need a functionality in which the receiving would be done on based of category mapped with the respective site.\nAs this functionality working on only receipt type ASN from supplier- Against PO.\nAs in below image PO - “WFXCompany/1324/FABrmpo” can only be received in UjjFabSite1 which is mapped with Textile/Fabric in Site Master and cannot be received on UjjTrimSite1 which is mapped with Trims.\nWe need this should be done on following receipt type: -\n• Order Input Return – Against PO.\n• ASN from supplier- Against ASN.\n• ASN from supplier- Against GDN.\n• Alteration Output.\n• Alteration Output – Against GIN.\n• Alteration Input.\n• Alteration Input – Against GIN.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "kind": "section"
+    },
+    {
+      "title": "Site Category selected on the on the site is not working as per selection (256707)",
+      "heading": "Solution › Site Category selected on the on the site is not working as per selection (256707)",
+      "text": "• Enter New Store transection will be based on the category tagged in the site.\nThis functionality will be governed by below setting.\n• Provision required on Transfer Out of System transaction to change the dispatch type on the GDN (Returnable/Non-returnable).\nAs per current functionality we do not have a provision to edit dispatch.\nSo, in this change we need to provide Edit button functionality on the GDN after clicking on GDN No. which will allow user to change/edit the dispatch type on “Transfer Out of System” from Returnable to Non-Returnable and Non-Returnable to Returnable as shown in figure below.\nNote: - If receiving is already done for respective GDN No. then system will restrict and give an alert as shown below.\nThis check will be applicable only in the case of returnable GDN.\nIn this when user will edit the GDN log with remark will be maintain in the system.\nThis functionality would be governed by Program Permission.\nAbove functionality must be enable from Report Rights as shown below.\nNOTE: Edit will not be allowed in part received.",
+      "locator": "§ Solution › Site Category selected on the on the site is not working as per selection (256707) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "heading": "Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "text": "Supplier material reference is maintained in catalog. Same gets auto attach on PO And flown till GRN. Same is visible in detail view of GRN as well. However same is not visible while doing transfer to site or transfer out of system transaction. Same is required for user reference to move the material\n• Supplier Ref shall be visible on Adhoc transfer to site, transfer to site and TOS transaction along with search and print.\nSupplier Ref is missing in the points below that need to be handled.\n• Stock Overview - New\n• Style Wise Stock Audit Sheet",
+      "locator": "§ Solution › Supplier ref number Enhancements on transaction screen plus system reports (263606)",
+      "kind": "section"
+    },
+    {
+      "title": "Return to processor does not have the invoice no. filter and not able to return against the particular invoice no. (263290)",
+      "heading": "Solution › Return to processor does not have the invoice no. filter and not able to return against the particular invoice no. (263290)",
+      "text": "Need processor invoice while returning output material to processor same as purchase return",
+      "locator": "§ Solution › Return to processor does not have the invoice no. filter and not able to return against the particular invoice no. (263290)",
+      "kind": "section"
+    },
+    {
+      "title": "GRN screen wrapping (251502)",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "Currently, on GRN some column is containing extra length so in this development we want to wrap those columns.\nAs of now on GRN page, there are multiple columns and user must scroll right to fill their necessary details like qty and it use to take unnecessary time. So, user want to wrap some column which are lengthy like order no, article, currency code etc.",
+      "locator": "§ Solution › GRN screen wrapping (251502)",
+      "kind": "section"
+    },
+    {
+      "title": "GRN screen wrapping (251502) – Table 2",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "Columns: S.No (text); Field Names (text); Character length (text)\nS.No | Field Names | Character length\n1. | Order No. | \n2. | Article | 200 characters length\n3. | Color | 100\n4. | Size | 50\n5. | Supplier Ref. | \n6. | UOM | \n7. | Season | \n8. | Ordered Qty | \n9. | Rate | \n10. | Currency code | \n11. | Prev. Recd. Qty | \n12. | Returned Qty | \n13. | Received Qty | \n14. | Rejected Qty | \n15. | Location | \n16. | Material Allocation | \n17. | Storage UOM | ",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 1.; Field Names: Order No.",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 2.; Field Names: Article; Character length: 200 characters length",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 3.; Field Names: Color; Character length: 100",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 4.; Field Names: Size; Character length: 50",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 5.; Field Names: Supplier Ref.",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 6.; Field Names: UOM",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 7.; Field Names: Season",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 8.; Field Names: Ordered Qty",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 9.; Field Names: Rate",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 10.; Field Names: Currency code",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 11.; Field Names: Prev. Recd. Qty",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 12",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 12.; Field Names: Returned Qty",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 13",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 13.; Field Names: Received Qty",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 14",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 14.; Field Names: Rejected Qty",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 15",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 15.; Field Names: Location",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 16",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 16.; Field Names: Material Allocation",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 17",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "S.No: 17.; Field Names: Storage UOM",
+      "locator": "§ Solution › GRN screen wrapping (251502), table 2, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "GRN screen wrapping (251502)",
+      "heading": "Solution › GRN screen wrapping (251502)",
+      "text": "• NOTE: Based on this change user must scroll less to right side by wrapping those column",
+      "locator": "§ Solution › GRN screen wrapping (251502)",
+      "kind": "section"
+    },
+    {
+      "title": "GRN document handover to Accounts team (263283)",
+      "heading": "Solution › GRN document handover to Accounts team (263283)",
+      "text": "In accordance with the current functionality of the system, we do not have the provision in system that allows us to fill the document handover date once GRN is created. Here we need to develop the option using which we can select the document handover date in GRN list.\nThis will be handled through flex field as shown in the below screens.\nWhen user has mapped the document handover date field in the flex field transaction mapping screen. Same will be reflected on the GRN list screen\n• The Document handover date will be saved on change on the list.\nOnly user with the defined role “Fabric Inventory” and “Trims Inventory” can make changes in “Document Handover Date.”",
+      "locator": "§ Solution › GRN document handover to Accounts team (263283)",
+      "kind": "section"
+    },
+    {
+      "title": "Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\" (263603)",
+      "heading": "Solution › Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\" (263603)",
+      "text": "• As per existing system functionality when “Enable Material Allocation on FPO Automatically” setting is Enabled then system is not allocating material to the respective site in case of “Transfer to site” transaction.\n• It is working fine as material is getting allocated when the stock is present in the same factory. But in case of transfer from site the material is not getting auto allocated as shown in the below screen.\nThis needs to be handled through this based on the setting.",
+      "locator": "§ Solution › Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\" (263603)",
+      "kind": "section"
+    },
+    {
+      "title": "Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "heading": "Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "text": "With reference to recent GST norms updates there is certain necessary information which will be mandatorily required to be mentioned while creating the GRN\nTransporter by– In this dropdown 2 options required as 1. Own Vehicle, 2. By Supplier Vehicle\nE-Way Bill date and E-way Bill No shall be available under logistic info thru screen layout configurator. Currently user update this from GRN List which is illogical as this info is always available while creating GRN. In case user has created a GIN against it the transporter details will be auto populated from there.\nVehicle No – Coming as DDL (Drop Down List), we need option where it become text field as it is not always necessary to maintain the master. In case the setting mentioned below in the screen is enabled the vehicle no. Ddl will change to a textbox for user to enter the vehicle no. Manually.\nNOTE: in case GIN fields are configured on any client and are marked as mandatory. On discarding GIN setting “Enable transporter details on GIN” the fields will still be visible and marked as mandatory.\nAdditionally, to cater random request, we need to have flex field option on GRN page.\nFlex field shall be based of GRN so same shall be govern thru ruling option in flex field master",
+      "locator": "§ Solution › Need to add additional fields on GRN screen from screen layout configurator (263432)",
+      "kind": "section"
+    },
+    {
+      "title": "Merging Summary with Point IDs: – Table 3",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "Columns: 242752 (integer); Make Return Go down Checkbox checked by default for Production Process Order Input return (242752) (text, 242752)\n242752 | Make Return Go down Checkbox checked by default for Production Process Order Input return (242752)\n248595 | BC Number Not required for Local General Purchase return\n249168 | Return to Go down not working in Outsource cases\n250938 | Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return)\n256519 | The additional article value is not Included in the Alteration output GRN\n254902 | Need Block Unblock Invoice Provision on the new GRN list\n256707 | Site Category selected on the on the site is not working as per selection\n263606 | supplier ref number Enhancements on transaction screen plus system reports\n263290 | Return to processor does not have the invoice no. filter and not able to return against the particular invoice no\n251502 | GRN screen wrapping\n263283 | GRN document handover to Accounts team\n263603 | Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\"\n263432 | Need to add additional fields on GRN screen from screen layout configurator",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 248595; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): BC Number Not required for Local General Purchase return",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 249168; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Return to Go down not working in Outsource cases",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 250938; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Hyperlink for receiving shade wise articles in GRN New (Production Process Order Input Return)",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 256519; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): The additional article value is not Included in the Alteration output GRN",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 254902; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Need Block Unblock Invoice Provision on the new GRN list",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 256707; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Site Category selected on the on the site is not working as per selection",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 263606; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): supplier ref number Enhancements on transaction screen plus system reports",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 263290; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Return to processor does not have the invoice no. filter and not able to return against the particular invoice no",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 251502; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): GRN screen wrapping",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 263283; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): GRN document handover to Accounts team",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 263603; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Based on Auto Mat. allocation on FPO Setting need to handle \"Transfer from site\"",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 12",
+      "heading": "Solution › Merging Summary with Point IDs:",
+      "text": "242752: 263432; Make Return Go down Checkbox checked by default for Production Process Order Input return (242752): Need to add additional fields on GRN screen from screen layout configurator",
+      "locator": "§ Solution › Merging Summary with Point IDs:, table 3, row 12",
+      "kind": "data_row"
+    }
+  ]
+}

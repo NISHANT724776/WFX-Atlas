@@ -1,0 +1,1188 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "PRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations.",
+        "Column 2"
+      ],
+      "types": [
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "ASN Type",
+        "Setting “FG Allocation without GDN”",
+        "FG Allocation tab",
+        "Automatic stock transactions on Confirm"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "With GDN",
+          "not used",
+          "Shown by default",
+          "None, normal ASN flow"
+        ],
+        [
+          "Without GDN",
+          "ON",
+          "Shown",
+          "Enter New Stock, then Transfer Out of System (when at least one row has a Site and Trf. GDI Qty above 0)"
+        ],
+        [
+          "Without GDN",
+          "OFF",
+          "Hidden",
+          "None, standard ASN"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Population Logic"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Site",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "2",
+          "Transaction Date",
+          "Auto-populate with the Sales ASN confirmation date."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Population Logic"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Article Code",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "2",
+          "Article Name",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "3",
+          "Color Code",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "4",
+          "Color Name",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "5",
+          "Size",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "6",
+          "Shade",
+          "Leave blank."
+        ],
+        [
+          "7",
+          "Roll No.",
+          "Leave blank."
+        ],
+        [
+          "8",
+          "Purchase Currency",
+          "Auto-populate from the associated Sales Order."
+        ],
+        [
+          "9",
+          "Rate of Exchange",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "10",
+          "Purchase Price",
+          "Auto-populate from the associated Sales Order."
+        ],
+        [
+          "11",
+          "Local/Import",
+          "Leave blank."
+        ],
+        [
+          "12",
+          "Surplus Stock Buyer",
+          "Leave blank."
+        ],
+        [
+          "13",
+          "Surplus Stock Gender",
+          "Leave blank."
+        ],
+        [
+          "14",
+          "Sourced Date",
+          "Leave blank."
+        ],
+        [
+          "15",
+          "Expiry Date",
+          "Leave blank."
+        ],
+        [
+          "16",
+          "Location",
+          "To be discussed and finalized."
+        ],
+        [
+          "17",
+          "Stock",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "18",
+          "Ver",
+          "To be discussed and finalized."
+        ],
+        [
+          "19",
+          "UOM",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "20",
+          "Price/Unit",
+          "Leave blank."
+        ],
+        [
+          "21",
+          "Purchase Value",
+          "Leave blank."
+        ],
+        [
+          "22",
+          "BC Form Type",
+          "Leave blank."
+        ],
+        [
+          "23",
+          "BC No.",
+          "Leave blank."
+        ],
+        [
+          "24",
+          "BC Date (EN)",
+          "Leave blank."
+        ],
+        [
+          "25",
+          "BC Request No. (EN)",
+          "Leave blank."
+        ],
+        [
+          "26",
+          "BC Request Date (EN)",
+          "Leave blank."
+        ],
+        [
+          "27",
+          "BC Invoice No. (EN)",
+          "Leave blank."
+        ],
+        [
+          "28",
+          "BC Invoice Date (EN)",
+          "Leave blank."
+        ],
+        [
+          "29",
+          "Form/Approval Number (EN)",
+          "Leave blank."
+        ],
+        [
+          "30",
+          "Custom Form Type (EN)",
+          "Leave blank."
+        ],
+        [
+          "31",
+          "Form Type",
+          "Leave blank."
+        ],
+        [
+          "32",
+          "Approval Date (EN)",
+          "Leave blank."
+        ],
+        [
+          "33",
+          "Remarks (EN)",
+          "Leave blank."
+        ],
+        [
+          "34",
+          "Allow Tolerance Slab for Indent Adjustment/Material",
+          "Leave blank."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Population Logic"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Site",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "2",
+          "Reason",
+          "Select the first available reason from the configured Reason list."
+        ],
+        [
+          "3",
+          "From Address",
+          "Auto-populate the consignor address from the Sales ASN."
+        ],
+        [
+          "4",
+          "To",
+          "Leave blank."
+        ],
+        [
+          "5",
+          "Transaction Date",
+          "Leave blank."
+        ],
+        [
+          "6",
+          "Dispatch Type",
+          "Leave blank."
+        ],
+        [
+          "7",
+          "Cost Centre",
+          "Leave blank."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Population Logic"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Article",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "2",
+          "Adjusted with Indent No.",
+          "Leave blank."
+        ],
+        [
+          "3",
+          "Color",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "4",
+          "Size",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "5",
+          "Style",
+          "Leave blank."
+        ],
+        [
+          "6",
+          "OC No./SR No./MR No.",
+          "Leave blank."
+        ],
+        [
+          "7",
+          "Indent No.",
+          "Leave blank."
+        ],
+        [
+          "8",
+          "FPO No.",
+          "Leave blank."
+        ],
+        [
+          "9",
+          "Shade/Lo",
+          "Leave blank."
+        ],
+        [
+          "10",
+          "Location",
+          "To be discussed and finalized."
+        ],
+        [
+          "11",
+          "Source",
+          "Auto-populate/reference the corresponding Enter New Stock transaction."
+        ],
+        [
+          "12",
+          "Quality",
+          "Leave blank."
+        ],
+        [
+          "13",
+          "Stock Transfer Stock",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "14",
+          "UOM (Stock Transfer)",
+          "Auto-populate from the Sales ASN."
+        ],
+        [
+          "15",
+          "Transfer Stock",
+          "Populate with the same quantity as Stock Transfer Stock."
+        ],
+        [
+          "16",
+          "Transfer UOM",
+          "Populate with the same UOM as Stock Transfer UOM."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Scenario",
+        "FG Allocation Details",
+        "Enter New Stock Transactions",
+        "Transfer Out of System Transactions"
+      ],
+      "types": [
+        "text",
+        "text",
+        "integer",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Scenario 1",
+          "Four rows belonging to four distinct sites",
+          "4",
+          "4"
+        ],
+        [
+          "Scenario 2",
+          "Four rows belonging to one site, with different color/size combinations",
+          "1",
+          "1"
+        ],
+        [
+          "Scenario 3",
+          "Multiple rows distributed across two distinct sites",
+          "2",
+          "2"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "WFX Functional Specification Template",
+  "keyTerms": [
+    "asn",
+    "sales asn",
+    "stock",
+    "sales",
+    "auto populate",
+    "leave blank",
+    "auto",
+    "populate sales",
+    "allocation",
+    "populate",
+    "leave",
+    "blank",
+    "allocation tab",
+    "without gdn",
+    "transfer"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 22
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 2
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: PRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations., Column 2 (0 rows)",
+      "locator": "starttable 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation on confirm, auto stock entry and auto stock transfer out",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Sales ASN creation against a sales order, for Article and Kit\n2. ASN type check (With GDN / Without GDN) and the company setting check\n3. FG allocation tab (site, stock qty, stock type) on the Sales ASN\n4. Validation on confirm, auto stock entry and auto stock transfer out\n5. Traceability of the posted stock to the ASN and its sales order",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. The normal \"With GDN\" ASN flow (unchanged)\n2. Order-confirmation (OC) linked stock allocation; this flow creates free stock only\n3. Changes to the sales order module",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When the setting is ON and the ASN Type is Without GDN, the FG Allocation tab is shown on the ASN.",
+      "locator": "§ Solution › Sales ASN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The goods are dispatched without existing inventory, with no manual stock entries, no leftover stock, and full traceability to the ASN and its sales order.",
+      "locator": "§ Solution › Sales ASN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The whole flow is switched on or off by the one setting.",
+      "locator": "§ Solution › Sales ASN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The sales order is created in the Sales module.",
+      "locator": "§ Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Its open order deliveries are the base for the ASN.",
+      "locator": "§ Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Stock Type is Free, not linked to any OC.",
+      "locator": "§ Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The automatic transactions are controlled by the setting.",
+      "locator": "§ Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sales ASN workflow: FG allocation without GDN:\n1. Sales order created. The sales order is created in the Sales module. Its open order deliveries are the base for the ASN.\n2. Sales ASN created against the sales order. The user raises a new ASN (ASN For: Article or Kit), chooses the Buyer and adds the open order deliveries through the Select Order picker (S-1a).\n3. ASN Type check. With GDN: the FG Allocation tab is shown by default and the normal ASN flow applies; no automatic stock transactions are raised. Without GDN: the setting decides (step 4).\n4. Setting check, “FG Allocation without GDN”. ON: the FG Allocation tab is added to the ASN. OFF: no FG Allocation tab; the ASN works as a standard ASN and no stock transactions are raised.\n5. FG allocation entry. In the FG Allocation tab the user enters the Site and the quantity to allocate (Trf. GDI Qty) on each row. Stock Type is Free, not linked to any OC.\n6. Confirm sales ASN. The user confirms the ASN (V-2, V-3). The automatic transactions are controlled by the setting.\n7. Automatic stock transactions. For each Site the system raises Enter New Stock, then Transfer Out of System, using the Site and quantity from the FG Allocation tab, in the same action as the Confirm.\n8. Sales ASN confirmed. The ASN gets its Shipment No., becomes read-only, and the confirmation banner lists the stock transaction numbers.",
+      "locator": "§ Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: ASN Type, Setting “FG Allocation without GDN”, FG Allocation tab, Automatic stock transactions on Confirm (3 rows)",
+      "locator": "§ Solution › Sales ASN › Scenarios, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: S. No., Field Name, Population Logic (2 rows)",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Header section, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: S. No., Field Name, Population Logic (34 rows)",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: S. No., Field Name, Population Logic (7 rows)",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: S. No., Field Name, Population Logic (16 rows)",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Scenario, FG Allocation Details, Enter New Stock Transactions, Transfer Out of System Transactions (3 rows)",
+      "locator": "§ Solution › Transaction Generation Logic, table 7",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "WFX Functional Specification Template – Table 1",
+      "heading": "",
+      "text": "Columns: PRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations. (empty); Column 2 (empty)\nPRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations. | Column 2",
+      "locator": "starttable 1",
+      "kind": "table"
+    },
+    {
+      "title": "WFX Functional Specification Template",
+      "heading": "",
+      "text": "SALES ASN CHANGES",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "1. Scope 2\n2. Purpose 2\n3. Solution 2\n3.1 Sales ASN 2\nBusiness Workflow 2\nSales ASN workflow: FG allocation without GDN 3\nScenarios 4\n3.2 Auto generated transaction 4\n3.2.1 Enter New Stock 5\n3.2.2 Transfer Out of System 6\n3.3 Transaction Generation Logic 7",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "In scope\n• Sales ASN creation against a sales order, for Article and Kit\n• ASN type check (With GDN / Without GDN) and the company setting check\n• FG allocation tab (site, stock qty, stock type) on the Sales ASN\n• Validation on confirm, auto stock entry and auto stock transfer out\n• Traceability of the posted stock to the ASN and its sales order\nOut of scope\n• The normal \"With GDN\" ASN flow (unchanged)\n• Order-confirmation (OC) linked stock allocation; this flow creates free stock only\n• Changes to the sales order module",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Finished goods need to be dispatched from the warehouse, but the stock isn’t in the system’s inventory, so a normalGDN-based dispatch can’t be made.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Sales ASN",
+      "heading": "Solution › Sales ASN",
+      "text": "A new system setting, “FG Allocation without GDN”, enables a stock-less dispatch flow in the Sales ASN. When the setting is ON and the ASN Type is Without GDN, the FG Allocation tab is shown on the ASN. The user enters the Site and the stock quantity to allocate, with stock type Free (not linked to any OC). When the user confirms the sales ASN, the system automatically raises two transactions using the Site and quantity from the FG Allocation tab:\n• Enter New Stock: brings the free stock into the selected Site.\n• Transfer Out of System: moves the same stock out of the system against the ASN.\nThe goods are dispatched without existing inventory, with no manual stock entries, no leftover stock, and full traceability to the ASN and its sales order. The whole flow is switched on or off by the one setting.",
+      "locator": "§ Solution › Sales ASN",
+      "kind": "section"
+    },
+    {
+      "title": "Sales ASN workflow: FG allocation without GDN",
+      "heading": "Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "text": "• Sales order created. The sales order is created in the Sales module. Its open order deliveries are the base for the ASN.\n• Sales ASN created against the sales order. The user raises a new ASN (ASN For: Article or Kit), chooses the Buyer and adds the open order deliveries through the Select Order picker (S-1a).\n• ASN Type check. With GDN: the FG Allocation tab is shown by default and the normal ASN flow applies; no automatic stock transactions are raised. Without GDN: the setting decides (step 4).\n• Setting check, “FG Allocation without GDN”. ON: the FG Allocation tab is added to the ASN. OFF: no FG Allocation tab; the ASN works as a standard ASN and no stock transactions are raised.\n• FG allocation entry. In the FG Allocation tab the user enters the Site and the quantity to allocate (Trf. GDI Qty) on each row. Stock Type is Free, not linked to any OC.\n• Confirm sales ASN. The user confirms the ASN (V-2, V-3). The automatic transactions are controlled by the setting.\n• Automatic stock transactions. For each Site the system raises Enter New Stock, then Transfer Out of System, using the Site and quantity from the FG Allocation tab, in the same action as the Confirm.\n• Sales ASN confirmed. The ASN gets its Shipment No., becomes read-only, and the confirmation banner lists the stock transaction numbers.",
+      "locator": "§ Solution › Sales ASN › Sales ASN workflow: FG allocation without GDN",
+      "kind": "section"
+    },
+    {
+      "title": "Scenarios – Table 2",
+      "heading": "Solution › Sales ASN › Scenarios",
+      "text": "Columns: ASN Type (text); Setting “FG Allocation without GDN” (text); FG Allocation tab (text); Automatic stock transactions on Confirm (text)\nASN Type | Setting “FG Allocation without GDN” | FG Allocation tab | Automatic stock transactions on Confirm\nWith GDN | not used | Shown by default | None, normal ASN flow\nWithout GDN | ON | Shown | Enter New Stock, then Transfer Out of System (when at least one row has a Site and Trf. GDI Qty above 0)\nWithout GDN | OFF | Hidden | None, standard ASN",
+      "locator": "§ Solution › Sales ASN › Scenarios, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › Sales ASN › Scenarios",
+      "text": "ASN Type: With GDN; Setting “FG Allocation without GDN”: not used; FG Allocation tab: Shown by default; Automatic stock transactions on Confirm: None, normal ASN flow",
+      "locator": "§ Solution › Sales ASN › Scenarios, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › Sales ASN › Scenarios",
+      "text": "ASN Type: Without GDN; Setting “FG Allocation without GDN”: ON; FG Allocation tab: Shown; Automatic stock transactions on Confirm: Enter New Stock, then Transfer Out of System (when at least one row has a Site and Trf. GDI Qty above 0)",
+      "locator": "§ Solution › Sales ASN › Scenarios, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › Sales ASN › Scenarios",
+      "text": "ASN Type: Without GDN; Setting “FG Allocation without GDN”: OFF; FG Allocation tab: Hidden; Automatic stock transactions on Confirm: None, standard ASN",
+      "locator": "§ Solution › Sales ASN › Scenarios, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Scenarios",
+      "heading": "Solution › Sales ASN › Scenarios",
+      "text": "FG Allocation tab for an ASN Without GDN\nNote: screen will be in 4.0 this is just for reference.\nIn this case stock type column will always be free.",
+      "locator": "§ Solution › Sales ASN › Scenarios",
+      "kind": "section"
+    },
+    {
+      "title": "Auto generated transaction",
+      "heading": "Solution › Auto generated transaction",
+      "text": "The transactions shall be generated based on the number of distinct sites selected in the FG Allocation tab, subject to the following conditions:\n• Multiple distinct sites: If FG Allocation contains entries for four different sites, the system shall automatically generate four separate Enter New Stock transactions and four separate Transfer Out of System transactions, with each transaction corresponding to its respective site.\n• Single site with multiple rows: If FG Allocation contains four rows for the same site, differentiated by color and size, the system shall generate only one Enter New Stock transaction and one Transfer Out of System transaction for that site. The transaction details shall include the applicable color-wise and size-wise stock entries.",
+      "locator": "§ Solution › Auto generated transaction",
+      "kind": "section"
+    },
+    {
+      "title": "Header section – Table 3",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Header section",
+      "text": "Columns: S. No. (integer); Field Name (text); Population Logic (text)\nS. No. | Field Name | Population Logic\n1 | Site | Auto-populate from the Sales ASN.\n2 | Transaction Date | Auto-populate with the Sales ASN confirmation date.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Header section, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Header section",
+      "text": "S. No.: 1; Field Name: Site; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Header section, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Header section",
+      "text": "S. No.: 2; Field Name: Transaction Date; Population Logic: Auto-populate with the Sales ASN confirmation date.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Header section, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Detail section – Table 4",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "Columns: S. No. (integer); Field Name (text); Population Logic (text)\nS. No. | Field Name | Population Logic\n1 | Article Code | Auto-populate from the Sales ASN.\n2 | Article Name | Auto-populate from the Sales ASN.\n3 | Color Code | Auto-populate from the Sales ASN.\n4 | Color Name | Auto-populate from the Sales ASN.\n5 | Size | Auto-populate from the Sales ASN.\n6 | Shade | Leave blank.\n7 | Roll No. | Leave blank.\n8 | Purchase Currency | Auto-populate from the associated Sales Order.\n9 | Rate of Exchange | Auto-populate from the Sales ASN.\n10 | Purchase Price | Auto-populate from the associated Sales Order.\n11 | Local/Import | Leave blank.\n12 | Surplus Stock Buyer | Leave blank.\n13 | Surplus Stock Gender | Leave blank.\n14 | Sourced Date | Leave blank.\n15 | Expiry Date | Leave blank.\n16 | Location | To be discussed and finalized.\n17 | Stock | Auto-populate from the Sales ASN.\n18 | Ver | To be discussed and finalized.\n19 | UOM | Auto-populate from the Sales ASN.\n20 | Price/Unit | Leave blank.\n… 14 more rows",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 1; Field Name: Article Code; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 2; Field Name: Article Name; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 3; Field Name: Color Code; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 4; Field Name: Color Name; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 5; Field Name: Size; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 6; Field Name: Shade; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 7; Field Name: Roll No.; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 8; Field Name: Purchase Currency; Population Logic: Auto-populate from the associated Sales Order.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 9",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 9; Field Name: Rate of Exchange; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 10",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 10; Field Name: Purchase Price; Population Logic: Auto-populate from the associated Sales Order.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 11",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 11; Field Name: Local/Import; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 12",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 12; Field Name: Surplus Stock Buyer; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 13",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 13; Field Name: Surplus Stock Gender; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 14",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 14; Field Name: Sourced Date; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 15",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 15; Field Name: Expiry Date; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 16",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 16; Field Name: Location; Population Logic: To be discussed and finalized.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 17",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 17; Field Name: Stock; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 18",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 18; Field Name: Ver; Population Logic: To be discussed and finalized.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 19",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 19; Field Name: UOM; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 20",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 20; Field Name: Price/Unit; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 21",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 21; Field Name: Purchase Value; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 22",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 22; Field Name: BC Form Type; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 23",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 23; Field Name: BC No.; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 24",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 24; Field Name: BC Date (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 25",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 25; Field Name: BC Request No. (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 26",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 26; Field Name: BC Request Date (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 27",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 27; Field Name: BC Invoice No. (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 28",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 28; Field Name: BC Invoice Date (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 29",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 29; Field Name: Form/Approval Number (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 30",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 30; Field Name: Custom Form Type (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 31",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 31; Field Name: Form Type; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 32",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 32; Field Name: Approval Date (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 33",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 33; Field Name: Remarks (EN); Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 34",
+      "heading": "Solution › Auto generated transaction › Enter New Stock › Detail section",
+      "text": "S. No.: 34; Field Name: Allow Tolerance Slab for Indent Adjustment/Material; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Enter New Stock › Detail section, table 4, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "Header Section – Table 5",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "Columns: S. No. (integer); Field Name (text); Population Logic (text)\nS. No. | Field Name | Population Logic\n1 | Site | Auto-populate from the Sales ASN.\n2 | Reason | Select the first available reason from the configured Reason list.\n3 | From Address | Auto-populate the consignor address from the Sales ASN.\n4 | To | Leave blank.\n5 | Transaction Date | Leave blank.\n6 | Dispatch Type | Leave blank.\n7 | Cost Centre | Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 1; Field Name: Site; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 2; Field Name: Reason; Population Logic: Select the first available reason from the configured Reason list.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 3; Field Name: From Address; Population Logic: Auto-populate the consignor address from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 4; Field Name: To; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 5; Field Name: Transaction Date; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 6; Field Name: Dispatch Type; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Header Section",
+      "text": "S. No.: 7; Field Name: Cost Centre; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Header Section, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Detail Section – Table 6",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "Columns: S. No. (integer); Field Name (text); Population Logic (text)\nS. No. | Field Name | Population Logic\n1 | Article | Auto-populate from the Sales ASN.\n2 | Adjusted with Indent No. | Leave blank.\n3 | Color | Auto-populate from the Sales ASN.\n4 | Size | Auto-populate from the Sales ASN.\n5 | Style | Leave blank.\n6 | OC No./SR No./MR No. | Leave blank.\n7 | Indent No. | Leave blank.\n8 | FPO No. | Leave blank.\n9 | Shade/Lo | Leave blank.\n10 | Location | To be discussed and finalized.\n11 | Source | Auto-populate/reference the corresponding Enter New Stock transaction.\n12 | Quality | Leave blank.\n13 | Stock Transfer Stock | Auto-populate from the Sales ASN.\n14 | UOM (Stock Transfer) | Auto-populate from the Sales ASN.\n15 | Transfer Stock | Populate with the same quantity as Stock Transfer Stock.\n16 | Transfer UOM | Populate with the same UOM as Stock Transfer UOM.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 1; Field Name: Article; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 2; Field Name: Adjusted with Indent No.; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 3; Field Name: Color; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 4; Field Name: Size; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 5; Field Name: Style; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 6",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 6; Field Name: OC No./SR No./MR No.; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 7",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 7; Field Name: Indent No.; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 8",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 8; Field Name: FPO No.; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 9",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 9; Field Name: Shade/Lo; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 10",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 10; Field Name: Location; Population Logic: To be discussed and finalized.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 11",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 11; Field Name: Source; Population Logic: Auto-populate/reference the corresponding Enter New Stock transaction.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 12",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 12; Field Name: Quality; Population Logic: Leave blank.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 13",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 13; Field Name: Stock Transfer Stock; Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 14",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 14; Field Name: UOM (Stock Transfer); Population Logic: Auto-populate from the Sales ASN.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 15",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 15; Field Name: Transfer Stock; Population Logic: Populate with the same quantity as Stock Transfer Stock.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 16",
+      "heading": "Solution › Auto generated transaction › Transfer Out of System › Detail Section",
+      "text": "S. No.: 16; Field Name: Transfer UOM; Population Logic: Populate with the same UOM as Stock Transfer UOM.",
+      "locator": "§ Solution › Auto generated transaction › Transfer Out of System › Detail Section, table 6, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Transaction Generation Logic",
+      "heading": "Solution › Transaction Generation Logic",
+      "text": "The system shall determine the number of transactions to generate based on the distinct sites present in the FG Allocation tab.",
+      "locator": "§ Solution › Transaction Generation Logic",
+      "kind": "section"
+    },
+    {
+      "title": "Transaction Generation Logic – Table 7",
+      "heading": "Solution › Transaction Generation Logic",
+      "text": "Columns: Scenario (text); FG Allocation Details (text); Enter New Stock Transactions (integer); Transfer Out of System Transactions (integer)\nScenario | FG Allocation Details | Enter New Stock Transactions | Transfer Out of System Transactions\nScenario 1 | Four rows belonging to four distinct sites | 4 | 4\nScenario 2 | Four rows belonging to one site, with different color/size combinations | 1 | 1\nScenario 3 | Multiple rows distributed across two distinct sites | 2 | 2",
+      "locator": "§ Solution › Transaction Generation Logic, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Solution › Transaction Generation Logic",
+      "text": "Scenario: Scenario 1; FG Allocation Details: Four rows belonging to four distinct sites; Enter New Stock Transactions: 4; Transfer Out of System Transactions: 4",
+      "locator": "§ Solution › Transaction Generation Logic, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Solution › Transaction Generation Logic",
+      "text": "Scenario: Scenario 2; FG Allocation Details: Four rows belonging to one site, with different color/size combinations; Enter New Stock Transactions: 1; Transfer Out of System Transactions: 1",
+      "locator": "§ Solution › Transaction Generation Logic, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "Solution › Transaction Generation Logic",
+      "text": "Scenario: Scenario 3; FG Allocation Details: Multiple rows distributed across two distinct sites; Enter New Stock Transactions: 2; Transfer Out of System Transactions: 2",
+      "locator": "§ Solution › Transaction Generation Logic, table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Transaction Generation Logic",
+      "heading": "Solution › Transaction Generation Logic",
+      "text": "For each distinct site, the system shall create one Enter New Stock transaction and one corresponding Transfer Out of System transaction. The applicable color-wise, size-wise and stock quantity details shall be populated from the Sales ASN.",
+      "locator": "§ Solution › Transaction Generation Logic",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Drafts and new versions waiting for review. Nothing here is treated as confirmed WFX knowledge.
+# Approve or reject them in the Rulebook; approved entries move to their category file.
+

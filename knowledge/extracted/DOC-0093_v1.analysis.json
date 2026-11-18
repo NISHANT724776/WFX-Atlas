@@ -1,0 +1,221 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Changes",
+        "Page no.",
+        "Date",
+        "Color"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "empty",
+        "date",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Initial Draft",
+          "",
+          "03 Apr 2026",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "412396-Request for Restrict Dispatch Functionality for NEW BOM",
+  "keyTerms": [
+    "dispatch",
+    "restrict dispatch",
+    "restrict",
+    "bom",
+    "dispatch bom",
+    "checkbox",
+    "users",
+    "material",
+    "even after",
+    "after dispatch",
+    "permission",
+    "after",
+    "request restrict",
+    "users permission",
+    "permission allow"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 19
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 3
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "BOM – Costing",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Request for Restrict Dispatch Functionality for NEW BOM",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Changes, Page no., Date, Color (1 rows)",
+      "locator": "§ Version Control, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "System provides Restrict dispatch functionality for New BOM",
+      "locator": "§ 1. Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Currently, in Production New tab, we provide checkbox Restrict Dispatch for users who have permission “Allow to Exclude material from PD even after Dispatch”.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Sytem provide Checkbox Restrict Dispatch for each item line in detached Routing tab/Material Linkage.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "When users with right permission check these box at PD level, system will not allowed to issue and GRN can still be created.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Only users with permission “Allow to Exclude material from PD even after Dispatch” can see Restrict Dispatch checkbox and check for item",
+      "locator": "§ Solution",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "System provide one column Restrict Dispatch in Material Linkage/Detached Routing tab.",
+      "locator": "§ Solution",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "After users check for restrict dispatch, system will send a notification as below.",
+      "locator": "§ Solution",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "If users click on OK, checkbox will be ticked for the items and can not be removed.",
+      "locator": "§ Solution",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. System provide one column Restrict Dispatch in Material Linkage/Detached Routing tab. Users with relevant permision can see this column and check for items that need to be exclude from PD even after dispatch\n2. After users check for restrict dispatch, system will send a notification as below. If users click on OK, checkbox will be ticked for the items and can not be removed. If user click on Cancel, checkbox will not be ticked.\n3. Using this option, specific materials could be excluded from dispatch while system will still allow to create FPPO GRN as current mechanism.",
+      "locator": "§ Solution",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The functionality should behave the same as current restrict dispatch in PD.",
+      "locator": "§ Acceptance Criteria",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria:\n1. Create a style with New BOM UI having some items.\n2. Set permission Allow to Exclude material from PD even after Dispatch for one user account.\n3. The functionality should behave the same as current restrict dispatch in PD.",
+      "locator": "§ Acceptance Criteria",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "412396-Request for Restrict Dispatch Functionality for NEW BOM",
+      "heading": "",
+      "text": "Request for Restrict Dispatch Functionality for NEW BOM\nDevelopment ID: 412396\nRequest for Restrict Dispatch Functionality for NEW BOM\nDevelopment ID: 412396",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Version Control 2\n1. Purpose 2\n2. Business Requirement 2\n3. Scope 2\n4. Solution 2\n5. Acceptance Criteria 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Version Control – Table 1",
+      "heading": "Version Control",
+      "text": "Columns: Version (decimal); Changes (text); Page no. (empty); Date (date); Color (empty)\nVersion | Changes | Page no. | Date | Color\n1.0 | Initial Draft |  | 03 Apr 2026 | ",
+      "locator": "§ Version Control, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Version Control",
+      "text": "Version: 1.0; Changes: Initial Draft; Date: 03 Apr 2026",
+      "locator": "§ Version Control, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "1. Purpose",
+      "heading": "1. Purpose",
+      "text": "System provides Restrict dispatch functionality for New BOM",
+      "locator": "§ 1. Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "• Currently, in Production New tab, we provide checkbox Restrict Dispatch for users who have permission “Allow to Exclude material from PD even after Dispatch”. Production team do not need to dispatch these items with this checkbox at PD level and GRN can still be created.\n• However, in New BOM, system do not provide this functionality. So, LGG team request this function in Detach Routing in New Bom at PD level.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This document contains the below scope:\n• Sytem provide Checkbox Restrict Dispatch for each item line in detached Routing tab/Material Linkage. When users with right permission check these box at PD level, system will not allowed to issue and GRN can still be created.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "Solution",
+      "text": "Navigation: Admin >> Org. Structure >> User permission\n• Only users with permission “Allow to Exclude material from PD even after Dispatch” can see Restrict Dispatch checkbox and check for item\nNavigation: Catalog >> Catalogs >> Style >> Detached Routing >> Material Linkage\n• System provide one column Restrict Dispatch in Material Linkage/Detached Routing tab. Users with relevant permision can see this column and check for items that need to be exclude from PD even after dispatch\n• After users check for restrict dispatch, system will send a notification as below. If users click on OK, checkbox will be ticked for the items and can not be removed. If user click on Cancel, checkbox will not be ticked.\n• Using this option, specific materials could be excluded from dispatch while system will still allow to create FPPO GRN as current mechanism.",
+      "locator": "§ Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria",
+      "heading": "Acceptance Criteria",
+      "text": "• Create a style with New BOM UI having some items.\n• Set permission Allow to Exclude material from PD even after Dispatch for one user account.\n• The functionality should behave the same as current restrict dispatch in PD.",
+      "locator": "§ Acceptance Criteria",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+# Calculation rules: Production
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: CALC-PO-ALLOCATED
+RULE NAME: Allocated to FPO
+MODULE: Production
+SUBMODULE:
+TRANSACTION: Production Order
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Qty % lets planning push less than the OC qty into the factory order.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Colour Qty
+  Qty %
+FORMULA / LOGIC: Allocated = Colour Qty × Qty % ÷ 100
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Allocated
+VALIDATIONS:
+EXAMPLE: BALSAM TREE 300 × 100 % = 300; Cosmic sky purple 700.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  colour_qty | Colour Qty | quantity | required
+  qty_pct | Qty % | percent | required
+EXPRESSION: allocated = colour_qty * qty_pct / 100
+CALC OUTPUT: allocated
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-FPO-QTY
+RULE NAME: FPO Qty
+MODULE: Production
+SUBMODULE:
+TRANSACTION: FPO & FPPO
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Quantity released to the factory per colour/size.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Allocated Qty
+  Reduced at FPO
+FORMULA / LOGIC: FPO Qty = Allocated Qty − Reduced at FPO
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: FPO Qty
+VALIDATIONS:
+EXAMPLE: 100 − 0 = 100 for BALSAM TREE / Small.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  allocated_qty | Allocated Qty | quantity | required
+  reduced_at_fpo | Reduced at FPO | quantity | default 0
+EXPRESSION: fpo_qty = allocated_qty - reduced_at_fpo
+CALC OUTPUT: fpo_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-FPO-FABRIC
+RULE NAME: Fabric Qty Reqd
+MODULE: Production
+SUBMODULE:
+TRANSACTION: FPO & FPPO
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Same explosion as MRP Level 2 but on FPO qty.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  FPO Qty
+  BOM Final Consumption
+FORMULA / LOGIC: Fabric Qty Reqd = FPO Qty × BOM Final Consumption
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Fabric Qty Reqd
+VALIDATIONS:
+EXAMPLE: 100 × 1.5 = 150; total 1,500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  fpo_qty | FPO Qty | quantity | required
+  final_consumption | BOM Final Consumption | quantity | required
+EXPRESSION: fabric_qty_reqd = fpo_qty * final_consumption
+CALC OUTPUT: fabric_qty_reqd
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-FPO-ALLOC-OPEN
+RULE NAME: Material Allocation Open Qty
+MODULE: Production
+SUBMODULE:
+TRANSACTION: FPO & FPPO
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Qty Instructed is stock already reserved (the BBB in-house adjustment).
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Qty Reqd
+  Qty Instructed
+  Qty Unreserved
+FORMULA / LOGIC: Open Qty = Qty Reqd − Net Qty Instructed (Qty Instructed − Qty Unreserved)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Open Qty
+VALIDATIONS:
+EXAMPLE: 150 − 100 = 50; total 1,100 = RMPO 1230 qty.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  qty_reqd | Qty Reqd | quantity | required
+  qty_instructed | Qty Instructed | quantity | default 0
+  qty_unreserved | Qty Unreserved | quantity | default 0
+EXPRESSION: open_qty = qty_reqd - (qty_instructed - qty_unreserved)
+CALC OUTPUT: open_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-FPPO-OPEN
+RULE NAME: FPPO Open Qty
+MODULE: Production
+SUBMODULE:
+TRANSACTION: FPO & FPPO
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Every routing process gets the full FPO qty per colour/size as required qty.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Required Qty
+  Received Qty
+  Reallocation Qty
+FORMULA / LOGIC: Open Qty = Required Qty − Received Qty − Reallocation Qty
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Open Qty
+VALIDATIONS:
+EXAMPLE: 1,000 − 0 − 0 = 1,000 per process.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  required_qty | Required Qty | quantity | required
+  received_qty | Received Qty | quantity | default 0
+  reallocation_qty | Reallocation Qty | quantity | default 0
+EXPRESSION: open_qty = required_qty - received_qty - reallocation_qty
+CALC OUTPUT: open_qty
+OPEN QUESTION: Does Ordered Qty (issued to a contractor) reduce FPPO Open Qty, or only Received Qty?
+V1 STATUS: assumed (inferred, waiting for confirmation)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

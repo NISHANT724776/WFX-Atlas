@@ -1,0 +1,27 @@
+{
+  "tables": [],
+  "subject": "GRNShadeLot 20260221214705",
+  "keyTerms": [],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [],
+  "chunks": []
+}

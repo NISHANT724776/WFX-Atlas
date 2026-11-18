@@ -1,0 +1,219 @@
+# Data models: Sales Order (re-write)
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+# These are screen-level fields captured from WFX screens or specifications, not the WFX database schema.
+# Field lines: label | type (key, entered, calc, link, copied) | formula | rule | source column | note
+
+================================================================================
+MODEL ID: DM-SO-STRUCTURE
+MODEL NAME: Sales Order · Structure & pricing
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Sales › Sales Order › New
+SUMMARY: One transaction page for an order: Order Information, Other Details, Delivery and Items, Instructions, Documents and History. An order holds deliveries, a delivery holds articles, an article holds a colour/size breakup priced by the Tech Pack Price Per.
+HEADER FIELDS:
+  Screen title | calc
+  Entry points | entered
+GRIDS:
+  [Levels] (4 captured rows)
+  Level | key
+  Holds | entered
+  Key fields | entered
+  [Structure, pricing and quantity rules] (13 captured rows)
+  Topic | key
+  Area | entered
+  What it means | entered
+  Where | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-ACTIONS
+MODEL NAME: Sales Order · Delivery & order actions
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Sales Order list · context menus
+SUMMARY: Add, copy, delete, split, cancel, close and reopen a delivery; cancel, close, revise or split/shuffle a whole order. Remarks are required for cancel, close and reopen, and every action is written to History.
+HEADER FIELDS: Duplicate check | calc
+GRIDS:
+  [Actions] (11 captured rows)
+  Action | key
+  Where | entered
+  Needs | entered
+  Result | calc
+  Rule | entered
+  [Split – worked example (Red / S, M, L = 100, 200, 200)] (6 captured rows)
+  Mode | entered
+  Entered | entered
+  Colour / Size | key
+  Existing Qty | copied
+  Moved Qty | calc | formula: Existing × % ÷ 100 (percentage) · Entered qty × line share (quantity) | rule: CALC-SO-SPLIT-PCT
+  Remaining Qty | calc | formula: Existing − Moved | rule: CALC-SO-SPLIT-QTY
+  [Delivery, order and control rules] (24 captured rows)
+  Topic | key
+  Area | entered
+  What it means | entered
+  Where | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-APPROVAL
+MODEL NAME: Sales Order · Approval
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Approval Centre · Sales Order
+SUMMARY: An order goes for approval depending on the approver value: 0 never, -1 always, otherwise only above the limit. Approval can be single level, multi level or parallel (multiple approvers).
+HEADER FIELDS: Approve at | entered
+GRIDS:
+  [Approval value – worked example] (4 captured rows)
+  Approval Value | entered
+  Order Value | copied
+  Goes for approval | calc | formula: 0 never · -1 always · otherwise Order Value > Limit | rule: CALC-SO-APPROVAL-LIMIT
+  [Approval modes] (4 captured rows)
+  Topic | key
+  Area | entered
+  What it means | entered
+  Where | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-PRICING
+MODEL NAME: Sales Order · Price, desync & sub total
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Delivery selling price · Desync Price OC list
+SUMMARY: The selling price follows Price Per from the Tech Pack and can carry an upcharge or discount. The cost sheet or BOM price is the source of truth: a mismatch makes the OC Desynced until it is synced.
+HEADER FIELDS: Setting | entered
+GRIDS:
+  [Upcharge / discount] (4 captured rows)
+  Price Per level | copied
+  Base Selling Price | copied
+  Upcharge / Discount | entered
+  Final Selling Price | calc | formula: Base ± Upcharge/Discount | rule: CALC-SO-UPCHARGE
+  Kind | calc
+  [Desync walk-through] (6 captured rows)
+  Step | key
+  Cost Sheet / BOM Price | copied
+  OC Selling Price | entered | rule: CALC-SO-DESYNC
+  State | calc | formula: Desynced when OC price ≠ cost sheet price | rule: CALC-SO-DESYNC
+  [Sub Total on print and proforma invoice] (2 captured rows)
+  Delivery | key
+  Value | copied
+  Currency | copied
+  Rate to order currency | entered
+  Sub Total (INR) | calc | formula: Value × Rate | rule: CALC-SO-SUBTOTAL
+  [Price sync rules] (3 captured rows)
+  Topic | key
+  Area | entered
+  What it means | entered
+  Where | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-TYPES
+MODEL NAME: Sales Order · Order types & transfer price
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Sales Order › Order Type / Fulfilment Type
+SUMMARY: Back Order, CM, Purchase and Make to Stock each create different follow-on documents. Purchase Demand turns manufactured quantity into bought quantity. Transfer Price orders run between an order company and an execution company.
+HEADER FIELDS: Rule | calc
+GRIDS:
+  [Purchase Demand (Level 1 = 1,000)] (3 captured rows)
+  Level 1 Style Qty | copied
+  Purchase Demand | entered
+  Manufacture Qty | calc | formula: Level 1 − Purchase Demand | rule: CALC-SO-PURCHASE-DEMAND
+  Final Consumption | copied | from: bom-58.finalCons
+  Material Indent Qty | calc | formula: (Level 1 − Purchase Demand) × Final Consumption | rule: CALC-SO-PURCHASE-DEMAND
+  Result | calc
+  [Order type and transfer price rules] (7 captured rows)
+  Topic | key
+  Area | entered
+  What it means | entered
+  Where | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-PACKING
+MODEL NAME: Sales Order · Packing & pieces
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Delivery › Article › Packing Type
+SUMMARY: Packing Type decides how the Color/Size popup works and how pieces are counted. Add Qty adds extra independent breakup grids for prepack cases.
+HEADER FIELDS: Open point | calc
+GRIDS:
+  [Packing types] (3 captured rows)
+  Packing Type | key
+  Colour/Size popup | entered
+  PP column | entered
+  Rule | entered
+  Pieces | calc | rule: CALC-SO-PACK-PCS
+  Add Qty tool | entered
+  [Solid Color / Assorted Size – example (to confirm)] (1 captured rows)
+  Packing Type | key
+  PP S | entered
+  PP M | entered
+  PP L | entered
+  Packs | entered
+  PCS | calc | formula: (PP S + PP M + PP L) × Packs | rule: CALC-SO-PACK-PCS
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-OTHER
+MODEL NAME: Sales Order · Dates, TNA, EDI & others
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Sales Order (re-write) – From the Sprint 1-3 specifications · permissions and settings not included
+SCREEN: Sales Order list · Sales › Codes
+SUMMARY: Ex-factory days fill the OC delivery date, TNA templates are attached per order or style, EDI Buyer PO imports orders through mapped packages, and flex fields and block booking extend the order.
+HEADER FIELDS: Ex-factory | calc
+GRIDS:
+  [Ex-factory days] (2 captured rows)
+  Buyer Delivery Date | entered
+  Ex-factory days | copied
+  OC Delivery Date | calc | formula: Buyer Delivery Date − days | rule: CALC-SO-EX-FACTORY
+  [Dates, TNA, EDI and other rules] (6 captured rows)
+  Topic | key
+  Area | entered
+  What it means | entered
+  Where | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). From the Sprint 1-3 specifications · permissions and settings not included.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

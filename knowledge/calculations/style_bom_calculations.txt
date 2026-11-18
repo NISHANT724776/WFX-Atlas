@@ -1,0 +1,761 @@
+# Calculation rules: Style & BOM
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: CALC-BOM-CONS-QTY
+RULE NAME: Cons Qty (per garment)
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Total Cons Qty is the material needed for a batch of "Cons per Item" garments. Dividing gives the consumption for one garment in Cons UOM.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Total Cons Qty
+  Cons per Item
+FORMULA / LOGIC: Cons Qty = Total Cons Qty ÷ Cons per Item
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Cons Qty
+VALIDATIONS:
+EXAMPLE: 3 KG_Nis ÷ 2 garments = 1.5 KG_Nis per garment (WFX shows 1.5).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  total_cons_qty | Total Cons Qty | quantity | required
+  cons_per_item | Cons per Item | quantity | required
+EXPRESSION: cons_qty = total_cons_qty / cons_per_item
+CALC OUTPUT: cons_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-LOSS-FACTOR
+RULE NAME: Loss factor
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: The system first turns Loss % into a factor. Loss is taken out of the gross quantity, so the factor is a division, not a plain mark-up.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS: Loss %
+FORMULA / LOGIC: Loss Factor = 1 ÷ (1 − Loss %)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Loss Factor
+VALIDATIONS:
+EXAMPLE: Loss 5 %: 1 ÷ (1 − 5 %) = 1.052632.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS: loss_pct | Loss % | percent | default 0
+EXPRESSION: loss_factor = 1 / (1 - loss_pct / 100)
+CALC OUTPUT: loss_factor
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-CONS-LOSS
+RULE NAME: Cons incl Loss
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Loss is the first step of the chain. With no loss the Loss Factor is 1 and Cons incl Loss = Cons Qty.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Cons Qty
+  Loss Factor
+FORMULA / LOGIC: Cons incl Loss = Cons Qty × Loss Factor
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Cons incl Loss
+VALIDATIONS:
+EXAMPLE: Cons 2, loss 5 %: 2 × 1.052632 = 2.105263.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  cons_qty | Cons Qty | quantity | required
+  loss_factor | Loss Factor | number | default 1
+EXPRESSION: cons_incl_loss = cons_qty * loss_factor
+CALC OUTPUT: cons_incl_loss
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-CONS-WASTAGE
+RULE NAME: Cons incl Wastage
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Wastage is added as a mark-up on the quantity after loss. If only wastage is given, Cons incl Loss is just Cons Qty and the result is the total consumption.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Cons incl Loss
+  Wastage %
+FORMULA / LOGIC: Cons incl Wastage = Cons incl Loss + (Cons incl Loss × Wastage %)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Cons incl Wastage
+VALIDATIONS:
+EXAMPLE: Cons 2, loss 5 %, wastage 5 %: 2.105263 + 2.105263 × 5 % = 2.210526. Adi TShirt (NIS-59) N-8, no loss: 1.5 × 10 % + 1.5 = 1.65 (WFX shows 1.65).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  cons_incl_loss | Cons incl Loss | quantity | required
+  wastage_pct | Wastage % | percent | default 0
+EXPRESSION: cons_incl_wastage = cons_incl_loss + cons_incl_loss * wastage_pct / 100
+CALC OUTPUT: cons_incl_wastage
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-CONS-SHRINKAGE
+RULE NAME: Cons incl Shrinkage
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Shrinkage is the last step and, like loss, is a division. If only shrinkage is given it applies straight to Cons Qty and the result is the total consumption.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Cons incl Wastage
+  Shrinkage %
+FORMULA / LOGIC: Cons incl Shrinkage = Cons incl Wastage ÷ (1 − Shrinkage %)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Cons incl Shrinkage
+VALIDATIONS:
+EXAMPLE: Cons 2, loss 5 %, wastage 5 %, shrinkage 5 %: 2.210526 ÷ (1 − 5 %) = 2.326870.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  cons_incl_wastage | Cons incl Wastage | quantity | required
+  shrinkage_pct | Shrinkage % | percent | default 0
+EXPRESSION: cons_incl_shrinkage = cons_incl_wastage / (1 - shrinkage_pct / 100)
+CALC OUTPUT: cons_incl_shrinkage
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-FINAL-CONS
+RULE NAME: Final Consumption
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: The last figure of the chain is the total consumption MRP explodes and FPO uses. Each of loss, wastage and shrinkage is optional: when only one is filled the system applies just that step and its result becomes the total consumption.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Cons Qty
+  Loss %
+  Wastage %
+  Shrinkage %
+FORMULA / LOGIC: Final (Total) Consumption = result of the chain: Cons Qty × 1/(1 − Loss %) → + Wastage % → ÷ (1 − Shrinkage %)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Final (Total) Consumption
+VALIDATIONS:
+EXAMPLE: Cons 2 with loss, wastage and shrinkage of 5 % each = 2.326870. Only wastage 5 % = 2.1. Only loss 5 % = 2.105263. Only shrinkage 5 % = 2.105263. Adi TShirt (NIS-59) N-8: 1.65 (WFX shows 1.65).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  cons_qty | Cons Qty | quantity | required
+  loss_pct | Loss % | percent | default 0
+  wastage_pct | Wastage % | percent | default 0
+  shrinkage_pct | Shrinkage % | percent | default 0
+EXPRESSION:
+  loss_factor = 1 / (1 - loss_pct / 100)
+  cons_incl_loss = cons_qty * loss_factor
+  cons_incl_wastage = cons_incl_loss + cons_incl_loss * wastage_pct / 100
+  final_consumption = cons_incl_wastage / (1 - shrinkage_pct / 100)
+CALC OUTPUT: final_consumption
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-CONS-UOM-PRICE
+RULE NAME: Cons UOM Price
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Fabric is bought per meter but consumed per KG_Nis. 1 KG_Nis = 1,000 meter, so one Cons UOM costs 1,000 purchase units.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Purchase Price
+  Conversion Factor (Purchase UOM → Cons UOM)
+FORMULA / LOGIC: Cons UOM Price = Purchase Price × Conversion Factor (Purchase UOM → Cons UOM)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Cons UOM Price
+VALIDATIONS:
+EXAMPLE: 15 INR/meter × 1,000 = 15,000 INR per KG_Nis (WFX shows 15,000). Trims use the default factor 1 when no UOM conversion is maintained: T-1 (PCS → meter) 10 → 10, NS1-1 8 → 8, PP-1 4 → 4.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  purchase_price | Purchase Price | money | required
+  conversion_factor | Conversion Factor (Purchase UOM → Cons UOM) | number | default 1
+EXPRESSION: cons_uom_price = purchase_price * conversion_factor
+CALC OUTPUT: cons_uom_price
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-VALUE
+RULE NAME: Line Value
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Material cost of one garment for this BOM line in the line currency.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Final Consumption
+  Cons UOM Price
+FORMULA / LOGIC: Value = Final Consumption × Cons UOM Price
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Value
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): N-8 1.65 × 15,000 = 24,750 · T-1 2.04 × 10 = 20.40 · NS1-1 2.04 × 8 = 16.32 · PP-1 1 × 4 = 4.00 (all match WFX). Flannel Shirt Adi (NIS-58): 1.5 × 15,000 = 22,500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  final_consumption | Final Consumption | quantity | required
+  cons_uom_price | Cons UOM Price | money | required
+EXPRESSION: value = final_consumption * cons_uom_price
+CALC OUTPUT: value
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-VALUE-CS
+RULE NAME: Value (CS Currency)
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Converts the line value to the BOM costing currency. Flannel Shirt Adi (NIS-58) is INR on both sides, so the rate is 1.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Value
+  Exchange rate (line → costing-sheet currency)
+FORMULA / LOGIC: Value (CS Curr) = Value × exchange rate (line currency → costing-sheet currency)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Value (CS Curr)
+VALIDATIONS:
+EXAMPLE: 22,500 × 1 = 22,500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  value | Value | money | required
+  exchange_rate | Exchange rate (line → costing-sheet currency) | number | required
+EXPRESSION: value_cs = value * exchange_rate
+CALC OUTPUT: value_cs
+OPEN QUESTION: Which exchange-rate table does WFX use (BOM date, company rate, or OC rate)?
+V1 STATUS: assumed (inferred, waiting for confirmation)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BOM-DEPENDENCY
+RULE NAME: Colour / Size Dependency "Used"
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: With dependency type "Table" each style colour is mapped individually. Unmapped colours generate no material demand in MRP.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Used = Yes when the style colour (size) is mapped to a material colour (size); otherwise [Not Used]
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Used
+VALIDATIONS:
+EXAMPLE: Flannel Shirt Adi (NIS-58) has 7 style colours; only BALSAM TREE, Cosmic sky purple and Happy Pink are mapped → 3 colours used.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-ROUTING-AFTER-VALID
+RULE NAME: After Process Valid?
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Routing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Guards the routing order so a process cannot depend on one that never runs.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Valid = "First process" when After Process is blank; else Yes if After Process exists earlier in the sequence
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Valid
+VALIDATIONS:
+EXAMPLE: Sewing after VCutting → Yes; VPacking after Sewing → Yes.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-ROUTING-PROCESS-RATE
+RULE NAME: Process Rate
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Routing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Each process is costed from its operation: the cost per unit of time multiplied by the production time.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Cost Of
+  Production Time
+FORMULA / LOGIC: Process Rate = Cost Of (Operations tab) × Production Time (Operations tab)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Process Rate
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): VCutting 3 × 100 = 300 · Sewing 2 × 5 = 10 · VPacking 3 × 5 = 15 (all match the Processes tab).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  cost_of | Cost Of | money | required
+  production_time | Production Time | number | required
+EXPRESSION: process_rate = cost_of * production_time
+CALC OUTPUT: process_rate
+OPEN QUESTION: Described as "Cost Of + Production Time", but the screen only matches multiplication (3 + 100 = 103 ≠ 300). Confirm it is ×. (Cost Of is the default rate per unit of time; Efficiency % at default does not change the rate.)
+CONFLICT: The owner described Process Rate with "+" (Cost Of + Production Time); the captured WFX screen values match "×". Kept Under Review until the owner confirms.
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-ROUTING-LINKAGE
+RULE NAME: Material Linkage
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Routing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Tells WFX which process the material is issued to; production indents show it as "Required For".
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Each BOM material line is linked to the routing process that consumes it
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Material Linkage
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): N-8 → VCutting · T-1 and NS1-1 → Sewing · PP-1 → VPacking.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-SECTION
+RULE NAME: Section Total Cost
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Shown on each section header of the Cost tab, next to Budget and Additional Cost.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Section Total Cost = Σ Value (CS Curr) of the lines in the section
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Section Total Cost
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59) Fabric: 24,750 · Trim: 20.40 + 16.32 + 4.00 = 40.72 (WFX shows 24,750 Rs and 40.72 Rs).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-MATERIAL
+RULE NAME: Material Cost
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Each section total is the sum of BOM line Value (CS Curr) in that section.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Material Cost = Σ section Total Cost (Fabric, Service, Yarn, Misc, Trim)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Material Cost
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): 24,750 + 40.72 = 24,790.72. Flannel Shirt Adi (NIS-58): 22,500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-PRODUCTION
+RULE NAME: Production Cost
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Sum of the process rates on the routing (basis Amount).
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Production Cost = Σ routing Process Rate
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Production Cost
+VALIDATIONS:
+EXAMPLE: VCutting 300 + Sewing 10 + VPacking 15 = 325 (same routing on Flannel Shirt Adi (NIS-58) and Adi TShirt (NIS-59)).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-TOTAL
+RULE NAME: Total Cost
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Full cost per piece used for profit and markup.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Material Cost
+  Production Cost
+  Recipe
+  Indirect
+  CM
+FORMULA / LOGIC: Total Cost = Material + Production + Recipe + Indirect + CM
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Total Cost
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): 24,790.72 + 325 = 25,115.72 (WFX shows 25,115.72). Flannel Shirt Adi (NIS-58): 22,500 + 325 = 22,825.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  material_cost | Material Cost | money | required
+  production_cost | Production Cost | money | default 0
+  recipe_cost | Recipe | money | default 0
+  indirect_cost | Indirect | money | default 0
+  cm_cost | CM | money | default 0
+EXPRESSION: total_cost = material_cost + production_cost + recipe_cost + indirect_cost + cm_cost
+CALC OUTPUT: total_cost
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-NET-SELLING
+RULE NAME: Net Selling Price
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Discount is a percentage of the selling price; WFX shows the amount under the %.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Selling Price
+  Discount %
+FORMULA / LOGIC: Net Selling Price = Selling Price × (1 − Discount % ÷ 100)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Net Selling Price
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): 4,000 × 10 % = 400 discount → 4,000 − 400 = 3,600.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  selling_price | Selling Price | money | required
+  discount_pct | Discount % | percent | default 0
+EXPRESSION: net_selling_price = selling_price * (1 - discount_pct / 100)
+CALC OUTPUT: net_selling_price
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-PROFIT
+RULE NAME: Profit
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Negative profit means the style is costed above its selling price.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Net Selling Price
+  Total Cost
+FORMULA / LOGIC: Profit = Net Selling Price − Total Cost
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Profit
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): 3,600 − 25,115.72 = −21,515.72 (WFX shows −21,515.72). Flannel Shirt Adi (NIS-58): 3,000 − 22,825 = −19,825.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  net_selling_price | Net Selling Price | money | required
+  total_cost | Total Cost | money | required
+EXPRESSION: profit = net_selling_price - total_cost
+CALC OUTPUT: profit
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-PROFIT-PCT
+RULE NAME: Profit %
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Margin on the selling price after discount. The small figure next to it (21 %) is the Target Profit %.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Profit
+  Net Selling Price
+FORMULA / LOGIC: Profit % = Profit ÷ Net Selling Price × 100
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Profit %
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): −21,515.72 ÷ 3,600 = −597.66 % (WFX shows −597.66 %). Flannel Shirt Adi (NIS-58) Excel recorded the ratio −6.6083.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  profit | Profit | money | required
+  net_selling_price | Net Selling Price | money | required
+EXPRESSION: profit_pct = profit / net_selling_price * 100
+CALC OUTPUT: profit_pct
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-COST-MARKUP-PCT
+RULE NAME: Markup %
+MODULE: Style & BOM
+SUBMODULE:
+TRANSACTION: BOM – Costing
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Mark-up over cost uses the selling price BEFORE discount, unlike Profit which uses the price after discount.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Selling Price
+  Total Cost
+FORMULA / LOGIC: Markup = Selling Price − Total Cost;  Markup % = Markup ÷ Total Cost × 100
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Markup
+VALIDATIONS:
+EXAMPLE: Adi TShirt (NIS-59): 4,000 − 25,115.72 = −21,115.72; ÷ 25,115.72 = −84.07 % (WFX shows both). Flannel Shirt Adi (NIS-58) (no discount): −0.8686.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  selling_price | Selling Price | money | required
+  total_cost | Total Cost | money | required
+EXPRESSION:
+  markup = selling_price - total_cost
+  markup_pct = markup / total_cost * 100
+CALC OUTPUT: markup_pct
+OPEN QUESTION: Markup ignores the discount while Profit applies it – is that intended?
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-CONSUMPTION-CHAIN
+RULE NAME: Total consumption chain (loss, wastage, shrinkage)
+MODULE: Style & BOM
+SUBMODULE: BOM
+TRANSACTION: BOM – Materials & Dependency
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: The final ("total") consumption of a BOM line, after loss, wastage and shrinkage. The owner calls this figure "total cons"; "Total Cons Qty" is the entered column.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Cons Qty
+  Loss %
+  Wastage %
+  Shrinkage %
+FORMULA / LOGIC:
+  Loss Factor = 1 ÷ (1 − Loss %)
+  Cons incl Loss = Cons × Loss Factor
+  Cons incl Wastage = Cons incl Loss + Cons incl Loss × Wastage %
+  Total (Final) Consumption = Cons incl Wastage ÷ (1 − Shrinkage %)
+  Each step is optional: a step whose percentage is not given is left out.
+UNIT OF MEASUREMENT: Consumption UOM of the BOM line
+ROUNDING RULE:
+OUTPUT: Total (Final) Consumption
+VALIDATIONS:
+EXAMPLE: Cons 2, Loss 5 %, Wastage 5 %, Shrinkage 5 % → factor 1.0526316 → 2.1052632 → 2.2105263 → 2.3268698
+EXPECTED RESULT: 2.326869806 (owner's figure)
+EXCEPTION CONDITIONS: Not documented: what WFX does when Loss % or Shrinkage % is 100 (the formula divides by zero). The v1 site clamps percentages below 100; that clamp is not a documented WFX rule.
+RELATED TRANSACTIONS:
+RELATED RULES: CALC-BOM-LOSS-FACTOR, CALC-BOM-CONS-LOSS, CALC-BOM-CONS-WASTAGE, CALC-BOM-CONS-SHRINKAGE, CALC-BOM-FINAL-CONS
+CALC INPUTS:
+  cons_qty | Cons Qty | quantity | required
+  loss_pct | Loss % | percent | default 0
+  wastage_pct | Wastage % | percent | default 0
+  shrinkage_pct | Shrinkage % | percent | default 0
+EXPRESSION:
+  loss_factor = 1 / (1 - loss_pct / 100)
+  cons_incl_loss = cons_qty * loss_factor
+  cons_incl_wastage = cons_incl_loss + cons_incl_loss * wastage_pct / 100
+  total_consumption = cons_incl_wastage / (1 - shrinkage_pct / 100)
+CALC OUTPUT: total_consumption
+TEST CASES:
+  cons_qty=2, loss_pct=5, wastage_pct=5, shrinkage_pct=5 → total_consumption=2.326869806
+  cons_qty=2, wastage_pct=5 → total_consumption=2.1
+  cons_qty=2, loss_pct=5 → total_consumption=2.105263158
+  cons_qty=2, shrinkage_pct=5 → total_consumption=2.105263158
+SOURCE: Product owner's explanation with screenshots, chat 2026-11-12 (example: Cons 2, Loss 5 %, Wastage 5 %, Shrinkage 5 % → 2.326869806). Knowledge Hub v1 (src/app/data/cons.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

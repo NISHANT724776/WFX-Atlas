@@ -1,0 +1,216 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Created By",
+        "Created On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Mohit Negi",
+          "14-05-2026",
+          "Document Created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "405585 Sales Order (OC) Enhancement",
+  "keyTerms": [
+    "order",
+    "number",
+    "shipment sample",
+    "additional",
+    "shipment",
+    "cwt",
+    "cwt number",
+    "additional quantity",
+    "section",
+    "sample",
+    "type",
+    "kiara",
+    "quantity",
+    "order type",
+    "field"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 46
+    },
+    {
+      "module": "Production",
+      "score": 6
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Shipment Samples are produced along with the bulk order.",
+      "locator": "§ Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Shipment Sample quantity is recorded separately in the Material Liquidation Report by the CWT team.",
+      "locator": "§ Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Therefore, the Shipment Sample quantity must be identifiable and traceable against the respective OC Number (CA) for reporting and reconciliation purposes.",
+      "locator": "§ Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Below is the enhancement required.",
+      "locator": "§ Section 3. Functional Requirements",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Therefore, the following enhancement is required:",
+      "locator": "§ Section 3. Functional Requirements › Shipment sample type order tagging required on Additional Qty.",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "For visibility and internal reporting consistency, the same OC number must be reflected within Kiara’s system.",
+      "locator": "§ Section 3. Functional Requirements › CWT OC Number handling in Kiara",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the OC number is confirmed by the user, the system shall automatically update the same OC number in the “Summary Buyer Order Ref” field.",
+      "locator": "§ Section 3. Functional Requirements › CWT OC Number handling in Kiara",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When Additional Quantity > 0, the Order Type field shall be mandatory.",
+      "locator": "§ Section 4. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall not allow the user to save the OC if:",
+      "locator": "§ Section 4. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Order Type is not selected.",
+      "locator": "§ Section 4. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 4. Acceptance Criteria:\n1. Shipment sample type order tagging\n2. The system shall display an “Order Type” dropdown field at the Additional Quantity Breakup (Line Level).\n3. The dropdown shall contain the following values:\n4. Shipment Sample\n5. Extra Production\n6. When Additional Quantity > 0, the Order Type field shall be mandatory.\n7. The system shall not allow the user to save the OC if:\n8. Additional Quantity is entered and\n9. Order Type is not selected.\n10. CWT OC Number Automation\n11. Upon confirmation of the OC number, the system shall automatically populate the OC number in the “Summary Buyer Order Ref” field.",
+      "locator": "§ Section 4. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Created By, Created On, Changes (1 rows)",
+      "locator": "§ Revision History, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "405585 Sales Order (OC) Enhancement",
+      "heading": "",
+      "text": "Software Requirements Specification\nPurchase order from buyer (OC) Enhancement\nDocument #405585#\nVersion 1.0 ● 14th May 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 3\nSection 3. Functional Requirements 4\n1. Shipment sample type order tagging required on Additional Qty. 4\n2. CWT OC Number handling in Kiara 4\nSection 4. Acceptance Criteria 5\nSection 4. 6\nRevision History 6",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "This document defines the functional and system enhancement requirements for the Purchase Order from Buyer (OC) process.\nThe objective of this enhancement is to:\n1. Enable Shipment Sample tagging at Additional Quantity level in OC.\n2. Automate visibility of CWT OC Number (CA Number) across Kiara transactions and reports.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "• Shipment Sample Tagging in OC/CA\nShipment Samples are produced along with the bulk order. For the production of Shipment Samples, no additional material requirement is generated, as the required input materials are consumed from the bulk order allocation.\nShipment Sample quantity is recorded separately in the Material Liquidation Report by the CWT team. Therefore, the Shipment Sample quantity must be identifiable and traceable against the respective OC Number (CA) for reporting and reconciliation purposes.\n• CWT OC Number handling in Kiara:\nAs per the current business process, both CWT and Kiara teams operate using the same CA (OC) number across all operational transactions and reports.\nFor example, when a fabric purchase order is created by the CWT team, it carries the CWT OC number. Upon dispatch, the supplier tags the same CWT OC number on the fabric rolls. The Kiara warehouse team verifies and matches the OC number on the received rolls with the corresponding purchase order.\nTherefore, it is essential that Kiara continues to use and reflect the same OC number across all transactions and reporting to ensure consistency, traceability, and operational alignment.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• This change will not impact any other existing functionalities.",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Functional Requirements",
+      "heading": "Section 3. Functional Requirements",
+      "text": "Below is the enhancement required.",
+      "locator": "§ Section 3. Functional Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment sample type order tagging required on Additional Qty.",
+      "heading": "Section 3. Functional Requirements › Shipment sample type order tagging required on Additional Qty.",
+      "text": "To meet the business requirement of restricting material requirement generation for additional quantities, the system already provides a BOM-level setting:\n“Exclude Additional Production quantities in the MRL Generation.”\nWhile this setting controls MRL behavior, there is currently no classification mechanism to identify the type of additional quantity.\nTherefore, the following enhancement is required:\n• Introduce an “Order Type” dropdown field at the Additional Quantity Breakup.\n• The field shall allow users to categorize additional quantities appropriately.\nOrder Type Dropdown Values:\n• Shipment Sample\n• Extra Production: Required to distinguish whether the additional quantity is for Shipment Sample production or for extra production requirements\nOrder type requirement dropdown field screenshot",
+      "locator": "§ Section 3. Functional Requirements › Shipment sample type order tagging required on Additional Qty.",
+      "kind": "section"
+    },
+    {
+      "title": "CWT OC Number handling in Kiara",
+      "heading": "Section 3. Functional Requirements › CWT OC Number handling in Kiara",
+      "text": "Requirement Description:\nBoth CWT and Kiara teams operate using the same OC (CA) number across all operational transactions and reports. For visibility and internal reporting consistency, the same OC number must be reflected within Kiara’s system.\nTo achieve this, the following automation is proposed:\nOnce the OC number is confirmed by the user, the system shall automatically update the same OC number in the “Summary Buyer Order Ref” field.\nThe Summary Buyer Order Ref field shall:\n• Be auto-populated\n• Be visible across all transactions and reports of Kiara where the OC number is displayed.\nSummary Buyer order Reference Screenshot",
+      "locator": "§ Section 3. Functional Requirements › CWT OC Number handling in Kiara",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Acceptance Criteria",
+      "heading": "Section 4. Acceptance Criteria",
+      "text": "• Shipment sample type order tagging\n• The system shall display an “Order Type” dropdown field at the Additional Quantity Breakup (Line Level).\n• The dropdown shall contain the following values:\n• Shipment Sample\n• Extra Production\n• When Additional Quantity > 0, the Order Type field shall be mandatory.\n• The system shall not allow the user to save the OC if:\n• Additional Quantity is entered and\n• Order Type is not selected.\n• CWT OC Number Automation\n• Upon confirmation of the OC number, the system shall automatically populate the OC number in the “Summary Buyer Order Ref” field.",
+      "locator": "§ Section 4. Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 1",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Created By (text); Created On (date); Changes (text)\nVersion | Created By | Created On | Changes\n1.0 | Mohit Negi | 14-05-2026 | Document Created.",
+      "locator": "§ Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Created By: Mohit Negi; Created On: 14-05-2026; Changes: Document Created.",
+      "locator": "§ Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

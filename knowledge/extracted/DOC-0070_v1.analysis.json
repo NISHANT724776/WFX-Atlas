@@ -1,0 +1,107 @@
+{
+  "tables": [],
+  "subject": "368518 In the Approval Center, display a customized form that is linked to the related transaction (Disbursement Form & Request Form)",
+  "keyTerms": [
+    "form",
+    "section",
+    "ection",
+    "approval center",
+    "center display",
+    "display customized",
+    "customized form",
+    "form linked",
+    "linked transaction",
+    "transaction disbursement",
+    "disbursement form",
+    "form request",
+    "request form",
+    "software",
+    "software requirement"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "In the Approval Center, display a customized",
+      "heading": "… › In the Approval Center, display a customized",
+      "text": "form that is linked to the related transaction\n(Disbursement Form & Request Form)",
+      "locator": "p. 1, § … › In the Approval Center, display a customized",
+      "kind": "section"
+    },
+    {
+      "title": "World Fashion Exchange",
+      "heading": "… › World Fashion Exchange",
+      "text": "1",
+      "locator": "p. 2, § … › World Fashion Exchange",
+      "kind": "section"
+    },
+    {
+      "title": "O VERVIEW",
+      "heading": "… › O VERVIEW",
+      "text": "................................ ................................ ................................ ................................ ................................ ..............................\n1",
+      "locator": "p. 2, § … › O VERVIEW",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "… › Purpose",
+      "text": "................................ ................................ ................................ ................................ ................................ ................................ ............\n1",
+      "locator": "p. 2, § … › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement:",
+      "heading": "… › Business Requirement:",
+      "text": "................................ ................................ ................................ ................................ ................................ ....................\n1\nS ECTION 2.\nS COPE ................................ ................................ ................................ ................................ ................................ ................................ ....\n2\nS ECTION 3.",
+      "locator": "p. 2, § … › Business Requirement:",
+      "kind": "section"
+    },
+    {
+      "title": "A SSUMPTIONS",
+      "heading": "… › A SSUMPTIONS",
+      "text": "................................ ................................ ................................ ................................ ................................ .........................\n2\nS ECTION 4.",
+      "locator": "p. 2, § … › A SSUMPTIONS",
+      "kind": "section"
+    },
+    {
+      "title": "S OLUTION",
+      "heading": "… › S OLUTION",
+      "text": "................................ ................................ ................................ ................................ ................................ ...............................\n2\nSECTION 5. REVISION HISTORY\n................................ ................................ ................................ ................................ ................................ .....\n2",
+      "locator": "p. 2, § … › S OLUTION",
+      "kind": "section"
+    },
+    {
+      "title": "Section",
+      "heading": "… › Section",
+      "text": "1: 🧾 Overview",
+      "locator": "p. 2, § … › Section",
+      "kind": "section"
+    },
+    {
+      "title": "World Fashion Exchange",
+      "heading": "… › World Fashion Exchange",
+      "text": "2\nSection 2. 📘 Scope\nSection 3 . 📌 Assumptions\nSection 4 . 🛠️ S olution",
+      "locator": "p. 3, § … › World Fashion Exchange",
+      "kind": "section"
+    }
+  ]
+}

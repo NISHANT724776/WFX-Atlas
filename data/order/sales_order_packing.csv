@@ -1,0 +1,4 @@
+﻿packing_type,popup,pp_column,rule,pcs,add_qty_tool
+Solid Color / Solid Size,Existing Color/Size popup,No,One colour and one size only,Quantity entered,Add Qty gives extra breakup (inseam and other cases)
+Solid Color / Assorted Size,Color/Size popup + PP column after Color/Size,Yes,"One colour only; ""Only one color can be entered for this packing type.""",PCS = PP × Size + PP × Size …,Enabled
+Multiple Prepack,Color/Size popup + PP column,Yes,"PP ratios across many colours and sizes, no colour restriction",PCS = PP × TBA,Enabled

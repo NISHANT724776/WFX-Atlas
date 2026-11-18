@@ -1,0 +1,1514 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Customer",
+          "Customer name"
+        ],
+        [
+          "Shipping Bill no.",
+          "It should be a alphanumeric user input field with minimum character limit of 50 alphabets"
+        ],
+        [
+          "Shipping Bill Date",
+          "It should be date input field. It should get enabled from SB no. is filled"
+        ],
+        [
+          "Shipping Bill Type",
+          "It will carry forward the value confirmed as Bill type while ASN confirmation"
+        ],
+        [
+          "Shipment Type",
+          "It will carry details from incentive masters (DBK / RoSCTL / RoDTEP / FOB/ Others)"
+        ],
+        [
+          "Port of Loading (Port code)",
+          "Name and Port code in brackets"
+        ],
+        [
+          "Currency",
+          "Transaction currency, to be populated from ASN"
+        ],
+        [
+          "Exchange Rate",
+          "Transaction exchange rate, to be populated from ASN"
+        ],
+        [
+          "Invoice no.",
+          "It will auto-populated from the invoice no. from ASN, in case of multiple ASN, it will be comma separated"
+        ],
+        [
+          "LEO No.",
+          "It should be a alphanumeric user input field with minimum character limit of 50 alphabets"
+        ],
+        [
+          "LEO date",
+          "It should be date input field, it should get editable when LEO no. is filled"
+        ],
+        [
+          "AD Bank details",
+          "It will enlist the customer mapped banks in the customer master"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Invoice No.",
+          ""
+        ],
+        [
+          "Invoice Date",
+          ""
+        ],
+        [
+          "Attachments",
+          ""
+        ],
+        [
+          "Transport Company",
+          ""
+        ],
+        [
+          "ROAD/Port of Discharge",
+          ""
+        ],
+        [
+          "ROAD/ETA",
+          ""
+        ],
+        [
+          "ROAD/ETD",
+          ""
+        ],
+        [
+          "Port of Loading",
+          ""
+        ],
+        [
+          "Mother Vessel",
+          ""
+        ],
+        [
+          "Voyage No.",
+          ""
+        ],
+        [
+          "License Plate No.",
+          ""
+        ],
+        [
+          "House RR Date",
+          ""
+        ],
+        [
+          "House RR No.",
+          ""
+        ],
+        [
+          "Master RR Date",
+          ""
+        ],
+        [
+          "Master RR No.",
+          ""
+        ],
+        [
+          "SEA/Port of Discharge",
+          ""
+        ],
+        [
+          "SEA/ETA",
+          ""
+        ],
+        [
+          "SEA/ETD",
+          ""
+        ],
+        [
+          "SEA/Port of Loading",
+          ""
+        ],
+        [
+          "OC No.",
+          ""
+        ],
+        [
+          "Exchange Rate",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "OC No.",
+          ""
+        ],
+        [
+          "Style",
+          ""
+        ],
+        [
+          "HSN Code",
+          ""
+        ],
+        [
+          "GDN no.",
+          ""
+        ],
+        [
+          "Qty",
+          ""
+        ],
+        [
+          "Value",
+          ""
+        ],
+        [
+          "Net Value",
+          ""
+        ],
+        [
+          "Net Value (Company Currency)",
+          ""
+        ],
+        [
+          "Provisional %",
+          "It will provide the incentive rate from the Incentive master for the header incentive type based on corresponding HSN"
+        ],
+        [
+          "Provisional Amount",
+          "It will populate the the incentive amount based on the corresponding rate and Net value in company currency.\n(Net value in company currency * rate %)"
+        ],
+        [
+          "Declared %",
+          "This will be provide the user input filed to put the incentive detail submitted in the final shipping bill to custom"
+        ],
+        [
+          "Declared Amount",
+          "This will be provide the user input filed to put the incentive detail submitted in the final shipping bill to custom"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Status",
+          "Draft\nWaiting\nConfirmed\nCancelled\nClosed\nSubmitted to Accounts (No attributes could be edited)"
+        ],
+        [
+          "Customer",
+          ""
+        ],
+        [
+          "ASN no.",
+          ""
+        ],
+        [
+          "Shipping bill creation date",
+          ""
+        ],
+        [
+          "Shipping Bill no.",
+          ""
+        ],
+        [
+          "Shipping Bill date",
+          ""
+        ],
+        [
+          "Shipping Bill Type",
+          "Bill Type value (LUT/GST)"
+        ],
+        [
+          "Shipment type",
+          "From Incentive master (DBK / RoSCTL / RoDTEP / FOB/ Others)"
+        ],
+        [
+          "Currency",
+          ""
+        ],
+        [
+          "Exchange rate",
+          ""
+        ],
+        [
+          "Shipping Bill Amount",
+          "Total Shipping bill amount"
+        ],
+        [
+          "Shipping Bill submission date",
+          "Editable ; Date input field (it should be editable as soon as Custom filing status updated as Filed."
+        ],
+        [
+          "Shipping Bill creation date",
+          "Date of shipping bill creation"
+        ],
+        [
+          "SB Transaction no.",
+          "Internal transaction number"
+        ],
+        [
+          "Attachments",
+          ""
+        ],
+        [
+          "Incentive Reconciliation",
+          "It will become accessible\nIt will provide collaborative view for the incentive details on multiple dimensions with provisional, declared and sanctioned incentive details in a single scree. User can input here sanctioned incentive details as per icegate. As soon as sanctioned incentive details are saved. It will system identifies that there is no variance i.e. Variance = 0, then system will update this SB status to “Submitted to Accounts” and all the invoices under that SB will start appearing for AR invoice creation. Otherwise not\nif there is any variance then that particular line color will change to RED.\nFor the cases with Incentive Reconciliation having Variance, user would be required to push it submit to finance through the available utility tool. This approval tool should have provision through user program permission to submit to finance based on setup approval only.\nWhen there is no variance and it has successfully updated to Submitted to accounts status, Text color will turn Green."
+        ],
+        [
+          "SB Version",
+          "This will store multiple version of the shipping bill with its updated values on each revision\nUser can identify change each revision-wise. Similar to LC Versions"
+        ],
+        [
+          "Created By",
+          ""
+        ],
+        [
+          "Created On",
+          ""
+        ],
+        [
+          "LEO No.",
+          "Value filled on the SB creation screen"
+        ],
+        [
+          "LEO Date",
+          "Value filled on the SB creation screen"
+        ],
+        [
+          "EGM Date",
+          "Editable ; Date input field"
+        ],
+        [
+          "Custom Filing Status",
+          "Draft > Filed/ Cancelled > Accepted"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "1",
+        "ASN",
+        "No entry",
+        "Column 4",
+        "Column 5"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "2",
+          "Shipping Bill",
+          "ROSCTL (Recoverable)",
+          "Dr",
+          "100"
+        ],
+        [
+          "",
+          "",
+          "ROSCTL",
+          "Cr",
+          "100"
+        ],
+        [
+          "3",
+          "Licence Sale",
+          "Advance License Sale",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Party",
+          "Dr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "Sale of Licence",
+          "Cr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "Reversal of Income",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "ROSCTL",
+          "Dr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "Loss on Sale of Duty Script\\",
+          "Dr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "ROSCTL (Recoverable)",
+          "Cr",
+          "100"
+        ],
+        [
+          "4",
+          "Posting of Sales",
+          "Customer Account",
+          "Dr",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Sale of Readymade Garment Exports",
+          "Cr",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Version",
+        "Created/Revised By",
+        "Created/Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Kalpesh Sharma",
+          "30th Jan 2025",
+          "Initial document created."
+        ],
+        [
+          "2.0",
+          "Kalpesh Sharma",
+          "11th Sep 2025",
+          "Specs updated as per technical discussion"
+        ],
+        [
+          "3.0",
+          "Kalpesh Sharma",
+          "19th Jan 2025",
+          "Scope Revised"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "279362 - Export Incentive Management 260226",
+  "keyTerms": [
+    "asn",
+    "shipment plan",
+    "shipment",
+    "sales asn",
+    "sales",
+    "shipping bill",
+    "invoice",
+    "plan",
+    "incentive",
+    "shipping",
+    "bill",
+    "created",
+    "user",
+    "tax invoice",
+    "update"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 9
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to enhance the below screens:-",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Sales invoice\n2. Export Incentive\n3. Duty Script movement",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This update of shipment plan will be applicable only if Sales ASN is in saved or unconfirmed state. if Sales ASN is in confirmed state, shipment plan will be locked for update.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Revision of Shipment will be blocked if ASN is created in confirmed mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Revision of Shipment will be blocked if ASN is created in confirmed mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "In case ASN is in Saved mode, then user will be able to revise Shipment Plan.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "In case of re-generation of Sales ASN is required, existing Sales ASN will be cancelled, and New Sales ASN will be created by copying information from cancelled Sales ASN.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case of re-generation of Sales ASN is required, existing Sales ASN will be cancelled, and New Sales ASN will be created by copying information from cancelled Sales ASN.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Multiple shipment plans are selected to generate multiple Cis.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Tax invoice will be generated only if \"Forward to customer\" updated on Sales ASN.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "In case Shipment plan is revised, then system will show an alert on Sales ASN list that shipment plan is revised.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This option will be available only in Sales ASN is based on Shipment plan PSN Sales ASN",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "LUT master is used to restrict shipment under LUT mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "LUT master is used to restrict shipment under LUT mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - New:\n1. We need new and a comprehensive detailed screen in order to create shipping bill, keeping the record chain for all the events happening from filing the shipping bill to receiving the ICEGATE incentive acknowledgement no.\n2. It should be made available in the screen layout configurator\n3. It should be supported by Flex-field configuration\n4. Utility Tools :\n5. Save : to save this details as draft\n6. Confirm : to confirm the SB and generate a transaction no. at backend\n7. Confirm & New : to confirm and refresh the screen for new SB creation.\n8. Exit : Close the window and lead to SB list screen without saving any change.\n9. This screen would be divided into 2 segment as detailed below :-\n10. Header Level fields",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Attributes, Description (12 rows; identifiers: Attributes)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Attributes, Description (21 rows; identifiers: Attributes)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "One invoice = one line",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - New:\n1. This will be replicating the all the attributes from the logistics tab of the ASN. (advance shipment tracker screen). One invoice = one line\n2. It should be available in SLC to remove and increase columns as per requirement.\n3. Any columns enabled at the logistics details on the ASN creation.\n4. These values could only viewed and not editable\n5. Utility Tools :\n6. Add : it will provide a pop-up to add the confirmed Export ASN against which shipping has not been generated at the moment. It will be filtered based on Customer + Shipping Bill Type + Port of Loading + Currency + Delivery Terms\n7. Delete : To delete the added lines\n8. Incentive Tab\n9. It will provide a detailed OC/style/HSN level detailed view for all the selected ASNs in the ASN details tab (similar to Incentive tab on OC sales invoice screen.)\n10. The above highlighted segment will be displayed similarly for every incentive type Currently (DBK,RoSCTL,RoDTEP)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Attributes, Description (12 rows; identifiers: Attributes)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - New:\n1. Summary Details : It will provide the summarize view of total incentive and valuation breakup for holistic view from single view point.\n2. Attachment and Remarks : It will be generic UI attachment and remarks fields\n3. Flex Field: It will be generic UI Flex fields master supported",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Utility Tools (Visibility control under program permission is required) :-",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Utility Tools (Visibility control under program permission is required) :-",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "It cannot executed wherein the SB forwarded to accounts team",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - List:\n1. Need a comprehensive screen which will provide list level detailing for each shipping bill created\n2. Utility Tools (Visibility control under program permission is required) :-\n3. New : to navigate to SB creation screen\n4. Revise : to revise selected line. It cannot executed wherein the SB forwarded to accounts team\n5. Cancel : can the Shipping bill. It will effective only on confirmed transaction\n6. Delete : Delete saved lines\n7. Update : update line level data fields such as Shipping Bill submission date\n8. Log: it will show the details over changes.\n9. Export Shipping Bill details : it will provide the excel dump of the list screen with separated line details for incentive reconciliation details\n10. Import Shipping Bill. It will provide for the user to create the SB through import mechanism in specified format.\n11. Submit to Accounts: through this user will be able to trigger approval hierarchy on the shipping bill with variance details. (detailed below)\n12. This screen will provide below attributes by default, however will be flex filed supported in order to increase and columns for required information recording. It should be become part of export format",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Attributes, Description (23 rows; identifiers: Attributes)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - List:\n1. Financial impact on Shipping bill status update to “submitted to Finance”\n2. Incentive entry will get accounted\n3. DBK/RoSCTL/RoDTEP received (Recoverable) Dr.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as incentive posting is done that particular sales invoice will start appearing",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - List:\n1. There will not be any incentive booking while sales invoice posting in such case.\n2. Incentive details will get auto populated on the sales invoice screen based on the sanctioned incentive details attached above and will not be editable.\n3. As soon as incentive posting is done that particular sales invoice will start appearing",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: 1, ASN, No entry, Column 4, Column 5 (11 rows)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Export Incentive:\n1. As soon as the Shipping bill with DBK details have been successfully submitted to accounts then that particular SB will start appearing on the export incentive outstanding screen for receipt processing\n2. it will be of full amount, no adjustment allowed.\n3. No other change in the functionality",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 04 | Export Incentive",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 05 | Duty Script Movement Screen:\n1. Status >> license in hand\n2. License no.\n3. License value in comp currency",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 05 | Duty Script Movement Screen",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "a new status Is required in the status drop-down ii.e. “Ready for Utilization”",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 05 | Duty Script Movement Screen",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "a new column is required to attach the division name from the organization to the transaction with status “ Ready for utilization”",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 05 | Duty Script Movement Screen",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 05 | Duty Script Movement Screen:\n1. a new status Is required in the status drop-down ii.e. “Ready for Utilization”\n2. a new column is required to attach the division name from the organization to the transaction with status “ Ready for utilization”\n3. “Division name” column will get enable only the transaction with Status Ready for Utilization",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 05 | Duty Script Movement Screen",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Version, Created/Revised By, Created/Revised On, Changes (3 rows)",
+      "locator": "§ Section 5. Revision History, table 6",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "279362 - Export Incentive Management 260226",
+      "heading": "",
+      "text": "Software Requirements Specification\nADVANCE INCENTIVE HANDELLING\nVersion 1.0 ● 279362\n30 Jan 2025\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nEXPORT LOGISTICS MANAGEMENT 5\nSolution=> Shipment Plan 5\nCommercial Invoice 6\nMeeting conclusion – Commercial Invoice 6\nSolution=> Commercial Invoice 7\nSolution=> Tax Invoice 7\nLUT Master 9\nScreen 02 | Shipping Bill - New 10\nScreen 02 | Shipping Bill - List 15\nScreen 03 | Non Stock Sales and Voucher posting 19\nScreen 04 | Export Incentive 20\nScreen 05 | Duty Script Movement Screen 21\nSection 4. Glossary 23\nSection 5. Revision History 24",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Certainly, in order to make the UI more interactive and efficient with regards to Advance Export Incentive handling.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "The Scope of these specs is to enhance the below screens:-\n• Sales invoice\n• Export Incentive\n• Duty Script movement",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "Screen 02– Shipment Plan\n• Meeting Points:\nBuyer orders will be created in WFX\nShipment Plan will be created in WFX consisting of Sales Order Lines where shipment is due/ planned.\nShipment plan will be created on Customer PO (WFX delivery OC) level\nMultiple OCs can be clubbed under one shipment plan\nPre-Shipment Sales Invoice (PSN) will be created based on shipment Plan created in previous stage.\nShipment plan list screen will have multiple status update will be provided (PSN created, ASN Created , Sent to FA, etc.)\n• Solution=> Shipment Plan\nShipment plan will be created by selecting multiple delivery OCs as per user requirement:\n• Shahi Business Requirements\nThere should be an option to include multiple destination under one shipment plan. However, while creating ASN there should be single destination which will be selected by Logistics team.\nShipment plan once confirmed will not be changed at Sales ASN level. if needed, shipment plan has to be revised itself before usage in Sales ASN.\nIn case of shipment plan has been changed then system will share email alert to respective logistic person for changed shipment plan.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "In case of change in shipment plan, quantities in Sales ASN should auto update as per Shahi's requirement. However, WFX will keep this auto update based on configuration where either it will be auto update or user will trigger update from Sales ASN. This update of shipment plan will be applicable only if Sales ASN is in saved or unconfirmed state. if Sales ASN is in confirmed state, shipment plan will be locked for update. If user wants to update shipment plan then Sales ASN should be revised and kept in Saved state.\nShipment Plan will also have option of Shipment tolerance % that will be driven from Buyer Master. This can be different between Shahi division.\n**During plan user can take multiple destinations but will have one destination as group. Same will be auto populate in Sales ASN However it can be changed as per requirement.\n• Shipment Plan Screen\nFunction and controls should work as stated in business requirements above.\n• Shipment Plan List\nShipment Plan list will have limited columns compared to Sales ASN.\nShipment plan will have 2 status “Confirmed” or “Closed”. Confirmed will be based on shipment plan created. Status will turn to “Closed” if ASN is created against “Shipment Plan” in Confirmed mode.\nRevision of Shipment will be blocked if ASN is created in confirmed mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "In case ASN is in Saved mode, then user will be able to revise Shipment Plan. However, while confirming ASN post revision system will show alert that Shipment plan has been revised.\nIn case user wants to revise a shipment plan where confirmed Sales ASN has already been created then user has to cancel the ASN or revise to keep in Saved mode.\n• Commercial Invoice\nCommercial Invoice will be created based on Pre-shipment Export Invoice (PSN). System will have option to create PSN from\nMeeting conclusion – Commercial Invoice\nMeeting Points:\nPre-Shipment Sales Invoice list screen will have Shipment Plan no. for filter and tracking purpose.\nCommercial Invoice (CI) will be created/ generated from Pre-Shipment Sales Invoice.\nCI generated will be submitted for CHA analysis. Data of CI can be extracted to share with CHA for BOT.\nSales ANS will be created based on Pre-shipment Invoice post confirmation of Custom Booking.\nFinal commercial invoice will be generated from Sales ASN\nASN list will also have Shipment Plan no. for tracking\nIn case of re-generation of Sales ASN is required, existing Sales ASN will be cancelled, and New Sales ASN will be created by copying information from cancelled Sales ASN. This might be required in case of regeneration of E-Invoice\nSolution=> Commercial Invoice\nPre-Shipment Export Invoice will used to generate commercial invoice for customer",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "Sales ASN will be used for Final Booking confirmation.\n• Shahi Business Requirements\nMultiple shipment plans are selected to generate multiple Cis. In WFX, multiple shipment plan will be selected to trigger multiple PSNs. One plan will have one PSN.\nIf required, user can trigger PSN from Shipment plan list where he can select multiple plans on one go. Each shipment plan will create a separate PSN.\nSolution=> Tax Invoice\nSales ASN will be used to generate final commercial invoice as per booking confirmation.\nShahi Business Requirements\nThere will be an option on Sales ASN list to mark an ASN as \"Forward to Custom” and reverse from custom\". Tax invoice will be generated only if \"Forward to customer\" updated on Sales ASN. These tools will be user specific, only authorized user will be able to update this status.\nShipment template to be included in Sales ASN Commercial Page.\nDue to any reason, if above sales ASN is not used for shipment and there is a required to regenerate Tax Invoice then there should be an option to use same ASN and CI number to create new Tax Invoice number and date. Previous Tax invoice number and date should be recorded in log with action details. New Tax invoice number will be as per existing serial used.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "ASN Data field update using screen rather than revising ASN. Copy to all or next should be used on selected ASNs. Forward to Customer option will not be feasible from screen.\n• Sales ASN\nWFX sales ASN will be created based on PSN created in previous step. Once confirmed, sales ASN will be used to generate Tax Invoice.\nIn case, due to any reason Tax Invoice need to be regenerated then user will cancel the existing Sales ASN and create a new one using cancelled ASN.\nShipping Template will be values will be carried from PSN to Sales ASN.\nSales ASN List with Shipment Plan no\n• Regenerate Tax Invoice\nThere will be a new button to regenerate Sales ASN (Tax Invoice). On click, system will cancel selected Sales ASN and recreate using same information with new Sales ASN Number. This new version will be used to regenerate Tax Invoice. Previous Sales ASN and related Tax Invoice will be available for future reference in cancelled mode.\n• Update in Shipment Plan\nUser will not be able to change PSN and ASN quantities. These quantities will always be based on shipment plan.\nIn case, there will be a need to update those quantities and same will be updated in Shipment plan after cancellation or revision of Sales ASN. No need to revise PSN if Sales ASN is created.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT (part 5)",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "In case Shipment plan is revised, then system will show an alert on Sales ASN list that shipment plan is revised. User will be able to update changed quantities using a button “Update Sales Order Quantities as per Shipment plan”. This option will be available only in Sales ASN is based on Shipment plan PSN Sales ASN\n• LUT Master\nLUT master is used to restrict shipment under LUT mode. This master works for Buyer and Ship from State, from shipment date & to shipment date.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT (part 6)",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Path (to be) : FA >> AR >> Shipping Bill >> New\n• We need new and a comprehensive detailed screen in order to create shipping bill, keeping the record chain for all the events happening from filing the shipping bill to receiving the ICEGATE incentive acknowledgement no.\n• It should be made available in the screen layout configurator\n• It should be supported by Flex-field configuration\n• Utility Tools :\n• Save : to save this details as draft\n• Confirm : to confirm the SB and generate a transaction no. at backend\n• Confirm & New : to confirm and refresh the screen for new SB creation.\n• Exit : Close the window and lead to SB list screen without saving any change.\n• This screen would be divided into 2 segment as detailed below :-\n• Header Level fields",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nCustomer | Customer name\nShipping Bill no. | It should be a alphanumeric user input field with minimum character limit of 50 alphabets\nShipping Bill Date | It should be date input field. It should get enabled from SB no. is filled\nShipping Bill Type | It will carry forward the value confirmed as Bill type while ASN confirmation\nShipment Type | It will carry details from incentive masters (DBK / RoSCTL / RoDTEP / FOB/ Others)\nPort of Loading (Port code) | Name and Port code in brackets\nCurrency | Transaction currency, to be populated from ASN\nExchange Rate | Transaction exchange rate, to be populated from ASN\nInvoice no. | It will auto-populated from the invoice no. from ASN, in case of multiple ASN, it will be comma separated\nLEO No. | It should be a alphanumeric user input field with minimum character limit of 50 alphabets\nLEO date | It should be date input field, it should get editable when LEO no. is filled\nAD Bank details | It will enlist the customer mapped banks in the customer master",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Customer; Description: Customer name",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Shipping Bill no.; Description: It should be a alphanumeric user input field with minimum character limit of 50 alphabets",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Shipping Bill Date; Description: It should be date input field. It should get enabled from SB no. is filled",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Shipping Bill Type; Description: It will carry forward the value confirmed as Bill type while ASN confirmation",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Shipment Type; Description: It will carry details from incentive masters (DBK / RoSCTL / RoDTEP / FOB/ Others)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Port of Loading (Port code); Description: Name and Port code in brackets",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Currency; Description: Transaction currency, to be populated from ASN",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Exchange Rate; Description: Transaction exchange rate, to be populated from ASN",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice no.; Description: It will auto-populated from the invoice no. from ASN, in case of multiple ASN, it will be comma separated",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: LEO No.; Description: It should be a alphanumeric user input field with minimum character limit of 50 alphabets",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 11",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: LEO date; Description: It should be date input field, it should get editable when LEO no. is filled",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 12",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: AD Bank details; Description: It will enlist the customer mapped banks in the customer master",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "• ASN / Invoice Details Tab",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Columns: Attributes (text); Description (empty)\nAttributes | Description\nInvoice No. | \nInvoice Date | \nAttachments | \nTransport Company | \nROAD/Port of Discharge | \nROAD/ETA | \nROAD/ETD | \nPort of Loading | \nMother Vessel | \nVoyage No. | \nLicense Plate No. | \nHouse RR Date | \nHouse RR No. | \nMaster RR Date | \nMaster RR No. | \nSEA/Port of Discharge | \nSEA/ETA | \nSEA/ETD | \nSEA/Port of Loading | \nOC No. | \n… 1 more rows",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice Date",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Attachments",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Transport Company",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: ROAD/Port of Discharge",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: ROAD/ETA",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: ROAD/ETD",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Port of Loading",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Mother Vessel",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Voyage No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: License Plate No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 12",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: House RR Date",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 13",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: House RR No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 14",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Master RR Date",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 15",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Master RR No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 16",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: SEA/Port of Discharge",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 17",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: SEA/ETA",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 18",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: SEA/ETD",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 19",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: SEA/Port of Loading",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 20",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: OC No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 21",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Exchange Rate",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 2, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "• This will be replicating the all the attributes from the logistics tab of the ASN. (advance shipment tracker screen). One invoice = one line\n• It should be available in SLC to remove and increase columns as per requirement.\n• Any columns enabled at the logistics details on the ASN creation.\n• These values could only viewed and not editable\n• Utility Tools :\n• Add : it will provide a pop-up to add the confirmed Export ASN against which shipping has not been generated at the moment. It will be filtered based on Customer + Shipping Bill Type + Port of Loading + Currency + Delivery Terms\n• Delete : To delete the added lines\n• Incentive Tab\n• It will provide a detailed OC/style/HSN level detailed view for all the selected ASNs in the ASN details tab (similar to Incentive tab on OC sales invoice screen.)\n• The above highlighted segment will be displayed similarly for every incentive type Currently (DBK,RoSCTL,RoDTEP)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nOC No. | \nStyle | \nHSN Code | \nGDN no. | \nQty | \nValue | \nNet Value | \nNet Value (Company Currency) | \nProvisional % | It will provide the incentive rate from the Incentive master for the header incentive type based on corresponding HSN\nProvisional Amount | It will populate the the incentive amount based on the corresponding rate and Net value in company currency.\n(Net value in company currency * rate %)\nDeclared % | This will be provide the user input filed to put the incentive detail submitted in the final shipping bill to custom\nDeclared Amount | This will be provide the user input filed to put the incentive detail submitted in the final shipping bill to custom",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: OC No.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Style",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: HSN Code",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: GDN no.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Qty",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Value",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Net Value",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Net Value (Company Currency)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Provisional %; Description: It will provide the incentive rate from the Incentive master for the header incentive type based on corresponding HSN",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Provisional Amount; Description: It will populate the the incentive amount based on the corresponding rate and Net value in company currency.\n(Net value in company currency * rate %)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Declared %; Description: This will be provide the user input filed to put the incentive detail submitted in the final shipping bill to custom",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 12",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Declared Amount; Description: This will be provide the user input filed to put the incentive detail submitted in the final shipping bill to custom",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New, table 3, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "text": "• Summary Details : It will provide the summarize view of total incentive and valuation breakup for holistic view from single view point.\n• Attachment and Remarks : It will be generic UI attachment and remarks fields\n• Flex Field: It will be generic UI Flex fields master supported",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - List",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Path (to be) : FA >> AR >> Shipping Bill >> List\n• Need a comprehensive screen which will provide list level detailing for each shipping bill created\n• Utility Tools (Visibility control under program permission is required) :-\n• New : to navigate to SB creation screen\n• Revise : to revise selected line. It cannot executed wherein the SB forwarded to accounts team\n• Cancel : can the Shipping bill. It will effective only on confirmed transaction\n• Delete : Delete saved lines\n• Update : update line level data fields such as Shipping Bill submission date\n• Log: it will show the details over changes.\n• Export Shipping Bill details : it will provide the excel dump of the list screen with separated line details for incentive reconciliation details\n• Import Shipping Bill. It will provide for the user to create the SB through import mechanism in specified format.\n• Submit to Accounts: through this user will be able to trigger approval hierarchy on the shipping bill with variance details. (detailed below)\n• This screen will provide below attributes by default, however will be flex filed supported in order to increase and columns for required information recording. It should be become part of export format",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - List – Table 4",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nStatus | Draft\nWaiting\nConfirmed\nCancelled\nClosed\nSubmitted to Accounts (No attributes could be edited)\nCustomer | \nASN no. | \nShipping bill creation date | \nShipping Bill no. | \nShipping Bill date | \nShipping Bill Type | Bill Type value (LUT/GST)\nShipment type | From Incentive master (DBK / RoSCTL / RoDTEP / FOB/ Others)\nCurrency | \nExchange rate | \nShipping Bill Amount | Total Shipping bill amount\nShipping Bill submission date | Editable ; Date input field (it should be editable as soon as Custom filing status updated as Filed.\nShipping Bill creation date | Date of shipping bill creation\nSB Transaction no. | Internal transaction number\nAttachments | \nIncentive Reconciliation | It will become accessible\nIt will provide collaborative view for the incentive details on multiple dimensions with provisional, declared and sanctioned incentive details in a single scree. User can input here sanctioned incentive details as per icegate. As soon as sanctioned incentive details are saved. It will system identifies that there is no variance i.e. Variance = 0, then system will update this SB status to “Submitted to Accounts” and all the invoices under that SB will start appearing for AR invoice creation. Otherwise not\nif there is any variance then that particular line color will change to RED.\nFor the cases with Incentive Reconciliation having Variance, user would be required to push it submit to finance through the available utility tool. This approval tool should have provision through user program permission to submit to finance based on setup approval only.\nWhen there is no variance and it has successfully updated to Submitted to accounts status, Text color will turn Green.\nSB Version | This will store multiple version of the shipping bill with its updated values on each revision\nUser can identify change each revision-wise. Similar to LC Versions\nCreated By | \nCreated On | \nLEO No. | Value filled on the SB creation screen\n… 3 more rows",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Status; Description: Draft\nWaiting\nConfirmed\nCancelled\nClosed\nSubmitted to Accounts (No attributes could be edited)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Customer",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: ASN no.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping bill creation date",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill no.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill date",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill Type; Description: Bill Type value (LUT/GST)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipment type; Description: From Incentive master (DBK / RoSCTL / RoDTEP / FOB/ Others)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 9",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Currency",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 10",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Exchange rate",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 11",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill Amount; Description: Total Shipping bill amount",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 12",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill submission date; Description: Editable ; Date input field (it should be editable as soon as Custom filing status updated as Filed.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 13",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill creation date; Description: Date of shipping bill creation",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 14",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: SB Transaction no.; Description: Internal transaction number",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 15",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Attachments",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 16",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Incentive Reconciliation; Description: It will become accessible\nIt will provide collaborative view for the incentive details on multiple dimensions with provisional, declared and sanctioned incentive details in a single scree. User can input here sanctioned incentive details as per icegate. As soon as sanctioned incentive details are saved. It will system identifies that there is no variance i.e. Variance = 0, then system will update this SB status to “Submitted to Accounts” and all the invoices under that SB will start appearing for AR invoice creation. Otherwise not\nif there is any variance then that particular line color will change to RED.\nFor the cases with Incentive Reconciliation having Variance, user would be required to push it submit to finance through the available utility tool. This approval tool should have provision through user program permission to submit to finance based on setup approval only.\nWhen there is no variance and it has successfully updated to Submitted to accounts status, Text color will turn Green.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 17",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: SB Version; Description: This will store multiple version of the shipping bill with its updated values on each revision\nUser can identify change each revision-wise. Similar to LC Versions",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 18",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Created By",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 19",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Created On",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 20",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: LEO No.; Description: Value filled on the SB creation screen",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 21",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: LEO Date; Description: Value filled on the SB creation screen",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 22",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: EGM Date; Description: Editable ; Date input field",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 23",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Custom Filing Status; Description: Draft > Filed/ Cancelled > Accepted",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List, table 4, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - List",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "text": "• Financial impact on Shipping bill status update to “submitted to Finance”\n• Incentive entry will get accounted\n• DBK/RoSCTL/RoDTEP received (Recoverable) Dr.\nTO DBK/RoSCTL/RoDTEP received Cr.\n• There will not be any incentive booking while sales invoice posting in such case.\n• Incentive details will get auto populated on the sales invoice screen based on the sanctioned incentive details attached above and will not be editable.\n• As soon as incentive posting is done that particular sales invoice will start appearing\nin the Duty Script movement screen for RoSCTL/RoDTEP\nAnd on Export Incentive outstanding screen for Duty Drawback,",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 02 | Shipping Bill - List",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "PATH : FA >> AR >> Non-stock Sales >> License sales\nRequired Changes :-\n\nAt the time of license sale invoice posting, system should check that the linked AR invoice have posted in finance or not and should trigger an Auto-Income Reversal entry from a liablity ledger to the incentive(RoSCTL/RoDTEP) income ledger, as below :-",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting – Table 5",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Columns: 1 (integer); ASN (text); No entry (text); Column 4 (text); Column 5 (integer)\n1 | ASN | No entry | Column 4 | Column 5\n2 | Shipping Bill | ROSCTL (Recoverable) | Dr | 100\n |  | ROSCTL | Cr | 100\n3 | Licence Sale | Advance License Sale |  | \n |  | Party | Dr | 50\n |  | Sale of Licence | Cr | 50\n |  | Reversal of Income |  | \n |  | ROSCTL | Dr | 50\n |  | Loss on Sale of Duty Script\\ | Dr | 50\n |  | ROSCTL (Recoverable) | Cr | 100\n4 | Posting of Sales | Customer Account | Dr | \n |  | Sale of Readymade Garment Exports | Cr | ",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "1: 2; ASN: Shipping Bill; No entry: ROSCTL (Recoverable); Column 4: Dr; Column 5: 100",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: ROSCTL; Column 4: Cr; Column 5: 100",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "1: 3; ASN: Licence Sale; No entry: Advance License Sale",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Party; Column 4: Dr; Column 5: 50",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Sale of Licence; Column 4: Cr; Column 5: 50",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Reversal of Income",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: ROSCTL; Column 4: Dr; Column 5: 50",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 8",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Loss on Sale of Duty Script\\; Column 4: Dr; Column 5: 50",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 9",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: ROSCTL (Recoverable); Column 4: Cr; Column 5: 100",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 10",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "1: 4; ASN: Posting of Sales; No entry: Customer Account; Column 4: Dr",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 11",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Sale of Readymade Garment Exports; Column 4: Cr",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 03 | Non Stock Sales and Voucher posting, table 5, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Export Incentive",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 04 | Export Incentive",
+      "text": "FA >> AR >> Export Incentive >> New\nRequired Changes :-\n• As soon as the Shipping bill with DBK details have been successfully submitted to accounts then that particular SB will start appearing on the export incentive outstanding screen for receipt processing\n• it will be of full amount, no adjustment allowed.\n• No other change in the functionality",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 04 | Export Incentive",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 05 | Duty Script Movement Screen",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › … › Screen 05 | Duty Script Movement Screen",
+      "text": "Path: FA >> AR >> Duty Script Movement\nNeed a provision to disable the above highlighted tabs through Screen layout Configurator.\n• Applied\n• Utilized\nAs soon as these tabs get disabled then there corresponding columns & validations will also be disabled.\nFrom the incentive pending list the user should be directly able to directly update the :-\n• Status >> license in hand\n• License no.\n• License value in comp currency\nFrom the License in hand tab the transaction should directly able sent to Sold, considering its sales. Utilization details not required at Status, Utilized date, Utilized value in Company terms\n**Incentive receivable value in company currency should automatically be populated in the Applied/License/Utilized/Sold Value in Company currency.\nAdditionally,\n• a new status Is required in the status drop-down ii.e. “Ready for Utilization”\n• a new column is required to attach the division name from the organization to the transaction with status “ Ready for utilization”\n• “Division name” column will get enable only the transaction with Status Ready for Utilization",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › … › Screen 05 | Duty Script Movement Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Glossary",
+      "heading": "Section 4. Glossary",
+      "text": "• No Glossary",
+      "locator": "§ Section 4. Glossary",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5. Revision History – Table 6",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Created/Revised By (text); Created/Revised On (text); Changes (text)\nVersion | Created/Revised By | Created/Revised On | Changes\n1.0 | Kalpesh Sharma | 30th Jan 2025 | Initial document created.\n2.0 | Kalpesh Sharma | 11th Sep 2025 | Specs updated as per technical discussion\n3.0 | Kalpesh Sharma | 19th Jan 2025 | Scope Revised",
+      "locator": "§ Section 5. Revision History, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 30th Jan 2025; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 2.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 11th Sep 2025; Changes: Specs updated as per technical discussion",
+      "locator": "§ Section 5. Revision History, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 3.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 19th Jan 2025; Changes: Scope Revised",
+      "locator": "§ Section 5. Revision History, table 6, row 3",
+      "kind": "data_row"
+    }
+  ]
+}

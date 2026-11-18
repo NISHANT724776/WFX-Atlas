@@ -1,0 +1,1431 @@
+{
+  "tables": [
+    {
+      "name": "Sheet1",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3",
+        "Sprint",
+        "Working",
+        "Remarks",
+        "Column 7"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Premission",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "OC Revision Approval",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Exceptional aprrover",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Exception Approver (if Pre ASN is created then system will not allow to edit below selected field)",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Price",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Qty",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Shipment Mode",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Delivery Date",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Payment Terms",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Delivery Order Reference",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Buyer Delivery Date",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Order Reopen and Edit Restrictions",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Allow To Reopen Closed/Cancelled Order",
+          "Sprint 1",
+          "YES",
+          "Sprint 2",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Do not allow editing of PCD Date",
+          "Sprint 1",
+          "YES",
+          "But QA was not sure about the working so was incorporated",
+          "VC"
+        ],
+        [
+          "",
+          "EDI-Related Permissions",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "EDI Buyer PO",
+          "Sprint 1",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "OC Quantity Approval",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "OC Quantity Reduction Approval",
+          "Sprint 1",
+          "",
+          "Test",
+          ""
+        ],
+        [
+          "",
+          "Buyer Block Booking",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Buyer Block Booking – List",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Buyer Block Booking – New",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Buyer Block Booking – Revision",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Production Orders – Revision Approval",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Price",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Quantity",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Delivery Date",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Shipment Mode",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Payment Term",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Commission %",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Cost Price Reduction Update",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Extended Delivery Date",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Update Commission And Additional Charges",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "Setting’s Handling",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Catalog",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Restrict MRL Generation for TBA Qty in OC → Color & Size",
+          "Sprint 1",
+          "NO",
+          "Test",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Restrict MRL Generation for Back Order Fulfilment Type – Summary OC",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Sales",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Mark Indent as Completed on OC Closure",
+          "Sprint 1",
+          "NO",
+          "QA was not sure about the setting working",
+          "Not working WRT setting"
+        ],
+        [
+          "",
+          "",
+          "WIP Return and Transfer Out of System on OC",
+          "Sprint 1",
+          "NO",
+          "They have not checked it",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Transfer Current Stock Out of System on OC Closure",
+          "Sprint 1",
+          "NO",
+          "They have not checked it",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Mandatory PCD Date in OC",
+          "Sprint 1",
+          "Yes",
+          "The setting the working through SLC and VC, QA was not sure about the functionality",
+          ""
+        ],
+        [
+          "",
+          "",
+          "OC Price Validation with Internal Cost Sheet",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Auto Populate Sales Order FOB from Approved Internal Cost Sheet",
+          "Sprint 1",
+          "NO",
+          "To be discussed with Gurav sir",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Extra Production % per Bar OC",
+          "Sprint 1",
+          "NO",
+          "Editable & non editable VC, QA was not sure about the functionality",
+          "Incorporated in sprint 3"
+        ],
+        [
+          "",
+          "",
+          "Restrict Adding Additional Quantity in OC",
+          "Sprint 1",
+          "NO",
+          "Additional qty was incorporated in Sprint 3",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Show Retail Price and Retail Currency on OC",
+          "Sprint 1",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "TNA Mandatory in OC",
+          "Sprint 1",
+          "NO",
+          "Incorporated in Sprint 3 as intimation about the non working of TNA missed by QA",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Do Not Copy Article Price from OC to GMPO",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Do Not Show Additional Qty Breakup in Summary OC → Proforma Invoice",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Allow Linking Commitment Orders with OC of Different Style",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Restrict OC Creation if Buyer Mismatch with Style Techpack",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Codes for Reason for Revision in OC",
+          "Sprint 1",
+          "NO",
+          "Sprint 3",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Auto Close Buyer Order on Sales ASN Confirmation",
+          "Sprint 1",
+          "Yes",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Do Not Cancel Indent / PO / FPO / FPPO on OC Rejection",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Request for Cancellation on OC",
+          "Sprint 1",
+          "NO",
+          "To be discussed with Gurav sir for Request for cancellation and approval",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Tax Template at Summary OC Level",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Sales Order Category",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Blank Article Code on Get/Change Article in Bar OC",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Show Actual PO Packet Target Date in OC List",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Buyer Commission Rate Editable",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Allow Copy of Buyer Order from Other Company",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Restrict Multiple Sample Orders",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Restrict Different Fulfilment Type in Summary OC",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Job Work for Fulfilment Type = Manufacture",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Filter Ship-To Address Based on Final Destination Country",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Fill Original GAC Date from Initial Order Confirmation",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable OC Approval Type",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Provisional Buyer Order Management",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Packing Kit Level Price in Packing Kit OC",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Buyer Block Booking",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "OC Against Buyer Block Booking",
+          "Sprint 1",
+          "NO",
+          "Incorporated the requirement in Sprint 3, as no intimation of it was given by QA",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Allow OC Quantity Greater Than Block-Booked Quantity",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Allow Composite Pricing in Buyer Block Booking",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Mandatory Block Booking in Summary OC",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "TechPack / GMPO",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Remarks While Approving OC and RMPO",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Show Division Manager in OC / GMPO",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Auto Write-Off on OC Closure",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Show Common Notes in OC and GMPO",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Allow Editing Selling Price in Transfer Price OC",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Base Price and Upcharge in Summary OC",
+          "Sprint 1",
+          "NO",
+          "Under dev in sprint 3",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Enable Currency at Summary OC Level",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Show Material Status on OC List",
+          "Sprint 1",
+          "NO",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Restore previous approved version in case of sales order rejection",
+          "",
+          "NO",
+          "Not handeled in Sales Order",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales Order gaps",
+  "keyTerms": [
+    "sprint",
+    "date sprint",
+    "order",
+    "column",
+    "buyer",
+    "column column",
+    "approval",
+    "allow",
+    "sprint delivery",
+    "delivery",
+    "delivery date",
+    "date",
+    "buyer block",
+    "block booking"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 15
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 4
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "Buyer Block Booking (BBB)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Sheet1: Column 1, Column 2, Column 3, Sprint, Working, Remarks, Column 7 (84 rows)",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: Sheet1 – Sheet1",
+      "heading": "Sheet: Sheet1",
+      "text": "Columns: Column 1 (text); Column 2 (text); Column 3 (text); Sprint (text); Working (boolean); Remarks (text); Column 7 (text)\nColumn 1 | Column 2 | Column 3 | Sprint | Working | Remarks | Column 7\nPremission |  |  |  |  |  | \n | OC Revision Approval |  |  |  |  | \n | Exceptional aprrover |  |  |  |  | \n |  | Exception Approver (if Pre ASN is created then system will not allow to edit below selected field) | Sprint 1 | NO |  | \n |  | Price | Sprint 1 | NO |  | \n |  | Qty | Sprint 1 | NO |  | \n |  | Shipment Mode | Sprint 1 | NO |  | \n |  | Delivery Date | Sprint 1 | NO |  | \n |  | Payment Terms | Sprint 1 | NO |  | \n |  | Delivery Order Reference | Sprint 1 | NO |  | \n |  | Buyer Delivery Date | Sprint 1 | NO |  | \n | Order Reopen and Edit Restrictions |  |  |  |  | \n |  | Allow To Reopen Closed/Cancelled Order | Sprint 1 | YES | Sprint 2 | \n |  | Do not allow editing of PCD Date | Sprint 1 | YES | But QA was not sure about the working so was incorporated | VC\n | EDI-Related Permissions |  |  |  |  | \n |  | EDI Buyer PO | Sprint 1 |  |  | \n | OC Quantity Approval |  |  |  |  | \n |  | OC Quantity Reduction Approval | Sprint 1 |  | Test | \n | Buyer Block Booking |  |  |  |  | \n |  | Buyer Block Booking – List | Sprint 1 | NO |  | \n… 64 more rows",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Sheet1 row 1",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 1: Premission",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 2",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: OC Revision Approval",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 3",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Exceptional aprrover",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 4",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Exception Approver (if Pre ASN is created then system will not allow to edit below selected field); Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 5",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Price; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 6",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Qty; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 7",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Shipment Mode; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 8",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Delivery Date; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 9",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Payment Terms; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 10",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Delivery Order Reference; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 11",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Buyer Delivery Date; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 12",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Order Reopen and Edit Restrictions",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 13",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Allow To Reopen Closed/Cancelled Order; Sprint: Sprint 1; Working: YES; Remarks: Sprint 2",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 14",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Do not allow editing of PCD Date; Sprint: Sprint 1; Working: YES; Remarks: But QA was not sure about the working so was incorporated; Column 7: VC",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 15",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: EDI-Related Permissions",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 16",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: EDI Buyer PO; Sprint: Sprint 1",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 17",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: OC Quantity Approval",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 18",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: OC Quantity Reduction Approval; Sprint: Sprint 1; Remarks: Test",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 19",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Buyer Block Booking",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 20",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Buyer Block Booking – List; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 21",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Buyer Block Booking – New; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 22",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Buyer Block Booking – Revision; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 23",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Production Orders – Revision Approval",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 24",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Price; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 25",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Quantity; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 26",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Delivery Date; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 27",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Shipment Mode; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 28",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Payment Term; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 29",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Commission %; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 30",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Cost Price Reduction Update; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 31",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Extended Delivery Date; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 32",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Update Commission And Additional Charges; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 33",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 1: Setting’s Handling",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 34",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Catalog",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 35",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restrict MRL Generation for TBA Qty in OC → Color & Size; Sprint: Sprint 1; Working: NO; Remarks: Test",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 35",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 36",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restrict MRL Generation for Back Order Fulfilment Type – Summary OC; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 36",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 37",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Sales",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 37",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 38",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Mark Indent as Completed on OC Closure; Sprint: Sprint 1; Working: NO; Remarks: QA was not sure about the setting working; Column 7: Not working WRT setting",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 38",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 39",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: WIP Return and Transfer Out of System on OC; Sprint: Sprint 1; Working: NO; Remarks: They have not checked it",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 39",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 40",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Transfer Current Stock Out of System on OC Closure; Sprint: Sprint 1; Working: NO; Remarks: They have not checked it",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 40",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 41",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Mandatory PCD Date in OC; Sprint: Sprint 1; Working: Yes; Remarks: The setting the working through SLC and VC, QA was not sure about the functionality",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 41",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 42",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: OC Price Validation with Internal Cost Sheet; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 42",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 43",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Auto Populate Sales Order FOB from Approved Internal Cost Sheet; Sprint: Sprint 1; Working: NO; Remarks: To be discussed with Gurav sir",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 43",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 44",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Extra Production % per Bar OC; Sprint: Sprint 1; Working: NO; Remarks: Editable & non editable VC, QA was not sure about the functionality; Column 7: Incorporated in sprint 3",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 44",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 45",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restrict Adding Additional Quantity in OC; Sprint: Sprint 1; Working: NO; Remarks: Additional qty was incorporated in Sprint 3",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 45",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 46",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Show Retail Price and Retail Currency on OC; Sprint: Sprint 1",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 46",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 47",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: TNA Mandatory in OC; Sprint: Sprint 1; Working: NO; Remarks: Incorporated in Sprint 3 as intimation about the non working of TNA missed by QA",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 47",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 48",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Do Not Copy Article Price from OC to GMPO; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 48",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 49",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Do Not Show Additional Qty Breakup in Summary OC → Proforma Invoice; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 49",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 50",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Allow Linking Commitment Orders with OC of Different Style; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 50",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 51",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restrict OC Creation if Buyer Mismatch with Style Techpack; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 51",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 52",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Codes for Reason for Revision in OC; Sprint: Sprint 1; Working: NO; Remarks: Sprint 3",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 52",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 53",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Auto Close Buyer Order on Sales ASN Confirmation; Sprint: Sprint 1; Working: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 53",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 54",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Do Not Cancel Indent / PO / FPO / FPPO on OC Rejection; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 54",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 55",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Request for Cancellation on OC; Sprint: Sprint 1; Working: NO; Remarks: To be discussed with Gurav sir for Request for cancellation and approval",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 55",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 56",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Tax Template at Summary OC Level; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 56",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 57",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Sales Order Category; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 57",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 58",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Blank Article Code on Get/Change Article in Bar OC; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 58",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 59",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Show Actual PO Packet Target Date in OC List; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 59",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 60",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Buyer Commission Rate Editable; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 60",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 61",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Allow Copy of Buyer Order from Other Company; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 61",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 62",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restrict Multiple Sample Orders; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 62",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 63",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restrict Different Fulfilment Type in Summary OC; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 63",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 64",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Job Work for Fulfilment Type = Manufacture; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 64",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 65",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Filter Ship-To Address Based on Final Destination Country; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 65",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 66",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Fill Original GAC Date from Initial Order Confirmation; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 66",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 67",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable OC Approval Type; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 67",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 68",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Provisional Buyer Order Management; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 68",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 69",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Packing Kit Level Price in Packing Kit OC; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 69",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 70",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Buyer Block Booking",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 70",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 71",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: OC Against Buyer Block Booking; Sprint: Sprint 1; Working: NO; Remarks: Incorporated the requirement in Sprint 3, as no intimation of it was given by QA",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 71",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 72",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Allow OC Quantity Greater Than Block-Booked Quantity; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 72",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 73",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Allow Composite Pricing in Buyer Block Booking; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 73",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 74",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Mandatory Block Booking in Summary OC; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 74",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 75",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: TechPack / GMPO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 75",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 76",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Remarks While Approving OC and RMPO; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 76",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 77",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Show Division Manager in OC / GMPO; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 77",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 78",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Auto Write-Off on OC Closure; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 78",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 79",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Show Common Notes in OC and GMPO; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 79",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 80",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Allow Editing Selling Price in Transfer Price OC; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 80",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 81",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Base Price and Upcharge in Summary OC; Sprint: Sprint 1; Working: NO; Remarks: Under dev in sprint 3",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 81",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 82",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Enable Currency at Summary OC Level; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 82",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 83",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Show Material Status on OC List; Sprint: Sprint 1; Working: NO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 83",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 84",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Restore previous approved version in case of sales order rejection; Working: NO; Remarks: Not handeled in Sales Order",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 84",
+      "kind": "data_row"
+    }
+  ]
+}

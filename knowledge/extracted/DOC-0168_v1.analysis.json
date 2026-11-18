@@ -1,0 +1,2362 @@
+{
+  "tables": [
+    {
+      "name": "PO Header",
+      "headers": [
+        "Ref.No",
+        "Parameter_Name",
+        "Datatype",
+        "FieldType",
+        "Size",
+        "Mandatory",
+        "Default Value",
+        "WFX Remarks",
+        "Classic Remarks",
+        "Column 10",
+        "Column 11"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer",
+        "boolean",
+        "text",
+        "text",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Default Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Order No.",
+          "VARCHAR",
+          "Text",
+          "",
+          "Yes",
+          "Auto Generated",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Bill To Company Type",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Supplier",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "Shows the data from the WFX supplier master",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Attention",
+          "VARCHAR",
+          "Text",
+          "50",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Delivery Start Date",
+          "Date",
+          "Date",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Date In House",
+          "Date",
+          "Date",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "7",
+          "Delivery Cancel Date",
+          "Date",
+          "Date",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "8",
+          "Final Destination",
+          "VARCHAR",
+          "Text",
+          "10",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "9",
+          "Location Name",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "10",
+          "Forwarder",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "11",
+          "Currency",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "12",
+          "Season",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "13",
+          "Packing Type",
+          "VARCHAR",
+          "Text",
+          "50",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "14",
+          "PO Date",
+          "Date",
+          "Date",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "15",
+          "Remarks",
+          "VARCHAR",
+          "Text",
+          "3900",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "16",
+          "OC Factory",
+          "VARCHAR",
+          "Text",
+          "1000",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "17",
+          "Order reference",
+          "VARCHAR",
+          "Text",
+          "50",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "18",
+          "Bill To Company",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "19",
+          "Default Set",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "20",
+          "Agent Name",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "21",
+          "Country of Final Destination",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "22",
+          "Country of Origin",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "23",
+          "Country Of Consolidation",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "24",
+          "Utilization",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "25",
+          "Lead Time (In days)",
+          "VARCHAR",
+          "Text",
+          "1000",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "26",
+          "Bill To Category",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "27",
+          "No. of Cartons",
+          "Numeric",
+          "Text",
+          "9",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "28",
+          "Buyer Reference",
+          "VARCHAR",
+          "Text",
+          "100",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "29",
+          "Factory Site",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "30",
+          "Category",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "31",
+          "Bill To Address",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "32",
+          "Supplier Company Name",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "33",
+          "Port of Loading",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "34",
+          "Port of Discharge",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "35",
+          "PO Type",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "36",
+          "Tax Template",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "37",
+          "Transit Time (In days)",
+          "Numeric",
+          "Text",
+          "4",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "38",
+          "Supplier Reference",
+          "VARCHAR",
+          "Text",
+          "10",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "39",
+          "Test",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Article Details",
+      "headers": [
+        "Ref.No",
+        "Parameter_Name",
+        "Datatype",
+        "Size",
+        "Mandatory",
+        "Default Value",
+        "WFX Remarks",
+        "Classic Remarks",
+        "Column 9",
+        "Column 10",
+        "Column 11"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "empty",
+        "text",
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Default Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Article",
+          "Varchar",
+          "",
+          "No",
+          "",
+          "Data will load from Item selection or from indent",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Color",
+          "Varchar",
+          "",
+          "No",
+          "",
+          "Data will load from Item selection or from indent",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Size",
+          "Varchar",
+          "",
+          "No",
+          "",
+          "Data will load from Item selection or from indent",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Shipped Qty.",
+          "Decimal",
+          "(9,4)",
+          "No",
+          "",
+          "Pick the data from the indent",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Open Qty.",
+          "Decimal",
+          "(9,4)",
+          "No",
+          "",
+          "Auto shows from the indent open qty",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Net Open Qty.",
+          "Decimal",
+          "(9,4)",
+          "No",
+          "",
+          "Auto shows from the indent open qty",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "7",
+          "Org. UOM",
+          "Varchar",
+          "",
+          "No",
+          "",
+          "Pick the data from the indent",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "8",
+          "Ordered Qty.",
+          "Decimal",
+          "(9,4)",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "9",
+          "Additional Qty.",
+          "Decimal",
+          "(9,4)",
+          "No",
+          "",
+          "Auto calculated based on the value entered in order qty",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "10",
+          "PO UOM",
+          "Varchar",
+          "",
+          "Yes",
+          "",
+          "Pick the data from the indent",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "11",
+          "Price per Unit",
+          "Decimal",
+          "(9,4)",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "12",
+          "Total Value(USD)",
+          "Decimal",
+          "",
+          "No",
+          "",
+          "Autocalculated price * order qty = Total Value",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "13",
+          "Total Net value(USD)",
+          "Decimal",
+          "",
+          "No",
+          "",
+          "Autocalculated price * order qty = Total Value",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "14",
+          "Article to PO UOM CONVERSION",
+          "Decimal",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "15",
+          "Article/ Indent UOM",
+          "Varchar",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "16",
+          "Qty. (Article/ Indent UOM)",
+          "Decimal",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "17",
+          "PO To Storing UOM Conversion",
+          "Decimal",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "18",
+          "Storing UOM",
+          "Varchar",
+          "",
+          "No",
+          "",
+          "Pick from article master",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "19",
+          "Qty. (Storing UOM)",
+          "Decimal",
+          "",
+          "No",
+          "",
+          "Pick from article master",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "20",
+          "ETD",
+          "Date",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "21",
+          "ETA",
+          "Date",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "22",
+          "PP YDG Date",
+          "Date",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "23",
+          "In House Date",
+          "Date",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "24",
+          "RM Booking",
+          "SMALLINT",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Commercial Info",
+      "headers": [
+        "Ref.No",
+        "Parameter_Name",
+        "Datatype",
+        "Field Type",
+        "Size",
+        "Mandatory",
+        "Default Value",
+        "WFX Remarks",
+        "Classic Remarks",
+        "Column 10",
+        "Column 11"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer",
+        "boolean",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Default Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Payment Term",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Delivery Terms",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Consignee Company Type",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Consignee Address",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Ship To Company Type",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Ship To Address",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "7",
+          "Notify1 Company Type",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "8",
+          "Notify1 Address",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "9",
+          "Notify2 Company Type",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "10",
+          "Notify2 Address",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "11",
+          "Shipment Mode",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "12",
+          "Consignee Category",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "13",
+          "Ship To Category",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "14",
+          "Notify1 Category",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "15",
+          "Notify2 Category",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "16",
+          "Nominated Carrier",
+          "Varchar",
+          "Text",
+          "25",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "17",
+          "Consignee Company",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "18",
+          "Ship To Company",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "19",
+          "Notify1 Company",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "20",
+          "Notify2 Company",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Additional Charges",
+      "headers": [
+        "Ref.No",
+        "Parameter_Name",
+        "Datatype",
+        "Field Type",
+        "Size",
+        "Mandatory",
+        "Default Value",
+        "WFX Remarks",
+        "Classic Remarks",
+        "Column 10",
+        "Column 11"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer",
+        "boolean",
+        "empty",
+        "text",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Default Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Sno",
+          "Numeric",
+          "",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Name",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Basis",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Value",
+          "Decimal",
+          "Text",
+          "5,2",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Tax Amt.",
+          "Decimal",
+          "",
+          "9,2",
+          "No",
+          "",
+          "Auto calculated",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Based On",
+          "Varchar",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "APR",
+      "headers": [
+        "Ref.No",
+        "Parameter_Name",
+        "Datatype",
+        "Field Type",
+        "Size",
+        "Mandatory",
+        "Default Value",
+        "WFX Remarks",
+        "Classic Remarks",
+        "Column 10",
+        "Column 11"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer",
+        "boolean",
+        "empty",
+        "text",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Default Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Advance Terms",
+          "NR",
+          "",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Select",
+          "Varchar",
+          "Text",
+          "12",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "% of Net PO Value",
+          "NR",
+          "",
+          "",
+          "No",
+          "",
+          "Autocalculated",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Already Paid",
+          "Decimal",
+          "",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Unpaid",
+          "Decimal",
+          "",
+          "",
+          "No",
+          "",
+          "Autocalculated",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Unadjusted",
+          "Decimal",
+          "",
+          "",
+          "No",
+          "",
+          "Autocalculated",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Other Info",
+      "headers": [
+        "Ref.No",
+        "Parameter_Name",
+        "Datatype",
+        "Field Type",
+        "Size",
+        "Mandatory",
+        "Default Value",
+        "WFX Remarks",
+        "Classic Remarks",
+        "Column 10",
+        "Column 11"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer",
+        "boolean",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Default Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Packing Instruction Template",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Special Instruction Template",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Sampling Information Template",
+          "SMALLINT",
+          "Dropdown",
+          "",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Packing Instruction",
+          "Varchar",
+          "Text",
+          "2000",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Special Instruction",
+          "Varchar",
+          "Text",
+          "5000",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Sampling Information",
+          "Varchar",
+          "Text",
+          "2000",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "WFX fields RMPO Tactive",
+  "keyTerms": [
+    "smallint dropdown",
+    "dropdown",
+    "smallint",
+    "varchar",
+    "varchar text",
+    "decimal",
+    "value",
+    "remarks",
+    "column",
+    "text",
+    "date",
+    "date date",
+    "qty",
+    "column column",
+    "company"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 9
+    },
+    {
+      "module": "Sales Order",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "RMPO – Raw Material Purchase Order"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "PO Header: Ref.No, Parameter_Name, Datatype, FieldType, Size, Mandatory, Default Value, WFX Remarks, Classic Remarks, Column 10, Column 11 (39 rows)",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Article Details: Ref.No, Parameter_Name, Datatype, Size, Mandatory, Default Value, WFX Remarks, Classic Remarks, Column 9, Column 10, Column 11 (24 rows)",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Commercial Info: Ref.No, Parameter_Name, Datatype, Field Type, Size, Mandatory, Default Value, WFX Remarks, Classic Remarks, Column 10, Column 11 (20 rows)",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Additional Charges: Ref.No, Parameter_Name, Datatype, Field Type, Size, Mandatory, Default Value, WFX Remarks, Classic Remarks, Column 10, Column 11 (6 rows)",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "APR: Ref.No, Parameter_Name, Datatype, Field Type, Size, Mandatory, Default Value, WFX Remarks, Classic Remarks, Column 10, Column 11 (6 rows)",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Other Info: Ref.No, Parameter_Name, Datatype, Field Type, Size, Mandatory, Default Value, WFX Remarks, Classic Remarks, Column 10, Column 11 (6 rows)",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: PO Header – PO Header",
+      "heading": "Sheet: PO Header",
+      "text": "Columns: Ref.No (integer); Parameter_Name (text); Datatype (text); FieldType (text); Size (integer); Mandatory (boolean); Default Value (text, amount (currency of the row)); WFX Remarks (text); Classic Remarks (empty); Column 10 (empty); Column 11 (empty)\nRef.No | Parameter_Name | Datatype | FieldType | Size | Mandatory | Default Value | WFX Remarks | Classic Remarks | Column 10 | Column 11\n1 | Order No. | VARCHAR | Text |  | Yes | Auto Generated |  |  |  | \n2 | Bill To Company Type | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n3 | Supplier | SMALLINT | Dropdown |  | Yes |  | Shows the data from the WFX supplier master |  |  | \n4 | Attention | VARCHAR | Text | 50 | No |  |  |  |  | \n5 | Delivery Start Date | Date | Date |  | Yes |  |  |  |  | \n6 | Date In House | Date | Date |  | Yes |  |  |  |  | \n7 | Delivery Cancel Date | Date | Date |  | No |  |  |  |  | \n8 | Final Destination | VARCHAR | Text | 10 | No |  |  |  |  | \n9 | Location Name | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n10 | Forwarder | SMALLINT | Dropdown |  | No |  |  |  |  | \n11 | Currency | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n12 | Season | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n13 | Packing Type | VARCHAR | Text | 50 | No |  |  |  |  | \n14 | PO Date | Date | Date |  | No |  |  |  |  | \n15 | Remarks | VARCHAR | Text | 3900 | No |  |  |  |  | \n16 | OC Factory | VARCHAR | Text | 1000 | No |  |  |  |  | \n17 | Order reference | VARCHAR | Text | 50 | No |  |  |  |  | \n18 | Bill To Company | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n19 | Default Set | SMALLINT | Dropdown |  | No |  |  |  |  | \n20 | Agent Name | SMALLINT | Dropdown |  | No |  |  |  |  | \n… 19 more rows",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "PO Header row 1",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 1; Parameter_Name: Order No.; Datatype: VARCHAR; FieldType: Text; Mandatory: Yes; Default Value: Auto Generated",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 2",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 2; Parameter_Name: Bill To Company Type; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 3",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 3; Parameter_Name: Supplier; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes; WFX Remarks: Shows the data from the WFX supplier master",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 4",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 4; Parameter_Name: Attention; Datatype: VARCHAR; FieldType: Text; Size: 50; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 5",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 5; Parameter_Name: Delivery Start Date; Datatype: Date; FieldType: Date; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 6",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 6; Parameter_Name: Date In House; Datatype: Date; FieldType: Date; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 7",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 7; Parameter_Name: Delivery Cancel Date; Datatype: Date; FieldType: Date; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 8",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 8; Parameter_Name: Final Destination; Datatype: VARCHAR; FieldType: Text; Size: 10; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 9",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 9; Parameter_Name: Location Name; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 10",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 10; Parameter_Name: Forwarder; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 11",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 11; Parameter_Name: Currency; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 12",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 12; Parameter_Name: Season; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 13",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 13; Parameter_Name: Packing Type; Datatype: VARCHAR; FieldType: Text; Size: 50; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 14",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 14; Parameter_Name: PO Date; Datatype: Date; FieldType: Date; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 15",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 15; Parameter_Name: Remarks; Datatype: VARCHAR; FieldType: Text; Size: 3900; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 16",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 16; Parameter_Name: OC Factory; Datatype: VARCHAR; FieldType: Text; Size: 1000; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 17",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 17; Parameter_Name: Order reference; Datatype: VARCHAR; FieldType: Text; Size: 50; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 18",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 18; Parameter_Name: Bill To Company; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 19",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 19; Parameter_Name: Default Set; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 20",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 20; Parameter_Name: Agent Name; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 21",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 21; Parameter_Name: Country of Final Destination; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 22",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 22; Parameter_Name: Country of Origin; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 23",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 23; Parameter_Name: Country Of Consolidation; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 24",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 24; Parameter_Name: Utilization; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 25",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 25; Parameter_Name: Lead Time (In days); Datatype: VARCHAR; FieldType: Text; Size: 1000; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 26",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 26; Parameter_Name: Bill To Category; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 27",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 27; Parameter_Name: No. of Cartons; Datatype: Numeric; FieldType: Text; Size: 9; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 28",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 28; Parameter_Name: Buyer Reference; Datatype: VARCHAR; FieldType: Text; Size: 100; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 29",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 29; Parameter_Name: Factory Site; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 30",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 30; Parameter_Name: Category; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 31",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 31; Parameter_Name: Bill To Address; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 32",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 32; Parameter_Name: Supplier Company Name; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 33",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 33; Parameter_Name: Port of Loading; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 34",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 34; Parameter_Name: Port of Discharge; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 35",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 35; Parameter_Name: PO Type; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 35",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 36",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 36; Parameter_Name: Tax Template; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 36",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 37",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 37; Parameter_Name: Transit Time (In days); Datatype: Numeric; FieldType: Text; Size: 4; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 37",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 38",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 38; Parameter_Name: Supplier Reference; Datatype: VARCHAR; FieldType: Text; Size: 10; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 38",
+      "kind": "data_row"
+    },
+    {
+      "title": "PO Header row 39",
+      "heading": "Sheet: PO Header",
+      "text": "Ref.No: 39; Parameter_Name: Test; Datatype: SMALLINT; FieldType: Dropdown; Mandatory: No",
+      "locator": "sheet \"PO Header\", § Sheet: PO Header, table 1, row 39",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet: Article Details – Article Details",
+      "heading": "Sheet: Article Details",
+      "text": "Columns: Ref.No (integer); Parameter_Name (text); Datatype (text); Size (text); Mandatory (boolean); Default Value (empty, amount (currency of the row)); WFX Remarks (text); Classic Remarks (empty); Column 9 (empty); Column 10 (empty); Column 11 (empty)\nRef.No | Parameter_Name | Datatype | Size | Mandatory | Default Value | WFX Remarks | Classic Remarks | Column 9 | Column 10 | Column 11\n1 | Article | Varchar |  | No |  | Data will load from Item selection or from indent |  |  |  | \n2 | Color | Varchar |  | No |  | Data will load from Item selection or from indent |  |  |  | \n3 | Size | Varchar |  | No |  | Data will load from Item selection or from indent |  |  |  | \n4 | Shipped Qty. | Decimal | (9,4) | No |  | Pick the data from the indent |  |  |  | \n5 | Open Qty. | Decimal | (9,4) | No |  | Auto shows from the indent open qty |  |  |  | \n6 | Net Open Qty. | Decimal | (9,4) | No |  | Auto shows from the indent open qty |  |  |  | \n7 | Org. UOM | Varchar |  | No |  | Pick the data from the indent |  |  |  | \n8 | Ordered Qty. | Decimal | (9,4) | Yes |  |  |  |  |  | \n9 | Additional Qty. | Decimal | (9,4) | No |  | Auto calculated based on the value entered in order qty |  |  |  | \n10 | PO UOM | Varchar |  | Yes |  | Pick the data from the indent |  |  |  | \n11 | Price per Unit | Decimal | (9,4) | No |  |  |  |  |  | \n12 | Total Value(USD) | Decimal |  | No |  | Autocalculated price * order qty = Total Value |  |  |  | \n13 | Total Net value(USD) | Decimal |  | No |  | Autocalculated price * order qty = Total Value |  |  |  | \n14 | Article to PO UOM CONVERSION | Decimal |  | No |  |  |  |  |  | \n15 | Article/ Indent UOM | Varchar |  | No |  |  |  |  |  | \n16 | Qty. (Article/ Indent UOM) | Decimal |  | No |  |  |  |  |  | \n17 | PO To Storing UOM Conversion | Decimal |  | No |  |  |  |  |  | \n18 | Storing UOM | Varchar |  | No |  | Pick from article master |  |  |  | \n19 | Qty. (Storing UOM) | Decimal |  | No |  | Pick from article master |  |  |  | \n20 | ETD | Date |  | No |  |  |  |  |  | \n… 4 more rows",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Article Details row 1",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 1; Parameter_Name: Article; Datatype: Varchar; Mandatory: No; WFX Remarks: Data will load from Item selection or from indent",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 2",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 2; Parameter_Name: Color; Datatype: Varchar; Mandatory: No; WFX Remarks: Data will load from Item selection or from indent",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 3",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 3; Parameter_Name: Size; Datatype: Varchar; Mandatory: No; WFX Remarks: Data will load from Item selection or from indent",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 4",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 4; Parameter_Name: Shipped Qty.; Datatype: Decimal; Size: (9,4); Mandatory: No; WFX Remarks: Pick the data from the indent",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 5",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 5; Parameter_Name: Open Qty.; Datatype: Decimal; Size: (9,4); Mandatory: No; WFX Remarks: Auto shows from the indent open qty",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 6",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 6; Parameter_Name: Net Open Qty.; Datatype: Decimal; Size: (9,4); Mandatory: No; WFX Remarks: Auto shows from the indent open qty",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 7",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 7; Parameter_Name: Org. UOM; Datatype: Varchar; Mandatory: No; WFX Remarks: Pick the data from the indent",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 8",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 8; Parameter_Name: Ordered Qty.; Datatype: Decimal; Size: (9,4); Mandatory: Yes",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 9",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 9; Parameter_Name: Additional Qty.; Datatype: Decimal; Size: (9,4); Mandatory: No; WFX Remarks: Auto calculated based on the value entered in order qty",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 10",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 10; Parameter_Name: PO UOM; Datatype: Varchar; Mandatory: Yes; WFX Remarks: Pick the data from the indent",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 11",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 11; Parameter_Name: Price per Unit; Datatype: Decimal; Size: (9,4); Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 12",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 12; Parameter_Name: Total Value(USD); Datatype: Decimal; Mandatory: No; WFX Remarks: Autocalculated price * order qty = Total Value",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 13",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 13; Parameter_Name: Total Net value(USD); Datatype: Decimal; Mandatory: No; WFX Remarks: Autocalculated price * order qty = Total Value",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 14",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 14; Parameter_Name: Article to PO UOM CONVERSION; Datatype: Decimal; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 15",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 15; Parameter_Name: Article/ Indent UOM; Datatype: Varchar; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 16",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 16; Parameter_Name: Qty. (Article/ Indent UOM); Datatype: Decimal; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 17",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 17; Parameter_Name: PO To Storing UOM Conversion; Datatype: Decimal; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 18",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 18; Parameter_Name: Storing UOM; Datatype: Varchar; Mandatory: No; WFX Remarks: Pick from article master",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 19",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 19; Parameter_Name: Qty. (Storing UOM); Datatype: Decimal; Mandatory: No; WFX Remarks: Pick from article master",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 20",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 20; Parameter_Name: ETD; Datatype: Date; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 21",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 21; Parameter_Name: ETA; Datatype: Date; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 22",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 22; Parameter_Name: PP YDG Date; Datatype: Date; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 23",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 23; Parameter_Name: In House Date; Datatype: Date; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Article Details row 24",
+      "heading": "Sheet: Article Details",
+      "text": "Ref.No: 24; Parameter_Name: RM Booking; Datatype: SMALLINT; Mandatory: No",
+      "locator": "sheet \"Article Details\", § Sheet: Article Details, table 2, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet: Commercial Info – Commercial Info",
+      "heading": "Sheet: Commercial Info",
+      "text": "Columns: Ref.No (integer); Parameter_Name (text); Datatype (text); Field Type (text); Size (integer); Mandatory (boolean); Default Value (empty, amount (currency of the row)); WFX Remarks (empty); Classic Remarks (empty); Column 10 (empty); Column 11 (empty)\nRef.No | Parameter_Name | Datatype | Field Type | Size | Mandatory | Default Value | WFX Remarks | Classic Remarks | Column 10 | Column 11\n1 | Payment Term | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n2 | Delivery Terms | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n3 | Consignee Company Type | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n4 | Consignee Address | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n5 | Ship To Company Type | SMALLINT | Dropdown |  | No |  |  |  |  | \n6 | Ship To Address | SMALLINT | Dropdown |  | No |  |  |  |  | \n7 | Notify1 Company Type | SMALLINT | Dropdown |  | No |  |  |  |  | \n8 | Notify1 Address | SMALLINT | Dropdown |  | No |  |  |  |  | \n9 | Notify2 Company Type | SMALLINT | Dropdown |  | No |  |  |  |  | \n10 | Notify2 Address | SMALLINT | Dropdown |  | No |  |  |  |  | \n11 | Shipment Mode | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n12 | Consignee Category | SMALLINT | Dropdown |  | No |  |  |  |  | \n13 | Ship To Category | SMALLINT | Dropdown |  | No |  |  |  |  | \n14 | Notify1 Category | SMALLINT | Dropdown |  | No |  |  |  |  | \n15 | Notify2 Category | SMALLINT | Dropdown |  | No |  |  |  |  | \n16 | Nominated Carrier | Varchar | Text | 25 | No |  |  |  |  | \n17 | Consignee Company | SMALLINT | Dropdown |  | Yes |  |  |  |  | \n18 | Ship To Company | SMALLINT | Dropdown |  | No |  |  |  |  | \n19 | Notify1 Company | SMALLINT | Dropdown |  | No |  |  |  |  | \n20 | Notify2 Company | SMALLINT | Dropdown |  | No |  |  |  |  | ",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Commercial Info row 1",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 1; Parameter_Name: Payment Term; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 2",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 2; Parameter_Name: Delivery Terms; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 3",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 3; Parameter_Name: Consignee Company Type; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 4",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 4; Parameter_Name: Consignee Address; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 5",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 5; Parameter_Name: Ship To Company Type; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 6",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 6; Parameter_Name: Ship To Address; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 7",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 7; Parameter_Name: Notify1 Company Type; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 8",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 8; Parameter_Name: Notify1 Address; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 9",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 9; Parameter_Name: Notify2 Company Type; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 10",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 10; Parameter_Name: Notify2 Address; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 11",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 11; Parameter_Name: Shipment Mode; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 12",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 12; Parameter_Name: Consignee Category; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 13",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 13; Parameter_Name: Ship To Category; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 14",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 14; Parameter_Name: Notify1 Category; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 15",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 15; Parameter_Name: Notify2 Category; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 16",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 16; Parameter_Name: Nominated Carrier; Datatype: Varchar; Field Type: Text; Size: 25; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 17",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 17; Parameter_Name: Consignee Company; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: Yes",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 18",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 18; Parameter_Name: Ship To Company; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 19",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 19; Parameter_Name: Notify1 Company; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Info row 20",
+      "heading": "Sheet: Commercial Info",
+      "text": "Ref.No: 20; Parameter_Name: Notify2 Company; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Commercial Info\", § Sheet: Commercial Info, table 3, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet: Additional Charges – Additional Charges",
+      "heading": "Sheet: Additional Charges",
+      "text": "Columns: Ref.No (integer); Parameter_Name (text); Datatype (text); Field Type (text); Size (integer); Mandatory (boolean); Default Value (empty, amount (currency of the row)); WFX Remarks (text); Classic Remarks (empty); Column 10 (empty); Column 11 (empty)\nRef.No | Parameter_Name | Datatype | Field Type | Size | Mandatory | Default Value | WFX Remarks | Classic Remarks | Column 10 | Column 11\n1 | Sno | Numeric |  |  | No |  |  |  |  | \n2 | Name | SMALLINT | Dropdown |  | No |  |  |  |  | \n3 | Basis | SMALLINT | Dropdown |  | No |  |  |  |  | \n4 | Value | Decimal | Text | 5,2 | No |  |  |  |  | \n5 | Tax Amt. | Decimal |  | 9,2 | No |  | Auto calculated |  |  | \n6 | Based On | Varchar | Dropdown |  | No |  |  |  |  | ",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Additional Charges row 1",
+      "heading": "Sheet: Additional Charges",
+      "text": "Ref.No: 1; Parameter_Name: Sno; Datatype: Numeric; Mandatory: No",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Additional Charges row 2",
+      "heading": "Sheet: Additional Charges",
+      "text": "Ref.No: 2; Parameter_Name: Name; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Additional Charges row 3",
+      "heading": "Sheet: Additional Charges",
+      "text": "Ref.No: 3; Parameter_Name: Basis; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Additional Charges row 4",
+      "heading": "Sheet: Additional Charges",
+      "text": "Ref.No: 4; Parameter_Name: Value; Datatype: Decimal; Field Type: Text; Size: 5,2; Mandatory: No",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Additional Charges row 5",
+      "heading": "Sheet: Additional Charges",
+      "text": "Ref.No: 5; Parameter_Name: Tax Amt.; Datatype: Decimal; Size: 9,2; Mandatory: No; WFX Remarks: Auto calculated",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Additional Charges row 6",
+      "heading": "Sheet: Additional Charges",
+      "text": "Ref.No: 6; Parameter_Name: Based On; Datatype: Varchar; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Additional Charges\", § Sheet: Additional Charges, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet: APR – APR",
+      "heading": "Sheet: APR",
+      "text": "Columns: Ref.No (integer); Parameter_Name (text); Datatype (text); Field Type (text); Size (integer); Mandatory (boolean); Default Value (empty, amount (currency of the row)); WFX Remarks (text); Classic Remarks (empty); Column 10 (empty); Column 11 (empty)\nRef.No | Parameter_Name | Datatype | Field Type | Size | Mandatory | Default Value | WFX Remarks | Classic Remarks | Column 10 | Column 11\n1 | Advance Terms | NR |  |  | No |  |  |  |  | \n2 | Select | Varchar | Text | 12 | Yes |  |  |  |  | \n3 | % of Net PO Value | NR |  |  | No |  | Autocalculated |  |  | \n4 | Already Paid | Decimal |  |  | No |  |  |  |  | \n5 | Unpaid | Decimal |  |  | No |  | Autocalculated |  |  | \n6 | Unadjusted | Decimal |  |  | No |  | Autocalculated |  |  | ",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "APR row 1",
+      "heading": "Sheet: APR",
+      "text": "Ref.No: 1; Parameter_Name: Advance Terms; Datatype: NR; Mandatory: No",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "APR row 2",
+      "heading": "Sheet: APR",
+      "text": "Ref.No: 2; Parameter_Name: Select; Datatype: Varchar; Field Type: Text; Size: 12; Mandatory: Yes",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "APR row 3",
+      "heading": "Sheet: APR",
+      "text": "Ref.No: 3; Parameter_Name: % of Net PO Value; Datatype: NR; Mandatory: No; WFX Remarks: Autocalculated",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "APR row 4",
+      "heading": "Sheet: APR",
+      "text": "Ref.No: 4; Parameter_Name: Already Paid; Datatype: Decimal; Mandatory: No",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "APR row 5",
+      "heading": "Sheet: APR",
+      "text": "Ref.No: 5; Parameter_Name: Unpaid; Datatype: Decimal; Mandatory: No; WFX Remarks: Autocalculated",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "APR row 6",
+      "heading": "Sheet: APR",
+      "text": "Ref.No: 6; Parameter_Name: Unadjusted; Datatype: Decimal; Mandatory: No; WFX Remarks: Autocalculated",
+      "locator": "sheet \"APR\", § Sheet: APR, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet: Other Info – Other Info",
+      "heading": "Sheet: Other Info",
+      "text": "Columns: Ref.No (integer); Parameter_Name (text); Datatype (text); Field Type (text); Size (integer); Mandatory (boolean); Default Value (empty, amount (currency of the row)); WFX Remarks (empty); Classic Remarks (empty); Column 10 (empty); Column 11 (empty)\nRef.No | Parameter_Name | Datatype | Field Type | Size | Mandatory | Default Value | WFX Remarks | Classic Remarks | Column 10 | Column 11\n1 | Packing Instruction Template | SMALLINT | Dropdown |  | No |  |  |  |  | \n2 | Special Instruction Template | SMALLINT | Dropdown |  | No |  |  |  |  | \n3 | Sampling Information Template | SMALLINT | Dropdown |  | No |  |  |  |  | \n4 | Packing Instruction | Varchar | Text | 2000 | No |  |  |  |  | \n5 | Special Instruction | Varchar | Text | 5000 | No |  |  |  |  | \n6 | Sampling Information | Varchar | Text | 2000 | No |  |  |  |  | ",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Other Info row 1",
+      "heading": "Sheet: Other Info",
+      "text": "Ref.No: 1; Parameter_Name: Packing Instruction Template; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other Info row 2",
+      "heading": "Sheet: Other Info",
+      "text": "Ref.No: 2; Parameter_Name: Special Instruction Template; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other Info row 3",
+      "heading": "Sheet: Other Info",
+      "text": "Ref.No: 3; Parameter_Name: Sampling Information Template; Datatype: SMALLINT; Field Type: Dropdown; Mandatory: No",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other Info row 4",
+      "heading": "Sheet: Other Info",
+      "text": "Ref.No: 4; Parameter_Name: Packing Instruction; Datatype: Varchar; Field Type: Text; Size: 2000; Mandatory: No",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other Info row 5",
+      "heading": "Sheet: Other Info",
+      "text": "Ref.No: 5; Parameter_Name: Special Instruction; Datatype: Varchar; Field Type: Text; Size: 5000; Mandatory: No",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other Info row 6",
+      "heading": "Sheet: Other Info",
+      "text": "Ref.No: 6; Parameter_Name: Sampling Information; Datatype: Varchar; Field Type: Text; Size: 2000; Mandatory: No",
+      "locator": "sheet \"Other Info\", § Sheet: Other Info, table 6, row 6",
+      "kind": "data_row"
+    }
+  ]
+}

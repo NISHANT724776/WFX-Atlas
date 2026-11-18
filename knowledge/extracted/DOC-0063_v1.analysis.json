@@ -1,0 +1,150 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Manoj Sambhria",
+          "08/12/2025",
+          "Initial Document"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "349905",
+  "keyTerms": [
+    "permission",
+    "user",
+    "section",
+    "internal",
+    "setting",
+    "specific",
+    "change",
+    "dependency",
+    "document",
+    "section overview",
+    "overview purpose",
+    "purpose",
+    "business requirement",
+    "section solution",
+    "section revision"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to define the system enhancement required to introduce a permission to the internal configuration setting “RestrictChangeInCSDepIfPOCreated.” This enhancement ensures that once a PO (Purchase Order) is created, changes to CS Department (Cost Sheet Department) fields will be restricted unless the user holds a specific override permission.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The purpose of this document is to define the system enhancement required to introduce a permission to the internal configuration setting “RestrictChangeInCSDepIfPOCreated.” This enhancement ensures that once a PO (Purchase Order) is created, changes to CS Department (Cost Sheet Department) fields will be restricted unless the user holds a specific override permission.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Currently this setting is internal and there is no permission to a specific user to change in case of specific cases so permission required for the internal setting.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If permission is given to the user then user must allow to change the dependency.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "If permission is given to the user then user must allow to change the dependency.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 3. Revision History, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "349905",
+      "heading": "",
+      "text": "Software Requirements Specification\nNeed an alert in the system to notify users that the PO has already been created based on the initial color and size dependency\nDocument # 349905\nVersion 1.0 ● 08/12/2025\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Solution 3\nFunctional Requirements 3\nSection 3. Revision History 3",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this document is to define the system enhancement required to introduce a permission to the internal configuration setting “RestrictChangeInCSDepIfPOCreated.” This enhancement ensures that once a PO (Purchase Order) is created, changes to CS Department (Cost Sheet Department) fields will be restricted unless the user holds a specific override permission.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Currently this setting is internal and there is no permission to a specific user to change in case of specific cases so permission required for the internal setting. If permission is given to the user then user must allow to change the dependency.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Solution",
+      "heading": "Section 2. Solution",
+      "text": "Currently this setting is internal and there is no permission to a specific user to change in case of specific cases so permission required for the internal setting. If permission is given to the user then user must allow to change the dependency.",
+      "locator": "§ Section 2. Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Revision History – Table 1",
+      "heading": "Section 3. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Manoj Sambhria | 08/12/2025 | Initial Document",
+      "locator": "§ Section 3. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 3. Revision History",
+      "text": "Version: 1.0; Revised By: Manoj Sambhria; Revised On: 08/12/2025; Changes: Initial Document",
+      "locator": "§ Section 3. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

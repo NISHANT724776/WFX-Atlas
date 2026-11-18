@@ -1,0 +1,84 @@
+{
+  "tables": [],
+  "subject": "21.  Buyer Blocking",
+  "keyTerms": [
+    "buyer blocking",
+    "buyer",
+    "view bsr",
+    "bsr displayed",
+    "displayed along",
+    "along article",
+    "article code",
+    "blocking",
+    "overview",
+    "requirements",
+    "display enhancements",
+    "section overview",
+    "overview overview",
+    "list view",
+    "view"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Display-related Enhancements to Buyer Block Booking",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Additionally, an \"End Customer\" column is required in the grid.",
+      "locator": "§ 2. Requirements",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2. Requirements:\n1. In the Buyer Blocking List View, the BSR should be displayed along with the Article Code. Additionally, an \"End Customer\" column is required in the grid.\n2. In the Buyer Blocking Detail View, the BSR should be displayed along with the Article Code. Additionally, the End Customer information should be visible on this screen.\n3. In the Indent List View, the BSR should be displayed along with the Article Code",
+      "locator": "§ 2. Requirements",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "21.  Buyer Blocking",
+      "heading": "",
+      "text": "Software Requirements Specification\nDisplay-related Enhancements to Buyer Block Booking\nDocument # <>\nVersion 1.0 ● 01-06-2026\nContents\nSection 1: Overview 2\n1. Overview 2\n2. Requirements 2",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Overview",
+      "heading": "Overview",
+      "text": "Upon reviewing the Buyer Blocking functionality, we identified a few display-related enhancements required across the screens listed below to improve visibility, tracking, and overall user experience",
+      "locator": "§ Overview",
+      "kind": "section"
+    },
+    {
+      "title": "2. Requirements",
+      "heading": "2. Requirements",
+      "text": "• In the Buyer Blocking List View, the BSR should be displayed along with the Article Code. Additionally, an \"End Customer\" column is required in the grid.\n• In the Buyer Blocking Detail View, the BSR should be displayed along with the Article Code. Additionally, the End Customer information should be visible on this screen.\n• In the Indent List View, the BSR should be displayed along with the Article Code",
+      "locator": "§ 2. Requirements",
+      "kind": "section"
+    }
+  ]
+}

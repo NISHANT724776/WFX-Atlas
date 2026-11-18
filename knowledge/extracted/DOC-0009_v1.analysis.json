@@ -1,0 +1,151 @@
+{
+  "tables": [],
+  "subject": "FPPO Job Order Sprint 2 (Single & Multi Level Approval)",
+  "keyTerms": [
+    "order",
+    "approval",
+    "job order",
+    "job",
+    "production",
+    "user",
+    "level approval",
+    "production process",
+    "process",
+    "process order",
+    "level",
+    "status",
+    "list",
+    "multi level",
+    "second user"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 30
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Production Order",
+    "FPO & FPPO"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this specification is to define the enhancements introduced in Job Order Developments, focusing on improving the Factory Production Process Order (FPPO) workflow through a structured approval system.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The objective is to establish controlled authorization before releasing Job Orders for production while enhancing visibility of order status and approval tracking across users.",
+      "locator": "§ Purpose",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "This permission is accessed from:",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The Job order is then sent for approval to the assigned user, which can be verified in the Job Order section.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Single-Level Approval:\n1. Waiting\n2. Saved\n3. Confirmed\n4. Closed\n5. Cancelled\n6. Released for Production\n7. Production in Progress\n8. Completed\n9. Rejected",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "In Multi Level Approval, approvals happen sequentially, where each approver must approve before the request moves to the next approver in the hierarchy.",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Click on the Home icon\n2. Go to Approval Centre\n3. Open Production Process Order – Pending Approval",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Go to Home\n2. Open Approval Centre\n3. Select Production Process Order – Pending Approval",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Multi-Level Approval:\n1. Waiting\n2. Saved\n3. Confirmed\n4. Closed\n5. Cancelled\n6. Released for Production\n7. Production in Progress\n8. Completed\n9. Rejected",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Job Order Developments – Sprint-2 › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\nApproval Mechanism 2\n1. Single-Level Approval 2\n2. Multi-Level Approval 5",
+      "locator": "§ Job Order Developments – Sprint-2 › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This specification covers:\n• Implementation of Job Order approval workflows within Production Process Orders\n• Support for Single-Level, Multi-Level mechanisms\n• Integration of Approval Centre for Job Order approval processing\n• Status management enhancements throughout the Job Order lifecycle\n• Navigation updates for accessing Job Orders through new FPPO list UI\n• Role-based permission configuration for assigning approvers\n• System visibility improvements for approval tracking and status monitoring\n• Ensuring seamless transition from order confirmation to production release",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this specification is to define the enhancements introduced in Job Order Developments, focusing on improving the Factory Production Process Order (FPPO) workflow through a structured approval system. The objective is to establish controlled authorization before releasing Job Orders for production while enhancing visibility of order status and approval tracking across users.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Single-Level Approval",
+      "heading": "Solution › Approval Mechanism › Single-Level Approval",
+      "text": "In Single Level Approval, the approval process works between two users.\nFirst, we log in with the user Vaibhav. There by user permissions will set another user as the approver.\nThe logged-in user selects the default approver in Settings as the approver. This permission is accessed from:\nAdmin → Org. Structure → User Group → Program Permission → Production Process Order\nThis setup allows the assigned approver to review and approve the order created by the logged-in user.\nHere, Vaibhav Sets Nishant as a default approval for job order.\nAfter creating a Job Order and clicking on Confirm and release for production, a pop-up message appears for approval. The Job order is then sent for approval to the assigned user, which can be verified in the Job Order section.\nFrom other User account: Click on the Home icon Approval Centre Production Process Order Pending Approval. Here, the pending job order will be visible.\nFrom this section, the user approves the job order\nOnce approved, the job order status becomes changed from waiting to release for production, and this can be verified from the\nProduction Factory Production Order FPO List – New Factory Production Process Order Click on Ordered Quantity\nFPPO List Old UI\nFPPO List New UI\nFPPO List New UI Path: Production Production Process Order List Job order List",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval",
+      "kind": "section"
+    },
+    {
+      "title": "Single-Level Approval",
+      "heading": "Solution › Approval Mechanism › Single-Level Approval",
+      "text": "In the New UI, users can easily filter all Job Orders using the filter options available above the list.\nThese filters help users quickly view Job Orders based on their status such as All, Pending Action, Waiting, Closed & Completed, and Cancelled & Rejected.\nStatus Display\nThe Job Order status will be clearly visible in the system, such as:\n• Waiting\n• Saved\n• Confirmed\n• Closed\n• Cancelled\n• Released for Production\n• Production in Progress\n• Completed\n• Rejected\nThis ensures complete visibility and tracking of the approval process.",
+      "locator": "§ Solution › Approval Mechanism › Single-Level Approval (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Multi-Level Approval",
+      "heading": "Solution › Approval Mechanism › Multi-Level Approval",
+      "text": "In Multi Level Approval, approvals happen sequentially, where each approver must approve before the request moves to the next approver in the hierarchy.\nAdmin Company Setup Multi level approval Settings Production Process Order Check list.\nAfter enabling this setting, the approval flow works in multiple stages.\nFirst, we log in with the first user Vaibhav and create the Job order.\nVaibhav assigns second user (Nishant) as the first approver, same as done in the Single Level Approval process.\nAfter confirming the Job Order, a pop-up message appears, and the Job order is sent for approval.\nNext, we log in with second user (Nishant).\nFrom Second user (Nishant) account:\n• Click on the Home icon\n• Go to Approval Centre\n• Open Production Process Order – Pending Approval\nSecond user (Nishant) approves the Job Order.\nAfter second user (Nishant) approval, the Job Order does not get confirmed yet. It moves to the next level of approval.\nAfter click to approve a pop up Appears “Do you want to Approve?”\nAnd after clicking OK Document Approval routing pop up appears and\nSecond user (Nishant) assigns WFX Admin as the final approver.\nThen final approval popup appears “Selected document has been approved”\nNow, we log in with WFX Admin.\nFrom WFX Admin’s account:\n• Go to Home\n• Open Approval Centre\n• Select Production Process Order – Pending Approval",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval",
+      "kind": "section"
+    },
+    {
+      "title": "Multi-Level Approval",
+      "heading": "Solution › Approval Mechanism › Multi-Level Approval",
+      "text": "WFX Admin approves the Job Order same like Nishant user done.\nOnce approved, the job order status becomes changed from waiting to release for production, and this can be verified from the\nProduction Factory Production Order FPO List – New Factory Production Process Order Click on Ordered Quantity\ns\nStatus Display\nThe Job Order status will be clearly visible in the system, such as:\n• Waiting\n• Saved\n• Confirmed\n• Closed\n• Cancelled\n• Released for Production\n• Production in Progress\n• Completed\n• Rejected\nThis ensures complete visibility and tracking of the approval process.",
+      "locator": "§ Solution › Approval Mechanism › Multi-Level Approval (part 2)",
+      "kind": "section"
+    }
+  ]
+}

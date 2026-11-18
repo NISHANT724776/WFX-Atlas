@@ -1,0 +1,48 @@
+# Visual guide captured from the Trims Scan prototype on 2026-11-18 by backend/scripts/capture-prototype.ts.
+# Screenshots are the prototype screens exactly as shown; markers are where the prototype shows its own "Tap here" hint.
+GUIDE ID: GUIDE-TRIMS-OUT
+TITLE: Trims Scan · 6 types – Outward Note
+MODULE: Inventory › Trims (Quick Docs mobile app)
+KIND: prototype
+PROTOTYPE URL: https://trims-prototype-mobile.vercel.app/
+KEYWORDS: trims, scan, QR, Quick Docs, mobile, 6 types, Outward Note, outward, outward note, returns, transfers
+SUMMARY: Six flows in the Quick Docs app, all built around scanning: receiving trims into stock (GRN), picking them for dispatch (Pick List), issuing them on a delivery note (GDN), moving them between locations, printing packaging movement QR labels from the phone, and the outward note types (production inputs, returns and transfers). Pick a flow, then try it on the phone. The camera is simulated, so tap a label to hold it up to the lens.
+WHAT CHANGES: • One screen handles the production inputs, the returns and the transfers. Only the header fields change with the type.
+  • Quantities come from the scanned packaging movement and the order, so nothing is keyed in and nothing can go above the stock or the requirement.
+  • Returns go back into an empty packaging movement or one already at the return location, so stock stays traceable.
+DATA NOTE: The prototype uses sample data only. It demonstrates the intended Quick Docs flow; it is not a live WFX transaction.
+SOURCE: Trims Scan Prototype (clickable prototype), https://trims-prototype-mobile.vercel.app/
+STATUS: Active
+CAPTURED: 2026-11-18
+STEP 1 TITLE: Open Outward Note
+STEP 1 TEXT: The user taps the Outward Note tile on the home screen.
+STEP 1 IMAGE: trims/out-1.webp
+STEP 1 MARKERS: 51.5,45.8,44.5,12.2|OUTWARD NOTE
+STEP 2 TITLE: Choose site
+STEP 2 TEXT: The site the stock goes out of (or comes back into), Step 1 of 2.
+STEP 2 IMAGE: trims/out-2.webp
+STEP 2 MARKERS: 7,54.6,86,6|Vikascity
+STEP 3 TITLE: Choose transaction type
+STEP 3 TEXT: Step 2 of 2. Production Order Input, Production Process Order Input, Production Process Order Input Returns, Purchase Order returns, Transfer Out of system or Transfer to site.
+STEP 3 IMAGE: trims/out-3.webp
+STEP 3 MARKERS: 7,72.6,86,6|Production Process Order Input Returns
+STEP 4 TITLE: Fill the note header
+STEP 4 TEXT: The fields depend on the type: the production, process or purchase order to work against, plus unit, reason, return location, party, returnable date, destination site or vehicle number.
+STEP 4 IMAGE: trims/out-4.webp
+STEP 5 TITLE: Articles
+STEP 5 TEXT: For the order types the articles load from the order with their required or returnable units. For the two transfer types there is no order: the articles come from the packaging movements that are scanned. Tap Continue.
+STEP 5 IMAGE: trims/out-5.webp
+STEP 6 TITLE: Scan the packaging movement
+STEP 6 TEXT: The camera opens. A packaging movement with none of the order’s articles is rejected. For returns the packaging movement must be empty or already at the return location.
+STEP 6 IMAGE: trims/out-6.webp
+STEP 6 MARKERS: 77.3,89.4,34.3,9.3|…/00241 Bag B-201 Rack A2
+STEP 7 TITLE: Enter the quantity
+STEP 7 TEXT: A pop-up lists the articles found in the packaging movement. The quantity is pre-filled with the largest allowed, never above the stock or what is still pending, and can be lowered.
+STEP 7 IMAGE: trims/out-7.webp
+STEP 7 MARKERS: 51.5,90.9,41.6,5.9|Confirm
+STEP 8 TITLE: Review and submit
+STEP 8 TEXT: Issued cards turn green and each scanned packaging movement is listed. Scan more, or Submit.
+STEP 8 IMAGE: trims/out-8.webp
+STEP 9 TITLE: Note created
+STEP 9 TEXT: A confirmation shows the note number, the type and a summary.
+STEP 9 IMAGE: trims/out-9.webp

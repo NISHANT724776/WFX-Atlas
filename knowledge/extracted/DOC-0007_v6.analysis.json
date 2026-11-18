@@ -1,0 +1,946 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Field",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Discount Name",
+          "Dropdown/List of available Discount Names. This field is mandatory."
+        ],
+        [
+          "Discount Percentage (%)",
+          "Numeric field to capture the applicable discount percentage. This field is mandatory."
+        ],
+        [
+          "Default",
+          "Radio button to mark one Discount as the default discount for the selected Discount Definition record. Only one Discount can be marked as Default."
+        ],
+        [
+          "Status",
+          "Active/Inactive status require, Only the active status discount definition will visible to further transactions"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Selected Discount",
+        "Discount %"
+      ],
+      "types": [
+        "text",
+        "percent"
+      ],
+      "units": {
+        "Discount %": "%"
+      },
+      "identifiers": [
+        "Selected Discount"
+      ],
+      "rows": [
+        [
+          "Festival Discount",
+          "5.00%"
+        ],
+        [
+          "Defective Discount",
+          "2.50%"
+        ],
+        [
+          "Volume Discount",
+          "1.50%"
+        ],
+        [
+          "Discount Percentage",
+          "9.00%"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "DOC Quantity",
+        "Dispatched Quantity",
+        "Update to Discount Definition",
+        "Result"
+      ],
+      "types": [
+        "integer",
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {
+        "DOC Quantity": "quantity (unit of the row)",
+        "Dispatched Quantity": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "100",
+          "0",
+          "Allowed",
+          "✔ Allowed"
+        ],
+        [
+          "100",
+          "10",
+          "Not Allowed",
+          "✖ Restricted"
+        ],
+        [
+          "100",
+          "50",
+          "Not Allowed",
+          "✖ Restricted"
+        ],
+        [
+          "100",
+          "100",
+          "Not Allowed",
+          "✖ Restricted"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Delivery",
+        "Qty",
+        "FOB",
+        "Discount %",
+        "Effective Selling Price"
+      ],
+      "types": [
+        "text",
+        "integer",
+        "decimal",
+        "percent",
+        "decimal"
+      ],
+      "units": {
+        "Qty": "quantity (unit of the row)",
+        "Discount %": "%",
+        "Effective Selling Price": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Delivery 1",
+          "100",
+          "10.00",
+          "5%",
+          "9.50"
+        ],
+        [
+          "Delivery 2",
+          "200",
+          "12.00",
+          "10%",
+          "10.80"
+        ],
+        [
+          "Delivery 3",
+          "50",
+          "15.00",
+          "2%",
+          "14.70"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Discount and commision FInal Specs 391988",
+  "keyTerms": [
+    "discount",
+    "discount definition",
+    "commission",
+    "definition",
+    "sales",
+    "selling price",
+    "price",
+    "discount percentage",
+    "sales order",
+    "buyer",
+    "effective selling",
+    "order",
+    "percentage",
+    "pct",
+    "selling"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 56
+    },
+    {
+      "module": "Style & BOM",
+      "score": 6
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "BOM – Costing",
+    "BOM – Materials & Dependency",
+    "BOM – Routing"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "This enhancement will automate the population of commission details, enforce mandatory validation, and provide controlled flexibility through user permissions.",
+      "locator": "§ 1. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure commission details are mandatory when applicable.",
+      "locator": "§ 1. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Ensure commission details are mandatory when applicable.",
+      "locator": "§ 1. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Allow authorized users to edit or bypass commission validation.",
+      "locator": "§ 1. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1. Business Requirement:\n1. Reduce manual data entry during Sales Invoice Clear & Posting.\n2. Automatically populate commission details from Buyer Master.\n3. Ensure commission details are mandatory when applicable.\n4. Allow authorized users to edit or bypass commission validation.\n5. Improve data accuracy and operational efficiency.\n6. Provide a centralized mechanism to maintain Buyer-specific Discount Definitions within the Buyer Master.",
+      "locator": "§ 1. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory validation during Sales Invoice Clear & Posting.",
+      "locator": "§ 3. Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3. Scope:\n1. Auto-population of Commission % and Supplier from Buyer Master.\n2. Mandatory validation during Sales Invoice Clear & Posting.\n3. Support for multiple commission definitions.\n4. New user permission to bypass/edit commission.\n5. Introduce a new Discount Definition section under the Buyer Master → Financial Info tab.\n6. Automatic application of Discount Definitions during Sales Order.\n7. Changes to existing functionality of sales order, costing & shipment invoice.",
+      "locator": "§ 3. Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "PD Remarks: All the columns will be Mandatory.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "A Splitter option is required before the following fields:",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "A Splitter option is required before the following fields:",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "An “All Other” option is required for below mentioned fields and all the mentioned columns are mandatory Buyer department, product group, sub category, commission agent and commission %.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "After the build is deployed, if any existing data is present under ‘Commission Definition’, the system should automatically assign “All Other” as the default value for buyer department, product group, sub category.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4.1 Auto Population:\n1. A Splitter option is required before the following fields:\n2. Product Group\n3. Sub Category\n4. Commission Agent\n5. An “All Other” option is required for below mentioned fields and all the mentioned columns are mandatory Buyer department, product group, sub category, commission agent and commission %.\n6. Buyer Department\n7. Product Group\n8. Sub Category\n9. After the build is deployed, if any existing data is present under ‘Commission Definition’, the system should automatically assign “All Other” as the default value for buyer department, product group, sub category.\n10. At the time of sales ASN creation system will show the ‘Commission Agent’ & ‘Commission Percentage’ under tab ‘Shipment details’, Column visibility will be handle by screen layout configurator.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "PD Suggestions: Commission Agent & Commission % columns should be mandatory by Buyer Master and editable by permission.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When data exist for commission agent, users must select Commission % and Commission Agent before sales ASN creation.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.3 Mandatory Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Message in case of data exist in commission agent dropdown/in buyer master:",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.3 Mandatory Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4.3 Mandatory Validation:\n1. When data exist for commission agent, users must select Commission % and Commission Agent before sales ASN creation.\n2. If user select any commission agent and commission perc against one style it will auto applicable for all Color/Size/delivery order ref of that particular style.\n3. Validation Message in case of data exist in commission agent dropdown/in buyer master:",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.3 Mandatory Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "'Commission Percentage and Commission Agent are mandatory for the selected Buyer.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.3 Mandatory Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Cannot edit Commission %.",
+      "locator": "§ 4.4 User Permission",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Cannot confirm sales ASN without commission details.",
+      "locator": "§ 4.4 User Permission",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "PD Remarks: Commission Agent & Commission % columns should be mandatory by Buyer Master and editable by permission.",
+      "locator": "§ 4.4 User Permission",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "So we are aligned for development.",
+      "locator": "§ 4.5 Payable invoice creation after sales invoice created in WFX system",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If there is any sales return happened where we have given the Commission to the agent system need to create ‘Debit note’ of type ‘Non-PO’ against the commission agent.",
+      "locator": "§ 4.6 After sales invoice return created in WFX system",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "dependency",
+      "text": "Based on the buyer/department/product group/sub category & commission agent there is a requirement to auto populate the ‘Commission %’ at the time of bill of material creation or revision by user interface or LLM.",
+      "locator": "§ 4.7 Bill of material handling in case of commission definition",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Category field shall be provided as a mandatory dropdown with the following predefined options: Apparel, Textile/Fabrics, Yarns, Trim.",
+      "locator": "§ B) Discount Handling › Buyer Master Changes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "ALL Other shall indicate that the discount definition is applicable to all Buyer Departments, Product Group, Sub Category that are not explicitly configured.",
+      "locator": "§ B) Discount Handling › Buyer Master Changes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Buyer Master Changes:\n1. The Category field shall be provided as a mandatory dropdown with the following predefined options: Apparel, Textile/Fabrics, Yarns, Trim.\n2. The Buyer Department field shall display all active Buyer Departments configured for the selected Buyer.\n3. The Product Group field shall display all active Product Groups belonging to the selected Category.\n4. The Sub Category field shall display all active Sub Categories corresponding to the selected Product Group.\n5. ALL Other shall indicate that the discount definition is applicable to all Buyer Departments, Product Group, Sub Category that are not explicitly configured.\n6. Add – To create a new Discount Definition record.\n7. Delete – To delete the selected Discount Definition record.\n8. Log – To view the audit history of all additions, modifications, and deletions performed on the Discount Definition records.\n9. In case outer grid ‘Status’ is marked as in-active so inner grid status for all discount name mark auto as inactive.",
+      "locator": "§ B) Discount Handling › Buyer Master Changes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Field, Description (4 rows; identifiers: Field)",
+      "locator": "§ B) Discount Handling › Discount Definition Details, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The same Discount Name shall not be allowed more than once within the same Discount Definition record.",
+      "locator": "§ B) Discount Handling › Discount Definition Details",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Discount Definition Details:\n1. The system shall allow multiple Discount records to be maintained for a single Discount Definition.\n2. The same Discount Name shall not be allowed more than once within the same Discount Definition record.\n3. Only one Discount can be marked as Default for a Discount Definition.\n4. The Default field shall be displayed as a Radio Button, ensuring that only one Discount can be selected as the default.\n5. If only one Discount record exists, the system shall automatically mark it as the Default.\n6. The Discount Percentage (%) shall accept only numeric values within the permissible range defined by the system (for example, 0.00–100.00).",
+      "locator": "§ B) Discount Handling › Discount Definition Details",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At the time of Sales Order Creation, the system shall provide a Discount Definition dropdown below the Selling Price field, it will be handled by ‘OC/Sales ASN/GMPO Setting’ (with visible and mandatory option).",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Selected Discount, Discount % (4 rows; identifiers: Selected Discount)",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Discount Percentage & Effective Selling Price field shall be read-only, and users shall not be permitted to modify it manually.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Effective Selling Price = Selling Price − (Selling Price × Total Discount Percentage ÷ 100).",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Once a Sales Order Delivery (DOC) has been partially or fully dispatched, the system shall restrict any modification to the Discount Definition from UI/EDI/LLM.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC creation & revision by UI/EDI/LLM:\n1. The values displayed in the Discount Percentage and Effective Selling Price columns shall depend on the selected Price Per option in the Techpack.\n2. The same Discount Percentage and Effective Selling Price shall be displayed for all rows in the Quantity Breakup grid in case of price per is ‘Article’.\n3. The Discount Percentage and Effective Selling Price shall be displayed separately for each Color in case of price per is ‘Color’.\n4. The Discount Percentage and Effective Selling Price shall be displayed separately for each Size in case of price per is ‘Size’.\n5. The Discount Percentage and Effective Selling Price shall be displayed separately for each Color/Size combination in case of price per is ‘Color/Size’.\n6. Once a Sales Order Delivery (DOC) has been partially or fully dispatched, the system shall restrict any modification to the Discount Definition from UI/EDI/LLM.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: DOC Quantity, Dispatched Quantity, Update to Discount Definition, Result (4 rows)",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "User Has Permission with Approval Hierarchy: If the new/revision results in a change to the Effective Selling Price, the new/revised Sales Order or ASN shall not be updated immediately, the system shall create an Approval Request and route it to the configured higher-level approver based on the organization's Approval Hierarchy.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC creation & revision by UI/EDI/LLM:\n1. In purchase order from buyers list we have an option to ‘Update’ the order and same handling we need to do on that screen.\n2. Current selling price, current discount definition, current discount percentage, current effective selling price, new discount percentage, new effective selling price will always come in read only mode.\n3. New selling price, new discount definition will come in editable mode.\n4. Whenever the user updates the New Selling Price or New Discount Definition, the system shall automatically recalculate and update the New Discount Percentage and New Effective Selling Price.\n5. A new user permission shall be introduced to control the revision of Discount Definition during Sales Order revision.\n6. Permission name ‘Allow to Revise Discount Definition in Sales Order & ASN’.\n7. It will applicable on User Interface (UI), Update Order Confirmation, EDI Package.\n8. If the logged-in user does not have the \"Allow to Revise Discount Definition in Sales Order & ASN\" permission: The New Discount Definition field shall remain read-only/disabled.\n9. User Has Permission (Without Approval Hierarchy): The new/revised Sales Order & ASN shall be updated immediately without sending the new/revised order or ASN to any approver authority.\n10. User Has Permission with Approval Hierarchy: If the new/revision results in a change to the Effective Selling Price, the new/revised Sales Order or ASN shall not be updated immediately, the system shall create an Approval Request and route it to the configured higher-level approver based on the organization's Approval Hierarchy.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Total value should need to be validated by “Effective selling price’.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "As discussed with Shahi team ROE should not allow to change at the time of cost sheet creation, so if enable the cost sheet exchange rate master system will always pick the ROE based on the cost sheet exchange rate master.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If there are multiple ‘delivery OC’ attached on particular BOM with multiple ‘Currency’ so first system needs to calculate the value in ‘INR’ and after that convert it into the other currency ($ to show in master cost sheet print).",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bill of material handling for ‘Master cost sheet’:\n1. As discussion with ‘Shahi team’ they always create the cost sheet in ‘INR’ currency and cost sheet exchange rate and other transaction exchange rate can also be different.\n2. So, in that case we mention the ROE under FA >> Master Definitions >> Exchange Rate >> Exchange Rate >> Cost Sheet Exchange Rate, where user able to mention the ROE for multiple currencies.\n3. As discussed with Shahi team ROE should not allow to change at the time of cost sheet creation, so if enable the cost sheet exchange rate master system will always pick the ROE based on the cost sheet exchange rate master.\n4. If there are multiple ‘delivery OC’ attached on particular BOM with multiple ‘Currency’ so first system needs to calculate the value in ‘INR’ and after that convert it into the other currency ($ to show in master cost sheet print).\n5. These changes will not any impacts on ‘Sewtech company’ in case delivery OC currency is not used and the all calculations will be applicable based on ‘Main OC Currency’ and calculate the ‘Average FOB’.\n6. Required two more column in master cost sheet Discount % and Effective FOB",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Delivery, Qty, FOB, Discount %, Effective Selling Price (3 rows)",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’, table 4",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "FOB ($) = Total Value in INR/Total Qty * ROE (Mentioned in cs exchange rate master).",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Discount Percentage = (100 × 5 + 200 × 10 + 50 × 2) ÷ 350 = 7.43%.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Effective FOB ($) = FOB ($) – Discount Percentage.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘A’, FOB in USD = Effective FOB ($).",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘B’, Conversion Rate = based on cs exchange rate master data will come here.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘C’, FOB in INR= A*B.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘D’,’E’,’F’, Duty drawback, ROSCTL, Notional Duty drawback = Will applicable based on ‘Effective Selling Price or FOB in INR’.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘G’, Total realisation in INR= Based on column C+D+E+F.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘I’, Margin in INR= G-H.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Column Name ‘J’, Margin in %=I/G.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Margin/Gmt= Similar of column name ‘J’.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "INR= Similar of column name ‘I’.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bill of material handling for ‘Master cost sheet’:\n1. FOB ($) = Total Value in INR/Total Qty * ROE (Mentioned in cs exchange rate master).\n2. Discount Percentage = (100 × 5 + 200 × 10 + 50 × 2) ÷ 350 = 7.43%.\n3. Effective FOB ($) = FOB ($) – Discount Percentage.\n4. Column Name ‘A’, FOB in USD = Effective FOB ($).\n5. Column Name ‘B’, Conversion Rate = based on cs exchange rate master data will come here.\n6. Column Name ‘C’, FOB in INR= A*B.\n7. Column Name ‘D’,’E’,’F’, Duty drawback, ROSCTL, Notional Duty drawback = Will applicable based on ‘Effective Selling Price or FOB in INR’.\n8. Column Name ‘G’, Total realisation in INR= Based on column C+D+E+F.\n9. Column Name ‘H’, Total cost price same as per existing.\n10. Column Name ‘I’, Margin in INR= G-H.\n11. Column Name ‘J’, Margin in %=I/G.\n12. Ttl Sales =\n13. Ttl Margin + dbk=\n14. Margin/Gmt= Similar of column name ‘J’.\n15. INR= Similar of column name ‘I’.\n16. Same changes will applicable on WFX ‘Master Cost Sheet’ & WFX BI Report ‘Master Cost Sheet’.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "These values shall be system-calculated, and users shall not be permitted to edit or override them manually.",
+      "locator": "§ B) Discount Handling › Sales ASN & Sales Invoice Impacts",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sales ASN & Sales Invoice Impacts:\n1. The Discount Percentage and Effective Price fields shall always remain read-only. These values shall be system-calculated, and users shall not be permitted to edit or override them manually.\n2. Discount definition will auto fetch from sales order if user want to change it based on user permission they able to modify the details, Allow to Revise Discount Definition in Sales Order & ASN’.\n3. If user try to change the Discount definition on sales ASN for one ‘Delivery order ref’ it will be applicable of all Color/Size of that particular ‘Delivery order ref num’.\n4. Total in sales ASN will also calculate based on the ‘Effective Price’.\n5. In sales invoice also the same information need to follow and value should need to be calculate based on ‘Effective Price’.\n6. Effects also require at the time of ‘Shipping Bill’ & ‘Shipment Plan’-Need to discuss with product team and Yudesh sir.",
+      "locator": "§ B) Discount Handling › Sales ASN & Sales Invoice Impacts",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory validation prevents posting without commission details.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Discount Definition is successfully maintained in the Buyer Master based on Category, Buyer Department, Product Group, and Sub Category.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Only applicable and Active Discount Definitions are displayed in the Sales Order based on the selected Buyer, Buyer Department, Product Group, and Sub Category.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Discount Definitions are displayed in the format Discount Name (Discount %).",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Discount Percentage is automatically calculated as the sum of all selected Discount Definitions and remains read-only.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "The Discount Percentage is automatically calculated as the sum of all selected Discount Definitions and remains read-only.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Effective Selling Price is automatically calculated based on the Selling Price and total Discount Percentage and remains read-only.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Discount Percentage and Effective Selling Price are displayed correctly across all supported Price Per options (Article, Color, Size, and Color/Size).",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Total Value is calculated using the Effective Selling Price.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Duplicate Discount Names are not allowed within the same Discount Definition in Buyer Master.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicate Discount Names are not allowed within the same Discount Definition in Buyer Master.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Users without the \"Allow to Revise Discount Definition in Sales Order\" permission cannot modify the Discount Definition through UI, EDI, LLM, or other integrations.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If Approval Hierarchy is enabled, any revision that changes the Effective Selling Price is routed for approval before the changes become effective.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Discount Definition cannot be revised once the Sales Order has been partially or fully dispatched.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "5. Acceptance Criteria:\n1. Single commission definition auto-populates successfully.\n2. Multiple commission definitions required manual selection.\n3. No commission definition follows existing behaviour.\n4. FA Setting disabled – feature inactive.\n5. Mandatory validation prevents posting without commission details.\n6. Users with bypass permission can edit or skip commission details.\n7. Accounting entries and Credit Note generation remain unchanged.\n8. Discount Definition is successfully maintained in the Buyer Master based on Category, Buyer Department, Product Group, and Sub Category.\n9. Only applicable and Active Discount Definitions are displayed in the Sales Order based on the selected Buyer, Buyer Department, Product Group, and Sub Category.\n10. Users can select multiple Discount Definitions using the multi-select checkbox control.\n11. Discount Definitions are displayed in the format Discount Name (Discount %).\n12. The Discount Percentage is automatically calculated as the sum of all selected Discount Definitions and remains read-only.\n13. The Effective Selling Price is automatically calculated based on the Selling Price and total Discount Percentage and remains read-only.\n14. Discount Percentage and Effective Selling Price are displayed correctly across all supported Price Per options (Article, Color, Size, and Color/Size).\n15. The Total Value is calculated using the Effective Selling Price.\n16. Duplicate Discount Names are not allowed within the same Discount Definition in Buyer Master.\n17. Only one Discount can be marked as the Default within a Discount Definition.\n18. Users without the \"Allow to Revise Discount Definition in Sales Order\" permission cannot modify the Discount Definition through UI, EDI, LLM, or other integrations.\n19. Users with the \"Allow to Revise Discount Definition in Sales Order\" permission can modify the Discount Definition during Sales Order revision.\n20. If Approval Hierarchy is enabled, any revision that changes the Effective Selling Price is routed for approval before the changes become effective.\n21. Discount Definition cannot be revised once the Sales Order has been partially or fully dispatched.\n22. Discount Definition, Discount Percentage, and Effective Selling Price are displayed correctly in all applicable screens, including Sales Order, Quantity Breakup, Update Order Confirmation, EDI Buyer PO, and Color/Size Detail.\n23. Existing Sales Order processing, dispatch, invoicing, accounting, and financial postings remain unaffected by this enhancement.",
+      "locator": "§ 5. Acceptance Criteria",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Discount & Commission Percentage Handling › … › … › … › … › Contents",
+      "text": "1. Business Requirement 2\n2. Objectives 2\n3. Scope 2\n4. Solution 2",
+      "locator": "§ Discount & Commission Percentage Handling › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "1. Business Requirement",
+      "heading": "1. Business Requirement",
+      "text": "currently, users maintain Commission Agent and Commission Percentage in Buyer Master under Commission Definition. During Sales Invoice Clear & Posting, users are again required to manually select Commission % and Supplier before posting the invoice even when the information already exists in Buyer Master. This enhancement will automate the population of commission details, enforce mandatory validation, and provide controlled flexibility through user permissions.\nIn addition, the system currently does not provide a centralized mechanism to maintain Buyer-specific Discount Definitions based on business attributes such as Category, Buyer Department, Product Group, and Sub Category. As a result, users are unable to configure multiple discounts, define default discounts, or maintain discount applicability in a structured and reusable manner.\n2. Objectives\n• Reduce manual data entry during Sales Invoice Clear & Posting.\n• Automatically populate commission details from Buyer Master.\n• Ensure commission details are mandatory when applicable.\n• Allow authorized users to edit or bypass commission validation.\n• Improve data accuracy and operational efficiency.\n• Provide a centralized mechanism to maintain Buyer-specific Discount Definitions within the Buyer Master.",
+      "locator": "§ 1. Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "3. Scope",
+      "heading": "3. Scope",
+      "text": "• Auto-population of Commission % and Supplier from Buyer Master.\n• Mandatory validation during Sales Invoice Clear & Posting.\n• Support for multiple commission definitions.\n• New user permission to bypass/edit commission.\n• Introduce a new Discount Definition section under the Buyer Master → Financial Info tab.\n• Automatic application of Discount Definitions during Sales Order.\n• Changes to existing functionality of sales order, costing & shipment invoice.",
+      "locator": "§ 3. Scope",
+      "kind": "section"
+    },
+    {
+      "title": "4.1 Auto Population",
+      "heading": "A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "text": "• If only one Commission Definition exists for the selected Buyer, automatically populate Supplier and Commission % under Sale invoice.\nNew master data will look like as mentioned below: -\nPD Remarks: All the columns will be Mandatory.\n• A Splitter option is required before the following fields:\n• Product Group\n• Sub Category\n• Commission Agent\n• An “All Other” option is required for below mentioned fields and all the mentioned columns are mandatory Buyer department, product group, sub category, commission agent and commission %.\n• Buyer Department\n• Product Group\n• Sub Category\n• After the build is deployed, if any existing data is present under ‘Commission Definition’, the system should automatically assign “All Other” as the default value for buyer department, product group, sub category.\n• At the time of sales ASN creation system will show the ‘Commission Agent’ & ‘Commission Percentage’ under tab ‘Shipment details’, Column visibility will be handle by screen layout configurator.\nPD Suggestions: Commission Agent & Commission % columns should be mandatory by Buyer Master and editable by permission.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.1 Auto Population",
+      "kind": "section"
+    },
+    {
+      "title": "4.2 Multiple Commission Definitions",
+      "heading": "A) Commission Handling/Enhancement: - › 4.2 Multiple Commission Definitions",
+      "text": "• If multiple commission agent records exist, do not auto-select/populate.\n• Display all available records for manual selection.",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.2 Multiple Commission Definitions",
+      "kind": "section"
+    },
+    {
+      "title": "4.3 Mandatory Validation",
+      "heading": "A) Commission Handling/Enhancement: - › 4.3 Mandatory Validation",
+      "text": "• When data exist for commission agent, users must select Commission % and Commission Agent before sales ASN creation.\n• If user select any commission agent and commission perc against one style it will auto applicable for all Color/Size/delivery order ref of that particular style.\n• Validation Message in case of data exist in commission agent dropdown/in buyer master:\n'Commission Percentage and Commission Agent are mandatory for the selected Buyer. Please select a valid Commission Definition before proceeding.'\nPD Remarks: Should the Commission Agent and Commission % be maintained at the Style + OC (Sales Order) level, such that if an OC contains two DOCs/deliveries with the same style, the Commission Agent and Commission % are automatically applied to the respective Color/Size combinations in both deliveries?",
+      "locator": "§ A) Commission Handling/Enhancement: - › 4.3 Mandatory Validation",
+      "kind": "section"
+    },
+    {
+      "title": "4.4 User Permission",
+      "heading": "4.4 User Permission",
+      "text": "• 'Allow to Bypass/Edit Commission at the Time of Sales ASN'.\nWithout Permission:\n• Cannot edit Commission %.\n• Cannot confirm sales ASN without commission details.\nWith Permission:\n• Can edit Commission %.\n• Can leave Commission agent blank and still Confirm the ASN.\nPD Remarks: Commission Agent & Commission % columns should be mandatory by Buyer Master and editable by permission.",
+      "locator": "§ 4.4 User Permission",
+      "kind": "section"
+    },
+    {
+      "title": "4.5 Payable invoice creation after sales invoice created in WFX system",
+      "heading": "4.5 Payable invoice creation after sales invoice created in WFX system",
+      "text": "When sales invoice gets created based on the ‘Commission Agent’ system will create an ‘Payable invoice’ of type ‘Non-PO’.\nPD Remarks: Right now there is no such screen present in the system, kindly plan the discussion along with Hari Om Sir. So we are aligned for development.",
+      "locator": "§ 4.5 Payable invoice creation after sales invoice created in WFX system",
+      "kind": "section"
+    },
+    {
+      "title": "4.6 After sales invoice return created in WFX system",
+      "heading": "4.6 After sales invoice return created in WFX system",
+      "text": "If there is any sales return happened where we have given the Commission to the agent system need to create ‘Debit note’ of type ‘Non-PO’ against the commission agent.\nPD Remarks: Same as above",
+      "locator": "§ 4.6 After sales invoice return created in WFX system",
+      "kind": "section"
+    },
+    {
+      "title": "4.7 Bill of material handling in case of commission definition",
+      "heading": "4.7 Bill of material handling in case of commission definition",
+      "text": "• Based on the buyer/department/product group/sub category & commission agent there is a requirement to auto populate the ‘Commission %’ at the time of bill of material creation or revision by user interface or LLM.\nPD Remarks: How will the data be derived from master?",
+      "locator": "§ 4.7 Bill of material handling in case of commission definition",
+      "kind": "section"
+    },
+    {
+      "title": "Buyer Master Changes",
+      "heading": "B) Discount Handling › Buyer Master Changes",
+      "text": "The system shall provide a new \"Discount Definition\" section under the Buyer Master > Financial Info tab.\n• The Category field shall be provided as a mandatory dropdown with the following predefined options: Apparel, Textile/Fabrics, Yarns, Trim.\n• The Buyer Department field shall display all active Buyer Departments configured for the selected Buyer.\n• The Product Group field shall display all active Product Groups belonging to the selected Category.\n• The Sub Category field shall display all active Sub Categories corresponding to the selected Product Group.\n• ALL Other shall indicate that the discount definition is applicable to all Buyer Departments, Product Group, Sub Category that are not explicitly configured.\n• Add – To create a new Discount Definition record.\n• Delete – To delete the selected Discount Definition record.\n• Log – To view the audit history of all additions, modifications, and deletions performed on the Discount Definition records.\n• In case outer grid ‘Status’ is marked as in-active so inner grid status for all discount name mark auto as inactive.\nPD Remarks: Define Status functionality How active/Inactive status going to work in Discount Definition Table, kindly specify the functionality.",
+      "locator": "§ B) Discount Handling › Buyer Master Changes",
+      "kind": "section"
+    },
+    {
+      "title": "Discount Definition Details",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "When the user clicks the Arrow (>>) icon in the Discount column, the system shall open a Discount Details popup/grid to maintain one or more discount definitions for the selected Discount Definition record.\nIn case all the discount name in inner grid mark as ‘In-active’ than outer grid status will auto mark as ‘In-active’, If user try to active the outer grid status it will automatically active all the discount of inner grid.\n\nPD Remarks: If user marks the Line as Inactive in Discount definition table then it will inactive all the Discount definition.",
+      "locator": "§ B) Discount Handling › Discount Definition Details",
+      "kind": "section"
+    },
+    {
+      "title": "Discount Definition Details – Table 1",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "Columns: Field (text); Description (text)\nField | Description\nDiscount Name | Dropdown/List of available Discount Names. This field is mandatory.\nDiscount Percentage (%) | Numeric field to capture the applicable discount percentage. This field is mandatory.\nDefault | Radio button to mark one Discount as the default discount for the selected Discount Definition record. Only one Discount can be marked as Default.\nStatus | Active/Inactive status require, Only the active status discount definition will visible to further transactions",
+      "locator": "§ B) Discount Handling › Discount Definition Details, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "Field: Discount Name; Description: Dropdown/List of available Discount Names. This field is mandatory.",
+      "locator": "§ B) Discount Handling › Discount Definition Details, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "Field: Discount Percentage (%); Description: Numeric field to capture the applicable discount percentage. This field is mandatory.",
+      "locator": "§ B) Discount Handling › Discount Definition Details, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "Field: Default; Description: Radio button to mark one Discount as the default discount for the selected Discount Definition record. Only one Discount can be marked as Default.",
+      "locator": "§ B) Discount Handling › Discount Definition Details, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "Field: Status; Description: Active/Inactive status require, Only the active status discount definition will visible to further transactions",
+      "locator": "§ B) Discount Handling › Discount Definition Details, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Discount Definition Details",
+      "heading": "B) Discount Handling › Discount Definition Details",
+      "text": "• The system shall allow multiple Discount records to be maintained for a single Discount Definition.\n• The same Discount Name shall not be allowed more than once within the same Discount Definition record.\n• Only one Discount can be marked as Default for a Discount Definition.\n• The Default field shall be displayed as a Radio Button, ensuring that only one Discount can be selected as the default.\n• If only one Discount record exists, the system shall automatically mark it as the Default.\n• The Discount Percentage (%) shall accept only numeric values within the permissible range defined by the system (for example, 0.00–100.00).",
+      "locator": "§ B) Discount Handling › Discount Definition Details",
+      "kind": "section"
+    },
+    {
+      "title": "OC creation & revision by UI/EDI/LLM",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "• At the time of Sales Order Creation, the system shall provide a Discount Definition dropdown below the Selling Price field, it will be handled by ‘OC/Sales ASN/GMPO Setting’ (with visible and mandatory option).\nPD Remarks: This will be catered through SLC in Additional Fields.\n• Only the matching Active Discount Definitions configured in the Buyer Master (for particular category, buyer department, product group, sub category) shall be displayed.\n• The dropdown shall display the values in the following format:\nDiscount Name (Discount %)\n• The Discount Definition dropdown shall support multiple selection, Default discount definition should need to come automatically.\nPD Remarks: If user selects multiple Discount Definition then how will the data be catered in the Discount Percentage Column either 3%, 5% or sum of Discount Definition?\nPD Remarks: Screen change as per new Sales order.\n• Upon selection of one or more Discount Definitions, the system shall automatically calculate the Total Discount Percentage by summing the Discount Percentage of all selected Discount Definitions.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "kind": "section"
+    },
+    {
+      "title": "OC creation & revision by UI/EDI/LLM – Table 2",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "Columns: Selected Discount (text); Discount % (percent, %)\nSelected Discount | Discount %\nFestival Discount | 5.00%\nDefective Discount | 2.50%\nVolume Discount | 1.50%\nDiscount Percentage | 9.00%",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "Selected Discount: Festival Discount; Discount %: 5.00%",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "Selected Discount: Defective Discount; Discount %: 2.50%",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "Selected Discount: Volume Discount; Discount %: 1.50%",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "Selected Discount: Discount Percentage; Discount %: 9.00%",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "OC creation & revision by UI/EDI/LLM",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "• The Discount Percentage & Effective Selling Price field shall be read-only, and users shall not be permitted to modify it manually.\n• The system shall automatically calculate the Effective Selling Price based on the Selling Price and Total Discount Percentage.\nEffective Selling Price = Selling Price − (Selling Price × Total Discount Percentage ÷ 100).\n• The values displayed in the Discount Percentage and Effective Selling Price columns shall depend on the selected Price Per option in the Techpack.\n• The same Discount Percentage and Effective Selling Price shall be displayed for all rows in the Quantity Breakup grid in case of price per is ‘Article’.\n• The Discount Percentage and Effective Selling Price shall be displayed separately for each Color in case of price per is ‘Color’.\n• The Discount Percentage and Effective Selling Price shall be displayed separately for each Size in case of price per is ‘Size’.\n• The Discount Percentage and Effective Selling Price shall be displayed separately for each Color/Size combination in case of price per is ‘Color/Size’.\n• Once a Sales Order Delivery (DOC) has been partially or fully dispatched, the system shall restrict any modification to the Discount Definition from UI/EDI/LLM.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "kind": "section"
+    },
+    {
+      "title": "OC creation & revision by UI/EDI/LLM – Table 3",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "Columns: DOC Quantity (integer, quantity (unit of the row)); Dispatched Quantity (integer, quantity (unit of the row)); Update to Discount Definition (text); Result (text)\nDOC Quantity | Dispatched Quantity | Update to Discount Definition | Result\n100 | 0 | Allowed | ✔ Allowed\n100 | 10 | Not Allowed | ✖ Restricted\n100 | 50 | Not Allowed | ✖ Restricted\n100 | 100 | Not Allowed | ✖ Restricted",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "DOC Quantity: 100; Dispatched Quantity: 0; Update to Discount Definition: Allowed; Result: ✔ Allowed",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "DOC Quantity: 100; Dispatched Quantity: 10; Update to Discount Definition: Not Allowed; Result: ✖ Restricted",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "DOC Quantity: 100; Dispatched Quantity: 50; Update to Discount Definition: Not Allowed; Result: ✖ Restricted",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "DOC Quantity: 100; Dispatched Quantity: 100; Update to Discount Definition: Not Allowed; Result: ✖ Restricted",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "OC creation & revision by UI/EDI/LLM",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "• In purchase order from buyers list we have an option to ‘Update’ the order and same handling we need to do on that screen.\n• Current selling price, current discount definition, current discount percentage, current effective selling price, new discount percentage, new effective selling price will always come in read only mode.\n• New selling price, new discount definition will come in editable mode.\n• Whenever the user updates the New Selling Price or New Discount Definition, the system shall automatically recalculate and update the New Discount Percentage and New Effective Selling Price.\n• A new user permission shall be introduced to control the revision of Discount Definition during Sales Order revision.\n• Permission name ‘Allow to Revise Discount Definition in Sales Order & ASN’.\n• It will applicable on User Interface (UI), Update Order Confirmation, EDI Package.\n• If the logged-in user does not have the \"Allow to Revise Discount Definition in Sales Order & ASN\" permission: The New Discount Definition field shall remain read-only/disabled.\n• User Has Permission (Without Approval Hierarchy): The new/revised Sales Order & ASN shall be updated immediately without sending the new/revised order or ASN to any approver authority.",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "kind": "section"
+    },
+    {
+      "title": "OC creation & revision by UI/EDI/LLM",
+      "heading": "B) Discount Handling › OC creation & revision by UI/EDI/LLM",
+      "text": "• User Has Permission with Approval Hierarchy: If the new/revision results in a change to the Effective Selling Price, the new/revised Sales Order or ASN shall not be updated immediately, the system shall create an Approval Request and route it to the configured higher-level approver based on the organization's Approval Hierarchy.\nPD Remarks: Please specify the working of user permission how it is going to work as per our discussion & the logic of approval & should the sales order and ASN be synced or not?\n\n\nPD Remarks: we are further reviewing the specs.\n• Total value should need to be validated by “Effective selling price’.\nIt will be applicable for all Group By ‘Summary’, ‘Market’, ‘Destination’, ‘Delivery’.\nTwo more column discount percentage and effective selling price require in all sales order view, Group by: - ‘Summary’, ‘Market’, ‘Destination’, ‘Delivery’.\n• At the time of sales order creation or revision by EDI package ‘Discount definition’ column will be enabled based on ‘OC/Sales ASN/GMPO’ setting and visibility is mentioned below:",
+      "locator": "§ B) Discount Handling › OC creation & revision by UI/EDI/LLM (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Bill of material handling for ‘Master cost sheet’",
+      "heading": "B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "text": "• As discussion with ‘Shahi team’ they always create the cost sheet in ‘INR’ currency and cost sheet exchange rate and other transaction exchange rate can also be different.\n• So, in that case we mention the ROE under FA >> Master Definitions >> Exchange Rate >> Exchange Rate >> Cost Sheet Exchange Rate, where user able to mention the ROE for multiple currencies.\n• As discussed with Shahi team ROE should not allow to change at the time of cost sheet creation, so if enable the cost sheet exchange rate master system will always pick the ROE based on the cost sheet exchange rate master.\n• If there are multiple ‘delivery OC’ attached on particular BOM with multiple ‘Currency’ so first system needs to calculate the value in ‘INR’ and after that convert it into the other currency ($ to show in master cost sheet print).\n• These changes will not any impacts on ‘Sewtech company’ in case delivery OC currency is not used and the all calculations will be applicable based on ‘Main OC Currency’ and calculate the ‘Average FOB’.\n• Required two more column in master cost sheet Discount % and Effective FOB",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "kind": "section"
+    },
+    {
+      "title": "Bill of material handling for ‘Master cost sheet’ – Table 4",
+      "heading": "B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "text": "Columns: Delivery (text); Qty (integer, quantity (unit of the row)); FOB (decimal); Discount % (percent, %); Effective Selling Price (decimal, amount (currency of the row))\nDelivery | Qty | FOB | Discount % | Effective Selling Price\nDelivery 1 | 100 | 10.00 | 5% | 9.50\nDelivery 2 | 200 | 12.00 | 10% | 10.80\nDelivery 3 | 50 | 15.00 | 2% | 14.70",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "text": "Delivery: Delivery 1; Qty: 100; FOB: 10.00; Discount %: 5%; Effective Selling Price: 9.50",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "text": "Delivery: Delivery 2; Qty: 200; FOB: 12.00; Discount %: 10%; Effective Selling Price: 10.80",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "text": "Delivery: Delivery 3; Qty: 50; FOB: 15.00; Discount %: 2%; Effective Selling Price: 14.70",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Bill of material handling for ‘Master cost sheet’",
+      "heading": "B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "text": "• FOB ($) = Total Value in INR/Total Qty * ROE (Mentioned in cs exchange rate master).\n• Discount Percentage = (100 × 5 + 200 × 10 + 50 × 2) ÷ 350 = 7.43%.\n• Effective FOB ($) = FOB ($) – Discount Percentage.\n• Column Name ‘A’, FOB in USD = Effective FOB ($).\n• Column Name ‘B’, Conversion Rate = based on cs exchange rate master data will come here.\n• Column Name ‘C’, FOB in INR= A*B.\n• Column Name ‘D’,’E’,’F’, Duty drawback, ROSCTL, Notional Duty drawback = Will applicable based on ‘Effective Selling Price or FOB in INR’.\n• Column Name ‘G’, Total realisation in INR= Based on column C+D+E+F.\n• Column Name ‘H’, Total cost price same as per existing.\n• Column Name ‘I’, Margin in INR= G-H.\n• Column Name ‘J’, Margin in %=I/G.\n• Ttl Sales =\n• Ttl Margin + dbk=\n• Margin/Gmt= Similar of column name ‘J’.\n• INR= Similar of column name ‘I’.\n• Same changes will applicable on WFX ‘Master Cost Sheet’ & WFX BI Report ‘Master Cost Sheet’.",
+      "locator": "§ B) Discount Handling › Bill of material handling for ‘Master cost sheet’",
+      "kind": "section"
+    },
+    {
+      "title": "Sales ASN & Sales Invoice Impacts",
+      "heading": "B) Discount Handling › Sales ASN & Sales Invoice Impacts",
+      "text": "System should show the ‘Effective Price’ at the time of sales ASN creation, Customer Dr with Net FOB & Sales Cr with Net FOB.\n• The Discount Percentage and Effective Price fields shall always remain read-only. These values shall be system-calculated, and users shall not be permitted to edit or override them manually.\n• Discount definition will auto fetch from sales order if user want to change it based on user permission they able to modify the details, Allow to Revise Discount Definition in Sales Order & ASN’.\n• If user try to change the Discount definition on sales ASN for one ‘Delivery order ref’ it will be applicable of all Color/Size of that particular ‘Delivery order ref num’.\n• Total in sales ASN will also calculate based on the ‘Effective Price’.\n• In sales invoice also the same information need to follow and value should need to be calculate based on ‘Effective Price’.\n• Effects also require at the time of ‘Shipping Bill’ & ‘Shipment Plan’-Need to discuss with product team and Yudesh sir.",
+      "locator": "§ B) Discount Handling › Sales ASN & Sales Invoice Impacts",
+      "kind": "section"
+    },
+    {
+      "title": "5. Acceptance Criteria",
+      "heading": "5. Acceptance Criteria",
+      "text": "• Single commission definition auto-populates successfully.\n• Multiple commission definitions required manual selection.\n• No commission definition follows existing behaviour.\n• FA Setting disabled – feature inactive.\n• Mandatory validation prevents posting without commission details.\n• Users with bypass permission can edit or skip commission details.\n• Accounting entries and Credit Note generation remain unchanged.\n• Discount Definition is successfully maintained in the Buyer Master based on Category, Buyer Department, Product Group, and Sub Category.\n• Only applicable and Active Discount Definitions are displayed in the Sales Order based on the selected Buyer, Buyer Department, Product Group, and Sub Category.\n• Users can select multiple Discount Definitions using the multi-select checkbox control.\n• Discount Definitions are displayed in the format Discount Name (Discount %).\n• The Discount Percentage is automatically calculated as the sum of all selected Discount Definitions and remains read-only.\n• The Effective Selling Price is automatically calculated based on the Selling Price and total Discount Percentage and remains read-only.\n• Discount Percentage and Effective Selling Price are displayed correctly across all supported Price Per options (Article, Color, Size, and Color/Size).\n• The Total Value is calculated using the Effective Selling Price.",
+      "locator": "§ 5. Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "5. Acceptance Criteria",
+      "heading": "5. Acceptance Criteria",
+      "text": "• Duplicate Discount Names are not allowed within the same Discount Definition in Buyer Master.\n• Only one Discount can be marked as the Default within a Discount Definition.\n• Users without the \"Allow to Revise Discount Definition in Sales Order\" permission cannot modify the Discount Definition through UI, EDI, LLM, or other integrations.\n• Users with the \"Allow to Revise Discount Definition in Sales Order\" permission can modify the Discount Definition during Sales Order revision.\n• If Approval Hierarchy is enabled, any revision that changes the Effective Selling Price is routed for approval before the changes become effective.\n• Discount Definition cannot be revised once the Sales Order has been partially or fully dispatched.\n• Discount Definition, Discount Percentage, and Effective Selling Price are displayed correctly in all applicable screens, including Sales Order, Quantity Breakup, Update Order Confirmation, EDI Buyer PO, and Color/Size Detail.\n• Existing Sales Order processing, dispatch, invoicing, accounting, and financial postings remain unaffected by this enhancement.",
+      "locator": "§ 5. Acceptance Criteria (part 2)",
+      "kind": "section"
+    }
+  ]
+}

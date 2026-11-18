@@ -1,0 +1,19 @@
+# Module: Production
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-PRODUCTION
+MODULE NAME: Production
+DESCRIPTION: Production order, FPO and process orders
+SUBMODULES:
+TRANSACTIONS:
+  Production Order (production-order)
+  FPO & FPPO (fpo)
+DATA MODEL DOCUMENTS: fpo
+WORKFLOW STEPS: rmpo-gap, prod-order, fpo, fppo
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

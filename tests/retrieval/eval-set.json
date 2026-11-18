@@ -1,0 +1,482 @@
+[
+  {
+    "q": "how is open quantity calculated in RMPO",
+    "category": "calculation",
+    "source": "CALC-RMPO-OPEN",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how is accepted qty calculated in GRN",
+    "category": "calculation",
+    "source": "CALC-GRN-ACCEPTED",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how is total consumption calculated",
+    "category": "calculation",
+    "source": "CALC-CONSUMPTION-CHAIN",
+    "status": [
+      "confirmed"
+    ],
+    "calcResult": 2.326869806
+  },
+  {
+    "q": "how is loss factor calculated",
+    "category": "calculation",
+    "source": "CALC-BOM-LOSS-FACTOR",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how is balance to indent calculated in buyer block booking",
+    "category": "calculation",
+    "source": "CALC-BBB-BALANCE",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how is fabric qty reqd calculated for FPO",
+    "category": "calculation",
+    "source": "CALC-FPO-FABRIC",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how is the final selling price calculated with upcharge",
+    "category": "calculation",
+    "source": "CALC-SO-UPCHARGE",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how is markup calculated",
+    "category": "calculation",
+    "source": "CALC-COST-MARKUP-PCT",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how does WFX calculate fabric requirement for a style",
+    "category": "calculation",
+    "source": "CALC-MRP-L2-REQ",
+    "status": [
+      "confirmed",
+      "partial"
+    ]
+  },
+  {
+    "q": "what is GRN",
+    "category": "definition",
+    "source": "TERM-GRN",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what is a techpack",
+    "category": "definition",
+    "source": "TERM-TECHPACK",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what does MRP adjustment mean",
+    "category": "definition",
+    "source": "TERM-MRP-ADJUSTMENT",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what is a standard BOM",
+    "category": "definition",
+    "source": "TERM-STANDARD-BOM",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what is colour dependency",
+    "category": "definition",
+    "source": "TERM-COLOUR-DEPENDENCY",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how do I create one RMPO for multiple indents together",
+    "category": "procedure",
+    "source": "PROC-SOURCING-RMPO-FOR-MULTIPLE-INDENTS",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "I have 5 fabric indents for the same supplier, can I raise just one purchase order for all of them?",
+    "category": "procedure",
+    "source": "PROC-SOURCING-RMPO-FOR-MULTIPLE-INDENTS",
+    "status": [
+      "confirmed",
+      "partial"
+    ]
+  },
+  {
+    "q": "how does the supplier portal work for an RMPO",
+    "category": "procedure",
+    "source": "PROC-SOURCING-SUPPLIER-PORTAL",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how does TNA get attached to an order automatically",
+    "category": "procedure",
+    "source": "PROC-TNA-AUTO-TNA-ATTACHMENT",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how do I change the location of stock with the mobile app",
+    "category": "procedure",
+    "source": "PROC-INVENTORY-WMS-LOCATION-CHANGE",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how do I log in to the WFX mobile application",
+    "category": "procedure",
+    "source": "PROC-INVENTORY-WMS-MOBILE-LOGIN",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what happens to rejected stock",
+    "category": "procedure",
+    "source": "PROC-INVENTORY-REJECTED-STOCK-AND-DEBIT-NOTE",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how do I approve a sales order",
+    "category": "rule",
+    "source": "RULE-SO-APPROVAL",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what is price per in sales order",
+    "category": "rule",
+    "source": "PRICE-PER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how does split delivery work in sales order",
+    "category": "rule",
+    "source": "SPLIT-DELIVERY",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "explain the kit pack process",
+    "category": "document",
+    "source": "DOC-",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "what is auto mrp split",
+    "category": "document",
+    "source": "DOC-0003",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "how roll functionality works in wfx and why we are using it ?",
+    "category": "provisional",
+    "source": "PROC-INVENTORY-ROLL-FUNCTIONALITY",
+    "status": [
+      "provisional"
+    ]
+  },
+  {
+    "q": "what is the GST rate for garments in India",
+    "category": "not-documented",
+    "status": [
+      "not-documented"
+    ]
+  },
+  {
+    "q": "how do I configure SAP MM",
+    "category": "not-documented",
+    "status": [
+      "not-documented"
+    ]
+  },
+  {
+    "q": "who is the CEO of WFX",
+    "category": "not-documented",
+    "status": [
+      "not-documented"
+    ]
+  },
+  {
+    "q": "what is the weather today",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "what is the maximum shrinkage allowed",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "what is lead time in garment sourcing",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "what is FOB price",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "how to cancel a purchase order",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "can one RMPO have multiple suppliers",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "how is open qty calculated in GRN",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "can I create a PO without indent",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial",
+      "documented"
+    ]
+  },
+  {
+    "q": "how to split a PO delivery",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "why do we need MRP if we already have BOM",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "what is the difference between GDI and GDN",
+    "category": "compare",
+    "status": [
+      "documented",
+      "partial",
+      "not-documented"
+    ]
+  },
+  {
+    "q": "what is the difference between indent and RMPO",
+    "category": "compare",
+    "status": [
+      "documented",
+      "partial",
+      "not-documented"
+    ]
+  },
+  {
+    "q": "can packs built on different styles be clubbed",
+    "category": "kitpack",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "how many production orders are generated for a KIT",
+    "category": "kitpack",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "what happens when a kit is approved",
+    "category": "kitpack",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "how is a child kit created from a master kit",
+    "category": "kitpack",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "what is the ratio type in kit pack",
+    "category": "kitpack",
+    "status": [
+      "documented"
+    ]
+  },
+  {
+    "q": "what is the freight insurance premium formula for a kit pack",
+    "category": "not-documented",
+    "status": [
+      "not-documented",
+      "partial"
+    ]
+  },
+  {
+    "q": "why do indents come in inactive status",
+    "category": "rule",
+    "source": "RULE-SETUP-BOM-INDENT-OWNER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what happens if user group and purchase officer are not set on BOM",
+    "category": "rule",
+    "source": "RULE-SETUP-BOM-INDENT-OWNER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how do I activate an inactive indent",
+    "category": "rule",
+    "source": "RULE-SETUP-BOM-INDENT-OWNER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "what does price per color wise mean",
+    "category": "rule",
+    "source": "TERM-PRICE-PER-COLOR",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "which materials go to sewing in routing",
+    "category": "rule",
+    "source": "RULE-BOM-ROUTING-NORMAL-MATERIAL-FLOW",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "how does division get filled in the techpack",
+    "category": "rule",
+    "source": "RULE-APPAREL-BUYER-DIVISION-AUTO",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "If my consumption is 1 Meter and my loss is 10%, Shrinkage is 5%, Wastage is 2% then tell me the total consumption",
+    "category": "calculation",
+    "source": "CALC-CONSUMPTION-CHAIN",
+    "status": [
+      "confirmed"
+    ],
+    "calcResult": 1.192982456
+  },
+  {
+    "q": "if i have my consumption of 1 Meter and loss is 10%, WASTAGE IS 2% THEN TELL ME THE TOTAL CONSUMPTION",
+    "category": "calculation",
+    "source": "CALC-CONSUMPTION-CHAIN",
+    "status": [
+      "confirmed"
+    ],
+    "calcResult": 1.133333333
+  },
+  {
+    "q": "i have my indent marked as inactive, why is it so.",
+    "category": "rule",
+    "source": "RULE-SETUP-BOM-INDENT-OWNER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "when is indent marked as inactive",
+    "category": "rule",
+    "source": "RULE-SETUP-BOM-INDENT-OWNER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "when i dont select purchase officer and user group then what happens",
+    "category": "rule",
+    "source": "RULE-SETUP-BOM-INDENT-OWNER",
+    "status": [
+      "confirmed"
+    ]
+  },
+  {
+    "q": "loss %",
+    "category": "definition",
+    "source": "TERM-LOSS",
+    "status": [
+      "confirmed"
+    ]
+  }
+]

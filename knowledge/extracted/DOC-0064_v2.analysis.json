@@ -1,0 +1,244 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Ankit",
+          "14-12-2025",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "351028 - excess not showing in the PO screen",
+  "keyTerms": [
+    "excess",
+    "excess material",
+    "stock",
+    "material",
+    "quantity",
+    "indent",
+    "adjustment",
+    "order tab",
+    "excess stock",
+    "order",
+    "quantities",
+    "rmpo",
+    "view",
+    "must",
+    "material stock"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 7
+    },
+    {
+      "module": "Planning",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "RMPO – Raw Material Purchase Order"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Once a Purchase Order (PO) is created for an indent, these excess quantities are not visible on the RMPO screen → On Order tab.",
+      "locator": "§ … › Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to make both Excess Material – PO and Excess Material – Stock data visible on the On-Order tab of the PO view, enabling users to adjust excess quantities directly during RMPO processing.",
+      "locator": "§ … › Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The system must allow users to view and adjust both Excess PO and Excess Stock quantities directly from the PO view.",
+      "locator": "§ … › Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Enhance the RMPO screen – On Order tab to display:\n2. Excess Material – PO\n3. Excess Material – Stock\n4. Excess PO quantities should be shown RMPO-wise for the same article/color/size.\n5. Excess Stock quantities should reflect warehouse-received excess where indent open quantity is negative.\n6. Ensure consistency with the existing Indent Stock Adjustment logic.",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Indent required quantity = 100",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "PO created quantity = 120 (due to MOQ or reduced requirement)",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "Excess quantity = 20",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "When a new indent is generated for the same article/color/size, the system should display this excess PO quantity RMPO-wise and allow adjustment up to 20 QTY.",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Indent required quantity = 100\n2. PO created quantity = 120 (due to MOQ or reduced requirement)\n3. Excess quantity = 20\n4. When a new indent is generated for the same article/color/size, the system should display this excess PO quantity RMPO-wise and allow adjustment up to 20 QTY.",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Material is received in the warehouse with excess quantity.",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Material is received in the warehouse with excess quantity.\n2. Indent open quantity becomes negative (received quantity > required quantity).\n3. This excess stock should be available for adjustment against other indents.",
+      "locator": "§ … › Solution",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Excess Material – PO data must be visible in the On-Order tab of the PO view.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Excess Material – Stock data must be visible in the On-Order tab of the PO view.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "System must allow adjustment of excess PO quantity up to the available excess amount.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Excess stock must be adjustable against other indents when indent open quantity is negative.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Data displayed in the PO view must match the values shown on the Indent Stock Adjustment screen.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Existing adjustment functionality must remain unaffected.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria:\n1. Excess Material – PO data must be visible in the On-Order tab of the PO view.\n2. Excess Material – Stock data must be visible in the On-Order tab of the PO view.\n3. System must allow adjustment of excess PO quantity up to the available excess amount.\n4. Excess stock must be adjustable against other indents when indent open quantity is negative.\n5. Data displayed in the PO view must match the values shown on the Indent Stock Adjustment screen.\n6. Existing adjustment functionality must remain unaffected.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 4. Revision History, table 1",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "351028 - excess not showing in the PO screen",
+      "heading": "",
+      "text": "Excess not showing in the PO screen\nDevelopment ID: 351028\nExcess not showing in the PO screen\nDevelopment ID: 351028",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n2. Purpose 2\n3. Solution 2\n4. Revision History 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "… › Purpose",
+      "text": "Currently, Excess Material – PO and Excess Material – Stock data are visible only on the Indent Stock Adjustment screen. Once a Purchase Order (PO) is created for an indent, these excess quantities are not visible on the RMPO screen → On Order tab.\nThe purpose of this enhancement is to make both Excess Material – PO and Excess Material – Stock data visible on the On-Order tab of the PO view, enabling users to adjust excess quantities directly during RMPO processing.",
+      "locator": "§ … › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Business Requirement",
+      "text": "The business requires full visibility of excess material quantities at the time of RMPO creation and adjustment. Currently, users can view and adjust excess quantities on the Indent Stock Adjustment screen, but once the PO is created, this information is no longer available in the RMPO “On Order” tab.\nThis limitation creates gaps in material planning and adjustment, especially when new indents are generated for the same article/color/size. The system must allow users to view and adjust both Excess PO and Excess Stock quantities directly from the PO view.",
+      "locator": "§ … › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "… › Solution",
+      "text": "• Enhance the RMPO screen – On Order tab to display:\n• Excess Material – PO\n• Excess Material – Stock\n• Excess PO quantities should be shown RMPO-wise for the same article/color/size.\n• Excess Stock quantities should reflect warehouse-received excess where indent open quantity is negative.\n• Ensure consistency with the existing Indent Stock Adjustment logic.\nExcess PO Scenario:\n• Indent required quantity = 100\n• PO created quantity = 120 (due to MOQ or reduced requirement)\n• Excess quantity = 20\n• When a new indent is generated for the same article/color/size, the system should display this excess PO quantity RMPO-wise and allow adjustment up to 20 QTY.\nExcess Stock Scenario:\n• Material is received in the warehouse with excess quantity.\n• Indent open quantity becomes negative (received quantity > required quantity).\n• This excess stock should be available for adjustment against other indents.",
+      "locator": "§ … › Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria",
+      "heading": "… › Acceptance Criteria",
+      "text": "• Excess Material – PO data must be visible in the On-Order tab of the PO view.\n• Excess Material – Stock data must be visible in the On-Order tab of the PO view.\n• System must allow adjustment of excess PO quantity up to the available excess amount.\n• Excess stock must be adjustable against other indents when indent open quantity is negative.\n• Data displayed in the PO view must match the values shown on the Indent Stock Adjustment screen.\n• Existing adjustment functionality must remain unaffected.",
+      "locator": "§ … › Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Revision History – Table 1",
+      "heading": "Section 4. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Ankit | 14-12-2025 | Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 1.0; Revised By: Ankit; Revised On: 14-12-2025; Changes: Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

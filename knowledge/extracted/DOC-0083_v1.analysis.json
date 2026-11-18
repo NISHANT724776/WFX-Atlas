@@ -1,0 +1,415 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Division",
+        "Project Spoc",
+        "Designation",
+        "Sign off / Date"
+      ],
+      "types": [
+        "text",
+        "text",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [
+        "Division"
+      ],
+      "rows": [
+        [
+          "LSD",
+          "Abhimanyu",
+          "",
+          ""
+        ],
+        [
+          "MNB",
+          "Hemanth",
+          "",
+          ""
+        ],
+        [
+          "Knits",
+          "Lohit / Arun",
+          "",
+          ""
+        ],
+        [
+          "Project Sponsor",
+          "Balaji / Bal Singh",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Created / Revised By",
+        "Created / Revised on"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Aryan Bhatt",
+          "07 Feb 2026"
+        ],
+        [
+          "1.1",
+          "Rahul Narwal",
+          "22 September 2026"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "402748- Revised",
+  "keyTerms": [
+    "material code",
+    "material",
+    "request",
+    "code request",
+    "article",
+    "articles",
+    "code",
+    "user",
+    "uom",
+    "bom",
+    "consumption",
+    "section",
+    "pdf",
+    "article description",
+    "consumption uom"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 22
+    },
+    {
+      "module": "Planning",
+      "score": 2
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "Apparel Style (Techpack)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to stabilize and enhance the material code request feature.",
+      "locator": "§ Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "A provision is required to add the ‘Generic Article Description’ in a specific section of the Bill of Materials.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "A provision is required to add the ‘Generic Article Description’ in a specific section of the Bill of Materials.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "An option is required to allow “partial attachment of articles” to a material code request when multiple generic article descriptions exist.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "An option is required to allow “partial attachment of articles” to a material code request when multiple generic article descriptions exist.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. A provision is required to add the ‘Generic Article Description’ in a specific section of the Bill of Materials.\n2. An option is required to allow “partial attachment of articles” to a material code request when multiple generic article descriptions exist.\n3. Automatic update of Purchase UOM and Consumption UOM in the Bill of Materials after attaching the actual article through the Material Code Request.\n4. The wastage percentage should be auto-updated when the costing wastage slab is used.",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "Currently, these components are hard-coded, and based on this hard-coding, the system places the articles under the ‘Fabric’ or ‘Trims’ sections in the Bill of Materials.",
+      "locator": "§ Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "If Unclassified section articles go for “Material Code Request” and actual articles will be attached so particular BOM line need to go its corresponding Section automatically (As Ready for Processing) based on “Cost Sheet Template”.",
+      "locator": "§ Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Introduce a “Temporary / Neutral Material / Unclassified Articles”:\n1. Under this section all the articles that not get resolved will come with “Generic Article Description” (From PDF).\n2. This section will not allow to ‘Add Articles”, “Delete Section”, “Edit Section”, “Copy Material from Items”, “Update Supplier Reference”, “Delete Articles”.\n3. This section articles will only allow to send the articles for “Material Code Request”, user also not able to mark these articles as “Put on hold”, “Ready For processing”, “Price Request”, “Consumption Request”.\n4. This section articles will come as “On Hold” and if user try to run the MRP these generic articles will not go for MRP generation.\n5. Generic Category material will not be allowed for material linkage in routing.\n6. If Unclassified section articles go for “Material Code Request” and actual articles will be attached so particular BOM line need to go its corresponding Section automatically (As Ready for Processing) based on “Cost Sheet Template”.",
+      "locator": "§ Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "However, the consumption quantity will remain unchanged, and the user must manually update the consumption.",
+      "locator": "§ Solution › … › Material Code Request Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Code Request Enhancement:\n1. If the article not exists in the system so after material code request ‘Consumption UOM’ & ‘Purchase UOM’ should auto need to populate based on techpack.\n2. Costing wastage slab Is defined under ‘Company Setup’ but as we know bill of material is created through WFX AI Engine so Wastage percentage is not visible on ‘Bill of material’\n3. Require a provision to partially approve the ‘Material code request’ so that the attached article on Material code request will auto populate on Bill of material screen.",
+      "locator": "§ Solution › … › Material Code Request Enhancement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "PD Query:\nUser Request can be sent by configuring it through user permission, from where does these flex fields are going to be configured and why Flex fields are required?",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Request Screen:\n1. For previously mapped articles, clicking the hyperlink will open the respective Article Tech Pack.\n2. For unmapped/new articles, clicking the hyperlink will open a popup allowing the user to map the article to a different article.\n3. Additionally, once a previously unmapped article is mapped but has not yet been approved, its article name will also become a hyperlink. On clicking this hyperlink, a popup will open, allowing the user to change or replace the current article mapping, if required.",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "This change will also remove the existing validation that requires the user to map and approve every article/field before the request can be approved.",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This is not applicable for material which are added manually in BOM (Not Via PDF).",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "So, we need an restriction that only the assigned user can his requests and can take actions.",
+      "locator": "§ Solution › Request Visibility (Material, Price, Consumption) based on Assigned User.",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "One requirement is that currently 1 request contains multiple articles then there’s no option to delegate the request for certain materials.",
+      "locator": "§ Solution › Request Visibility (Material, Price, Consumption) based on Assigned User. › Addition of Assigned user in detail view",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Addition of Assigned user in detail view:\n1. One requirement is that currently 1 request contains multiple articles then there’s no option to delegate the request for certain materials.\n2. So, we need one additional column as “Assigned User”\n3. Need copy below option as well to update assigned user to multiple lines as well.",
+      "locator": "§ Solution › Request Visibility (Material, Price, Consumption) based on Assigned User. › Addition of Assigned user in detail view",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Division, Project Spoc, Designation, Sign off / Date (4 rows; identifiers: Division)",
+      "locator": "§ Required Approval Matrix:-, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Created / Revised By, Created / Revised on (2 rows)",
+      "locator": "§ Version History, table 2",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "402748- Revised",
+      "heading": "",
+      "text": "Material Code Request Enhancement\nDevelopment ID: 402748\nMaterial Code Request Enhancement\nDevelopment ID: 402748",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Version Control 2\n1. Purpose 2\n2. Business Requirement 2\n3. Scope 2\n4. Solution 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this document is to stabilize and enhance the material code request feature.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "At present, in the buyer PDF of the tech pack (Apparel), we receive information about fabric and trim articles. There can be two scenarios: either the particular material (fabric or trim) already exists in the WFX system, or it is a new material. If the material does not exist in the WFX system, it is automatically mapped to a ‘Generic Article Description’. However, there are some challenges and loopholes that need to be addressed and enhanced.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This document contains the below scope:\n• A provision is required to add the ‘Generic Article Description’ in a specific section of the Bill of Materials.\n• An option is required to allow “partial attachment of articles” to a material code request when multiple generic article descriptions exist.\n• Automatic update of Purchase UOM and Consumption UOM in the Bill of Materials after attaching the actual article through the Material Code Request.\n• The wastage percentage should be auto-updated when the costing wastage slab is used.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "heading": "Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "text": "In the buyer PDF, we generally receive the article description or article name along with specific components such as Main Fabric, Zipper, Shell, or Interlining. These components vary across different buyers.\nCurrently, these components are hard-coded, and based on this hard-coding, the system places the articles under the ‘Fabric’ or ‘Trims’ sections in the Bill of Materials.\nThe correct approach should be based on the article name/article description system should need to put all “Generic Articles” under one section – “Unclassified Articles”.\n• Under this section all the articles that not get resolved will come with “Generic Article Description” (From PDF).\n• This section will not allow to ‘Add Articles”, “Delete Section”, “Edit Section”, “Copy Material from Items”, “Update Supplier Reference”, “Delete Articles”.\n• This section articles will only allow to send the articles for “Material Code Request”, user also not able to mark these articles as “Put on hold”, “Ready For processing”, “Price Request”, “Consumption Request”.\n• This section articles will come as “On Hold” and if user try to run the MRP these generic articles will not go for MRP generation.\n• Generic Category material will not be allowed for material linkage in routing.",
+      "locator": "§ Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "kind": "section"
+    },
+    {
+      "title": "Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "heading": "Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles”",
+      "text": "• If Unclassified section articles go for “Material Code Request” and actual articles will be attached so particular BOM line need to go its corresponding Section automatically (As Ready for Processing) based on “Cost Sheet Template”.",
+      "locator": "§ Solution › … › Introduce a “Temporary / Neutral Material / Unclassified Articles” (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Material Code Request Enhancement",
+      "heading": "Solution › … › Material Code Request Enhancement",
+      "text": "• Right now, in buyer PDF unit of measurement is defined as a single UOM for example Yard, PCS, Meter, set but in WFX system we have three different type of UOM Consumption UOM, Storage UOM & Purchase UOM.\n• If the article already exists in the system so at the time of bill of material creation “Consumption UOM” & “Purchase UOM” should auto need to pick from article techpack.\nNote: - In such cases, if the buyer provides the UOM as ‘Yard’ and the consumption quantity as ‘1.5’, while the article consumption UOM in the Tech Pack master is ‘Meter’, the system will automatically change the Consumption UOM and Purchase UOM in the Bill of Materials. However, the consumption quantity will remain unchanged, and the user must manually update the consumption.\n• If the article not exists in the system so after material code request ‘Consumption UOM’ & ‘Purchase UOM’ should auto need to populate based on techpack.\n• Costing wastage slab Is defined under ‘Company Setup’ but as we know bill of material is created through WFX AI Engine so Wastage percentage is not visible on ‘Bill of material’\n• Require a provision to partially approve the ‘Material code request’ so that the attached article on Material code request will auto populate on Bill of material screen.",
+      "locator": "§ Solution › … › Material Code Request Enhancement",
+      "kind": "section"
+    },
+    {
+      "title": "Change In Material Code Request",
+      "heading": "Solution › … › Change In Material Code Request",
+      "text": "While creating Material code request from, user will be able to select Fabric Name’s system coding fields’ values. These values will be just for reference only. There will be no impact otherwise.",
+      "locator": "§ Solution › … › Change In Material Code Request",
+      "kind": "section"
+    },
+    {
+      "title": "Request Screen",
+      "heading": "Solution › … › Change In Material Code Request › … › Request Screen",
+      "text": "When user click on material code request then system will show allow to send each article to different user and will also show additional attributes of the material.\nThese fields will be visible to sourcing team while linking material code to the request. All the fields will have Copy Below, copy to all and copy to selected tool.\nAll these fields will come from Article field setting. We required a option in article field setting “Visible in Material Code Request”, if a column of standard or flexi field is enabled then it will show in this popup while sending any request for material code.\nThe same fields will be visible to Material Creation Request – New Screen as well\nNow, when sourcing team will click on “Create New Article” then these flex fields will get pre filled in article techpack.\nPD Query:\nUser Request can be sent by configuring it through user permission, from where does these flex fields are going to be configured and why Flex fields are required?\n\nIMPL Remarks: Screens attached\n• In the above screen, the user will fill in all the relevant field details before submitting the request for approval. The approver will be selected in the User column. Upon clicking the Confirm button, the material code request, along with all the entered details, will be automatically routed to the designated approver specified in the User column.",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Request Screen",
+      "heading": "Solution › … › Change In Material Code Request › … › Request Screen",
+      "text": "Changes in Material Code Request Page for above point.\n• The Category column will be removed, as all articles will now be treated as unclassified. Currently, the Category field restricts the ability to search for articles across different categories. Removing this column will allow users to search and view all articles without category-based limitations, thereby improving accessibility and usability.\nPD Solution: Instead of removing the column Category, we should fill it with either TBA or Unclassified.\n• A multi-select option will be provided to enable the approver to select multiple records simultaneously. This will allow the approver to perform partial approval or rejection of requests, offering greater flexibility and improving overall processing efficiency.\nPD Solution: Instead of providing a checkbox, the user will directly map the article. For example, if there are 6 articles in a Material Code Request and the user maps only 2 articles, clicking Approve will approve the request only for those 2 mapped articles.\nThe remaining 4 unmapped articles will keep the Material Code Request in Pending status and will remain available for mapping. The pending articles will be displayed as hyperlinks:\n• For previously mapped articles, clicking the hyperlink will open the respective Article Tech Pack.",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Request Screen",
+      "heading": "Solution › … › Change In Material Code Request › … › Request Screen",
+      "text": "• For unmapped/new articles, clicking the hyperlink will open a popup allowing the user to map the article to a different article.\n• Additionally, once a previously unmapped article is mapped but has not yet been approved, its article name will also become a hyperlink. On clicking this hyperlink, a popup will open, allowing the user to change or replace the current article mapping, if required.\nThis change will also remove the existing validation that requires the user to map and approve every article/field before the request can be approved.\n• Problem Statement- Auto Resolved Articles from PDF\nCurrently, when articles are resolved automatically from the buyer PDF, the system maps the article based on previous Material Code Requests and historical references. However, in many cases, the complete article description is not available in the buyer PDF. In case of trims, where in PDF in BOM Buyer only writes Button, the detail desc of button like 2 holes or 4 holes is not mentioned there, merchant understands by reading the techpack spec sheet or by images ref. Due to this limitation, the system may resolve and attach an incorrect article automatically.\nAs a result, users may face issues in identifying whether the mapped article is correct, which can lead to incorrect BOM mapping and further processing issues.",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Request Screen",
+      "heading": "Solution › … › Change In Material Code Request › … › Request Screen",
+      "text": "Solution – Currently user can send the material code request for these already mapped article but in material code request there’s no visibility of the already mapped article. So, need the visibility of the already mapped article as well. ArticleCode – (ArticleName). This will be wrap text field with hyperlink which will redirect to that article.\nThis is not applicable for material which are added manually in BOM (Not Via PDF).",
+      "locator": "§ Solution › … › Change In Material Code Request › … › Request Screen (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Request Visibility (Material, Price, Consumption) based on Assigned User.",
+      "heading": "Solution › Request Visibility (Material, Price, Consumption) based on Assigned User.",
+      "text": "• Currently, material code visibility is not controlled as per the assigned users. The user with permission of material code list can see all requests of all users and currently can take actions.\n• So, we need an restriction that only the assigned user can his requests and can take actions.",
+      "locator": "§ Solution › Request Visibility (Material, Price, Consumption) based on Assigned User.",
+      "kind": "section"
+    },
+    {
+      "title": "Addition of Assigned user in detail view",
+      "heading": "Solution › Request Visibility (Material, Price, Consumption) based on Assigned User. › Addition of Assigned user in detail view",
+      "text": "• One requirement is that currently 1 request contains multiple articles then there’s no option to delegate the request for certain materials.\n• So, we need one additional column as “Assigned User”\n• Need copy below option as well to update assigned user to multiple lines as well.",
+      "locator": "§ Solution › Request Visibility (Material, Price, Consumption) based on Assigned User. › Addition of Assigned user in detail view",
+      "kind": "section"
+    },
+    {
+      "title": "Material Code Request",
+      "heading": "Solution › Request Visibility (Material, Price, Consumption) based on Assigned User. › Addition of Assigned user in detail view › … › Material Code Request",
+      "text": "User will select the assign user can will update the request. After Updation then those users will be able to see this request but can only see the material line which is assigned to them.",
+      "locator": "§ Solution › Request Visibility (Material, Price, Consumption) based on Assigned User. › Addition of Assigned user in detail view › … › Material Code Request",
+      "kind": "section"
+    },
+    {
+      "title": "Required Approval Matrix:- – Table 1",
+      "heading": "Required Approval Matrix:-",
+      "text": "Columns: Division (text); Project Spoc (text); Designation (empty); Sign off / Date (empty)\nDivision | Project Spoc | Designation | Sign off / Date\nLSD | Abhimanyu |  | \nMNB | Hemanth |  | \nKnits | Lohit / Arun |  | \nProject Sponsor | Balaji / Bal Singh |  | ",
+      "locator": "§ Required Approval Matrix:-, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: LSD; Project Spoc: Abhimanyu",
+      "locator": "§ Required Approval Matrix:-, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: MNB; Project Spoc: Hemanth",
+      "locator": "§ Required Approval Matrix:-, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: Knits; Project Spoc: Lohit / Arun",
+      "locator": "§ Required Approval Matrix:-, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: Project Sponsor; Project Spoc: Balaji / Bal Singh",
+      "locator": "§ Required Approval Matrix:-, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Version History – Table 2",
+      "heading": "Version History",
+      "text": "Columns: Version (decimal); Created / Revised By (text); Created / Revised on (text)\nVersion | Created / Revised By | Created / Revised on\n1.0 | Aryan Bhatt | 07 Feb 2026\n1.1 | Rahul Narwal | 22 September 2026",
+      "locator": "§ Version History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Version History",
+      "text": "Version: 1.0; Created / Revised By: Aryan Bhatt; Created / Revised on: 07 Feb 2026",
+      "locator": "§ Version History, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Version History",
+      "text": "Version: 1.1; Created / Revised By: Rahul Narwal; Created / Revised on: 22 September 2026",
+      "locator": "§ Version History, table 2, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

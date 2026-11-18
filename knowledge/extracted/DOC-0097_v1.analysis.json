@@ -1,0 +1,96 @@
+{
+  "tables": [],
+  "subject": "414392",
+  "keyTerms": [
+    "percentage",
+    "column",
+    "pct",
+    "delivery schedule",
+    "percentage pct",
+    "delivery",
+    "schedule",
+    "user",
+    "split",
+    "total",
+    "quantity",
+    "based",
+    "based entered",
+    "entered percentage",
+    "total quantity"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "Purpose:\n1. Add a new column “Percentage (%)” in Delivery Schedule\n2. Auto-calculate quantity based on entered percentage\n3. Enable functionality during:\n4. PO Creation\n5. PO Edit",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "If the total percentage across all delivery schedule rows exceeds 100%, the system will display an error message indicating that the allocated quantity exceeds the total PO quantity.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Validation 1: If the user clicks on the Split hyperlink without entering a valid value in the Percentage (%) column, the system will display an alert message prompting the user to enter a valid percentage.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The column will be visible and available for user interaction only if it is enabled (active) in the configurator.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If the field is not activated, the Percentage column and its associated functionality will not be displayed in the Delivery Schedule.",
+      "locator": "§ Purpose",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "414392",
+      "heading": "",
+      "text": "Software Requirements Specification\nPercentage Column in Delivery Schedule\n17th Sep 2026",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "To enhance the Purchase Order (PO) Delivery Schedule by introducing a Percentage-based column, enabling users to split the total PO based on defined percentages.\nScope\n• Add a new column “Percentage (%)” in Delivery Schedule\n• Auto-calculate quantity based on entered percentage\n• Enable functionality during:\n• PO Creation\n• PO Edit\nIntroduction:\nA new column titled “Percentage (%)” will be introduced in the Delivery Schedule. The user will enter a percentage value in this column and click on a designated hyperlink (Split action). Upon clicking, the system will automatically create a new delivery schedule line with the remaining percentage. The quantity for both the existing and newly created lines will be recalculated proportionally based on the entered percentage and the total PO quantity, ensuring that the overall distribution remains accurate and totals 100%.\nIn the above screen, once the user enters a value in the Percentage (%) column (for example, 10%) and clicks on the Split button, the system will automatically split the row based on the entered percentage. In this case, the existing row will be updated with 10% of the total quantity, and a new row will be created with the remaining 90%. The quantities for both rows will be recalculated accordingly.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "If the total percentage across all delivery schedule rows exceeds 100%, the system will display an error message indicating that the allocated quantity exceeds the total PO quantity. The system will not allow the user to proceed until the percentage values are adjusted to ensure that the total does not exceed 100%.\nThis kind of Alert should be given to the User.\nValidation 1: If the user clicks on the Split hyperlink without entering a valid value in the Percentage (%) column, the system will display an alert message prompting the user to enter a valid percentage. The system will not proceed with the split action until a valid input is provided in the Percentage field.\nNOTE: The Percentage (%) column will be controlled through the Screen Layout Configurator. The column will be visible and available for user interaction only if it is enabled (active) in the configurator. If the field is not activated, the Percentage column and its associated functionality will not be displayed in the Delivery Schedule.\nIn the above Screen you can see that we will provide this column in Screen Layout Configurator.",
+      "locator": "§ Purpose (part 2)",
+      "kind": "section"
+    }
+  ]
+}

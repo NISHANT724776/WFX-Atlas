@@ -1,0 +1,165 @@
+# Module: TNA
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-TNA
+MODULE NAME: TNA
+DESCRIPTION: Time and Action calendar: roles, tasks, templates
+SUBMODULES:
+TRANSACTIONS:
+DATA MODEL DOCUMENTS:
+WORKFLOW STEPS:
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-SETUP-ORDER
+TITLE: How do I set up TNA (Time and Action)?
+TOPIC: TNA setup order
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: First the basic configuration is done: roles, tasks, templates, auto TNA attachment rules, reasons for task rejection and delay, and then the roles are assigned to users in the org structure.
+STEPS:
+  1. Create roles, department wise.
+  2. Create tasks (for example order creation, cost sheet creation, purchase order), and define how each is updated, whether it goes for approval and which department it belongs to.
+  3. Create a template as per the order creation date and the delivery date.
+  4. Define the Auto TNA attachment rules so templates attach automatically when a sales order is created.
+  5. Create the reasons for task rejection.
+  6. Create the reasons for task delay.
+  7. Assign the role to the user in the org structure.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-TASK
+TITLE: What is a TNA task?
+TOPIC: TNA task
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: A task is a basic step such as order creation, cost sheet creation or purchase order. When creating it you define how it is updated, whether it is sent for approval and which department it belongs to.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-TEMPLATE
+TITLE: How do I create a TNA template?
+TOPIC: TNA template
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: A template is named by its length, for example 50 days or 30 days, for the object Sales Order. Tasks are dragged from the task library to the task bar from the first task to the final task.
+STEPS:
+  1. Click New and give the template a name such as 50 days or 30 days.
+  2. Select the object Sales Order.
+  3. Select tasks from the task library and drag them to the task bar, from the first task to the final one.
+  4. For the first and final task set the task start based on the creation date; for the other tasks choose an offset task (the parent task).
+  5. Define the duration, that is the turnaround time given to complete each task.
+  6. Define the role responsible for closing each task.
+WHERE IN WFX:
+NOTES: Only after the task is defined properly will it be visible in My Task List and the TNA dashboard.
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-AUTO-TNA-ATTACHMENT
+TITLE: What are the Auto TNA attachment rules?
+TOPIC: Auto TNA attachment
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: With the Auto TNA attachment rules defined, a template is attached automatically when a sales order is created, so nobody has to attach it manually.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-REASONS
+TITLE: What are the TNA rejection and delay reasons?
+TOPIC: TNA reasons
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: After the attachment rules you create reasons for task rejection and reasons for task delay, which users pick when rejecting or delaying a task.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-ROLE-ASSIGNMENT
+TITLE: How do tasks reach the right person?
+TOPIC: TNA role assignment
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: Assign the role to the user in the org structure so that tasks are assigned automatically and appear in My Task List and the TNA dashboard.
+STEPS:
+WHERE IN WFX: Admin > Org Structure > select user ID > click user name > select role > Define Role
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-OBJECTS
+TITLE: Can TNA be used for objects other than sales orders?
+TOPIC: TNA objects
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: Yes. The TNA here is built on the sales order, but the same can be created on sampling, production order, raw material purchase order and others.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-CLOSING-TNA-TASKS
+TITLE: Where can a TNA task be closed?
+TOPIC: Closing TNA tasks
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: A task can be closed from the Sales Order list, from My Task List, and from the TNA dashboard. In the Sales Order list, click the TNA column to open the page with the assigned user name and target date and close the task there. My Task List is at TNA > My Task List and closing is the same.
+STEPS:
+WHERE IN WFX: Sales Order list (TNA column); TNA > My Task List; TNA dashboard
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-TNA-TNA-DASHBOARD
+TITLE: How does the TNA dashboard work?
+TOPIC: TNA dashboard
+MODULE: TNA
+SOURCE DOCUMENT: TNA Workflow
+CONTENT: Select the sales order; since the TNA is configured on the sales order, all the relevant tasks pending with the user show. To close a task, click its date and enter a comment. To change the layout, click the settings icon and modify the dashboard as required.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "TNA Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

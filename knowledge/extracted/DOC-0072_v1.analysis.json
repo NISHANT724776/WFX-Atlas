@@ -1,0 +1,277 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Field Name",
+        "Type",
+        "Field Length",
+        "Editable",
+        "Mandatory"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "boolean"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Nego Bank",
+          "Text",
+          "200",
+          "Yes",
+          "No"
+        ],
+        [
+          "Nego Date",
+          "Date",
+          "Date",
+          "Yes",
+          "No"
+        ],
+        [
+          "Remarks",
+          "Text",
+          "800",
+          "Yes",
+          "No"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "368638 - Nego date and Bank fields needed to update negotiation information against multiple invoice",
+  "keyTerms": [
+    "invoice",
+    "date",
+    "bank",
+    "nego",
+    "nego date",
+    "update",
+    "fields",
+    "negotiation",
+    "invoice list",
+    "export",
+    "import export",
+    "against multiple",
+    "bank negotiation",
+    "sales",
+    "sales invoice"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "Business Requirement:\n1. Negotiation Date\n2. Negotiation Bank\n3. Remarks",
+      "locator": "§ … › Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Purpose:\n1. Improve bank reconciliation control\n2. Track invoice-to-bank negotiation mapping\n3. Support export finance monitoring\n4. Reduce Excel dependency\n5. Improve audit traceability",
+      "locator": "§ … › Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "This is a governance upgrade, not just UI improvement.",
+      "locator": "§ … › Purpose",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Ability to update bank negotiation information directly from AR Sales Invoice List\n2. Bulk update capability by using Import / Export option\n3. Enable / Disable fields through Screen Layout Configurator",
+      "locator": "§ … › Scope",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Field Name, Type, Field Length, Editable, Mandatory (3 rows)",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List, table 1",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bulk update capability & Import / Export option:\n1. CSV format\n2. Includes:\n3. Invoice No\n4. Customer\n5. Invoice Date\n6. Invoice Value\n7. Currency\n8. Nego Bank\n9. Nego Date\n10. Remarks",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory column: Invoice No",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bulk update capability & Import / Export option:\n1. CSV upload\n2. Mandatory column: Invoice No\n3. System matches invoice\n4. Updates:\n5. Nego Bank\n6. Nego Date\n7. Remarks",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Invoice must exist",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Invoice must not be Closed/Cancelled",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Date format validated",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Nego Date cannot be earlier than Invoice Date",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "If Nego Bank entered → Nego Date mandatory",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bulk update capability & Import / Export option:\n1. Invoice must exist\n2. Invoice must not be Closed/Cancelled\n3. Date format validated\n4. Error report generated if mismatch\n5. Nego Date cannot be earlier than Invoice Date\n6. If Nego Bank entered → Nego Date mandatory",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria::\n1. Handling of fields from SLC\n2. Check bulk update option – All 3 options\n3. Check import & export functionality",
+      "locator": "§ … › Acceptance Criteria:",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "368638 - Nego date and Bank fields needed to update negotiation information against multiple invoice",
+      "heading": "",
+      "text": "Nego date and Bank fields needed to update negotiation information against multiple invoice\nDevelopment ID: 368638\nNego date and Bank fields needed to update negotiation information against multiple invoice\nDevelopment ID: 368638",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Business Requirement 2\nPurpose 2\nScope 2\nSolution 2\nAbility to update bank negotiation information directly from AR Sales Invoice List 2\nBulk update capability & Import / Export option 3\nEnable / Disable fields through Screen Layout Configurator 4\nAcceptance Criteria: 4",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Business Requirement",
+      "text": "In export sales, invoices are submitted to banks for negotiation. Currently, there is no structured way to update and track:\n• Negotiation Date\n• Negotiation Bank\n• Remarks\nAgainst multiple Sales Invoices from the Account Receivable invoice list.",
+      "locator": "§ … › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "… › Purpose",
+      "text": "This enhancement will:\n• Improve bank reconciliation control\n• Track invoice-to-bank negotiation mapping\n• Support export finance monitoring\n• Reduce Excel dependency\n• Improve audit traceability\nThis is a governance upgrade, not just UI improvement.",
+      "locator": "§ … › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "… › Scope",
+      "text": "This enhancement applies:\n• Ability to update bank negotiation information directly from AR Sales Invoice List\n• Bulk update capability by using Import / Export option\n• Enable / Disable fields through Screen Layout Configurator",
+      "locator": "§ … › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "heading": "… › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "text": "The following fields will be added:",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "kind": "section"
+    },
+    {
+      "title": "Ability to update bank negotiation information directly from AR Sales Invoice List – Table 1",
+      "heading": "… › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "text": "Columns: Field Name (text); Type (text); Field Length (text); Editable (boolean); Mandatory (boolean)\nField Name | Type | Field Length | Editable | Mandatory\nNego Bank | Text | 200 | Yes | No\nNego Date | Date | Date | Yes | No\nRemarks | Text | 800 | Yes | No",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "… › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "text": "Field Name: Nego Bank; Type: Text; Field Length: 200; Editable: Yes; Mandatory: No",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "… › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "text": "Field Name: Nego Date; Type: Date; Field Length: Date; Editable: Yes; Mandatory: No",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "… › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "text": "Field Name: Remarks; Type: Text; Field Length: 800; Editable: Yes; Mandatory: No",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "heading": "… › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "text": "Navigation: F/A > Account Receivables > Sales Invoice > List\n• These fields will appear at the end of the invoice list grid\n• Add these fields in the Data model",
+      "locator": "§ … › Ability to update bank negotiation information directly from AR Sales Invoice List",
+      "kind": "section"
+    },
+    {
+      "title": "Bulk update capability & Import / Export option",
+      "heading": "… › Bulk update capability & Import / Export option",
+      "text": "Available via 3-dot menu or toolbar.\nA. Copy Below\nCopies values to next row.\nB. Copy to All\nCopies values to all selected rows.\nC. Multi-Select Update\nUser selects multiple invoices → Edit → Apply value to selected\nImport / Export Functionality:\nExport\n• CSV format\n• Includes:\n• Invoice No\n• Customer\n• Invoice Date\n• Invoice Value\n• Currency\n• Nego Bank\n• Nego Date\n• Remarks\nImport\n• CSV upload\n• Mandatory column: Invoice No\n• System matches invoice\n• Updates:\n• Nego Bank\n• Nego Date\n• Remarks\nValidation:\n• Invoice must exist\n• Invoice must not be Closed/Cancelled\n• Date format validated\n• Error report generated if mismatch\n• Nego Date cannot be earlier than Invoice Date\n• If Nego Bank entered → Nego Date mandatory",
+      "locator": "§ … › Bulk update capability & Import / Export option",
+      "kind": "section"
+    },
+    {
+      "title": "Enable / Disable fields through Screen Layout Configurator",
+      "heading": "… › Enable / Disable fields through Screen Layout Configurator",
+      "text": "All these 3 column fields will be enabled or disabled through SLC.\nNavigation: Admin > Configurator > Screen Layout Configurator",
+      "locator": "§ … › Enable / Disable fields through Screen Layout Configurator",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "… › Acceptance Criteria:",
+      "text": "• Handling of fields from SLC\n• Check bulk update option – All 3 options\n• Check import & export functionality",
+      "locator": "§ … › Acceptance Criteria:",
+      "kind": "section"
+    }
+  ]
+}

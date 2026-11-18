@@ -1,0 +1,73 @@
+flowchart TD
+  subgraph A["A · Style & BOM setup"]
+    masters["Masters ready"]
+    rm["Create material techpacks"]
+    n_style["Create apparel techpack"]
+    bom["BOM – Materials"]
+    routing["Routing – Processes"]
+    operations["Routing – Operations"]
+    linkage["Routing – Material linkage"]
+    costing["BOM – Cost"]
+    approve["Approve the BOM"]
+  end
+  subgraph B["B · Buyer Block Booking & material requirement"]
+    bbb_create["Create Buyer Block Booking"]
+    bbb_details["Add booking details"]
+    bbb_article["Select article"]
+    bbb_bom["Select approved BOM"]
+    bbb_populate["Auto-populate materials"]
+    bbb_materials["Material requirement"]
+    bbb_save["Save Buyer Block Booking"]
+  end
+  subgraph C["C · Adhoc Indent & procurement"]
+    gen_indent["Generate indent requirement"]
+    adhoc["System creates Adhoc Indent"]
+    po["Raise PO"]
+    asn["Supplier ASN"]
+    grn["GRN – receive"]
+  end
+  subgraph D["D · Sales Order & MRP"]
+    oc["Create Sales Order (OC)"]
+    link["Link Buyer Block Booking"]
+    mrp["MRP runs on confirmation"]
+    mfg_indent["Manufacture Indent"]
+    so_indent["Sales Order Indent"]
+  end
+  subgraph E["E · Automatic adjustment"]
+    adjust["Automatic adjustment"]
+    so_updated["Sales Order Indent updated"]
+  end
+  subgraph F["F · Buy the gap & produce"]
+    rmpo_gap["PO for the gap"]
+    prod_order["Production Order"]
+    fpo["Factory Production Order"]
+    fppo["Process orders (FPPO)"]
+  end
+  n_style --> bom
+  bom --> routing
+  routing --> operations
+  operations --> linkage
+  bom --> costing
+  costing --> approve
+  bbb_create --> bbb_details
+  bbb_details --> bbb_article
+  bbb_article --> bbb_bom
+  bbb_bom --> bbb_populate
+  bbb_populate --> bbb_materials
+  bbb_create --> bbb_save
+  bbb_save --> gen_indent
+  gen_indent --> adhoc
+  adhoc --> po
+  po --> asn
+  asn --> grn
+  n_style --> oc
+  oc --> link
+  oc --> mrp
+  mrp --> mfg_indent
+  mrp --> so_indent
+  so_indent --> adjust
+  adjust --> so_updated
+  so_indent --> rmpo_gap
+  so_indent --> prod_order
+  prod_order --> fpo
+  fpo --> fppo

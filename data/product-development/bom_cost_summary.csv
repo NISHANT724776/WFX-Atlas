@@ -1,0 +1,9 @@
+﻿apparel_code,item,value_inr,how_wfx_gets_it
+NIS-59,Material Cost,24790.72,"Fabric 24,750 + Trim 40.72"
+NIS-59,Production Cost,325,VCutting 300 + Sewing 10 + VPacking 15
+NIS-59,Recipe / Indirect / CM,0,Entered (none)
+NIS-59,Total Cost,25115.72,Material + Production + others
+NIS-59,Selling Price,4000,Entered and locked
+NIS-59,Discount 10 %,400,"4,000 × 10 %"
+NIS-59,Profit,-21515.72,"(4,000 − 400) − 25,115.72 → −597.66 % of 3,600"
+NIS-59,Markup,-21115.72,"4,000 − 25,115.72 → −84.07 % of cost"

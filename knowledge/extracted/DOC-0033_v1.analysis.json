@@ -1,0 +1,3203 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "#",
+        "Screen",
+        "Route",
+        "Purpose"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "S-1",
+          "Sales Order List",
+          "/sales/orders",
+          "Search, filter, and manage all sales orders; entry point of the feature. /sales redirects here."
+        ],
+        [
+          "S-2",
+          "Sales Order Detail — New",
+          "/sales/orders/new",
+          "Create a new order. The record is inserted automatically once all seed fields are filled (auto-save; no Save button)."
+        ],
+        [
+          "S-3",
+          "Sales Order Detail — Edit",
+          "/sales/orders/{id}",
+          "View and edit an existing order; manual Confirm action."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Convention",
+        "Definition"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Convention"
+      ],
+      "rows": [
+        [
+          "Enforcement",
+          "Unless a rule says otherwise, every validation is enforced inline on the Detail form and re-validated on the server."
+        ],
+        [
+          "Seed fields",
+          "Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value. A new order is auto-created only once all seed fields are filled and valid (V-14)."
+        ],
+        [
+          "Text fields",
+          "Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum."
+        ],
+        [
+          "Money",
+          "≥ 0, at most 2 decimal places, displayed with exactly 2 decimals and the order’s currency."
+        ],
+        [
+          "Date display",
+          "All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Column",
+        "Content & combined cells",
+        "Filter",
+        "Format / behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "(selection)",
+          "Row checkbox + header checkbox",
+          "—",
+          "Multi-row selection; header checkbox selects the filtered set only."
+        ],
+        [
+          "Status",
+          "wfx-badge chip, never plain text",
+          "Set filter (checkbox list of the 6 statuses, fixed order)",
+          "Severity: Saved=draft, Confirmed=success, Shipped=success, Part Ship=warning, Cancelled=error. Closed: see Q-21."
+        ],
+        [
+          "Order",
+          "Combined cell — Order No (link, opens detail) over Ship Under PO Ref (secondary line)",
+          "Text filter",
+          "Link handled via data-action=\"open-order\" + onCellClicked; autoHeight on."
+        ],
+        [
+          "Buyer",
+          "Combined cell — Buyer name over buyer code",
+          "Set filter",
+          "autoHeight on."
+        ],
+        [
+          "Category",
+          "Product category code",
+          "Set filter",
+          "—"
+        ],
+        [
+          "Season",
+          "Season code",
+          "Set filter",
+          "—"
+        ],
+        [
+          "Manager",
+          "Manager name",
+          "Set filter",
+          "Avatar (initials) + name — every person-valued column renders the shared user renderer, never a bare string."
+        ],
+        [
+          "Total Qty",
+          "Order quantity",
+          "Number filter",
+          "Right-aligned, thousand separators, WITH its UOM (ASSUMED “pcs” — Q-1). Mock omits the UOM — flagged, Section 7.2."
+        ],
+        [
+          "Total Value",
+          "Order value",
+          "Number filter",
+          "Right-aligned; currency symbol + code of the record’s CurrencyCode; 2 decimals everywhere (ASSUMED — Q-2). Number locale is still hardcoded en-US in the mock — flagged, Section 7.2."
+        ],
+        [
+          "Delivery Date",
+          "Delivery date",
+          "Date (equals / before / after / from–to)",
+          "App-wide date format via WfxDateFormatService (user preference, default dd MMM yyyy). Calendar picker; a from–to range includes both endpoint days."
+        ],
+        [
+          "Created By",
+          "Who created the order",
+          "Set filter",
+          "Avatar (initials) + name. A SEPARATE column from Created On — never merged into one “Created” cell — and it precedes Created On in every list. autoHeight on."
+        ],
+        [
+          "Created On",
+          "Creation date",
+          "Date (equals / before / after / from–to)",
+          "Same date rules as Delivery Date."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Action",
+        "Shown when",
+        "Behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Action"
+      ],
+      "rows": [
+        [
+          "Edit",
+          "Always",
+          "Opens the detail screen for the row."
+        ],
+        [
+          "Confirm",
+          "Status = Saved",
+          "Confirmation dialog, then sets Status = Confirmed (see Section 4)."
+        ],
+        [
+          "Cancel",
+          "Status is not Cancelled and not Closed (real rule: Saved or Confirmed only — ASSUMED, Q-12)",
+          "Opens the Cancel Order dialog; reason is mandatory."
+        ],
+        [
+          "Delete",
+          "Status = Saved or Cancelled in the mock (real rule: Saved only — ASSUMED, Q-15)",
+          "Confirmation dialog, then hard delete."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Validation",
+        "Default",
+        "Source / DDL"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Ship Under PO Ref",
+          "Text input",
+          "Yes (seed)",
+          "V-1 (max 100, not blank)",
+          "empty",
+          "Free text; uniqueness per buyer ASSUMED — Q-6"
+        ],
+        [
+          "Buyer",
+          "Select (searchable)",
+          "Yes (seed)",
+          "V-2",
+          "none",
+          "Buyer DDL API (mock: 3 static buyers)"
+        ],
+        [
+          "Category",
+          "Select",
+          "Yes (seed)",
+          "V-3",
+          "none",
+          "Product category DDL (mock: Apparel, Knits, Woven, Denim)"
+        ],
+        [
+          "Order Season",
+          "Select (clearable)",
+          "No",
+          "—",
+          "none",
+          "Season DDL (mock: SS26, AW26, SS27); optional ASSUMED — Q-10"
+        ],
+        [
+          "Currency",
+          "Select",
+          "Yes (seed)",
+          "V-4",
+          "none",
+          "Currency DDL (mock: USD, EUR, GBP, INR)"
+        ],
+        [
+          "Manager",
+          "Text input",
+          "No",
+          "V-5 (max 100)",
+          "empty",
+          "Mock: free text. Real: user DDL — ASSUMED, Q-11"
+        ],
+        [
+          "Total Quantity",
+          "Number input",
+          "Yes (seed)",
+          "V-6 (integer 1–1,000,000)",
+          "empty",
+          "— (display with UOM, Q-1)"
+        ],
+        [
+          "Total Value",
+          "Number input",
+          "Yes (seed)",
+          "V-7 (0–99,999,999; 2 dp)",
+          "empty",
+          "— (currency per order)"
+        ],
+        [
+          "Order Initiation Date",
+          "Date picker",
+          "No (see Q-8)",
+          "Cross-field V-8",
+          "empty",
+          "App-wide date format"
+        ],
+        [
+          "Delivery Date",
+          "Date picker",
+          "No (see Q-8)",
+          "V-8 (≥ Order Initiation Date)",
+          "empty",
+          "App-wide date format"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Validation",
+        "Default",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "boolean",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Fabric Instruction",
+          "Textarea (5 rows)",
+          "No",
+          "V-9 (max 1000)",
+          "empty",
+          "Placeholder: “Enter fabric composition, GSM, finish...”"
+        ],
+        [
+          "Packing Instruction",
+          "Textarea (5 rows)",
+          "No",
+          "V-10 (max 1000)",
+          "empty",
+          "Placeholder: “Enter carton ratio, polybag, labelling...”"
+        ],
+        [
+          "Comments",
+          "Textarea (4 rows)",
+          "No",
+          "Max length TBD — Q-13a",
+          "empty",
+          "Internal notes. Must never be overwritten by the cancel reason (Section 7.2)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "#",
+        "Trigger",
+        "Kind",
+        "Title",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "M-1",
+          "List failed to load",
+          "Error toast",
+          "Load Failed",
+          "Could not load sales orders."
+        ],
+        [
+          "M-2",
+          "Confirm from list (Saved row)",
+          "Confirm dialog",
+          "Confirm Order",
+          "Confirm {MainOCNum}? A confirmed order can no longer be deleted (it can still be cancelled with a reason from the list)."
+        ],
+        [
+          "M-3",
+          "Confirm succeeded",
+          "Success toast",
+          "Order Confirmed",
+          "{MainOCNum} is now confirmed."
+        ],
+        [
+          "M-4",
+          "Confirm failed",
+          "Error toast",
+          "Confirm Failed",
+          "Could not confirm the order."
+        ],
+        [
+          "M-5",
+          "Cancel dialog, blank reason",
+          "Warning toast",
+          "Validation",
+          "Reason is mandatory."
+        ],
+        [
+          "M-6",
+          "Cancel succeeded",
+          "Success toast",
+          "Order Cancelled",
+          "{MainOCNum} was cancelled."
+        ],
+        [
+          "M-7",
+          "Cancel failed",
+          "Error toast",
+          "Cancel Failed",
+          "Could not cancel the order."
+        ],
+        [
+          "M-8",
+          "Delete on a non-deletable order",
+          "Warning toast",
+          "Not Allowed",
+          "{MainOCNum} is {Status} and cannot be deleted. Cancel it (with a reason) instead."
+        ],
+        [
+          "M-9",
+          "Delete confirmation",
+          "Confirm dialog",
+          "Confirm Delete",
+          "Delete {MainOCNum}? This cannot be undone."
+        ],
+        [
+          "M-10",
+          "Delete succeeded",
+          "Success toast",
+          "Order Deleted",
+          "{MainOCNum} was deleted."
+        ],
+        [
+          "M-11",
+          "Delete failed",
+          "Error toast",
+          "Delete Failed",
+          "Could not delete the order."
+        ],
+        [
+          "M-12",
+          "Bulk delete with blocked rows",
+          "Warning toast",
+          "Not Allowed",
+          "{n} of the selected order(s) are Confirmed or further along and cannot be deleted ({order list}). Deselect them and try again."
+        ],
+        [
+          "M-13",
+          "Bulk delete confirmation",
+          "Confirm dialog",
+          "Confirm Delete",
+          "Delete {n} selected order(s)? This cannot be undone."
+        ],
+        [
+          "M-14",
+          "Bulk delete succeeded",
+          "Success toast",
+          "Orders Deleted",
+          "{n} order(s) deleted."
+        ],
+        [
+          "M-15",
+          "Bulk delete failed",
+          "Error toast",
+          "Delete Failed",
+          "Could not delete one or more orders."
+        ],
+        [
+          "M-16",
+          "Detail: unknown id",
+          "Error toast",
+          "Not Found",
+          "That sales order does not exist."
+        ],
+        [
+          "M-17",
+          "Detail failed to load",
+          "Error toast",
+          "Load Failed",
+          "Could not load the sales order."
+        ],
+        [
+          "M-18",
+          "Auto-save failed",
+          "Error toast",
+          "Save Failed",
+          "Could not save the sales order."
+        ],
+        [
+          "M-19",
+          "Confirm with invalid form",
+          "Warning toast",
+          "Validation",
+          "Please fix the highlighted fields before confirming."
+        ],
+        [
+          "M-20",
+          "Re-confirm dialog",
+          "Confirm dialog",
+          "Re-confirm Order",
+          "Confirm the current changes to {MainOCNum}?"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "Status",
+        "Badge severity",
+        "Meaning"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Status"
+      ],
+      "rows": [
+        [
+          "Saved",
+          "Draft (grey)",
+          "Auto-saved draft; fully editable; deletable."
+        ],
+        [
+          "Confirmed",
+          "Success (green)",
+          "Commercially confirmed; not deletable; edits create a new background version (Section 7.1)."
+        ],
+        [
+          "Part Ship",
+          "Warning (amber)",
+          "Partially shipped — set by the shipment module, not by these screens."
+        ],
+        [
+          "Shipped",
+          "Success (green)",
+          "Fully shipped — set by the shipment module."
+        ],
+        [
+          "Closed",
+          "See Q-21",
+          "Commercially closed — set downstream."
+        ],
+        [
+          "Cancelled",
+          "Error (red)",
+          "Cancelled with a mandatory reason; terminal."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "#",
+        "Transition",
+        "Trigger",
+        "Who / where"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "T-1",
+          "(new) → Saved",
+          "Automatic: all seed fields filled → record inserted",
+          "Auto-save engine, detail screen"
+        ],
+        [
+          "T-2",
+          "Saved → Confirmed",
+          "Manual Confirm + confirmation dialog (M-2)",
+          "Detail toolbar button; list context menu (Saved rows)"
+        ],
+        [
+          "T-3",
+          "Confirmed → Confirmed (new version)",
+          "Edit then manual Re-confirm (M-20)",
+          "Detail screen; real app versions in the background (7.1)"
+        ],
+        [
+          "T-4",
+          "Saved / Confirmed → Cancelled",
+          "Manual Cancel + mandatory reason (3.1.6). Mock also allows cancelling Part Ship / Shipped — ASSUMED excluded, Q-12",
+          "List context menu"
+        ],
+        [
+          "T-5",
+          "Confirmed → Part Ship → Shipped → Closed",
+          "Shipment / closure documents in downstream modules",
+          "Out of scope for these screens (7.1)"
+        ],
+        [
+          "T-6",
+          "Saved → (deleted)",
+          "Manual Delete + confirmation (M-9). Mock also deletes Cancelled — ASSUMED excluded, Q-15",
+          "List context menu / bulk bar"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "#",
+        "Rule (testable statement)",
+        "Where enforced",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "V-1",
+          "Ship Under PO Ref — required (seed); trimmed, not blank; ≤ 100 chars (input hard-stops at 100); unique per buyer (ASSUMED — Q-6, async check on blur).",
+          "Detail form + server",
+          "Ship Under PO Ref is required / cannot be blank"
+        ],
+        [
+          "V-2",
+          "Buyer — required (seed).",
+          "Detail form + server",
+          "Buyer is required"
+        ],
+        [
+          "V-3",
+          "Category — required (seed).",
+          "Detail form + server",
+          "Category is required"
+        ],
+        [
+          "V-4",
+          "Currency — required (seed).",
+          "Detail form + server",
+          "Currency is required"
+        ],
+        [
+          "V-5",
+          "Manager — ≤ 100 chars.",
+          "Detail form + server",
+          "—"
+        ],
+        [
+          "V-6",
+          "Total Quantity — required (seed); whole number; 1–1,000,000.",
+          "Detail form + server",
+          "Total Quantity is required / must be at least 1 / cannot exceed 1,000,000"
+        ],
+        [
+          "V-7",
+          "Total Value — required (seed); Money (see Conventions); ≤ 99,999,999; must be > 0 to Confirm (ASSUMED — Q-4).",
+          "Detail form + server",
+          "Total Value is required / cannot be negative / cannot exceed 99,999,999"
+        ],
+        [
+          "V-8",
+          "Delivery Date — required; on or after Order Initiation Date, re-validated whenever either date changes; both dates required before Confirm (ASSUMED — Q-8).",
+          "Detail form + server",
+          "Delivery Date cannot be earlier than the Order Initiation Date"
+        ],
+        [
+          "V-9",
+          "Fabric Instruction — ≤ 1000 chars.",
+          "Detail form + server",
+          "—"
+        ],
+        [
+          "V-10",
+          "Packing Instruction — ≤ 1000 chars.",
+          "Detail form + server",
+          "—"
+        ],
+        [
+          "V-11",
+          "Cancel reason — required, not blank (after trim).",
+          "Cancel dialog + server",
+          "Reason is mandatory."
+        ],
+        [
+          "V-12",
+          "Confirm is blocked while any field is invalid.",
+          "Detail + server",
+          "Please fix the highlighted fields before confirming."
+        ],
+        [
+          "V-13",
+          "Delete is allowed only for Saved orders (real rule — ASSUMED, Q-15; mock also allows Cancelled). Server re-validates.",
+          "List + server",
+          "M-8"
+        ],
+        [
+          "V-14",
+          "A new order is created only after ALL seed fields (V-1, V-2, V-4, V-6, V-7) are filled and valid.",
+          "Auto-save engine",
+          "—"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "#",
+        "Mock shortcut",
+        "Required real behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "D-1",
+          "No versioning behind Confirm: confirmed orders are edited in place; the Confirm button simply re-saves.",
+          "Editing a Confirmed order spawns a new background version in Saved status; edits auto-save into that version; Confirm publishes it. The list keeps showing the last confirmed data, with a star flag when an edited-but-unconfirmed version exists. Full revision history retained."
+        ],
+        [
+          "D-2",
+          "Client-side grid: all rows loaded once; filters, sort and paging run in the browser.",
+          "Server-side row model: paging, sorting, filtering and quick search executed by the API; set-filter values from the DDL API (ASSUMED — Q-18)."
+        ],
+        [
+          "D-3",
+          "Static dropdown lists (3 buyers, 4 categories, 3 seasons, 4 currencies) hardcoded in the component.",
+          "All selects fed from DDL APIs; inactive/archived options hidden for new entry but still displayed on historical orders (QA checklist §1)."
+        ],
+        [
+          "D-4",
+          "Manager is a free-text box.",
+          "Manager selected from the user/merchandiser directory (ASSUMED — Q-11)."
+        ],
+        [
+          "D-5",
+          "Order number: client-side placeholder “OC-DRAFT-nnnnnn” generated at first save.",
+          "Server-assigned sequential order number at insert (ASSUMED — Q-7); the client never invents order numbers."
+        ],
+        [
+          "D-6",
+          "Auto-save PUTs the entire record on every change.",
+          "Auto-save PATCHes only dirty fields; concurrency handled per Q-20 (optimistic version check, conflict toast)."
+        ],
+        [
+          "D-7",
+          "No permissions: every user sees every action.",
+          "Role-based permissions on create / edit / Confirm / Cancel / Delete (ASSUMED — Q-16); unauthorized actions hidden or disabled with a tooltip."
+        ],
+        [
+          "D-8",
+          "Statuses Part Ship / Shipped / Closed exist only as filter values; nothing transitions into them.",
+          "Set exclusively by the shipment/closure modules (T-5). These screens only display them."
+        ],
+        [
+          "D-9",
+          "No order lines: single header-level TotalQty / TotalValue.",
+          "Article / size / colourway lines with matrix totals are a separate phase (Q-23); until then header totals are manual entries."
+        ],
+        [
+          "D-10",
+          "Mock data-source fly-out widget (Team Data / Practice Copy / Start Empty) floats over every screen.",
+          "Studio-only tooling — must NOT be promoted into wfx-erp."
+        ],
+        [
+          "D-11",
+          "No audit trail on any action.",
+          "Confirm, Cancel (with reason), Delete and every field change logged with user + timestamp, per ERP audit standards."
+        ],
+        [
+          "D-12",
+          "Back-navigation loses list state.",
+          "List restores search, filters, sort and page on return from the detail screen."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 12",
+      "headers": [
+        "#",
+        "Type",
+        "Screen / area",
+        "Finding (verified in code)",
+        "Corrected rule in this spec"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "F-1 — FIXED in the mock",
+          "Bug",
+          "List — Delivery Date, Created On columns",
+          "Columns inherited the default text filter while displaying formatted dates, so the floating filter matched the raw ISO string (e.g. “2026-09-15T00:00:00Z”) and filtering by what the user sees (“15 Sep”) failed. Both now declare cellDataType: 'dateString' + filter: 'agDateColumnFilter'; wfx-grid supplies ISO parsing, inclusive ranges and calendar-day comparison generically.",
+          "Date columns use the date column filter (3.1.3) — equals / before / after / from–to on a calendar picker. Build the real screen this way; a text filter on a date offers only “contains / begins with”, which cannot express “before this date” or a from–to range."
+        ],
+        [
+          "F-2",
+          "Bug",
+          "List — Cancel flow",
+          "Cancelling saves the reason INTO the Comments field, overwriting any existing comments.",
+          "Dedicated CancelReason field + audit; Comments untouched (3.1.6, Q-13)."
+        ],
+        [
+          "F-3",
+          "Formatting gap",
+          "List & Detail — Total Qty",
+          "Quantity is displayed without a UOM anywhere.",
+          "Quantity always shown with its UOM (3.1.3, Q-1)."
+        ],
+        [
+          "F-4 — PARTLY FIXED",
+          "Formatting inconsistency",
+          "List vs Detail — Total Value",
+          "Fixed: the list formatted value with 0 decimals (“$96,000”) while the detail input accepted 2 — same measure, two precisions; the list now shows 2 decimals everywhere (“$96,000.00”), matching the detail and Q-2. Still open: the locale is hardcoded to en-US for both value and quantity formatting, so thousand separators ignore the user’s locale.",
+          "2 decimals everywhere, symbol + code, user-locale number formatting (3.1.3, Q-2/Q-3). The decimals half is done; the real build must still drop the hardcoded locale (Q-3)."
+        ],
+        [
+          "F-5",
+          "Wording",
+          "List — confirm dialog",
+          "Dialog says a confirmed order “becomes read-only”, contradicting the versioned-edit rule and the detail screen’s own wording.",
+          "Unified M-2 wording (3.2.6)."
+        ],
+        [
+          "F-6",
+          "Standards gap",
+          "List — row actions",
+          "No pinned-right actions column; actions reachable only via right-click context menu.",
+          "Pinned-right actions column plus the context menu (3.1.3)."
+        ],
+        [
+          "F-7",
+          "UX",
+          "List — quick search",
+          "Search fires on every keystroke with no debounce.",
+          "Debounced 300 ms (3.1.2, Q-17)."
+        ],
+        [
+          "F-8",
+          "Question",
+          "List — Status badge",
+          "Closed and Cancelled share the error (red) severity; Closed is a normal completion.",
+          "Severity decision pending Q-21."
+        ],
+        [
+          "F-9",
+          "Consistency",
+          "List vs Detail — Confirm availability",
+          "List context menu offers Confirm only for Saved rows; the detail screen offers Confirm/Re-confirm for any loaded record.",
+          "Intentional per studio standards (detail carries re-confirm); list stays Saved-only. Documented in 3.1.4/3.2.5."
+        ],
+        [
+          "F-10",
+          "Minor",
+          "Detail — Total Quantity input",
+          "Input widget allows typing 0 (widget min 0) while the rule requires ≥ 1; error only appears via form validation.",
+          "V-6 stands; input may keep soft min 0 with inline error."
+        ],
+        [
+          "F-11",
+          "Minor",
+          "List — Cancel dialog",
+          "Dialog text does not name the order being cancelled.",
+          "Dialog must name the order (3.1.6)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 13",
+      "headers": [
+        "#",
+        "Question",
+        "Adopted default (ASSUMED)",
+        "Used in"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Adopted default (ASSUMED)": "ASSUMED"
+      },
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "Q-1",
+          "Total Quantity has no UOM anywhere. Which UOM applies and where is it shown?",
+          "Order-level UOM field defaulting to “pcs”; quantity always displayed as “4,800 pcs” in list and detail.",
+          "3.1.3, 3.2.2, F-3"
+        ],
+        [
+          "Q-2",
+          "Value decimals differ between list (0 dp) and detail (2 dp). What is the display rule?",
+          "Always 2 decimals with currency symbol and code, identical in list, detail and documents; round half-up.",
+          "3.1.3, V-7, F-4"
+        ],
+        [
+          "Q-3",
+          "Are number formats (thousand separators) locale-fixed or per user?",
+          "User-locale formatting via the app-wide number formatting service; never a hardcoded locale.",
+          "F-4"
+        ],
+        [
+          "Q-4",
+          "May Total Value be 0?",
+          "0 allowed while Saved (draft); must be > 0 to Confirm.",
+          "V-7, 3.2.5"
+        ],
+        [
+          "Q-5",
+          "Are the quantity bounds (integer, 1–1,000,000) and value bound (≤ 99,999,999) correct?",
+          "Yes — as mocked.",
+          "V-6…V-7"
+        ],
+        [
+          "Q-6",
+          "Must Ship Under PO Ref be unique?",
+          "Unique per buyer; blocking inline error on save.",
+          "V-1"
+        ],
+        [
+          "Q-7",
+          "How is the order number (MainOCNum) generated?",
+          "Server sequence “OC-{yyyy}-{seq}” assigned at first insert; never client-generated.",
+          "D-5, 3.2.3"
+        ],
+        [
+          "Q-8",
+          "Are Order Initiation Date and Delivery Date mandatory?",
+          "Optional while Saved; both mandatory to Confirm.",
+          "V-8, 3.2.5"
+        ],
+        [
+          "Q-9",
+          "Any absolute min/max on the dates (past/future)?",
+          "No absolute bounds (backdated orders exist); only the cross-field rule V-8, re-validated when either date changes.",
+          "V-8"
+        ],
+        [
+          "Q-10",
+          "Season is optional in the mock — intentional?",
+          "Yes, optional and clearable.",
+          "3.2.2"
+        ],
+        [
+          "Q-11",
+          "Is Manager free text or a user list?",
+          "Selected from the user/merchandiser directory in the real app.",
+          "D-4"
+        ],
+        [
+          "Q-12",
+          "Which statuses can be cancelled? The mock allows everything except Cancelled/Closed, including Part Ship and Shipped.",
+          "Saved and Confirmed only; partially/fully shipped orders follow an operations review outside this screen.",
+          "T-4, 3.1.4"
+        ],
+        [
+          "Q-13",
+          "Where is the cancel reason stored, and what is its max length?",
+          "New CancelReason field, max 500 characters, audit-logged with user and timestamp; Comments never touched.",
+          "F-2, 3.1.6"
+        ],
+        [
+          "Q-13a",
+          "Comments has no max length in the mock. Limit?",
+          "4000 characters.",
+          "3.2.2"
+        ],
+        [
+          "Q-14",
+          "Can a Cancelled order be reopened?",
+          "No — Cancelled is terminal; a replacement order is keyed fresh.",
+          "Section 4"
+        ],
+        [
+          "Q-15",
+          "The mock allows deleting Cancelled orders. Correct?",
+          "No — only Saved orders are deletable; Cancelled orders are kept for audit.",
+          "V-13, T-6"
+        ],
+        [
+          "Q-16",
+          "Who may Confirm / Cancel / Delete (roles)?",
+          "Standard WFX role permissions: merchandisers create/edit; managers confirm and cancel; delete restricted to managers.",
+          "D-7"
+        ],
+        [
+          "Q-17",
+          "Quick-search scope and debounce?",
+          "Order No, Buyer name and PO Ref; 300 ms debounce.",
+          "3.1.2, F-7"
+        ],
+        [
+          "Q-18",
+          "Client-side grid: when does server paging arrive, page sizes, default sort?",
+          "Server-side row model from day one; page sizes 20/50/100 (default 20); default sort Created On descending.",
+          "D-2, 3.1.3"
+        ],
+        [
+          "Q-19",
+          "Over-ship tolerance % and Part Ship/Shipped mechanics?",
+          "Owned by the shipment module; out of scope for these screens.",
+          "T-5, D-8"
+        ],
+        [
+          "Q-20",
+          "Two users edit the same order — what happens?",
+          "Optimistic concurrency (row version); the later save gets a conflict error toast and a reload prompt.",
+          "D-6"
+        ],
+        [
+          "Q-21",
+          "Closed shares the red badge with Cancelled. Correct severity?",
+          "Closed uses a neutral/secondary badge; red is reserved for Cancelled.",
+          "F-8, Section 4"
+        ],
+        [
+          "Q-22",
+          "Empty-list experience?",
+          "“No sales orders found” overlay plus an Add New Order call to action.",
+          "3.1.7"
+        ],
+        [
+          "Q-23",
+          "When do article / size / colourway order lines arrive?",
+          "Separate phase after this header-level screen ships; header totals stay manual until then.",
+          "D-9"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 14",
+      "headers": [
+        "Field",
+        "Type",
+        "Example",
+        "Read by",
+        "Written by"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "id",
+          "string (UUID)",
+          "6f9d3b2a-…",
+          "Both screens (row id, routing)",
+          "Server on insert (mock: client UUID)"
+        ],
+        [
+          "MainOCID",
+          "number (xtOCMain PK)",
+          "100001",
+          "— (carried for the real API)",
+          "Server"
+        ],
+        [
+          "MainOCNum",
+          "string",
+          "OC-2026-0001",
+          "List (Order column), Detail (title), all messages",
+          "Server-generated sequence (Q-7)"
+        ],
+        [
+          "ShipUnderPORef",
+          "string (≤100)",
+          "PO-ACME-5521",
+          "List (Order column, secondary)",
+          "Detail (seed field)"
+        ],
+        [
+          "BuyerCompanyCode",
+          "string",
+          "BUY001",
+          "List (Buyer secondary)",
+          "Detail (Buyer select value)"
+        ],
+        [
+          "BuyerCompanyName",
+          "string",
+          "Acme Retail Group",
+          "List (Buyer primary), search",
+          "Derived from Buyer selection"
+        ],
+        [
+          "ProductCatCode",
+          "string",
+          "APPAREL",
+          "List (Category)",
+          "Detail (Category select)"
+        ],
+        [
+          "Season",
+          "string",
+          "SS26",
+          "List (Season)",
+          "Detail (Order Season select; optional)"
+        ],
+        [
+          "CurrencyCode",
+          "string (ISO 4217)",
+          "USD",
+          "List (Total Value formatting), Detail",
+          "Detail (Currency select; seed)"
+        ],
+        [
+          "ManagerName",
+          "string (≤100)",
+          "Priya Nair",
+          "List (Manager)",
+          "Detail"
+        ],
+        [
+          "Status",
+          "enum: Saved | Confirmed | Part Ship | Shipped | Closed | Cancelled",
+          "Saved",
+          "List (badge, filters), Detail (Confirm logic)",
+          "Lifecycle actions only — never a free edit"
+        ],
+        [
+          "TotalQty",
+          "integer (1–1,000,000)",
+          "4800",
+          "List (Total Qty)",
+          "Detail (seed field)"
+        ],
+        [
+          "TotalValue",
+          "decimal(2) (0–99,999,999)",
+          "96000",
+          "List (Total Value)",
+          "Detail (seed field)"
+        ],
+        [
+          "OrderInitiationDate",
+          "ISO 8601 datetime, date-only meaning",
+          "2026-06-10T00:00:00Z",
+          "Detail",
+          "Detail (datepicker)"
+        ],
+        [
+          "DeliveryDate",
+          "ISO 8601 datetime; ≥ OrderInitiationDate",
+          "2026-09-15T00:00:00Z",
+          "List (Delivery Date), Detail",
+          "Detail (datepicker)"
+        ],
+        [
+          "CreatedBy",
+          "string (≤100)",
+          "Ayesha Khan",
+          "List (Created By, avatar + name)",
+          "Server on insert — the authenticated user; never client-supplied"
+        ],
+        [
+          "CreatedOn",
+          "ISO 8601 datetime",
+          "2026-06-12T09:30:00Z",
+          "List (Created On, default sort)",
+          "Server on insert"
+        ],
+        [
+          "FabricInstruction",
+          "string (≤1000)",
+          "100% combed cotton…",
+          "Detail (Instruction tab)",
+          "Detail"
+        ],
+        [
+          "PackingInstruction",
+          "string (≤1000)",
+          "Solid color solid size…",
+          "Detail (Instruction tab)",
+          "Detail"
+        ],
+        [
+          "Comments",
+          "string",
+          "Priority order…",
+          "Detail (Instruction tab)",
+          "Detail ONLY — never the cancel flow (7.2)"
+        ],
+        [
+          "CancelReason (NEW)",
+          "string (≤500, ASSUMED)",
+          "—",
+          "Audit / future display",
+          "Cancel dialog (Q-13)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 15",
+      "headers": [
+        "Method (mock today)",
+        "Real endpoint (to define)",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Method (mock today)": "mock today",
+        "Real endpoint (to define)": "to define"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "fetchOrders(): Observable<IWfxSalesOrderListItem[]>",
+          "GET /sales-orders (server-side paging/sort/filter params)",
+          "One call per grid block; no N+1."
+        ],
+        [
+          "getOrder(id)",
+          "GET /sales-orders/{id}",
+          "404 → M-16 flow."
+        ],
+        [
+          "saveOrder(order)",
+          "POST /sales-orders (insert on seed completion); PATCH /sales-orders/{id} (dirty fields only)",
+          "Mock PUTs the whole record — real build patches per field (7.1)."
+        ],
+        [
+          "deleteOrder(id)",
+          "DELETE /sales-orders/{id}",
+          "Server re-validates the delete rule (never trust the client)."
+        ],
+        [
+          "— (new)",
+          "POST /sales-orders/{id}/confirm",
+          "Creates/publishes the confirmed version; server re-validates."
+        ],
+        [
+          "— (new)",
+          "POST /sales-orders/{id}/cancel { reason }",
+          "Server enforces mandatory reason and allowed statuses."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 16",
+      "headers": [
+        "Version",
+        "Owner",
+        "Git user",
+        "Date",
+        "Summary"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "V1",
+          "Vinod Khanna (Technical Architect)",
+          "vinod.khanna",
+          "20 Jul 2026",
+          "Tag #-code tables (screen inventory, validations) so S-1/V-1 codes stay on one line"
+        ],
+        [
+          "V2",
+          "Vinod Khanna (Technical Architect)",
+          "vinod.khanna",
+          "20 Jul 2026",
+          "Overview edited"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "wfx-erp-product-sales-spec",
+  "keyTerms": [
+    "order",
+    "list",
+    "sales",
+    "confirm",
+    "orders",
+    "mock",
+    "sales orders",
+    "delete",
+    "server",
+    "confirmed",
+    "date",
+    "real",
+    "field",
+    "assumed",
+    "cancel"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 44
+    },
+    {
+      "module": "Production",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 2
+    },
+    {
+      "module": "Planning",
+      "score": 2
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "BOM – Routing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The mock is intentionally lenient; this specification is not — it is the contract the development team builds from, and it goes to QA and then to live production.",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Who uses it2:\n1. Merchandisers / sales coordinators — create and maintain orders, enter instructions.\n2. Sales managers — review and Confirm orders, cancel with a reason.\n3. Downstream teams (planning, production, shipping) — read confirmed order data; they do not edit here.",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview › Who uses it2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "It is the upstream source for production planning, BOM and shipment documents; statuses beyond Confirmed (Part Ship, Shipped, Closed) are driven by those downstream modules, not by these two screens.",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview › Where it sits in the ERP",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Order line items (article / size / colourway breakdowns) are not part of the mock and are out of scope (see Section 7).",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview › Where it sits in the ERP",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: #, Screen, Route, Purpose (3 rows)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Any pending auto-save is flushed before navigating away; the flush must complete (or fail with an error toast) — a navigation must never silently drop an unsaved change.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Any pending auto-save is flushed before navigating away; the flush must complete (or fail with an error toast) — a navigation must never silently drop an unsaved change.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Navigation rules:\n1. List → Detail (edit): click the order-number link in the Order column, or right-click a row and choose Edit. Both open /sales/orders/{id}.\n2. List → Detail (new): the “+ Add New Order” button in the page toolbar opens /sales/orders/new.\n3. Detail → List: the back arrow in the page header returns to /sales/orders. Any pending auto-save is flushed before navigating away; the flush must complete (or fail with an error toast) — a navigation must never silently drop an unsaved change.\n4. Unknown order id: an error toast “That sales order does not exist.” is shown and the user is returned to the list.\n5. Browser/page titles: “Sales Orders” (list), “New Sales Order” (new), “Sales Order” (edit).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real screen must restore the list exactly as the user left it — search text, status filter, column filters, sort and page (QA checklist §5).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Convention, Definition (5 rows; identifiers: Convention)",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Floating selection bar appears when one or more rows are selected, with the selection count, a Clear action, and a Delete action.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Layout",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Layout:\n1. Page header: breadcrumb “Sales”, title “Sales Orders”, subtitle, and a primary “+ Add New Order” button.\n2. Content toolbar: quick-search input (“Search by order no. or buyer”) and a clearable, searchable Status dropdown.\n3. Grid inside a surface card; floating filter row pinned under the headers; pagination footer always visible (never covered by other UI).\n4. Floating selection bar appears when one or more rows are selected, with the selection count, a Clear action, and a Delete action.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Layout",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Toolbar behaviours:\n1. Quick search matches Order No (MainOCNum) OR Buyer name, case-insensitive substring, trimmed. Real build: debounce 300 ms and extend to PO Ref (ASSUMED — Q-17).\n2. Status dropdown filters to exactly one status; clearable (shows all). Values: Saved, Confirmed, Part Ship, Shipped, Closed, Cancelled.\n3. Toolbar filters and in-grid column filters combine (logical AND).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Toolbar behaviours",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Column, Content & combined cells, Filter, Format / behaviour (12 rows; identifiers: Column)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real screen must use the server-side row model with server paging, sorting and filtering from day one (ASSUMED — Q-18); see Section 7.1.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real screen must additionally provide a pinned-right actions column (kebab) with the same items, per grid standards — right-click alone is not discoverable.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Grid specification:\n1. Default column config: resizable, sortable, floating filter row on, min width 90.\n2. Set-filter values: fed from the DDL API in the real app (mock auto-derives from row data).\n3. Pagination: page sizes 20 / 50 / 100, default 20. Default sort: Created On descending (ASSUMED — Q-18).\n4. Row model: the mock grid is client-side. The real screen must use the server-side row model with server paging, sorting and filtering from day one (ASSUMED — Q-18); see Section 7.1.\n5. Actions column: the mock exposes row actions only through the right-click context menu. The real screen must additionally provide a pinned-right actions column (kebab) with the same items, per grid standards — right-click alone is not discoverable. Flagged in Section 7.2.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Action, Shown when, Behaviour (4 rows; identifiers: Action)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu), table 4",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Bulk delete first validates every selected row against the delete rule; if any row is not deletable the whole action is blocked with a warning naming the blocked orders — nothing is partially deleted.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Bulk actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "After a successful bulk delete the selection is cleared and the list reloads.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Bulk actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bulk actions:\n1. Selecting rows shows the floating selection bar with the count and a Delete button.\n2. Bulk delete first validates every selected row against the delete rule; if any row is not deletable the whole action is blocked with a warning naming the blocked orders — nothing is partially deleted.\n3. After a successful bulk delete the selection is cleared and the list reloads.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Bulk actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Cancel Order dialog — reason is mandatory",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "OK with a blank/whitespace reason shows the warning “Reason is mandatory.” and keeps the dialog open.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "OK with a reason sets Status = Cancelled and stores the reason.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real build stores it in a dedicated CancelReason field with an audit entry (who/when); it must NOT overwrite the order’s Comments as the mock does — flagged, Section 7.2 (ASSUMED — Q-13).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Real build addition: the dialog must name the order being cancelled (e.g. “Cancel OC-2026-0001”) — the mock text is generic.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cancel Order dialog:\n1. Modal, header “Cancel Order”, helper text “Enter a reason to cancel this order.”, one required Reason textarea (4 rows), buttons OK (primary) / Close.\n2. OK with a blank/whitespace reason shows the warning “Reason is mandatory.” and keeps the dialog open.\n3. OK with a reason sets Status = Cancelled and stores the reason. The real build stores it in a dedicated CancelReason field with an audit entry (who/when); it must NOT overwrite the order’s Comments as the mock does — flagged, Section 7.2 (ASSUMED — Q-13).\n4. Close / X dismisses without changes.\n5. Real build addition: the dialog must name the order being cancelled (e.g. “Cancel OC-2026-0001”) — the mock text is generic.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "There is NO Save button — the screen auto-saves (see 3.2.3).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Confirm is the only manual action.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Field, Type, Required, Validation, Default, Source / DDL (10 rows; identifiers: Field)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Field, Type, Required, Validation, Default, Notes (3 rows)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab, table 6",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Seed fields (all must be filled before the record is created): Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Seed fields (all must be filled before the record is created): Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The server assigns the real order number at this insert (ASSUMED — Q-7); the mock’s client-side “OC-DRAFT-nnnnnn” placeholder must not ship.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Loaded values never count as dirty — opening an order must not trigger a save.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto-save behaviour:\n1. Seed fields (all must be filled before the record is created): Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value. Season, dates and all Instruction-tab fields are NOT seed fields.\n2. New order: the record is inserted automatically the moment the last seed field is filled and valid. The server assigns the real order number at this insert (ASSUMED — Q-7); the mock’s client-side “OC-DRAFT-nnnnnn” placeholder must not ship.\n3. Existing order: every change is debounce-saved automatically. The mock PUTs the whole record; the real screen PATCHes only the dirty fields (Section 7.1).\n4. The save-status indicator in the toolbar shows idle → saving → saved / error. A failed save shows the toast “Save Failed — Could not save the sales order.” and the indicator stays in the error state until a subsequent save succeeds.\n5. Navigating back flushes any pending save first (see Section 2).\n6. Loaded values never count as dirty — opening an order must not trigger a save.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Errors appear inline per field once the field is touched, using the standard field-error styling; required fields carry the * marker.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Validation display",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Exact rule texts are in Section 6 (Validations master list).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Validation display",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Confirm is visible for any existing (already auto-saved) record — including an already-Confirmed one.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Re-confirm after an edit is deliberate: in the real app, editing a confirmed order creates a new background version in Saved status, and this same button confirms that version (Section 7.1).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Clicking Confirm with an invalid form is blocked with the warning “Please fix the highlighted fields before confirming.” Additional confirm gate: both dates filled (ASSUMED — Q-8) and Total Value > 0 (ASSUMED — Q-4).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Clicking Confirm with an invalid form is blocked with the warning “Please fix the highlighted fields before confirming.” Additional confirm gate: both dates filled (ASSUMED — Q-8) and Total Value > 0 (ASSUMED — Q-4).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Confirm action:\n1. Confirm is visible for any existing (already auto-saved) record — including an already-Confirmed one. Re-confirm after an edit is deliberate: in the real app, editing a confirmed order creates a new background version in Saved status, and this same button confirms that version (Section 7.1).\n2. Clicking Confirm with an invalid form is blocked with the warning “Please fix the highlighted fields before confirming.” Additional confirm gate: both dates filled (ASSUMED — Q-8) and Total Value > 0 (ASSUMED — Q-4).\n3. First confirm dialog: “Confirm {MainOCNum}? A confirmed order can no longer be deleted (it can still be cancelled with a reason from the list).” Yes/No.\n4. Re-confirm dialog: title “Re-confirm Order”, text “Confirm the current changes to {MainOCNum}?”.\n5. On success: status becomes Confirmed, success toast “{MainOCNum} is now confirmed.”, header badge/title refresh, list reflects the change on return.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: #, Trigger, Kind, Title, Message (20 rows; identifiers: #)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real build must use the M-2 wording above on both screens.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: Status, Badge severity, Meaning (6 rows; identifiers: Status)",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: #, Transition, Trigger, Who / where (6 rows; identifiers: #)",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Cancelled and Closed are terminal: no cancel, no confirm, no reopen (ASSUMED — Q-14).",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Nothing that is Confirmed or further along may ever be hard-deleted.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Allowed transitions:\n1. Cancelled and Closed are terminal: no cancel, no confirm, no reopen (ASSUMED — Q-14).\n2. Nothing that is Confirmed or further along may ever be hard-deleted.\n3. Irreversible actions (Delete, Cancel, Confirm) always use a confirmation dialog that spells out the impact.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Every rule is testable as written.",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: #, Rule (testable statement), Where enforced, Message (14 rows; identifiers: #)",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real build must implement the FULL behaviour in the right-hand column; none of these shortcuts may silently become the product.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: #, Mock shortcut, Required real behaviour (12 rows; identifiers: #)",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 12: #, Type, Screen / area, Finding (verified in code), Corrected rule in this spec (11 rows; identifiers: #)",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Each assumption is marked “ASSUMED” where it is used in the body.",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 13: #, Question, Adopted default (ASSUMED), Used in (24 rows; identifiers: #)",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Field names are PascalCase DTO names matching the real xtOCMain response.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The real backend must be reconciled field-by-field against this table during promotion.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 14: Field, Type, Example, Read by, Written by (21 rows; identifiers: Field)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 15: Method (mock today), Real endpoint (to define), Notes (6 rows)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Server is the source of truth for every rule in Section 6 — client validation is a convenience, not the enforcement.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Server is the source of truth for every rule in Section 6 — client validation is a convenience, not the enforcement.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 16: Version, Owner, Git user, Date, Summary (2 rows)",
+      "locator": "§ Sales Orders — Product Mock Spec › Version History, table 16",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sales Orders — Product Mock Spec",
+      "heading": "Sales Orders — Product Mock Spec",
+      "text": "Feature: wfx-erp-product-sales · Owner: Vinod Khanna (Technical Architect)\nFunctional specification for the development team, generated from the finished, product-team-approved Product Mock Studio screens (feature library wfx-erp-product-sales). This document contains ASSUMED answers pending product-team sign-off (see Section 8).",
+      "locator": "§ Sales Orders — Product Mock Spec",
+      "kind": "section"
+    },
+    {
+      "title": "Overview",
+      "heading": "Sales Orders — Product Mock Spec › Overview",
+      "text": "This document specifies the Sales Orders feature for the real WFX ERP application. It was generated from the finished, product-team-approved mock screens in the Product Mock Studio (feature library wfx-erp-product-sales). The mock is intentionally lenient; this specification is not — it is the contract the development team builds from, and it goes to QA and then to live production.",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Sales Orders — Product Mock Spec › Overview › Purpose",
+      "text": "Sales Orders (order confirmations, “OC”) are the commercial head record of the ERP: one order belongs to one buyer, carries a season, currency, manager, total quantity and value, key dates, and free-text fabric/packing instructions. The feature lets the sales/merchandising team create, search, review, confirm, cancel and (within strict rules) delete sales orders.",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Who uses it2",
+      "heading": "Sales Orders — Product Mock Spec › Overview › Who uses it2",
+      "text": "• Merchandisers / sales coordinators — create and maintain orders, enter instructions.\n• Sales managers — review and Confirm orders, cancel with a reason.\n• Downstream teams (planning, production, shipping) — read confirmed order data; they do not edit here.",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview › Who uses it2",
+      "kind": "section"
+    },
+    {
+      "title": "Where it sits in the ERP",
+      "heading": "Sales Orders — Product Mock Spec › Overview › Where it sits in the ERP",
+      "text": "The feature lives in the Sales module (real target: libs/angular/features/wfx-erp/wfx-erp-sales, route /sales). It is the upstream source for production planning, BOM and shipment documents; statuses beyond Confirmed (Part Ship, Shipped, Closed) are driven by those downstream modules, not by these two screens.\nScope of this spec: the Sales Order LIST screen and the Sales Order DETAIL (create/edit) screen, including their shared workflow, data contract, and validations. Order line items (article / size / colourway breakdowns) are not part of the mock and are out of scope (see Section 7).",
+      "locator": "§ Sales Orders — Product Mock Spec › Overview › Where it sits in the ERP",
+      "kind": "section"
+    },
+    {
+      "title": "Screen inventory & navigation flow – Table 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen inventory & navigation flow",
+      "text": "Columns: # (text); Screen (text); Route (text); Purpose (text)\n# | Screen | Route | Purpose\nS-1 | Sales Order List | /sales/orders | Search, filter, and manage all sales orders; entry point of the feature. /sales redirects here.\nS-2 | Sales Order Detail — New | /sales/orders/new | Create a new order. The record is inserted automatically once all seed fields are filled (auto-save; no Save button).\nS-3 | Sales Order Detail — Edit | /sales/orders/{id} | View and edit an existing order; manual Confirm action.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen inventory & navigation flow",
+      "text": "#: S-1; Screen: Sales Order List; Route: /sales/orders; Purpose: Search, filter, and manage all sales orders; entry point of the feature. /sales redirects here.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Screen inventory & navigation flow",
+      "text": "#: S-2; Screen: Sales Order Detail — New; Route: /sales/orders/new; Purpose: Create a new order. The record is inserted automatically once all seed fields are filled (auto-save; no Save button).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen inventory & navigation flow",
+      "text": "#: S-3; Screen: Sales Order Detail — Edit; Route: /sales/orders/{id}; Purpose: View and edit an existing order; manual Confirm action.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Navigation rules",
+      "heading": "Sales Orders — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "text": "• List → Detail (edit): click the order-number link in the Order column, or right-click a row and choose Edit. Both open /sales/orders/{id}.\n• List → Detail (new): the “+ Add New Order” button in the page toolbar opens /sales/orders/new.\n• Detail → List: the back arrow in the page header returns to /sales/orders. Any pending auto-save is flushed before navigating away; the flush must complete (or fail with an error toast) — a navigation must never silently drop an unsaved change.\n• Unknown order id: an error toast “That sales order does not exist.” is shown and the user is returned to the list.\n• Browser/page titles: “Sales Orders” (list), “New Sales Order” (new), “Sales Order” (edit).\nBack-navigation state: the mock does not preserve list state (filters, page) across detail visits. The real screen must restore the list exactly as the user left it — search text, status filter, column filters, sort and page (QA checklist §5). See Q-17/Q-18 in Section 8.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen inventory & navigation flow › Navigation rules",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Rules referenced throughout the field tables and the Validations master list are defined once here, so no field restates them.",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions – Table 2",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Columns: Convention (text); Definition (text)\nConvention | Definition\nEnforcement | Unless a rule says otherwise, every validation is enforced inline on the Detail form and re-validated on the server.\nSeed fields | Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value. A new order is auto-created only once all seed fields are filled and valid (V-14).\nText fields | Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum.\nMoney | ≥ 0, at most 2 decimal places, displayed with exactly 2 decimals and the order’s currency.\nDate display | All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale.",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Convention: Enforcement; Definition: Unless a rule says otherwise, every validation is enforced inline on the Detail form and re-validated on the server.",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Convention: Seed fields; Definition: Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value. A new order is auto-created only once all seed fields are filled and valid (V-14).",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Convention: Text fields; Definition: Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum.",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Convention: Money; Definition: ≥ 0, at most 2 decimal places, displayed with exactly 2 decimals and the order’s currency.",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Conventions",
+      "text": "Convention: Date display; Definition: All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale.",
+      "locator": "§ Sales Orders — Product Mock Spec › Conventions, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sales Order List (S-1)",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1)",
+      "text": "Purpose: single working list of all sales orders with search, filters, bulk selection, row actions and navigation into the detail screen.\nSales Order List — light mode, Team Data",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1)",
+      "kind": "section"
+    },
+    {
+      "title": "Layout",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Layout",
+      "text": "• Page header: breadcrumb “Sales”, title “Sales Orders”, subtitle, and a primary “+ Add New Order” button.\n• Content toolbar: quick-search input (“Search by order no. or buyer”) and a clearable, searchable Status dropdown.\n• Grid inside a surface card; floating filter row pinned under the headers; pagination footer always visible (never covered by other UI).\n• Floating selection bar appears when one or more rows are selected, with the selection count, a Clear action, and a Delete action.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Layout",
+      "kind": "section"
+    },
+    {
+      "title": "Toolbar behaviours",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Toolbar behaviours",
+      "text": "• Quick search matches Order No (MainOCNum) OR Buyer name, case-insensitive substring, trimmed. Real build: debounce 300 ms and extend to PO Ref (ASSUMED — Q-17).\n• Status dropdown filters to exactly one status; clearable (shows all). Values: Saved, Confirmed, Part Ship, Shipped, Closed, Cancelled.\n• Toolbar filters and in-grid column filters combine (logical AND).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Toolbar behaviours",
+      "kind": "section"
+    },
+    {
+      "title": "Grid specification – Table 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Columns: Column (text); Content & combined cells (text); Filter (text); Format / behaviour (text)\nColumn | Content & combined cells | Filter | Format / behaviour\n(selection) | Row checkbox + header checkbox | — | Multi-row selection; header checkbox selects the filtered set only.\nStatus | wfx-badge chip, never plain text | Set filter (checkbox list of the 6 statuses, fixed order) | Severity: Saved=draft, Confirmed=success, Shipped=success, Part Ship=warning, Cancelled=error. Closed: see Q-21.\nOrder | Combined cell — Order No (link, opens detail) over Ship Under PO Ref (secondary line) | Text filter | Link handled via data-action=\"open-order\" + onCellClicked; autoHeight on.\nBuyer | Combined cell — Buyer name over buyer code | Set filter | autoHeight on.\nCategory | Product category code | Set filter | —\nSeason | Season code | Set filter | —\nManager | Manager name | Set filter | Avatar (initials) + name — every person-valued column renders the shared user renderer, never a bare string.\nTotal Qty | Order quantity | Number filter | Right-aligned, thousand separators, WITH its UOM (ASSUMED “pcs” — Q-1). Mock omits the UOM — flagged, Section 7.2.\nTotal Value | Order value | Number filter | Right-aligned; currency symbol + code of the record’s CurrencyCode; 2 decimals everywhere (ASSUMED — Q-2). Number locale is still hardcoded en-US in the mock — flagged, Section 7.2.\nDelivery Date | Delivery date | Date (equals / before / after / from–to) | App-wide date format via WfxDateFormatService (user preference, default dd MMM yyyy). Calendar picker; a from–to range includes both endpoint days.\nCreated By | Who created the order | Set filter | Avatar (initials) + name. A SEPARATE column from Created On — never merged into one “Created” cell — and it precedes Created On in every list. autoHeight on.\nCreated On | Creation date | Date (equals / before / after / from–to) | Same date rules as Delivery Date.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: (selection); Content & combined cells: Row checkbox + header checkbox; Filter: —; Format / behaviour: Multi-row selection; header checkbox selects the filtered set only.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Status; Content & combined cells: wfx-badge chip, never plain text; Filter: Set filter (checkbox list of the 6 statuses, fixed order); Format / behaviour: Severity: Saved=draft, Confirmed=success, Shipped=success, Part Ship=warning, Cancelled=error. Closed: see Q-21.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Order; Content & combined cells: Combined cell — Order No (link, opens detail) over Ship Under PO Ref (secondary line); Filter: Text filter; Format / behaviour: Link handled via data-action=\"open-order\" + onCellClicked; autoHeight on.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Buyer; Content & combined cells: Combined cell — Buyer name over buyer code; Filter: Set filter; Format / behaviour: autoHeight on.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Category; Content & combined cells: Product category code; Filter: Set filter; Format / behaviour: —",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Season; Content & combined cells: Season code; Filter: Set filter; Format / behaviour: —",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Manager; Content & combined cells: Manager name; Filter: Set filter; Format / behaviour: Avatar (initials) + name — every person-valued column renders the shared user renderer, never a bare string.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Total Qty; Content & combined cells: Order quantity; Filter: Number filter; Format / behaviour: Right-aligned, thousand separators, WITH its UOM (ASSUMED “pcs” — Q-1). Mock omits the UOM — flagged, Section 7.2.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Total Value; Content & combined cells: Order value; Filter: Number filter; Format / behaviour: Right-aligned; currency symbol + code of the record’s CurrencyCode; 2 decimals everywhere (ASSUMED — Q-2). Number locale is still hardcoded en-US in the mock — flagged, Section 7.2.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Delivery Date; Content & combined cells: Delivery date; Filter: Date (equals / before / after / from–to); Format / behaviour: App-wide date format via WfxDateFormatService (user preference, default dd MMM yyyy). Calendar picker; a from–to range includes both endpoint days.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Created By; Content & combined cells: Who created the order; Filter: Set filter; Format / behaviour: Avatar (initials) + name. A SEPARATE column from Created On — never merged into one “Created” cell — and it precedes Created On in every list. autoHeight on.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 12",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "Column: Created On; Content & combined cells: Creation date; Filter: Date (equals / before / after / from–to); Format / behaviour: Same date rules as Delivery Date.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification, table 3, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Grid specification",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "text": "• Default column config: resizable, sortable, floating filter row on, min width 90.\n• Set-filter values: fed from the DDL API in the real app (mock auto-derives from row data).\n• Pagination: page sizes 20 / 50 / 100, default 20. Default sort: Created On descending (ASSUMED — Q-18).\n• Row model: the mock grid is client-side. The real screen must use the server-side row model with server paging, sorting and filtering from day one (ASSUMED — Q-18); see Section 7.1.\n• Actions column: the mock exposes row actions only through the right-click context menu. The real screen must additionally provide a pinned-right actions column (kebab) with the same items, per grid standards — right-click alone is not discoverable. Flagged in Section 7.2.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Grid specification",
+      "kind": "section"
+    },
+    {
+      "title": "Row actions (context menu)",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "text": "Row context menu on a Saved order (Practice Copy)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "kind": "section"
+    },
+    {
+      "title": "Row actions (context menu) – Table 4",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "text": "Columns: Action (text); Shown when (text); Behaviour (text)\nAction | Shown when | Behaviour\nEdit | Always | Opens the detail screen for the row.\nConfirm | Status = Saved | Confirmation dialog, then sets Status = Confirmed (see Section 4).\nCancel | Status is not Cancelled and not Closed (real rule: Saved or Confirmed only — ASSUMED, Q-12) | Opens the Cancel Order dialog; reason is mandatory.\nDelete | Status = Saved or Cancelled in the mock (real rule: Saved only — ASSUMED, Q-15) | Confirmation dialog, then hard delete.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu), table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "text": "Action: Edit; Shown when: Always; Behaviour: Opens the detail screen for the row.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu), table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "text": "Action: Confirm; Shown when: Status = Saved; Behaviour: Confirmation dialog, then sets Status = Confirmed (see Section 4).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu), table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "text": "Action: Cancel; Shown when: Status is not Cancelled and not Closed (real rule: Saved or Confirmed only — ASSUMED, Q-12); Behaviour: Opens the Cancel Order dialog; reason is mandatory.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu), table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu)",
+      "text": "Action: Delete; Shown when: Status = Saved or Cancelled in the mock (real rule: Saved only — ASSUMED, Q-15); Behaviour: Confirmation dialog, then hard delete.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Row actions (context menu), table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Bulk actions",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Bulk actions",
+      "text": "• Selecting rows shows the floating selection bar with the count and a Delete button.\n• Bulk delete first validates every selected row against the delete rule; if any row is not deletable the whole action is blocked with a warning naming the blocked orders — nothing is partially deleted.\n• After a successful bulk delete the selection is cleared and the list reloads.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Bulk actions",
+      "kind": "section"
+    },
+    {
+      "title": "Cancel Order dialog",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "text": "Cancel Order dialog — reason is mandatory\n• Modal, header “Cancel Order”, helper text “Enter a reason to cancel this order.”, one required Reason textarea (4 rows), buttons OK (primary) / Close.\n• OK with a blank/whitespace reason shows the warning “Reason is mandatory.” and keeps the dialog open.\n• OK with a reason sets Status = Cancelled and stores the reason. The real build stores it in a dedicated CancelReason field with an audit entry (who/when); it must NOT overwrite the order’s Comments as the mock does — flagged, Section 7.2 (ASSUMED — Q-13).\n• Close / X dismisses without changes.\n• Real build addition: the dialog must name the order being cancelled (e.g. “Cancel OC-2026-0001”) — the mock text is generic.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Cancel Order dialog",
+      "kind": "section"
+    },
+    {
+      "title": "Empty, loading and error states",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Empty, loading and error states",
+      "text": "• Empty list: grid shows its no-rows overlay. Real build: message “No sales orders found” with an Add New Order call to action (ASSUMED — Q-22).\n• Load failure: error toast “Load Failed — Could not load sales orders.” with retry guidance; the grid stays empty, never silently blank.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order List (S-1) › Empty, loading and error states",
+      "kind": "section"
+    },
+    {
+      "title": "Sales Order Detail (S-2 / S-3)",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3)",
+      "text": "Purpose: create and edit a sales order. There is NO Save button — the screen auto-saves (see 3.2.3). Confirm is the only manual action.\nDetail — Info tab (existing order, Team Data)\nDetail — Instruction tab\nDetail — Add Sales Order (empty form, Practice Copy)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3)",
+      "kind": "section"
+    },
+    {
+      "title": "Layout",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Layout",
+      "text": "• Page header: breadcrumbs “Sales › Sales Orders”, back arrow, title “Add Sales Order” (new) or “Sales Order {MainOCNum}” (existing), save-status indicator, and the Confirm button (visible once the record exists).\n• Two tabs: Info (Order Information panel, responsive form grid, min field width 220px) and Instruction (three toggleable panels: Fabric Instruction, Packing Instruction, Comments & Notes).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Layout",
+      "kind": "section"
+    },
+    {
+      "title": "Field table — Info tab – Table 5",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Columns: Field (text); Type (text); Required (text); Validation (text); Default (text); Source / DDL (text)\nField | Type | Required | Validation | Default | Source / DDL\nShip Under PO Ref | Text input | Yes (seed) | V-1 (max 100, not blank) | empty | Free text; uniqueness per buyer ASSUMED — Q-6\nBuyer | Select (searchable) | Yes (seed) | V-2 | none | Buyer DDL API (mock: 3 static buyers)\nCategory | Select | Yes (seed) | V-3 | none | Product category DDL (mock: Apparel, Knits, Woven, Denim)\nOrder Season | Select (clearable) | No | — | none | Season DDL (mock: SS26, AW26, SS27); optional ASSUMED — Q-10\nCurrency | Select | Yes (seed) | V-4 | none | Currency DDL (mock: USD, EUR, GBP, INR)\nManager | Text input | No | V-5 (max 100) | empty | Mock: free text. Real: user DDL — ASSUMED, Q-11\nTotal Quantity | Number input | Yes (seed) | V-6 (integer 1–1,000,000) | empty | — (display with UOM, Q-1)\nTotal Value | Number input | Yes (seed) | V-7 (0–99,999,999; 2 dp) | empty | — (currency per order)\nOrder Initiation Date | Date picker | No (see Q-8) | Cross-field V-8 | empty | App-wide date format\nDelivery Date | Date picker | No (see Q-8) | V-8 (≥ Order Initiation Date) | empty | App-wide date format",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Ship Under PO Ref; Type: Text input; Required: Yes (seed); Validation: V-1 (max 100, not blank); Default: empty; Source / DDL: Free text; uniqueness per buyer ASSUMED — Q-6",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Buyer; Type: Select (searchable); Required: Yes (seed); Validation: V-2; Default: none; Source / DDL: Buyer DDL API (mock: 3 static buyers)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Category; Type: Select; Required: Yes (seed); Validation: V-3; Default: none; Source / DDL: Product category DDL (mock: Apparel, Knits, Woven, Denim)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Order Season; Type: Select (clearable); Required: No; Validation: —; Default: none; Source / DDL: Season DDL (mock: SS26, AW26, SS27); optional ASSUMED — Q-10",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Currency; Type: Select; Required: Yes (seed); Validation: V-4; Default: none; Source / DDL: Currency DDL (mock: USD, EUR, GBP, INR)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Manager; Type: Text input; Required: No; Validation: V-5 (max 100); Default: empty; Source / DDL: Mock: free text. Real: user DDL — ASSUMED, Q-11",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Total Quantity; Type: Number input; Required: Yes (seed); Validation: V-6 (integer 1–1,000,000); Default: empty; Source / DDL: — (display with UOM, Q-1)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Total Value; Type: Number input; Required: Yes (seed); Validation: V-7 (0–99,999,999; 2 dp); Default: empty; Source / DDL: — (currency per order)",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Order Initiation Date; Type: Date picker; Required: No (see Q-8); Validation: Cross-field V-8; Default: empty; Source / DDL: App-wide date format",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab",
+      "text": "Field: Delivery Date; Type: Date picker; Required: No (see Q-8); Validation: V-8 (≥ Order Initiation Date); Default: empty; Source / DDL: App-wide date format",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Info tab, table 5, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Field table — Instruction tab – Table 6",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab",
+      "text": "Columns: Field (text); Type (text); Required (boolean); Validation (text); Default (text); Notes (text)\nField | Type | Required | Validation | Default | Notes\nFabric Instruction | Textarea (5 rows) | No | V-9 (max 1000) | empty | Placeholder: “Enter fabric composition, GSM, finish...”\nPacking Instruction | Textarea (5 rows) | No | V-10 (max 1000) | empty | Placeholder: “Enter carton ratio, polybag, labelling...”\nComments | Textarea (4 rows) | No | Max length TBD — Q-13a | empty | Internal notes. Must never be overwritten by the cancel reason (Section 7.2).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab",
+      "text": "Field: Fabric Instruction; Type: Textarea (5 rows); Required: No; Validation: V-9 (max 1000); Default: empty; Notes: Placeholder: “Enter fabric composition, GSM, finish...”",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab",
+      "text": "Field: Packing Instruction; Type: Textarea (5 rows); Required: No; Validation: V-10 (max 1000); Default: empty; Notes: Placeholder: “Enter carton ratio, polybag, labelling...”",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab",
+      "text": "Field: Comments; Type: Textarea (4 rows); Required: No; Validation: Max length TBD — Q-13a; Default: empty; Notes: Internal notes. Must never be overwritten by the cancel reason (Section 7.2).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Field table — Instruction tab, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Auto-save behaviour",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "text": "• Seed fields (all must be filled before the record is created): Ship Under PO Ref, Buyer, Category, Currency, Total Quantity, Total Value. Season, dates and all Instruction-tab fields are NOT seed fields.\n• New order: the record is inserted automatically the moment the last seed field is filled and valid. The server assigns the real order number at this insert (ASSUMED — Q-7); the mock’s client-side “OC-DRAFT-nnnnnn” placeholder must not ship.\n• Existing order: every change is debounce-saved automatically. The mock PUTs the whole record; the real screen PATCHes only the dirty fields (Section 7.1).\n• The save-status indicator in the toolbar shows idle → saving → saved / error. A failed save shows the toast “Save Failed — Could not save the sales order.” and the indicator stays in the error state until a subsequent save succeeds.\n• Navigating back flushes any pending save first (see Section 2).\n• Loaded values never count as dirty — opening an order must not trigger a save.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Auto-save behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Validation display",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Validation display",
+      "text": "Empty required (seed) fields highlighted after being touched\n• Errors appear inline per field once the field is touched, using the standard field-error styling; required fields carry the * marker.\n• Exact rule texts are in Section 6 (Validations master list).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Validation display",
+      "kind": "section"
+    },
+    {
+      "title": "Confirm action",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "text": "Confirm dialog (first confirmation)\n• Confirm is visible for any existing (already auto-saved) record — including an already-Confirmed one. Re-confirm after an edit is deliberate: in the real app, editing a confirmed order creates a new background version in Saved status, and this same button confirms that version (Section 7.1).\n• Clicking Confirm with an invalid form is blocked with the warning “Please fix the highlighted fields before confirming.” Additional confirm gate: both dates filled (ASSUMED — Q-8) and Total Value > 0 (ASSUMED — Q-4).\n• First confirm dialog: “Confirm {MainOCNum}? A confirmed order can no longer be deleted (it can still be cancelled with a reason from the list).” Yes/No.\n• Re-confirm dialog: title “Re-confirm Order”, text “Confirm the current changes to {MainOCNum}?”.\n• On success: status becomes Confirmed, success toast “{MainOCNum} is now confirmed.”, header badge/title refresh, list reflects the change on return.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Confirm action",
+      "kind": "section"
+    },
+    {
+      "title": "Alerts & messages (exact wording) – Table 7",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "Columns: # (text); Trigger (text); Kind (text); Title (text); Message (text)\n# | Trigger | Kind | Title | Message\nM-1 | List failed to load | Error toast | Load Failed | Could not load sales orders.\nM-2 | Confirm from list (Saved row) | Confirm dialog | Confirm Order | Confirm {MainOCNum}? A confirmed order can no longer be deleted (it can still be cancelled with a reason from the list).\nM-3 | Confirm succeeded | Success toast | Order Confirmed | {MainOCNum} is now confirmed.\nM-4 | Confirm failed | Error toast | Confirm Failed | Could not confirm the order.\nM-5 | Cancel dialog, blank reason | Warning toast | Validation | Reason is mandatory.\nM-6 | Cancel succeeded | Success toast | Order Cancelled | {MainOCNum} was cancelled.\nM-7 | Cancel failed | Error toast | Cancel Failed | Could not cancel the order.\nM-8 | Delete on a non-deletable order | Warning toast | Not Allowed | {MainOCNum} is {Status} and cannot be deleted. Cancel it (with a reason) instead.\nM-9 | Delete confirmation | Confirm dialog | Confirm Delete | Delete {MainOCNum}? This cannot be undone.\nM-10 | Delete succeeded | Success toast | Order Deleted | {MainOCNum} was deleted.\nM-11 | Delete failed | Error toast | Delete Failed | Could not delete the order.\nM-12 | Bulk delete with blocked rows | Warning toast | Not Allowed | {n} of the selected order(s) are Confirmed or further along and cannot be deleted ({order list}). Deselect them and try again.\nM-13 | Bulk delete confirmation | Confirm dialog | Confirm Delete | Delete {n} selected order(s)? This cannot be undone.\nM-14 | Bulk delete succeeded | Success toast | Orders Deleted | {n} order(s) deleted.\nM-15 | Bulk delete failed | Error toast | Delete Failed | Could not delete one or more orders.\nM-16 | Detail: unknown id | Error toast | Not Found | That sales order does not exist.\nM-17 | Detail failed to load | Error toast | Load Failed | Could not load the sales order.\nM-18 | Auto-save failed | Error toast | Save Failed | Could not save the sales order.\nM-19 | Confirm with invalid form | Warning toast | Validation | Please fix the highlighted fields before confirming.\nM-20 | Re-confirm dialog | Confirm dialog | Re-confirm Order | Confirm the current changes to {MainOCNum}?",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-1; Trigger: List failed to load; Kind: Error toast; Title: Load Failed; Message: Could not load sales orders.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-2; Trigger: Confirm from list (Saved row); Kind: Confirm dialog; Title: Confirm Order; Message: Confirm {MainOCNum}? A confirmed order can no longer be deleted (it can still be cancelled with a reason from the list).",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-3; Trigger: Confirm succeeded; Kind: Success toast; Title: Order Confirmed; Message: {MainOCNum} is now confirmed.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-4; Trigger: Confirm failed; Kind: Error toast; Title: Confirm Failed; Message: Could not confirm the order.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-5; Trigger: Cancel dialog, blank reason; Kind: Warning toast; Title: Validation; Message: Reason is mandatory.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-6; Trigger: Cancel succeeded; Kind: Success toast; Title: Order Cancelled; Message: {MainOCNum} was cancelled.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-7; Trigger: Cancel failed; Kind: Error toast; Title: Cancel Failed; Message: Could not cancel the order.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-8; Trigger: Delete on a non-deletable order; Kind: Warning toast; Title: Not Allowed; Message: {MainOCNum} is {Status} and cannot be deleted. Cancel it (with a reason) instead.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-9; Trigger: Delete confirmation; Kind: Confirm dialog; Title: Confirm Delete; Message: Delete {MainOCNum}? This cannot be undone.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-10; Trigger: Delete succeeded; Kind: Success toast; Title: Order Deleted; Message: {MainOCNum} was deleted.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-11; Trigger: Delete failed; Kind: Error toast; Title: Delete Failed; Message: Could not delete the order.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 12",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-12; Trigger: Bulk delete with blocked rows; Kind: Warning toast; Title: Not Allowed; Message: {n} of the selected order(s) are Confirmed or further along and cannot be deleted ({order list}). Deselect them and try again.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 13",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-13; Trigger: Bulk delete confirmation; Kind: Confirm dialog; Title: Confirm Delete; Message: Delete {n} selected order(s)? This cannot be undone.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 14",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-14; Trigger: Bulk delete succeeded; Kind: Success toast; Title: Orders Deleted; Message: {n} order(s) deleted.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 15",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-15; Trigger: Bulk delete failed; Kind: Error toast; Title: Delete Failed; Message: Could not delete one or more orders.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 16",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-16; Trigger: Detail: unknown id; Kind: Error toast; Title: Not Found; Message: That sales order does not exist.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 17",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-17; Trigger: Detail failed to load; Kind: Error toast; Title: Load Failed; Message: Could not load the sales order.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 18",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-18; Trigger: Auto-save failed; Kind: Error toast; Title: Save Failed; Message: Could not save the sales order.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 19",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-19; Trigger: Confirm with invalid form; Kind: Warning toast; Title: Validation; Message: Please fix the highlighted fields before confirming.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 20",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-20; Trigger: Re-confirm dialog; Kind: Confirm dialog; Title: Re-confirm Order; Message: Confirm the current changes to {MainOCNum}?",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording), table 7, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Alerts & messages (exact wording)",
+      "heading": "Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "Note: the mock’s list-side confirm dialog says a confirmed order “becomes read-only” — that contradicts the actual rule (confirmed orders remain editable through background versions). The real build must use the M-2 wording above on both screens. Flagged in Section 7.2.",
+      "locator": "§ Sales Orders — Product Mock Spec › Screen specifications › Sales Order Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "kind": "section"
+    },
+    {
+      "title": "Workflow & status lifecycle – Table 8",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Columns: Status (text); Badge severity (text); Meaning (text)\nStatus | Badge severity | Meaning\nSaved | Draft (grey) | Auto-saved draft; fully editable; deletable.\nConfirmed | Success (green) | Commercially confirmed; not deletable; edits create a new background version (Section 7.1).\nPart Ship | Warning (amber) | Partially shipped — set by the shipment module, not by these screens.\nShipped | Success (green) | Fully shipped — set by the shipment module.\nClosed | See Q-21 | Commercially closed — set downstream.\nCancelled | Error (red) | Cancelled with a mandatory reason; terminal.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Status: Saved; Badge severity: Draft (grey); Meaning: Auto-saved draft; fully editable; deletable.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Status: Confirmed; Badge severity: Success (green); Meaning: Commercially confirmed; not deletable; edits create a new background version (Section 7.1).",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Status: Part Ship; Badge severity: Warning (amber); Meaning: Partially shipped — set by the shipment module, not by these screens.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Status: Shipped; Badge severity: Success (green); Meaning: Fully shipped — set by the shipment module.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Status: Closed; Badge severity: See Q-21; Meaning: Commercially closed — set downstream.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle",
+      "text": "Status: Cancelled; Badge severity: Error (red); Meaning: Cancelled with a mandatory reason; terminal.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle, table 8, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Allowed transitions – Table 9",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "Columns: # (text); Transition (text); Trigger (text); Who / where (text)\n# | Transition | Trigger | Who / where\nT-1 | (new) → Saved | Automatic: all seed fields filled → record inserted | Auto-save engine, detail screen\nT-2 | Saved → Confirmed | Manual Confirm + confirmation dialog (M-2) | Detail toolbar button; list context menu (Saved rows)\nT-3 | Confirmed → Confirmed (new version) | Edit then manual Re-confirm (M-20) | Detail screen; real app versions in the background (7.1)\nT-4 | Saved / Confirmed → Cancelled | Manual Cancel + mandatory reason (3.1.6). Mock also allows cancelling Part Ship / Shipped — ASSUMED excluded, Q-12 | List context menu\nT-5 | Confirmed → Part Ship → Shipped → Closed | Shipment / closure documents in downstream modules | Out of scope for these screens (7.1)\nT-6 | Saved → (deleted) | Manual Delete + confirmation (M-9). Mock also deletes Cancelled — ASSUMED excluded, Q-15 | List context menu / bulk bar",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-1; Transition: (new) → Saved; Trigger: Automatic: all seed fields filled → record inserted; Who / where: Auto-save engine, detail screen",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-2; Transition: Saved → Confirmed; Trigger: Manual Confirm + confirmation dialog (M-2); Who / where: Detail toolbar button; list context menu (Saved rows)",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-3; Transition: Confirmed → Confirmed (new version); Trigger: Edit then manual Re-confirm (M-20); Who / where: Detail screen; real app versions in the background (7.1)",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-4; Transition: Saved / Confirmed → Cancelled; Trigger: Manual Cancel + mandatory reason (3.1.6). Mock also allows cancelling Part Ship / Shipped — ASSUMED excluded, Q-12; Who / where: List context menu",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-5; Transition: Confirmed → Part Ship → Shipped → Closed; Trigger: Shipment / closure documents in downstream modules; Who / where: Out of scope for these screens (7.1)",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-6; Transition: Saved → (deleted); Trigger: Manual Delete + confirmation (M-9). Mock also deletes Cancelled — ASSUMED excluded, Q-15; Who / where: List context menu / bulk bar",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions, table 9, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Allowed transitions",
+      "heading": "Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "text": "• Cancelled and Closed are terminal: no cancel, no confirm, no reopen (ASSUMED — Q-14).\n• Nothing that is Confirmed or further along may ever be hard-deleted.\n• Irreversible actions (Delete, Cancel, Confirm) always use a confirmation dialog that spells out the impact.",
+      "locator": "§ Sales Orders — Product Mock Spec › Workflow & status lifecycle › Allowed transitions",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "One line per field — its checks combined; shared rules are defined once under Conventions. Every rule is testable as written. Inline messages show at the field; toasts per Section 3.2.6.",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list – Table 10",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "Columns: # (text); Rule (testable statement) (text); Where enforced (text); Message (text)\n# | Rule (testable statement) | Where enforced | Message\nV-1 | Ship Under PO Ref — required (seed); trimmed, not blank; ≤ 100 chars (input hard-stops at 100); unique per buyer (ASSUMED — Q-6, async check on blur). | Detail form + server | Ship Under PO Ref is required / cannot be blank\nV-2 | Buyer — required (seed). | Detail form + server | Buyer is required\nV-3 | Category — required (seed). | Detail form + server | Category is required\nV-4 | Currency — required (seed). | Detail form + server | Currency is required\nV-5 | Manager — ≤ 100 chars. | Detail form + server | —\nV-6 | Total Quantity — required (seed); whole number; 1–1,000,000. | Detail form + server | Total Quantity is required / must be at least 1 / cannot exceed 1,000,000\nV-7 | Total Value — required (seed); Money (see Conventions); ≤ 99,999,999; must be > 0 to Confirm (ASSUMED — Q-4). | Detail form + server | Total Value is required / cannot be negative / cannot exceed 99,999,999\nV-8 | Delivery Date — required; on or after Order Initiation Date, re-validated whenever either date changes; both dates required before Confirm (ASSUMED — Q-8). | Detail form + server | Delivery Date cannot be earlier than the Order Initiation Date\nV-9 | Fabric Instruction — ≤ 1000 chars. | Detail form + server | —\nV-10 | Packing Instruction — ≤ 1000 chars. | Detail form + server | —\nV-11 | Cancel reason — required, not blank (after trim). | Cancel dialog + server | Reason is mandatory.\nV-12 | Confirm is blocked while any field is invalid. | Detail + server | Please fix the highlighted fields before confirming.\nV-13 | Delete is allowed only for Saved orders (real rule — ASSUMED, Q-15; mock also allows Cancelled). Server re-validates. | List + server | M-8\nV-14 | A new order is created only after ALL seed fields (V-1, V-2, V-4, V-6, V-7) are filled and valid. | Auto-save engine | —",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-1; Rule (testable statement): Ship Under PO Ref — required (seed); trimmed, not blank; ≤ 100 chars (input hard-stops at 100); unique per buyer (ASSUMED — Q-6, async check on blur).; Where enforced: Detail form + server; Message: Ship Under PO Ref is required / cannot be blank",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-2; Rule (testable statement): Buyer — required (seed).; Where enforced: Detail form + server; Message: Buyer is required",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-3; Rule (testable statement): Category — required (seed).; Where enforced: Detail form + server; Message: Category is required",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-4; Rule (testable statement): Currency — required (seed).; Where enforced: Detail form + server; Message: Currency is required",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-5; Rule (testable statement): Manager — ≤ 100 chars.; Where enforced: Detail form + server; Message: —",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-6; Rule (testable statement): Total Quantity — required (seed); whole number; 1–1,000,000.; Where enforced: Detail form + server; Message: Total Quantity is required / must be at least 1 / cannot exceed 1,000,000",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-7; Rule (testable statement): Total Value — required (seed); Money (see Conventions); ≤ 99,999,999; must be > 0 to Confirm (ASSUMED — Q-4).; Where enforced: Detail form + server; Message: Total Value is required / cannot be negative / cannot exceed 99,999,999",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-8; Rule (testable statement): Delivery Date — required; on or after Order Initiation Date, re-validated whenever either date changes; both dates required before Confirm (ASSUMED — Q-8).; Where enforced: Detail form + server; Message: Delivery Date cannot be earlier than the Order Initiation Date",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-9; Rule (testable statement): Fabric Instruction — ≤ 1000 chars.; Where enforced: Detail form + server; Message: —",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-10; Rule (testable statement): Packing Instruction — ≤ 1000 chars.; Where enforced: Detail form + server; Message: —",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-11; Rule (testable statement): Cancel reason — required, not blank (after trim).; Where enforced: Cancel dialog + server; Message: Reason is mandatory.",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 12",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-12; Rule (testable statement): Confirm is blocked while any field is invalid.; Where enforced: Detail + server; Message: Please fix the highlighted fields before confirming.",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 13",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-13; Rule (testable statement): Delete is allowed only for Saved orders (real rule — ASSUMED, Q-15; mock also allows Cancelled). Server re-validates.; Where enforced: List + server; Message: M-8",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 14",
+      "heading": "Sales Orders — Product Mock Spec › Validations master list",
+      "text": "#: V-14; Rule (testable statement): A new order is created only after ALL seed fields (V-1, V-2, V-4, V-6, V-7) are filled and valid.; Where enforced: Auto-save engine; Message: —",
+      "locator": "§ Sales Orders — Product Mock Spec › Validations master list, table 10, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Mock shortcuts — full real behaviour required",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "The mock simplified reality in the following places. The real build must implement the FULL behaviour in the right-hand column; none of these shortcuts may silently become the product.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "kind": "section"
+    },
+    {
+      "title": "Mock shortcuts — full real behaviour required – Table 11",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "Columns: # (text); Mock shortcut (text); Required real behaviour (text)\n# | Mock shortcut | Required real behaviour\nD-1 | No versioning behind Confirm: confirmed orders are edited in place; the Confirm button simply re-saves. | Editing a Confirmed order spawns a new background version in Saved status; edits auto-save into that version; Confirm publishes it. The list keeps showing the last confirmed data, with a star flag when an edited-but-unconfirmed version exists. Full revision history retained.\nD-2 | Client-side grid: all rows loaded once; filters, sort and paging run in the browser. | Server-side row model: paging, sorting, filtering and quick search executed by the API; set-filter values from the DDL API (ASSUMED — Q-18).\nD-3 | Static dropdown lists (3 buyers, 4 categories, 3 seasons, 4 currencies) hardcoded in the component. | All selects fed from DDL APIs; inactive/archived options hidden for new entry but still displayed on historical orders (QA checklist §1).\nD-4 | Manager is a free-text box. | Manager selected from the user/merchandiser directory (ASSUMED — Q-11).\nD-5 | Order number: client-side placeholder “OC-DRAFT-nnnnnn” generated at first save. | Server-assigned sequential order number at insert (ASSUMED — Q-7); the client never invents order numbers.\nD-6 | Auto-save PUTs the entire record on every change. | Auto-save PATCHes only dirty fields; concurrency handled per Q-20 (optimistic version check, conflict toast).\nD-7 | No permissions: every user sees every action. | Role-based permissions on create / edit / Confirm / Cancel / Delete (ASSUMED — Q-16); unauthorized actions hidden or disabled with a tooltip.\nD-8 | Statuses Part Ship / Shipped / Closed exist only as filter values; nothing transitions into them. | Set exclusively by the shipment/closure modules (T-5). These screens only display them.\nD-9 | No order lines: single header-level TotalQty / TotalValue. | Article / size / colourway lines with matrix totals are a separate phase (Q-23); until then header totals are manual entries.\nD-10 | Mock data-source fly-out widget (Team Data / Practice Copy / Start Empty) floats over every screen. | Studio-only tooling — must NOT be promoted into wfx-erp.\nD-11 | No audit trail on any action. | Confirm, Cancel (with reason), Delete and every field change logged with user + timestamp, per ERP audit standards.\nD-12 | Back-navigation loses list state. | List restores search, filters, sort and page on return from the detail screen.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-1; Mock shortcut: No versioning behind Confirm: confirmed orders are edited in place; the Confirm button simply re-saves.; Required real behaviour: Editing a Confirmed order spawns a new background version in Saved status; edits auto-save into that version; Confirm publishes it. The list keeps showing the last confirmed data, with a star flag when an edited-but-unconfirmed version exists. Full revision history retained.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-2; Mock shortcut: Client-side grid: all rows loaded once; filters, sort and paging run in the browser.; Required real behaviour: Server-side row model: paging, sorting, filtering and quick search executed by the API; set-filter values from the DDL API (ASSUMED — Q-18).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-3; Mock shortcut: Static dropdown lists (3 buyers, 4 categories, 3 seasons, 4 currencies) hardcoded in the component.; Required real behaviour: All selects fed from DDL APIs; inactive/archived options hidden for new entry but still displayed on historical orders (QA checklist §1).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-4; Mock shortcut: Manager is a free-text box.; Required real behaviour: Manager selected from the user/merchandiser directory (ASSUMED — Q-11).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-5; Mock shortcut: Order number: client-side placeholder “OC-DRAFT-nnnnnn” generated at first save.; Required real behaviour: Server-assigned sequential order number at insert (ASSUMED — Q-7); the client never invents order numbers.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-6; Mock shortcut: Auto-save PUTs the entire record on every change.; Required real behaviour: Auto-save PATCHes only dirty fields; concurrency handled per Q-20 (optimistic version check, conflict toast).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-7; Mock shortcut: No permissions: every user sees every action.; Required real behaviour: Role-based permissions on create / edit / Confirm / Cancel / Delete (ASSUMED — Q-16); unauthorized actions hidden or disabled with a tooltip.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-8; Mock shortcut: Statuses Part Ship / Shipped / Closed exist only as filter values; nothing transitions into them.; Required real behaviour: Set exclusively by the shipment/closure modules (T-5). These screens only display them.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-9; Mock shortcut: No order lines: single header-level TotalQty / TotalValue.; Required real behaviour: Article / size / colourway lines with matrix totals are a separate phase (Q-23); until then header totals are manual entries.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-10; Mock shortcut: Mock data-source fly-out widget (Team Data / Practice Copy / Start Empty) floats over every screen.; Required real behaviour: Studio-only tooling — must NOT be promoted into wfx-erp.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-11; Mock shortcut: No audit trail on any action.; Required real behaviour: Confirm, Cancel (with reason), Delete and every field change logged with user + timestamp, per ERP audit standards.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 12",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required",
+      "text": "#: D-12; Mock shortcut: Back-navigation loses list state.; Required real behaviour: List restores search, filters, sort and page on return from the detail screen.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Mock shortcuts — full real behaviour required, table 11, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Findings — mock defects and standards violations (do NOT implement)",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "Per the studio rule, standard violations found in the mock are flagged here instead of being specified. The spec text above already states the corrected behaviour.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "kind": "section"
+    },
+    {
+      "title": "Findings — mock defects and standards violations (do NOT implement) – Table 12",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "Columns: # (text); Type (text); Screen / area (text); Finding (verified in code) (text); Corrected rule in this spec (text)\n# | Type | Screen / area | Finding (verified in code) | Corrected rule in this spec\nF-1 — FIXED in the mock | Bug | List — Delivery Date, Created On columns | Columns inherited the default text filter while displaying formatted dates, so the floating filter matched the raw ISO string (e.g. “2026-09-15T00:00:00Z”) and filtering by what the user sees (“15 Sep”) failed. Both now declare cellDataType: 'dateString' + filter: 'agDateColumnFilter'; wfx-grid supplies ISO parsing, inclusive ranges and calendar-day comparison generically. | Date columns use the date column filter (3.1.3) — equals / before / after / from–to on a calendar picker. Build the real screen this way; a text filter on a date offers only “contains / begins with”, which cannot express “before this date” or a from–to range.\nF-2 | Bug | List — Cancel flow | Cancelling saves the reason INTO the Comments field, overwriting any existing comments. | Dedicated CancelReason field + audit; Comments untouched (3.1.6, Q-13).\nF-3 | Formatting gap | List & Detail — Total Qty | Quantity is displayed without a UOM anywhere. | Quantity always shown with its UOM (3.1.3, Q-1).\nF-4 — PARTLY FIXED | Formatting inconsistency | List vs Detail — Total Value | Fixed: the list formatted value with 0 decimals (“$96,000”) while the detail input accepted 2 — same measure, two precisions; the list now shows 2 decimals everywhere (“$96,000.00”), matching the detail and Q-2. Still open: the locale is hardcoded to en-US for both value and quantity formatting, so thousand separators ignore the user’s locale. | 2 decimals everywhere, symbol + code, user-locale number formatting (3.1.3, Q-2/Q-3). The decimals half is done; the real build must still drop the hardcoded locale (Q-3).\nF-5 | Wording | List — confirm dialog | Dialog says a confirmed order “becomes read-only”, contradicting the versioned-edit rule and the detail screen’s own wording. | Unified M-2 wording (3.2.6).\nF-6 | Standards gap | List — row actions | No pinned-right actions column; actions reachable only via right-click context menu. | Pinned-right actions column plus the context menu (3.1.3).\nF-7 | UX | List — quick search | Search fires on every keystroke with no debounce. | Debounced 300 ms (3.1.2, Q-17).\nF-8 | Question | List — Status badge | Closed and Cancelled share the error (red) severity; Closed is a normal completion. | Severity decision pending Q-21.\nF-9 | Consistency | List vs Detail — Confirm availability | List context menu offers Confirm only for Saved rows; the detail screen offers Confirm/Re-confirm for any loaded record. | Intentional per studio standards (detail carries re-confirm); list stays Saved-only. Documented in 3.1.4/3.2.5.\nF-10 | Minor | Detail — Total Quantity input | Input widget allows typing 0 (widget min 0) while the rule requires ≥ 1; error only appears via form validation. | V-6 stands; input may keep soft min 0 with inline error.\nF-11 | Minor | List — Cancel dialog | Dialog text does not name the order being cancelled. | Dialog must name the order (3.1.6).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12",
+      "kind": "table"
+    },
+    {
+      "title": "Table 12 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-1 — FIXED in the mock; Type: Bug; Screen / area: List — Delivery Date, Created On columns; Finding (verified in code): Columns inherited the default text filter while displaying formatted dates, so the floating filter matched the raw ISO string (e.g. “2026-09-15T00:00:00Z”) and filtering by what the user sees (“15 Sep”) failed. Both now declare cellDataType: 'dateString' + filter: 'agDateColumnFilter'; wfx-grid supplies ISO parsing, inclusive ranges and calendar-day comparison generically.; Corrected rule in this spec: Date columns use the date column filter (3.1.3) — equals / before / after / from–to on a calendar picker. Build the real screen this way; a text filter on a date offers only “contains / begins with”, which cannot express “before this date” or a from–to range.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-2; Type: Bug; Screen / area: List — Cancel flow; Finding (verified in code): Cancelling saves the reason INTO the Comments field, overwriting any existing comments.; Corrected rule in this spec: Dedicated CancelReason field + audit; Comments untouched (3.1.6, Q-13).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-3; Type: Formatting gap; Screen / area: List & Detail — Total Qty; Finding (verified in code): Quantity is displayed without a UOM anywhere.; Corrected rule in this spec: Quantity always shown with its UOM (3.1.3, Q-1).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-4 — PARTLY FIXED; Type: Formatting inconsistency; Screen / area: List vs Detail — Total Value; Finding (verified in code): Fixed: the list formatted value with 0 decimals (“$96,000”) while the detail input accepted 2 — same measure, two precisions; the list now shows 2 decimals everywhere (“$96,000.00”), matching the detail and Q-2. Still open: the locale is hardcoded to en-US for both value and quantity formatting, so thousand separators ignore the user’s locale.; Corrected rule in this spec: 2 decimals everywhere, symbol + code, user-locale number formatting (3.1.3, Q-2/Q-3). The decimals half is done; the real build must still drop the hardcoded locale (Q-3).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-5; Type: Wording; Screen / area: List — confirm dialog; Finding (verified in code): Dialog says a confirmed order “becomes read-only”, contradicting the versioned-edit rule and the detail screen’s own wording.; Corrected rule in this spec: Unified M-2 wording (3.2.6).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-6; Type: Standards gap; Screen / area: List — row actions; Finding (verified in code): No pinned-right actions column; actions reachable only via right-click context menu.; Corrected rule in this spec: Pinned-right actions column plus the context menu (3.1.3).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-7; Type: UX; Screen / area: List — quick search; Finding (verified in code): Search fires on every keystroke with no debounce.; Corrected rule in this spec: Debounced 300 ms (3.1.2, Q-17).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-8; Type: Question; Screen / area: List — Status badge; Finding (verified in code): Closed and Cancelled share the error (red) severity; Closed is a normal completion.; Corrected rule in this spec: Severity decision pending Q-21.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-9; Type: Consistency; Screen / area: List vs Detail — Confirm availability; Finding (verified in code): List context menu offers Confirm only for Saved rows; the detail screen offers Confirm/Re-confirm for any loaded record.; Corrected rule in this spec: Intentional per studio standards (detail carries re-confirm); list stays Saved-only. Documented in 3.1.4/3.2.5.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-10; Type: Minor; Screen / area: Detail — Total Quantity input; Finding (verified in code): Input widget allows typing 0 (widget min 0) while the rule requires ≥ 1; error only appears via form validation.; Corrected rule in this spec: V-6 stands; input may keep soft min 0 with inline error.",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement)",
+      "text": "#: F-11; Type: Minor; Screen / area: List — Cancel dialog; Finding (verified in code): Dialog text does not name the order being cancelled.; Corrected rule in this spec: Dialog must name the order (3.1.6).",
+      "locator": "§ Sales Orders — Product Mock Spec › Out-of-scope & deltas › Findings — mock defects and standards violations (do NOT implement), table 12, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Open questions",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "The product team was not available to answer the pre-finalization question batch, so every question below carries the proposed default, which this spec ADOPTS AS ASSUMED. Each assumption is marked “ASSUMED” where it is used in the body. Owner for every item: Product team (Sales) — confirmation required before development sign-off; any changed answer amends the referenced sections.",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions",
+      "kind": "section"
+    },
+    {
+      "title": "Open questions – Table 13",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "Columns: # (text); Question (text); Adopted default (ASSUMED) (text, ASSUMED); Used in (text)\n# | Question | Adopted default (ASSUMED) | Used in\nQ-1 | Total Quantity has no UOM anywhere. Which UOM applies and where is it shown? | Order-level UOM field defaulting to “pcs”; quantity always displayed as “4,800 pcs” in list and detail. | 3.1.3, 3.2.2, F-3\nQ-2 | Value decimals differ between list (0 dp) and detail (2 dp). What is the display rule? | Always 2 decimals with currency symbol and code, identical in list, detail and documents; round half-up. | 3.1.3, V-7, F-4\nQ-3 | Are number formats (thousand separators) locale-fixed or per user? | User-locale formatting via the app-wide number formatting service; never a hardcoded locale. | F-4\nQ-4 | May Total Value be 0? | 0 allowed while Saved (draft); must be > 0 to Confirm. | V-7, 3.2.5\nQ-5 | Are the quantity bounds (integer, 1–1,000,000) and value bound (≤ 99,999,999) correct? | Yes — as mocked. | V-6…V-7\nQ-6 | Must Ship Under PO Ref be unique? | Unique per buyer; blocking inline error on save. | V-1\nQ-7 | How is the order number (MainOCNum) generated? | Server sequence “OC-{yyyy}-{seq}” assigned at first insert; never client-generated. | D-5, 3.2.3\nQ-8 | Are Order Initiation Date and Delivery Date mandatory? | Optional while Saved; both mandatory to Confirm. | V-8, 3.2.5\nQ-9 | Any absolute min/max on the dates (past/future)? | No absolute bounds (backdated orders exist); only the cross-field rule V-8, re-validated when either date changes. | V-8\nQ-10 | Season is optional in the mock — intentional? | Yes, optional and clearable. | 3.2.2\nQ-11 | Is Manager free text or a user list? | Selected from the user/merchandiser directory in the real app. | D-4\nQ-12 | Which statuses can be cancelled? The mock allows everything except Cancelled/Closed, including Part Ship and Shipped. | Saved and Confirmed only; partially/fully shipped orders follow an operations review outside this screen. | T-4, 3.1.4\nQ-13 | Where is the cancel reason stored, and what is its max length? | New CancelReason field, max 500 characters, audit-logged with user and timestamp; Comments never touched. | F-2, 3.1.6\nQ-13a | Comments has no max length in the mock. Limit? | 4000 characters. | 3.2.2\nQ-14 | Can a Cancelled order be reopened? | No — Cancelled is terminal; a replacement order is keyed fresh. | Section 4\nQ-15 | The mock allows deleting Cancelled orders. Correct? | No — only Saved orders are deletable; Cancelled orders are kept for audit. | V-13, T-6\nQ-16 | Who may Confirm / Cancel / Delete (roles)? | Standard WFX role permissions: merchandisers create/edit; managers confirm and cancel; delete restricted to managers. | D-7\nQ-17 | Quick-search scope and debounce? | Order No, Buyer name and PO Ref; 300 ms debounce. | 3.1.2, F-7\nQ-18 | Client-side grid: when does server paging arrive, page sizes, default sort? | Server-side row model from day one; page sizes 20/50/100 (default 20); default sort Created On descending. | D-2, 3.1.3\nQ-19 | Over-ship tolerance % and Part Ship/Shipped mechanics? | Owned by the shipment module; out of scope for these screens. | T-5, D-8\n… 4 more rows",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13",
+      "kind": "table"
+    },
+    {
+      "title": "Table 13 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-1; Question: Total Quantity has no UOM anywhere. Which UOM applies and where is it shown?; Adopted default (ASSUMED): Order-level UOM field defaulting to “pcs”; quantity always displayed as “4,800 pcs” in list and detail.; Used in: 3.1.3, 3.2.2, F-3",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-2; Question: Value decimals differ between list (0 dp) and detail (2 dp). What is the display rule?; Adopted default (ASSUMED): Always 2 decimals with currency symbol and code, identical in list, detail and documents; round half-up.; Used in: 3.1.3, V-7, F-4",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-3; Question: Are number formats (thousand separators) locale-fixed or per user?; Adopted default (ASSUMED): User-locale formatting via the app-wide number formatting service; never a hardcoded locale.; Used in: F-4",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-4; Question: May Total Value be 0?; Adopted default (ASSUMED): 0 allowed while Saved (draft); must be > 0 to Confirm.; Used in: V-7, 3.2.5",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-5; Question: Are the quantity bounds (integer, 1–1,000,000) and value bound (≤ 99,999,999) correct?; Adopted default (ASSUMED): Yes — as mocked.; Used in: V-6…V-7",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-6; Question: Must Ship Under PO Ref be unique?; Adopted default (ASSUMED): Unique per buyer; blocking inline error on save.; Used in: V-1",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-7; Question: How is the order number (MainOCNum) generated?; Adopted default (ASSUMED): Server sequence “OC-{yyyy}-{seq}” assigned at first insert; never client-generated.; Used in: D-5, 3.2.3",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-8; Question: Are Order Initiation Date and Delivery Date mandatory?; Adopted default (ASSUMED): Optional while Saved; both mandatory to Confirm.; Used in: V-8, 3.2.5",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-9; Question: Any absolute min/max on the dates (past/future)?; Adopted default (ASSUMED): No absolute bounds (backdated orders exist); only the cross-field rule V-8, re-validated when either date changes.; Used in: V-8",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-10; Question: Season is optional in the mock — intentional?; Adopted default (ASSUMED): Yes, optional and clearable.; Used in: 3.2.2",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-11; Question: Is Manager free text or a user list?; Adopted default (ASSUMED): Selected from the user/merchandiser directory in the real app.; Used in: D-4",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 12",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-12; Question: Which statuses can be cancelled? The mock allows everything except Cancelled/Closed, including Part Ship and Shipped.; Adopted default (ASSUMED): Saved and Confirmed only; partially/fully shipped orders follow an operations review outside this screen.; Used in: T-4, 3.1.4",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 13",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-13; Question: Where is the cancel reason stored, and what is its max length?; Adopted default (ASSUMED): New CancelReason field, max 500 characters, audit-logged with user and timestamp; Comments never touched.; Used in: F-2, 3.1.6",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 14",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-13a; Question: Comments has no max length in the mock. Limit?; Adopted default (ASSUMED): 4000 characters.; Used in: 3.2.2",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 15",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-14; Question: Can a Cancelled order be reopened?; Adopted default (ASSUMED): No — Cancelled is terminal; a replacement order is keyed fresh.; Used in: Section 4",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 16",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-15; Question: The mock allows deleting Cancelled orders. Correct?; Adopted default (ASSUMED): No — only Saved orders are deletable; Cancelled orders are kept for audit.; Used in: V-13, T-6",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 17",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-16; Question: Who may Confirm / Cancel / Delete (roles)?; Adopted default (ASSUMED): Standard WFX role permissions: merchandisers create/edit; managers confirm and cancel; delete restricted to managers.; Used in: D-7",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 18",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-17; Question: Quick-search scope and debounce?; Adopted default (ASSUMED): Order No, Buyer name and PO Ref; 300 ms debounce.; Used in: 3.1.2, F-7",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 19",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-18; Question: Client-side grid: when does server paging arrive, page sizes, default sort?; Adopted default (ASSUMED): Server-side row model from day one; page sizes 20/50/100 (default 20); default sort Created On descending.; Used in: D-2, 3.1.3",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 20",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-19; Question: Over-ship tolerance % and Part Ship/Shipped mechanics?; Adopted default (ASSUMED): Owned by the shipment module; out of scope for these screens.; Used in: T-5, D-8",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 21",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-20; Question: Two users edit the same order — what happens?; Adopted default (ASSUMED): Optimistic concurrency (row version); the later save gets a conflict error toast and a reload prompt.; Used in: D-6",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 22",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-21; Question: Closed shares the red badge with Cancelled. Correct severity?; Adopted default (ASSUMED): Closed uses a neutral/secondary badge; red is reserved for Cancelled.; Used in: F-8, Section 4",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 23",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-22; Question: Empty-list experience?; Adopted default (ASSUMED): “No sales orders found” overlay plus an Add New Order call to action.; Used in: 3.1.7",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 24",
+      "heading": "Sales Orders — Product Mock Spec › Open questions",
+      "text": "#: Q-23; Question: When do article / size / colourway order lines arrive?; Adopted default (ASSUMED): Separate phase after this header-level screen ships; header totals stay manual until then.; Used in: D-9",
+      "locator": "§ Sales Orders — Product Mock Spec › Open questions, table 13, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Technical appendix — Data & API contract provisional",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "The committed mock JSON (mock-data/wfx-erp-product-sales-orders.mock.json) is the draft API contract. Field names are PascalCase DTO names matching the real xtOCMain response. The real backend must be reconciled field-by-field against this table during promotion.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "kind": "section"
+    },
+    {
+      "title": "Technical appendix — Data & API contract provisional – Table 14",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Columns: Field (text); Type (text); Example (text); Read by (text); Written by (text)\nField | Type | Example | Read by | Written by\nid | string (UUID) | 6f9d3b2a-… | Both screens (row id, routing) | Server on insert (mock: client UUID)\nMainOCID | number (xtOCMain PK) | 100001 | — (carried for the real API) | Server\nMainOCNum | string | OC-2026-0001 | List (Order column), Detail (title), all messages | Server-generated sequence (Q-7)\nShipUnderPORef | string (≤100) | PO-ACME-5521 | List (Order column, secondary) | Detail (seed field)\nBuyerCompanyCode | string | BUY001 | List (Buyer secondary) | Detail (Buyer select value)\nBuyerCompanyName | string | Acme Retail Group | List (Buyer primary), search | Derived from Buyer selection\nProductCatCode | string | APPAREL | List (Category) | Detail (Category select)\nSeason | string | SS26 | List (Season) | Detail (Order Season select; optional)\nCurrencyCode | string (ISO 4217) | USD | List (Total Value formatting), Detail | Detail (Currency select; seed)\nManagerName | string (≤100) | Priya Nair | List (Manager) | Detail\nStatus | enum: Saved | Confirmed | Part Ship | Shipped | Closed | Cancelled | Saved | List (badge, filters), Detail (Confirm logic) | Lifecycle actions only — never a free edit\nTotalQty | integer (1–1,000,000) | 4800 | List (Total Qty) | Detail (seed field)\nTotalValue | decimal(2) (0–99,999,999) | 96000 | List (Total Value) | Detail (seed field)\nOrderInitiationDate | ISO 8601 datetime, date-only meaning | 2026-06-10T00:00:00Z | Detail | Detail (datepicker)\nDeliveryDate | ISO 8601 datetime; ≥ OrderInitiationDate | 2026-09-15T00:00:00Z | List (Delivery Date), Detail | Detail (datepicker)\nCreatedBy | string (≤100) | Ayesha Khan | List (Created By, avatar + name) | Server on insert — the authenticated user; never client-supplied\nCreatedOn | ISO 8601 datetime | 2026-06-12T09:30:00Z | List (Created On, default sort) | Server on insert\nFabricInstruction | string (≤1000) | 100% combed cotton… | Detail (Instruction tab) | Detail\nPackingInstruction | string (≤1000) | Solid color solid size… | Detail (Instruction tab) | Detail\nComments | string | Priority order… | Detail (Instruction tab) | Detail ONLY — never the cancel flow (7.2)\n… 1 more rows",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14",
+      "kind": "table"
+    },
+    {
+      "title": "Table 14 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: id; Type: string (UUID); Example: 6f9d3b2a-…; Read by: Both screens (row id, routing); Written by: Server on insert (mock: client UUID)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: MainOCID; Type: number (xtOCMain PK); Example: 100001; Read by: — (carried for the real API); Written by: Server",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: MainOCNum; Type: string; Example: OC-2026-0001; Read by: List (Order column), Detail (title), all messages; Written by: Server-generated sequence (Q-7)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: ShipUnderPORef; Type: string (≤100); Example: PO-ACME-5521; Read by: List (Order column, secondary); Written by: Detail (seed field)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: BuyerCompanyCode; Type: string; Example: BUY001; Read by: List (Buyer secondary); Written by: Detail (Buyer select value)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: BuyerCompanyName; Type: string; Example: Acme Retail Group; Read by: List (Buyer primary), search; Written by: Derived from Buyer selection",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 7",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: ProductCatCode; Type: string; Example: APPAREL; Read by: List (Category); Written by: Detail (Category select)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 8",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: Season; Type: string; Example: SS26; Read by: List (Season); Written by: Detail (Order Season select; optional)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 9",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: CurrencyCode; Type: string (ISO 4217); Example: USD; Read by: List (Total Value formatting), Detail; Written by: Detail (Currency select; seed)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 10",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: ManagerName; Type: string (≤100); Example: Priya Nair; Read by: List (Manager); Written by: Detail",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 11",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: Status; Type: enum: Saved | Confirmed | Part Ship | Shipped | Closed | Cancelled; Example: Saved; Read by: List (badge, filters), Detail (Confirm logic); Written by: Lifecycle actions only — never a free edit",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 12",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: TotalQty; Type: integer (1–1,000,000); Example: 4800; Read by: List (Total Qty); Written by: Detail (seed field)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 13",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: TotalValue; Type: decimal(2) (0–99,999,999); Example: 96000; Read by: List (Total Value); Written by: Detail (seed field)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 14",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: OrderInitiationDate; Type: ISO 8601 datetime, date-only meaning; Example: 2026-06-10T00:00:00Z; Read by: Detail; Written by: Detail (datepicker)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 15",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: DeliveryDate; Type: ISO 8601 datetime; ≥ OrderInitiationDate; Example: 2026-09-15T00:00:00Z; Read by: List (Delivery Date), Detail; Written by: Detail (datepicker)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 16",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: CreatedBy; Type: string (≤100); Example: Ayesha Khan; Read by: List (Created By, avatar + name); Written by: Server on insert — the authenticated user; never client-supplied",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 17",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: CreatedOn; Type: ISO 8601 datetime; Example: 2026-06-12T09:30:00Z; Read by: List (Created On, default sort); Written by: Server on insert",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 18",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: FabricInstruction; Type: string (≤1000); Example: 100% combed cotton…; Read by: Detail (Instruction tab); Written by: Detail",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 19",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: PackingInstruction; Type: string (≤1000); Example: Solid color solid size…; Read by: Detail (Instruction tab); Written by: Detail",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 20",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: Comments; Type: string; Example: Priority order…; Read by: Detail (Instruction tab); Written by: Detail ONLY — never the cancel flow (7.2)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 21",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional",
+      "text": "Field: CancelReason (NEW); Type: string (≤500, ASSUMED); Example: —; Read by: Audit / future display; Written by: Cancel dialog (Q-13)",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional, table 14, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Service surface (real WfxSalesOrderApiService) – Table 15",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Columns: Method (mock today) (text, mock today); Real endpoint (to define) (text, to define); Notes (text)\nMethod (mock today) | Real endpoint (to define) | Notes\nfetchOrders(): Observable<IWfxSalesOrderListItem[]> | GET /sales-orders (server-side paging/sort/filter params) | One call per grid block; no N+1.\ngetOrder(id) | GET /sales-orders/{id} | 404 → M-16 flow.\nsaveOrder(order) | POST /sales-orders (insert on seed completion); PATCH /sales-orders/{id} (dirty fields only) | Mock PUTs the whole record — real build patches per field (7.1).\ndeleteOrder(id) | DELETE /sales-orders/{id} | Server re-validates the delete rule (never trust the client).\n— (new) | POST /sales-orders/{id}/confirm | Creates/publishes the confirmed version; server re-validates.\n— (new) | POST /sales-orders/{id}/cancel { reason } | Server enforces mandatory reason and allowed statuses.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15",
+      "kind": "table"
+    },
+    {
+      "title": "Table 15 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Method (mock today): fetchOrders(): Observable<IWfxSalesOrderListItem[]>; Real endpoint (to define): GET /sales-orders (server-side paging/sort/filter params); Notes: One call per grid block; no N+1.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Method (mock today): getOrder(id); Real endpoint (to define): GET /sales-orders/{id}; Notes: 404 → M-16 flow.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 3",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Method (mock today): saveOrder(order); Real endpoint (to define): POST /sales-orders (insert on seed completion); PATCH /sales-orders/{id} (dirty fields only); Notes: Mock PUTs the whole record — real build patches per field (7.1).",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 4",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Method (mock today): deleteOrder(id); Real endpoint (to define): DELETE /sales-orders/{id}; Notes: Server re-validates the delete rule (never trust the client).",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 5",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Method (mock today): — (new); Real endpoint (to define): POST /sales-orders/{id}/confirm; Notes: Creates/publishes the confirmed version; server re-validates.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 6",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "Method (mock today): — (new); Real endpoint (to define): POST /sales-orders/{id}/cancel { reason }; Notes: Server enforces mandatory reason and allowed statuses.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService), table 15, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Service surface (real WfxSalesOrderApiService)",
+      "heading": "Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "text": "• All list/detail reads and writes go through one thin per-feature service; components never call HTTP directly.\n• Server is the source of truth for every rule in Section 6 — client validation is a convenience, not the enforcement.",
+      "locator": "§ Sales Orders — Product Mock Spec › Technical appendix — Data & API contract provisional › Service surface (real WfxSalesOrderApiService)",
+      "kind": "section"
+    },
+    {
+      "title": "Version History – Table 16",
+      "heading": "Sales Orders — Product Mock Spec › Version History",
+      "text": "Columns: Version (text); Owner (text); Git user (text); Date (date); Summary (text)\nVersion | Owner | Git user | Date | Summary\nV1 | Vinod Khanna (Technical Architect) | vinod.khanna | 20 Jul 2026 | Tag #-code tables (screen inventory, validations) so S-1/V-1 codes stay on one line\nV2 | Vinod Khanna (Technical Architect) | vinod.khanna | 20 Jul 2026 | Overview edited",
+      "locator": "§ Sales Orders — Product Mock Spec › Version History, table 16",
+      "kind": "table"
+    },
+    {
+      "title": "Table 16 row 1",
+      "heading": "Sales Orders — Product Mock Spec › Version History",
+      "text": "Version: V1; Owner: Vinod Khanna (Technical Architect); Git user: vinod.khanna; Date: 20 Jul 2026; Summary: Tag #-code tables (screen inventory, validations) so S-1/V-1 codes stay on one line",
+      "locator": "§ Sales Orders — Product Mock Spec › Version History, table 16, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 2",
+      "heading": "Sales Orders — Product Mock Spec › Version History",
+      "text": "Version: V2; Owner: Vinod Khanna (Technical Architect); Git user: vinod.khanna; Date: 20 Jul 2026; Summary: Overview edited",
+      "locator": "§ Sales Orders — Product Mock Spec › Version History, table 16, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

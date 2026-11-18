@@ -1,0 +1,33 @@
+# History of TERM-USER-GROUP-AND-PURCHASE-OFFICER. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:27:15.511Z · superseded by v2
+================================================================================
+TERM ID: TERM-USER-GROUP-AND-PURCHASE-OFFICER
+TERM: User Group and Purchase Officer
+DEFINITION: The BOM carries a User Group and a Purchase Officer. If they are not filled, the indent generated after MRP comes in Inactive status. It must be activated from the User Indent list or the Indent list before MRP and the other adjustments can be done on it.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+
+# 2026-11-18T06:27:41.072Z · superseded by v3
+================================================================================
+TERM ID: TERM-USER-GROUP-AND-PURCHASE-OFFICER
+TERM: User Group and Purchase Officer (on BOM) – why indents are Inactive
+DEFINITION: If the BOM has no User Group and no Purchase Officer, the indents created from it are Inactive by default. The user must mark them Active manually (User Indent list or Indent list) before MRP or any other action can be done on them.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 2
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+SUPERSEDED BY: v3 on 2026-11-18 (owner-explanation)
+================================================================================
+

@@ -1,0 +1,34 @@
+# History of RULE-SO-PRICE-PER. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:21:33.907Z · superseded by v2
+================================================================================
+RULE ID: RULE-SO-PRICE-PER
+RULE NAME: Price Per
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Pricing
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Inherited from the Tech Pack, never typed on the order. It decides at which level the selling price is kept: Article (one price), Color (a price per colour, average shown), Size (a price per size, average shown) or Color/Size (a price per combination, average shown).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Price Per = Color: prices 10 for red and 14 for blue show an average price on the main screen.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Tech Pack, Sales Order delivery
+GROUP: Pricing
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Superseded
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+

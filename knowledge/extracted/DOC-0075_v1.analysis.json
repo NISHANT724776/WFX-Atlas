@@ -1,0 +1,245 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Ankit",
+          "14-12-2025",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "388821 - 3DCS Roll selection Issue",
+  "keyTerms": [
+    "roll",
+    "stock",
+    "quantities",
+    "approval",
+    "level",
+    "correction",
+    "stock correction",
+    "edit stock",
+    "frozen",
+    "available",
+    "level quantities",
+    "transactions",
+    "edit",
+    "quantity",
+    "during"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 22
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "This results in inconsistencies where stock appears available at the OC level but cannot be physically used due to the roll being frozen.",
+      "locator": "§ … › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to ensure that both the roll and the corresponding OC-level quantities are frozen during stock correction and correctly reconciled once the correction is approved.",
+      "locator": "§ … › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When a roll is allocated across multiple OCs and a stock correction is submitted for approval, the system currently cannot determine from which OC the quantity should be unreserved.",
+      "locator": "§ … › Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When a roll is allocated across multiple OCs and a stock correction is submitted for approval, the system currently cannot determine from which OC the quantity should be unreserved.",
+      "locator": "§ … › Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The business requires a solution where OC-level quantities are also frozen during stock correction, preventing further transactions until approval is completed.",
+      "locator": "§ … › Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure frozen OC quantities are excluded from availability calculations for:",
+      "locator": "§ … › Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "System visibility and validation behavior:",
+      "locator": "§ … › Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Continue existing behavior where the correction number is not visible until approval is completed.",
+      "locator": "§ … › Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "System does not allow transactions that would fail later due to roll unavailability.",
+      "locator": "§ … › Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure that corrected and remaining quantities are immediately available for valid transactions after approval.",
+      "locator": "§ … › Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Enhance the Edit Stock (Stock Correction) process to manage both roll-level and OC-level reservations when a correction is initiated and sent for approval.\n2. At the time of Edit Stock submission (Waiting / Approval Pending status):\n3. Freeze the entire roll associated with the stock correction, consistent with existing system behavior.\n4. In addition to roll freeze, identify all OCs to which the roll is currently allocated.\n5. Freeze the OC-level reserved quantities corresponding to that roll so that these quantities are not considered available for any downstream transactions.\n6. Ensure frozen OC quantities are excluded from availability calculations for:\n7. GDI\n8. Picklist creation\n9. Split Roll\n10. Re-QC\n11. Edit Stock\n12. PLT and any other stock movement processes\n13. System visibility and validation behavior:\n14. Continue existing behavior where the correction number is not visible until approval is completed.\n15. Ensure that while the roll and OC quantities are frozen:\n16. Stock does not appear available at OC level for further allocation.\n17. System does not allow transactions that would fail later due to roll unavailability.\n18. OC identification logic during approval:\n19. During approval, the system will determine the OC from which the quantity needs to be unreserved based on:\n20. OC selected in the Edit Stock transaction\n21. Post-approval processing:\n22. Unreserve the corrected quantity only from the identified OC.\n23. Update GRN and OC reservation balances accordingly.\n24. Automatically unfreeze:\n25. Remaining quantities of the roll\n26. OC-level quantities for all other OCs not impacted by the correction\n27. Ensure that corrected and remaining quantities are immediately available for valid transactions after approval.",
+      "locator": "§ … › Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "During Edit Stock approval status, the roll must be fully frozen.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "OC-level quantities linked to the frozen roll must also be frozen and not available for further transactions.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "System must prevent creation of GDI, Picklist, or other transactions using frozen OC quantities.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "After approval, the system must unreserve the edited quantity from the selected OC only.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Remaining OC quantities must become available again after approval.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria:\n1. During Edit Stock approval status, the roll must be fully frozen.\n2. OC-level quantities linked to the frozen roll must also be frozen and not available for further transactions.\n3. System must prevent creation of GDI, Picklist, or other transactions using frozen OC quantities.\n4. After approval, the system must unreserve the edited quantity from the selected OC only.\n5. Remaining OC quantities must become available again after approval.",
+      "locator": "§ … › Acceptance Criteria",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 4. Revision History, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "388821 - 3DCS Roll selection Issue",
+      "heading": "",
+      "text": "3DCS Roll selection Issue\nDevelopment ID: 388821\n3DCS Roll selection Issue\nDevelopment ID: 388821",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n2. Purpose 2\n3. Solution 2\n4. Revision History 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "… › Purpose",
+      "text": "Currently, when a stock correction (Edit Stock) is initiated for a roll that is allocated across multiple OCs, the system freezes the entire roll quantity but does not freeze the OC-level reserved quantities. This results in inconsistencies where stock appears available at the OC level but cannot be physically used due to the roll being frozen.\nThe purpose of this enhancement is to ensure that both the roll and the corresponding OC-level quantities are frozen during stock correction and correctly reconciled once the correction is approved.",
+      "locator": "§ … › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Business Requirement",
+      "text": "When a roll is allocated across multiple OCs and a stock correction is submitted for approval, the system currently cannot determine from which OC the quantity should be unreserved. To handle this, the system freezes the full roll quantity but continues to show OC-level quantities as available for transactions such as GDI.\nThis creates operational issues where picklists fail due to roll unavailability, despite OC quantities appearing available. The business requires a solution where OC-level quantities are also frozen during stock correction, preventing further transactions until approval is completed.",
+      "locator": "§ … › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "… › Solution",
+      "text": "• Enhance the Edit Stock (Stock Correction) process to manage both roll-level and OC-level reservations when a correction is initiated and sent for approval.\n• At the time of Edit Stock submission (Waiting / Approval Pending status):\n• Freeze the entire roll associated with the stock correction, consistent with existing system behavior.\n• In addition to roll freeze, identify all OCs to which the roll is currently allocated.\n• Freeze the OC-level reserved quantities corresponding to that roll so that these quantities are not considered available for any downstream transactions.\n• Ensure frozen OC quantities are excluded from availability calculations for:\n• GDI\n• Picklist creation\n• Split Roll\n• Re-QC\n• Edit Stock\n• PLT and any other stock movement processes\n• System visibility and validation behavior:\n• Continue existing behavior where the correction number is not visible until approval is completed.\n• Ensure that while the roll and OC quantities are frozen:\n• Stock does not appear available at OC level for further allocation.\n• System does not allow transactions that would fail later due to roll unavailability.\n• OC identification logic during approval:\n• During approval, the system will determine the OC from which the quantity needs to be unreserved based on:\n• OC selected in the Edit Stock transaction\n• Post-approval processing:",
+      "locator": "§ … › Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "… › Solution",
+      "text": "• Unreserve the corrected quantity only from the identified OC.\n• Update GRN and OC reservation balances accordingly.\n• Automatically unfreeze:\n• Remaining quantities of the roll\n• OC-level quantities for all other OCs not impacted by the correction\n• Ensure that corrected and remaining quantities are immediately available for valid transactions after approval.",
+      "locator": "§ … › Solution (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria",
+      "heading": "… › Acceptance Criteria",
+      "text": "• During Edit Stock approval status, the roll must be fully frozen.\n• OC-level quantities linked to the frozen roll must also be frozen and not available for further transactions.\n• System must prevent creation of GDI, Picklist, or other transactions using frozen OC quantities.\n• After approval, the system must unreserve the edited quantity from the selected OC only.\n• Remaining OC quantities must become available again after approval.",
+      "locator": "§ … › Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Revision History – Table 1",
+      "heading": "Section 4. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Ankit | 14-12-2025 | Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 1.0; Revised By: Ankit; Revised On: 14-12-2025; Changes: Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

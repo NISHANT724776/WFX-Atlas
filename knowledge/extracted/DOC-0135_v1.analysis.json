@@ -1,0 +1,95 @@
+{
+  "tables": [],
+  "subject": "Manufacturing base module 372826 - Release Note",
+  "keyTerms": [
+    "bom",
+    "material",
+    "material code",
+    "code",
+    "code request",
+    "bom processing",
+    "techpack bom",
+    "techpack",
+    "data",
+    "article",
+    "request",
+    "processing",
+    "mrp",
+    "generic",
+    "generic articles"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 16
+    },
+    {
+      "module": "Planning",
+      "score": 3
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "BOM – Costing",
+    "Apparel Style (Techpack)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "As a result, merchandising teams must manually follow up with sourcing teams to create or map material codes, causing delays, errors, and inconsistency in BOM processing.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "All extracted data by the AI will go to data validation screen.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "On submitting Apparel techpack and bom through validation screen, techpack on system will be created and system extracts BOM and article data automatically.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If there is generic article present on BOM which is not in hold status, then system will restrict MRP.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "If there is generic article present on BOM which is not in hold status, then system will restrict MRP.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Code Request for BOM Integration (372826):\n1. User uploads the buyer Techpack/BOM document into the system.\n2. All extracted data by the AI will go to data validation screen.\n3. On submitting Apparel techpack and bom through validation screen, techpack on system will be created and system extracts BOM and article data automatically.\n4. Sending material code request for generic articles.\n5. Upon approval, Article Code and Article Name are updated in BOM.\n6. BOM can be approved; MRP is allowed only after unresolved generic articles are cleared or put on hold.\n7. If there is generic article present on BOM which is not in hold status, then system will restrict MRP.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Material Code Request for BOM Integration (372826)",
+      "heading": "… › Material Code Request for BOM Integration (372826)",
+      "text": "Business Requirement:\nThe requirement is to introduces Material Code Request integration with BOM processing, enabling automated and manual routing of material code creation during Techpack and BOM processing. The enhancement ensures accurate material mapping, smoother sourcing collaboration, and controlled approval before procurement and MRP execution.\n\nProblems encountered:\nBuyer BOM data often does not contain complete or correct material details. As a result, merchandising teams must manually follow up with sourcing teams to create or map material codes, causing delays, errors, and inconsistency in BOM processing.\n\nType: Enhancement.\nRole/Target Audience: Merchandising Department.\nSolution:\n• User uploads the buyer Techpack/BOM document into the system.\n• All extracted data by the AI will go to data validation screen.\n• On submitting Apparel techpack and bom through validation screen, techpack on system will be created and system extracts BOM and article data automatically.\n• Sending material code request for generic articles.\n• Upon approval, Article Code and Article Name are updated in BOM.\n• BOM can be approved; MRP is allowed only after unresolved generic articles are cleared or put on hold.\n• If there is generic article present on BOM which is not in hold status, then system will restrict MRP.",
+      "locator": "§ … › Material Code Request for BOM Integration (372826)",
+      "kind": "section"
+    }
+  ]
+}

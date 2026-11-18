@@ -1,0 +1,1901 @@
+# Business rules: Sales Order (re-write)
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+# Source: Sales Order Sprint 1–3 specifications and related notes. Permission and settings handling is not covered.
+
+================================================================================
+RULE ID: RULE-SO-LEVELS
+RULE NAME: Sales Order structure
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Structure
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A Sales Order (Main OC) holds Deliveries (Delivery OCs). Each delivery holds one or more Articles, and each article holds a Colour/Size breakup with selling price. The list shows one row per order and article, with the order number repeated.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales › Sales Order
+GROUP: Structure
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-SECTIONS
+RULE NAME: Sales Order sections
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Structure
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The creation screen is one transaction page with Order Information (Sales Order No, Category, Buyer, Buyer Division/Dept, Order Season), Other Details, Delivery and Items, Instructions, Documents and History. The title reads Add Sales Order when new, Edit Sales Order when revising and Sales Order when only viewing.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales › Sales Order › New
+GROUP: Structure
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-QUICK-FILLS
+RULE NAME: Quick Fills (Copy Order)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Structure
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Fills a new order in one of two ways: copy from the Buyer Default Template (the template of the selected buyer, from Buyer Master › Default tab) or copy from an Existing Sales Order (all details including quantities; search by order number or style; the last 10 orders are listed).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order header tools
+GROUP: Structure
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ARTICLE-MODES
+RULE NAME: Article selection modes
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Structure
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Mode A is Style + Color + Size: one row per unique combination with Number of Sets, Size, Selling Price, Value and Total Quantity. Mode B is Style-wise grouping: one group per style with Color/Size, Quantity, Selling Price, Value, BOM and Total Quantity. A TBA colour/size line is always created by default.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Article selection
+GROUP: Structure
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-UPCHARGE
+RULE NAME: Upcharge / Discount
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Pricing
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Driven by Price Per. The base selling price comes from the Tech Pack. A positive value is an upcharge, a negative value is a discount, and the final selling price is read-only: Base Selling Price ± Upcharge/Discount. Only when the setting "Enable Base Price and Upcharge in Summary OC" is ON; when OFF the Tech Pack price goes straight into Selling Price.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Base 100, +10 → 110; base 100, -5 → 95.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Selling Price
+GROUP: Pricing
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-BOM-PRICE
+RULE NAME: BOM selection on the order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Pricing
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: When several approved and accepted BOMs exist, the order picks the selling price of the latest accepted BOM. If the user selects a BOM for the article from the dropdown, the price of that BOM is used.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Article
+GROUP: Pricing
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-BSR
+RULE NAME: Buyer Style Reference (BSR)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Pricing
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Shown under the article. Non-textile: taken from the Tech Pack, otherwise blank. Textile/fabric: taken first from the Linked Customer table for the selected buyer, then from the Tech Pack, otherwise blank. Whether the value can be edited follows the BSR configuration.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Article
+GROUP: Pricing
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-EXTRA-PRODUCTION
+RULE NAME: Extra Production % and Additional Quantity
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Quantity
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Extra Production % entered at the article header adds a percentage on top of the order quantity and is shown in its own grid under the Quantity Breakup on the Proforma Invoice and Print page. Additional Quantity is added in a separate tab with its own quantity, selling price and a reason from a dropdown. Both can be excluded from MRL generation by a setting, and the planned (PD) quantity must still equal the total OC quantity.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Order 1,200 with 10 % extra production: required 1,320.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Quantity Breakup
+GROUP: Quantity
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-PACKING-TYPE
+RULE NAME: Packing Type
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Quantity
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Chosen per article: Solid Color / Solid Size (a single colour and size, existing popup), Solid Color / Assorted Size (a PP column; one colour only, ratios across sizes) and Multiple Prepack (PP ratios across colours and sizes). Price Per and its dropdown are not shown here, they come from the Tech Pack.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Article
+GROUP: Quantity
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ADD-QTY
+RULE NAME: Add Qty breakup
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Quantity
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A tool that adds another, independent quantity grid under the same article, with a count of how many were added. It is enabled only for Solid Color / Assorted Size and Multiple Prepack. The packing type of an added grid is frozen, and each added grid can be deleted.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Article tools
+GROUP: Quantity
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-INSEAM
+RULE NAME: Inseam
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Quantity
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A size categorisation by inside leg length (Petite, Missy, Regular, Tall, Long, Short) so the same waist size can come in several length variants. Values are kept in the Size Master and chosen per size in the Color/Size popup.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Size Master, Color/Size popup
+GROUP: Quantity
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-KIT
+RULE NAME: Kit article
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Quantity
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A delivery cannot mix kit and non-kit articles. The first article chosen fixes the type and later selections show only that type. Kit articles are shown in grid view only, with the kit name and kit ID and an indicator.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery › Article
+GROUP: Quantity
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-ADD
+RULE NAME: Add Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Adds a new delivery by the Add Delivery button or the + beside Deliveries in the left panel (the + is for additional deliveries). The popup has Delivery Information and Article Information, all blank and editable, and the line shows Pending until confirmed, then Confirmed.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-COPY
+RULE NAME: Copy Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Copies a delivery of the same order from the Action column or the left panel. A new blank delivery opens with the style already filled; delivery number, date and lines must be entered again, and everything stays editable.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-DELETE
+RULE NAME: Delete Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Removes one or several ticked deliveries after a confirmation that names them (for example Delivery 001, 002 and 003). A delivery article can be deleted until its GMPO or ASN has been created.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-SPLIT
+RULE NAME: Split Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Splits a delivery quantity by Percentage (default) or by Quantity from the sidebar of the edit page. Only the delivery information is shown, and Save replaces Confirm while splitting.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Edit Sales Order › sidebar
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-CANCEL
+RULE NAME: Cancel Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Tick one or more deliveries, open the context menu, choose Cancel and enter remarks (required). After "Do you want to Cancel the selected Delivery Order(s)?" and OK the status turns Cancelled (red) and the remarks show on hover and in History.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-CLOSE
+RULE NAME: Close Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Same steps as cancel with the Close option. The status turns Closed (orange); the delivery stays in the list and the remarks are kept.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-REOPEN
+RULE NAME: Reopen Delivery
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Delivery actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Only a closed delivery can be reopened. Choose Reopen, enter remarks and confirm; the status becomes Open (green) and the delivery is editable again. On a delivery that is not closed the system says "Please Uncheck Confirmed Delivery OC."
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Delivery actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DUPLICATE-DELIVERY
+RULE NAME: Duplicate delivery check
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Control
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A delivery is refused when Delivery Buyer Order Ref, Buyer Delivery Date, OC Delivery Date and Mode of Shipment are all the same as an existing one. If any one of them differs the delivery is allowed.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Deliveries
+GROUP: Controls
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-CONFIRMED-STAR
+RULE NAME: Confirmed * status
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Control
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: When a confirmed order has been revised and a delivery is kept in draft, the Delete button is disabled on both the list and the edit page.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list and edit
+GROUP: Controls
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-HISTORY
+RULE NAME: History and activity timeline
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Control
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Every action is logged with date, time, user and remarks: status updates, approval trail (approver name, status, comments), comments and notes, and delivery actions such as "Delivery Order Closed (1) 12:22:02 PM 26/12/2026 Nishant Test Case". When an order is sent for approval the approver name shows in the timeline.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › History
+GROUP: Controls
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-REVISION-LOG
+RULE NAME: Revision Log
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Control
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Grid context-menu tool, enabled only when a confirmed order is revised. It opens the latest version in the Modified tab; versions are chosen from a multi-select header dropdown and load on the All, Modified and Inserted/Deleted tabs. Rows appear only when something changed: Version Change, Revision Authorised By, Reason for Revision, Delivery Name, header changes, Total Qty and UOM, Total Value and Currency, and quantity details (article, colour and size, qty, price, value).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list › context menu
+GROUP: Controls
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-REVISION-FIELDS
+RULE NAME: Reason for revision and Revision Authorized By
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Control
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Both are mandatory text fields shown when the user chooses Revise from the grid context menu.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list › Revise
+GROUP: Controls
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ORDER-CANCEL
+RULE NAME: Cancel Sales Order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Grid context menu › Cancel opens a warning that all Delivery OCs of the Main OC will be cancelled, then a mandatory remarks popup. On OK the order and all its deliveries are cancelled and the status becomes Cancelled. An order that is Saved, Cancelled or Closed cannot be cancelled: "You cannot cancel a Saved, Cancelled, or Closed Order."
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list › context menu
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ORDER-CLOSE
+RULE NAME: Close Sales Order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Grid context menu › Close opens a popup with mandatory remarks; on Close Order the status becomes Closed. A Cancelled or Closed order cannot be closed: "You cannot close a Cancelled or Closed Order."
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list › context menu
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-SPLIT-SHUFFLE
+RULE NAME: Split / Shuffle DOC
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Moves quantity of a delivery to a new delivery or to an existing delivery of the same order. Target Sales Order = New: the target lookup is frozen, a Draft delivery is created on Load with all delivery information, articles, colours and sizes, prices and instructions copied, and the Buyer Order Reference is left blank for the user. Existing: pick one eligible target delivery and the quantities and values of both are recalculated.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list › context menu
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-SPLIT-ELIGIBILITY
+RULE NAME: Split / Shuffle target eligibility
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A target delivery must belong to the same Sales Order, buyer and style/OC, be Draft or editable, not Cancelled and not Closed, and the user must be able to modify it. The source delivery can never be its own target.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Split / Shuffle popup
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-SPLIT-RULES
+RULE NAME: Split by quantity or percentage
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: By Quantity the entered quantity is spread proportionately over the selected article colour/size lines and taken off the source. By Percentage each line moves Existing Quantity × Percentage ÷ 100, rounded to the UOM precision. Quantity must be above zero and not above the delivery quantity; percentage above 0 and not above 100.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: 50 % of a 5,000 piece delivery: 2,500 stay, 2,500 move.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Split / Shuffle popup
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-NOTES
+RULE NAME: OC Notes
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A delivery can get Notes from the Notes action. The dropdown lists only active notes from Sales › Codes › OC Notes; each Save is its own "OC Note Added" entry in the activity timeline with note, user and time. Update Notes uploads an Excel to set notes on many orders. A deleted note stays in the timeline but cannot be picked again.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Delivery OC › Notes; Sales › Codes › OC Notes
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-PROFORMA
+RULE NAME: Proforma Invoice and Print
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Proforma Invoice opens a page at delivery level. Print opens a page grouped by Delivery, Market or Destination. Both show a Sub Total column in the sales order currency and an Extra Production % grid under the Quantity Breakup.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: 800 USD at 1 USD = 84 INR shows 67,200 INR.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list › context menu
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-RUN-MRP
+RULE NAME: Run MRP from the order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Header context menu › Run MRP opens the level-wise material screen: MRL for a cost sheet order, the Pending MRP List for a BOM order.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order header › context menu
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-EXPORT
+RULE NAME: Export
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Exports to Excel only what the list currently shows, respecting filters, sorting and page size.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ASN-GDN
+RULE NAME: ASN, GDN, invoice and dispatch links
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Under the Order Qty column ASN and GDN hyperlinks open a popup with the ASN and GDN quantities of that delivery. The Sales Invoice number opens Sales Invoice Detail (invoice no, date, qty, value). Dispatch opens the Buyer Dispatch Note: destination first, then dates, then articles, then a dispatch allocation grid and Material Re-Allocation with reserve and free stock.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-BOM-INFO
+RULE NAME: BOM Information and Material Requirement Status
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The context menu opens the BOM of the delivery style in view mode, and the Material Status popup of the style in that delivery.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order context menu
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DELIVERY-UPDATE
+RULE NAME: Delivery Update
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order actions
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Edits Buyer Delivery Date, OC Delivery Date, Buyer Order Date, PCD Date, PO Packet Date and GAC Date in a grid without an OC revision. After Save the new dates show on the OC and the related screens.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order header › context menu, or Purchase Order from Buyer › Delivery Update
+GROUP: Order actions
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-EX-FACTORY
+RULE NAME: Ex-factory calculation
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Dates
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A master keeps days against shipment mode, order company, buyer and buyer department. When the Buyer Delivery Date is entered the OC Delivery Date fills automatically that many days earlier. OC Delivery Date otherwise always follows the Buyer Delivery Date.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: 10 days: buyer date 31 Mar → OC delivery date 21 Mar.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales › Codes › Ex Factory Calculation
+GROUP: Dates
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-APPROVAL-LIMIT
+RULE NAME: Approval value
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Approval
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Set per approver: 0 means the document never goes for approval, -1 means it always does, and a limit above 0 means it goes for approval only when the order value exceeds the limit (a value equal to the limit does not).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Limit 1,000: an order of 1,000 is confirmed directly, 1,500 goes for approval.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Program permission › Sales Order New
+GROUP: Approval
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-APPROVAL-SINGLE
+RULE NAME: Single-level approval
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Approval
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The creator names one approver. After Confirm a popup sends the order for approval; the approver finds it under Home › Approval Centre › Sales Order › Pending Approval. Approval makes the status Confirmed; the history keeps approver, status, comments, date and time.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Approval Centre
+GROUP: Approval
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-APPROVAL-MULTI
+RULE NAME: Multi-level approval
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Approval
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Enabled for the document Sales Order in the Multi-Level Approval Settings (beside Purchase Order From Buyer). Creator → first approver (chosen by the creator) → next approver (chosen by the first, ending with a final approver). The order stays pending after each intermediate approval and becomes Confirmed only after the final one.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Admin › Company Setup › Multi level approval Settings
+GROUP: Approval
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-APPROVAL-MULTIPLE
+RULE NAME: Multiple approval (parallel)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Approval
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: More than one approver can be assigned so a missing approver does not block the order. One of them is the default shown in the dropdown, the others are selectable.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order New
+GROUP: Approval
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-PRICE-PICKUP
+RULE NAME: Auto price pickup from cost sheet
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Price sync
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: On a new OC the selling price comes from the confirmed cost sheet or BOM for the style and destination. Prices are destination-wise in the Cost Sheet Summary.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Style 1, destination IN, cost sheet price 10: the OC price fills as 10.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order delivery
+GROUP: Price sync
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-DESYNC
+RULE NAME: Desync price
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Price sync
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A mismatch between the OC selling price and the cost sheet/BOM price marks the record Desynced (blue). The Desync tool in the Sales Order List (enabled only on a mismatch) syncs it: status Sync (green) and the OC price is overwritten with the cost sheet/BOM price, which is always the source of truth. A hyperlink opens OC Details with destination, delivery date, colour/size, OC price and cost sheet price. Needs the setting "OC Price Validation with selling price in cost sheet" ON.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Cost sheet 10, OC typed 20 → desynced; sync sets the OC to 10.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list; Sales › Purchase Order from buyer › Desync Price OC list
+GROUP: Price sync
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-UPDATE-OC-PRICE
+RULE NAME: Update OC with latest cost sheet price
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Price sync
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: If the cost sheet price is revised and confirmed (for example 10 to 15), this action fetches the latest confirmed price and updates the OC selling price from 10 to 15.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Desync Price OC list
+GROUP: Price sync
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TYPE-BACK
+RULE NAME: Back Order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order type
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Confirming an order with Fulfilment Type Back Order shows a New PO (GMPO) option on the OC, also reachable from the GMPO Pending List. From the GMPO the user generates the Material Requirement List (MRL), which creates the material indents from the BOM.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › fulfilment type
+GROUP: Order types
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TYPE-CM
+RULE NAME: CM order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order type
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: For Order Type CM the OC Factory field is shown as Supplier (a mandatory dropdown from the Supplier Master, filtered by category). Confirming creates a GMPO per delivery for that supplier, listed in the GMPO Pending List, and the style indent appears in the Pending MRP List. The GMPO price is the Purchase Price (entered per colour or per size next to Selling Price), not the Selling Price. MRP fulfils the purchase demand automatically and the demand is locked.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order › Order Type = CM
+GROUP: Order types
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TYPE-PURCHASE
+RULE NAME: Purchase order type
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order type
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Confirming a Purchase fulfilment order creates style indents in Indent Management. A manufacturing order can also be bought finished: after MRP Level 1 is the Style Indent and Level 2 the Material Indents, and the Purchase Demand field at Level 1 holds the style quantity to buy directly. On the next MRP run the material indents are reduced, or removed when the whole quantity is purchase demand, and an RMPO is raised on the style indent.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Order 1,000 with Purchase Demand 1,000: no material indents.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: MRP, Indent Management
+GROUP: Order types
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TYPE-MTS
+RULE NAME: Make to Stock
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Order type
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: An MTS order (Order Type Make to Stock, Fulfilment Manufacturing) is produced and received into inventory, and no Sales ASN is created. A customer order with Fulfilment Type Purchase Order then takes that stock in Material Allocation (Sales Order Adjustment): the screen lists source MTS order, item, warehouse, available, allocated and balance quantity; allocation cannot exceed the available stock, and the same stock can serve several orders until it reaches zero.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Material Allocation
+GROUP: Order types
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TP-MAPPING
+RULE NAME: Transfer Price mapping
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Transfer price
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Before TP mapping the Order Company maps the Buyer (end customer) in Company Info and the Execution Company maps the Supplier. The mapping sits in FA › Master Definitions › AR Masters › Transfer Price › Default Transfer Price Mapping. Backward TP uses buyer, order and execution company and division, effective date, end customer and Price Applicable On (Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price). Forward TP uses based-on transaction, auto transactions, companies and divisions, supplier, fulfilment type and dispatch site.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: FA › Default Transfer Price Mapping
+GROUP: Transfer price
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TP-FORWARD
+RULE NAME: Forward Transfer Price
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Transfer price
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The order starts in the Order Company: Techpack, OC, approved costing and GMPO there; the system then creates Techpack, OC and an open costing in the Execution Company. After local purchase articles, costing approval, manual BOM, MRL, production, FPO and FPPO, Sales ASN and FG dispatch, the system creates the Sourcing ASN, Inter Purchase Invoice and Sales ASN in the Order Company.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Order Company → Execution Company
+GROUP: Transfer price
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TP-BACKWARD
+RULE NAME: Backward Transfer Price
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Transfer price
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The order starts in the Execution Company: the OC takes the Execution Company default selling price and the system creates a GMPO/OC with the .Auto suffix in the Order Company. After procurement, production and Sales ASN (with execution company and ETD/ETA), the system creates the GMPO GRN, Supplier Invoice and OC Sales ASN in the Order Company; the user creates the Consignment Sales Invoice and does clearing and posting, and the system creates the Sales Invoice in the Execution Company.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Execution Company → Order Company
+GROUP: Transfer price
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-TNA
+RULE NAME: TNA on the order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: TNA
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A TNA template is attached per delivery or, in the list, Main OC wise (a count of articles with an info icon) or Style wise. Once confirmed it cannot be edited directly: Update TNA removes the template and reopens selection (only if one was attached), and Delete Track removes it (alert if none). Copy Below copies a template down. If an article is in several deliveries the earliest delivery date is used. Auto TNA attaches templates from TNA › Codes › Auto TNA Attachment Rules, still to be confirmed by the user.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales Order list, TNA
+GROUP: TNA
+OPEN QUESTION: Marked as assumed in v1; needs the owner's confirmation.
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-EDI
+RULE NAME: EDI Buyer PO
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Integration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: An electronic buyer PO imported and turned into a Buyer Order by configured mapping. Admin › Integration › Package Configuration (company, entity type, transaction type, package type Import/Export, SSIS package, folder path, active) and Package Mapping (WFX field, package field, mapping resolution type Data, System Data, User Input, Review & Create, Review & Map, Review & Resolve, Review & Select, plus dependency, mandatory, visibility, editable and sort order). On Sales › Purchase Order from Buyer › EDI Buyer PO: choose buyer and package, Import, pick the Excel file, Process Package, fix items in Error Resolution, then Create Transaction.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales › Purchase Order from Buyer › EDI Buyer PO
+GROUP: EDI
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-EDI-TABS
+RULE NAME: EDI Buyer PO tabs
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Integration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: New (newly created orders), Revision (existing orders updated by EDI), On Hold (held manually, with Unhold) and Processed (confirmed). Delivery Detail opens the delivery level view and then the colour/size view; Confirm finalises the order and Export downloads the processed data.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: EDI Buyer PO
+GROUP: EDI
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-FLEX
+RULE NAME: Flex fields
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Other
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Fields created in Sales › Codes › Tracking Fields sync into the Flex Fields of the Other Details section.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales › Codes › Tracking Fields
+GROUP: Other
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-BBB
+RULE NAME: Buyer Block Booking on the order
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Other
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Block booking type is Projection or Reservation. The BOM column lists approved BOMs of the article: with a BOM selected the material popup is filled from it and has no Add to Catalog tool; without one Add from Catalog is available. Generate Indent Requirement creates an Adhoc indent. Entering colour/size quantity is mandatory before Link Buyer Block Booking.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sales › Buyer Block Booking
+GROUP: Other
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-ADD-DELIVERY
+RULE NAME: Add Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Delivery and article details
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: New blank editable delivery; existing ones untouched
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Pending → Confirmed
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Add Delivery button or + in the left panel
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-COPY-DELIVERY
+RULE NAME: Copy Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Delivery no, date, lines (style prefilled)
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Copies a delivery of the same order
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Pending → Confirmed
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Action column or left panel
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-DELETE-DELIVERY
+RULE NAME: Delete Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Confirmation naming the deliveries
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Not after its GMPO or ASN is created; no Delete on a Confirmed * order with a draft delivery
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Delivery removed
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Action column; tick several for a batch
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-SPLIT-DELIVERY
+RULE NAME: Split Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Percentage (default) or quantity
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Save replaces Confirm while splitting
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Quantity divided
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Sidebar of the edit page
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-CANCEL-DELIVERY
+RULE NAME: Cancel Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Remarks (required) and OK
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Success: "Delivery OCs Cancel successfully."
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Confirmed → Cancelled (red)
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Context menu
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-CLOSE-DELIVERY
+RULE NAME: Close Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Remarks (required) and OK
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Stays visible in the list
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Confirmed → Closed (orange)
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Context menu
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-REOPEN-DELIVERY
+RULE NAME: Reopen Delivery (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Remarks (required) and OK
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Only a closed delivery; else "Please Uncheck Confirmed Delivery OC."
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Closed → Open (green)
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Context menu
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-SPLIT-SHUFFLE-DOC
+RULE NAME: Split / Shuffle DOC (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Target order, target delivery, mode and value
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Target must be same order, buyer and style, draft or editable, not cancelled or closed
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Quantities moved to a new or existing delivery
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Grid context menu
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-CANCEL-ORDER
+RULE NAME: Cancel Order (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Warning, then remarks (required)
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Not allowed on Saved, Cancelled or Closed orders
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Order and all deliveries Cancelled
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Grid context menu
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-CLOSE-ORDER
+RULE NAME: Close Order (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Remarks (required)
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Not allowed on Cancelled or Closed orders
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Order Closed
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Grid context menu
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-ACTION-REVISE
+RULE NAME: Revise (action)
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Action
+BUSINESS PURPOSE:
+TRIGGER CONDITION: Reason for revision and Revision Authorized By (mandatory)
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Revision Log only for a revised confirmed order
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: New version, visible in Revision Log
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Grid context menu / Edit
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SO-PRICE-PER
+RULE NAME: Price Per
+MODULE: Sales Order
+SUBMODULE: Sales Order (re-write)
+TRANSACTION: Sales Order (OC)
+RULE CATEGORY: Pricing
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Inherited from the Tech Pack, never typed on the order. It decides at which level the selling price is kept: Article (one price), Color (a price per colour, average shown), Size (a price per size, average shown) or Color/Size (a price per combination, average shown). What each type does to the delivery-level grid of the Sales Order / Purchase Order from Buyer: Article – the grid is formed article-wise. Color – the grid is formed colour-wise; upcharges and discounts are handled vertically. Size – the same as Color, but upcharges, discounts and fields are handled horizontally. Color/Size – the grid works like Article, but colour-wise.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Price Per = Color: prices 10 for red and 14 for blue show an average price on the main screen.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Tech Pack, Sales Order delivery
+GROUP: Pricing
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: Sales Order re-write specifications: D:\Sprints\Sales Order Sprint (Sprint-01, Sprint-02, Sprint-3 V2), Sales Order Gaps.docx, Order type handling (Back, purchase, MTS Orders.docx), Purchase Order From Buyer\Desync Price OC List.docx. Sprint-1 permission and settings sections excluded at the owner's request. Transcribed in Knowledge Hub v1 (src/app/data/salesorder.ts). · WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-18
+OPEN QUESTION: The owner described Color/Size as "grid works same as article, but it is colour wise". How the sizes are laid out in that grid is not stated; confirm.
+================================================================================

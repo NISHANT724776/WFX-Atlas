@@ -1,0 +1,4 @@
+﻿apparel_code,production_process,efficiency_pct,cost_of,operation_sub_operation,machine_sub_category,loss_pct,total_time,production_time,cost_of_time
+NIS-59,VCutting,0,3,VCutting,MD Electronics-Laptops,0,100,100,300
+NIS-59,Sewing,0,2,Sewing,Mobile-Vivo,0,5,5,10
+NIS-59,VPacking,0,3,VPacking,MD Electronics-Laptops,0,5,5,15

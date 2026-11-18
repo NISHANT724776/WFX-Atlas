@@ -1,0 +1,497 @@
+{
+  "id": "WF-E2E-MATERIAL-FLOW",
+  "direction": "TD",
+  "source": "Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.",
+  "nodes": [
+    {
+      "id": "masters",
+      "label": "Masters ready",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "masters",
+      "screen": "Colour card · Size range · UOM",
+      "status": "documented"
+    },
+    {
+      "id": "rm",
+      "label": "Create material techpacks",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "rm-techpack",
+      "screen": "Fabric N-8 + trims T-1, NS1-1, PP-1",
+      "status": "documented"
+    },
+    {
+      "id": "style",
+      "label": "Create apparel techpack",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "apparel-style",
+      "screen": "Apparel Adi TShirt (NIS-59)",
+      "status": "documented"
+    },
+    {
+      "id": "bom",
+      "label": "BOM – Materials",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "bom-materials",
+      "screen": "Production BOM #1 DP · V1",
+      "status": "documented"
+    },
+    {
+      "id": "routing",
+      "label": "Routing – Processes",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "bom-routing",
+      "screen": "Routing #1 · Approved",
+      "status": "documented"
+    },
+    {
+      "id": "operations",
+      "label": "Routing – Operations",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "bom-routing",
+      "screen": "Operations tab",
+      "status": "documented"
+    },
+    {
+      "id": "linkage",
+      "label": "Routing – Material linkage",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "bom-routing",
+      "screen": "Material Linkage tab",
+      "status": "documented"
+    },
+    {
+      "id": "costing",
+      "label": "BOM – Cost",
+      "type": "activity",
+      "phase": "A",
+      "actor": "system",
+      "transaction": "bom-costing",
+      "screen": "Cost tab",
+      "status": "documented"
+    },
+    {
+      "id": "approve",
+      "label": "Approve the BOM",
+      "type": "activity",
+      "phase": "A",
+      "actor": "user",
+      "transaction": "bom-materials",
+      "screen": "BOM status Open → Approved",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-create",
+      "label": "Create Buyer Block Booking",
+      "type": "activity",
+      "phase": "B",
+      "actor": "user",
+      "transaction": "buyer-block-booking",
+      "screen": "BBB PPJ179",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-details",
+      "label": "Add booking details",
+      "type": "activity",
+      "phase": "B",
+      "actor": "user",
+      "transaction": "buyer-block-booking",
+      "screen": "Booking line PPJ179.1",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-article",
+      "label": "Select article",
+      "type": "activity",
+      "phase": "B",
+      "actor": "user",
+      "transaction": "buyer-block-booking",
+      "screen": "Booking line › Article",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-bom",
+      "label": "Select approved BOM",
+      "type": "activity",
+      "phase": "B",
+      "actor": "user",
+      "transaction": "buyer-block-booking",
+      "screen": "BOM #1 DP",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-populate",
+      "label": "Auto-populate materials",
+      "type": "activity",
+      "phase": "B",
+      "actor": "system",
+      "transaction": "buyer-block-booking",
+      "screen": "Material Details",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-materials",
+      "label": "Material requirement",
+      "type": "activity",
+      "phase": "B",
+      "actor": "system",
+      "transaction": "buyer-block-booking",
+      "screen": "Material Details",
+      "status": "documented"
+    },
+    {
+      "id": "bbb-save",
+      "label": "Save Buyer Block Booking",
+      "type": "activity",
+      "phase": "B",
+      "actor": "user",
+      "transaction": "buyer-block-booking",
+      "screen": "BBB PPJ179",
+      "status": "documented"
+    },
+    {
+      "id": "gen-indent",
+      "label": "Generate indent requirement",
+      "type": "activity",
+      "phase": "C",
+      "actor": "user",
+      "transaction": "adhoc-indent",
+      "screen": "BBB › Generate Indent Requirement",
+      "status": "documented"
+    },
+    {
+      "id": "adhoc",
+      "label": "System creates Adhoc Indent",
+      "type": "activity",
+      "phase": "C",
+      "actor": "system",
+      "transaction": "adhoc-indent",
+      "screen": "Adhoc Indent PPM-000735-001",
+      "status": "documented"
+    },
+    {
+      "id": "po",
+      "label": "Raise PO",
+      "type": "activity",
+      "phase": "C",
+      "actor": "user",
+      "transaction": "rmpo",
+      "screen": "RMPO 1229",
+      "status": "documented"
+    },
+    {
+      "id": "asn",
+      "label": "Supplier ASN",
+      "type": "activity",
+      "phase": "C",
+      "actor": "user",
+      "transaction": "grn",
+      "screen": "ASN against RMPO 1229",
+      "status": "documented"
+    },
+    {
+      "id": "grn",
+      "label": "GRN – receive",
+      "type": "activity",
+      "phase": "C",
+      "actor": "user",
+      "transaction": "grn",
+      "screen": "GRN against RMPO 1229",
+      "status": "documented"
+    },
+    {
+      "id": "oc",
+      "label": "Create Sales Order (OC)",
+      "type": "activity",
+      "phase": "D",
+      "actor": "user",
+      "transaction": "buyer-po",
+      "screen": "OC GAPS.NEWOC -249.1",
+      "status": "documented"
+    },
+    {
+      "id": "link",
+      "label": "Link Buyer Block Booking",
+      "type": "activity",
+      "phase": "D",
+      "actor": "user",
+      "transaction": "buyer-po",
+      "screen": "OC › Block Booking No",
+      "status": "documented"
+    },
+    {
+      "id": "mrp",
+      "label": "MRP runs on confirmation",
+      "type": "activity",
+      "phase": "D",
+      "actor": "system",
+      "transaction": "mrp",
+      "screen": "MRP – Style-wise",
+      "status": "documented"
+    },
+    {
+      "id": "mfg-indent",
+      "label": "Manufacture Indent",
+      "type": "activity",
+      "phase": "D",
+      "actor": "system",
+      "transaction": "production-indents",
+      "screen": "PPM-000737-001 · Level 1",
+      "status": "documented"
+    },
+    {
+      "id": "so-indent",
+      "label": "Sales Order Indent",
+      "type": "activity",
+      "phase": "D",
+      "actor": "system",
+      "transaction": "production-indents",
+      "screen": "PPM-000738-001 · Level 2",
+      "status": "documented"
+    },
+    {
+      "id": "adjust",
+      "label": "Automatic adjustment",
+      "type": "activity",
+      "phase": "E",
+      "actor": "system",
+      "transaction": "production-indents",
+      "screen": "Sales Order Indent",
+      "status": "documented"
+    },
+    {
+      "id": "so-updated",
+      "label": "Sales Order Indent updated",
+      "type": "activity",
+      "phase": "E",
+      "actor": "system",
+      "transaction": "production-indents",
+      "screen": "PPM-000738-001",
+      "status": "documented"
+    },
+    {
+      "id": "rmpo-gap",
+      "label": "PO for the gap",
+      "type": "activity",
+      "phase": "F",
+      "actor": "user",
+      "transaction": "rmpo",
+      "screen": "RMPO 1230",
+      "status": "documented"
+    },
+    {
+      "id": "prod-order",
+      "label": "Production Order",
+      "type": "activity",
+      "phase": "F",
+      "actor": "user",
+      "transaction": "production-order",
+      "screen": "PPS12SO/11325",
+      "status": "documented"
+    },
+    {
+      "id": "fpo",
+      "label": "Factory Production Order",
+      "type": "activity",
+      "phase": "F",
+      "actor": "user",
+      "transaction": "fpo",
+      "screen": "PPS12FP0158",
+      "status": "documented"
+    },
+    {
+      "id": "fppo",
+      "label": "Process orders (FPPO)",
+      "type": "activity",
+      "phase": "F",
+      "actor": "system",
+      "transaction": "fpo",
+      "screen": "VCutting · Sewing · VPacking",
+      "status": "documented"
+    }
+  ],
+  "edges": [
+    {
+      "from": "style",
+      "to": "bom",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bom",
+      "to": "routing",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "routing",
+      "to": "operations",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "operations",
+      "to": "linkage",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bom",
+      "to": "costing",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "costing",
+      "to": "approve",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-create",
+      "to": "bbb-details",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-details",
+      "to": "bbb-article",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-article",
+      "to": "bbb-bom",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-bom",
+      "to": "bbb-populate",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-populate",
+      "to": "bbb-materials",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-create",
+      "to": "bbb-save",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "bbb-save",
+      "to": "gen-indent",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "gen-indent",
+      "to": "adhoc",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "adhoc",
+      "to": "po",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "po",
+      "to": "asn",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "asn",
+      "to": "grn",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "style",
+      "to": "oc",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "oc",
+      "to": "link",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "oc",
+      "to": "mrp",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "mrp",
+      "to": "mfg-indent",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "mrp",
+      "to": "so-indent",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "so-indent",
+      "to": "adjust",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "adjust",
+      "to": "so-updated",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "so-indent",
+      "to": "rmpo-gap",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "so-indent",
+      "to": "prod-order",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "prod-order",
+      "to": "fpo",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    },
+    {
+      "from": "fpo",
+      "to": "fppo",
+      "label": "requires",
+      "basis": "journey.ts REQUIRES"
+    }
+  ]
+}

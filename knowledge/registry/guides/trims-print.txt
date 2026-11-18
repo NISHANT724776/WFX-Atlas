@@ -1,0 +1,42 @@
+# Visual guide captured from the Trims Scan prototype on 2026-11-18 by backend/scripts/capture-prototype.ts.
+# Screenshots are the prototype screens exactly as shown; markers are where the prototype shows its own "Tap here" hint.
+GUIDE ID: GUIDE-TRIMS-PRINT
+TITLE: Trims Scan · Print Doc – Print QR labels
+MODULE: Inventory › Trims (Quick Docs mobile app)
+KIND: prototype
+PROTOTYPE URL: https://trims-prototype-mobile.vercel.app/
+KEYWORDS: trims, scan, QR, Quick Docs, mobile, Print Doc, Print QR labels, print, label, print doc
+SUMMARY: Six flows in the Quick Docs app, all built around scanning: receiving trims into stock (GRN), picking them for dispatch (Pick List), issuing them on a delivery note (GDN), moving them between locations, printing packaging movement QR labels from the phone, and the outward note types (production inputs, returns and transfers). Pick a flow, then try it on the phone. The camera is simulated, so tap a label to hold it up to the lens.
+WHAT CHANGES: • Labels are printed from the phone, next to the stock, instead of going back to a desktop.
+  • The print view shows exactly what will be scanned later: the QR code and the bar code of the packaging movement.
+  • Every print is remembered on the packaging movement as Generated or Reprinted.
+DATA NOTE: The prototype uses sample data only. It demonstrates the intended Quick Docs flow; it is not a live WFX transaction.
+SOURCE: Trims Scan Prototype (clickable prototype), https://trims-prototype-mobile.vercel.app/
+STATUS: Active
+CAPTURED: 2026-11-18
+STEP 1 TITLE: Open Print Doc
+STEP 1 TEXT: The user taps the Print Doc tile on the home screen.
+STEP 1 IMAGE: trims/print-1.webp
+STEP 1 MARKERS: 51.5,59.3,44.5,12.2|PRINT DOC
+STEP 2 TITLE: Choose site
+STEP 2 TEXT: The site pop-up opens, Step 1 of 2.
+STEP 2 IMAGE: trims/print-2.webp
+STEP 2 MARKERS: 7,54.6,86,6|Vikascity
+STEP 3 TITLE: Choose transaction type
+STEP 3 TEXT: Step 2 of 2: GRN, GDN or Packaging Movement. Packaging Movement is the one that prints QR labels.
+STEP 3 IMAGE: trims/print-3.webp
+STEP 3 MARKERS: 7,90.7,86,6|Packaging Movement
+STEP 4 TITLE: Find the packaging movement
+STEP 4 TEXT: The Print Document screen lists the documents of that type, each with a print icon. Search narrows the list. Edit changes the site or the type.
+STEP 4 IMAGE: trims/print-4.webp
+STEP 4 MARKERS: 79.9,34.7,12.8,5.6|Print PMN/25-26/00231
+STEP 5 TITLE: Open the print view
+STEP 5 TEXT: Tapping the print icon opens an HTML page that shows the label with the QR code and the bar code of that packaging movement.
+STEP 5 IMAGE: trims/print-5.webp
+STEP 5 MARKERS: 4.7,74.1,90.7,5.9|Print
+STEP 6 TITLE: Choose content and print
+STEP 6 TEXT: The user picks QR code, bar code or both, sets the number of copies and taps Print. The device print dialog opens with only the label on the page.
+STEP 6 IMAGE: trims/print-6.webp
+STEP 7 TITLE: Back to the list
+STEP 7 TEXT: Close returns to the list. The row now shows its QR status: Generated after the first print, Reprinted after later ones.
+STEP 7 IMAGE: trims/print-7.webp

@@ -1,0 +1,21 @@
+﻿document,topic,title,content,steps,where_used,notes
+TNA Workflow,TNA setup order,How do I set up TNA (Time and Action)?,"First the basic configuration is done: roles, tasks, templates, auto TNA attachment rules, reasons for task rejection and delay, and then the roles are assigned to users in the org structure.","1. Create roles, department wise.
+2. Create tasks (for example order creation, cost sheet creation, purchase order), and define how each is updated, whether it goes for approval and which department it belongs to.
+3. Create a template as per the order creation date and the delivery date.
+4. Define the Auto TNA attachment rules so templates attach automatically when a sales order is created.
+5. Create the reasons for task rejection.
+6. Create the reasons for task delay.
+7. Assign the role to the user in the org structure.",,
+TNA Workflow,TNA task,What is a TNA task?,"A task is a basic step such as order creation, cost sheet creation or purchase order. When creating it you define how it is updated, whether it is sent for approval and which department it belongs to.",,,
+TNA Workflow,TNA template,How do I create a TNA template?,"A template is named by its length, for example 50 days or 30 days, for the object Sales Order. Tasks are dragged from the task library to the task bar from the first task to the final task.","1. Click New and give the template a name such as 50 days or 30 days.
+2. Select the object Sales Order.
+3. Select tasks from the task library and drag them to the task bar, from the first task to the final one.
+4. For the first and final task set the task start based on the creation date; for the other tasks choose an offset task (the parent task).
+5. Define the duration, that is the turnaround time given to complete each task.
+6. Define the role responsible for closing each task.",,Only after the task is defined properly will it be visible in My Task List and the TNA dashboard.
+TNA Workflow,Auto TNA attachment,What are the Auto TNA attachment rules?,"With the Auto TNA attachment rules defined, a template is attached automatically when a sales order is created, so nobody has to attach it manually.",,,
+TNA Workflow,TNA reasons,What are the TNA rejection and delay reasons?,"After the attachment rules you create reasons for task rejection and reasons for task delay, which users pick when rejecting or delaying a task.",,,
+TNA Workflow,TNA role assignment,How do tasks reach the right person?,Assign the role to the user in the org structure so that tasks are assigned automatically and appear in My Task List and the TNA dashboard.,,Admin > Org Structure > select user ID > click user name > select role > Define Role,
+TNA Workflow,TNA objects,Can TNA be used for objects other than sales orders?,"Yes. The TNA here is built on the sales order, but the same can be created on sampling, production order, raw material purchase order and others.",,,
+TNA Workflow,Closing TNA tasks,Where can a TNA task be closed?,"A task can be closed from the Sales Order list, from My Task List, and from the TNA dashboard. In the Sales Order list, click the TNA column to open the page with the assigned user name and target date and close the task there. My Task List is at TNA > My Task List and closing is the same.",,Sales Order list (TNA column); TNA > My Task List; TNA dashboard,
+TNA Workflow,TNA dashboard,How does the TNA dashboard work?,"Select the sales order; since the TNA is configured on the sales order, all the relevant tasks pending with the user show. To close a task, click its date and enter a comment. To change the layout, click the settings icon and modify the dashboard as required.",,,

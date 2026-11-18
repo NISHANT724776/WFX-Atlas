@@ -1,0 +1,5 @@
+﻿apparel_code,line,article_code,cons_uom,wastage_pct,process,cons_qty,cons_incl_wastage_loss
+NIS-59,1,N-8,KG_Nis,10,VCutting,1.5,1.65
+NIS-59,2,T-1,meter,2,Sewing,2,2.04
+NIS-59,3,NS1-1,PCS,2,Sewing,2,2.04
+NIS-59,4,PP-1,PCS,0,VPacking,1,1

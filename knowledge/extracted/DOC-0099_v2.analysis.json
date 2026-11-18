@@ -1,0 +1,1112 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Scenario",
+        "Sizes",
+        "Width",
+        "Consumption",
+        "Order Qty"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {
+        "Order Qty": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Scenario 1",
+          "S, M, L, XL",
+          "54 Inch",
+          "1.20 Mtr",
+          "4,000"
+        ],
+        [
+          "Scenario 2",
+          "XL, XXL",
+          "56 Inch",
+          "1.40 Mtr",
+          "2,600"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Scenario",
+        "Size",
+        "Color",
+        "Width",
+        "Consumption"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Scenario 1",
+          "XL",
+          "Navy",
+          "54 Inch",
+          "1.20 Mtr"
+        ],
+        [
+          "Scenario 2",
+          "XL",
+          "Black",
+          "56 Inch",
+          "1.35 Mtr"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Garment Color",
+        "Material Color"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Red",
+          "Red (Auto)"
+        ],
+        [
+          "Black",
+          "Black (Auto)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Garment Color",
+        "Material Color"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Red",
+          "Scarlet Red"
+        ],
+        [
+          "Red",
+          "Dark Red"
+        ],
+        [
+          "Red",
+          "Burgundy"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Garment Size",
+        "Material Size"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "XS",
+          "XS"
+        ],
+        [
+          "S",
+          "S"
+        ],
+        [
+          "M",
+          "M"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Garment Color",
+        "Roll Width"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Red",
+          "54 INCH"
+        ],
+        [
+          "Red",
+          "56 INCH"
+        ],
+        [
+          "Red",
+          "58 INCH"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Yudeesh Kumar",
+          "10-05-2026",
+          "Document Created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "424698-Multiple Fabric Width & Price List handling",
+  "keyTerms": [
+    "color",
+    "material",
+    "size",
+    "width",
+    "fabric",
+    "price",
+    "garment",
+    "material color",
+    "fabric width",
+    "user",
+    "consumption",
+    "table",
+    "consumption price",
+    "material size",
+    "sizes"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 15
+    },
+    {
+      "module": "Sales Order",
+      "score": 2
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    },
+    {
+      "module": "Production",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "In garment manufacturing, BOM consumption is calculated based on a predefined fabric width (for example 50”).",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "In such cases, the BOM must reflect actual suppliable widths, and fabric consumption needs manual adjustment because consumption varies based on width.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "In such cases, the BOM must reflect actual suppliable widths, and fabric consumption needs manual adjustment because consumption varies based on width.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When individual fabric widths and sizes are added separately, the highest value is automatically populated on the Material tab screen.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › … › … › BOM Material line",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Color Dependency:\n1. Base Color\n2. Matching\n3. Body Type\n4. Table\n5. None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Color Dependency",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Size Dependency:\n1. Base Size\n2. Fabric Width\n3. Table\n4. None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Size Dependency",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Each combination is detailed below, together with a screenshot of the corresponding screen.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Size Dependency",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Material color and material size mirror the garment color and size directly, so no separate mapping is required.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 1. Base Color / Base Size",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This is the most granular option, producing a full color x size x width matrix.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 12. Table / Table",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no color dependency, so a single fabric applies to all garment colors.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 14. None / Base Size",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Consumption and price are defined against each garment size (Base Size).",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 14. None / Base Size",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no color dependency.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 15. None / Fabric Width",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Single Fabric width are defined against each color/Size of garment.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 15. None / Fabric Width",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Consumption and price are defined by Material Size in a table for garment sizes, applicable uniformly across all garment colors.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 16. None / Table",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no color or size dependency.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 17. None / None",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Scenario, Sizes, Width, Consumption, Order Qty (2 rows)",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Scenario, Size, Color, Width, Consumption (2 rows)",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "System should restrict consumption specification in multiple line for same garment sizes.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "System should highlight consumption difference between width is more than 20%.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "System should show alert if consumption for fabric material is more than 5.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Controls & Validations::\n1. System should restrict consumption specification in multiple line for same garment sizes.\n2. System should highlight consumption difference between width is more than 20%. This should be an alert only.\n3. System should show alert if consumption for fabric material is more than 5. This should also be an alert only.\n4. TBA quantity requirement will be handled by using consumption. In case user enters consumption against multiple widths of fabric for same color, system will popup alert that you have entered TBA quantity consumption multiple times.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case price list is enabled, then system should auto populate price of respective material color and width based on price list.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case color price is missing=> system should bring lowest color price of respective material",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case width price is missing=> system should bring lowest color size price of respective material.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case material price is not available and price list enforced for that material system should populate price as zero.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Price List handling:\n1. In case price list is enabled, then system should auto populate price of respective material color and width based on price list.\n2. In case price list doesn’t have price for a material color & size then:\n3. In case color price is missing=> system should bring lowest color price of respective material\n4. In case width price is missing=> system should bring lowest color size price of respective material. In absence of size, system should bring lowest color price.\n5. In case material price is not available and price list enforced for that material system should populate price as zero.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case price request is practiced, then system will show above BOM line link on Price Request Line as well.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Change in Price Request",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Material Color = Garment Color automatically.",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "User cannot manually select Material Color.",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "A. Base Color:\n1. One row per Garment Color.\n2. Material Color = Garment Color automatically.\n3. Material Color field is read-only.\n4. No duplicate color rows allowed.\n5. User cannot manually select Material Color.",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Garment Color, Material Color (2 rows)",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color, table 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "B. Table Color:\n1. User manually selects Material Color.\n2. Multiple Material Colors allowed for same Garment Color.\n3. Multiple rows allowed for the same Garment Color.\n4. User can create a new Material Color directly from dropdown.",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Garment Color, Material Color (3 rows)",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color, table 4",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "C. None:\n1. Material Color not required.\n2. Material Color column disabled or hidden.\n3. Single row per Garment Color.",
+      "locator": "§ 1. Color Dependency › Available Options › C. None",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "User Flow:\n1. System:\n2. Adds Burgundy to Material Color master list.\n3. Updates dropdown immediately.\n4. Selects Burgundy for current row.\n5. Makes Burgundy available in all other rows.",
+      "locator": "§ 2. Material Color Dropdown › Standard Values › User Flow",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "(Material Size = Roll Width)",
+      "locator": "§ 3. Size Dependency",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Garment Size, Material Size (3 rows)",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior, table 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Garment Color, Roll Width (3 rows)",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior, table 6",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "User Flow:\n1. System:\n2. Adds 62 INCH to width master list.\n3. Makes it available globally.\n4. Automatically selects it for the current row.",
+      "locator": "§ 4. Material Size (Roll Width) Dropdown › User Flow",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Value cannot be blank when Color Dependency = Table.",
+      "locator": "§ 5. Validation Rules › … › Material Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Newly added value must be unique.",
+      "locator": "§ 5. Validation Rules › … › Material Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicate names not allowed.",
+      "locator": "§ 5. Validation Rules › … › Material Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Color:\n1. Value cannot be blank when Color Dependency = Table.\n2. Newly added value must be unique.\n3. Duplicate names not allowed.",
+      "locator": "§ 5. Validation Rules › … › Material Color",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Value cannot be blank when Size Dependency = Table.",
+      "locator": "§ 5. Validation Rules › … › Material Size / Roll Width",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Newly added width must be unique.",
+      "locator": "§ 5. Validation Rules › … › Material Size / Roll Width",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicate widths not allowed.",
+      "locator": "§ 5. Validation Rules › … › Material Size / Roll Width",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Size / Roll Width:\n1. Value cannot be blank when Size Dependency = Table.\n2. Newly added width must be unique.\n3. Duplicate widths not allowed.",
+      "locator": "§ 5. Validation Rules › … › Material Size / Roll Width",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Users cannot create new Garment Colors or Garment Sizes, but they can create and use new Material Colors and Material Sizes (Roll Widths) directly from the respective dropdowns without leaving the page.",
+      "locator": "§ Expected Result",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Revision History, table 7",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "424698-Multiple Fabric Width & Price List handling",
+      "heading": "",
+      "text": "Software Requirements Specification\nHandling different fabric width within the same Style BOM for Order/\nPrice from supplier list/Manual need to work at color/size level on BOM\nDocument: - 424698/ 419750\nVersion 1.0 ● 24 June 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 3\nAssumptions 3\nSection 3. Solution 4\nFunctional Requirement. 4\n1. Option to define multiple fabric widths against same BOM Line 4\n“Using Individual Sizes” 4\n“Using Sizes Groups” 13\n“Scenerio Planner” 14\nControls & Validations: 15\nChange in Price Request 16\nChange in Material Consumption Request 23\nChange In Material Code Request 24\nSection 4. 25\nRevision History 25",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "This document describes the business requirement for handling situations where the required fabric width is partially unavailable from the supplier and alternate fabric widths are supplied. This case can also arise due to different width planned to procure to gain better fabric utilization efficiency. The system should support updating BOM fabric width details and allow manual adjustment of fabric consumption accordingly in line with available sales order colors and Sizes quantities.\nThis should handle both Sizes and Size groups.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "In garment manufacturing, BOM consumption is calculated based on a predefined fabric width (for example 50”). However, suppliers may not always provide the complete required quantity in the same width.\nExample:\n- Required Fabric Width: 50”\n- Required Quantity: 1000 Meters\n- Supplier Availability:\n• 600 Meters in 50”\n• Remaining 400 Meters in 52”\nIn such cases, the BOM must reflect actual suppliable widths, and fabric consumption needs manual adjustment because consumption varies based on width.\n\nCurrently, the ERP system supports only a single width per BOM line and does not provide flexibility to manage mixed-width procurement scenarios against individual material line.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Option to define multiple fabric widths against same BOM Line",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line",
+      "text": "There will be a new option to define consumptions and Prices based on Fabric colors and widths as shown below.\nThere will be a new link on Material BOM line as highlighted below.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line",
+      "kind": "section"
+    },
+    {
+      "title": "BOM Material line",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › … › … › BOM Material line",
+      "text": "Figure 1 – Bom Material Line\nUpon click on this link, system will open below screen where user will be able to select Material Color, Size (width) and will be able to enter consumptions & prices against garment sizes, and multiple Sizes of material, if required.\nOn this screen, the user can edit Consumption and Price, and the values automatically populate back onto the color/size-wise screen. When individual fabric widths and sizes are added separately, the highest value is automatically populated on the Material tab screen. This should be handled through permission “”.\nThis grid will also have option to define material consumption & Price against Size groups.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › … › … › BOM Material line",
+      "kind": "section"
+    },
+    {
+      "title": "Using Individual Sizes:",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › … › … › Using Individual Sizes:",
+      "text": "In case user wants to enter material consumption and prices based on Garment Color, Garment Sizes, Material Color and Material Sizes then user can enter those details using size and color Dependencies and there are five color dependencies and four size dependencies.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › … › … › Using Individual Sizes:",
+      "kind": "section"
+    },
+    {
+      "title": "Color Dependency",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Color Dependency",
+      "text": "• Base Color\n• Matching\n• Body Type\n• Table\n• None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Color Dependency",
+      "kind": "section"
+    },
+    {
+      "title": "Size Dependency",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Size Dependency",
+      "text": "• Base Size\n• Fabric Width\n• Table\n• None\nCombining the five Color Dependency options with the four Size Dependency options gives many possible ways of applying fabric consumption and price. Each combination is detailed below, together with a screenshot of the corresponding screen.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Size Dependency",
+      "kind": "section"
+    },
+    {
+      "title": "1. Base Color / Base Size",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 1. Base Color / Base Size",
+      "text": "Material color and material size mirror the garment color and size directly, so no separate mapping is required. In this combination, the user can also add the fabric consumption and price.\nFigure 2 – Base Color / Base Size",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 1. Base Color / Base Size",
+      "kind": "section"
+    },
+    {
+      "title": "2. Base Color / Table",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 2. Base Color / Table",
+      "text": "The user can define fabric width and price for each combination of material size and base color. This table view allows a different fabric width and price to be set for every garment size and base color.\nFigure 3 – Base Color / Table",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 2. Base Color / Table",
+      "kind": "section"
+    },
+    {
+      "title": "3. Base Color / None",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 3. Base Color / None",
+      "text": "The user defines a fabric width consumption, and price for each base color, with no dependency on garment size.\nFigure 4 – Base Color / None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 3. Base Color / None",
+      "kind": "section"
+    },
+    {
+      "title": "4. Matching / Fabric Width",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 4. Matching / Fabric Width",
+      "text": "For a single base (garment) color, the user can define fabric widths based on Match Types and Material Colors. In this combination, the user can also add the fabric consumption and price.\nFigure 5 – Matching / Fabric Width",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 4. Matching / Fabric Width",
+      "kind": "section"
+    },
+    {
+      "title": "5. Matching / Table Represent",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 5. Matching / Table Represent",
+      "text": "The user can define different consumption and price values for each combination of Match Type, Material Color, and Material Size, for the given garment size and garment color.\nFigure 6 – Matching / Table",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 5. Matching / Table Represent",
+      "kind": "section"
+    },
+    {
+      "title": "6. Matching / None",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 6. Matching / None",
+      "text": "The user can define fabric width and price for different Match Types and Material Colors, with no dependency on garment size.\nFigure 7 – Matching / None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 6. Matching / None",
+      "kind": "section"
+    },
+    {
+      "title": "7. Body Type / Fabric Width",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 7. Body Type / Fabric Width",
+      "text": "The user can define fabric width and price by Body Types for the garment colors. In this combination, the user can also add the fabric consumption and price.\nFigure 8 – Body Type / Fabric Width",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 7. Body Type / Fabric Width",
+      "kind": "section"
+    },
+    {
+      "title": "8. Body Type / Table",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 8. Body Type / Table",
+      "text": "The user can define a different fabric width and price for each combination of Body Type and Material Size for garment color and garment sizes.\nFigure 9 – Body Type / Table",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 8. Body Type / Table",
+      "kind": "section"
+    },
+    {
+      "title": "9. Body Type / None",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 9. Body Type / None",
+      "text": "The user can define fabric width and price for different Body Types, with no dependency on garment size.\nFigure 10 – Body Type / None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 9. Body Type / None",
+      "kind": "section"
+    },
+    {
+      "title": "10. Table / Base Size",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 10. Table / Base Size",
+      "text": "The user can define fabric width and price for every combination of Material Color and garment Size (Base Size), giving a full color-by-size table.\nFigure 11 – Table / Base Size",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 10. Table / Base Size",
+      "kind": "section"
+    },
+    {
+      "title": "11. Table / Fabric Width",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 11. Table / Fabric Width",
+      "text": "The user can define fabric width for every Material Color, for the garment sizes. In this combination, the user can also add the fabric consumption and price.\nFigure 12 – Table / Fabric Width",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 11. Table / Fabric Width",
+      "kind": "section"
+    },
+    {
+      "title": "12. Table / Table",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 12. Table / Table",
+      "text": "The user can define fabric width and price for every combination of Material Color and Material Size. This is the most granular option, producing a full color x size x width matrix.\nFigure 13 – Table / Table",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 12. Table / Table",
+      "kind": "section"
+    },
+    {
+      "title": "13. Table / None",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 13. Table / None",
+      "text": "The user can define consumption and price for each Material Color, with no dependency on garment size.\nFigure 14 – Table / None",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 13. Table / None",
+      "kind": "section"
+    },
+    {
+      "title": "14. None / Base Size",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 14. None / Base Size",
+      "text": "There is no color dependency, so a single fabric applies to all garment colors. Consumption and price are defined against each garment size (Base Size).\nFigure 15 – None / Base Size",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 14. None / Base Size",
+      "kind": "section"
+    },
+    {
+      "title": "15. None / Fabric Width",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 15. None / Fabric Width",
+      "text": "There is no color dependency. Single Fabric width are defined against each color/Size of garment. In this combination, the user can also add the fabric consumption and price.\nFigure 16 – None / Fabric Width",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 15. None / Fabric Width",
+      "kind": "section"
+    },
+    {
+      "title": "16. None / Table",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 16. None / Table",
+      "text": "There is no color dependency. Consumption and price are defined by Material Size in a table for garment sizes, applicable uniformly across all garment colors.\nFigure 17 – None / Table",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 16. None / Table",
+      "kind": "section"
+    },
+    {
+      "title": "17. None / None",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 17. None / None",
+      "text": "There is no color or size dependency. A single consumption and price value applies uniformly to the entire garment, regardless of color or size.\nNo screenshot was included for this combination in the source document.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › 17. None / None",
+      "kind": "section"
+    },
+    {
+      "title": "Using Sizes Groups",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Using Sizes Groups",
+      "text": "In this mode, sizes will be replaced with Sizes groups selected in style. And it should enable when the toggle button is on.\nFigure 18 – Size group Screen",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Using Sizes Groups",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario Planner:",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "In garment manufacturing, fabric procurement is not always uniform across all garment sizes. Different garment sizes may require different fabric widths, consumption rates, and fabric prices.\nAdditionally, the same garment size may also be planned under multiple procurement scenarios. This may occur when the buyer wants to procure the same size using different fabric widths, suppliers, or pricing strategies to optimize cost, improve fabric utilization, or accommodate production requirements.\nThe Scenario Planner enables users to create multiple procurement scenarios for a single BOM row without splitting the BOM.\nThe system then calculates the fabric requirement for each scenario independently and consolidates the total procurement requirement.\nExample",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario Planner: – Table 1",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Columns: Scenario (text); Sizes (text); Width (text); Consumption (text); Order Qty (integer, quantity (unit of the row))\nScenario | Sizes | Width | Consumption | Order Qty\nScenario 1 | S, M, L, XL | 54 Inch | 1.20 Mtr | 4,000\nScenario 2 | XL, XXL | 56 Inch | 1.40 Mtr | 2,600",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Scenario: Scenario 1; Sizes: S, M, L, XL; Width: 54 Inch; Consumption: 1.20 Mtr; Order Qty: 4,000",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Scenario: Scenario 2; Sizes: XL, XXL; Width: 56 Inch; Consumption: 1.40 Mtr; Order Qty: 2,600",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Scenario Planner:",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Or even:",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "kind": "section"
+    },
+    {
+      "title": "Scenario Planner: – Table 2",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Columns: Scenario (text); Size (text); Color (text); Width (text); Consumption (text)\nScenario | Size | Color | Width | Consumption\nScenario 1 | XL | Navy | 54 Inch | 1.20 Mtr\nScenario 2 | XL | Black | 56 Inch | 1.35 Mtr",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Scenario: Scenario 1; Size: XL; Color: Navy; Width: 54 Inch; Consumption: 1.20 Mtr",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "Scenario: Scenario 2; Size: XL; Color: Black; Width: 56 Inch; Consumption: 1.35 Mtr",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Scenario Planner:",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "text": "In this example, the same garment size (XL) is procured under two different scenarios because the procurement requirements differ by color and fabric width.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Scenario Planner:",
+      "kind": "section"
+    },
+    {
+      "title": "Controls & Validations:",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations:",
+      "text": "• System should restrict consumption specification in multiple line for same garment sizes.\n• System should highlight consumption difference between width is more than 20%. This should be an alert only.\n• System should show alert if consumption for fabric material is more than 5. This should also be an alert only.\n• TBA quantity requirement will be handled by using consumption. In case user enters consumption against multiple widths of fabric for same color, system will popup alert that you have entered TBA quantity consumption multiple times.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations:",
+      "kind": "section"
+    },
+    {
+      "title": "Price List handling",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "text": "• In case price list is enabled, then system should auto populate price of respective material color and width based on price list.\n• In case price list doesn’t have price for a material color & size then:\n• In case color price is missing=> system should bring lowest color price of respective material\n• In case width price is missing=> system should bring lowest color size price of respective material. In absence of size, system should bring lowest color price.\n• In case material price is not available and price list enforced for that material system should populate price as zero.\nWastage% to be discussed with product team.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Controls & Validations: › … › Price List handling",
+      "kind": "section"
+    },
+    {
+      "title": "Change in Price Request",
+      "heading": "Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Change in Price Request",
+      "text": "In case price request is practiced, then system will show above BOM line link on Price Request Line as well.\nIf user clicks and open above grid in case of price request, then other values in the new consumption & price request screen will be read-only. Sourcing team will not be able to make any changes in consumptions and material attributes. Option to define price on Material Request line under above screen will also become read only.",
+      "locator": "§ Functional Requirement. › Option to define multiple fabric widths against same BOM Line › Change in Price Request",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "Functional Requirement. › Specification: Color Dependency & Size Dependency Handling › Objective",
+      "text": "Control how Material Color and Material Size (Roll Width) behave against garment attributes while allowing users to create new Material Colors and Material Sizes directly from the same page.",
+      "locator": "§ Functional Requirement. › Specification: Color Dependency & Size Dependency Handling › Objective",
+      "kind": "section"
+    },
+    {
+      "title": "A. Base Color",
+      "heading": "1. Color Dependency › Available Options › A. Base Color",
+      "text": "Behavior\n• One row per Garment Color.\n• Material Color = Garment Color automatically.\n• Material Color field is read-only.\n• No duplicate color rows allowed.\n• User cannot manually select Material Color.\nExample",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color",
+      "kind": "section"
+    },
+    {
+      "title": "A. Base Color – Table 3",
+      "heading": "1. Color Dependency › Available Options › A. Base Color",
+      "text": "Columns: Garment Color (text); Material Color (text)\nGarment Color | Material Color\nRed | Red (Auto)\nBlack | Black (Auto)",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "1. Color Dependency › Available Options › A. Base Color",
+      "text": "Garment Color: Red; Material Color: Red (Auto)",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "1. Color Dependency › Available Options › A. Base Color",
+      "text": "Garment Color: Black; Material Color: Black (Auto)",
+      "locator": "§ 1. Color Dependency › Available Options › A. Base Color, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "B. Table Color",
+      "heading": "1. Color Dependency › Available Options › B. Table Color",
+      "text": "Behavior\n• User manually selects Material Color.\n• Multiple Material Colors allowed for same Garment Color.\n• Multiple rows allowed for the same Garment Color.\n• User can create a new Material Color directly from dropdown.\nExample",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color",
+      "kind": "section"
+    },
+    {
+      "title": "B. Table Color – Table 4",
+      "heading": "1. Color Dependency › Available Options › B. Table Color",
+      "text": "Columns: Garment Color (text); Material Color (text)\nGarment Color | Material Color\nRed | Scarlet Red\nRed | Dark Red\nRed | Burgundy",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "1. Color Dependency › Available Options › B. Table Color",
+      "text": "Garment Color: Red; Material Color: Scarlet Red",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "1. Color Dependency › Available Options › B. Table Color",
+      "text": "Garment Color: Red; Material Color: Dark Red",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "1. Color Dependency › Available Options › B. Table Color",
+      "text": "Garment Color: Red; Material Color: Burgundy",
+      "locator": "§ 1. Color Dependency › Available Options › B. Table Color, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "C. None",
+      "heading": "1. Color Dependency › Available Options › C. None",
+      "text": "Behavior\n• Material Color not required.\n• Material Color column disabled or hidden.\n• Single row per Garment Color.",
+      "locator": "§ 1. Color Dependency › Available Options › C. None",
+      "kind": "section"
+    },
+    {
+      "title": "Standard Values",
+      "heading": "2. Material Color Dropdown › Standard Values",
+      "text": "Red\nBlack\nNavy\nWhite\nGrey",
+      "locator": "§ 2. Material Color Dropdown › Standard Values",
+      "kind": "section"
+    },
+    {
+      "title": "Last Dropdown Option",
+      "heading": "2. Material Color Dropdown › Standard Values › Last Dropdown Option",
+      "text": "+ Add New Material Color",
+      "locator": "§ 2. Material Color Dropdown › Standard Values › Last Dropdown Option",
+      "kind": "section"
+    },
+    {
+      "title": "User Flow",
+      "heading": "2. Material Color Dropdown › Standard Values › User Flow",
+      "text": "• User opens Material Color dropdown.\n• Selects:\n+ Add New Material Color\n• Popup shown:\nEnter Material Color:\n• User enters:\nBurgundy\n• System:\n• Adds Burgundy to Material Color master list.\n• Updates dropdown immediately.\n• Selects Burgundy for current row.\n• Makes Burgundy available in all other rows.",
+      "locator": "§ 2. Material Color Dropdown › Standard Values › User Flow",
+      "kind": "section"
+    },
+    {
+      "title": "3. Size Dependency",
+      "heading": "3. Size Dependency",
+      "text": "(Material Size = Roll Width)",
+      "locator": "§ 3. Size Dependency",
+      "kind": "section"
+    },
+    {
+      "title": "Behavior",
+      "heading": "3. Size Dependency › A. Base Size › Behavior",
+      "text": "Material Size automatically follows Garment Size.\nNo manual Roll Width selection.\nExample:",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Behavior – Table 5",
+      "heading": "3. Size Dependency › A. Base Size › Behavior",
+      "text": "Columns: Garment Size (text); Material Size (text)\nGarment Size | Material Size\nXS | XS\nS | S\nM | M",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "3. Size Dependency › A. Base Size › Behavior",
+      "text": "Garment Size: XS; Material Size: XS",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "3. Size Dependency › A. Base Size › Behavior",
+      "text": "Garment Size: S; Material Size: S",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "3. Size Dependency › A. Base Size › Behavior",
+      "text": "Garment Size: M; Material Size: M",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Behavior",
+      "heading": "3. Size Dependency › A. Base Size › Behavior",
+      "text": "Material Size field is read-only.",
+      "locator": "§ 3. Size Dependency › A. Base Size › Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Behavior",
+      "heading": "3. Size Dependency › B. Table Size › Behavior",
+      "text": "User selects Roll Width manually.\nMultiple Roll Width rows allowed per color.\nExample",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Behavior – Table 6",
+      "heading": "3. Size Dependency › B. Table Size › Behavior",
+      "text": "Columns: Garment Color (text); Roll Width (text)\nGarment Color | Roll Width\nRed | 54 INCH\nRed | 56 INCH\nRed | 58 INCH",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "3. Size Dependency › B. Table Size › Behavior",
+      "text": "Garment Color: Red; Roll Width: 54 INCH",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "3. Size Dependency › B. Table Size › Behavior",
+      "text": "Garment Color: Red; Roll Width: 56 INCH",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "3. Size Dependency › B. Table Size › Behavior",
+      "text": "Garment Color: Red; Roll Width: 58 INCH",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Behavior",
+      "heading": "3. Size Dependency › B. Table Size › Behavior",
+      "text": "User can add new width directly from dropdown.",
+      "locator": "§ 3. Size Dependency › B. Table Size › Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Behavior",
+      "heading": "3. Size Dependency › C. None › Behavior",
+      "text": "Material Size not required.\nRoll Width column hidden or disabled.\nConsumption entered without size mapping.",
+      "locator": "§ 3. Size Dependency › C. None › Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Standard Values",
+      "heading": "4. Material Size (Roll Width) Dropdown › Standard Values",
+      "text": "54 INCH\n56 INCH\n58 INCH\n60 INCH",
+      "locator": "§ 4. Material Size (Roll Width) Dropdown › Standard Values",
+      "kind": "section"
+    },
+    {
+      "title": "Last Dropdown Option",
+      "heading": "4. Material Size (Roll Width) Dropdown › Standard Values › Last Dropdown Option",
+      "text": "+ Add New Material Size\nor\n+ Add New Roll Width",
+      "locator": "§ 4. Material Size (Roll Width) Dropdown › Standard Values › Last Dropdown Option",
+      "kind": "section"
+    },
+    {
+      "title": "User Flow",
+      "heading": "4. Material Size (Roll Width) Dropdown › User Flow",
+      "text": "• User opens Roll Width dropdown.\n• Selects:\n+ Add New Roll Width\n• Popup appears:\nEnter Roll Width:\n• User enters:\n62 INCH\n• System:\n• Adds 62 INCH to width master list.\n• Makes it available globally.\n• Automatically selects it for the current row.",
+      "locator": "§ 4. Material Size (Roll Width) Dropdown › User Flow",
+      "kind": "section"
+    },
+    {
+      "title": "Material Color",
+      "heading": "5. Validation Rules › … › Material Color",
+      "text": "• Value cannot be blank when Color Dependency = Table.\n• Newly added value must be unique.\n• Duplicate names not allowed.\nExample:\nRed\nRED\nred\nShould be treated as same value.",
+      "locator": "§ 5. Validation Rules › … › Material Color",
+      "kind": "section"
+    },
+    {
+      "title": "Material Size / Roll Width",
+      "heading": "5. Validation Rules › … › Material Size / Roll Width",
+      "text": "• Value cannot be blank when Size Dependency = Table.\n• Newly added width must be unique.\n• Duplicate widths not allowed.\nExample:\n56 INCH\n56 inch\n56 Inch\nShould be treated as one value.",
+      "locator": "§ 5. Validation Rules › … › Material Size / Roll Width",
+      "kind": "section"
+    },
+    {
+      "title": "Remove",
+      "heading": "6. UI Requirements › … › Remove",
+      "text": "❌ Add Garment Color button\n❌ Add Garment Size button",
+      "locator": "§ 6. UI Requirements › … › Remove",
+      "kind": "section"
+    },
+    {
+      "title": "Keep",
+      "heading": "6. UI Requirements › … › Keep",
+      "text": "✅ Material Color dropdown\n✅ Material Size (Roll Width) dropdown\n✅ \"+ Add New Material Color\"\n✅ \"+ Add New Roll Width\"\n✅ Color Dependency selector\n✅ Size Dependency selector",
+      "locator": "§ 6. UI Requirements › … › Keep",
+      "kind": "section"
+    },
+    {
+      "title": "Expected Result",
+      "heading": "Expected Result",
+      "text": "Users cannot create new Garment Colors or Garment Sizes, but they can create and use new Material Colors and Material Sizes (Roll Widths) directly from the respective dropdowns without leaving the page.",
+      "locator": "§ Expected Result",
+      "kind": "section"
+    },
+    {
+      "title": "Change in Material Consumption Request",
+      "heading": "Expected Result › … › Change in Material Consumption Request",
+      "text": "In case of consumption request, same link be available on respective material consumption request line. User will not be able to specify or change price if already updated.",
+      "locator": "§ Expected Result › … › Change in Material Consumption Request",
+      "kind": "section"
+    },
+    {
+      "title": "Change In Material Code Request",
+      "heading": "Expected Result › … › Change In Material Code Request",
+      "text": "While creating Material code request from, user will be able to select Fabric Name’s system coding fields’ values. These values will be just for reference only. There will be no impact otherwise.",
+      "locator": "§ Expected Result › … › Change In Material Code Request",
+      "kind": "section"
+    },
+    {
+      "title": "Request Screen",
+      "heading": "Expected Result › … › Change In Material Code Request › … › Request Screen",
+      "text": "In request screen, system will show fields below fields as Text field where user will be able to enter value if required. These fields will auto populate based on Fabric Article Name coding defined in the system for respective material type.\nThese fields will be visible to sourcing team while linking material code to the request.",
+      "locator": "§ Expected Result › … › Change In Material Code Request › … › Request Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 7",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Yudeesh Kumar | 10-05-2026 | Document Created.",
+      "locator": "§ Revision History, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised By: Yudeesh Kumar; Revised On: 10-05-2026; Changes: Document Created.",
+      "locator": "§ Revision History, table 7, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

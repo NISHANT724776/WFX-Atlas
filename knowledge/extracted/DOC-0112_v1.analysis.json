@@ -1,0 +1,174 @@
+{
+  "tables": [],
+  "subject": "BRD AI Techpack Revision BOM Version Management",
+  "keyTerms": [
+    "bom",
+    "bom version",
+    "uat verify",
+    "style",
+    "version",
+    "uat",
+    "verify",
+    "remain unchanged",
+    "techpack",
+    "remain",
+    "revision",
+    "management",
+    "style bom",
+    "duplicate style",
+    "processed bom"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 55
+    },
+    {
+      "module": "Production",
+      "score": 5
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "In Scope:\n• Techpack Revision Processing\n• Style Validation\n• BOM Version Selection\n• Controlled BOM Updates\n• Color & Size Management\n• Material Addition Handling\n• Audit Logging\n\nOut of Scope:\n• Approved Production Order Changes\n• Historical BOM Restructuring\n• Costing Recalculation Logic",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "FR-05: Processed BOM lines shall not be overwritten.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Functional Requirements",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "FR-10: Restrict updates if BOM version status is Open or Waiting.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Functional Requirements",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "BR-01: Existing Styles shall not be duplicated.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "BR-03: Consumption, Wastage, and Price shall not be overwritten.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "BR-04: New Materials must follow approval workflow.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "BR-06: Open/Waiting BOM versions cannot be updated.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "BR-08: All AI-driven updates must be audit logged.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "UAT-05: Verify Color/Size dependency validation.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › UAT Scenarios",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Change Request Title",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Change Request Title",
+      "text": "AI Techpack Revision & BOM Version Update Management",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Change Request Title",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Purpose",
+      "text": "Enable controlled processing of revised Techpacks received through AI automation while protecting existing Style, BOM, Costing, and Production data from unintended updates.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Objective",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Objective",
+      "text": "• Prevent duplicate Style and BOM creation.\n• Maintain integrity of processed BOM components.\n• Support controlled revision of Style attributes.\n• Manage addition of new Colors, Sizes, and Materials.\n• Implement BOM version governance.\n• Maintain complete audit history of AI-driven revisions.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Objective",
+      "kind": "section"
+    },
+    {
+      "title": "Current Challenges",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Current Challenges",
+      "text": "• Duplicate Style/BOM creation.\n• Unintended overwriting of BOM data.\n• Loss of processed consumption and costing information.\n• Lack of visibility into AI-driven changes.\n• Insufficient BOM version controls.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Current Challenges",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Scope",
+      "text": "In Scope:\n• Techpack Revision Processing\n• Style Validation\n• BOM Version Selection\n• Controlled BOM Updates\n• Color & Size Management\n• Material Addition Handling\n• Audit Logging\n\nOut of Scope:\n• Approved Production Order Changes\n• Historical BOM Restructuring\n• Costing Recalculation Logic",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirements",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Functional Requirements",
+      "text": "FR-01: Do not create a new Style if the Style already exists.\n\nFR-02: Allow user selection of target BOM version when multiple BOMs exist.\n\nFR-03: Update only approved Style attributes from revised Techpack.\n\nFR-04: Support controlled addition of new Colors and Sizes.\n\nFR-05: Processed BOM lines shall not be overwritten.\n\nFR-06: Consumption, Wastage, and Material Price shall remain unchanged if maintained within WFX.\n\nFR-07: Existing Color/Size dependencies shall remain unchanged. New dependencies shall be marked RED until completed and GREEN after completion.\n\nFR-08: New Materials shall be routed through Material Code Request workflow.\n\nFR-09: CM values such as SAM and Efficiency shall remain unchanged.\n\nFR-10: Restrict updates if BOM version status is Open or Waiting.\n\nFR-11: Allow new BOM revision creation if existing BOM is Approved.\n\nFR-12: Maintain AI processing audit logs.\n\nFR-13: Maintain detailed change history logs.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Functional Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Business Rules",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "text": "BR-01: Existing Styles shall not be duplicated.\nBR-02: Processed BOM lines shall remain unchanged.\nBR-03: Consumption, Wastage, and Price shall not be overwritten.\nBR-04: New Materials must follow approval workflow.\nBR-05: CM values shall remain protected.\nBR-06: Open/Waiting BOM versions cannot be updated.\nBR-07: Approved BOM versions may generate new revision versions.\nBR-08: All AI-driven updates must be audit logged.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Business Rules",
+      "kind": "section"
+    },
+    {
+      "title": "Impacted Modules",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Impacted Modules",
+      "text": "• AI Techpack Processing\n• Style Master\n• BOM Management\n• Material Management\n• Costing\n• CM Management\n• Audit & Compliance",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Impacted Modules",
+      "kind": "section"
+    },
+    {
+      "title": "UAT Scenarios",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › UAT Scenarios",
+      "text": "UAT-01: Verify no duplicate Style creation.\nUAT-02: Verify BOM version selection.\nUAT-03: Verify processed BOM lines remain unchanged.\nUAT-04: Verify Consumption, Wastage, and Pricing remain protected.\nUAT-05: Verify Color/Size dependency validation.\nUAT-06: Verify Material Code Request workflow.\nUAT-07: Verify BOM version status controls.\nUAT-08: Verify audit trail and change history.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › UAT Scenarios",
+      "kind": "section"
+    },
+    {
+      "title": "Expected Benefits",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Expected Benefits",
+      "text": "• Improved control over AI-based Techpack revisions.\n• Elimination of duplicate Style and BOM records.\n• Protection of costing and production data.\n• Improved traceability and compliance.\n• Reduced manual effort.\n• Better BOM version governance.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Expected Benefits",
+      "kind": "section"
+    }
+  ]
+}

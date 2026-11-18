@@ -1,0 +1,108 @@
+{
+  "tables": [],
+  "subject": "TNA Workflow",
+  "keyTerms": [
+    "task",
+    "order",
+    "sales order",
+    "tna",
+    "user",
+    "create",
+    "sales",
+    "list",
+    "task list",
+    "list tna",
+    "dashboard",
+    "task task",
+    "select",
+    "tna dashboard",
+    "role"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "TNA",
+      "score": 19
+    },
+    {
+      "module": "Sales Order",
+      "score": 18
+    },
+    {
+      "module": "Production",
+      "score": 3
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "TNA Workflow:\n1. First provide name like 50 days, 30 days etc as per your requirement.\n2. Then select object sales order.\n3. Select task from task library and drag the task to task bar from 1st task to final task.\n4. After selection of task you need to define offset from task in which for the final and first task you need to define as task start based on creation date then for the remining task you need to select offset task (parent task).\n5. Then you need to define duration how much tat you need to give for completion of task.\n6. Define role(who will be responsible for the closing of that task) once you define the task properly only after that task will be visible in the my task list and TNA dashboard and other necessary details.\n7. You need to define Auto TNA attachment rules by which once sales order is created you don’t need to attach template manually.\n8. After creating the rules you need to create some reason for task rejection.\n9. Then you need to create Reason for task delay.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once all the above configuration is done you need to assign the role to the user in the org structure.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once every configuration is done when ever user create a new sales order as we have created task tna based on sales order we can also create this on sampling, production order, raw material purchase order etc.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "Once every configuration is done when ever user create a new sales order as we have created task tna based on sales order we can also create this on sampling, production order, raw material purchase order etc.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "In sales order list there is on column as tna click on that the bellow mention page will open where assign user name target date is coming user can close the task from here.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "TNA Workflow:\n1. Sales order list.\n2. My task list.\n3. TNA dashboard.\n4. In sales order list there is on column as tna click on that the bellow mention page will open where assign user name target date is coming user can close the task from here.\n5. My task list.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Closing of task is same as sales order list.",
+      "locator": "start",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "TNA Workflow",
+      "heading": "",
+      "text": "TNA Workflow\nFirst we need to do some basic configuration:\n• We need to create role.\nIn this you need to create roll department wise as mention above.\n• Then you need to create task.\nIn this task you need to create your basic task like order creation, costsheet creation, purchase order etc. you also need to define how you are going to update this and do you want to send this for approval or not and which task belongs to which department.\n• Then you need to create template as per your order creation date and delivery date.\nIn the template once you click on new you need to follow several steps:\n• First provide name like 50 days, 30 days etc as per your requirement.\n• Then select object sales order.\n• Select task from task library and drag the task to task bar from 1st task to final task.\n• After selection of task you need to define offset from task in which for the final and first task you need to define as task start based on creation date then for the remining task you need to select offset task (parent task).\n• Then you need to define duration how much tat you need to give for completion of task.\n• Define role(who will be responsible for the closing of that task) once you define the task properly only after that task will be visible in the my task list and TNA dashboard and other necessary details.",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "TNA Workflow",
+      "heading": "",
+      "text": "• You need to define Auto TNA attachment rules by which once sales order is created you don’t need to attach template manually.\n• After creating the rules you need to create some reason for task rejection.\n• Then you need to create Reason for task delay.\nOnce all the above configuration is done you need to assign the role to the user in the org structure.\nAdmin>> Org Structure>> select user id >> Click on user name select role >>Define Role.\nSo that task can be auto assign to the concern user and task will be visible in the my task list and TNA dashboard.\nOnce every configuration is done when ever user create a new sales order as we have created task tna based on sales order we can also create this on sampling, production order, raw material purchase order etc.\nUser can close the task from various place:\n• Sales order list.\n• My task list.\n• TNA dashboard.\n• In sales order list there is on column as tna click on that the bellow mention page will open where assign user name target date is coming user can close the task from here.\n• My task list.\nTNA>> My task list\nClosing of task is same as sales order list.\n• TNA Dashboard\nUser need to select sales order as we have define the TNA configuration as per sales order all the relevant task which are pending with user will be visible in the dashboard as shown bellow",
+      "locator": "start (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "TNA Workflow",
+      "heading": "",
+      "text": "To close any task user need to click on date and enter their cmt for closing the task\nIf they want to modify their dashboard they need to click on setting icon and then they can modify their dashboard as per requirement.",
+      "locator": "start (part 3)",
+      "kind": "section"
+    }
+  ]
+}

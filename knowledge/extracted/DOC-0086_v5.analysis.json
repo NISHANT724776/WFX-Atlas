@@ -1,0 +1,556 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Column Name",
+        "Type",
+        "Selection Type",
+        "Remarks"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column Name"
+      ],
+      "rows": [
+        [
+          "Division",
+          "Drop down",
+          "single select",
+          "will list all permitted division"
+        ],
+        [
+          "Buyer – Drop down",
+          "Drop down",
+          "single select",
+          "will list all permitted buyers"
+        ],
+        [
+          "Department",
+          "Drop down",
+          "multi select - All Others",
+          "System will list département for selected buyer"
+        ],
+        [
+          "Product Group",
+          "Drop down",
+          "multi select - All Others",
+          "will list product group of apparel category"
+        ],
+        [
+          "Subcategory",
+          "Drop down",
+          "single select – All Others",
+          "will list subcategories based on selected product group"
+        ],
+        [
+          "Material Category",
+          "Drop down",
+          "single select – All Others",
+          "Will list material categories excluding Apparel"
+        ],
+        [
+          "Material Product Group",
+          "Drop down",
+          "multi select – All Others",
+          "will list product group of selected category"
+        ],
+        [
+          "Material Subcategory",
+          "Drop down",
+          "multi select – All Others",
+          "will list subcategories of selected product group"
+        ],
+        [
+          "MRP %",
+          "Numeric Fields :: Zero decimals",
+          "NA",
+          "Percentage of Sales Order qty to be processed for MRP"
+        ],
+        [
+          "MRP Release days",
+          "Numeric Fields :: Zero decimals",
+          "NA",
+          "days after first MRP when system will process 100% sales order quantities for MRP"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Yudeesh Kumar",
+          "10-05-2026",
+          "Document Created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "405186-Auto MRP v1",
+  "keyTerms": [
+    "size",
+    "mrp",
+    "size group",
+    "group",
+    "size ratio",
+    "auto",
+    "ratio",
+    "sales",
+    "sales order",
+    "select",
+    "based",
+    "pct",
+    "case",
+    "user",
+    "order"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 35
+    },
+    {
+      "module": "Planning",
+      "score": 33
+    },
+    {
+      "module": "Style & BOM",
+      "score": 17
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)",
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Purpose of this document is to describe understanding of MRP automation and certain enhancements required for Shahi Exports.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Indents are created for whole quantity but procurement is restricted for certain percentage based on materials.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Indents are created for whole quantity but procurement is restricted for certain percentage based on materials.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "Automation of MRP run based on conditions",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "This requirement is to automate MRP execution based on given changes in BOM and Sales Orders.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "This requirement is to automate MRP execution based on given changes in BOM and Sales Orders.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "There is a need to define procurement percentage against material which will control supplier purchase order quantity to given percentage even if indents has open quantities.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Modify an existing Size Group:\n1. User will be able to modify existing size by adding new size or deleting existing size\n2. Modification of Size group will be applicable to new styles or orders created post this change\n3. Modification will not impact existing styles or sales orders",
+      "locator": "§ Functional Requirement. › Style Size groups › Work flow: › Modify an existing Size Group",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Size Ratio based on previous sales orders:\n1. In case of auto size ratio, size ratio will be updated through a batch process running late night\n2. In case of Auto size ratio user will not be able to change size ratio populated against respective sizes\n3. In case Sizes in size group have changed over time, Auto Size Ratio will auto update new or deleted sizes as per change in size ratio",
+      "locator": "§ Functional Requirement. › Size Ratio based on previous sales orders",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New Sales Order Interface:\n1. Size Group will be listed based on size groups selected in style techpack.\n2. If user, selects Size group then sizes will be populated based on sizes selected under size group.\n3. For multiple size groups in a style user will create separate Article grid same as works in case of “In-seam”",
+      "locator": "§ Functional Requirement. › Sales Order › … › New Sales Order Interface",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "In case there will be a difference between total quantity and size ratio populated in grid system will show error message with color.",
+      "locator": "§ Functional Requirement. › Sales Order › … › New Sales Order Interface › Auto populate Size Ratio=> there will be an option to auto populate size ratio, this size ratio will be used to calculate sales order quantity based on total quantity specified in below fields",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Size ratio will auto populate only if respective Size group have ratio specified or auto populated in Size group master.",
+      "locator": "§ Functional Requirement. › Sales Order › … › New Sales Order Interface › Auto populate Size Ratio=> there will be an option to auto populate size ratio, this size ratio will be used to calculate sales order quantity based on total quantity specified in below fields",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "This option will work only if Sales order data received thru automation doesn’t have size breakup.",
+      "locator": "§ Functional Requirement. › Sales Order › … › New Sales Order Interface › Auto populate Size Ratio=> there will be an option to auto populate size ratio, this size ratio will be used to calculate sales order quantity based on total quantity specified in below fields",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "There will be a grid to define MRP execution percentage for a respective buyer, departmentment, product group, subcategory based on which system will auto-populate MRP percentage while running MRP.",
+      "locator": "§ Functional Requirement. › MRP Percentage Control",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Column Name, Type, Selection Type, Remarks (10 rows; identifiers: Column Name)",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "It will auto calculate MRP Qty based on the percentage specified in “MRP %” column.",
+      "locator": "§ Functional Requirement. › Changes in MRP Screen",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If multiple BOMs are available for the article, the system should allow the user to select the required BOM from the list.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If only one BOM is available, the system should automatically attach the BOM in the EDI screen without requiring user selection.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The system should display only those BOMs which are in Approved status for selection or auto-attachment.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Step 1: BOM Selection during OC Creation via EDI Buyer PO:\n1. If multiple BOMs are available for the article, the system should allow the user to select the required BOM from the list.\n2. If only one BOM is available, the system should automatically attach the BOM in the EDI screen without requiring user selection.\n3. The system should display only those BOMs which are in Approved status for selection or auto-attachment.\n4. Only one BOM (Bill of Materials) should be allowed to be attached to a single Summary OC.\n5. Only In case of any revision in the OC, the system should automatically re-run the MRP to reflect the updated requirements.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "The system will automatically trigger MRP runs based on backend-defined schedules.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › MRP Scheduler Configuration (Backend Controlled)",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MRP Scheduler Configuration (Backend Controlled):\n1. The MRP scheduler will be configured at the backend only, and no UI/screen will be provided to users for scheduler configuration.\n2. The system will automatically trigger MRP runs based on backend-defined schedules.\n3. In case of OC revision MRP should re-run automatically.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › MRP Scheduler Configuration (Backend Controlled)",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "Additionally, users should have the provision to manually trigger MRP for specific articles/OCs in urgent scenarios, even before the scheduled run.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › Error Handling and Monitoring for MRP Run",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Error Handling and Monitoring for MRP Run:\n1. In case of any error during MRP execution, the system should capture and log the error details.\n2. A separate screen should be provided for users to monitor MRP run errors.\n3. This screen should display:\n4. Article / OC reference\n5. MRP run date and time\n6. Execution status (Success/Failed)\n7. Detailed error messages\n8. Users should be able to analyze the errors and take corrective actions from this screen.\n9. The system should also allow users to reprocess/re-run MRP after resolving the issues.\n10. Additionally, users should have the provision to manually trigger MRP for specific articles/OCs in urgent scenarios, even before the scheduled run.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › Error Handling and Monitoring for MRP Run",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "In MRP scheduler queue, Auto-Trigger MRP will be kept in saved if MRP % percentage is taken from MRP % grid and has MRP % less than 100% for any MRP item.",
+      "locator": "§ Functional Requirement. › MRP Auto Re-run in Case OF SOC Revision and BOM Revision › … › MRP in Saved mode and Editing",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Revision History, table 2",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "405186-Auto MRP v1",
+      "heading": "",
+      "text": "Software Requirements Specification\nMRP Automation with Enhancements\nDocument: - 405186\nVersion 1.0 ● 24 June 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 4\nAssumptions 4\nSection 3. Solution 4\nFunctional Requirement. 4\n1. Style Size groups 4\nWork flow: 4\n2. Selection of size group in Styles Techpack 5\n3. Size Ratio based on previous sales orders 6\n4. Sales Order 7\n5. MRP Percentage Control 9\n6. Changes in MRP Screen 9\n7. MRP Automation 10\nProcess Flow 10\n8. MRP Auto Re-run in Case OF SOC Revision and BOM Revision 12\nSection 4. 15\nRevision History 15",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Purpose of this document is to describe understanding of MRP automation and certain enhancements required for Shahi Exports. These enhancements will also increase product capabilities in terms of automation and functional capabilities.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "This change covers two requirements:\n• Partial Indents against projection quantities\nIn this case upon receipt of customer projection, Shahi team creates Sales Order with partial quantities covering certain percentage like 80% of projection quantities. The team also puts a size-wise breakup of this 80% quantity based on previous sales orders received in season or one year.\nThis projection size breakup works on subcategory level.\nIn this case, material indents are generated only for 80% of customer projection quantities,\n• Partial Procurement against projection quantities\nIn this case, sales orders are created for 100% projection quantities with or without size breakup. Size breakup. Indents are created for whole quantity but procurement is restricted for certain percentage based on materials.\nAs of now, this is managed by manual communication and manual approvals.\n• Automation of MRP run based on conditions\nThis requirement is to automate MRP execution based on given changes in BOM and Sales Orders.\n• Option to define percentage of procurement control\nThere is a need to define procurement percentage against material which will control supplier purchase order quantity to given percentage even if indents has open quantities.\n• Bypass indent and procurement controls",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "There should be a day count post which system should run MRP at 100% in case of indent control and should allow sourcing team to create/ revise supplier PO to 100% of indents quantities with handling on MOQ, MSQ & MCQ.",
+      "locator": "§ Business Requirement (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Style Size groups",
+      "heading": "Functional Requirement. › Style Size groups",
+      "text": "There will be a new function to create garment size groups. The user shall be able to create the required size group using this function.",
+      "locator": "§ Functional Requirement. › Style Size groups",
+      "kind": "section"
+    },
+    {
+      "title": "Define General Details:",
+      "heading": "Functional Requirement. › Style Size groups › Work flow: › Steps to Create a New Size Group › Define General Details:",
+      "text": "Size Group Name: Enter a descriptive name for the group (e.g., Men's Alpha XS-2XL).\nProduct Group: Select the relevant garment categories (e.g., Knits, Woven) from the multi-select dropdown.\nSubcategory: Select specific product types (e.g., T-Shirt, Shirt, Boxer) that this size scale applies to.",
+      "locator": "§ Functional Requirement. › Style Size groups › Work flow: › Steps to Create a New Size Group › Define General Details:",
+      "kind": "section"
+    },
+    {
+      "title": "Configure Sizes:",
+      "heading": "Functional Requirement. › Style Size groups › Work flow: › Steps to Create a New Size Group › Configure Sizes:",
+      "text": "Add from Library: Click this to pull in existing individual sizes from your global database.\nCreate New Size: If a specific size doesn't exist, use this button to define a new one on the fly.\nArrange Order: Drag and drop the size chips (XS, S, M, L, etc.) into the desired sequence. This layout will be used as the default sorting throughout the system.",
+      "locator": "§ Functional Requirement. › Style Size groups › Work flow: › Steps to Create a New Size Group › Configure Sizes:",
+      "kind": "section"
+    },
+    {
+      "title": "Verify the sequence and details in the Size Configuration preview area.",
+      "heading": "Functional Requirement. › Style Size groups › Work flow: › Review and Save: › Verify the sequence and details in the Size Configuration preview area.",
+      "text": "Click Create Size Group (or Save Size Group in the header) to finalize the group and make it available for BOM and purchase orders.",
+      "locator": "§ Functional Requirement. › Style Size groups › Work flow: › Review and Save: › Verify the sequence and details in the Size Configuration preview area.",
+      "kind": "section"
+    },
+    {
+      "title": "Modify an existing Size Group",
+      "heading": "Functional Requirement. › Style Size groups › Work flow: › Modify an existing Size Group",
+      "text": "Option to modify existing size group will also be available with below conditions:\n• User will be able to modify existing size by adding new size or deleting existing size\n• Modification of Size group will be applicable to new styles or orders created post this change\n• Modification will not impact existing styles or sales orders\nUpon click on Modify Existing, the system will show a list of existing Size Groups with search option to select size group for modification.",
+      "locator": "§ Functional Requirement. › Style Size groups › Work flow: › Modify an existing Size Group",
+      "kind": "section"
+    },
+    {
+      "title": "Selection of size group in Styles Techpack",
+      "heading": "Functional Requirement. › Selection of size group in Styles Techpack",
+      "text": "There will be an option to select, existing size group while creating style techpack. User will be able to select multiple Size Groups if needed.\nSize group selection option will also be available in AI automation. This will be multi-selection in both techpack and AI Automation.\n• Based on Selected Size Groups, system will populate distinct sizes in Base Size List\n• User will be able to select respective size while creating Sales Order manually or automation, same as inseam is handled today.",
+      "locator": "§ Functional Requirement. › Selection of size group in Styles Techpack",
+      "kind": "section"
+    },
+    {
+      "title": "Size Ratio based on previous sales orders",
+      "heading": "Functional Requirement. › Size Ratio based on previous sales orders",
+      "text": "There will be an option to generate size ratio for respective Size Group based on buyer, departmentment and subcategory they are used.\nAuto Size Ratio Configurator\nUser will be able to define size ratio against selected Size group. This screen will also have option to auto generate size ratio based on last financial year or last year.\n• In case of auto size ratio, size ratio will be updated through a batch process running late night\n• In case of Auto size ratio user will not be able to change size ratio populated against respective sizes\n• In case Sizes in size group have changed over time, Auto Size Ratio will auto update new or deleted sizes as per change in size ratio",
+      "locator": "§ Functional Requirement. › Size Ratio based on previous sales orders",
+      "kind": "section"
+    },
+    {
+      "title": "Sales Order",
+      "heading": "Functional Requirement. › Sales Order",
+      "text": "While creating sales order user will be able to select Size group using both manual or automation mode.",
+      "locator": "§ Functional Requirement. › Sales Order",
+      "kind": "section"
+    },
+    {
+      "title": "New Sales Order Interface",
+      "heading": "Functional Requirement. › Sales Order › … › New Sales Order Interface",
+      "text": "• Size Group will be listed based on size groups selected in style techpack.\n• If user, selects Size group then sizes will be populated based on sizes selected under size group.\n• For multiple size groups in a style user will create separate Article grid same as works in case of “In-seam”\nExisting Interface",
+      "locator": "§ Functional Requirement. › Sales Order › … › New Sales Order Interface",
+      "kind": "section"
+    },
+    {
+      "title": "Auto populate Size Ratio=> there will be an option to auto populate size ratio, this size ratio will be used to calculate sales order quantity based on total quantity specified in below fields",
+      "heading": "Functional Requirement. › Sales Order › … › New Sales Order Interface › Auto populate Size Ratio=> there will be an option to auto populate size ratio, this size ratio will be used to calculate sales order quantity based on total quantity specified in below fields",
+      "text": "In case there will be a difference between total quantity and size ratio populated in grid system will show error message with color. Based on this, user will adjust quantity between available sizes.\nSize ratio will auto populate only if respective Size group have ratio specified or auto populated in Size group master.\nSimilar option will be provided in new Sales Order interface where user will enter total sales order quantity for Ratio breakup.\nThis option will work only if Sales order data received thru automation doesn’t have size breakup.",
+      "locator": "§ Functional Requirement. › Sales Order › … › New Sales Order Interface › Auto populate Size Ratio=> there will be an option to auto populate size ratio, this size ratio will be used to calculate sales order quantity based on total quantity specified in below fields",
+      "kind": "section"
+    },
+    {
+      "title": "MRP Percentage Control",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "There will be a grid to define MRP execution percentage for a respective buyer, departmentment, product group, subcategory based on which system will auto-populate MRP percentage while running MRP.\nAbove grid will be used to define MRP percentage.\nColumns:-",
+      "locator": "§ Functional Requirement. › MRP Percentage Control",
+      "kind": "section"
+    },
+    {
+      "title": "MRP Percentage Control – Table 1",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Columns: Column Name (text); Type (text); Selection Type (text); Remarks (text)\nColumn Name | Type | Selection Type | Remarks\nDivision | Drop down | single select | will list all permitted division\nBuyer – Drop down | Drop down | single select | will list all permitted buyers\nDepartment | Drop down | multi select - All Others | System will list département for selected buyer\nProduct Group | Drop down | multi select - All Others | will list product group of apparel category\nSubcategory | Drop down | single select – All Others | will list subcategories based on selected product group\nMaterial Category | Drop down | single select – All Others | Will list material categories excluding Apparel\nMaterial Product Group | Drop down | multi select – All Others | will list product group of selected category\nMaterial Subcategory | Drop down | multi select – All Others | will list subcategories of selected product group\nMRP % | Numeric Fields :: Zero decimals | NA | Percentage of Sales Order qty to be processed for MRP\nMRP Release days | Numeric Fields :: Zero decimals | NA | days after first MRP when system will process 100% sales order quantities for MRP",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Division; Type: Drop down; Selection Type: single select; Remarks: will list all permitted division",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Buyer – Drop down; Type: Drop down; Selection Type: single select; Remarks: will list all permitted buyers",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Department; Type: Drop down; Selection Type: multi select - All Others; Remarks: System will list département for selected buyer",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Product Group; Type: Drop down; Selection Type: multi select - All Others; Remarks: will list product group of apparel category",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Subcategory; Type: Drop down; Selection Type: single select – All Others; Remarks: will list subcategories based on selected product group",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Material Category; Type: Drop down; Selection Type: single select – All Others; Remarks: Will list material categories excluding Apparel",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Material Product Group; Type: Drop down; Selection Type: multi select – All Others; Remarks: will list product group of selected category",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: Material Subcategory; Type: Drop down; Selection Type: multi select – All Others; Remarks: will list subcategories of selected product group",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: MRP %; Type: Numeric Fields :: Zero decimals; Selection Type: NA; Remarks: Percentage of Sales Order qty to be processed for MRP",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "Functional Requirement. › MRP Percentage Control",
+      "text": "Column Name: MRP Release days; Type: Numeric Fields :: Zero decimals; Selection Type: NA; Remarks: days after first MRP when system will process 100% sales order quantities for MRP",
+      "locator": "§ Functional Requirement. › MRP Percentage Control, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Changes in MRP Screen",
+      "heading": "Functional Requirement. › Changes in MRP Screen",
+      "text": "There will be a few changes in the MRP screen in line with above requested function. At the time of MRP run system will show material MRP % as per grid specified, if not then system will show % as 100%. It will auto calculate MRP Qty based on the percentage specified in “MRP %” column. The quantity in “MRP Qty” will be used for Indent generation.",
+      "locator": "§ Functional Requirement. › Changes in MRP Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "heading": "Functional Requirement. › MRP Automation › Process Flow › Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "text": "While creating the OC from the EDI Buyer PO, the system should handle BOM selection as follows:\n• If multiple BOMs are available for the article, the system should allow the user to select the required BOM from the list.\n• If only one BOM is available, the system should automatically attach the BOM in the EDI screen without requiring user selection.\n• The system should display only those BOMs which are in Approved status for selection or auto-attachment.\n• Only one BOM (Bill of Materials) should be allowed to be attached to a single Summary OC.\n• Only In case of any revision in the OC, the system should automatically re-run the MRP to reflect the updated requirements.\nIn the above screen you can see BOM will be selected while creating the OC.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 1: BOM Selection during OC Creation via EDI Buyer PO",
+      "kind": "section"
+    },
+    {
+      "title": "MRP Scheduler Configuration (Backend Controlled)",
+      "heading": "Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › MRP Scheduler Configuration (Backend Controlled)",
+      "text": "• The MRP scheduler will be configured at the backend only, and no UI/screen will be provided to users for scheduler configuration.\n• The system will automatically trigger MRP runs based on backend-defined schedules.\n• In case of OC revision MRP should re-run automatically.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › MRP Scheduler Configuration (Backend Controlled)",
+      "kind": "section"
+    },
+    {
+      "title": "Error Handling and Monitoring for MRP Run",
+      "heading": "Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › Error Handling and Monitoring for MRP Run",
+      "text": "• In case of any error during MRP execution, the system should capture and log the error details.\n• A separate screen should be provided for users to monitor MRP run errors.\n• This screen should display:\n• Article / OC reference\n• MRP run date and time\n• Execution status (Success/Failed)\n• Detailed error messages\n• Users should be able to analyze the errors and take corrective actions from this screen.\n• The system should also allow users to reprocess/re-run MRP after resolving the issues.\n• Additionally, users should have the provision to manually trigger MRP for specific articles/OCs in urgent scenarios, even before the scheduled run.",
+      "locator": "§ Functional Requirement. › MRP Automation › Process Flow › Step 2: Auto MRP › Error Handling and Monitoring for MRP Run",
+      "kind": "section"
+    },
+    {
+      "title": "MRP in Saved mode and Editing",
+      "heading": "Functional Requirement. › MRP Auto Re-run in Case OF SOC Revision and BOM Revision › … › MRP in Saved mode and Editing",
+      "text": "In MRP scheduler queue, Auto-Trigger MRP will be kept in saved if MRP % percentage is taken from MRP % grid and has MRP % less than 100% for any MRP item.\nIn such case, user will be able to edit MRP % using edit option provided against MRP Job ID. Upon review and required changes, user will select MRP Job ID and confirm for processing using “CONFIRM” button on Queue header.",
+      "locator": "§ Functional Requirement. › MRP Auto Re-run in Case OF SOC Revision and BOM Revision › … › MRP in Saved mode and Editing",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 2",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Yudeesh Kumar | 10-05-2026 | Document Created.",
+      "locator": "§ Revision History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Revised By: Yudeesh Kumar; Revised On: 10-05-2026; Changes: Document Created.",
+      "locator": "§ Revision History, table 2, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

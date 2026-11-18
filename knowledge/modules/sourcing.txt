@@ -1,0 +1,449 @@
+# Module: Booking & sourcing
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-BOOKING
+MODULE NAME: Booking & sourcing
+DESCRIPTION: Block booking, indents, purchase, receipt
+SUBMODULES:
+TRANSACTIONS:
+  Buyer Block Booking (BBB) (buyer-block-booking)
+  BBB Adhoc Indent (adhoc-indent)
+  RMPO – Raw Material Purchase Order (rmpo)
+  GRN – Goods Receipt Note (grn)
+DATA MODEL DOCUMENTS: bbb, adhoc-indent, rmpo-1229, grn, rmpo-1230
+WORKFLOW STEPS: bbb-create, bbb-details, bbb-article, bbb-bom, bbb-populate, bbb-materials, bbb-save, gen-indent, adhoc, po, asn, grn
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-OVERVIEW
+TITLE: What does the Sourcing module do?
+TOPIC: Sourcing overview
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: It manages raw-material procurement and fulfilment: supplier selection, purchase-order creation, indent monitoring, stock utilisation, receipt tracking and sourcing reports. Main areas: Supplier, My Purchase Order, Indent Management / Indent List, Indent Fulfillment Status and Reporting & Analysis.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-STANDARD-FLOW
+TITLE: What is the standard sourcing flow?
+TOPIC: Sourcing standard flow
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: The article is created in the Catalog, used in the BOM, an order triggers MRP, the indent is reviewed, and the requirement is met from stock or by an RMPO.
+STEPS:
+  1. Create or verify the material article in the Catalog, with its colours and sizes.
+  2. Make sure the article is in the BOM with consumption, wastage, price and supplier details, colour/size dependency and the purchase officer.
+  3. Generate MRP after the sales order exists and review the indent in the User Indent List.
+  4. Open the indent and check the required quantity, material attributes and available stock.
+  5. If suitable stock exists use the in-house or equivalent-stock process; otherwise create an RMPO.
+  6. Complete the mandatory RMPO fields and verify quantity, price, supplier, dates, currency and UOM conversion.
+  7. Follow the RMPO status and track PO, GRN, receipt and dispatch quantities.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-CATALOG-AND-ARTICLE
+TITLE: How does sourcing start in WFX?
+TOPIC: Catalog and article
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: It starts in the Catalog, where the sourcing or merchandising team creates the required article (Trims, Textiles/Fabric, general items, yarns) and adds its colours and sizes. The same article is then added to the BOM of the apparel, with colour/size dependency, consumption, wastage, price, supplier and purchase officer, so that the material can be procured for the style.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-USER-INDENT-LIST
+TITLE: What is the User Indent List?
+TOPIC: User indent list
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: It shows the indents assigned or available to the logged-in user. Indents may be user-specific and may not be visible to other users. Several indents of the same category can be combined into one RMPO.
+STEPS:
+WHERE IN WFX: Sourcing > Indent Management > User Indent List
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-ADHOC-INDENT
+TITLE: How do I create an adhoc indent?
+TOPIC: Adhoc indent
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: The sourcing team can create an adhoc indent for procurement against an order, for a sample order, or for none (general sourcing). Select the indent type first, then enter the material, quantity, price, supplier and the other required details; the indent can then be used to create a purchase order.
+STEPS:
+WHERE IN WFX:
+NOTES: If the indent type is OC, select the OC number before creating the indent. In the Article section select the material category and then the article.
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-INDENT-OVERVIEW
+TITLE: What does the indent overview show and what can I do from it?
+TOPIC: Indent overview
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: The overview shows the indent number, style, article, OC number, supplier and buyer, the price assigned on the BOM, the BOM line number, colour and size, and the required, ordered, in-house, on-order and open quantities (and the requested roll quantity for roll allocation). From it you can Create New PO or, where permitted, use In-House Adjustment. A green indicator shows a requirement for which stock is available.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-CREATE-RMPO
+TITLE: How do I create a Raw Material Purchase Order (RMPO)?
+TOPIC: Create RMPO
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Go to Sourcing > My Purchase Order > New Raw Material Purchase Order. The screen has Header, Article Detail and Additional Charges sections. Fields in red are mandatory.
+STEPS:
+  1. Select the category (for example Textiles/Fabric).
+  2. Select the supplier.
+  3. Enter the required delivery and in-house dates.
+  4. Select the currency and complete the other mandatory header fields.
+  5. Enter or review the article details and verify the quantity against the indent.
+  6. Check the UOM and conversion, add additional charges if applicable, and create or confirm the order.
+WHERE IN WFX: Sourcing > My Purchase Order > New Raw Material Purchase Order
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-CREATE-PO-FROM-AN-INDENT
+TITLE: How do I create a PO from an indent?
+TOPIC: Create PO from an indent
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Open the indent overview and select Create New PO. WFX opens the RMPO screen where you enter the purchase-order details. If suitable material is already available, use In-House Adjustment instead where permitted; a green indicator shows a requirement for which stock is available.
+STEPS:
+  1. Open the indent number to see its overview.
+  2. Check the required, ordered, in-house, on-order and open quantities.
+  3. Select Create New PO. The RMPO screen opens.
+  4. Complete the mandatory fields (shown in red) and verify the material details, quantity, price and UOM.
+  5. Create or confirm the RMPO.
+WHERE IN WFX: Sourcing > Indent Management > User Indent List, or Indent Fulfillment Status (Create New PO, where enabled)
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-RMPO-FOR-MULTIPLE-INDENTS
+TITLE: How do I create one RMPO for multiple indents together?
+TOPIC: RMPO for multiple indents
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: From the User Indent List, several indents of the same category can be combined into one RMPO. Pick the indents together, start the purchase order from the list, and the RMPO screen opens for the combined requirement.
+STEPS:
+  1. Open Sourcing > Indent Management > User Indent List.
+  2. Pick the indents to combine; they must be of the same category (for example all Textiles/Fabric).
+  3. Start the RMPO from the list. The RMPO screen opens with the Header, Article Detail and Additional Charges sections.
+  4. Complete the mandatory header fields (shown in red): category, supplier, delivery and in-house dates and currency.
+  5. In Article Detail check the quantity, price, PO UOM and UOM conversion against each indent.
+  6. Create or confirm the RMPO. If the Supplier Portal is on, it stays Unconfirmed until the supplier responds.
+WHERE IN WFX: Sourcing > Indent Management > User Indent List
+NOTES: Only indents of the same category can be combined into one RMPO. As the manual says, screen options and fields can vary by user role, configuration and module version.
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-RMPO-ARTICLE-DETAIL-AND-UOM
+TITLE: Why do I get "UOM conversion is not defined" on an RMPO?
+TOPIC: RMPO article detail and UOM
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: The Article Detail can show article, colour, size, shipped quantity, open quantity, net open quantity, original UOM, ordered quantity, PO UOM, price and total value. The PO UOM can be changed where permitted. If it differs from the indent UOM, the conversion between them must be defined in the system; otherwise the alert "UOM conversion is not defined" appears and the transaction cannot proceed.
+STEPS:
+WHERE IN WFX:
+NOTES: Fix: define the conversion between the indent UOM and the PO UOM.
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-MY-PURCHASE-ORDER-OPTIONS
+TITLE: What options are under My Purchase Order?
+TOPIC: My purchase order options
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Search of raw material purchase order, list of raw material purchase orders (all created by the user), new raw material purchase order, new garment PO, search garment PO, list garment PO, and the Pending GMPO list. When the team sources the main style directly from a supplier, they create the GMPO against the style order.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SUPPLIER-MANAGEMENT
+TITLE: How do I find a supplier?
+TOPIC: Supplier management
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: The Supplier area holds the suppliers used in sourcing across categories such as Textiles/Fabric, Apparel and Trims.
+STEPS:
+  1. Open Sourcing > Supplier.
+  2. Search or select the supplier.
+  3. Review the supplier information and use the supplier when creating the RMPO.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SUPPLIER-PORTAL
+TITLE: How does the supplier portal work for an RMPO?
+TOPIC: Supplier portal
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: If the supplier has a login and the Supplier Portal feature is enabled, the RMPO is sent to the supplier portal for approval and may stay Unconfirmed until the supplier responds. After the supplier approves, the status updates automatically in the WFX My Purchase Order list. The supplier can also create a Sourcing ASN against the RMPO, which the inventory team uses as a reference when receiving the material.
+STEPS:
+WHERE IN WFX:
+NOTES: Sign in with the company ID and the user ID and password configured in the supplier master, on the applicable server URL.
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-UNCONFIRMED-RMPO
+TITLE: Why is my RMPO in Unconfirmed status?
+TOPIC: Unconfirmed RMPO
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: When the Supplier Portal is enabled for the supplier, a newly created RMPO can stay Unconfirmed until the supplier responds in the portal. After the supplier approves it, the status updates automatically in the WFX My Purchase Order list.
+STEPS:
+WHERE IN WFX:
+NOTES: The supplier needs a login configured in the supplier master and the Supplier Portal feature must be enabled; the supplier signs in with the company ID, user ID and password configured for them.
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SUPPLIER-BLOCK-BOOKING
+TITLE: What is a supplier block booking?
+TOPIC: Supplier block booking
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Create a supplier block booking from the supplier’s confirmation of the quantities expected by month, season or year. It can later be linked to RMPOs, which lets the team compare the booked quantity with the quantity ordered or received.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-TRACKING-PO-AND-GRN
+TITLE: How do I see the PO and GRN against an indent?
+TOPIC: Tracking PO and GRN
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: On Indent Fulfillment Status, when an order exists against an indent the Order Qty is shown. Click the order quantity to open the PO information: PO number, created on, supplier name, UOM and PO quantity. When material has been received, click the receipt quantity to see the GRN number, creation date, PO reference and received quantity.
+STEPS:
+WHERE IN WFX: Sourcing > Indent Fulfillment Status
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-INDENT-FULFILLMENT-STATUS
+TITLE: What do the quantities on Indent Fulfillment Status mean, and how do I track dispatch?
+TOPIC: Indent fulfillment status
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: It is the main screen to monitor how indent requirements are fulfilled. Select the buyer (and buyer department and season) and click Search.
+STEPS:
+WHERE IN WFX:
+NOTES: Open Qty = quantity still open. Order Qty = covered by purchase orders. PO GRN Receipt Qty = received through GRN against the PO. In-House Stock Adjusted = fulfilled by in-house stock adjustment. Unreserve Qty = quantity in unreserve transactions. Dispatched Qty = already dispatched. Pending To Dispatch = pending dispatch. Click the indent number to open the indent; click the order quantity to see the PO number, created on, supplier, UOM and PO quantity; click the receipt quantity to see the GRN number, date, PO reference and received quantity.
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-STOCK-AVAILABILITY
+TITLE: Why is an indent shown in green, and how do I check whether stock is available for it?
+TOPIC: Stock availability
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: If stock is already available, WFX shows the indent number in green in the indent list. Use Show Stock Availability from the indent list or the indent context to identify the available stock.
+STEPS:
+  1. Open the User Indent List.
+  2. Look for indents shown in green: stock is available for them.
+  3. Use Show Stock Availability from the indent list or indent context to see the stock.
+  4. Use In-House Adjustment (or In-House Equivalent if the exact material is not available) to allocate it.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-IN-HOUSE-STOCK-ADJUSTMENT
+TITLE: How do I fulfil an indent from stock I already have?
+TOPIC: In-house stock adjustment
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: If suitable stock is available in house, the indent can be fulfilled with an In-House Adjustment, subject to permissions and configuration. The indent number shows in green when stock is available. Use Show Stock Availability to identify the stock.
+STEPS:
+  1. Open the indent.
+  2. Confirm that relevant stock is available.
+  3. Open In-House Adjustment.
+  4. Click Search to retrieve the matching stock.
+  5. Review the source details (GRN and site).
+  6. Select the stock and quantity.
+  7. Complete the adjustment or reservation.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-IN-HOUSE-EQUIVALENT-STOCK
+TITLE: What if the exact stock is not available?
+TOPIC: In-house equivalent stock
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Where permitted, an equivalent-stock option lets you use similar stock, for example when the exact material or colour is not available.
+STEPS:
+  1. Open In-House Equivalent.
+  2. Enter the required transaction details.
+  3. Review the available cartons or stock.
+  4. Select the stock and quantity.
+  5. Complete the adjustment according to the configured process.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-FILTERS-AND-EXPORT
+TITLE: How do I filter, sort and export the indent list?
+TOPIC: Sourcing filters and export
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Use the filter and search controls to narrow by article, style, material type, program, division, PBSD date, buyer, category and other fields. Use the column controls to show, hide and reorder columns. After filtering, use the grid Export option to download the displayed data to CSV or Excel.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-REPORTS
+TITLE: What sourcing reports are there?
+TOPIC: Sourcing reports
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Reporting & Analysis includes the Indent Report (indents created in the system) and the Purchase Order / System Order Report (purchase orders created in the system).
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-END-TO-END
+TITLE: What is the end-to-end sourcing process?
+TOPIC: Sourcing end to end
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Review the indent requirement, check stock, adjust in house if suitable stock exists, otherwise create an RMPO, track PO and GRN, monitor adjustments, unreserve and dispatch, and use reports and export.
+STEPS:
+  1. Review the indent requirement.
+  2. Check existing stock availability.
+  3. If suitable stock is available, do the in-house adjustment.
+  4. If not, create an RMPO.
+  5. Select category, supplier, dates, currency and the other mandatory details.
+  6. Enter the quantity and verify UOM and conversion.
+  7. Create or confirm the purchase order.
+  8. Track PO and GRN receipt quantities.
+  9. Monitor in-house adjustments, unreserved quantities and dispatch.
+  10. Use reports and export for analysis.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-TROUBLESHOOTING
+TITLE: What do I do when something goes wrong in sourcing?
+TOPIC: Sourcing troubleshooting
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: UOM conversion alert: check that the conversion between the indent UOM and the PO UOM is configured. No stock available: in-house adjustment cannot be done until stock exists. In-house option not visible: check user permissions and configuration. Indent revised: use Last Revised On to find the latest revision. Need focused results: apply filters before reviewing or exporting. Need to trace a receipt: open the PO or GRN quantity.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SOURCING-SOURCING-DAILY-CHECKLIST
+TITLE: What is the daily sourcing checklist?
+TOPIC: Sourcing daily checklist
+MODULE: Booking & sourcing
+SOURCE DOCUMENT: Sourcing Module User Manual
+CONTENT: Review assigned and open indents, check the required quantity, UOM and material attributes, check stock availability, use in-house adjustment when applicable, otherwise create or complete the RMPO, verify supplier, dates, currency and quantity, confirm the UOM conversion, track PO and GRN quantities, monitor dispatch and pending to dispatch, and export or report when required.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sourcing Module User Manual" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

@@ -1,0 +1,5 @@
+﻿apparel_code,article_code,article_name,techpack_type,material_type,consumption_uom,price_per,bypass_material_check_on_production_grn
+NIS-59,N-8,Finished_FABRIC,Textiles/Fabric,Knitted_FAB_N,KG_Nis,Color/Size,[Select]
+NIS-59,T-1,Spun Polyester Sewing Thread,Trims,Spun Polyester Sewing Thread,meter,Article,Disable
+NIS-59,NS1-1,Cufflings_flanel,Trims,COTTONSHIRTERPNtype,PCS,Article,Disable
+NIS-59,PP-1,Garment Polybag,Trims,Polybag Garment Packaging,PCS,Article,[Select]

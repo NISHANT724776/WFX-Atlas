@@ -1,0 +1,317 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Division",
+        "Project Spoc",
+        "Designation",
+        "Sign off / Date"
+      ],
+      "types": [
+        "text",
+        "text",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [
+        "Division"
+      ],
+      "rows": [
+        [
+          "LSD",
+          "Abhimanyu",
+          "",
+          ""
+        ],
+        [
+          "MNB",
+          "Hemanth",
+          "",
+          ""
+        ],
+        [
+          "Knits",
+          "Lohit / Arun",
+          "",
+          ""
+        ],
+        [
+          "Project Sponsor",
+          "Balaji / Bal Singh",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Version",
+        "Created / Revised By",
+        "Created / Revised on"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Gaurav Rawat",
+          "16 April 2026"
+        ],
+        [
+          "1.1",
+          "Rahul Narwal",
+          "22 September 2026"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "413145",
+  "keyTerms": [
+    "request",
+    "consumption request",
+    "consumption",
+    "status",
+    "user",
+    "approver",
+    "price request",
+    "price",
+    "pending",
+    "line",
+    "send",
+    "material code",
+    "bom",
+    "request status",
+    "approval"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 6
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Consumption Request Mandatory Option 6",
+      "locator": "§ … › … › … › … › … › Contents",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no option to reassign or resend the request while it is in pending status.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Delays when the approver is unavailable or unresponsive",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Objective:\n1. Delays when the approver is unavailable or unresponsive\n2. Increased dependency on a single approver\n3. Manual follow-ups and inefficiencies in the approval process",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once a line is send to any request(Consumption, Price, or Material Code) then that lines becomes non editable and its status becomes mark as not read (grey)",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The problem here is that apart from this grey indicator, there is no way to see the request type, the current status label, or which approver it is pending with, without opening another screen.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If any request is approved then status will get changed.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If a request is revoked then it will not be showing in the pending list and that line will become editable and then user can resend it for request to any other user.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "In case any request is revoked then request status will show “Consumption Request is revoked from user”",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Objective:\n1. The problem here is that apart from this grey indicator, there is no way to see the request type, the current status label, or which approver it is pending with, without opening another screen.\n2. If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.\n3. So, we require a new field in this BOM Line as “Request Status” which will show.\n“Request Type pending”. For ex: - if I send price request to Rahul then this Request Status will show “Price”. If any request is approved then status will get changed.\n4. This will always show the status of the Last request that is sent. If user wants to see the full history of all requests then he can open the hyperlink and there user can see the complete history of all request type (Material Code, Price Request, Consumption request) along with the date and time of that material line.\n5. Revoke & Re-Request –\n6. an Edit (revoke) icon/action on the pending line that withdraws the request and unlocks the field, after which the same context menu allows the request to be sent again — to the same or a different approver.\n7. If a request is revoked then it will not be showing in the pending list and that line will become editable and then user can resend it for request to any other user.\n8. In case any request is revoked then request status will show “Consumption Request is revoked from user”\n9. The same to be shown in request status and Log.",
+      "locator": "§ Objective",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Need an option in Admin Product Group – Category, as “Mandatory Consumption Request in BOM”.",
+      "locator": "§ Objective › Consumption Request Mandatory Option",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If this checkbox is enabled then the consumption field will get read only for the sub category and to enter consumption user needs to send the consumption request.",
+      "locator": "§ Objective › Consumption Request Mandatory Option",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "We need a alert message when consumption request of that sub category is not send and approved and user is approving the BOM as “Consumption Request is Mandatory”",
+      "locator": "§ Objective › Consumption Request Mandatory Option",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Division, Project Spoc, Designation, Sign off / Date (4 rows; identifiers: Division)",
+      "locator": "§ Required Approval Matrix:-, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Version, Created / Revised By, Created / Revised on (2 rows)",
+      "locator": "§ Version History, table 2",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "413145",
+      "heading": "",
+      "text": "Software Requirements Specification\n413145\n16th Apr 2026",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "Objective 2\nConsumption Request Mandatory Option 6\nRequired Approval Matrix:- 7\nVersion History 7",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "Objective",
+      "text": "To enable users to re-send approval requests for Material Code, Price, and Consumption in cases where the current request is still pending, allowing flexibility to redirect the request to another approver and avoid delays.\nProblem Statement\nCurrently, once a user raises an approval request:\n• The request gets assigned to a specific approver.\n• There is no option to reassign or resend the request while it is in pending status.\nThis leads to:\n• Delays when the approver is unavailable or unresponsive\n• Increased dependency on a single approver\n• Manual follow-ups and inefficiencies in the approval process\nProposed Solution\nThe BOM screen (Sewing Trims / Packing Trims grids) already exposes a row-level context menu with, Price Request, Material code request.\nFig 1: Existing context menu on a Sewing Trims line – Price Request / Consumption Request options.\nOnce a line is send to any request(Consumption, Price, or Material Code) then that lines becomes non editable and its status becomes mark as not read (grey)\nFig 2: BOM tab showing the Sewing Trims grid with per-line status indicator (colored dot).\n• The problem here is that apart from this grey indicator, there is no way to see the request type, the current status label, or which approver it is pending with, without opening another screen.",
+      "locator": "§ Objective",
+      "kind": "section"
+    },
+    {
+      "title": "Objective",
+      "heading": "Objective",
+      "text": "• If the assigned approver is unavailable, there is no way to revoke the pending request and redirect it to another approver — the requester must wait indefinitely.\n• So, we require a new field in this BOM Line as “Request Status” which will show.\n“Request Type pending”. For ex: - if I send price request to Rahul then this Request Status will show “Price”. If any request is approved then status will get changed.\n• This will always show the status of the Last request that is sent. If user wants to see the full history of all requests then he can open the hyperlink and there user can see the complete history of all request type (Material Code, Price Request, Consumption request) along with the date and time of that material line.\n• Revoke & Re-Request –\n• an Edit (revoke) icon/action on the pending line that withdraws the request and unlocks the field, after which the same context menu allows the request to be sent again — to the same or a different approver.\n• If a request is revoked then it will not be showing in the pending list and that line will become editable and then user can resend it for request to any other user.\n• In case any request is revoked then request status will show “Consumption Request is revoked from user”\n• The same to be shown in request status and Log.",
+      "locator": "§ Objective (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Consumption Request Mandatory Option",
+      "heading": "Objective › Consumption Request Mandatory Option",
+      "text": "Currently, in BOM user have an option to either enter the consumption or to send it to CAD department for request.\nHowever, there’s no option to mandate the Consumption request for certain sub categories like Thread. So, we need an option to mandate the consumption request for certain consumption request.\nNeed an option in Admin Product Group – Category, as “Mandatory Consumption Request in BOM”. If this checkbox is enabled then the consumption field will get read only for the sub category and to enter consumption user needs to send the consumption request.\nWe need a alert message when consumption request of that sub category is not send and approved and user is approving the BOM as “Consumption Request is Mandatory”\nNeed to this setting on division level.",
+      "locator": "§ Objective › Consumption Request Mandatory Option",
+      "kind": "section"
+    },
+    {
+      "title": "Required Approval Matrix:- – Table 1",
+      "heading": "Required Approval Matrix:-",
+      "text": "Columns: Division (text); Project Spoc (text); Designation (empty); Sign off / Date (empty)\nDivision | Project Spoc | Designation | Sign off / Date\nLSD | Abhimanyu |  | \nMNB | Hemanth |  | \nKnits | Lohit / Arun |  | \nProject Sponsor | Balaji / Bal Singh |  | ",
+      "locator": "§ Required Approval Matrix:-, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: LSD; Project Spoc: Abhimanyu",
+      "locator": "§ Required Approval Matrix:-, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: MNB; Project Spoc: Hemanth",
+      "locator": "§ Required Approval Matrix:-, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: Knits; Project Spoc: Lohit / Arun",
+      "locator": "§ Required Approval Matrix:-, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Required Approval Matrix:-",
+      "text": "Division: Project Sponsor; Project Spoc: Balaji / Bal Singh",
+      "locator": "§ Required Approval Matrix:-, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Version History – Table 2",
+      "heading": "Version History",
+      "text": "Columns: Version (decimal); Created / Revised By (text); Created / Revised on (text)\nVersion | Created / Revised By | Created / Revised on\n1.0 | Gaurav Rawat | 16 April 2026\n1.1 | Rahul Narwal | 22 September 2026",
+      "locator": "§ Version History, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Version History",
+      "text": "Version: 1.0; Created / Revised By: Gaurav Rawat; Created / Revised on: 16 April 2026",
+      "locator": "§ Version History, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Version History",
+      "text": "Version: 1.1; Created / Revised By: Rahul Narwal; Created / Revised on: 22 September 2026",
+      "locator": "§ Version History, table 2, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

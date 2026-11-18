@@ -1,0 +1,30 @@
+{
+  "tables": [],
+  "subject": "MRP Dashboard Updated",
+  "keyTerms": [],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 9
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [],
+  "chunks": []
+}

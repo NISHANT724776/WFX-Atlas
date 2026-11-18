@@ -1,0 +1,21 @@
+# History of FLD-APPAREL-STYLE-BUYER-BUYER-DEPARTMENT. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:21:40.147Z · superseded by v2
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-BUYER-BUYER-DEPARTMENT
+FIELD NAME: Buyer / Buyer Department
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: GAP Kids / Kids-Tops-Knits. Copied to booking and OC.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+

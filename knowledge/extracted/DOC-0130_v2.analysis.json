@@ -1,0 +1,151 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Revised By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Ankit",
+          "12-05-2026",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Issue ID  414282 - Job order enhancement",
+  "keyTerms": [
+    "job order",
+    "job",
+    "order",
+    "transaction",
+    "input output",
+    "output lines",
+    "lines",
+    "input",
+    "output",
+    "order enhancement",
+    "order transaction",
+    "enhancement",
+    "added",
+    "delete",
+    "enhancement development"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Input and Output lines added in the Job Order transaction cannot be deleted during transaction creation/editing.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Incorrectly added Input/Output lines cannot be deleted immediately.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The enhancement must ensure:",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Input/Output Line Deletion Option:\n1. The Job Order transaction screen will be enhanced with a Delete option for:\n2. Input lines\n3. Output lines\n4. Users will be able to:\n5. Remove incorrectly added lines before saving the transaction.\n6. A Delete icon/button will be available against each row.",
+      "locator": "§ Solution › … › Input/Output Line Deletion Option",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Revised By, Revised On, Changes (1 rows)",
+      "locator": "§ Section 4. Revision History, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Issue ID  414282 - Job order enhancement",
+      "heading": "",
+      "text": "Job order enhancement\nDevelopment ID: 414282\nJob order enhancement\nDevelopment ID: 414282",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n2. Purpose 2\n3. Solution 2\n4. Revision History 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Currently, when an Adhoc FPPO is created through the New Job Order UI:\n• Input and Output lines added in the Job Order transaction cannot be deleted during transaction creation/editing.\nThis creates operational inconvenience, and increases user effort during Job Order processing.\nThe requirement is to:\n• Provide a delete option for Input and Output lines directly within the Job Order transaction screen.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The business requires improved traceability and transaction usability in the New Job Order UI for Adhoc FPPO transactions.\nCurrently:\n• Incorrectly added Input/Output lines cannot be deleted immediately.\nTo improve operational efficiency and inventory tracking:\n• Users should be able to delete wrongly added Input or Output lines before saving the transaction.\nThe enhancement must ensure:\n• Reduced transaction correction effort.\n• Improved user experience during Job Order creation and editing.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Input/Output Line Deletion Option",
+      "heading": "Solution › … › Input/Output Line Deletion Option",
+      "text": "• The Job Order transaction screen will be enhanced with a Delete option for:\n• Input lines\n• Output lines\n• Users will be able to:\n• Remove incorrectly added lines before saving the transaction.\n• A Delete icon/button will be available against each row.",
+      "locator": "§ Solution › … › Input/Output Line Deletion Option",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Revision History – Table 1",
+      "heading": "Section 4. Revision History",
+      "text": "Columns: Version (decimal); Revised By (text); Revised On (date); Changes (text)\nVersion | Revised By | Revised On | Changes\n1.0 | Ankit | 12-05-2026 | Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 4. Revision History",
+      "text": "Version: 1.0; Revised By: Ankit; Revised On: 12-05-2026; Changes: Initial document created.",
+      "locator": "§ Section 4. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

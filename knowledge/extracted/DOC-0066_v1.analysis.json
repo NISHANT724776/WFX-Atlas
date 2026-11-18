@@ -1,0 +1,111 @@
+{
+  "tables": [],
+  "subject": "356333",
+  "keyTerms": [
+    "asn",
+    "after",
+    "saved",
+    "saved asn",
+    "after saved",
+    "restriction",
+    "revisions",
+    "revisions even",
+    "even after",
+    "after psn",
+    "psn asn",
+    "asn creation",
+    "creation revision",
+    "revision",
+    "revision restriction"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 9
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "How OC Revisions can be done even After PSN/ASN Creation- OC Revision restriction after Saved ASN: 356333",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Currently the OC revision is restricted after ASN Confirmation only.",
+      "locator": "§ … › 2. Current System Behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Currently the OC revision is restricted after ASN Confirmation only.",
+      "locator": "§ … › 2. Current System Behaviour",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "We propose introducing an internal setting or a Martex-specific validation to restrict editing of Sales Orders once an ASN is saved.",
+      "locator": "§ … › 3. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Given this process, the system should restrict any edits to the Sales Order after an ASN is saved to ensure data consistency and avoid discrepancies.",
+      "locator": "§ … › 3. Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Currently the given validation comes on revising the Summary OC.",
+      "locator": "§ … › 3. Business Requirement",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "356333",
+      "heading": "",
+      "text": "How OC Revisions can be done even After PSN/ASN Creation- OC Revision restriction after Saved ASN: 356333\nHow OC Revisions can be done even After PSN/ASN Creation- OC Revision restriction after Saved ASN: 356333",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n3. Solution 2\n4. Acceptance Criteria 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "2. Current System Behaviour",
+      "heading": "… › 2. Current System Behaviour",
+      "text": "Currently the OC revision is restricted after ASN Confirmation only.",
+      "locator": "§ … › 2. Current System Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "3. Business Requirement",
+      "heading": "… › 3. Business Requirement",
+      "text": "We propose introducing an internal setting or a Martex-specific validation to restrict editing of Sales Orders once an ASN is saved.\nAt Martex, a “Saved ASN” is effectively treated as a Confirmed ASN. However, ASN confirmation is deferred until all customs and supporting documents are collected. In the meantime, they rely on reports that include both Saved and Confirmed ASNs for document verification purposes.\nGiven this process, the system should restrict any edits to the Sales Order after an ASN is saved to ensure data consistency and avoid discrepancies.\nCurrently the given validation comes on revising the Summary OC.",
+      "locator": "§ … › 3. Business Requirement",
+      "kind": "section"
+    }
+  ]
+}

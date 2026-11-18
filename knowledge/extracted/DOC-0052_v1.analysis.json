@@ -1,0 +1,439 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Party",
+        "Dr",
+        "50"
+      ],
+      "types": [
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Sale of Licence",
+          "Cr",
+          "50"
+        ],
+        [
+          "ROSLCTL1",
+          "Dr",
+          "50"
+        ],
+        [
+          "ROSCTL (Recoverable)",
+          "Cr",
+          "50"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "ROSLCTL1",
+        "DR",
+        "50"
+      ],
+      "types": [
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Loss on Sale of Duty Script",
+          "DR",
+          "50"
+        ],
+        [
+          "ROSLCTL1 (Recoverable)",
+          "CR",
+          "100"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "ROSCTL",
+        "DR",
+        "50"
+      ],
+      "types": [
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Loss on Sale of Duty Script",
+          "DR",
+          "50"
+        ],
+        [
+          "ROSLCTL1 (Recoverable)",
+          "CR",
+          "100"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Version",
+        "Created/Revised By",
+        "Created/Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Kalpesh Sharma",
+          "30th Jan 2025",
+          "Initial document created."
+        ],
+        [
+          "2.0",
+          "Kalpesh Sharma",
+          "11th Sep 2025",
+          "Specs updated as per technical discussion"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "279362 - Advance Incentive - AIPL 11092025",
+  "keyTerms": [
+    "incentive",
+    "asn",
+    "sales",
+    "invoice",
+    "duty script",
+    "script movement",
+    "advance",
+    "section",
+    "script",
+    "level",
+    "sale",
+    "advance incentive",
+    "export incentive",
+    "movement",
+    "posting"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to enhance the below screens:-",
+      "locator": "§ Scope",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Sales invoice\n2. Export Incentive\n3. Duty Script movement",
+      "locator": "§ Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "However the sales invoice posting is subject to the goods delivery which sometime can takes more than usual time which stretchs the time gap between the ASN and its invoice creation .",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 01 | ASN List screen",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Wherein the incentive details are already received by us and requried to book an Advacne license sale.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 01 | ASN List screen",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 01 | ASN List screen:\n1. There will be hyperlink at each line/ASN level which will provide user a pop-up “Incentive detail”. This pop-up will have same input-fields for Incentive level detail as it works while sales invoice creation level.\n2. This incentive attached information should get auto-fetched while creatiing invoice of this sale incentive\n3. This incentive details should be made available in all the ASN/incentive related SPs.\n4. This column be enabled through Screen layout configurator, along with the muliple column headers\n5. Incentive information can be attached only to the confirmed ASNs.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 01 | ASN List screen",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as the incentive information is updated at the ASN level, then that ASN",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 02 | Duty Script Movement Sheet",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Information for whichever column is not in the ASN will be reflected in the column likewise.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 02 | Duty Script Movement Sheet",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Duty Script Movement Sheet:\n1. All the columns in the tab will be functioning the infomration at ASN level. Information for whichever column is not in the ASN will be reflected in the column likewise.\n2. Information related to which Incentive have been raised on the basis of ASN and which have been raised on the basis of invoice need to be stored and provided for reporting purposes.\n3. No other change with the movement functionality.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 02 | Duty Script Movement Sheet",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Also on there is certain voucher posting level changes required as detailed below:-",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Party, Dr, 50 (3 rows)",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 1",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: ROSLCTL1, DR, 50 (2 rows)",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 2",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: ROSCTL, DR, 50 (2 rows)",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes, table 3",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Export Incentive:\n1. Currently, sales incentive outstanding documents screen, details can only be processed for the posted sales invoice which restricts us to approch the advance incentive recipts.\n2. So following to the SCREEN 01 wherein the incentive details information have already been attached to its respective sales ASN, should also become visible on this screen as well for the advance receipts processeing.\n3. it will be of full amount, no adjustment allowed.\n4. No other change in the functionality",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 04 | Export Incentive",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Version, Created/Revised By, Created/Revised On, Changes (2 rows)",
+      "locator": "§ Section 5. Revision History, table 4",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "279362 - Advance Incentive - AIPL 11092025",
+      "heading": "",
+      "text": "Software Requirements Specification\nADVANCE INCENTIVE HANDELLING\nVersion 1.0 ● 279362\n30 Jan 2025\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nADVANCE INCENTIVE HANDELLING 5\nScreen 01 | ASN List screen 5\nScreen 02 | Duty Script Movement Sheet 6\nScreen 03 | Non Stock Sales and Voucher posting 7\nScreen 03 | Multiple Voucher Posting level changes 8\nScreen 04 | Export Incentive 9\nSection 4. Glossary 10\nSection 5. Revision History 11",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Certainly, in order to make the UI more interactive and efficient with regards to Advance Export Incentive handling.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "The Scope of these specs is to enhance the below screens:-\n• Sales invoice\n• Export Incentive\n• Duty Script movement",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 01 | ASN List screen",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 01 | ASN List screen",
+      "text": "PATH : Sales >> ASN >> List\nProblem Statement:\nCurrently in system, In order to book a License sale invoice based on the ROSLCTL incentive details, only the posted sales invoices carrying such incentive information be processed. However the sales invoice posting is subject to the goods delivery which sometime can takes more than usual time which stretchs the time gap between the ASN and its invoice creation . Wherein the incentive details are already received by us and requried to book an Advacne license sale. So we need a provision to put the incentive details at the ASN level and proceed for the script movement and licenvese sale on the basis of that with certain ledger level consideration as detailed below.\nRequired Changes:-\n• There will be hyperlink at each line/ASN level which will provide user a pop-up “Incentive detail”. This pop-up will have same input-fields for Incentive level detail as it works while sales invoice creation level.\n• This incentive attached information should get auto-fetched while creatiing invoice of this sale incentive\n• This incentive details should be made available in all the ASN/incentive related SPs.\n• This column be enabled through Screen layout configurator, along with the muliple column headers\n• Incentive information can be attached only to the confirmed ASNs.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 01 | ASN List screen",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Duty Script Movement Sheet",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 02 | Duty Script Movement Sheet",
+      "text": "FA >> AR >> Duty Script Movement\nProblem Statement :-\nCurrently, Duty script movement details can only be attached for the posted sales invoice which restricts us to approch the advance incentive based script sales.\nSo following to the SCREEN 01 wherein the incentive details information have already been attached to its respective ASN, that ASN should become visible on this screen as well for the script movement processeing.\nNo other change in the functionality\nRequired Changes :-\n• As soon as the incentive information is updated at the ASN level, then that ASN\nwill list in the incentive Pending tab.\n• All the columns in the tab will be functioning the infomration at ASN level. Information for whichever column is not in the ASN will be reflected in the column likewise.\n• Information related to which Incentive have been raised on the basis of ASN and which have been raised on the basis of invoice need to be stored and provided for reporting purposes.\n• No other change with the movement functionality.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 02 | Duty Script Movement Sheet",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "User Story :-\nThe license recorded above, should be available to license sale.\nAlso on there is certain voucher posting level changes required as detailed below:-\nPATH : FA >> AR >> Non-stock Sales >> License sales\nRequired Changes :-\n• At the time of license sale invoice posting, system should check that the linked invoice is via ASN or not and should trigger an Auto-Income Reversal entry from a liablity ledger to the ROSLCTL income ledger, as below :-\n• In case, against ASN, not invoiced",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting – Table 1",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Columns: Party (text); Dr (text); 50 (integer)\nParty | Dr | 50\nSale of Licence | Cr | 50\nROSLCTL1 | Dr | 50\nROSCTL (Recoverable) | Cr | 50",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Party: Sale of Licence; Dr: Cr; 50: 50",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Party: ROSLCTL1; Dr: Dr; 50: 50",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Party: ROSCTL (Recoverable); Dr: Cr; 50: 50",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "• In case, Invoice Posted.",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting – Table 2",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Columns: ROSLCTL1 (text); DR (text); 50 (integer)\nROSLCTL1 | DR | 50\nLoss on Sale of Duty Script | DR | 50\nROSLCTL1 (Recoverable) | CR | 100",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "ROSLCTL1: Loss on Sale of Duty Script; DR: DR; 50: 50",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "ROSLCTL1: ROSLCTL1 (Recoverable); DR: CR; 50: 100",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Non Stock Sales and Voucher posting, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 03 | Multiple Voucher Posting level changes",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "text": "Required Changes :-\n• With refer to above case, At the time of sale invoice posting, there should be an Auto-income recognisation entry, as below:-",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Multiple Voucher Posting level changes – Table 3",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "text": "Columns: ROSCTL (text); DR (text); 50 (integer)\nROSCTL | DR | 50\nLoss on Sale of Duty Script | DR | 50\nROSLCTL1 (Recoverable) | CR | 100",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "text": "ROSCTL: Loss on Sale of Duty Script; DR: DR; 50: 50",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "text": "ROSCTL: ROSLCTL1 (Recoverable); DR: CR; 50: 100",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 03 | Multiple Voucher Posting level changes",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "text": "• Advance reciept agaisn the DBK (next screen)",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 03 | Multiple Voucher Posting level changes",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 04 | Export Incentive",
+      "heading": "ADVANCE INCENTIVE HANDELLING › … › Screen 04 | Export Incentive",
+      "text": "FA >> AR >> Export Incentive >> New\nProblem Statement :-\n• Currently, sales incentive outstanding documents screen, details can only be processed for the posted sales invoice which restricts us to approch the advance incentive recipts.\n• So following to the SCREEN 01 wherein the incentive details information have already been attached to its respective sales ASN, should also become visible on this screen as well for the advance receipts processeing.\n• it will be of full amount, no adjustment allowed.\n• No other change in the functionality",
+      "locator": "§ ADVANCE INCENTIVE HANDELLING › … › Screen 04 | Export Incentive",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Glossary",
+      "heading": "Section 4. Glossary",
+      "text": "• No Glossary",
+      "locator": "§ Section 4. Glossary",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5. Revision History – Table 4",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Created/Revised By (text); Created/Revised On (text); Changes (text)\nVersion | Created/Revised By | Created/Revised On | Changes\n1.0 | Kalpesh Sharma | 30th Jan 2025 | Initial document created.\n2.0 | Kalpesh Sharma | 11th Sep 2025 | Specs updated as per technical discussion",
+      "locator": "§ Section 5. Revision History, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 30th Jan 2025; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 2.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 11th Sep 2025; Changes: Specs updated as per technical discussion",
+      "locator": "§ Section 5. Revision History, table 4, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

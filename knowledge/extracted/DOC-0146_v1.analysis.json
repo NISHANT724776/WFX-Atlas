@@ -1,0 +1,244 @@
+{
+  "tables": [],
+  "subject": "Ref FA New FPPO Split Division Wise Structure (with 3 GSTN)V01",
+  "keyTerms": [
+    "job order",
+    "order",
+    "job",
+    "user",
+    "additional",
+    "case",
+    "setting",
+    "qty",
+    "grn",
+    "column",
+    "section",
+    "requirement",
+    "open",
+    "consumption",
+    "input"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 13
+    },
+    {
+      "module": "Style & BOM",
+      "score": 6
+    },
+    {
+      "module": "Production",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note",
+    "BOM – Routing",
+    "FPO & FPPO"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "In this document we are fulfilling the gaps which we are not mentioned in rudrapur point specs.",
+      "locator": "§ Functional Requirements",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "RCM checkbox: This checkbox will appear based on suppliers marked as 'RCM = Yes'.",
+      "locator": "§ Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Header Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header Section: -:\n1. RCM checkbox: This checkbox will appear based on suppliers marked as 'RCM = Yes'. It becomes enabled in the Supplier Master when both of the required settings are activated: -\n(i) Company Setting FA Setting Enable GST as per Indian Statutory.\n(ii) FA Master Definition GST Setup GST Event Mapping.\n2. Payment Term\n3. Delivery Term\n4. Line Number: Enable Line Allocation For Process falls under Miscellaneous setting",
+      "locator": "§ Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Header Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Link Block Booking pop up: - This pop should open based on the outsource execution Type.",
+      "locator": "§ Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Header Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Article Tab Section: -:\n1. ETD\n2. ETA\n3. In House Date\n4. Advance Payment Request Summary",
+      "locator": "§ Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Article Tab Section: -",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Creation\nRevision\nStatus log (Like Confirm, RTF & RTP)\nReopen\nSplit\nConfirm\nCancel\nClose\nBlock/Unblock Invoice\nCreate DN/CN\nTransfer Job Order\nTransfer Output\nTransfer Input Return\nDispatch Instruction\nVendor to Vendor",
+      "locator": "§ Functional Requirements › We also need to provide the Activity time line where user can check the Activity Log & Change Log.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "There are some tools are in header part on Article detail Tab: This is same like in previous old UI and it should be work like as it is working.",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dispatch Instruction – New Screen:\n1. Confirm\n2. Auto Fill by stock\n3. Auto Fill by FPO Allocation\n4. Auto Fill\n5. Clear All\n6. The Article Detail (as shown above) will have the following column grid:",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dispatch Instruction – New Screen:\n1. For the Additional Article Detail Tab there will be following two Grid Columns:\n2. [Setting: - Admin >> Company Setup >> Production Process Order Settings >> Create separate indent if reason are different of additional required qty ]\n3. Case 1: Setting is Turned Off",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The edit option is available in Additional Qty to be Instructed column values.",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dispatch Instruction – New Screen:\n1. Save\n2. Close\n3. The attachment number shows the no. of attachments added by the user.\n4. The attachment option once clicked the user will be shown the following screen:",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "For Case 2 Above (Setting is turned ON) , if the user clicks on the “Qty.",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The calculation is given below:",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Handling of ICR Consumption Marking against job order GRN:\n1. This pop grid data will be depending on the color-size wise dependency.\n2. In case on 0 qty in the receiving the system will not consider the value of input.\n3. Adhoc article consumption should mark automatically.\n4. By default, the input qty will comes through the Routing of the Job Order.\n5. This should be open for outsource job order only.",
+      "locator": "§ Functional Requirements › Handling of ICR Consumption Marking against job order GRN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "After GRN is created for Job order qty, user clicks on Update/Change Routing hyperlink, system will open FPPO Routing screen with display function only, instead of showing message “System will not allow to change/update routing because the GRN is already created” as of now.",
+      "locator": "§ Functional Requirements › Request to have view functionality for Job Order routing update post GRN",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Ref FA New FPPO Split Division Wise Structure (with 3 GSTN)V01",
+      "heading": "",
+      "text": "Software Requirements Specification\nRef 330160 - Pending gaps of mentioned points # 363008\nVersion 2.0●12 Sep 2025\nContents\nSection 1: Overview 2\nPurpose 2\nBusiness Requirement 2\nSection 2. 2\nAssumptions 2\nSection 3. 3\nFunctional Requirements 3\nWe need to add some columns based on Execution type = “Outsource” in Job Order. 3\nIn case of Split function, we need to open the mentioned pop-up to splitting the Job order. 8\nWe also need to provide the Activity time line where user can check the Activity Log & Change Log. 9\nDispatch Instruction – New Screen 11\nHandling of ICR Consumption Marking against job order GRN 16\nRequest to have view functionality for Job Order routing update post GRN 18",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "To fulfill the gaps of requirement Division Wise Structure (with 3 GSTN) of FA Home and Apparel Pvt Limited",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "To handling job order from GGN to Rudrapur and then Rudrapur to any other outsource vendor.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirements",
+      "heading": "Functional Requirements",
+      "text": "In this document we are fulfilling the gaps which we are not mentioned in rudrapur point specs.",
+      "locator": "§ Functional Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Header Section: -",
+      "heading": "Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Header Section: -",
+      "text": "• RCM checkbox: This checkbox will appear based on suppliers marked as 'RCM = Yes'. It becomes enabled in the Supplier Master when both of the required settings are activated: -\n(i) Company Setting FA Setting Enable GST as per Indian Statutory.\n(ii) FA Master Definition GST Setup GST Event Mapping.\n• Payment Term\n• Delivery Term\n• Line Number: Enable Line Allocation For Process falls under Miscellaneous setting\nOld Screen: -\nNew Screen: -\n• Link Block Booking pop up: - This pop should open based on the outsource execution Type.\nOld Screen: -\nNew UI :-",
+      "locator": "§ Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Header Section: -",
+      "kind": "section"
+    },
+    {
+      "title": "Article Tab Section: -",
+      "heading": "Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Article Tab Section: -",
+      "text": "• ETD\n• ETA\n• In House Date\n• Advance Payment Request Summary\nNew Screen :- This will be applicable for add process and normal job order case.\nAdditional Charge Section: - In this system need to sum up the value to Tax Amt as it is working in the Old UI.\n• Total Tax Value\nNew UI :-",
+      "locator": "§ Functional Requirements › We need to add some columns based on Execution type = “Outsource” in Job Order. › … › Article Tab Section: -",
+      "kind": "section"
+    },
+    {
+      "title": "In case of Split function, we need to open the mentioned pop-up to splitting the Job order.",
+      "heading": "Functional Requirements › In case of Split function, we need to open the mentioned pop-up to splitting the Job order.",
+      "text": "When user wants to split any job order then we should open the below mentioned new UI to split the any Job order. After split the qty system always open the new job order screen.",
+      "locator": "§ Functional Requirements › In case of Split function, we need to open the mentioned pop-up to splitting the Job order.",
+      "kind": "section"
+    },
+    {
+      "title": "We also need to provide the Activity time line where user can check the Activity Log & Change Log.",
+      "heading": "Functional Requirements › We also need to provide the Activity time line where user can check the Activity Log & Change Log.",
+      "text": "We need an option of Activity Timeline in job order list context menu on grid level where user can check the activity log of the job order.\nActivity Log: - In this we need to cover following things.\nCreation\nRevision\nStatus log (Like Confirm, RTF & RTP)\nReopen\nSplit\nConfirm\nCancel\nClose\nBlock/Unblock Invoice\nCreate DN/CN\nTransfer Job Order\nTransfer Output\nTransfer Input Return\nDispatch Instruction\nVendor to Vendor\nChange Log: - In this we need to capture all related changes where user changing or entering any value in transaction.",
+      "locator": "§ Functional Requirements › We also need to provide the Activity time line where user can check the Activity Log & Change Log.",
+      "kind": "section"
+    },
+    {
+      "title": "Dispatch Instruction – New Screen",
+      "heading": "Functional Requirements › Dispatch Instruction – New Screen",
+      "text": "To create a dispatch note from the Job Order list, the user needs to click on the 'Dispatch Instruction' action.\nAfter clicking on the action of Dispatch Instruction system will open the new UI of instruction.\nThere are some tools are in header part on Article detail Tab: This is same like in previous old UI and it should be work like as it is working.\n• Confirm\n• Auto Fill by stock\n• Auto Fill by FPO Allocation\n• Auto Fill\n• Clear All\n• The Article Detail (as shown above) will have the following column grid:\nThe impact of additional related column will be directly come on the main column.\nExample: - Additional Instructed Qty. Instructed Qty.\nIn case of adhoc request the site column will be editable.\n• The Additional Article Detail (as shown below): -\nIn this we need to show only the column of Additional Required Units.\n# This should carry the adhoc indent details as it is done in current screen.\n• For the Additional Article Detail Tab there will be following two Grid Columns:\n• [Setting: - Admin >> Company Setup >> Production Process Order Settings >> Create separate indent if reason are different of additional required qty ]\n• Case 1: Setting is Turned Off",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Dispatch Instruction – New Screen",
+      "heading": "Functional Requirements › Dispatch Instruction – New Screen",
+      "text": "The values in the ‘Additional Requirement unit’ column should be displayed as hyperlinks. When a user clicks on a value, the system should open a pop-up window (as shown in the screenshot) and generate the corresponding additional requirement\n• Case 2: Setting is Turned On\nThe edit option is available in Additional Qty to be Instructed column values.\n• If the user clicks on the additional required units – column value, the following screen will be shown:\nTool in header are: -\n• Save\n• Close\n• The attachment number shows the no. of attachments added by the user.\n• The attachment option once clicked the user will be shown the following screen:\nThe delete option will not work for the MRL generated lines.\n• For Case 2 Above (Setting is turned ON) , if the user clicks on the “Qty. To Be Instructed”( as shown below) -column value\nThe following pop up will be shown:\n• Only FPO linked stores/sites of same FPPO process factory companies’ site should visible at FPPO “Transfer to other factory” pop-up.\nCase :- When system not generating any indent of additional requirement and stock will be used from the stock.\nIn this we will be treat Addition requirement unit column as a textbox, user will directly enter the qty and generate the requirement.",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Dispatch Instruction – New Screen",
+      "heading": "Functional Requirements › Dispatch Instruction – New Screen",
+      "text": "We also need to handle the case where system will generate the additional requirement without generating the indent. This should work based on this setting “Enable Approval for Additional Quantity Request” is disable.\nSo, in this we have to add to more column in the Article detail tab i.e. “Additional Req Qty” & “Total Req Qty”.\nbased on these columns we will handle this case where we can generate the requirement and how’s the GDI, GDN & Return case will reflect in the view. The calculation is given below:",
+      "locator": "§ Functional Requirements › Dispatch Instruction – New Screen (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Handling of ICR Consumption Marking against job order GRN",
+      "heading": "Functional Requirements › Handling of ICR Consumption Marking against job order GRN",
+      "text": "System should ask user to specify Input Material consumption during Job order GRN Creation. Same as available for PRPO GRN. Existing Setting Name: Specify material consumption details at the time of GRN creation in Process Order Setting.\nWe also need to handling of Input Consumption Tolerance allowance to user while marking Input Consumption during Job order GRN Creation & Job Order ICR Marking.\nNote : This should applicable for only outsourced Job Order only\nAllow Input Consumption Marking on PRPO\nSetting Path: Admin Company Setup Process Order Settings Specify material consumption details at the time of GRN creation.(working for Job Order as well)\nExisting screen: -\nNew Screen: -\nValidations :-\n• This pop grid data will be depending on the color-size wise dependency.\n• In case on 0 qty in the receiving the system will not consider the value of input.\n• Adhoc article consumption should mark automatically.\n• By default, the input qty will comes through the Routing of the Job Order.\n• This should be open for outsource job order only.\nWe also need to handle these setting by below given approach.\n1. Do not show Input Material Details on PRPO Print Preview\n2. Display Input Consumption & Wastage in Process Order View- No need in Job order",
+      "locator": "§ Functional Requirements › Handling of ICR Consumption Marking against job order GRN",
+      "kind": "section"
+    },
+    {
+      "title": "Handling of ICR Consumption Marking against job order GRN",
+      "heading": "Functional Requirements › Handling of ICR Consumption Marking against job order GRN",
+      "text": "Solution: We need to open the Job order print on the click of job order number as it is working right now in the current UI. By default, system will show the output article details in the print. If any case client wants to show the input article detail then we should handle this through BI print only. For this we need to give an option to provide the mapping in layout engine mapping on admin section.",
+      "locator": "§ Functional Requirements › Handling of ICR Consumption Marking against job order GRN (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Request to have view functionality for Job Order routing update post GRN",
+      "heading": "Functional Requirements › Request to have view functionality for Job Order routing update post GRN",
+      "text": "After GRN is created for Job order qty, user clicks on Update/Change Routing hyperlink, system will open FPPO Routing screen with display function only, instead of showing message “System will not allow to change/update routing because the GRN is already created” as of now.",
+      "locator": "§ Functional Requirements › Request to have view functionality for Job Order routing update post GRN",
+      "kind": "section"
+    }
+  ]
+}

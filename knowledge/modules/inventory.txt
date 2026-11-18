@@ -1,0 +1,267 @@
+# Module: Inventory, QC & WMS
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-INVENTORY
+MODULE NAME: Inventory, QC & WMS
+DESCRIPTION: GRN, quality check, GDI and GDN, WMS mobile app
+SUBMODULES:
+TRANSACTIONS:
+DATA MODEL DOCUMENTS:
+WORKFLOW STEPS:
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-GRN-AND-QR-CODE
+TITLE: What happens when the inventory team makes a GRN?
+TOPIC: GRN and QR code
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS, Inventory and QC process flow and To-Be
+CONTENT: The inventory team receives the goods with a GRN and a QR code is generated on the GRN. The GRN captures complete information about the article, including colour, size and roll details.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS, Inventory and QC process flow and To-Be" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-QUALITY-CHECK-ON-GRN
+TITLE: How does the quality check (QC) work after a GRN?
+TOPIC: Quality check on GRN
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS, Inventory and QC process flow and To-Be
+CONTENT: During GRN creation the system gives an option to send the goods for quality check. If QC is selected, the stock is usable only after QC is completed. If QC is not selected, the stock is usable directly after the GRN and the system does not prompt for QC.
+STEPS:
+WHERE IN WFX:
+NOTES: At the QC stage the user can receive quantities as per the invoice. A shortage or excess is marked on the QC screen. In system inspection the user can define the inspection as 10%, 20% or 100%.
+SOURCE: User manual "WMS, Inventory and QC process flow and To-Be" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-REJECTED-STOCK-AND-DEBIT-NOTE
+TITLE: What happens to rejected stock?
+TOPIC: Rejected stock and debit note
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS, Inventory and QC process flow and To-Be
+CONTENT: If any stock is rejected, the system creates a debit note that has to be returned to the supplier. The system also sends a notification to the procurement merchant about the raw-material quality, and the merchant discusses a replacement of the fabric with the supplier.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS, Inventory and QC process flow and To-Be" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-RETURN-TO-SUPPLIER
+TITLE: How do I return rejected goods to the supplier?
+TOPIC: Return to supplier
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS, Inventory and QC process flow and To-Be
+CONTENT: If the supplier agrees to replace the fabric, the team creates a return-to-supplier GDI and dispatches the goods. If the supplier does not agree, the stock is disposed in the system as Transfer out of System.
+STEPS:
+WHERE IN WFX:
+NOTES: Before the GDN, move the rejected stock to a non-inventory site, so that if the supplier does not pick the goods the quantity is not visible in the stock report. The GDN must be created against the rejected goods; otherwise the system does not allow the goods to be returned.
+SOURCE: User manual "WMS, Inventory and QC process flow and To-Be" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-PRODUCTION-MATERIAL-ISSUE
+TITLE: How is material issued to production?
+TOPIC: Production material issue
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS, Inventory and QC process flow and To-Be
+CONTENT: The production team raises a GDI (Goods Dispatch Instruction) to the inventory team against the production order. The inventory team prepares the goods and creates a pick list. Several pick lists can be created against one GDI depending on the physical stock. When the pick list is final, the inventory team creates the GDN (Goods Dispatch Note), and the system reduces the dispatched stock from inventory.
+STEPS:
+  1. Production raises a GDI against the production order.
+  2. The inventory team prepares the goods and creates a pick list.
+  3. Multiple pick lists can be generated against one GDI.
+  4. The inventory team creates the GDN.
+  5. The system automatically reduces the dispatched stock.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS, Inventory and QC process flow and To-Be" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-PREREQUISITES
+TITLE: What must be configured before using WMS?
+TOPIC: WMS prerequisites
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: Some masters must be enabled from report rights and the QR/barcode master set up for the transactions that need a QR code. Quick Docs must be enabled from the Translation Configurator for every transaction to be done on the mobile app.
+STEPS:
+  1. Enable the QR/Barcode master and the Stationary master from report rights.
+  2. Give the scan option for GRN and GDI (permission) and the duplicate print permission.
+  3. Enable Roll ASN Against Movement Article (Inventory setting > Company Setup).
+  4. Enable Site location in report rights, to generate QR codes for sites.
+  5. Define the QR code / barcode master setup: for which transaction a QR code is generated.
+  6. Enable Quick Docs from the Translation Configurator, for each transaction to be done on mobile.
+WHERE IN WFX:
+NOTES: Build 2025_01 must be deployed on the server. The mobile app is installed from the WFX QuickDocs APK (WFXQuickDocs_0407_01.apk).
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-CAPABILITIES
+TITLE: What can I do with WMS on the mobile application?
+TOPIC: WMS capabilities
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: GRN, dispatch (GDI pick list creation and GDN), GON, GIN, location management (change the location of stock) and Smart Scan (shows the full details of a roll and helps split it).
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-MOBILE-LOGIN
+TITLE: How do I log in to the WFX mobile application?
+TOPIC: WMS mobile login
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: Enter the same user name, password, company ID and URL as on the desktop, then click Next. You are then offered to set a PIN or use biometrics for the next login.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-GRN-TYPES
+TITLE: Which GRN types can be done in the mobile application?
+TOPIC: WMS GRN types
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: Production process order input return, ASN from supplier (against ASN), buyer order return, process order input return (against PO), returnable transfer out of system, transfer from site (external) and transfer from site (internal).
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-GRN-STEPS
+TITLE: How do I make a GRN from the mobile application?
+TOPIC: WMS GRN steps
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: Click GRN, select the receipt type, site and supplier, enter the ASN number, FPPO number, GIN number, PRPO number or GDN number as the receipt type requires, then scan the QR from the source and make the GRN.
+STEPS:
+  1. Click GRN.
+  2. Select the receipt type.
+  3. Select the site.
+  4. Select the supplier.
+  5. Enter the ASN / FPPO / GIN / PRPO / GDN number, as per the receipt type.
+  6. Scan the QR from the source and do the GRN.
+WHERE IN WFX:
+NOTES: For a GRN against an RMPO, use the supplier portal or create a supplier ASN against the RMPO so that the QR code can be generated, then scan it. Without an ASN, do the GRN on the web screen; the QR code is generated there, can be printed and attached to the rolls, and is used during production. Roll ASN Against Movement Article must be enabled to generate the QR on the ASN.
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-LOCATION-CHANGE
+TITLE: How do I change the location of stock with the mobile application?
+TOPIC: WMS location change
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: Use the Location tab when stock received at one location must move to another within a site. An automatic transaction is created in Site Location Management.
+STEPS:
+  1. Click the Location tab.
+  2. Select the site.
+  3. Scan the roll QR.
+  4. Scan the QR of the new location.
+  5. Click Confirm.
+WHERE IN WFX: Inventory > Stock Management > Update Shade / Location; Inventory > Site Location Management
+NOTES: To print location QR codes: Inventory > Codes > Site-Location, select the site, choose the location and click Generate QR. Before, WFX only supported changing the location by manual entry.
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-DISPATCH
+TITLE: How do I create a GDI pick list and GDN from the mobile application?
+TOPIC: WMS dispatch
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: The Dispatch tab creates the GDI pick list and the dispatch. A transaction is created automatically on the web under the dispatch screen. Before, WFX supported this only from the web.
+STEPS:
+  1. Click the Dispatch icon.
+  2. Select the site.
+  3. Select the GDI number.
+  4. Click the article.
+  5. Scan the roll from the GRN or the QC (if QC is done).
+  6. Click OK, then Confirm: the pick list is created.
+  7. For the GDN: select the site and the GDI, fill the details and confirm the GDN.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-WMS-SMART-SCAN
+TITLE: What is Smart Scan and how do I split a roll?
+TOPIC: WMS smart scan
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS Workflow
+CONTENT: Smart Scan shows the full details of a roll (location, WFX stock movement number, stock movement number, article name and code, colour and size, lot and shade, quantity, buyer and style) and lets you split the roll. The transaction appears in Inventory > WFX Stock Movement list. Before, WFX supported splitting only from stock movement.
+STEPS:
+  1. Select Smart Scan.
+  2. Scan the roll.
+  3. Split the quantity.
+  4. Confirm.
+WHERE IN WFX: Inventory > WFX Stock Movement list
+NOTES:
+SOURCE: User manual "WMS Workflow" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-INVENTORY-ROLL-FUNCTIONALITY-FABRIC-ROLL-TRACKING-ROLL-WISE-STOCK-ROLL
+TITLE: How does roll functionality work in WFX and why is it used?
+TOPIC: Roll functionality (fabric roll tracking, roll-wise stock, roll QR code, traceability)
+MODULE: Inventory, QC & WMS
+SOURCE DOCUMENT: WMS, Inventory and QC process flow and To-Be
+CONTENT: In WFX fabric is tracked roll by roll, not only as a total quantity. The GRN captures roll details with the colour, size, lot and shade, and a QR code is generated for the rolls. That one code follows the roll through the whole flow: QC, location changes, allocation to an indent, issue to production (GDI pick list and GDN), Smart Scan and splitting. It is used because a fabric roll is the real physical unit: its shade, lot and length differ from roll to roll, so stock by total quantity alone is not enough to find, allocate, inspect or issue the right roll.
+STEPS:
+  1. Receive: the GRN (or the supplier ASN) captures the roll details and generates the QR code; print it and attach it to the roll.
+  2. Check: if QC is selected on the GRN, the roll stock is usable only after QC; rejected rolls create a debit note.
+  3. Store: scan the roll QR and then the QR of the new location to change its location.
+  4. Allocate: the indent overview shows the requested roll quantity for roll allocation.
+  5. Issue: production raises a GDI; the inventory team scans the rolls to build the pick list, then makes the GDN.
+  6. Inspect or split: Smart Scan shows the full details of a roll and lets you split its quantity.
+WHERE IN WFX: Inventory > GRN, Stock Management, WFX Stock Movement list; mobile app: GRN, Location, Dispatch, Smart Scan
+NOTES: Setting needed: Roll ASN Against Movement Article (Inventory setting > Company Setup) and the QR/Barcode master. The manuals describe how roll handling works; they do not give a separate written reason, so the reasons above are read from what each step does. Ask the WFX team if you need the official business reason.
+INFERENCE: The "why" part is an inference written by the assistant from what each step does; the manuals give no written reason. Needs the owner's confirmation.
+SOURCE: Assembled on 2026-11-13 from the WMS Workflow and Inventory/QC manuals (how) plus an inference (why). Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-13
+LAST UPDATED: 2026-11-16
+================================================================================

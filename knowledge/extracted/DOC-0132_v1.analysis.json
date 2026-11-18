@@ -1,0 +1,138 @@
+{
+  "tables": [],
+  "subject": "Issue ID 382412 revised",
+  "keyTerms": [
+    "fpo fppo",
+    "fpo",
+    "category",
+    "categories",
+    "fppo",
+    "permission",
+    "list",
+    "section",
+    "users",
+    "order list",
+    "categories user",
+    "fppo records",
+    "order",
+    "job order",
+    "user"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 25
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "FPO & FPPO",
+    "Production Order"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Categories outside the user’s permission must be completely hidden from view.",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Category dropdowns and filters must display only permitted categories",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "🏢Business Requirement::\n1. Users should see only FPO and FPPO records for the categories they are allowed to access.\n2. Categories outside the user’s permission must be completely hidden from view.\n3. Category dropdowns and filters must display only permitted categories",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Every FPO and FPPO record is linked to a specific category.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "To ensure users only see the FPO and FPPO they are allowed to view, category permission-based filtering will be applied to the FPO and FPPO screens.",
+      "locator": "§ Section 4. 🛠️Solution",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Any category outside the user’s permission must be completely hidden from the screen.",
+      "locator": "§ Section 4. 🛠️Solution",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "The category dropdown and search filters must show only the categories the user is allowed to view.",
+      "locator": "§ Section 4. 🛠️Solution",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 4. 🛠️Solution:\n1. Users should only see FPO and FPPO records for the categories they have permission to access.\n2. Any category outside the user’s permission must be completely hidden from the screen.\n3. The category dropdown and search filters must show only the categories the user is allowed to view.",
+      "locator": "§ Section 4. 🛠️Solution",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Issue ID 382412 revised",
+      "heading": "",
+      "text": "Software Requirements Specification\nSoftware Requirements Specification\nCategory-based permissions to control the visibility of Orders in the Production Order List, New FPO List, and Job Order List\nIssue ID: 382412\nCategory-based permissions to control the visibility of Orders in the Production Order List, New FPO List, and Job Order List\nIssue ID: 382412\nContents\nSection 1: 🧾Overview 2\n🎯Purpose 2\n🏢Business Requirement: 2\nSection 2. 📘Scope 2\nSection 3. 📌Assumptions 3\nSection 4. 🛠️Solution 4",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "🎯Purpose",
+      "heading": "Section 1: 🧾Overview › 🎯Purpose",
+      "text": "This document explains the requirement to show FPO and FPPO only for the categories a user has permission to access.\nCurrently, the system shows all categories FPO and FPPO even if the user is not category permission.",
+      "locator": "§ Section 1: 🧾Overview › 🎯Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "🏢Business Requirement:",
+      "heading": "Section 1: 🧾Overview › 🏢Business Requirement:",
+      "text": "Currently, the system displays all category FPO and FPPO records, even when users do not have permission for those categories. This results in unauthorized visibility.\nThe business requires that FPO and FPPO records be shown strictly based on the user’s category permissions.\nKey Needs:\n• Users should see only FPO and FPPO records for the categories they are allowed to access.\n• Categories outside the user’s permission must be completely hidden from view.\n• Category dropdowns and filters must display only permitted categories",
+      "locator": "§ Section 1: 🧾Overview › 🏢Business Requirement:",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. 📘Scope",
+      "heading": "Section 2. 📘Scope",
+      "text": "• The system will show FPO, FPPO and Job Order only for the categories a user has permission to see.\n• The Production order list , New FPO List and Job Order screens will hide all other categories.",
+      "locator": "§ Section 2. 📘Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. 📌Assumptions",
+      "heading": "Section 3. 📌Assumptions",
+      "text": "• Users already have category permissions assigned in the system.\n• Every FPO and FPPO record is linked to a specific category.",
+      "locator": "§ Section 3. 📌Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. 🛠️Solution",
+      "heading": "Section 4. 🛠️Solution",
+      "text": "To ensure users only see the FPO and FPPO they are allowed to view, category permission-based filtering will be applied to the FPO and FPPO screens.\n• Only FPO and FPPO records from categories the user has category permission for will be shown.\n• Categories that the user does not have access to will be completely hidden.\nAcceptance Criteria:\n• Users should only see FPO and FPPO records for the categories they have permission to access.\n• Any category outside the user’s permission must be completely hidden from the screen.\n• The category dropdown and search filters must show only the categories the user is allowed to view.",
+      "locator": "§ Section 4. 🛠️Solution",
+      "kind": "section"
+    }
+  ]
+}

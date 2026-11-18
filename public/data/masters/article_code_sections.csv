@@ -1,0 +1,20 @@
+﻿code_section,meaning
+Sample Ref.,Reference of the sample the article is created from
+Buyer,Buyer of the article
+Company Name,Name of the company
+Supplier ID,Identifier of the supplier
+Supplier,Supplier name
+Year of Creation,Calendar year in which the article is created
+Text,Fixed text typed in the Value column
+Separator,A separator character (for example / or -) typed in the Value column
+Spacor,Spacer between parts of the code
+Counter,Running number; Counter Length sets leading zeros and Group Counter restarts it per group
+Construction,Fabric construction
+Fabric Content,Fibre content of the fabric
+Count,Yarn count
+Material Type,Material type of the article
+RM text,Raw material text
+Product Group,Product group of the article
+Sub-Category,Sub-category of the article
+Division Prefix,Prefix of the division
+Financial Year,Financial year in which the article is created

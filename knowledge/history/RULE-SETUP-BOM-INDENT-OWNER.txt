@@ -1,0 +1,100 @@
+# History of RULE-SETUP-BOM-INDENT-OWNER. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:26:57.874Z · superseded by v2
+================================================================================
+RULE ID: RULE-SETUP-BOM-INDENT-OWNER
+RULE NAME: User Group and Purchase Officer
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The BOM carries a User Group and a Purchase Officer. If they are not filled, the indent generated after MRP comes in Inactive status. It must be activated from the User Indent list or the Indent list before MRP and the other adjustments can be done on it.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+
+# 2026-11-18T06:27:11.917Z · superseded by v3
+================================================================================
+RULE ID: RULE-SETUP-BOM-INDENT-OWNER
+RULE NAME: Indents are Inactive when the BOM has no User Group and Purchase Officer
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: Every indent needs an owner (User Group, Purchase Officer); the BOM supplies it, and without it the indent is held Inactive until a user takes it over.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: If the BOM has no User Group and no Purchase Officer, the indents created from it are Inactive by default. The user must mark them Active manually (User Indent list or Indent list) before MRP or any other action can be done on them.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials
+OPTIONS:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 2
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+SUPERSEDED BY: v3 on 2026-11-18 (owner-explanation)
+================================================================================
+
+# 2026-11-18T06:27:38.420Z · superseded by v4
+================================================================================
+RULE ID: RULE-SETUP-BOM-INDENT-OWNER
+RULE NAME: Indents are Inactive when the BOM has no User Group and Purchase Officer
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: Every indent needs an owner (User Group, Purchase Officer); the BOM supplies it, and without it the indent is held Inactive until a user takes it over.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: If the BOM has no User Group and no Purchase Officer, the indents created from it are Inactive by default. The user must mark them Active manually (User Indent list or Indent list) before MRP or any other action can be done on them.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials
+OPTIONS:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 3
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+SUPERSEDED BY: v4 on 2026-11-18 (owner-explanation)
+================================================================================
+

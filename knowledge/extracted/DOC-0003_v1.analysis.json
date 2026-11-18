@@ -1,0 +1,439 @@
+{
+  "tables": [],
+  "subject": "Auto MRP Split",
+  "keyTerms": [
+    "requirement",
+    "mrp",
+    "material",
+    "site store",
+    "auto mrp",
+    "auto",
+    "site",
+    "store",
+    "based",
+    "dependency",
+    "material requirement",
+    "process",
+    "available",
+    "change",
+    "scheduler"
+  ],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 33
+    },
+    {
+      "module": "Sales Order",
+      "score": 22
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 13
+    },
+    {
+      "module": "Style & BOM",
+      "score": 12
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "RMPO – Raw Material Purchase Order",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "Run MRP Based on Process Change in Recipe/ Process in BOM 2",
+      "locator": "§ Auto MRP Split › … › … › … › … › Contents",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "The scope of this enhancement is to address the identified gaps in the existing Auto MRP process.",
+      "locator": "§ Scope",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "Auto MRP allocation based on available material at linked sites/stores.",
+      "locator": "§ Scope",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Process/recipe change-based MRP re-execution.\n2. Scheduler day and time configuration.\n3. Auto MRP allocation based on available material at linked sites/stores.\n4. Modification of existing MRP dependency logic.",
+      "locator": "§ Scope",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "The objective is to ensure that material requirements, indent generation, allocation, and RMPO generation remain synchronized with the latest recipe, scheduling, and inventory conditions.",
+      "locator": "§ Scope",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to improve the accuracy and automation of the Auto MRP process.",
+      "locator": "§ Purpose",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Purpose:\n1. Re-run MRP whenever a relevant process or recipe change impacts material consumption.\n2. Allow users to configure the days and time on which Auto MRP Scheduler should execute.\n3. Automatically utilize available stock from linked sites/stores before generating procurement requirements.\n4. Generate RMPO only for the remaining unfulfilled material requirement.\n5. Update MRP dependencies so that changes in upstream transactions are correctly reflected in downstream MRP requirements.",
+      "locator": "§ Purpose",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "As a user, I want Auto MRP to be re-run whenever there is a change in the process configured in the recipe, so that the material consumption and material requirement are recalculated based on the latest process configuration.",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "The system should identify when a process is changed in an existing recipe.",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If the revised material requirement is different from the previously calculated requirement, the system should update the MRP requirement accordingly.",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "The corresponding indent requirement should be updated based on the revised MRP requirement.",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1. Run MRP Based on Process Change in Recipe/ Process in BOM:\n1. The system should identify when a process is changed in an existing recipe.\n2. Since a process change may impact material consumption, the system should recalculate the consumption based on the updated recipe.\n3. Based on the revised consumption, the system should recalculate the material requirement.\n4. If the revised material requirement is different from the previously calculated requirement, the system should update the MRP requirement accordingly.\n5. The corresponding indent requirement should be updated based on the revised MRP requirement.\n6. Any change in the material requirement should also be reflected in the corresponding RMPO requirement.\n7. If the process change increases the material requirement, the additional quantity should be considered for the requirement generation.\n8. If the process change decreases the material requirement, the excess/open requirement should be adjusted based on the current status of the indent/RMPO.",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Consumption = 2 KG",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Order Quantity = 1,000",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Material Requirement = 2,000 KG",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1. Run MRP Based on Process Change in Recipe/ Process in BOM:\n1. Consumption = 2 KG\n2. Order Quantity = 1,000\n3. Material Requirement = 2,000 KG",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Consumption = 2.5 KG",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Revised Material Requirement = 2,500 KG",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1. Run MRP Based on Process Change in Recipe/ Process in BOM:\n1. Consumption = 2.5 KG\n2. Order Quantity = 1,000\n3. Revised Material Requirement = 2,500 KG",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If a day is not selected, the scheduler should not execute on that day.",
+      "locator": "§ Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "If a day is not selected, the scheduler should not execute on that day.",
+      "locator": "§ Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF):\n1. A new Scheduled Day & Holidays field should be available in the Scheduler configuration.\n2. User will define Holidays per year.\n3. The user should be able to select one or multiple days.\n4. The available days should include:\n5. Monday\n6. Tuesday\n7. Wednesday\n8. Thursday\n9. Friday\n10. Saturday\n11. Sunday\n12. A Scheduled Time field should be provided to define the execution time.\n13. The scheduler should execute only on the selected Weekdays not on weekends and on holidays.\n14. The scheduler should execute after/reaching the configured scheduled time.\n15. If a day is not selected, the scheduler should not execute on that day.\n16. The configured day and time should remain applicable for subsequent scheduler executions until the configuration is changed or disabled.",
+      "locator": "§ Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "The Auto MRP Scheduler should execute at the configured time from Monday to Friday and should not execute on Saturday and Sunday.",
+      "locator": "§ Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "As a user, I want the indent generated through the Auto MRP process to be fulfilled using the available material stock at the applicable Site/Store or its linked Site/Store as In-House/In-House Equivalent, based on the OC Factory specified in the OC/Sales Order and the corresponding linked Site/Store configured in Site Master.",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If no OC Factory is specified, the system should consider the Site/Store marked as Default in Site Master (with support for multiple default sites/stores).",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "This will ensure that available material is utilized before creating an external procurement requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If an OC Factory is specified in the OC/Sales Order:",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If no OC Factory is specified in the OC/Sales Order:",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the Target Site/Store is determined, the system will check the available material stock at:",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "The allocation should not exceed the generated Indent Requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If no eligible material is available at the Target Site/Store or its linked Site/Store:",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If Supplier is not marked in the BOM, the system will not generate Auto RMPO, irrespective of the remaining open requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If Supplier is marked in the BOM but no PO Template is defined for that Supplier, the system will not generate Auto RMPO for the open requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3. Auto MRP Allocation:\n1. When the user runs Auto MRP at 100%, the system will generate the corresponding Indent Requirement at 100%.\n2. The system will determine the Target Site/Store for material allocation based on the OC Factory specified in the OC/Sales Order.\n3. If an OC Factory is specified in the OC/Sales Order:\n4. The system will identify the site/store linked to that OC Factory in Site Master.\n5. The identified site/store will be considered the Target Site/Store for material availability and allocation.\n6. If no OC Factory is specified in the OC/Sales Order:\n7. The system will consider the Site/Store marked as Default in Site Master as the Target Site/Store.\n8. The system should support multiple sites/stores being marked as Default.\n9. In such a scenario, the system will consider the applicable default site/store(s) for material availability as per the configured site/store relationship.\n10. Once the Target Site/Store is determined, the system will check the available material stock at:\n11. The Target Site/Store.\n12. The linked Site/Store configured for the Target Site/Store, where applicable.\n13. The available material will be allocated against the generated Indent Requirement as:\n14. In-House, when the required material is available at the applicable Target Site/Store.\n15. In-House Equivalent, when an equivalent material is available at the applicable Target Site/Store or its linked Site/Store and is eligible for allocation.\n16. The system will allocate the available quantity against the Indent Requirement up to the required quantity. The allocation should not exceed the generated Indent Requirement.\n17. If the available material completely fulfills the Indent Requirement, the entire requirement will be adjusted through In-House/In-House Equivalent, and no Auto RMPO will be generated for that requirement.\n18. If the available material fulfills only a partial requirement, the system will:\n19. Allocate the available quantity as In-House/In-House Equivalent.\n20. Calculate the remaining quantity as the Open Indent Requirement.\n21. Generate Auto RMPO only for the remaining Open Indent Requirement, provided Supplier is marked in the BOM and a PO Template is defined for that Supplier.\n22. For example, if Auto MRP generates a 100-unit requirement and 80 units are available and eligible for In-House/In-House Equivalent allocation:\n23. 80 units → allocated as In-House/In-House Equivalent.\n24. 20 units → remain as Open Indent Requirement.\n25. Auto RMPO → generated only for the remaining 20 units, subject to the Supplier and PO Template conditions.\n26. If no eligible material is available at the Target Site/Store or its linked Site/Store:\n27. The complete Indent Requirement will remain open.\n28. Auto RMPO will be generated for the complete open quantity, provided Supplier is marked in the BOM and the corresponding PO Template is defined for that Supplier.\n29. If Supplier is not marked in the BOM, the system will not generate Auto RMPO, irrespective of the remaining open requirement.\n30. If Supplier is marked in the BOM but no PO Template is defined for that Supplier, the system will not generate Auto RMPO for the open requirement.\n31. The Auto RMPO quantity will therefore always be calculated after the In-House/In-House Equivalent allocation and will represent only the unfulfilled/open material requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "As a user, I want Auto MRP to re-run when the dependency configured in the BOM is changed and the resulting color/size mapping impacts the material requirement, so that the MRP requirement is generated based on the latest dependency configuration.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dependency Change:\n1. The system will consider the Style Name, Style Colors, Sizes, BOM components, and configured dependency while generating the MRP requirement.\n2. In the given example, the Flannel Shirt style has the following Style Colors:\n3. Red\n4. Blue\n5. Green\n6. The BOM contains a Knit Fabric component, for which the dependency can be configured as Base Color/Base Size or Table.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "When the BOM dependency is configured as Base Color/Base Size, the Fabric will inherit the colors of the Style.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "When Auto MRP is executed, the L1 requirement will be generated based on the Style Colors and Sizes received from the Sales Order:",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "When Auto MRP is executed, the L1 requirement will be generated based on the Style Colors and Sizes received from the Sales Order:",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dependency Change:\n1. When the BOM dependency is configured as Base Color/Base Size, the Fabric will inherit the colors of the Style.\n2. Therefore, the Fabric will have the following colors:\n3. Red\n4. Blue\n5. Green\n6. When Auto MRP is executed, the L1 requirement will be generated based on the Style Colors and Sizes received from the Sales Order:\n7. Red\n8. Blue\n9. Green\n10. At L2, the Fabric requirement will also be generated with the corresponding Style Colors and applicable Sizes:\n11. Red\n12. Blue\n13. Green\n14. Therefore, in this case, the L2 Fabric requirement follows the Style Color/Size dependency.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "When the BOM dependency is changed from Base Color/Base Size to Table, the Fabric will no longer directly inherit the Style Colors.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "When Auto MRP is re-run after the dependency change:",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "When Auto MRP is re-run after the dependency change:",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "Since the dependency change results in a change in the L2 material color/size mapping and consequently the material requirement, the system will trigger an Auto MRP re-run for the affected requirement.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "The Auto MRP re-run will generate the revised requirement based on the latest dependency and mapping configuration.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dependency Change:\n1. When the BOM dependency is changed from Base Color/Base Size to Table, the Fabric will no longer directly inherit the Style Colors.\n2. In this case, the Style continues to have the following Style Colors:\n3. Red\n4. Blue\n5. Green\n6. However, the Fabric has its own colors:\n7. White\n8. Black\n9. Yellow\n10. The Table dependency mapping will define which Fabric Color/Size corresponds to each Style Color/Size.\n11. When Auto MRP is re-run after the dependency change:\n12. L1 will continue to be generated based on the Style/Sales Order colors and sizes: Red, Blue, Green.\n13. L2 will be generated based on the Fabric Colors and Sizes mapped through the Table dependency: White, Black, Yellow, along with their applicable sizes.\n14. Therefore, the L2 requirement will change because the dependency has changed from Base Color/Base Size to Table.\n15. Since the dependency change results in a change in the L2 material color/size mapping and consequently the material requirement, the system will trigger an Auto MRP re-run for the affected requirement.\n16. The Auto MRP re-run will generate the revised requirement based on the latest dependency and mapping configuration.",
+      "locator": "§ Solution › Dependency Change",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "SLC Configuration of Auto MRP:\n1. Division\n2. Buyer\n3. Department\n4. Product Group\n5. Sub Category\n6. Material Category\n7. Material Product Group\n8. Material Sub Category\n9. MRP %\n10. MRP Release Days\n11. Actions",
+      "locator": "§ Solution › SLC Configuration of Auto MRP",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "SLC Configuration of Auto MRP:\n1. Scheduled Days\n2. Scheduled Time\n3. Holiday Calendar",
+      "locator": "§ Solution › SLC Configuration of Auto MRP",
+      "module": "Planning"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Auto MRP Split › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\n1. Run MRP Based on Process Change in Recipe/ Process in BOM 2\n2. Scheduler – Scheduled Day and Time 2\n3. Auto MRP Allocation 6\n4. Dependency Change 6",
+      "locator": "§ Auto MRP Split › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "The scope of this enhancement is to address the identified gaps in the existing Auto MRP process. The enhancement will cover:\n• Process/recipe change-based MRP re-execution.\n• Scheduler day and time configuration.\n• Auto MRP allocation based on available material at linked sites/stores.\n• Modification of existing MRP dependency logic.\nThe objective is to ensure that material requirements, indent generation, allocation, and RMPO generation remain synchronized with the latest recipe, scheduling, and inventory conditions.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this enhancement is to improve the accuracy and automation of the Auto MRP process.\nThe system should:\n• Re-run MRP whenever a relevant process or recipe change impacts material consumption.\n• Allow users to configure the days and time on which Auto MRP Scheduler should execute.\n• Automatically utilize available stock from linked sites/stores before generating procurement requirements.\n• Generate RMPO only for the remaining unfulfilled material requirement.\n• Update MRP dependencies so that changes in upstream transactions are correctly reflected in downstream MRP requirements.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "heading": "Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "text": "User Story\nAs a user, I want Auto MRP to be re-run whenever there is a change in the process configured in the recipe, so that the material consumption and material requirement are recalculated based on the latest process configuration.\nBusiness Logic\n• The system should identify when a process is changed in an existing recipe.\n• Since a process change may impact material consumption, the system should recalculate the consumption based on the updated recipe.\n• Based on the revised consumption, the system should recalculate the material requirement.\n• If the revised material requirement is different from the previously calculated requirement, the system should update the MRP requirement accordingly.\n• The corresponding indent requirement should be updated based on the revised MRP requirement.\n• Any change in the material requirement should also be reflected in the corresponding RMPO requirement.\n• If the process change increases the material requirement, the additional quantity should be considered for the requirement generation.\n• If the process change decreases the material requirement, the excess/open requirement should be adjusted based on the current status of the indent/RMPO.\nExample\nExisting Process:\n• Consumption = 2 KG\n• Order Quantity = 1,000\n• Material Requirement = 2,000 KG\nAfter Process Change:\n• Consumption = 2.5 KG\n• Order Quantity = 1,000",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "kind": "section"
+    },
+    {
+      "title": "1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "heading": "Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM",
+      "text": "• Revised Material Requirement = 2,500 KG\nThe system should identify the additional 500 KG requirement and update the downstream MRP/indent/RMPO requirement accordingly.",
+      "locator": "§ Solution › 1. Run MRP Based on Process Change in Recipe/ Process in BOM (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "heading": "Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "text": "User Story\nAs a user, I want to configure the days and time on which Auto MRP Scheduler should run, so that MRP is automatically executed only on the required working days and at the configured time.\nBusiness Logic\n• A new Scheduled Day & Holidays field should be available in the Scheduler configuration.\n• User will define Holidays per year.\n• The user should be able to select one or multiple days.\n• The available days should include:\n• Monday\n• Tuesday\n• Wednesday\n• Thursday\n• Friday\n• Saturday\n• Sunday\n• A Scheduled Time field should be provided to define the execution time.\n• The scheduler should execute only on the selected Weekdays not on weekends and on holidays.\n• The scheduler should execute after/reaching the configured scheduled time.\n• If a day is not selected, the scheduler should not execute on that day.\n• The configured day and time should remain applicable for subsequent scheduler executions until the configuration is changed or disabled.\nExample\nIf the user configures:\nScheduled Days: Monday to Friday\nScheduled Time: 10:00 AM\nThe Auto MRP Scheduler should execute at the configured time from Monday to Friday and should not execute on Saturday and Sunday.\nScheduled Days: Days on which the scheduler is going to run. With 3 filters Weekdays, All & Clear.\nScheduled Time\nHoliday Calendar",
+      "locator": "§ Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "kind": "section"
+    },
+    {
+      "title": "2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "heading": "Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF)",
+      "text": "Holiday Calendar will be taken up from the PPC default calendar that is currently working.\nNeed a tool name Activity Timeline which will show logs of MRP scheduler, constituting the Managing Holiday Calendar.",
+      "locator": "§ Solution › 2. Scheduler – Scheduled Day, Time and Calendar (Based on SLC By default will be OFF) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "3. Auto MRP Allocation",
+      "heading": "Solution › 3. Auto MRP Allocation",
+      "text": "User Story\nAs a user, I want the indent generated through the Auto MRP process to be fulfilled using the available material stock at the applicable Site/Store or its linked Site/Store as In-House/In-House Equivalent, based on the OC Factory specified in the OC/Sales Order and the corresponding linked Site/Store configured in Site Master.\nIf no OC Factory is specified, the system should consider the Site/Store marked as Default in Site Master (with support for multiple default sites/stores).\nThe system should allocate the available material against the generated indent and generate an Auto RMPO only for the remaining open requirement, provided the Supplier is selected in the BOM and a PO Template is defined for that Supplier. This will ensure that available material is utilized before creating an external procurement requirement.\nBusiness Logic\n• When the user runs Auto MRP at 100%, the system will generate the corresponding Indent Requirement at 100%.\n• The system will determine the Target Site/Store for material allocation based on the OC Factory specified in the OC/Sales Order.\n• If an OC Factory is specified in the OC/Sales Order:\n• The system will identify the site/store linked to that OC Factory in Site Master.\n• The identified site/store will be considered the Target Site/Store for material availability and allocation.\n• If no OC Factory is specified in the OC/Sales Order:",
+      "locator": "§ Solution › 3. Auto MRP Allocation",
+      "kind": "section"
+    },
+    {
+      "title": "3. Auto MRP Allocation",
+      "heading": "Solution › 3. Auto MRP Allocation",
+      "text": "• The system will consider the Site/Store marked as Default in Site Master as the Target Site/Store.\n• The system should support multiple sites/stores being marked as Default.\n• In such a scenario, the system will consider the applicable default site/store(s) for material availability as per the configured site/store relationship.\n• Once the Target Site/Store is determined, the system will check the available material stock at:\n• The Target Site/Store.\n• The linked Site/Store configured for the Target Site/Store, where applicable.\n• The available material will be allocated against the generated Indent Requirement as:\n• In-House, when the required material is available at the applicable Target Site/Store.\n• In-House Equivalent, when an equivalent material is available at the applicable Target Site/Store or its linked Site/Store and is eligible for allocation.\n• The system will allocate the available quantity against the Indent Requirement up to the required quantity. The allocation should not exceed the generated Indent Requirement.\n• If the available material completely fulfills the Indent Requirement, the entire requirement will be adjusted through In-House/In-House Equivalent, and no Auto RMPO will be generated for that requirement.\n• If the available material fulfills only a partial requirement, the system will:",
+      "locator": "§ Solution › 3. Auto MRP Allocation (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "3. Auto MRP Allocation",
+      "heading": "Solution › 3. Auto MRP Allocation",
+      "text": "• Allocate the available quantity as In-House/In-House Equivalent.\n• Calculate the remaining quantity as the Open Indent Requirement.\n• Generate Auto RMPO only for the remaining Open Indent Requirement, provided Supplier is marked in the BOM and a PO Template is defined for that Supplier.\n• For example, if Auto MRP generates a 100-unit requirement and 80 units are available and eligible for In-House/In-House Equivalent allocation:\n• 80 units → allocated as In-House/In-House Equivalent.\n• 20 units → remain as Open Indent Requirement.\n• Auto RMPO → generated only for the remaining 20 units, subject to the Supplier and PO Template conditions.\n• If no eligible material is available at the Target Site/Store or its linked Site/Store:\n• The complete Indent Requirement will remain open.\n• Auto RMPO will be generated for the complete open quantity, provided Supplier is marked in the BOM and the corresponding PO Template is defined for that Supplier.\n• If Supplier is not marked in the BOM, the system will not generate Auto RMPO, irrespective of the remaining open requirement.\n• If Supplier is marked in the BOM but no PO Template is defined for that Supplier, the system will not generate Auto RMPO for the open requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "3. Auto MRP Allocation",
+      "heading": "Solution › 3. Auto MRP Allocation",
+      "text": "• The Auto RMPO quantity will therefore always be calculated after the In-House/In-House Equivalent allocation and will represent only the unfulfilled/open material requirement.",
+      "locator": "§ Solution › 3. Auto MRP Allocation (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Dependency Change",
+      "heading": "Solution › Dependency Change",
+      "text": "As a user, I want Auto MRP to re-run when the dependency configured in the BOM is changed and the resulting color/size mapping impacts the material requirement, so that the MRP requirement is generated based on the latest dependency configuration.\nBusiness Logic\n• The system will consider the Style Name, Style Colors, Sizes, BOM components, and configured dependency while generating the MRP requirement.\n• In the given example, the Flannel Shirt style has the following Style Colors:\n• Red\n• Blue\n• Green\n• The BOM contains a Knit Fabric component, for which the dependency can be configured as Base Color/Base Size or Table.\nCase 1 – Base Color/Base Size Dependency\n• When the BOM dependency is configured as Base Color/Base Size, the Fabric will inherit the colors of the Style.\n• Therefore, the Fabric will have the following colors:\n• Red\n• Blue\n• Green\n• When Auto MRP is executed, the L1 requirement will be generated based on the Style Colors and Sizes received from the Sales Order:\n• Red\n• Blue\n• Green\n• At L2, the Fabric requirement will also be generated with the corresponding Style Colors and applicable Sizes:\n• Red\n• Blue\n• Green\n• Therefore, in this case, the L2 Fabric requirement follows the Style Color/Size dependency.\nCase 2 – Table Dependency",
+      "locator": "§ Solution › Dependency Change",
+      "kind": "section"
+    },
+    {
+      "title": "Dependency Change",
+      "heading": "Solution › Dependency Change",
+      "text": "• When the BOM dependency is changed from Base Color/Base Size to Table, the Fabric will no longer directly inherit the Style Colors.\n• In this case, the Style continues to have the following Style Colors:\n• Red\n• Blue\n• Green\n• However, the Fabric has its own colors:\n• White\n• Black\n• Yellow\n• The Table dependency mapping will define which Fabric Color/Size corresponds to each Style Color/Size.\n• When Auto MRP is re-run after the dependency change:\n• L1 will continue to be generated based on the Style/Sales Order colors and sizes: Red, Blue, Green.\n• L2 will be generated based on the Fabric Colors and Sizes mapped through the Table dependency: White, Black, Yellow, along with their applicable sizes.\n• Therefore, the L2 requirement will change because the dependency has changed from Base Color/Base Size to Table.\n• Since the dependency change results in a change in the L2 material color/size mapping and consequently the material requirement, the system will trigger an Auto MRP re-run for the affected requirement.\n• The Auto MRP re-run will generate the revised requirement based on the latest dependency and mapping configuration.",
+      "locator": "§ Solution › Dependency Change (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "SLC Configuration of Auto MRP",
+      "heading": "Solution › SLC Configuration of Auto MRP",
+      "text": "The Scheduler columns will be controlled through SLC (Screen Level Configuration).\nThe following columns will be ON by default. However, their visibility will also remain configurable through SLC:\n• Division\n• Buyer\n• Department\n• Product Group\n• Sub Category\n• Material Category\n• Material Product Group\n• Material Sub Category\n• MRP %\n• MRP Release Days\n• Actions\nThe following new columns will be OFF by default and can be enabled through SLC based on the user's requirement:\n• Scheduled Days\n• Scheduled Time\n• Holiday Calendar\nWhen enabled through SLC, the respective columns will be displayed in the Scheduler screen. When disabled, the columns will not be displayed.",
+      "locator": "§ Solution › SLC Configuration of Auto MRP",
+      "kind": "section"
+    }
+  ]
+}

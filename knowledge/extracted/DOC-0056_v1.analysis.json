@@ -1,0 +1,219 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Created/Revised By",
+        "Created/Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Kalpesh Sharma",
+          "11th Jan 2026",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "293106  - E-way & E-INvoice generation in case of Different site GSTIN transfer, Automation is required for GDN and GRN",
+  "keyTerms": [
+    "transfer",
+    "auto transfer",
+    "auto",
+    "invoice",
+    "transfer site",
+    "section",
+    "site",
+    "material",
+    "dispatch",
+    "created",
+    "material dispatch",
+    "transfer purchase",
+    "sales",
+    "grn",
+    "invoice auto"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 15
+    },
+    {
+      "module": "Sales Order",
+      "score": 8
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Automation is required for GDN and GRN",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Automation is required for GDN and GRN",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to facilitate :",
+      "locator": "§ Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 2. Assumptions:\n1. Sales Order : User created Sales Order at Bangalore Unit.\n2. Sourcing and Material Requisition\n3. System shall generate material requisition based on Sales Order.\n4. Approval workflow: PD → FPPO\n5. Material Dispatch : User shall create Material Dispatch document post FPPO approval",
+      "locator": "§ Section 2. Assumptions",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Changes Required :-:\n1. Auto Transfer to Site (Material Dispatch)\n2. Auto Transfer Sales invoice\n3. Auto Good Received Notes\n4. Auto Transfer Purchase Invoice",
+      "locator": "§ Changes Required :-",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto Transfer to Site (Material Dispatch):\n1. An Auto-Transfer-to-site GDI will get created from Bangalore to Andhra Pradesh with reference to the above FPPO.\n2. The E way bill will be created against the dispatch of the materials from Bangalore to Andhra Pradesh.\n3. The transfer to site GDN created in above section will get displayed in GST Doc integration (As Shown in below screenshot with Transfer to site Dispatch Type) where factory name selected in FPPO will show as a party in E-way bill/E-Invoice.",
+      "locator": "§ Changes Required :- › Auto Transfer to Site (Material Dispatch)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto Transfer Sales invoice:\n1. As soon as above GDN Is confirmed than system will create an auto Transfer Sale invoice against dispatch\n2. Invoice will be created in the confirmed status.\n3. Invoice should be available on the GST Doc integration page for the E-invoice generation.",
+      "locator": "§ Changes Required :- › Auto Transfer Sales invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto Transfer Purchase:\n1. As soon as above GRN Is confirmed than system will create an Auto Transfer Purchase invoice against GRN\n2. Invoice will be created in the confirmed status.\n3. Transfer Purchase invoice should be allowed to be posted until corresponding Transfer Sale invoice have been posted",
+      "locator": "§ Changes Required :- › Auto Transfer Purchase",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Created/Revised By, Created/Revised On, Changes (1 rows)",
+      "locator": "§ Section 5. Revision History, table 1",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "293106  - E-way & E-INvoice generation in case of Different site GSTIN transfer, Automation is required for GDN and GRN",
+      "heading": "",
+      "text": "Software Requirements Specification\nAutomation is required for GDN and GRN\nVersion 1.0 ● 293106\n28 Jan 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nChanges Required :- 5\n1) Auto Transfer to Site (Material Dispatch) 6\n2) Auto Transfer Sales invoice 7\n3) Auto Goods Receipts Note 8\n4) Auto Transfer Purchase 9\nSection 4. Glossary 10\nSection 5. Revision History 11",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "This document defines the FPPO Goods Movement Automation between the multiple GSTIN of same company, based on the approved process flow.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The automation covers the end-to-end flow starting from Sales Order creation at one Unit through dispatch, invoicing, receipt at another Unit, and reverse invoicing back to the first Unit.\nThe remaining processes not linked to material movement will continue to be handled manually.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "The Scope of these specs is to facilitate :\n• Automation of inter-unit goods movement transactions",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• Sales Order : User created Sales Order at Bangalore Unit.\n• Sourcing and Material Requisition\n• System shall generate material requisition based on Sales Order.\n• Approval workflow: PD → FPPO\n• Material Dispatch : User shall create Material Dispatch document post FPPO approval",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Changes Required :-",
+      "heading": "Changes Required :-",
+      "text": "• Auto Transfer to Site (Material Dispatch)\n• Auto Transfer Sales invoice\n• Auto Good Received Notes\n• Auto Transfer Purchase Invoice",
+      "locator": "§ Changes Required :-",
+      "kind": "section"
+    },
+    {
+      "title": "Auto Transfer to Site (Material Dispatch)",
+      "heading": "Changes Required :- › Auto Transfer to Site (Material Dispatch)",
+      "text": "Material has to be Dispatched against this FPPO, then\n• An Auto-Transfer-to-site GDI will get created from Bangalore to Andhra Pradesh with reference to the above FPPO.\n• The E way bill will be created against the dispatch of the materials from Bangalore to Andhra Pradesh.\n• The transfer to site GDN created in above section will get displayed in GST Doc integration (As Shown in below screenshot with Transfer to site Dispatch Type) where factory name selected in FPPO will show as a party in E-way bill/E-Invoice.",
+      "locator": "§ Changes Required :- › Auto Transfer to Site (Material Dispatch)",
+      "kind": "section"
+    },
+    {
+      "title": "Auto Transfer Sales invoice",
+      "heading": "Changes Required :- › Auto Transfer Sales invoice",
+      "text": "• As soon as above GDN Is confirmed than system will create an auto Transfer Sale invoice against dispatch\n• Invoice will be created in the confirmed status.\n• Invoice should be available on the GST Doc integration page for the E-invoice generation.",
+      "locator": "§ Changes Required :- › Auto Transfer Sales invoice",
+      "kind": "section"
+    },
+    {
+      "title": "Auto Goods Receipts Note",
+      "heading": "Changes Required :- › Auto Goods Receipts Note",
+      "text": "• System will auto create the GRN in the Andhra Pradesh against the above transfer to site from the Bangalore.\n• User has to open and confirm the GRN in order to complete receiving of Transfer to site in Andhra Pradesh",
+      "locator": "§ Changes Required :- › Auto Goods Receipts Note",
+      "kind": "section"
+    },
+    {
+      "title": "Auto Transfer Purchase",
+      "heading": "Changes Required :- › Auto Transfer Purchase",
+      "text": "• As soon as above GRN Is confirmed than system will create an Auto Transfer Purchase invoice against GRN\n• Invoice will be created in the confirmed status.\n• Transfer Purchase invoice should be allowed to be posted until corresponding Transfer Sale invoice have been posted",
+      "locator": "§ Changes Required :- › Auto Transfer Purchase",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Glossary",
+      "heading": "Section 4. Glossary",
+      "text": "• No Glossary",
+      "locator": "§ Section 4. Glossary",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5. Revision History – Table 1",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Created/Revised By (text); Created/Revised On (text); Changes (text)\nVersion | Created/Revised By | Created/Revised On | Changes\n1.0 | Kalpesh Sharma | 11th Jan 2026 | Initial document created.",
+      "locator": "§ Section 5. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 11th Jan 2026; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

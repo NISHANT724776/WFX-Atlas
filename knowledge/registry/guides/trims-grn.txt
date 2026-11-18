@@ -1,0 +1,48 @@
+# Visual guide captured from the Trims Scan prototype on 2026-11-18 by backend/scripts/capture-prototype.ts.
+# Screenshots are the prototype screens exactly as shown; markers are where the prototype shows its own "Tap here" hint.
+GUIDE ID: GUIDE-TRIMS-GRN
+TITLE: Trims Scan · GRN – Receive trims
+MODULE: Inventory › Trims (Quick Docs mobile app)
+KIND: prototype
+PROTOTYPE URL: https://trims-prototype-mobile.vercel.app/
+KEYWORDS: trims, scan, QR, Quick Docs, mobile, GRN, Receive trims, GRN, goods received, receive, receiving, inward, ASN
+SUMMARY: Six flows in the Quick Docs app, all built around scanning: receiving trims into stock (GRN), picking them for dispatch (Pick List), issuing them on a delivery note (GDN), moving them between locations, printing packaging movement QR labels from the phone, and the outward note types (production inputs, returns and transfers). Pick a flow, then try it on the phone. The camera is simulated, so tap a label to hold it up to the lens.
+WHAT CHANGES: • Supplier, PO, document number and date arrive from the ASN QR. Nothing to type.
+  • Every scanned packaging movement number becomes a row, and the article quantity is split equally across the rows by default.
+  • Quantity can be lowered but never raised above what is left to receive. Wrong-article and repeat scans are blocked.
+DATA NOTE: The prototype uses sample data only. It demonstrates the intended Quick Docs flow; it is not a live WFX transaction.
+SOURCE: Trims Scan Prototype (clickable prototype), https://trims-prototype-mobile.vercel.app/
+STATUS: Active
+CAPTURED: 2026-11-18
+STEP 1 TITLE: Open Goods Received
+STEP 1 TEXT: The receiver taps the Goods Received tile on the home screen.
+STEP 1 IMAGE: trims/grn-1.webp
+STEP 1 MARKERS: 51.5,32.3,44.5,12.2|GOODS RECEIVED
+STEP 2 TITLE: Choose receipt type
+STEP 2 TEXT: A pop-up lists the receipt types. This is step 1 of 2.
+STEP 2 IMAGE: trims/grn-2.webp
+STEP 2 MARKERS: 7,60.6,86,6|ASN from Suppliers - Against ASN
+STEP 3 TITLE: Choose site
+STEP 3 TEXT: The receiving site comes next, which is step 2 of 2.
+STEP 3 IMAGE: trims/grn-3.webp
+STEP 3 MARKERS: 7,54.6,86,6|Vikascity
+STEP 4 TITLE: Scan the ASN QR
+STEP 4 TEXT: Tap to scan and the camera opens. The ASN can also be picked by number.
+STEP 4 IMAGE: trims/grn-4.webp
+STEP 5 TITLE: Header fills itself
+STEP 5 TEXT: Supplier, PO, imported flag, document number and date come from the QR. Scan again to switch ASN, then tap Next.
+STEP 5 IMAGE: trims/grn-5.webp
+STEP 5 MARKERS: 4.1,87.4,91.9,5.9|Next
+STEP 6 TITLE: Pick an article
+STEP 6 TEXT: Trims only. Each article on the ASN is listed with its quantity and how much packing is added so far.
+STEP 6 IMAGE: trims/grn-6.webp
+STEP 6 MARKERS: 4.1,61.7,91.9,10.5|TRM-LBL-CRE2 Care Label Satin · 40 mm 0 / 3,000 Pcs Not adde
+STEP 7 TITLE: Add packaging movement numbers
+STEP 7 TEXT: Scan the PMN QR, or pick the number from the master by hand: name and UOM fill in, then enter the pack quantity and tap Add. A packaging movement that does not exist yet can be created on the spot, and the app offers to print its label. Each add creates a row, and the quantity is split equally across the rows (1,000 over 2 packs gives 500 and 500). Every row stays editable, never above what is left to receive.
+STEP 7 IMAGE: trims/grn-7.webp
+STEP 8 TITLE: Location, QC and submit
+STEP 8 TEXT: Back on the article list, choose where to park the GRN, choose QC, then submit.
+STEP 8 IMAGE: trims/grn-8.webp
+STEP 9 TITLE: GRN created
+STEP 9 TEXT: A confirmation shows the GRN number and a short summary.
+STEP 9 IMAGE: trims/grn-9.webp

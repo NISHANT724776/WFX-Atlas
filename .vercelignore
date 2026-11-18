@@ -1,0 +1,5 @@
+# The static site does not need the knowledge library or the database; they can hold confidential documents.
+knowledge/
+database/
+backend/
+tests/

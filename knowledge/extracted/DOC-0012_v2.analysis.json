@@ -1,0 +1,1054 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Term",
+        "What it means"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Term"
+      ],
+      "rows": [
+        [
+          "Kit / Pack",
+          "One sellable product made of several items. Its Component Type is either \"Multi (Kit)\" or \"Single (Pack)\"."
+        ],
+        [
+          "BOM",
+          "\"Bill of Materials\" — the full list of everything that goes into the kit."
+        ],
+        [
+          "Master kit",
+          "The original kit that other kits were copied from."
+        ],
+        [
+          "Child kit",
+          "A copy of a master kit made for one specific size. It stays linked to its master."
+        ],
+        [
+          "Family",
+          "A master kit plus all of its child kits."
+        ],
+        [
+          "Ratio Type",
+          "Decides how items are broken down. Color Ratio: one size, many colours. Size Ratio: one colour, many sizes."
+        ],
+        [
+          "Wastage %",
+          "Extra material allowed for loss or damage. 2% wastage on 100 bags means you pay for 102."
+        ],
+        [
+          "Total Cost",
+          "Everything added up: items + packaging + labour + extra charges."
+        ],
+        [
+          "Profit % (Margin)",
+          "How much of the selling price is profit."
+        ],
+        [
+          "Markup %",
+          "How much the selling price is above the cost."
+        ],
+        [
+          "Open / Approved",
+          "The two statuses a kit can have. Open = still being worked on. Approved = final and locked."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Menu option",
+        "When you see it",
+        "What it does"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Duplicate",
+          "Master kits only",
+          "Makes copies of the kit for other sizes."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Field",
+        "Mandatory",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Packing Kit ID",
+          "Automatic",
+          "Created by the system. You can't edit it."
+        ],
+        [
+          "Packing Kit Name",
+          "Yes",
+          "Up to 120 characters"
+        ],
+        [
+          "Kit SKU",
+          "Yes",
+          "Up to 60 characters"
+        ],
+        [
+          "SKU Description",
+          "No",
+          "Up to 250 characters"
+        ],
+        [
+          "Component Type",
+          "Yes",
+          "Single (Pack) or Multi (Kit)"
+        ],
+        [
+          "Ratio Type",
+          "Yes",
+          "Color Ratio or Size Ratio (see Tab 2)"
+        ],
+        [
+          "Product Group, Sub-Category",
+          "Yes",
+          "Pick from list"
+        ],
+        [
+          "UOM (unit)",
+          "Yes",
+          "As per defined User Profile"
+        ],
+        [
+          "Order Qty Expected",
+          "Yes",
+          "A whole number above 0. Starts as 1."
+        ],
+        [
+          "Buyer, Buyer Dept, Season",
+          "Yes",
+          "Pick from list"
+        ],
+        [
+          "Packing Kit Description",
+          "No",
+          "Up to 2,000 characters"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Column",
+        "Where",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Article Code, Article Name",
+          "Main row",
+          "Free text"
+        ],
+        [
+          "Color, Size",
+          "Main row (you pick) / Sub-row (shown only)",
+          "—"
+        ],
+        [
+          "Quantity, Price",
+          "Sub-row",
+          "0 or more, 2 decimals"
+        ],
+        [
+          "Cons. UOM (unit)",
+          "Sub-row",
+          "Free text"
+        ],
+        [
+          "Value",
+          "Both",
+          "Quantity × Price (automatic)"
+        ],
+        [
+          "Manufacturing BOM",
+          "Main row",
+          "Dropdown"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Column",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Article Code, Article Name",
+          "Free text"
+        ],
+        [
+          "Material Color, Material Size",
+          "Optional — shows \"None\" if left blank"
+        ],
+        [
+          "Cons. Qty, Wastage %",
+          "0 or more, 2 decimals"
+        ],
+        [
+          "Supplier, Delivery Term, Cons. UOM, Purchase UOM",
+          "Free text"
+        ],
+        [
+          "Currency",
+          "Pick from list (packaging can be priced in a different currency)"
+        ],
+        [
+          "Cons. UOM Price, Purchase Price",
+          "0 or more, 2 decimals"
+        ],
+        [
+          "Value",
+          "Automatic: Qty × (1 + Wastage %) × Price"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "When",
+        "Title",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "When"
+      ],
+      "rows": [
+        [
+          "Deleting a kit (no children)",
+          "Confirm Deletion",
+          "{PackingKitID} will be deleted. This cannot be undone."
+        ],
+        [
+          "Deleting a master with children",
+          "Confirm Deletion",
+          "{PackingKitID} and its {N} duplicated child kit(s) will be deleted. This cannot be undone."
+        ],
+        [
+          "Delete worked",
+          "Deleted",
+          "{PackingKitID} was deleted."
+        ],
+        [
+          "Delete failed",
+          "Delete Failed",
+          "Could not delete the Kit/Pack."
+        ],
+        [
+          "List didn't load",
+          "Load Failed",
+          "Could not load Kit/Packs from the mock store."
+        ],
+        [
+          "One size duplicated",
+          "Kit Duplicated",
+          "{newID} was created from {masterID}."
+        ],
+        [
+          "Several sizes duplicated",
+          "Kits Duplicated",
+          "{N} kits created from {masterID}: {id, id, …}."
+        ],
+        [
+          "Duplicate failed",
+          "Duplicate Failed",
+          "Could not create the duplicate Kit/Pack(s)."
+        ],
+        [
+          "Required fields missing",
+          "Cannot Create Kit",
+          "Fill in every required field first (Name, Kit SKU, Component Type, Ratio Type, Product Group, Sub-Category, UOM, Buyer, Buyer Dept, Season)."
+        ],
+        [
+          "Kit created",
+          "Kit Created",
+          "{PackingKitID} was created."
+        ],
+        [
+          "Create failed",
+          "Create Failed",
+          "Could not create the Kit/Pack."
+        ],
+        [
+          "Auto-save failed",
+          "Save Failed",
+          "Could not save the Kit/Pack."
+        ],
+        [
+          "Kit doesn't exist",
+          "Not Found",
+          "That Kit/Pack does not exist. (then returns to the list)"
+        ],
+        [
+          "\"Copy From\" clicked",
+          "Not Available Yet",
+          "Copying an existing Kit/Pack is not built in this proto yet."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Kit Pack Enhancement version2",
+  "keyTerms": [
+    "kit",
+    "kitpack",
+    "one",
+    "size",
+    "bom",
+    "price",
+    "type",
+    "master",
+    "ratio",
+    "list",
+    "sizes",
+    "child",
+    "tab",
+    "row",
+    "user"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 24
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "BOM – Costing",
+    "BOM – Materials & Dependency"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "A kit (or pack) is one product you sell that is made of several items — for example, a 5-pack of boys' t-shirts in one bag.",
+      "locator": "§ Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Term, What it means (11 rows; identifiers: Term)",
+      "locator": "§ Solution › Words used in this document, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Auto Save. is also working.",
+      "locator": "§ Solution › Step by Step Working",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Step by Step Working:\n1. Create the kit. Click \"Configure Kit/Pack\", fill in the basic details (name, SKU, buyer, season and so on) and click \"Create Kit\".\n2. Add the items. On the Pack Items tab, add each garment and choose its colours or sizes. Enter quantity and price.\n3. Add packaging. On the Packing Materials tab, add bags, tickets, labels and so on.\n4. Add labour. On the Routing/Processes tab, pick the packing process and its rate.\n5. Add extra charges. On the Additional Cost tab, add things like freight.\n6. Check the totals. On the Summary tab, see the total cost, type in the selling price, and check the profit.\n7. Make size versions (optional). From the list, duplicate the kit into other sizes.\n8. Approve. Click \"Approve\". The kit is now locked.\n9. Auto Save. is also working.",
+      "locator": "§ Solution › Step by Step Working",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "It is the starting page.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.1 Kit list (Kit/Pack Management):\n1. Search by Kit ID, name or SKU. If a child kit matches, its master kit is shown too, so you can see where it belongs.\n2. Create a new kit with the \"Configure Kit/Pack\" button.\n3. Open a kit by clicking its Kit ID.\n4. Use the ⋮ menu at the end of each row for more actions (see below).",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Menu option, When you see it, What it does (1 rows)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management), table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If the Ratio type is Size Ratio then while duplicating it will show colors to select, if Color Ratio then while duplicating it will show sizes to select & if Mixed ratio then while duplicating it will show colors & sizes to be selected.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Multi- selection of colors & sizes is allowed if 2 colors and 2 sizes then 4 child rows be made with color-size(green – S, pink -S, Green -M, Pink -M).",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Sizes that already have a child kit are hidden, so you can't create the same size twice.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Each new kit gets the next free Kit ID and is named \"{master name} - {size}\", for example \"Boys Tee Kit - L\".",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Everything is copied from the master: items, packaging, labour and extra charges.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Only the chosen size is kept on the items.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "A child kit cannot be duplicated again.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.2 Duplicate pop-up:\n1. If the Ratio type is Size Ratio then while duplicating it will show colors to select, if Color Ratio then while duplicating it will show sizes to select & if Mixed ratio then while duplicating it will show colors & sizes to be selected. Multi- selection of colors & sizes is allowed if 2 colors and 2 sizes then 4 child rows be made with color-size(green – S, pink -S, Green -M, Pink -M).\n2. The size list shows the sizes already used in the kit (or XS to XXL if there are none yet). Sizes that already have a child kit are hidden, so you can't create the same size twice.\n3. Each new kit gets the next free Kit ID and is named \"{master name} - {size}\", for example \"Boys Tee Kit - L\".\n4. Everything is copied from the master: items, packaging, labour and extra charges. Only the chosen size is kept on the items.\n5. The new kit starts fresh: status is Open, actual quantity is 0, and you are recorded as its creator.\n6. A child kit cannot be duplicated again. Only one level of copying is allowed.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Field, Mandatory, Rules (11 rows; identifiers: Field)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is also a \"Copy From\" button, it will show previous made Kits/packs and will create a new kit (not to be seen as duplicate Kit/Pack).",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Each main row is one item, such as a t-shirt.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the BOM is saved or confirmed, it will be available in the Manufacturing BOM dropdown.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tab 2 — Pack Items (the garments):\n1. When the user clicks on “New BOM” from the Manufacturing BOM dropdown, the system will open the Article BOM screen.\n2. The user can create and configure a new BOM for the selected article and save it either in:\n3. Saved mode, or\n4. Confirmed mode\n5. Once the BOM is saved or confirmed, it will be available in the Manufacturing BOM dropdown.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tab 2 — Pack Items (the garments):\n1. If the user selects a Confirmed BOM from the dropdown and confirms:\n2. The BOM will be directly attached to the article.\n3. If the user selects a Saved BOM from the dropdown and confirms the Kit/Pack page:\n4. The selected BOM will be automatically approved (converted to Confirmed)\n5. The BOM will then be attached to the article for further transactions.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tab 2 — Pack Items (the garments):\n1. Saved BOM → Gets auto-confirmed on selection + confirmation action\n2. Confirmed BOM → Gets directly attached\n3. Only Saved/Confirmed BOMs appear in the dropdown",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Column, Where, Rules (6 rows; identifiers: Column)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Colour & Size should not be mandatory for packing material (If blank should be considered as None type dependency).",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Column, Rules (7 rows; identifiers: Column)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tab 6 — Summary (totals and profit):\n1. Kit Information — kit ID, name, component type and ratio type.\n2. BOM Line Items — one line per item, packaging material, labour and extra charge.\n3. Totals — Total Cost, Selling Price (you type this), Discount % (you type this, but it doesn't affect anything yet), Profit %, Markup %, and BMV and EPM (always 0.00 for now).\n4. Approval Summary — on master kits only. Shows the master and all its child kits in one table.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 6 — Summary (totals and profit)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "These must appear exactly as written.",
+      "locator": "§ Solution › Messages the user will see",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: When, Title, Message (14 rows; identifiers: When)",
+      "locator": "§ Solution › Messages the user will see, table 6",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Kit Pack Enhancement version2",
+      "heading": "",
+      "text": "Kit/Pack Costing Enhancement V2\nContents\nScope 2\nPurpose 2\nSolution 2\n1. Words used in this document 2\n2. Step by Step Working 2\n3. Kit/Pack Screens 2\n3.1 Kit list (Kit/Pack Management) 2\n3.2 Duplicate pop-up 2\n3.3 Kit detail page 2\n4. Messages the user will see 2",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "A kit (or pack) is one product you sell that is made of several items — for example, a 5-pack of boys' t-shirts in one bag.\nThis feature lets the costing team work out how much one kit costs to make: the garments inside it, the packaging, the labour, and any extra charges like freight.\nThe user then types in a selling price, and the screen shows the profit.\nWhen everyone agrees on the numbers, the kit is approved and locked so nobody can change it.\nTo price the same kit in other sizes, the user can duplicate it — one copy per size — instead of building each one from scratch.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Words used in this document – Table 1",
+      "heading": "Solution › Words used in this document",
+      "text": "Columns: Term (text); What it means (text)\nTerm | What it means\nKit / Pack | One sellable product made of several items. Its Component Type is either \"Multi (Kit)\" or \"Single (Pack)\".\nBOM | \"Bill of Materials\" — the full list of everything that goes into the kit.\nMaster kit | The original kit that other kits were copied from.\nChild kit | A copy of a master kit made for one specific size. It stays linked to its master.\nFamily | A master kit plus all of its child kits.\nRatio Type | Decides how items are broken down. Color Ratio: one size, many colours. Size Ratio: one colour, many sizes.\nWastage % | Extra material allowed for loss or damage. 2% wastage on 100 bags means you pay for 102.\nTotal Cost | Everything added up: items + packaging + labour + extra charges.\nProfit % (Margin) | How much of the selling price is profit.\nMarkup % | How much the selling price is above the cost.\nOpen / Approved | The two statuses a kit can have. Open = still being worked on. Approved = final and locked.",
+      "locator": "§ Solution › Words used in this document, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Kit / Pack; What it means: One sellable product made of several items. Its Component Type is either \"Multi (Kit)\" or \"Single (Pack)\".",
+      "locator": "§ Solution › Words used in this document, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: BOM; What it means: \"Bill of Materials\" — the full list of everything that goes into the kit.",
+      "locator": "§ Solution › Words used in this document, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Master kit; What it means: The original kit that other kits were copied from.",
+      "locator": "§ Solution › Words used in this document, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Child kit; What it means: A copy of a master kit made for one specific size. It stays linked to its master.",
+      "locator": "§ Solution › Words used in this document, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Family; What it means: A master kit plus all of its child kits.",
+      "locator": "§ Solution › Words used in this document, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Ratio Type; What it means: Decides how items are broken down. Color Ratio: one size, many colours. Size Ratio: one colour, many sizes.",
+      "locator": "§ Solution › Words used in this document, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Wastage %; What it means: Extra material allowed for loss or damage. 2% wastage on 100 bags means you pay for 102.",
+      "locator": "§ Solution › Words used in this document, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Total Cost; What it means: Everything added up: items + packaging + labour + extra charges.",
+      "locator": "§ Solution › Words used in this document, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Profit % (Margin); What it means: How much of the selling price is profit.",
+      "locator": "§ Solution › Words used in this document, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Markup %; What it means: How much the selling price is above the cost.",
+      "locator": "§ Solution › Words used in this document, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 11",
+      "heading": "Solution › Words used in this document",
+      "text": "Term: Open / Approved; What it means: The two statuses a kit can have. Open = still being worked on. Approved = final and locked.",
+      "locator": "§ Solution › Words used in this document, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Step by Step Working",
+      "heading": "Solution › Step by Step Working",
+      "text": "• Create the kit. Click \"Configure Kit/Pack\", fill in the basic details (name, SKU, buyer, season and so on) and click \"Create Kit\".\n• Add the items. On the Pack Items tab, add each garment and choose its colours or sizes. Enter quantity and price.\n• Add packaging. On the Packing Materials tab, add bags, tickets, labels and so on.\n• Add labour. On the Routing/Processes tab, pick the packing process and its rate.\n• Add extra charges. On the Additional Cost tab, add things like freight.\n• Check the totals. On the Summary tab, see the total cost, type in the selling price, and check the profit.\n• Make size versions (optional). From the list, duplicate the kit into other sizes.\n• Approve. Click \"Approve\". The kit is now locked.\n• Auto Save. is also working.",
+      "locator": "§ Solution › Step by Step Working",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Kit list (Kit/Pack Management)",
+      "heading": "Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "text": "It is the starting page. It shows every kit. Child kits appear indented under their master kit.\nList will have column as Kit SKU & SKU description.\nThe kit list. Child kits (like KIT-382) sit under their master (KIT-381).\nList will have a column name Image where we will show image of the Kit/Pack and the same will be seen inside Kit/pack page, at the header level will show a image & from there we can attach the image as well.\nActions that can be done-\n• Search by Kit ID, name or SKU. If a child kit matches, its master kit is shown too, so you can see where it belongs.\n• Create a new kit with the \"Configure Kit/Pack\" button.\n• Open a kit by clicking its Kit ID.\n• Use the ⋮ menu at the end of each row for more actions (see below).\nThe ⋮ row menu on a master kit",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Kit list (Kit/Pack Management) – Table 2",
+      "heading": "Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "text": "Columns: Menu option (text); When you see it (text); What it does (text)\nMenu option | When you see it | What it does\nDuplicate | Master kits only | Makes copies of the kit for other sizes.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management), table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "text": "Menu option: Duplicate; When you see it: Master kits only; What it does: Makes copies of the kit for other sizes.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management), table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.1 Kit list (Kit/Pack Management)",
+      "heading": "Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "text": "Columns in the list\nKit (ID and name), Kit SKU (manual entry), SKU Description, Component Type, Ratio Type, UOM, BOM Status, Total Cost, Created By, Created on and Last Modified. Most columns can be filtered, and all can be sorted.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.1 Kit list (Kit/Pack Management)",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 Duplicate pop-up",
+      "heading": "Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "text": "Use Case: making size versions of a kit quickly. Pick one or more sizes, and the system creates one new child kit for each size.\nDuplicate pop-up: pick one or more sizes\nWorking:\n• If the Ratio type is Size Ratio then while duplicating it will show colors to select, if Color Ratio then while duplicating it will show sizes to select & if Mixed ratio then while duplicating it will show colors & sizes to be selected. Multi- selection of colors & sizes is allowed if 2 colors and 2 sizes then 4 child rows be made with color-size(green – S, pink -S, Green -M, Pink -M).\n• The size list shows the sizes already used in the kit (or XS to XXL if there are none yet). Sizes that already have a child kit are hidden, so you can't create the same size twice.\n• Each new kit gets the next free Kit ID and is named \"{master name} - {size}\", for example \"Boys Tee Kit - L\".\n• Everything is copied from the master: items, packaging, labour and extra charges. Only the chosen size is kept on the items.\n• The new kit starts fresh: status is Open, actual quantity is 0, and you are recorded as its creator.\n• A child kit cannot be duplicated again. Only one level of copying is allowed.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.2 Duplicate pop-up",
+      "kind": "section"
+    },
+    {
+      "title": "3.3 Kit detail page",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page",
+      "text": "Use Case: building and pricing one kit. The page has six tabs. The top of the page shows the kit name, its status, the expected and actual order quantity, the currency, and — for a child kit — which master it was copied from.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page",
+      "kind": "section"
+    },
+    {
+      "title": "Tab 1 — Kit/Pack (basic details)",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Kit/Pack tab with the kit's basic details\nUOM and Folder (single select at user profile) fields should be driven from user profile there we need a section name Kit/Pack on User Profile.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "kind": "section"
+    },
+    {
+      "title": "Tab 1 — Kit/Pack (basic details) – Table 3",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Columns: Field (text); Mandatory (text); Rules (text)\nField | Mandatory | Rules\nPacking Kit ID | Automatic | Created by the system. You can't edit it.\nPacking Kit Name | Yes | Up to 120 characters\nKit SKU | Yes | Up to 60 characters\nSKU Description | No | Up to 250 characters\nComponent Type | Yes | Single (Pack) or Multi (Kit)\nRatio Type | Yes | Color Ratio or Size Ratio (see Tab 2)\nProduct Group, Sub-Category | Yes | Pick from list\nUOM (unit) | Yes | As per defined User Profile\nOrder Qty Expected | Yes | A whole number above 0. Starts as 1.\nBuyer, Buyer Dept, Season | Yes | Pick from list\nPacking Kit Description | No | Up to 2,000 characters",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Packing Kit ID; Mandatory: Automatic; Rules: Created by the system. You can't edit it.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Packing Kit Name; Mandatory: Yes; Rules: Up to 120 characters",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Kit SKU; Mandatory: Yes; Rules: Up to 60 characters",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: SKU Description; Mandatory: No; Rules: Up to 250 characters",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Component Type; Mandatory: Yes; Rules: Single (Pack) or Multi (Kit)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Ratio Type; Mandatory: Yes; Rules: Color Ratio or Size Ratio (see Tab 2)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Product Group, Sub-Category; Mandatory: Yes; Rules: Pick from list",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: UOM (unit); Mandatory: Yes; Rules: As per defined User Profile",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Order Qty Expected; Mandatory: Yes; Rules: A whole number above 0. Starts as 1.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Buyer, Buyer Dept, Season; Mandatory: Yes; Rules: Pick from list",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "Field: Packing Kit Description; Mandatory: No; Rules: Up to 2,000 characters",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details), table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Tab 1 — Kit/Pack (basic details)",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "text": "There is also a \"Copy From\" button, it will show previous made Kits/packs and will create a new kit (not to be seen as duplicate Kit/Pack).",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 1 — Kit/Pack (basic details)",
+      "kind": "section"
+    },
+    {
+      "title": "Tab 2 — Pack Items (the garments)",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Each main row is one item, such as a t-shirt. Under it, the system automatically creates one row for every colour-and-size combination you pick. You enter the quantity and price on those rows.\nThe Ratio Type decides what you can pick:\n• Color Ratio — one size for the whole kit, but many colours.\n• Size Ratio — one colour for the whole kit, but many sizes.\nPack Items: the t-shirt row, with its Black / L row underneath\nManufacturing BOM Selection & Attachment Logic:\n• When the user clicks on “New BOM” from the Manufacturing BOM dropdown, the system will open the Article BOM screen.\n• The user can create and configure a new BOM for the selected article and save it either in:\n• Saved mode, or\n• Confirmed mode\n• Once the BOM is saved or confirmed, it will be available in the Manufacturing BOM dropdown.\nSelection & Confirmation Behaviour:\n• If the user selects a Confirmed BOM from the dropdown and confirms:\n• The BOM will be directly attached to the article.\n• If the user selects a Saved BOM from the dropdown and confirms the Kit/Pack page:\n• The selected BOM will be automatically approved (converted to Confirmed)\n• The BOM will then be attached to the article for further transactions.\nKey Behaviour Summary\n• Saved BOM → Gets auto-confirmed on selection + confirmation action\n• Confirmed BOM → Gets directly attached\n• Only Saved/Confirmed BOMs appear in the dropdown",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "kind": "section"
+    },
+    {
+      "title": "Tab 2 — Pack Items (the garments) – Table 4",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Columns: Column (text); Where (text); Rules (text)\nColumn | Where | Rules\nArticle Code, Article Name | Main row | Free text\nColor, Size | Main row (you pick) / Sub-row (shown only) | —\nQuantity, Price | Sub-row | 0 or more, 2 decimals\nCons. UOM (unit) | Sub-row | Free text\nValue | Both | Quantity × Price (automatic)\nManufacturing BOM | Main row | Dropdown",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Column: Article Code, Article Name; Where: Main row; Rules: Free text",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Column: Color, Size; Where: Main row (you pick) / Sub-row (shown only); Rules: —",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Column: Quantity, Price; Where: Sub-row; Rules: 0 or more, 2 decimals",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Column: Cons. UOM (unit); Where: Sub-row; Rules: Free text",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Column: Value; Where: Both; Rules: Quantity × Price (automatic)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments)",
+      "text": "Column: Manufacturing BOM; Where: Main row; Rules: Dropdown",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 2 — Pack Items (the garments), table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Tab 3 — Packing Materials (the packaging)",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "A simple list of packaging items such as poly bags and price tickets. Click \"Add Article\" to add a row.\nPacking Materials: a poly bag and a price ticket\nPacking Material Tab should have currency.\nColour & Size should not be mandatory for packing material (If blank should be considered as None type dependency).",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "kind": "section"
+    },
+    {
+      "title": "Tab 3 — Packing Materials (the packaging) – Table 5",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Columns: Column (text); Rules (text)\nColumn | Rules\nArticle Code, Article Name | Free text\nMaterial Color, Material Size | Optional — shows \"None\" if left blank\nCons. Qty, Wastage % | 0 or more, 2 decimals\nSupplier, Delivery Term, Cons. UOM, Purchase UOM | Free text\nCurrency | Pick from list (packaging can be priced in a different currency)\nCons. UOM Price, Purchase Price | 0 or more, 2 decimals\nValue | Automatic: Qty × (1 + Wastage %) × Price",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Article Code, Article Name; Rules: Free text",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Material Color, Material Size; Rules: Optional — shows \"None\" if left blank",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Cons. Qty, Wastage %; Rules: 0 or more, 2 decimals",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Supplier, Delivery Term, Cons. UOM, Purchase UOM; Rules: Free text",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Currency; Rules: Pick from list (packaging can be priced in a different currency)",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Cons. UOM Price, Purchase Price; Rules: 0 or more, 2 decimals",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging)",
+      "text": "Column: Value; Rules: Automatic: Qty × (1 + Wastage %) × Price",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 3 — Packing Materials (the packaging), table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Tab 4 — Routing/Processes (labour)",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 4 — Routing/Processes (labour)",
+      "text": "Just two fields: pick one process (Packing 1, Packing 2, Ironing, Folding or Labelling) and enter its rate. Clearing the process also clears the rate.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 4 — Routing/Processes (labour)",
+      "kind": "section"
+    },
+    {
+      "title": "Tab 6 — Summary (totals and profit)",
+      "heading": "Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 6 — Summary (totals and profit)",
+      "text": "A view-only overview of the whole kit, plus the place to enter the selling price.\nSummary: kit info, every cost line, and the totals\n• Kit Information — kit ID, name, component type and ratio type.\n• BOM Line Items — one line per item, packaging material, labour and extra charge.\n• Totals — Total Cost, Selling Price (you type this), Discount % (you type this, but it doesn't affect anything yet), Profit %, Markup %, and BMV and EPM (always 0.00 for now).\n• Approval Summary — on master kits only. Shows the master and all its child kits in one table.\nApproval Summary on a master kit: KIT-381 and its child KIT-382\nApproval summary Column- Kit, Kit- SKU, Kit-SKU Description, BOM Status, Total Cost, Selling Price/FOB, Profit %, Markup%, EMP.",
+      "locator": "§ Solution › Kit/Pack Screens › 3.3 Kit detail page › Tab 6 — Summary (totals and profit)",
+      "kind": "section"
+    },
+    {
+      "title": "Messages the user will see",
+      "heading": "Solution › Messages the user will see",
+      "text": "These must appear exactly as written.",
+      "locator": "§ Solution › Messages the user will see",
+      "kind": "section"
+    },
+    {
+      "title": "Messages the user will see – Table 6",
+      "heading": "Solution › Messages the user will see",
+      "text": "Columns: When (text); Title (text); Message (text)\nWhen | Title | Message\nDeleting a kit (no children) | Confirm Deletion | {PackingKitID} will be deleted. This cannot be undone.\nDeleting a master with children | Confirm Deletion | {PackingKitID} and its {N} duplicated child kit(s) will be deleted. This cannot be undone.\nDelete worked | Deleted | {PackingKitID} was deleted.\nDelete failed | Delete Failed | Could not delete the Kit/Pack.\nList didn't load | Load Failed | Could not load Kit/Packs from the mock store.\nOne size duplicated | Kit Duplicated | {newID} was created from {masterID}.\nSeveral sizes duplicated | Kits Duplicated | {N} kits created from {masterID}: {id, id, …}.\nDuplicate failed | Duplicate Failed | Could not create the duplicate Kit/Pack(s).\nRequired fields missing | Cannot Create Kit | Fill in every required field first (Name, Kit SKU, Component Type, Ratio Type, Product Group, Sub-Category, UOM, Buyer, Buyer Dept, Season).\nKit created | Kit Created | {PackingKitID} was created.\nCreate failed | Create Failed | Could not create the Kit/Pack.\nAuto-save failed | Save Failed | Could not save the Kit/Pack.\nKit doesn't exist | Not Found | That Kit/Pack does not exist. (then returns to the list)\n\"Copy From\" clicked | Not Available Yet | Copying an existing Kit/Pack is not built in this proto yet.",
+      "locator": "§ Solution › Messages the user will see, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Deleting a kit (no children); Title: Confirm Deletion; Message: {PackingKitID} will be deleted. This cannot be undone.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Deleting a master with children; Title: Confirm Deletion; Message: {PackingKitID} and its {N} duplicated child kit(s) will be deleted. This cannot be undone.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Delete worked; Title: Deleted; Message: {PackingKitID} was deleted.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Delete failed; Title: Delete Failed; Message: Could not delete the Kit/Pack.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: List didn't load; Title: Load Failed; Message: Could not load Kit/Packs from the mock store.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 6",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: One size duplicated; Title: Kit Duplicated; Message: {newID} was created from {masterID}.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 7",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Several sizes duplicated; Title: Kits Duplicated; Message: {N} kits created from {masterID}: {id, id, …}.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 8",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Duplicate failed; Title: Duplicate Failed; Message: Could not create the duplicate Kit/Pack(s).",
+      "locator": "§ Solution › Messages the user will see, table 6, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 9",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Required fields missing; Title: Cannot Create Kit; Message: Fill in every required field first (Name, Kit SKU, Component Type, Ratio Type, Product Group, Sub-Category, UOM, Buyer, Buyer Dept, Season).",
+      "locator": "§ Solution › Messages the user will see, table 6, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 10",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Kit created; Title: Kit Created; Message: {PackingKitID} was created.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 11",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Create failed; Title: Create Failed; Message: Could not create the Kit/Pack.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 12",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Auto-save failed; Title: Save Failed; Message: Could not save the Kit/Pack.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 13",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: Kit doesn't exist; Title: Not Found; Message: That Kit/Pack does not exist. (then returns to the list)",
+      "locator": "§ Solution › Messages the user will see, table 6, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 14",
+      "heading": "Solution › Messages the user will see",
+      "text": "When: \"Copy From\" clicked; Title: Not Available Yet; Message: Copying an existing Kit/Pack is not built in this proto yet.",
+      "locator": "§ Solution › Messages the user will see, table 6, row 14",
+      "kind": "data_row"
+    }
+  ]
+}

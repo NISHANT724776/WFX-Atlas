@@ -1,0 +1,70 @@
+{
+  "tables": [],
+  "subject": "Owner explanation - Apparel techpack, BOM and routing (2026-11-18)",
+  "keyTerms": [
+    "now",
+    "process",
+    "apparel",
+    "color",
+    "techpack",
+    "buyer",
+    "apparel techpack",
+    "bom",
+    "routing",
+    "article",
+    "select",
+    "purchase",
+    "order",
+    "wise",
+    "owner"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 37
+    },
+    {
+      "module": "Sales Order",
+      "score": 8
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "Apparel Style (Techpack)",
+    "BOM – Materials & Dependency",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The words below are the owner's, kept as written. i am creating a techpack of apparel type, now i have created a material type for apparel category which i have selected from the dropdown of the techpack, based on which is ee information coming downwards.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Article code is on automatic geenration done through system coding as you already know, and articel name is on manual.",
+      "locator": "start",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Owner explanation - Apparel techpack, BOM and routing (2026-11-18)",
+      "heading": "",
+      "text": "Owner explanation: creating an apparel techpack, its BOM and its routing Given by the WFX functional owner in chat on 2026-11-18, with the screenshot \"Apparel techpack screen, Adi TShirt (NIS-59)\". The words below are the owner's, kept as written. i am creating a techpack of apparel type, now i have created a material type for apparel category which i have selected from the dropdown of the techpack, based on which is ee information coming downwards. Article code is on automatic geenration done through system coding as you already know, and articel name is on manual. I select Buyer, based on which buyer department are filtered out and then you select it. division gets auto populated as i select the buyer, now i select the product group and sub category Now my purchase UOM is PCS Color card is selected which i have made in the master same for size range Now price per are of four types Article - it has impact on sales order/ purchase order from buyer, the grid at delivery level will be formed Article wise Color wise - it also has impact on sales order/ purchase order from buyer, the grid at delivery level is formed based on color. upcharge discounts are handlled vertically Size wise- same as color but upcharge discounts and fields are handlled hortizontally Color/size - grid works same as article, but it is color wise in BOM we have various sections which are derived from the template, costsheet template. here i define the templates with categories, such as fabric, trims, yarn, miscellaneous, etc. Now i have purchase UOM defined in it. and cons UOM as well i put on colors and sizes that i need. and map them acc to the dependency selected. now in routing page of BOM i define the process that will be done to produce and apparel, such as cutting stitchting, sewing, packing etc now for each process i willd efine input and output item, and also define the after process which defines that this will be the first process and then this process will be done. now for each process we will be defining a process rate. now in routing, i map process for raw materials, that fabric will undergo cutting, then fabric and thread and other item will go for  sewing, and then final with polybag will go for packing. this is just to run a normal flow, without any hinderance.",
+      "locator": "start",
+      "kind": "section"
+    }
+  ]
+}

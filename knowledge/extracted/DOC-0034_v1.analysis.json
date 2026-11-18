@@ -1,0 +1,110 @@
+{
+  "tables": [],
+  "subject": "KIT MRP",
+  "keyTerms": [
+    "style",
+    "style flannel",
+    "tab",
+    "kitpack",
+    "flannel pants",
+    "flannel",
+    "kit",
+    "mrp",
+    "sales order",
+    "pants",
+    "level",
+    "styles",
+    "order",
+    "kit mrp",
+    "two"
+  ],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 17
+    },
+    {
+      "module": "Sales Order",
+      "score": 12
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "After Pending MRP List of Pack Sales Order then there is an enhancement in the screen there will be two Tabs on the screen First Tab is KIT and Second Tab is for Style.",
+      "locator": "§ Solution › MRP › Pending MRP List for KIT",
+      "module": "Planning"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "KIT MRP › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\nKit MRP Enhancement 2",
+      "locator": "§ KIT MRP › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Kit MRP Enhancement",
+      "heading": "Solution › Kit MRP Enhancement",
+      "text": "We have two Styles, Style 1 and Style 2. Now based on these styles we make KIT & Packs.\n\nKit consists of Two Styles Style 1 – Flannel Pants & Style 2 – Flannel LS Shirt\nPack1 Consists of Two or More Same styles – Style 1& 2 – Flannel Pants\nPack2 Consists of Two or More Same styles – Style 1& 2 – Flannel Pants",
+      "locator": "§ Solution › Kit MRP Enhancement",
+      "kind": "section"
+    },
+    {
+      "title": "Sales Order Of KIT/Pack",
+      "heading": "Solution › Sales Order Of KIT/Pack",
+      "text": "Sales Order Of KIT: 1000 Qty\nStyle 1 – Flannel Pants & Style 2 – Flannel LS Shirt\nSales order Of Pack 1: 500 Qty\nStyle 1& 2 – Flannel Pants\nSales order Of Pack 2: 500 Qty\nStyle 1& 2 – Flannel Pants",
+      "locator": "§ Solution › Sales Order Of KIT/Pack",
+      "kind": "section"
+    },
+    {
+      "title": "Pending MRP List for KIT",
+      "heading": "Solution › MRP › Pending MRP List for KIT",
+      "text": "After Pending MRP List of Pack Sales Order then there is an enhancement in the screen there will be two Tabs on the screen First Tab is KIT and Second Tab is for Style.\n\nNow 1st Tab – KIT/Pack: Here in this Tab, it will show KIT/Pack at Level -1 with columns names as given below. Based on the actions taken in KIT/Pack on the Level -1 it will generate Requirement for 2nd Tab.\nNow 2nd Tab – Style: Here in this Tab, it will show Styles at level 1(Style 1 – Flannel Pants & Style 2 – Flannel LS Shirt) & Raw Material at Level 2.",
+      "locator": "§ Solution › MRP › Pending MRP List for KIT",
+      "kind": "section"
+    },
+    {
+      "title": "Pending MRP for Packs (Pack 1 & pack 2)",
+      "heading": "Solution › MRP › Pending MRP for Packs (Pack 1 & pack 2)",
+      "text": "After Pending MRP List of Pack Sales Order then there is an enhancement in the screen there will be two Tabs on the screen First Tab is KIT and Second Tab is for Style.\n\nNow 1st Tab – KIT/Pack: Here in this Tab, it will show KIT/Pack at Level -1 with columns names as given below. Based on the actions taken in KIT/Pack on the Level -1 it will generate Requirement for 2nd Tab.\nNow 2nd Tab – Style: Here in this Tab, it will show Styles at level 1(Style 1 & 2 – Flannel Pants) & Raw Material at Level 2.",
+      "locator": "§ Solution › MRP › Pending MRP for Packs (Pack 1 & pack 2)",
+      "kind": "section"
+    },
+    {
+      "title": "PO Generation",
+      "heading": "Solution › MRP › PO Generation",
+      "text": "KIT/Pack – PO of 1000 Qty is generated for KIT/Pack.",
+      "locator": "§ Solution › MRP › PO Generation",
+      "kind": "section"
+    },
+    {
+      "title": "FPO Generation",
+      "heading": "Solution › MRP › FPO Generation",
+      "text": "KIT/Pack – PO of 1000 Qty is generated for KIT/Pack.",
+      "locator": "§ Solution › MRP › FPO Generation",
+      "kind": "section"
+    },
+    {
+      "title": "JOB Order Generation",
+      "heading": "Solution › MRP › JOB Order Generation",
+      "text": "KIT/Pack – PO of 1000 Qty is generated for KIT/Pack.",
+      "locator": "§ Solution › MRP › JOB Order Generation",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+# Visual guide captured from the Trims Scan prototype on 2026-11-18 by backend/scripts/capture-prototype.ts.
+# Screenshots are the prototype screens exactly as shown; markers are where the prototype shows its own "Tap here" hint.
+GUIDE ID: GUIDE-TRIMS-LOC
+TITLE: Trims Scan · Location – Move stock
+MODULE: Inventory › Trims (Quick Docs mobile app)
+KIND: prototype
+PROTOTYPE URL: https://trims-prototype-mobile.vercel.app/
+KEYWORDS: trims, scan, QR, Quick Docs, mobile, Location, Move stock, location, move stock, bin
+SUMMARY: Six flows in the Quick Docs app, all built around scanning: receiving trims into stock (GRN), picking them for dispatch (Pick List), issuing them on a delivery note (GDN), moving them between locations, printing packaging movement QR labels from the phone, and the outward note types (production inputs, returns and transfers). Pick a flow, then try it on the phone. The camera is simulated, so tap a label to hold it up to the lens.
+WHAT CHANGES: • One scan shows every article inside a packaging movement, with colour, size and total quantity, so nothing has to be looked up.
+  • Moving part of an article is simple: pick the quantity, scan the new location, and put it in a packaging movement there, created on the spot if none exists.
+  • The system books each quantity to the new location. Over-moving is blocked and a packaging movement from another site is rejected.
+DATA NOTE: The prototype uses sample data only. It demonstrates the intended Quick Docs flow; it is not a live WFX transaction.
+SOURCE: Trims Scan Prototype (clickable prototype), https://trims-prototype-mobile.vercel.app/
+STATUS: Active
+CAPTURED: 2026-11-18
+STEP 1 TITLE: Open Location
+STEP 1 TEXT: The user taps the Location tile on the home screen.
+STEP 1 IMAGE: trims/loc-1.webp
+STEP 1 MARKERS: 51.5,18.8,44.5,12.2|LOCATION
+STEP 2 TITLE: Choose site
+STEP 2 TEXT: The site whose stock locations are being changed.
+STEP 2 IMAGE: trims/loc-2.webp
+STEP 2 MARKERS: 7,78.7,86,6|ABC store 11
+STEP 3 TITLE: Scan the packaging movement
+STEP 3 TEXT: The camera opens straight away. A packaging movement that is not stored at this site is rejected with a message to scan another.
+STEP 3 IMAGE: trims/loc-3.webp
+STEP 3 MARKERS: 77.3,89.4,34.3,9.3|…/00251 Box L-301 Rack B1
+STEP 4 TITLE: Select articles and issue quantity
+STEP 4 TEXT: A pop-up lists every article in that packaging movement with colour, size and total quantity in its UOM. The user ticks the articles to move and sets the issue quantity for each, never above the total, then taps Confirm.
+STEP 4 IMAGE: trims/loc-4.webp
+STEP 5 TITLE: Location screen
+STEP 5 TEXT: The selected articles appear as lines under the receiving site. A line that takes everything the packaging movement holds moves the whole package. A line that takes less is a partial move and needs a packaging movement to put the stock in.
+STEP 5 IMAGE: trims/loc-5.webp
+STEP 5 MARKERS: 4.1,55.7,91.9,5.9|Scan
+STEP 6 TITLE: Scan the new location
+STEP 6 TEXT: The user scans the QR of the location the stock should go to. It can also be chosen from the list.
+STEP 6 IMAGE: trims/loc-6.webp
+STEP 7 TITLE: Put the stock in a packaging movement
+STEP 7 TEXT: For a partial move, scan or choose a packaging movement for the new location: an empty one, or one already at that location. If none exists, create a new one on the spot. A whole-package move skips this step.
+STEP 7 IMAGE: trims/loc-7.webp
+STEP 8 TITLE: Update and repeat
+STEP 8 TEXT: Update Location moves a whole package to the new location, or books the quantities into the chosen packaging movement there. The source keeps the rest. The updated lines are listed and the next batch can start.
+STEP 8 IMAGE: trims/loc-8.webp

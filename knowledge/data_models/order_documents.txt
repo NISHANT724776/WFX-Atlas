@@ -1,0 +1,296 @@
+# Data models: Booking, order & production
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+# These are screen-level fields captured from WFX screens or specifications, not the WFX database schema.
+# Field lines: label | type (key, entered, calc, link, copied) | formula | rule | source column | note
+
+================================================================================
+MODEL ID: DM-BOM-58
+MODEL NAME: BOM used by the order
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Apparel › BOM › Materials (NIS-58)
+SUMMARY: The Flannel Shirt Adi (NIS-58) BOM line that the booking, MRP and FPO quantities are exploded with: 1.5 KG_Nis of N-8 per shirt.
+HEADER FIELDS:
+  BOM | key
+  Expected Order Qty | entered
+GRIDS:
+  [Materials (1)] (1 captured rows)
+  Article Code | link | from: rm-techpack.code
+  Total Cons Qty | entered
+  Cons per Item | entered
+  Final Consumption | calc | formula: 3 ÷ 2 with 0 % wastage | rule: CALC-BOM-FINAL-CONS
+  Cons UOM Price | calc | formula: 15 × 1,000 | rule: CALC-BOM-CONS-UOM-PRICE
+  Colours used | entered
+SCREENSHOTS:
+THEORY: bom-materials
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-BBB
+MODEL NAME: Buyer Block Booking
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Order › Buyer Block Booking › Material Details
+SUMMARY: Fabric booked per colour/size before the order exists. Indented Qty is written back from the Adhoc Indent.
+HEADER FIELDS:
+  Block Booking No. | key
+  Type / Season | entered
+  Buyer | copied
+GRIDS:
+  [Material Details (6)] (6 captured rows)
+  Material Line Key | key
+  Article | link | from: rm-techpack.code
+  Colour | entered
+  Size | entered
+  Units | entered | note: Requirement = BBB qty × Cons (Auto MRP configuration).
+  Rate | entered
+  Value | calc | formula: Units × Rate | rule: CALC-BBB-MATERIAL-VALUE
+  Indented Qty | copied | from: adhoc-indent.indentQty
+  Balance to Indent | calc | formula: Units − Indented Qty | rule: CALC-BBB-BALANCE
+SCREENSHOTS:
+THEORY: buyer-block-booking
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-ADHOC-INDENT
+MODEL NAME: BBB Adhoc Indent
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Sourcing › Adhoc Indents
+SUMMARY: Raised from the booking ("Generate Indent Requirement"). Each line points back to a booking material line; Ordered Qty comes back from the PO.
+HEADER FIELDS:
+  Indent No. | key
+  Indent Type | entered
+  Status | calc
+GRIDS:
+  [Indent lines (6)] (6 captured rows)
+  Indent Line Key | key
+  Booking Material Line | link | from: bbb.key
+  Booked Units | copied | from: bbb.units
+  Balance Units | calc | formula: Booked − Previous indent | rule: CALC-INDENT-BALANCE
+  Indent Qty | entered
+  Rate | copied | from: bbb.rate
+  Ordered Qty | copied | from: rmpo-1229.ordered
+  Open Qty | calc | formula: Indent Qty − Ordered − Adjustments | rule: CALC-INDENT-OPEN
+SCREENSHOTS:
+THEORY: adhoc-indent
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-RMPO-1229
+MODEL NAME: RMPO 1229
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Sourcing › Raw Material PO
+SUMMARY: Purchase order for the booked fabric. Value uses the PO price (10), not the indent rate (5). Shipped Qty comes back from the GRN.
+HEADER FIELDS:
+  Order No. | key
+  Supplier | entered
+  Status | entered
+GRIDS:
+  [Article Detail (6)] (6 captured rows)
+  PO Line | key
+  Indent Line | link | from: adhoc-indent.key
+  Colour | copied
+  Size | copied
+  Ordered Qty | entered
+  Price per Unit | entered
+  Total Value | calc | formula: Ordered Qty × Price per Unit | rule: CALC-RMPO-VALUE
+  Shipped Qty | copied | from: grn.accepted
+  Open Qty | calc | formula: Ordered − Shipped | rule: CALC-RMPO-OPEN
+  Stock Key | copied
+SCREENSHOTS:
+THEORY: rmpo
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-GRN
+MODEL NAME: GRN
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Inventory › GRN
+SUMMARY: Fabric received against RMPO 1229. Accepted qty becomes stock under the stock key, still tagged with booking PPJ179.
+HEADER FIELDS:
+  Receipt Type | entered
+  Receiving Site | entered
+GRIDS:
+  [GRN Qty (6)] (6 captured rows)
+  PO Line | link | from: rmpo-1229.key
+  Ordered Qty | copied | from: rmpo-1229.ordered
+  Balance Qty | calc | formula: Ordered − Previously received + Returned | rule: CALC-GRN-BALANCE
+  Received Qty | entered
+  Rejected Qty | entered
+  Accepted Qty | calc | formula: Received − Rejected | rule: CALC-GRN-ACCEPTED
+  Value | calc | formula: Accepted × Rate (10) | rule: CALC-GRN-ACCEPTED
+  Stock Key | copied | from: rmpo-1229.stockKey
+SCREENSHOTS:
+THEORY: grn
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-OC
+MODEL NAME: Sales Order (OC)
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Order › Purchase Order from Buyer › Quantity BreakUp
+SUMMARY: The confirmed buyer order: pieces per colour × size. Confirming it runs MRP.
+HEADER FIELDS:
+  OC No | key
+  BOM | link | from: bom-58.article
+  Block Booking | link | from: bbb.key
+GRIDS:
+  [Add Quantity BreakUp (4)] (4 captured rows)
+  BreakUp Key | key
+  Colour | entered
+  Size | entered
+  Qty | entered
+  Selling Price | entered
+  Total Value | calc | formula: Qty × Selling Price | rule: CALC-OC-VALUE
+SCREENSHOTS:
+THEORY: buyer-po
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-MRP
+MODEL NAME: MRP
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Planning › MRP
+SUMMARY: Level 1 = garments to make (from the OC). Level 2 = fabric to buy: garment qty × BOM final consumption. Running Level 1 for the full qty generates the child indents. Any level can take a negative, but a child indent is reduced or cancelled only by a negative at its parent level, and only after MRP is re-run.
+HEADER FIELDS:
+  Order | copied
+  Triggered by | calc
+GRIDS:
+  [Level 1 – Garment (4)] (4 captured rows)
+  L1 Key | key
+  OC Line | link | from: oc.key
+  Actual Requirement | copied | from: oc.qty
+  MRP % | entered
+  Req Qty | calc | formula: Actual Requirement × MRP % × (1 + Loss %) | rule: CALC-MRP-L1-REQ
+  Demand Type | calc | rule: CALC-MRP-DEMAND
+  [Level 2 – Fabric N-8 (4)] (4 captured rows)
+  L2 Key | key
+  Parent L1 | link | from: mrp.key
+  Garment Req Qty | copied | from: mrp.reqQty
+  Final Consumption | copied | from: bom-58.finalCons
+  Req Qty | calc | formula: Garment Req Qty × Final Consumption | rule: CALC-MRP-L2-REQ
+  Demand Type | calc | rule: CALC-MRP-DEMAND
+  [Adjustment scenarios (Level 1 = 500)] (4 captured rows)
+  Entered at | entered | note: Every level can take a negative; only one entered at the parent level changes the child indent.
+  MRP Adjustment | entered | note: Negative quantity the user enters at MRP.
+  Level 1 Qty | copied
+  Net Level 1 Qty | calc | formula: Level 1 Qty + Adjustment (when entered at Level 1) | rule: CALC-MRP-ADJUST
+  Final Consumption | copied | from: bom-58.finalCons
+  Child Indent Qty | calc | formula: Net Level 1 Qty × Final Consumption (+ Adjustment when entered at Level 2) | rule: CALC-MRP-ADJUST
+  Result | calc | note: Full quantity generates the child indent; part reduces it; the whole quantity cancels it.
+SCREENSHOTS:
+THEORY: mrp
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-SO-INDENT
+MODEL NAME: Sales Order Indent
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Sourcing › Indent (MRP – Production)
+SUMMARY: MRP Level 2 written as an indent. Booking stock with the same stock key is reserved first (In-house Adj.); only the rest is ordered.
+HEADER FIELDS:
+  Indent No. | key
+  Indent Type | calc
+  Price | copied | from: bom-58.cuomPrice
+GRIDS:
+  [Indent lines (4)] (4 captured rows)
+  Indent Line Key | key
+  MRP L2 Line | link | from: mrp.key
+  Stock Key | link | from: grn.stockKey
+  Indent Qty | copied | from: mrp.reqQty
+  Purchase UOM Qty | calc | formula: Indent Qty × 1,000 | rule: CALC-PI-PURCHASE-UOM
+  BBB Stock Available | copied | from: grn.accepted
+  In-house Adj. | calc | formula: MIN(Indent Qty, BBB stock) | rule: CALC-PI-INHOUSE-ADJ
+  Ordered Qty | calc | formula: Indent Qty − In-house Adj. | rule: CALC-PI-ORDERED
+SCREENSHOTS:
+THEORY: production-indents
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-RMPO-1230
+MODEL NAME: RMPO 1230
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Sourcing › Raw Material PO
+SUMMARY: Purchase order only for the part of the sales-order indent not covered by booking stock.
+HEADER FIELDS:
+  Order No. | key
+  Status | entered
+GRIDS:
+  [Article Detail (4)] (4 captured rows)
+  Indent Line | link | from: so-indent.key
+  Indent Qty | copied | from: so-indent.indentQty
+  In-house Adj. | copied | from: so-indent.inhouse
+  Ordered Qty | copied | from: so-indent.ordered
+  Shipped Qty | entered
+  Open Qty | calc | formula: Ordered − Shipped | rule: CALC-RMPO-OPEN
+SCREENSHOTS:
+THEORY: rmpo
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-FPO
+MODEL NAME: FPO
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Booking, order & production – Flannel Shirt Adi (NIS-58) · from the Excel trial
+SCREEN: Production › Factory Production Order
+SUMMARY: Pieces released to the factory, the fabric they need, and how much of it is already reserved versus still on order.
+HEADER FIELDS:
+  FPO No. | key
+  Production Order | copied
+  Factory | entered
+GRIDS:
+  [FPO Qty – Colour/Size (4)] (4 captured rows)
+  Breakdown Key | key
+  OC Line | link | from: oc.key
+  Allocated Qty | copied | from: oc.qty
+  Reduced at FPO | entered
+  FPO Qty | calc | formula: Allocated − Reduced | rule: CALC-FPO-QTY
+  Final Consumption | copied | from: bom-58.finalCons
+  Fabric Qty Reqd | calc | formula: FPO Qty × Final Consumption | rule: CALC-FPO-FABRIC
+  [Stock Material Allocation (4)] (4 captured rows)
+  Indent Line | link | from: so-indent.key
+  Qty Reqd | copied | from: fpo.fabric
+  Net Qty Instructed | copied | from: so-indent.inhouse
+  Open Qty | calc | formula: Qty Reqd − Net Qty Instructed | rule: CALC-FPO-ALLOC-OPEN
+SCREENSHOTS:
+THEORY: fpo
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Flannel Shirt Adi (NIS-58) · from the Excel trial.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

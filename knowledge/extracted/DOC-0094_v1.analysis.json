@@ -1,0 +1,85 @@
+{
+  "tables": [],
+  "subject": "412681 - Auto Selection of Material Colors Sizes to Garment Color Sizes, if the colors  Sizes of material matches with Garment",
+  "keyTerms": [
+    "material",
+    "sizes",
+    "color",
+    "auto",
+    "colors sizes",
+    "dependency",
+    "apparel material",
+    "colors",
+    "size",
+    "garment",
+    "color sizes",
+    "table",
+    "table dependency",
+    "color size",
+    "automatically map"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Currently, users are required to manually map the color and size dependency between the apparel and the material.",
+      "locator": "§ Purpose\n\nTo enable automatic mapping of matching colors and sizes in the table dependency.\n\nBusiness Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "This process is time-consuming and prone to errors.",
+      "locator": "§ Purpose\n\nTo enable automatic mapping of matching colors and sizes in the table dependency.\n\nBusiness Requirement",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "412681 - Auto Selection of Material Colors Sizes to Garment Color Sizes, if the colors  Sizes of material matches with Garment",
+      "heading": "",
+      "text": "Software Requirements Specification\nAuto Selection of Material Colors / Sizes to Garment Color /\nSizes if the color& Sizes of material matches with Garment,\n412681\nVersion 1●30 March 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nAssumptions 3\nSection 2. 3\nFunctional Requirements 3\nAuto Selection of Material Colors / Sizes to Garment Color / Sizes if the colors & Sizes of material matches with Garment,\nRevision History 4",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose\n\nTo enable automatic mapping of matching colors and sizes in the table dependency.\n\nBusiness Requirement",
+      "heading": "Purpose\n\nTo enable automatic mapping of matching colors and sizes in the table dependency.\n\nBusiness Requirement",
+      "text": "Currently, users are required to manually map the color and size dependency between the apparel and the material. This process is time-consuming and prone to errors.\nWe require a system enhancement where the color and size mapping is automated based on matching values.\nIf both the apparel and the material have the same color, the system should automatically map that color in the table dependency. Similarly, if the sizes match, they should also be auto-mapped accordingly.",
+      "locator": "§ Purpose\n\nTo enable automatic mapping of matching colors and sizes in the table dependency.\n\nBusiness Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2:",
+      "heading": "Section 2:",
+      "text": "Functional Requirements\n\nThe system should automatically map color and size dependencies between Apparel and Material based on matching values. If the color and/or size in both match, the system should auto-populate the dependency table accordingly.\nThis auto-mapping should trigger during creation or update, while still allowing users to manually edit or override if needed.\nColor Dependency\n\n\n\n The system should automatically map colors in the table dependency when the same color (e.g., White 001A) exists in both the Article (Apparel) and the Material. The matching color should be auto-populated in the dependency table without manual intervention.\n This auto-mapping functionality should be applicable to all material types (not limited to fabric). Additionally, the system should allow users to manually modify or override the auto-mapped values as per business requirements.\nSize Dependency\n• The system should automatically map sizes in the table dependency when the same size (e.g., 62 (62)) exists in both the Article (Apparel) and the Material. The matching size should be auto-populated without manual intervention.\n• This auto-mapping should be applicable to all material types, and users should be able to manually modify or override the mapped sizes as per requirement.",
+      "locator": "§ Section 2:",
+      "kind": "section"
+    }
+  ]
+}

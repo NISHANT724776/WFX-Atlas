@@ -1,0 +1,5 @@
+﻿price_per_level,base_price,upcharge_discount,final_price,kind
+Article,100,10,110,Upcharge
+Article,100,-5,95,Discount
+Color,100,0,100,None
+Color/Size,120,-20,100,Discount

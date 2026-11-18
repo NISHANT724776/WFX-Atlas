@@ -1,0 +1,45 @@
+# Visual guide captured from the Trims Scan prototype on 2026-11-18 by backend/scripts/capture-prototype.ts.
+# Screenshots are the prototype screens exactly as shown; markers are where the prototype shows its own "Tap here" hint.
+GUIDE ID: GUIDE-TRIMS-GDN
+TITLE: Trims Scan · GDN – Dispatch trims
+MODULE: Inventory › Trims (Quick Docs mobile app)
+KIND: prototype
+PROTOTYPE URL: https://trims-prototype-mobile.vercel.app/
+KEYWORDS: trims, scan, QR, Quick Docs, mobile, GDN, Dispatch trims, GDN, goods delivery note, dispatch
+SUMMARY: Six flows in the Quick Docs app, all built around scanning: receiving trims into stock (GRN), picking them for dispatch (Pick List), issuing them on a delivery note (GDN), moving them between locations, printing packaging movement QR labels from the phone, and the outward note types (production inputs, returns and transfers). Pick a flow, then try it on the phone. The camera is simulated, so tap a label to hold it up to the lens.
+WHAT CHANGES: • The articles picked against the GDI are on the screen from the start. Nothing to key in or look up.
+  • One scan shows every GDI article inside a packaging movement, so a mixed packaging movement is handled in one go.
+  • Partial dispatch is a normal case: enter what is going out and the card shows issued against picked, in green once issued.
+DATA NOTE: The prototype uses sample data only. It demonstrates the intended Quick Docs flow; it is not a live WFX transaction.
+SOURCE: Trims Scan Prototype (clickable prototype), https://trims-prototype-mobile.vercel.app/
+STATUS: Active
+CAPTURED: 2026-11-18
+STEP 1 TITLE: Open Dispatch
+STEP 1 TEXT: The user taps the Dispatch tile on the home screen.
+STEP 1 IMAGE: trims/gdn-1.webp
+STEP 1 MARKERS: 4.1,59.3,44.5,12.2|DISPATCH
+STEP 2 TITLE: Create GDN
+STEP 2 TEXT: The same pop-up as the pick list: choose Create GDN.
+STEP 2 IMAGE: trims/gdn-2.webp
+STEP 2 MARKERS: 7,83.7,86,5.9|Create Pick List
+STEP 3 TITLE: Choose site
+STEP 3 TEXT: The site to pick the material from.
+STEP 3 IMAGE: trims/gdn-3.webp
+STEP 3 MARKERS: 7,54.6,86,6|Vikascity
+STEP 4 TITLE: Pick an article
+STEP 4 TEXT: The GDI lists each article with its required quantity, what is already dispatched and what is still pending. The pick quantity can never go above the pending quantity. Tap an article to pick for it, and tap Create Pick List when done. After the GDN, a new Pick List can be created for what is still pending, until it reaches 0.
+STEP 4 IMAGE: trims/gdn-4.webp
+STEP 4 MARKERS: 4.1,57.5,91.9,16.5|Button 4-Hole 18L (TRM-BTN-4H18) Navy (NV) · 18L Req. 1,000.
+STEP 5 TITLE: Scan the packaging movement QR
+STEP 5 TEXT: The camera opens for that article. If the article or its colour is not in the scanned packaging movement, an error asks the user to scan another.
+STEP 5 IMAGE: trims/gdn-5.webp
+STEP 5 MARKERS: 77.3,89.4,34.3,9.3|…/00281 Carton C-801 Rack 1
+STEP 6 TITLE: Confirm pick quantity
+STEP 6 TEXT: Trims only. A pop-up shows article, colour and size, the packaging movement total and the quantity still required. The pick quantity is pre-filled with the smaller of the two and stays editable, never above either.
+STEP 6 IMAGE: trims/gdn-6.webp
+STEP 7 TITLE: Review picked packaging movements
+STEP 7 TEXT: Every picked packaging movement is a row with location, movement units and pick list units. Scan again to add more, then Save.
+STEP 7 IMAGE: trims/gdn-7.webp
+STEP 8 TITLE: Pick List created
+STEP 8 TEXT: A confirmation with the pick list number, then back to home or on to the GDN.
+STEP 8 IMAGE: trims/gdn-8.webp

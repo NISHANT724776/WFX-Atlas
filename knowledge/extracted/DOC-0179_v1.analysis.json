@@ -1,0 +1,798 @@
+{
+  "tables": [
+    {
+      "name": "Sheet1",
+      "headers": [
+        "S.No",
+        "Module Category",
+        "Feature / Process",
+        "Short Description",
+        "Training Status",
+        "Notes"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Catalog",
+          "Masters",
+          "",
+          "",
+          ""
+        ],
+        [
+          "2",
+          "Catalog",
+          "Techpack",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "Catalog",
+          "System Coding",
+          "",
+          "",
+          ""
+        ],
+        [
+          "4",
+          "Catalog",
+          "Article Field Setting",
+          "",
+          "",
+          ""
+        ],
+        [
+          "5",
+          "Catalog",
+          "Material Type",
+          "",
+          "",
+          ""
+        ],
+        [
+          "6",
+          "Catalog",
+          "Product Group & Sub Category",
+          "",
+          "",
+          ""
+        ],
+        [
+          "7",
+          "Catalog",
+          "Costing",
+          "",
+          "",
+          ""
+        ],
+        [
+          "8",
+          "Catalog",
+          "BOM",
+          "",
+          "",
+          ""
+        ],
+        [
+          "9",
+          "Catalog",
+          "Supplier Price List",
+          "",
+          "",
+          ""
+        ],
+        [
+          "10",
+          "Catalog",
+          "PD",
+          "",
+          "",
+          ""
+        ],
+        [
+          "11",
+          "Sales",
+          "Buyer",
+          "",
+          "",
+          ""
+        ],
+        [
+          "12",
+          "Sales",
+          "Purchase Order from Buyer",
+          "",
+          "",
+          ""
+        ],
+        [
+          "13",
+          "Sales",
+          "ASN",
+          "",
+          "",
+          ""
+        ],
+        [
+          "14",
+          "Sales",
+          "MRL Generation",
+          "",
+          "",
+          ""
+        ],
+        [
+          "15",
+          "Sales",
+          "EDI Buyer PO",
+          "",
+          "",
+          ""
+        ],
+        [
+          "16",
+          "Sales",
+          "Buyer Block Booking",
+          "",
+          "",
+          ""
+        ],
+        [
+          "17",
+          "Sourcing",
+          "Supplier",
+          "",
+          "",
+          ""
+        ],
+        [
+          "18",
+          "Sourcing",
+          "Purchase Order",
+          "",
+          "",
+          ""
+        ],
+        [
+          "19",
+          "Sourcing",
+          "Indent Management",
+          "",
+          "",
+          ""
+        ],
+        [
+          "20",
+          "Sourcing",
+          "PRPO",
+          "",
+          "",
+          ""
+        ],
+        [
+          "21",
+          "Sourcing",
+          "Process Definition",
+          "",
+          "",
+          ""
+        ],
+        [
+          "22",
+          "Sourcing",
+          "On Order Adjustment",
+          "",
+          "",
+          ""
+        ],
+        [
+          "23",
+          "Sourcing",
+          "On Process Order Adjustment",
+          "",
+          "",
+          ""
+        ],
+        [
+          "24",
+          "Sourcing",
+          "In House Adjustment",
+          "",
+          "",
+          ""
+        ],
+        [
+          "25",
+          "Sourcing",
+          "RMPO",
+          "",
+          "",
+          ""
+        ],
+        [
+          "26",
+          "Sourcing",
+          "Vendor to Vendor",
+          "",
+          "",
+          ""
+        ],
+        [
+          "27",
+          "Sourcing",
+          "Billing on Input/Output",
+          "",
+          "",
+          ""
+        ],
+        [
+          "28",
+          "Sourcing",
+          "RFQ",
+          "",
+          "",
+          ""
+        ],
+        [
+          "29",
+          "Production",
+          "Production Order",
+          "",
+          "",
+          ""
+        ],
+        [
+          "30",
+          "Production",
+          "Process Definition",
+          "",
+          "",
+          ""
+        ],
+        [
+          "31",
+          "Production",
+          "FPO",
+          "",
+          "",
+          ""
+        ],
+        [
+          "32",
+          "Logistic",
+          "Forwarder Booking Request",
+          "",
+          "",
+          ""
+        ],
+        [
+          "33",
+          "Logistic",
+          "Forwarder Booking",
+          "",
+          "",
+          ""
+        ],
+        [
+          "34",
+          "Inventory",
+          "Receiving",
+          "",
+          "",
+          ""
+        ],
+        [
+          "35",
+          "Inventory",
+          "Dispatch",
+          "",
+          "",
+          ""
+        ],
+        [
+          "36",
+          "Inventory",
+          "Dispatch Instruction",
+          "",
+          "",
+          ""
+        ],
+        [
+          "37",
+          "Inventory",
+          "Stock Correction (List)",
+          "",
+          "",
+          ""
+        ],
+        [
+          "38",
+          "Inventory",
+          "Edit Stock",
+          "",
+          "",
+          ""
+        ],
+        [
+          "39",
+          "Inventory",
+          "Unreserve Stock",
+          "",
+          "",
+          ""
+        ],
+        [
+          "40",
+          "Inventory",
+          "Enter New Stock",
+          "",
+          "",
+          ""
+        ],
+        [
+          "41",
+          "Inventory",
+          "ASN from Supplier against PO",
+          "",
+          "",
+          ""
+        ],
+        [
+          "42",
+          "Inventory",
+          "Production Process Order Input",
+          "",
+          "",
+          ""
+        ],
+        [
+          "43",
+          "Inventory",
+          "Production Process Order Output",
+          "",
+          "",
+          ""
+        ],
+        [
+          "44",
+          "Inventory",
+          "Process Order Input",
+          "",
+          "",
+          ""
+        ],
+        [
+          "45",
+          "Inventory",
+          "Process Order Output",
+          "",
+          "",
+          ""
+        ],
+        [
+          "46",
+          "Inventory",
+          "Buyer Order Dispatch",
+          "",
+          "",
+          ""
+        ],
+        [
+          "47",
+          "QA",
+          "QA",
+          "",
+          "",
+          ""
+        ],
+        [
+          "48",
+          "QC",
+          "QC",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "WFX Training Module Tracker",
+  "keyTerms": [
+    "catalog",
+    "sales",
+    "buyer sales",
+    "buyer",
+    "sourcing",
+    "sales buyer",
+    "purchase order"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 6
+    },
+    {
+      "module": "Sales Order",
+      "score": 4
+    },
+    {
+      "module": "Style & BOM",
+      "score": 4
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Sheet1: S.No, Module Category, Feature / Process, Short Description, Training Status, Notes (48 rows)",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: Sheet1 – Sheet1",
+      "heading": "Sheet: Sheet1",
+      "text": "Columns: S.No (integer); Module Category (text); Feature / Process (text); Short Description (empty); Training Status (empty); Notes (empty)\nS.No | Module Category | Feature / Process | Short Description | Training Status | Notes\n1 | Catalog | Masters |  |  | \n2 | Catalog | Techpack |  |  | \n3 | Catalog | System Coding |  |  | \n4 | Catalog | Article Field Setting |  |  | \n5 | Catalog | Material Type |  |  | \n6 | Catalog | Product Group & Sub Category |  |  | \n7 | Catalog | Costing |  |  | \n8 | Catalog | BOM |  |  | \n9 | Catalog | Supplier Price List |  |  | \n10 | Catalog | PD |  |  | \n11 | Sales | Buyer |  |  | \n12 | Sales | Purchase Order from Buyer |  |  | \n13 | Sales | ASN |  |  | \n14 | Sales | MRL Generation |  |  | \n15 | Sales | EDI Buyer PO |  |  | \n16 | Sales | Buyer Block Booking |  |  | \n17 | Sourcing | Supplier |  |  | \n18 | Sourcing | Purchase Order |  |  | \n19 | Sourcing | Indent Management |  |  | \n20 | Sourcing | PRPO |  |  | \n… 28 more rows",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Sheet1 row 1",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 1; Module Category: Catalog; Feature / Process: Masters",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 2",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 2; Module Category: Catalog; Feature / Process: Techpack",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 3",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 3; Module Category: Catalog; Feature / Process: System Coding",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 4",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 4; Module Category: Catalog; Feature / Process: Article Field Setting",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 5",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 5; Module Category: Catalog; Feature / Process: Material Type",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 6",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 6; Module Category: Catalog; Feature / Process: Product Group & Sub Category",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 7",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 7; Module Category: Catalog; Feature / Process: Costing",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 8",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 8; Module Category: Catalog; Feature / Process: BOM",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 9",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 9; Module Category: Catalog; Feature / Process: Supplier Price List",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 10",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 10; Module Category: Catalog; Feature / Process: PD",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 11",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 11; Module Category: Sales; Feature / Process: Buyer",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 12",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 12; Module Category: Sales; Feature / Process: Purchase Order from Buyer",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 13",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 13; Module Category: Sales; Feature / Process: ASN",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 14",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 14; Module Category: Sales; Feature / Process: MRL Generation",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 15",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 15; Module Category: Sales; Feature / Process: EDI Buyer PO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 16",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 16; Module Category: Sales; Feature / Process: Buyer Block Booking",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 17",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 17; Module Category: Sourcing; Feature / Process: Supplier",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 18",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 18; Module Category: Sourcing; Feature / Process: Purchase Order",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 19",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 19; Module Category: Sourcing; Feature / Process: Indent Management",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 20",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 20; Module Category: Sourcing; Feature / Process: PRPO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 21",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 21; Module Category: Sourcing; Feature / Process: Process Definition",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 22",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 22; Module Category: Sourcing; Feature / Process: On Order Adjustment",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 23",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 23; Module Category: Sourcing; Feature / Process: On Process Order Adjustment",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 24",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 24; Module Category: Sourcing; Feature / Process: In House Adjustment",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 25",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 25; Module Category: Sourcing; Feature / Process: RMPO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 26",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 26; Module Category: Sourcing; Feature / Process: Vendor to Vendor",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 27",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 27; Module Category: Sourcing; Feature / Process: Billing on Input/Output",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 28",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 28; Module Category: Sourcing; Feature / Process: RFQ",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 29",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 29; Module Category: Production; Feature / Process: Production Order",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 30",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 30; Module Category: Production; Feature / Process: Process Definition",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 31",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 31; Module Category: Production; Feature / Process: FPO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 32",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 32; Module Category: Logistic; Feature / Process: Forwarder Booking Request",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 33",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 33; Module Category: Logistic; Feature / Process: Forwarder Booking",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 34",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 34; Module Category: Inventory; Feature / Process: Receiving",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 35",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 35; Module Category: Inventory; Feature / Process: Dispatch",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 35",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 36",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 36; Module Category: Inventory; Feature / Process: Dispatch Instruction",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 36",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 37",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 37; Module Category: Inventory; Feature / Process: Stock Correction (List)",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 37",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 38",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 38; Module Category: Inventory; Feature / Process: Edit Stock",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 38",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 39",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 39; Module Category: Inventory; Feature / Process: Unreserve Stock",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 39",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 40",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 40; Module Category: Inventory; Feature / Process: Enter New Stock",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 40",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 41",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 41; Module Category: Inventory; Feature / Process: ASN from Supplier against PO",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 41",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 42",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 42; Module Category: Inventory; Feature / Process: Production Process Order Input",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 42",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 43",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 43; Module Category: Inventory; Feature / Process: Production Process Order Output",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 43",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 44",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 44; Module Category: Inventory; Feature / Process: Process Order Input",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 44",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 45",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 45; Module Category: Inventory; Feature / Process: Process Order Output",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 45",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 46",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 46; Module Category: Inventory; Feature / Process: Buyer Order Dispatch",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 46",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 47",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 47; Module Category: QA; Feature / Process: QA",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 47",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 48",
+      "heading": "Sheet: Sheet1",
+      "text": "S.No: 48; Module Category: QC; Feature / Process: QC",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 48",
+      "kind": "data_row"
+    }
+  ]
+}

@@ -1,0 +1,1326 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Field",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Buyer",
+          "External buyer for whom the order is created."
+        ],
+        [
+          "Order Company",
+          "Order-owning company where buyer-side order is managed."
+        ],
+        [
+          "Order Company Division",
+          "Division of the Order Company"
+        ],
+        [
+          "Execution Company",
+          "Manufacturing company where production is executed."
+        ],
+        [
+          "Execution Company Division",
+          "Division of the Execution Company"
+        ],
+        [
+          "Effective Date",
+          "Date from which this TP Mapping becomes valid."
+        ],
+        [
+          "End Customer",
+          "Must be mapped in Order Company Info first and then used in TP Mapping."
+        ],
+        [
+          "Price Applicable On",
+          "Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Based On",
+          "Source transaction on which mapping will work, for example GMPO"
+        ],
+        [
+          "Auto Transaction",
+          "Documents to be auto-created, such as Techpack, OC."
+        ],
+        [
+          "Effective Date",
+          "Date from which this TP Mapping becomes valid."
+        ],
+        [
+          "Execution Company",
+          "Manufacturing company where production is executed."
+        ],
+        [
+          "Execution Company Division",
+          "Division of the Execution Company"
+        ],
+        [
+          "End Customer",
+          "End Customer used for the TP transaction as per company setup."
+        ],
+        [
+          "Order Company",
+          "Order-owning company where buyer-side order / GMPO is managed"
+        ],
+        [
+          "Order Company Division",
+          "Division of the Order Company."
+        ],
+        [
+          "Supplier",
+          "Supplier mapped for inter-company transaction, usually the supplier linked with Execution Company."
+        ],
+        [
+          "Fulfillment Type",
+          "Defines how the order will be fulfilled, for example Manufacture or Back Order."
+        ],
+        [
+          "Dispatch Site",
+          "Dispatch location/site from where finished goods will be dispatched, if applicable."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales Order Sprint - 3 V1",
+  "keyTerms": [
+    "delivery",
+    "order",
+    "user",
+    "company",
+    "order company",
+    "execution company",
+    "target delivery",
+    "sales",
+    "execution",
+    "target",
+    "size",
+    "context menu",
+    "user clicks",
+    "split",
+    "buyer"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 67
+    },
+    {
+      "module": "Style & BOM",
+      "score": 24
+    },
+    {
+      "module": "Production",
+      "score": 17
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 13
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "BOM – Costing",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "Apparel Style (Techpack)",
+    "Buyer Block Booking (BBB)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "System shall validate Tool Permissions before executing any Context Menu Tool and restrict unauthorized access.",
+      "locator": "§ Tool Permission for Context Menu Actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If no Tool Permission is assigned to a User Group, no Context Menu Tools shall be visible or accessible to its users.",
+      "locator": "§ Tool Permission for Context Menu Actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Tool Permission for Context Menu Actions:\n1. System shall provide a Tool Permission multi-select dropdown under Sales Order New Program Permissions to assign one or multiple Context Menu Tools to a User Group.\n2. System shall display only the Grid Level and Header Level Context Menu Tools assigned to the logged-in user's User Group.\n3. System shall validate Tool Permissions before executing any Context Menu Tool and restrict unauthorized access.\n4. System shall support assigning multiple Tool Permissions to a User Group, allowing access to all selected Context Menu Tools.\n5. If no Tool Permission is assigned to a User Group, no Context Menu Tools shall be visible or accessible to its users.",
+      "locator": "§ Tool Permission for Context Menu Actions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Below are the Grid Level Context menu Fields:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Source Delivery (Display Only)\n2. Target Delivery OC\n3. Target Deliveries\n4. From Delivery OC\n5. From Deliveries\n6. Confirm\n7. Discard\n8. Edit\n9. Load",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Target Delivery OC = New Delivery (Fully Editable)",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This field shall not be copied from the Source Delivery and must be entered manually by the user before saving or confirming the Delivery.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Target Delivery OC = Existing Delivery (Delivery is not editable Only Split functionality Works)",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Disable and freeze the Target Delivery lookup.\n2. Automatically create a new Draft Delivery upon clicking Load.\n3. Copy all Delivery level information from the Source Delivery to the newly created Delivery.\n4. Copy all selected Articles along with their Color/Size combinations, Selling Prices, Delivery details, Instructions, and all other applicable Delivery information.\n5. Generate the new Delivery in Draft status.\n6. Automatically open the newly created Delivery in editable mode after successful creation.\n7. Keep the Buyer Order Reference blank. This field shall not be copied from the Source Delivery and must be entered manually by the user before saving or confirming the Delivery.\n8. Target Delivery OC = Existing Delivery (Delivery is not editable Only Split functionality Works)",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Enable the Target Delivery lookup.\n2. Display only eligible Deliveries belonging to the same Sales Order for selection.\n3. Allow the user to select one Target Delivery.\n4. Transfer the split/shuffled quantities to the selected Target Delivery after confirmation.\n5. No new Delivery shall be created in this scenario.\n6. Recalculate the quantities and values for both the Source Delivery and Target Delivery.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Belong to the same Sales Order.\n2. Belong to the same Buyer.\n3. Belong to the same Style/OC.\n4. Are in Draft or Editable status.\n5. Are not Cancelled.\n6. Are not Closed.\n7. User has modification permission for the Delivery.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Source Delivery shall not be available for selection as the Target Delivery.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. The user shall enter the quantity to be transferred.\n2. The entered quantity shall be distributed proportionately across all selected Article Color/Size combinations.\n3. The transferred quantity shall be deducted from the Source Delivery.\n4. The Target Delivery shall receive the calculated quantities.\n5. All Delivery totals shall be recalculated automatically.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Split Quantity = Existing Quantity × Split Percentage / 100",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Quantities shall be rounded according to the configured UOM precision.\n2. The calculated quantity shall be transferred to the Target Delivery.\n3. Remaining quantity shall stay in the Source Delivery.\n4. Delivery totals shall be recalculated automatically.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Buyer\n2. Buyer Division\n3. Category\n4. Season\n5. Delivery Dates\n6. Factory\n7. Currency\n8. Destination\n9. Country\n10. Shipping Details\n11. Packing Details\n12. Purchase Officer\n13. Delivery Terms\n14. Articles\n15. Selling Prices\n16. Selected Colors\n17. Selected Sizes\n18. Instructions\n19. Documents (if applicable)\n20. Other Delivery level information",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The following information shall not be copied:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Buyer Order Reference\n2. Delivery Number\n3. Approval Details\n4. Workflow Status\n5. Audit Information",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Calculate Color-wise quantity.\n2. Calculate Size-wise quantity.\n3. Calculate Article Total Quantity.\n4. Calculate Article Value.\n5. Calculate Delivery Total Quantity.\n6. Calculate Delivery Total Value.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall validate the following before processing Split/Shuffle:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Split Mode is mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Split Value is mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At least one Article must exist.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At least one Color/Size combination must exist.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Source Delivery must be editable.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Delivery Status shall not be Cancelled or Closed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Split Mode is mandatory.\n2. Split Value is mandatory.\n3. At least one Article must exist.\n4. At least one Color/Size combination must exist.\n5. Source Delivery must be editable.\n6. Delivery Status shall not be Cancelled or Closed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery selection is mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Source Delivery and Target Delivery cannot be the same.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery must belong to the same Sales Order.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery must belong to the same Buyer.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery must be editable.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Target Delivery shall not be Cancelled or Closed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Target Delivery selection is mandatory.\n2. Source Delivery and Target Delivery cannot be the same.\n3. Target Delivery must belong to the same Sales Order.\n4. Target Delivery must belong to the same Buyer.\n5. Target Delivery must be editable.\n6. Target Delivery shall not be Cancelled or Closed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity must be greater than zero.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity cannot exceed available Delivery quantity.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity cannot be negative.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Quantity must be greater than zero.\n2. Quantity cannot exceed available Delivery quantity.\n3. Quantity cannot be negative.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Percentage must be greater than 0.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Percentage cannot exceed 100.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Percentage must be greater than 0.\n2. Percentage cannot exceed 100.\n3. Decimal values shall be accepted as per configured precision.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Order Reference Validation",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "System shall not allow Save/Confirm until Buyer Order Reference is entered.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Buyer Order Reference shall remain blank.\n2. User shall be required to enter Buyer Order Reference before Save or Confirm.\n3. System shall not allow Save/Confirm until Buyer Order Reference is entered.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Split Created\n2. Shuffle Completed\n3. Source Delivery\n4. Target Delivery\n5. Split Mode\n6. Split Quantity/Percentage\n7. User Name\n8. Date & Time\n9. Remarks (if entered)",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Source and Target Delivery cannot be the same.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Target Delivery is not editable.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Split Quantity cannot exceed available quantity.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Split Percentage must be between 0 and 100.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Order Reference is mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Color/Size selection is mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Delivery cannot be processed in its current status.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Split Shuffle OC/DOC:\n1. Please select Target Delivery.\n2. Source and Target Delivery cannot be the same.\n3. Target Delivery is not editable.\n4. Split Quantity cannot exceed available quantity.\n5. Split Percentage must be between 0 and 100.\n6. Buyer Order Reference is mandatory.\n7. No Article exists for Split/Shuffle.\n8. Color/Size selection is mandatory.\n9. Delivery cannot be processed in its current status.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Notes (Mandatory Dropdown)",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. Notes (Mandatory Dropdown)\n2. Save\n3. Cancel",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. Associate the selected Note with the current Delivery OC.\n2. Record the User Name.\n3. Record Date & Time.\n4. Add a new entry in the Activity Timeline of the Delivery.\n5. Close the popup.\n6. Display a success message.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. Note Description\n2. User Name\n3. Date & Time\n4. Activity Type = \"OC Note Added\"",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Delivery OC Notes:\n1. The popup shall close.\n2. No Note shall be associated with the Delivery.\n3. No Activity Timeline entry shall be created.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. Add\n2. Save\n3. Delete\n4. Discard/Cancel",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Note field shall be mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. A new editable row shall be added to the grid.\n2. The user shall enter the OC Note.\n3. Active shall be checked by default.\n4. The Note field shall be mandatory.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall validate:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Duplicate Notes are not allowed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicate Notes are not allowed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Upon successful validation:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. The Note shall be saved.\n2. The Note shall become available for selection in every Delivery OC Notes popup.\n3. Success message shall be displayed.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "OC Notes Master Configuration:\n1. Selected Note(s) shall be deleted.\n2. Deleted Notes shall no longer appear in the Delivery Notes dropdown.\n3. If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cancel Delivery OC:\n1. The user selects one or more Delivery OC(s) from the Sales Order List.\n2. The user clicks Cancel Delivery OC from the Grid Level Context Menu.\n3. The system displays a Cancel Delivery OC confirmation pop-up.\n4. Upon clicking Continue, the system opens the Remarks Add-on page for the selected Delivery OC(s), allowing the user to enter cancellation remarks.\n5. After entering the remarks, the user clicks OK.\n6. The system displays a Confirm Order Cancellation dialog with the following message:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel Delivery OC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cancel Delivery OC:\n1. Delivery OC(s)\n2. Production Order(s)\n3. FPO(s)",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel Delivery OC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This action cannot be undone.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel Delivery OC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cancel Delivery OC:\n1. The user clicks Confirm Cancellation.\n2. The system performs the following actions:\n3. Cancels the selected Delivery OC(s).\n4. Cancels all associated Production Order(s).\n5. Cancels all associated FPO(s).\n6. Updates the status of the Delivery OC(s) to Cancelled.\n7. Saves the cancellation remarks in the system for audit and tracking purposes.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel Delivery OC",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The user shall enter the Remarks / Reason (Mandatory) and click OK.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cancel:\n1. If the user clicks Continue, the system shall open the Cancellation Remarks pop-up.\n2. The user shall enter the Remarks / Reason (Mandatory) and click OK.\n3. Upon clicking OK, the system shall:\n4. Cancel the selected Main Order (OC).\n5. Cancel all associated Delivery OC(s).\n6. Save the cancellation remarks.\n7. Update the Order Status to Cancelled.\n8. If the user clicks Cancel on either pop-up, the cancellation process shall be aborted, and no changes shall be made.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the user attempts to cancel an Order whose status is Saved, Cancelled, or Closed, the system shall not initiate the cancellation process.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user attempts to cancel an Order whose status is Saved, Cancelled, or Closed, the system shall not initiate the cancellation process.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Title: Order Cancellation Not Allowed",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "You cannot cancel a Saved, Cancelled, or Closed Order.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The pop-up shall display a Remarks / Reason field, which is mandatory for closing the Order.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validate that the Remarks / Reason field is populated.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Close:\n1. When the user selects Close from the Grid Level Context Menu, the system shall display the Close Order pop-up.\n2. The pop-up shall display a Remarks / Reason field, which is mandatory for closing the Order.\n3. The user shall enter the closing remarks and click Close Order.\n4. Upon clicking Close Order, the system shall:\n5. Validate that the Remarks / Reason field is populated.\n6. Close the selected Order (OC).\n7. Update the Order Status to Closed.\n8. Save the closing remarks for audit and tracking purposes.\n9. Display a success message confirming that the Order has been closed successfully.\n10. If the user clicks Cancel or closes the pop-up, the closing process shall be aborted, and no changes shall be made.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the user attempts to close an Order whose status is already Closed or Cancelled, the system shall not proceed with the close operation.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user attempts to close an Order whose status is already Closed or Cancelled, the system shall not proceed with the close operation.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Title: Order Closure Not Allowed",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "You cannot close a Cancelled or Closed Order.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Destination Is mandatory to be filled.",
+      "locator": "§ Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Now when articles are selected then Dispatch allocation Grid will show information as given in Image.",
+      "locator": "§ Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Dispatch:\n1. Destination Is mandatory to be filled.\n2. User clicks on Article a pop-up opens and user can select either single or multiple articles. (as there are multiple article inside a single delivery)\n3. After that user selects dates.\n4. Now when articles are selected then Dispatch allocation Grid will show information as given in Image.\n5. Now when User clicks on Material Re-Allocation then a new screen opens up",
+      "locator": "§ Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "And then Free stock is also shown there",
+      "locator": "§ Sales Order List (New Addition) › Dispatch",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Sales -> Buyer Block Booking -> New",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Block Booking Type - Projection",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Buyer Block Details Screen",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "BOM Column where user will see approved BOM’s Related to the Article Selected, it is not mandatory to select.",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Now when user clicks on confirm then it gets saved inside the Buyer Block Booking List.",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When User fills color/size qty which is mandatory OW it will show an alert, after that user clicks on Link Buyer Block Booking then a pop-up opens.",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "When User fills color/size qty which is mandatory OW it will show an alert, after that user clicks on Link Buyer Block Booking then a pop-up opens.",
+      "locator": "§ BBB",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the user attempts to enter PP ratios for more than one Color, the system shall display the following validation message:",
+      "locator": "§ Packing Type › Solid Color/ Assorted Size",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "PCS = PP × Size + PP x Size…..",
+      "locator": "§ Packing Type › Solid Color/ Assorted Size",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "PCS = PP × TBA",
+      "locator": "§ Packing Type › Multiple Prepack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "No Color restriction shall be applied for this Packing Type.",
+      "locator": "§ Packing Type › Multiple Prepack",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Inseam is a size categorization used to differentiate garments based on the inside leg length.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Inseam:\n1. Petite\n2. Missy\n3. Regular\n4. Tall\n5. Long\n6. Short",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "All Inseam values are maintained in the Size Master.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The Inseam values configured in the Size Master become available throughout the system wherever Inseam-based size classification is required.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Inseam:\n1. All Inseam values are maintained in the Size Master.\n2. Each Size Master record can be associated with an Inseam category.\n3. The Inseam values configured in the Size Master become available throughout the system wherever Inseam-based size classification is required.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The configured Inseam values are displayed in the Inseam dropdown available within the Color/Size Selection pop-up.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The selected Inseam value is stored against the respective Color/Size combination.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Inseam:\n1. The user selects the appropriate Inseam value for each size.\n2. This selection classifies the size under the corresponding Inseam group.\n3. Multiple sizes can belong to the same Inseam category.\n4. The selected Inseam value is stored against the respective Color/Size combination.",
+      "locator": "§ Inseam",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The scope of this document is to define the functional requirement and system behaviour for Transfer Price Mapping and Transfer Price Order processing in WFX ERP, covering both Forward TP and Backward TP flows between the Order Company and Execution Company.",
+      "locator": "§ TP Mapping › Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This document is limited to functional mapping and process flow definition and does not cover detailed technical design, test scenarios, API details, accounting configuration, or open points.",
+      "locator": "§ TP Mapping › Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to formalize the required system behaviour for Transfer Price Order.",
+      "locator": "§ TP Mapping › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The key objective is to ensure that company-wise documents are created in the correct sequence and that auto-created documents remain linked between the Order Company and Execution Company.",
+      "locator": "§ TP Mapping › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The process is used when an order involves two related companies: one company owns the buyer order and another company executes production, procurement, shipment and internal billing.",
+      "locator": "§ TP Mapping › Overview",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Before using Transfer Price Mapping, the user must first map the End Customer in Company Info.",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In Order Company → Company Info, the user must map Buyer (End Customer) with the the Order Company.",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In Order Company → Company Info, only the Buyer mapping is required as per this TP setup.",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In Execution Company → Company Info, the user must map Supplier with the as the Execution Company supplier.",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "This Company Info setup is mandatory before creating or using TP Mapping.",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This Company Info setup is mandatory before creating or using TP Mapping.",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Field, Description (8 rows; identifiers: Field)",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "There are four ways to apply price applicable on",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Backward Transfer Price:\n1. Default Margin % on FOB,\n2. Default Margin % on Material Cost in Internal Costsheet,\n3. Default Margin Rate,\n4. Default Selling Price.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field, Description (11 rows; identifiers: Field)",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Execution Company Selling Price is auto-populated from Execution Company Default Selling Price.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Backward Transfer Price:\n1. User creates OC in Execution Company.\n2. User selects Buyer.\n3. User selects Buyer Department.\n4. User selects End Customer.\n5. Execution Company Selling Price is auto-populated from Execution Company Default Selling Price.\n6. System auto-creates GMPO / OC in Order Company with .Auto suffix.\n7. Execution Company completes RM procurement.\n8. Execution Company completes production.\n9. User creates Sales ASN in Execution Company.\n10. User enters proper Execution Company and ETD / ETA Date in Sales ASN Shipping Info.\n11. System auto-creates GMPO GRN in Order Company.\n12. System auto-creates Supplier Invoice in Order Company.\n13. System auto-creates OC Sales ASN in Order Company.\n14. User manually creates Consignment Sales Invoice in Order Company.\n15. User manually performs clearing and posting in Order Company.\n16. System auto-creates Sales Invoice in Execution Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "dependency",
+      "text": "System creates FPPO based on Auto PD selected in BOM.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "FG is dispatched from Execution Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Forward Transfer Price:\n1. User creates Techpack in Order Company.\n2. User creates OC in Order Company.\n3. User creates and approves costing in Order Company.\n4. User creates GMPO in Order Company.\n5. System auto-creates Techpack in Execution Company.\n6. System auto-creates OC in Execution Company.\n7. System auto-creates costing in open mode in Execution Company.\n8. User adds local purchase articles in Execution Company costing.\n9. User approves costing in Execution Company.\n10. User creates BOM manually in Execution Company.\n11. System generates MRL after BOM and OC creation.\n12. System generates production after MRL.\n13. User creates FPO manually.\n14. System creates FPPO based on Auto PD selected in BOM.\n15. User performs output against FPPO.\n16. System / user performs SF / FG QC.\n17. User creates Sales ASN manually in Execution Company.\n18. FG is dispatched from Execution Company.\n19. System auto-creates Sourcing ASN in Order Company.\n20. System auto-creates Inter Purchase Invoice in Order Company.\n21. System auto-creates Sales ASN in Order Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Sales Order Re-Write Developments – Sprint-3 › … › … › … › … › Contents",
+      "text": "Scope 3\nPurpose 3\nSolution 3",
+      "locator": "§ Sales Order Re-Write Developments – Sprint-3 › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Tool Permission for Context Menu Actions",
+      "heading": "Tool Permission for Context Menu Actions",
+      "text": "Navigation:\nAdmin → Organisation Structure → User Master → User Groups → Program Permissions → Sales Order New → Tool Permission\nA new permission section named Tool Permission shall be available under Sales Order New Program Permissions.\nAdministrators can assign tool access permissions to User Groups through a multi-select dropdown. Based on the selected permissions, the system shall control the visibility and execution of Context Menu Tools available in the Sales Order New screen.\nValidations:\n• System shall provide a Tool Permission multi-select dropdown under Sales Order New Program Permissions to assign one or multiple Context Menu Tools to a User Group.\n• System shall display only the Grid Level and Header Level Context Menu Tools assigned to the logged-in user's User Group.\n• System shall validate Tool Permissions before executing any Context Menu Tool and restrict unauthorized access.\n• System shall support assigning multiple Tool Permissions to a User Group, allowing access to all selected Context Menu Tools.\n• If no Tool Permission is assigned to a User Group, no Context Menu Tools shall be visible or accessible to its users.",
+      "locator": "§ Tool Permission for Context Menu Actions",
+      "kind": "section"
+    },
+    {
+      "title": "Grid Level Context Menu",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu",
+      "text": "Below are the Grid Level Context menu Fields:",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle OC/DOC",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "text": "Navigation: Sales Order List -> Grid Level Context Menu -> Split Shuffle OC/DOC\nSplit / Shuffle OC/DOC:\nThe Split / Shuffle OC/DOC functionality shall enable the user to distribute the quantities of an existing Delivery either by creating a New Delivery or by transferring the quantities to an Existing Delivery belonging to the same Sales Order.\nUpon clicking the Split/Shuffle action against a Delivery, the system shall open the Split / Shuffle popup. The popup shall contain the following fields:\n• Source Delivery (Display Only)\n• Target Delivery OC\n• Target Deliveries\n• From Delivery OC\n• From Deliveries\n• Confirm\n• Discard\n• Edit\n• Load\nTarget Delivery OC\nThe Target Delivery OC field shall contain the following values:\n• New Delivery\n• Existing Delivery\nThe behaviour of the screen shall change dynamically based on the selected value.\n• Target Delivery OC = New Delivery (Fully Editable)\nWhen the user selects New Delivery, the system shall:\n• Disable and freeze the Target Delivery lookup.\n• Automatically create a new Draft Delivery upon clicking Load.\n• Copy all Delivery level information from the Source Delivery to the newly created Delivery.\n• Copy all selected Articles along with their Color/Size combinations, Selling Prices, Delivery details, Instructions, and all other applicable Delivery information.\n• Generate the new Delivery in Draft status.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle OC/DOC",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "text": "• Automatically open the newly created Delivery in editable mode after successful creation.\n• Keep the Buyer Order Reference blank. This field shall not be copied from the Source Delivery and must be entered manually by the user before saving or confirming the Delivery.\n• Target Delivery OC = Existing Delivery (Delivery is not editable Only Split functionality Works)\nWhen the user selects Existing Delivery, the system shall:\n• Enable the Target Delivery lookup.\n• Display only eligible Deliveries belonging to the same Sales Order for selection.\n• Allow the user to select one Target Delivery.\n• Transfer the split/shuffled quantities to the selected Target Delivery after confirmation.\n• No new Delivery shall be created in this scenario.\n• Recalculate the quantities and values for both the Source Delivery and Target Delivery.\nTarget Delivery Eligibility\nThe Target Delivery lookup shall display only those Deliveries that satisfy all of the following conditions:\n• Belong to the same Sales Order.\n• Belong to the same Buyer.\n• Belong to the same Style/OC.\n• Are in Draft or Editable status.\n• Are not Cancelled.\n• Are not Closed.\n• User has modification permission for the Delivery.\nThe Source Delivery shall not be available for selection as the Target Delivery.\nSplit Mode\nThe Split Mode shall contain two options:\n• Quantity\n• Percentage\nOnly one mode can be selected at a time.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle OC/DOC",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "text": "Split by Quantity\nWhen Quantity mode is selected:\n• The user shall enter the quantity to be transferred.\n• The entered quantity shall be distributed proportionately across all selected Article Color/Size combinations.\n• The transferred quantity shall be deducted from the Source Delivery.\n• The Target Delivery shall receive the calculated quantities.\n• All Delivery totals shall be recalculated automatically.\nSplit by Percentage\nWhen Percentage mode is selected:\n• The user shall enter the split percentage.\n• The system shall calculate the quantity for each Article Color/Size combination using:\nSplit Quantity = Existing Quantity × Split Percentage / 100\n• Quantities shall be rounded according to the configured UOM precision.\n• The calculated quantity shall be transferred to the Target Delivery.\n• Remaining quantity shall stay in the Source Delivery.\n• Delivery totals shall be recalculated automatically.\nData to be Copied\nThe following information shall be copied during Split/Shuffling:\n• Buyer\n• Buyer Division\n• Category\n• Season\n• Delivery Dates\n• Factory\n• Currency\n• Destination\n• Country\n• Shipping Details\n• Packing Details\n• Purchase Officer\n• Delivery Terms\n• Articles\n• Selling Prices\n• Selected Colors\n• Selected Sizes\n• Instructions\n• Documents (if applicable)\n• Other Delivery level information\nThe following information shall not be copied:\n• Buyer Order Reference",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle OC/DOC",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "text": "• Delivery Number\n• Approval Details\n• Workflow Status\n• Audit Information\nQuantity Distribution\nFor every selected Article, the system shall automatically:\n• Calculate Color-wise quantity.\n• Calculate Size-wise quantity.\n• Calculate Article Total Quantity.\n• Calculate Article Value.\n• Calculate Delivery Total Quantity.\n• Calculate Delivery Total Value.\nAll calculations shall immediately update both Source and Target Deliveries.\nValidations\nThe system shall validate the following before processing Split/Shuffle:\nGeneral Validations\n• Split Mode is mandatory.\n• Split Value is mandatory.\n• At least one Article must exist.\n• At least one Color/Size combination must exist.\n• Source Delivery must be editable.\n• Delivery Status shall not be Cancelled or Closed.\nTarget Delivery Validations\nFor New Delivery\n• Target Delivery lookup shall remain disabled.\n• No Target Delivery selection shall be permitted.\nFor Existing Delivery\n• Target Delivery selection is mandatory.\n• Source Delivery and Target Delivery cannot be the same.\n• Target Delivery must belong to the same Sales Order.\n• Target Delivery must belong to the same Buyer.\n• Target Delivery must be editable.\n• Target Delivery shall not be Cancelled or Closed.\nQuantity Validations\nWhen Split Mode is Quantity:\n• Quantity must be greater than zero.\n• Quantity cannot exceed available Delivery quantity.\n• Quantity cannot be negative.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Split Shuffle OC/DOC",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC",
+      "text": "Percentage Validations\nWhen Split Mode is Percentage:\n• Percentage must be greater than 0.\n• Percentage cannot exceed 100.\n• Decimal values shall be accepted as per configured precision.\nBuyer Order Reference Validation\nFor every newly created Delivery:\n• Buyer Order Reference shall remain blank.\n• User shall be required to enter Buyer Order Reference before Save or Confirm.\n• System shall not allow Save/Confirm until Buyer Order Reference is entered.\nSystem Audit\nThe following actions shall be captured in the History/Audit Trail:\n• Split Created\n• Shuffle Completed\n• Source Delivery\n• Target Delivery\n• Split Mode\n• Split Quantity/Percentage\n• User Name\n• Date & Time\n• Remarks (if entered)\nSuccess Messages\n• \"Delivery has been successfully split into a new Draft Delivery.\"\n• \"Selected quantities have been successfully transferred to the Target Delivery.\"\nError Messages\n• Please select Target Delivery.\n• Source and Target Delivery cannot be the same.\n• Target Delivery is not editable.\n• Split Quantity cannot exceed available quantity.\n• Split Percentage must be between 0 and 100.\n• Buyer Order Reference is mandatory.\n• No Article exists for Split/Shuffle.\n• Color/Size selection is mandatory.\n• Delivery cannot be processed in its current status.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Split Shuffle OC/DOC (part 5)",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery OC Notes",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "text": "Within a Delivery OC, the user shall be able to add Notes through the Notes action.\nNotes Popup\nWhen the user clicks Notes, the system shall open the Notes popup.\nThe popup shall contain:\n• Notes (Mandatory Dropdown)\n• Save\n• Cancel\nThe Notes dropdown shall display only Active OC Notes configured from:\nSales → Codes → OC Notes\nThe dropdown shall be searchable.\nSave\nWhen the user selects a Note and clicks Save:\nThe system shall:\n• Associate the selected Note with the current Delivery OC.\n• Record the User Name.\n• Record Date & Time.\n• Add a new entry in the Activity Timeline of the Delivery.\n• Close the popup.\n• Display a success message.\nThe Activity Timeline entry shall include:\n• Note Description\n• User Name\n• Date & Time\n• Activity Type = \"OC Note Added\"\nA Delivery may have multiple Notes added over time.\nEach Save action shall create a separate Activity Timeline entry.\nCancel\nWhen the user clicks Cancel:\n• The popup shall close.\n• No Note shall be associated with the Delivery.\n• No Activity Timeline entry shall be created.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › Delivery OC Notes",
+      "kind": "section"
+    },
+    {
+      "title": "OC Notes Master Configuration",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "text": "Navigation\nSales → Codes → OC Notes\nThe OC Notes master shall allow users to maintain the list of standard Notes available throughout the Sales module.\nScreen Behaviour\nThe screen shall display the following columns:\n• OC Notes\n• Active\nThe following actions shall be available from the toolbar:\n• Add\n• Save\n• Delete\n• Discard/Cancel\nAdd Note\nWhen the user clicks Add:\n• A new editable row shall be added to the grid.\n• The user shall enter the OC Note.\n• Active shall be checked by default.\n• The Note field shall be mandatory.\nSave Note\nWhen the user clicks Save:\nThe system shall validate:\n• OC Note is entered.\n• Duplicate Notes are not allowed.\nUpon successful validation:\n• The Note shall be saved.\n• The Note shall become available for selection in every Delivery OC Notes popup.\n• Success message shall be displayed.\nDelete Note\nWhen the user clicks Delete:\n• Selected Note(s) shall be deleted.\n• Deleted Notes shall no longer appear in the Delivery Notes dropdown.\n• If a deleted Note is already associated with an existing Delivery, it shall remain visible in the Activity Timeline for audit purposes but shall not be available for future selection.\nDiscard\nWhen the user clicks Discard:\n• All unsaved changes shall be reverted.\n• No data shall be saved.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Notes › OC Notes Master Configuration",
+      "kind": "section"
+    },
+    {
+      "title": "Cancel Delivery OC",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Cancel Delivery OC",
+      "text": "Navigation\nSales → Sales Order List → Grid Level Context Menu → Cancel Delivery OC\nProcess Flow\n• The user selects one or more Delivery OC(s) from the Sales Order List.\n• The user clicks Cancel Delivery OC from the Grid Level Context Menu.\n• The system displays a Cancel Delivery OC confirmation pop-up.\n• Upon clicking Continue, the system opens the Remarks Add-on page for the selected Delivery OC(s), allowing the user to enter cancellation remarks.\n• After entering the remarks, the user clicks OK.\n• The system displays a Confirm Order Cancellation dialog with the following message:\nAre you sure you want to cancel the selected Delivery OC?\nCancelling the selected Delivery OC will also cancel all corresponding:\n• Delivery OC(s)\n• Production Order(s)\n• FPO(s)\nThis action cannot be undone.\n• The user clicks Confirm Cancellation.\n• The system performs the following actions:\n• Cancels the selected Delivery OC(s).\n• Cancels all associated Production Order(s).\n• Cancels all associated FPO(s).\n• Updates the status of the Delivery OC(s) to Cancelled.\n• Saves the cancellation remarks in the system for audit and tracking purposes.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel Delivery OC",
+      "kind": "section"
+    },
+    {
+      "title": "Cancel",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "text": "Navigation\nSales → Sales Order List → Grid Level Context Menu → Cancel\nProcess Flow\n• When the user selects Cancel from the Grid Level Context Menu, the system shall display a Cancel Order confirmation pop-up.\nMessage:\nPlease note that this action will cancel all Delivery OC(s) associated with this Main OC. Do you want to continue?\n• If the user clicks Continue, the system shall open the Cancellation Remarks pop-up.\n• The user shall enter the Remarks / Reason (Mandatory) and click OK.\n• Upon clicking OK, the system shall:\n• Cancel the selected Main Order (OC).\n• Cancel all associated Delivery OC(s).\n• Save the cancellation remarks.\n• Update the Order Status to Cancelled.\n• If the user clicks Cancel on either pop-up, the cancellation process shall be aborted, and no changes shall be made.\nValidation\nIf the user attempts to cancel an Order whose status is Saved, Cancelled, or Closed, the system shall not initiate the cancellation process.\nInstead, the system shall display the following information message:\nTitle: Order Cancellation Not Allowed\nMessage:\nYou cannot cancel a Saved, Cancelled, or Closed Order.\nClicking OK shall close the dialog, and the Order Gets closed and status gets updated.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Cancel",
+      "kind": "section"
+    },
+    {
+      "title": "Close",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "text": "Navigation\nSales → Sales Order List → Grid Level Context Menu → Close\nProcess Flow\n• When the user selects Close from the Grid Level Context Menu, the system shall display the Close Order pop-up.\n• The pop-up shall display a Remarks / Reason field, which is mandatory for closing the Order.\n• The user shall enter the closing remarks and click Close Order.\n• Upon clicking Close Order, the system shall:\n• Validate that the Remarks / Reason field is populated.\n• Close the selected Order (OC).\n• Update the Order Status to Closed.\n• Save the closing remarks for audit and tracking purposes.\n• Display a success message confirming that the Order has been closed successfully.\n• If the user clicks Cancel or closes the pop-up, the closing process shall be aborted, and no changes shall be made.\nValidation\nIf the user attempts to close an Order whose status is already Closed or Cancelled, the system shall not proceed with the close operation.\nThe system shall display the following information message:\nTitle: Order Closure Not Allowed\nMessage:\nYou cannot close a Cancelled or Closed Order.\nClicking OK shall close the dialog, and no changes shall be made to the Order.",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Close",
+      "kind": "section"
+    },
+    {
+      "title": "Performa Invoice",
+      "heading": "Sales Order List (New Addition) › Grid Level Context Menu › Performa Invoice",
+      "text": "Navigation:\nSales -> Sales Order List -> Grid Level Context Menu -> Performa Invoice",
+      "locator": "§ Sales Order List (New Addition) › Grid Level Context Menu › Performa Invoice",
+      "kind": "section"
+    },
+    {
+      "title": "RUN MRP",
+      "heading": "Sales Order List (New Addition) › Header Level Context Menu › RUN MRP",
+      "text": "User selects the order clicks on Header Level Context menu and clicks on Run MRP then it will open MRP screen showing level wise material details.",
+      "locator": "§ Sales Order List (New Addition) › Header Level Context Menu › RUN MRP",
+      "kind": "section"
+    },
+    {
+      "title": "ASN/GDN showcase with Order Qty Tab",
+      "heading": "Sales Order List (New Addition) › ASN/GDN showcase with Order Qty Tab",
+      "text": "Under Order Qty Column we need a Hyperlink on ASN and GDN. Upon clicking on ASN and GDN a Pop-up opens showcasing ASN and GDN Qty.\nUpon switching Tab you can see ASN and GDN qty Related to that Delivery OC.",
+      "locator": "§ Sales Order List (New Addition) › ASN/GDN showcase with Order Qty Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Sales invoice",
+      "heading": "Sales Order List (New Addition) › Sales invoice",
+      "text": "When user Clicks on No.as a hyperlink, as shown in Sales Invoice Column for that particular delivery then it will open a pop-up named Sales Invoice Detail.\nInvoice No.:\nInvoice Date:\nQty:\nValue:",
+      "locator": "§ Sales Order List (New Addition) › Sales invoice",
+      "kind": "section"
+    },
+    {
+      "title": "Dispatch",
+      "heading": "Sales Order List (New Addition) › Dispatch",
+      "text": "Under Dispatch Column user clicks on Hyperlink, it will open a new page name Buyer Dispatch Note\n• Destination Is mandatory to be filled.\n• User clicks on Article a pop-up opens and user can select either single or multiple articles. (as there are multiple article inside a single delivery)\n• After that user selects dates.\n• Now when articles are selected then Dispatch allocation Grid will show information as given in Image.\n• Now when User clicks on Material Re-Allocation then a new screen opens up\nNow when user selects a particular order status then when In-House material is present then it will show inside Reserve Stock. As shown below\nAnd then Free stock is also shown there",
+      "locator": "§ Sales Order List (New Addition) › Dispatch",
+      "kind": "section"
+    },
+    {
+      "title": "BBB",
+      "heading": "BBB",
+      "text": "Navigation:\nSales -> Buyer Block Booking -> New\nBuyer Block Booking Type - Projection\nReservation\nBuyer Block Details Screen\nBOM Column where user will see approved BOM’s Related to the Article Selected, it is not mandatory to select. Now when user selects the BOM then on opening the material pop-up through hyperlink then inside material details screen pop-up the article gets auto populated related to the BOM selected outside and no tool of add to Catalog will be present.\nNow when user does not select any BOM Now inside Material Details screen Add from Catalog tool be present as working currently in the system.\nNow when Add and Close\nUOM Column add – on.\n\nGenerate Indent Requirement\nWhen user clicks on this tool from the Header then it will generate Adhoc indent automatically.\nNow when user clicks on confirm then it gets saved inside the Buyer Block Booking List.\nWhen User fills color/size qty which is mandatory OW it will show an alert, after that user clicks on Link Buyer Block Booking then a pop-up opens.",
+      "locator": "§ BBB",
+      "kind": "section"
+    },
+    {
+      "title": "Additional QTY",
+      "heading": "Additional QTY",
+      "text": "To add additional Qty user need to switch to tab and then user can add Qty and selling price based on Color/Size level.\nAnd need a reason from dropdown to be selected\n\nTable Level Break-up\nGrid level Break – up",
+      "locator": "§ Additional QTY",
+      "kind": "section"
+    },
+    {
+      "title": "Solid Color / Solid Size",
+      "heading": "Packing Type › Solid Color / Solid Size",
+      "text": "When the user selects Solid Color / Solid Size as the Packing Type, the system shall open the existing Color/Size popup without any layout changes.\nThe user shall be allowed to enter quantities only for a single Color and a single Size combination as per the existing functionality.\nAll existing validations, including Additional Quantity validations, shall remain unchanged.",
+      "locator": "§ Packing Type › Solid Color / Solid Size",
+      "kind": "section"
+    },
+    {
+      "title": "Solid Color/ Assorted Size",
+      "heading": "Packing Type › Solid Color/ Assorted Size",
+      "text": "When the user selects Solid Color / Assorted Size, the system shall open the existing Color/Size popup and display a new editable column named PP immediately after the Color/Size column.\nThe user shall be allowed to define a PP Ratio for a single Color across multiple Sizes.\nIf the user attempts to enter PP ratios for more than one Color, the system shall display the following validation message:\nOnly one color can be entered for this packing type.\nThe PCS value shall be calculated using:\nPCS = PP × Size + PP x Size…..",
+      "locator": "§ Packing Type › Solid Color/ Assorted Size",
+      "kind": "section"
+    },
+    {
+      "title": "Multiple Prepack",
+      "heading": "Packing Type › Multiple Prepack",
+      "text": "When the user selects Multiple Prepack, the system shall open the existing Color/Size popup with the additional PP column.\nThe user shall be allowed to define PP ratios across multiple Colors and multiple Sizes simultaneously.\nThe PCS value shall be automatically calculated using:\nPCS = PP × TBA\nNo Color restriction shall be applied for this Packing Type.",
+      "locator": "§ Packing Type › Multiple Prepack",
+      "kind": "section"
+    },
+    {
+      "title": "Inseam",
+      "heading": "Inseam",
+      "text": "Inseam is a size categorization used to differentiate garments based on the inside leg length. It allows the same waist or garment size to be offered in multiple length variants to meet the sizing standards of different regions, countries, or customer groups.\nExamples of Inseam categories include:\n• Petite\n• Missy\n• Regular\n• Tall\n• Long\n• Short\nConfiguration\n• All Inseam values are maintained in the Size Master.\n• Each Size Master record can be associated with an Inseam category.\n• The Inseam values configured in the Size Master become available throughout the system wherever Inseam-based size classification is required.\nUsage\nThe configured Inseam values are displayed in the Inseam dropdown available within the Color/Size Selection pop-up.\nWhen creating or editing Color/Size combinations:\n• The user selects the appropriate Inseam value for each size.\n• This selection classifies the size under the corresponding Inseam group.\n• Multiple sizes can belong to the same Inseam category.\n• The selected Inseam value is stored against the respective Color/Size combination.",
+      "locator": "§ Inseam",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "TP Mapping › Scope",
+      "text": "The scope of this document is to define the functional requirement and system behaviour for Transfer Price Mapping and Transfer Price Order processing in WFX ERP, covering both Forward TP and Backward TP flows between the Order Company and Execution Company. It includes Company Info Mapping, TP Mapping setup, buyer/end customer/supplier/division mapping, price applicability, document auto-creation, and the complete transaction sequence across both companies, including OC, Techpack, Costing, GMPO, BOM, MRL, production, ASN, invoices, clearing and posting. This document is limited to functional mapping and process flow definition and does not cover detailed technical design, test scenarios, API details, accounting configuration, or open points.",
+      "locator": "§ TP Mapping › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "TP Mapping › Purpose",
+      "text": "The purpose of this document is to formalize the required system behaviour for Transfer Price Order. The document explains the required mapping, assumptions, and functional solution for Forward TP and Backward TP without including detailed test scenarios or open-point sections.\nThe key objective is to ensure that company-wise documents are created in the correct sequence and that auto-created documents remain linked between the Order Company and Execution Company.",
+      "locator": "§ TP Mapping › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Overview",
+      "heading": "TP Mapping › Overview",
+      "text": "This document defines the requirement for the Transfer Price Order process in WFX ERP. The process is used when an order involves two related companies: one company owns the buyer order and another company executes production, procurement, shipment and internal billing.\nThe requirement covers both Forward TP and Backward TP flows. In Forward TP, the order starts in the Order Company and the required execution documents are auto-created in the Execution Company. In Backward TP, the order starts in the Execution Company and the linked order is auto-created in the Parent / Order Company.\nAs per the Forward TP production cycle, the Order Company starts with Techpack, OC, Costing and GMPO. After that, Techpack, OC and Costing are created in the Execution Company, followed by BOM, MRL, procurement, production, Sales ASN and auto document generation back in the Order Company.",
+      "locator": "§ TP Mapping › Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Company Info Mapping",
+      "heading": "TP Mapping › Solution › Company Info Mapping",
+      "text": "Before using Transfer Price Mapping, the user must first map the End Customer in Company Info.\nIn Order Company → Company Info, the user must map Buyer (End Customer) with the the Order Company.\nIn Order Company → Company Info, only the Buyer mapping is required as per this TP setup.\nIn Execution Company → Company Info, the user must map Supplier with the as the Execution Company supplier.\nThis Company Info setup is mandatory before creating or using TP Mapping.\nTP Mapping shall use the Company Info setup to identify the correct internal buyer/supplier relationship between Order Company and Execution Company.\nPath: Admin Company Info",
+      "locator": "§ TP Mapping › Solution › Company Info Mapping",
+      "kind": "section"
+    },
+    {
+      "title": "Transfer Price Mapping",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping",
+      "text": "Path: FA Master Definations AR Masters Transfer Price Default Transfer price Mapping",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping",
+      "kind": "section"
+    },
+    {
+      "title": "Backward Transfer Price",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "In Backward TP, the mapping is created in Default Transfer Price Mapping by selecting the Backward TP radio button. This mapping will decide how the system will auto-create OC / GMPO in Order Company when the user creates the source OC in Execution Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "kind": "section"
+    },
+    {
+      "title": "Backward Transfer Price – Table 1",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Columns: Field (text); Description (text)\nField | Description\nBuyer | External buyer for whom the order is created.\nOrder Company | Order-owning company where buyer-side order is managed.\nOrder Company Division | Division of the Order Company\nExecution Company | Manufacturing company where production is executed.\nExecution Company Division | Division of the Execution Company\nEffective Date | Date from which this TP Mapping becomes valid.\nEnd Customer | Must be mapped in Order Company Info first and then used in TP Mapping.\nPrice Applicable On | Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Buyer; Description: External buyer for whom the order is created.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Order Company; Description: Order-owning company where buyer-side order is managed.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Order Company Division; Description: Division of the Order Company",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Execution Company; Description: Manufacturing company where production is executed.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Execution Company Division; Description: Division of the Execution Company",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Effective Date; Description: Date from which this TP Mapping becomes valid.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: End Customer; Description: Must be mapped in Order Company Info first and then used in TP Mapping.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "Field: Price Applicable On; Description: Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Backward Transfer Price",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "text": "There are four ways to apply price applicable on\n• Default Margin % on FOB,\n• Default Margin % on Material Cost in Internal Costsheet,\n• Default Margin Rate,\n• Default Selling Price.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Backward Transfer Price",
+      "kind": "section"
+    },
+    {
+      "title": "Forward Transfer Price",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "In Forward TP, the mapping is created in Default Transfer Price Mapping by selecting the Forward TP radio button. This mapping decides how the system will auto-create Techpack / Costsheet / OC in Execution Company when the source transaction is created from Order Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "kind": "section"
+    },
+    {
+      "title": "Forward Transfer Price – Table 2",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Columns: Field (text); Description (text)\nField | Description\nBased On | Source transaction on which mapping will work, for example GMPO\nAuto Transaction | Documents to be auto-created, such as Techpack, OC.\nEffective Date | Date from which this TP Mapping becomes valid.\nExecution Company | Manufacturing company where production is executed.\nExecution Company Division | Division of the Execution Company\nEnd Customer | End Customer used for the TP transaction as per company setup.\nOrder Company | Order-owning company where buyer-side order / GMPO is managed\nOrder Company Division | Division of the Order Company.\nSupplier | Supplier mapped for inter-company transaction, usually the supplier linked with Execution Company.\nFulfillment Type | Defines how the order will be fulfilled, for example Manufacture or Back Order.\nDispatch Site | Dispatch location/site from where finished goods will be dispatched, if applicable.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Based On; Description: Source transaction on which mapping will work, for example GMPO",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Auto Transaction; Description: Documents to be auto-created, such as Techpack, OC.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Effective Date; Description: Date from which this TP Mapping becomes valid.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Execution Company; Description: Manufacturing company where production is executed.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Execution Company Division; Description: Division of the Execution Company",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: End Customer; Description: End Customer used for the TP transaction as per company setup.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Order Company; Description: Order-owning company where buyer-side order / GMPO is managed",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Order Company Division; Description: Division of the Order Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Supplier; Description: Supplier mapped for inter-company transaction, usually the supplier linked with Execution Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Fulfillment Type; Description: Defines how the order will be fulfilled, for example Manufacture or Back Order.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price",
+      "text": "Field: Dispatch Site; Description: Dispatch location/site from where finished goods will be dispatched, if applicable.",
+      "locator": "§ TP Mapping › Solution › Transfer Price Mapping › Forward Transfer Price, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Backward Transfer Price",
+      "heading": "TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "text": "In Backward TP, the order starts in the Execution Company.\nThe process is:\n• User creates OC in Execution Company.\n• User selects Buyer.\n• User selects Buyer Department.\n• User selects End Customer.\n• Execution Company Selling Price is auto-populated from Execution Company Default Selling Price.\n• System auto-creates GMPO / OC in Order Company with .Auto suffix.\n• Execution Company completes RM procurement.\n• Execution Company completes production.\n• User creates Sales ASN in Execution Company.\n• User enters proper Execution Company and ETD / ETA Date in Sales ASN Shipping Info.\n• System auto-creates GMPO GRN in Order Company.\n• System auto-creates Supplier Invoice in Order Company.\n• System auto-creates OC Sales ASN in Order Company.\n• User manually creates Consignment Sales Invoice in Order Company.\n• User manually performs clearing and posting in Order Company.\n• System auto-creates Sales Invoice in Execution Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Backward Transfer Price",
+      "kind": "section"
+    },
+    {
+      "title": "Forward Transfer Price",
+      "heading": "TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "text": "In Forward TP, the order starts in the Order Company.\nThe process is:\n• User creates Techpack in Order Company.\n• User creates OC in Order Company.\n• User creates and approves costing in Order Company.\n• User creates GMPO in Order Company.\n• System auto-creates Techpack in Execution Company.\n• System auto-creates OC in Execution Company.\n• System auto-creates costing in open mode in Execution Company.\n• User adds local purchase articles in Execution Company costing.\n• User approves costing in Execution Company.\n• User creates BOM manually in Execution Company.\n• System generates MRL after BOM and OC creation.\n• System generates production after MRL.\n• User creates FPO manually.\n• System creates FPPO based on Auto PD selected in BOM.\n• User performs output against FPPO.\n• System / user performs SF / FG QC.\n• User creates Sales ASN manually in Execution Company.\n• FG is dispatched from Execution Company.\n• System auto-creates Sourcing ASN in Order Company.\n• System auto-creates Inter Purchase Invoice in Order Company.\n• System auto-creates Sales ASN in Order Company.",
+      "locator": "§ TP Mapping › Solution › Transfer Price – Flow › Forward Transfer Price",
+      "kind": "section"
+    }
+  ]
+}

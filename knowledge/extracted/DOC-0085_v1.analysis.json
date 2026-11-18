@@ -1,0 +1,245 @@
+{
+  "tables": [],
+  "subject": "405186 - Revised",
+  "keyTerms": [
+    "mrp",
+    "run",
+    "mrp percentage",
+    "percentage",
+    "mrp scheduler",
+    "open production",
+    "open",
+    "run mrp",
+    "user",
+    "production qty",
+    "case",
+    "scheduler",
+    "qty",
+    "automatically",
+    "manually"
+  ],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 30
+    },
+    {
+      "module": "Production",
+      "score": 11
+    },
+    {
+      "module": "Sales Order",
+      "score": 11
+    },
+    {
+      "module": "Style & BOM",
+      "score": 9
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The objective of this requirement is to automate the MRP (Material Requirement Planning) Run process to ensure timely and accurate generation of material requirements without manual intervention.",
+      "locator": "§ Purpose",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If multiple BOMs are available for the article, the system should allow the user to select the required BOM from the list.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If only one BOM is available, the system should automatically attach the BOM in the EDI screen without requiring user selection.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "The system should display only those BOMs which are in Approved status for selection or auto-attachment.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Process Flow:\n1. If multiple BOMs are available for the article, the system should allow the user to select the required BOM from the list.\n2. If only one BOM is available, the system should automatically attach the BOM in the EDI screen without requiring user selection.\n3. The system should display only those BOMs which are in Approved status for selection or auto-attachment.\n4. Only one BOM (Bill of Materials) should be allowed to be attached to a single Summary OC.\n5. Only In case of any revision in the OC, the system should automatically re-run the MRP to reflect the updated requirements.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "The system will automatically trigger MRP runs based on backend-defined schedules.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Process Flow:\n1. The MRP scheduler will be configured at the backend only, and no UI/screen will be provided to users for scheduler configuration.\n2. The system will automatically trigger MRP runs based on backend-defined schedules.\n3. In case of OC revision MRP should need to re run automatically.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "Additionally, users should have the provision to manually trigger MRP for specific articles/OCs in urgent scenarios, even before the scheduled run.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Process Flow:\n1. In case of any error during MRP execution, the system should capture and log the error details.\n2. A separate screen should be provided for users to monitor MRP run errors.\n3. This screen should display:\n4. Article / OC reference\n5. MRP run date and time\n6. Execution status (Success/Failed)\n7. Detailed error messages\n8. Users should be able to analyse the errors and take corrective actions from this screen.\n9. The system should also allow users to reprocess/re-run MRP after resolving the issues.\n10. Additionally, users should have the provision to manually trigger MRP for specific articles/OCs in urgent scenarios, even before the scheduled run.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this requirement is to automate MRP execution based on predefined percentage configurations, so users do not need to enter percentages manually every time.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "The purpose of this requirement is to automate MRP execution based on predefined percentage configurations, so users do not need to enter percentages manually every time.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "A separate screen should be provided where users can define MRP percentages based on the below fields:",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Process Flow:\n1. Company\n2. Company Division\n3. Buyer\n4. Buyer Department\n5. Product Group\n6. Subcategory",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Buyer = ABC Buyer",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Product Group = Knitwear",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Subcategory = T-Shirt",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "MRP Percentage = 80%",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Process Flow:\n1. Buyer = ABC Buyer\n2. Product Group = Knitwear\n3. Subcategory = T-Shirt\n4. MRP Percentage = 80%",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "During scheduler-based MRP execution, the system should automatically pick the configured MRP percentage based on the matching configuration.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "The scheduler should run MRP based on the configured percentage instead of full quantity.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Process Flow:\n1. During scheduler-based MRP execution, the system should automatically pick the configured MRP percentage based on the matching configuration.\n2. The configured percentage should auto-update in the MRP screen.\n3. The scheduler should run MRP based on the configured percentage instead of full quantity.\n4. Users should be able to edit and maintain these percentage configurations from the new screen.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "3.1) A Provision to defined MRP Percentage On “MRP Line Level” is required where user can define the MRP Run Percentage and system will fill the “Open Production Qty” as per the defined MRP Percentage.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "E) Copy Below & Copy All Feature is required for “Open Production Qty” & “MRP Percentage” columns.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "E) Copy Below & Copy All Feature is required for “Open Production Qty” & “MRP Percentage” columns.",
+      "locator": "§ Process Flow",
+      "module": "Planning"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "405186 - Revised",
+      "heading": "",
+      "text": "Software Requirements Specification\nAuto Run MRP\n15th Apr 2026",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The objective of this requirement is to automate the MRP (Material Requirement Planning) Run process to ensure timely and accurate generation of material requirements without manual intervention.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Process Flow",
+      "heading": "Process Flow",
+      "text": "Step 1: BOM Selection during OC Creation via EDI Buyer PO\nWhile creating the OC from the EDI Buyer PO, the system should handle BOM selection as follows:\n• If multiple BOMs are available for the article, the system should allow the user to select the required BOM from the list.\n• If only one BOM is available, the system should automatically attach the BOM in the EDI screen without requiring user selection.\n• The system should display only those BOMs which are in Approved status for selection or auto-attachment.\n• Only one BOM (Bill of Materials) should be allowed to be attached to a single Summary OC.\n• Only In case of any revision in the OC, the system should automatically re-run the MRP to reflect the updated requirements.\nIn the above screen you can see BOM will be select while creating the OC.\nStep 2: Auto MRP\nMRP Scheduler Configuration (Backend Controlled)\n• The MRP scheduler will be configured at the backend only, and no UI/screen will be provided to users for scheduler configuration.\n• The system will automatically trigger MRP runs based on backend-defined schedules.\n• In case of OC revision MRP should need to re run automatically.\nError Handling and Monitoring for MRP Run\n• In case of any error during MRP execution, the system should capture and log the error details.\n• A separate screen should be provided for users to monitor MRP run errors.",
+      "locator": "§ Process Flow",
+      "kind": "section"
+    },
+    {
+      "title": "Process Flow",
+      "heading": "Process Flow",
+      "text": "• This screen should display:\n• Article / OC reference\n• MRP run date and time\n• Execution status (Success/Failed)\n• Detailed error messages\n• Users should be able to analyse the errors and take corrective actions from this screen.\n• The system should also allow users to reprocess/re-run MRP after resolving the issues.\n• Additionally, users should have the provision to manually trigger MRP for specific articles/OCs in urgent scenarios, even before the scheduled run.\nRequirement 2: MRP Auto MRP Scheduler Configurator\nThe purpose of this requirement is to automate MRP execution based on predefined percentage configurations, so users do not need to enter percentages manually every time.\nObjective:\nA separate screen should be provided where users can define MRP percentages based on the below fields:\n• Company\n• Company Division\n• Buyer\n• Buyer Department\n• Product Group\n• Subcategory\nUsers should be able to enter and maintain MRP percentages against these combinations.\nExample:\n• Buyer = ABC Buyer\n• Product Group = Knitwear\n• Subcategory = T-Shirt\n• MRP Percentage = 80%\nSystem Behaviour:\n• During scheduler-based MRP execution, the system should automatically pick the configured MRP percentage based on the matching configuration.\n• The configured percentage should auto-update in the MRP screen.",
+      "locator": "§ Process Flow (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Process Flow",
+      "heading": "Process Flow",
+      "text": "• The scheduler should run MRP based on the configured percentage instead of full quantity.\n• Users should be able to edit and maintain these percentage configurations from the new screen.\nRequirement 3: MRP Percentage-Based Execution — Problem Statements for Team Discussion\n3.1) A Provision to defined MRP Percentage On “MRP Line Level” is required where user can define the MRP Run Percentage and system will fill the “Open Production Qty” as per the defined MRP Percentage.\nCase 1: - User run the MRP manually and 80 % defined in MRP Scheduler Configurator.\nA) MRP Percentage and Open production qty need to work as per predefined MRP Scheduler Configurator.\nB) Now user can increase/decrease the MRP percentage system will auto adjust the all individual lines with that defined percentage, for example use change it to 95%.\nC) If user manually change each and every line open production qty system need to auto calculate the “MRP Percentage”.\nMRP percentage should need to calculate as per (Open Production Qty/Req. Qty) * 100.\nD) If user manually change each and every line MRP Percentage system need to auto calculate the “Open production qty”.\nOpen Production qty need to work as per “Decimal Places of particular article” in our case we take an example of Apparel and its UOM is “PCS” and Decimal Places are Zero.",
+      "locator": "§ Process Flow (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Process Flow",
+      "heading": "Process Flow",
+      "text": "So, if a specific user put any MRP percentage system should auto need to “Round UP” the Open production qty & also need to change the MRP Percentage.\nE) Copy Below & Copy All Feature is required for “Open Production Qty” & “MRP Percentage” columns.\n3.2) Currently, the MRP screen runs for the full open qty as open Production quantity, but in case of MRP run/re run Automatically/Manually multiple times we need to cover as per below mentioned logic to keep “Master Scheduler Configurator” As thumb rule.\nIn case a user run MRP already (Automatically/Manually) second time if try to run what should need to update in “Open Production Qty”, In case we mentioned 80% in MRP Scheduler Configurator.\nCase- A\nNow user try to run the MRP again if he/she open the MRP Page Manually OR MRP scheduler run automatically system need to work as per mentioned below data.\nCase-B\nNow user try to run the MRP again if he/she open the MRP Page Manually OR MRP scheduler run automatically system need to work as per mentioned below data.\nCase-C\nNow user try to run the MRP again if he/she open the MRP Page Manually OR MRP scheduler run automatically system need to work as per mentioned below data, In this case let say required qty is reduced from 300 qty to 250.\nCase-D",
+      "locator": "§ Process Flow (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Process Flow",
+      "heading": "Process Flow",
+      "text": "Now user try to run the MRP again if he/she open the MRP Page Manually OR MRP scheduler run automatically system need to work as per mentioned below data.\nIf user try to remove the minus “Open Production Qty” column MRP Percentage need to change as “117.64” if user try to click in its system will not allow to go beyond “100%”.\nRequirement 4: MRP Auto Re Run in Case OF SOC Revision and BOM Revision",
+      "locator": "§ Process Flow (part 5)",
+      "kind": "section"
+    }
+  ]
+}

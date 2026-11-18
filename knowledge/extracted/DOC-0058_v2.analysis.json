@@ -1,0 +1,491 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Site",
+        "Stock Site"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Delhi Warehouse",
+          "Delhi Warehouse"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Site",
+        "Stock Site"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Delhi, Mumbai",
+          "[Dropdown ▼] >>"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Site",
+        "Stock Site"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Blank",
+          "[Dropdown ▼] >>"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Field Name",
+        "Control Type",
+        "Mandatory"
+      ],
+      "types": [
+        "text",
+        "text",
+        "boolean"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Stock Site",
+          "Dropdown (LOV)",
+          "Yes"
+        ],
+        [
+          "Quantity",
+          "Numeric Input",
+          "Yes"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Version",
+        "Created/Revised By",
+        "Created/Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Kalpesh Sharma",
+          "11th Jan 2026",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "293106  -Updated On Behalf of Hari Sir",
+  "keyTerms": [
+    "site",
+    "stock site",
+    "stock",
+    "section",
+    "hyperlink",
+    "user",
+    "andhra pradesh",
+    "dropdown",
+    "site allocation",
+    "popup",
+    "allocation",
+    "site dropdown",
+    "allocation popup",
+    "above",
+    "fppo"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 8
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 6
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Automation is required for GDN and GRN",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Automation is required for GDN and GRN",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to facilitate :",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 2. Assumptions:\n1. Sales Order : User created Sales Order at Bangalore Unit.\n2. Sourcing and Material Requisition\n3. System shall generate material requisition based on Sales Order.\n4. Approval workflow: PD → FPPO\n5. FPO : will be created in the Bangalore Division\n6. FPPO : will be created in the Andhra Pradesh Unit\n7. Destination/Input site(Andhra Pradesh site) and Available quantity site(Bangalore Site) are related to different Divisions",
+      "locator": "§ Section 2. Assumptions",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The hyperlink (>>) shall not be displayed.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. Functional Requirement Description:\n1. The system shall invoke the backend API to retrieve the corresponding Stock Site.\n2. The fetched Stock Site shall be automatically populated in the Stock Site dropdown.\n3. The hyperlink (>>) shall not be displayed.\n4. The user shall be able to view the populated Stock Site value as per standard dropdown behavior.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Site, Stock Site (1 rows)",
+      "locator": "§ Section 3. Functional Requirement Description, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. Functional Requirement Description:\n1. The Stock Site dropdown shall remain available.\n2. A hyperlink \">>\" shall be displayed adjacent to the Stock Site dropdown.\n3. The hyperlink shall be enabled and clickable.\n4. Clicking the hyperlink shall open the Stock Site Allocation popup.\n5. The user may allocate quantities across one or more Stock Sites.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Site, Stock Site (1 rows)",
+      "locator": "§ Section 3. Functional Requirement Description, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. Functional Requirement Description:\n1. The Stock Site dropdown shall remain empty.\n2. The hyperlink \">>\" shall be displayed adjacent to the dropdown.\n3. Clicking the hyperlink shall open the Stock Site Allocation popup.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Site, Stock Site (1 rows)",
+      "locator": "§ Section 3. Functional Requirement Description, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Field Name, Control Type, Mandatory (2 rows)",
+      "locator": "§ Section 3. Functional Requirement Description, table 4",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. Functional Requirement Description:\n1. Add Row (+)\n2. Delete Row\n3. Save\n4. Cancel",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Rules",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory Validation",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Stock Site is mandatory.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity is mandatory.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Quantity Validation",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Negative values shall not be permitted.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. Functional Requirement Description:\n1. Only numeric values shall be allowed.\n2. Negative values shall not be permitted.\n3. Decimal values shall be supported based on system configuration.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Duplicate Validation",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The same Stock Site shall not be selected more than once within the allocation popup.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Message:",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "\"Duplicate Stock Site selection is not allowed.\"",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall validate all entered records.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 3. Functional Requirement Description:\n1. The system shall validate all entered records.\n2. The Stock Site allocation details shall be stored against the corresponding transaction record.\n3. The popup shall be closed.\n4. The hyperlink (>>) shall continue to be displayed in the grid for records containing multiple-site allocations.\n5. The saved allocation details shall be available for future viewing and editing.",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Changes Required :-:\n1. Setting Name : “Direct issuance to FPPO from different GSTIN”\n2. Chain-of-events when the above setting is enabled :-\n3. As soon as the user create a FPPO dispatch instruction(GDI) in the Andhra Pradesh Division against the above FPPO\n4. System will auto create GDI-Transfer-to -site for the available quantity from source site to the destination site (i.e from the Bangalore site to the Andhra Pradesh site).\n5. User will manually create a Good dispatch note for the above GDI\n6. Upon above GDN confirmation, system will auto create a GRN-Transfer-from-site in Andhra Pradesh.\n7. User will manually confirm the above saved GRN to complete the chain of events\n8. Upon above confirmation system will auto create Production Process Order Input GDI/GDN from Transfer from Site GRN\n9. The above transfer to site GDN/GRN will be available for E way bill creation Bangalore to Andhra Pradesh.",
+      "locator": "§ Changes Required :-",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Version, Created/Revised By, Created/Revised On, Changes (1 rows)",
+      "locator": "§ Section 5. Revision History, table 5",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "293106  -Updated On Behalf of Hari Sir",
+      "heading": "",
+      "text": "Software Requirements Specification\nAutomation is required for GDN and GRN\nVersion 1.0 ● 293106\n28 Jan 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nChanges Required :- 5\nSection 4. Glossary 7\nSection 5. Revision History 8",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "This document defines the FPPO Goods Movement Automation between the multiple GSTIN of same company, based on the approved process flow.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The automation covers the end-to-end flow starting from Sales Order creation at one Unit through dispatch, invoicing, receipt at another Unit, and reverse invoicing back to the first Unit.\nThe remaining processes not linked to material movement will continue to be handled manually.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "The Scope of these specs is to facilitate :\n• Automation of inter-unit goods movement transactions",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• Sales Order : User created Sales Order at Bangalore Unit.\n• Sourcing and Material Requisition\n• System shall generate material requisition based on Sales Order.\n• Approval workflow: PD → FPPO\n• FPO : will be created in the Bangalore Division\n• FPPO : will be created in the Andhra Pradesh Unit\n• Destination/Input site(Andhra Pradesh site) and Available quantity site(Bangalore Site) are related to different Divisions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Functional Behaviour\nCase 1: Single Site Selected\nWhen the user selects a single Site:\n• The system shall invoke the backend API to retrieve the corresponding Stock Site.\n• The fetched Stock Site shall be automatically populated in the Stock Site dropdown.\n• The hyperlink (>>) shall not be displayed.\n• The user shall be able to view the populated Stock Site value as per standard dropdown behavior.\nExample:",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description – Table 1",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Columns: Site (text); Stock Site (text)\nSite | Stock Site\nDelhi Warehouse | Delhi Warehouse",
+      "locator": "§ Section 3. Functional Requirement Description, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Site: Delhi Warehouse; Stock Site: Delhi Warehouse",
+      "locator": "§ Section 3. Functional Requirement Description, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Case 2: Multiple Sites Selected\nWhen the user selects multiple Sites:\n• The Stock Site dropdown shall remain available.\n• A hyperlink \">>\" shall be displayed adjacent to the Stock Site dropdown.\n• The hyperlink shall be enabled and clickable.\n• Clicking the hyperlink shall open the Stock Site Allocation popup.\n• The user may allocate quantities across one or more Stock Sites.\nExample:",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description – Table 2",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Columns: Site (text); Stock Site (text)\nSite | Stock Site\nDelhi, Mumbai | [Dropdown ▼] >>",
+      "locator": "§ Section 3. Functional Requirement Description, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Site: Delhi, Mumbai; Stock Site: [Dropdown ▼] >>",
+      "locator": "§ Section 3. Functional Requirement Description, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Case 3: No Site Selected\nWhen no Site is selected:\n• The Stock Site dropdown shall remain empty.\n• The hyperlink \">>\" shall be displayed adjacent to the dropdown.\n• Clicking the hyperlink shall open the Stock Site Allocation popup.\nExample:",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description – Table 3",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Columns: Site (text); Stock Site (text)\nSite | Stock Site\nBlank | [Dropdown ▼] >>",
+      "locator": "§ Section 3. Functional Requirement Description, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Site: Blank; Stock Site: [Dropdown ▼] >>",
+      "locator": "§ Section 3. Functional Requirement Description, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Stock Site Allocation Popup\nTrigger\nThe popup shall be launched when the user clicks the \">>\" hyperlink.\nPopup Title\nStock Site Allocation\nPopup Fields",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description – Table 4",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Columns: Field Name (text); Control Type (text); Mandatory (boolean)\nField Name | Control Type | Mandatory\nStock Site | Dropdown (LOV) | Yes\nQuantity | Numeric Input | Yes",
+      "locator": "§ Section 3. Functional Requirement Description, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Field Name: Stock Site; Control Type: Dropdown (LOV); Mandatory: Yes",
+      "locator": "§ Section 3. Functional Requirement Description, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Field Name: Quantity; Control Type: Numeric Input; Mandatory: Yes",
+      "locator": "§ Section 3. Functional Requirement Description, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Section 3. Functional Requirement Description",
+      "heading": "Section 3. Functional Requirement Description",
+      "text": "Popup Actions\n• Add Row (+)\n• Delete Row\n• Save\n• Cancel\nValidation Rules\nMandatory Validation\n• Stock Site is mandatory.\n• Quantity is mandatory.\nQuantity Validation\n• Only numeric values shall be allowed.\n• Negative values shall not be permitted.\n• Decimal values shall be supported based on system configuration.\nDuplicate Validation\nThe same Stock Site shall not be selected more than once within the allocation popup.\nValidation Message:\n\"Duplicate Stock Site selection is not allowed.\"\nSave Functionality\nUpon clicking Save:\n• The system shall validate all entered records.\n• The Stock Site allocation details shall be stored against the corresponding transaction record.\n• The popup shall be closed.\n• The hyperlink (>>) shall continue to be displayed in the grid for records containing multiple-site allocations.\n• The saved allocation details shall be available for future viewing and editing.\nTooltip Functionality\nFor records where the hyperlink (>>) is displayed, hovering over the hyperlink shall display the saved Stock Site allocation summary.\nExample Tooltip:\nDelhi Warehouse – 50\nMumbai Warehouse – 30\nBangalore Warehouse – 20",
+      "locator": "§ Section 3. Functional Requirement Description",
+      "kind": "section"
+    },
+    {
+      "title": "Changes Required :-",
+      "heading": "Changes Required :-",
+      "text": "We need a setting in order to auto trigger a chain of event which is currently done manually :-\n• Setting Name : “Direct issuance to FPPO from different GSTIN”\n• Chain-of-events when the above setting is enabled :-\n• As soon as the user create a FPPO dispatch instruction(GDI) in the Andhra Pradesh Division against the above FPPO\n• System will auto create GDI-Transfer-to -site for the available quantity from source site to the destination site (i.e from the Bangalore site to the Andhra Pradesh site).\n• User will manually create a Good dispatch note for the above GDI\n• Upon above GDN confirmation, system will auto create a GRN-Transfer-from-site in Andhra Pradesh.\n• User will manually confirm the above saved GRN to complete the chain of events\n• Upon above confirmation system will auto create Production Process Order Input GDI/GDN from Transfer from Site GRN\n• The above transfer to site GDN/GRN will be available for E way bill creation Bangalore to Andhra Pradesh.",
+      "locator": "§ Changes Required :-",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Glossary",
+      "heading": "Section 4. Glossary",
+      "text": "• No Glossary",
+      "locator": "§ Section 4. Glossary",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5. Revision History – Table 5",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Created/Revised By (text); Created/Revised On (text); Changes (text)\nVersion | Created/Revised By | Created/Revised On | Changes\n1.0 | Kalpesh Sharma | 11th Jan 2026 | Initial document created.",
+      "locator": "§ Section 5. Revision History, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Created/Revised By: Kalpesh Sharma; Created/Revised On: 11th Jan 2026; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 5, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

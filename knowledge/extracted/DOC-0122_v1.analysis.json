@@ -1,0 +1,257 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Currently, factory selection is not available in this matrix. The enhancement required is a Factory dropdown in this master, which must support multi-select and include an \"All Other\" option.\nApart from Factory, the material type and Buyer department is also required with multi selection and “All Other” option."
+      ],
+      "types": [
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Apart from this, we required process as well in this mapping."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "The Factory and Process dropdown is required for all efficiency types: Primary, Standard and Secondary.\nMaterial Type is Required in :- Primary and Standard\nBuyer Department is required in :- Primary and Secondary."
+      ],
+      "types": [
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "In the Execution BOM the slab will be derived from Order Qty; in the Standard BOM it will continue to be derived from expected order quantity."
+      ],
+      "types": [
+        "empty"
+      ],
+      "units": {
+        "In the Execution BOM the slab will be derived from Order Qty; in the Standard BOM it will continue to be derived from expected order quantity.": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    }
+  ],
+  "subject": "Effeciency should be auto allocated based slab , BuyerFactory level slab will be defined in teh masters and the same effieciency will be pulled for routing",
+  "keyTerms": [
+    "efficiency",
+    "factory",
+    "eff",
+    "auto",
+    "master",
+    "process",
+    "routing",
+    "required",
+    "order",
+    "auto eff",
+    "based",
+    "slab",
+    "buyer",
+    "section",
+    "functional requirements"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 32
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Routing",
+    "Masters – Colour, Size, UOM",
+    "BOM – Materials & Dependency",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The requirement is for the team to maintain an efficiency master, from which efficiency is picked automatically in routing based on the defined criteria.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The Efficiency Matrix master is available under AdminConfiguratorCostsheet SettingsEfficiency Matrix",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Currently, factory selection is not available in this matrix. The enhancement required is a Factory dropdown in this master, which must support multi-select and include an \"All Other\" option.\nApart from Factory, the material type and Buyer department is also required with multi selection and “All Other” option. (1 rows)",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: The Factory and Process dropdown is required for all efficiency types: Primary, Standard and Secondary.\nMaterial Type is Required in :- Primary and Standard\nBuyer Department is required in :- Primary and Secondary. (0 rows)",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix, table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Efficiency is mapped to processes under (CatalogIndustrial EngineeringOperation Library).",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Where a process is marked as Auto Efficiency, the system picks the efficiency in routing as per the criteria defined in the Efficiency Matrix master.",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "This must also be handled for the master costsheet used by Shahi.",
+      "locator": "§ Functional Requirements › … › Changes Required",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Currently this is handled in the Standard BOM based on expected order quantity.",
+      "locator": "§ Functional Requirements › … › Changes Required",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "Currently this is handled in the Standard BOM based on expected order quantity.",
+      "locator": "§ Functional Requirements › … › Changes Required",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "It must also be handled in the Execution (Normal) BOM based on the order quantity tagged in the BOM.",
+      "locator": "§ Functional Requirements › … › Changes Required",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "It must also be handled in the Execution (Normal) BOM based on the order quantity tagged in the BOM.",
+      "locator": "§ Functional Requirements › … › Changes Required",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: In the Execution BOM the slab will be derived from Order Qty; in the Standard BOM it will continue to be derived from expected order quantity. (0 rows)",
+      "locator": "§ Functional Requirements › … › Changes Required, table 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The system should not perform any automatic update when the order quantity changes.",
+      "locator": "§ Functional Requirements › … › Order Qty Revision",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If this permission is given to any user then they will be able to edit the eff.",
+      "locator": "§ Functional Requirements › … › User Permission- To Edit the Auto Eff.",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Effeciency should be auto allocated based slab , BuyerFactory level slab will be defined in teh masters and the same effieciency will be pulled for routing",
+      "heading": "",
+      "text": "Software Requirements Specification\nEfficiency should be auto-allocated based on slab. Buyer- and factory-level slabs will be defined in the masters, and the same efficiency will be pulled into routing.\n# 439485\nVersion 1.0●15 Sep 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. Assumptions 3\nAssumptions 3\nSection 3. Functional Requirements 3\nFunctional Requirements 3\n3.1 Addition of Factory in Eff Matrix 3\nChanges Required 5\nOrder Qty Revision 6",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Efficiency should be auto-allocated based on slab. Buyer- and factory-level slabs will be defined in the masters, and the same efficiency will be pulled into routing.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Currently, the Shahi team updates efficiency manually in routing, which is a repetitive task and can lead to data inconsistency. The requirement is for the team to maintain an efficiency master, from which efficiency is picked automatically in routing based on the defined criteria.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Addition of Factory in Eff Matrix",
+      "heading": "Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "text": "The Efficiency Matrix master is available under AdminConfiguratorCostsheet SettingsEfficiency Matrix",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Addition of Factory in Eff Matrix – Table 1",
+      "heading": "Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "text": "Columns: Currently, factory selection is not available in this matrix. The enhancement required is a Factory dropdown in this master, which must support multi-select and include an \"All Other\" option.\nApart from Factory, the material type and Buyer department is also required with multi selection and “All Other” option. (text)\nCurrently, factory selection is not available in this matrix. The enhancement required is a Factory dropdown in this master, which must support multi-select and include an \"All Other\" option.\nApart from Factory, the material type and Buyer department is also required with multi selection and “All Other” option.\nApart from this, we required process as well in this mapping.",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "3.1 Addition of Factory in Eff Matrix – Table 2",
+      "heading": "Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "text": "Columns: The Factory and Process dropdown is required for all efficiency types: Primary, Standard and Secondary.\nMaterial Type is Required in :- Primary and Standard\nBuyer Department is required in :- Primary and Secondary. (empty)\nThe Factory and Process dropdown is required for all efficiency types: Primary, Standard and Secondary.\nMaterial Type is Required in :- Primary and Standard\nBuyer Department is required in :- Primary and Secondary.",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "3.1 Addition of Factory in Eff Matrix",
+      "heading": "Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "text": "Efficiency is mapped to processes under (CatalogIndustrial EngineeringOperation Library). Where a process is marked as Auto Efficiency, the system picks the efficiency in routing as per the criteria defined in the Efficiency Matrix master.\nSince now, we can define efficiency for multi process, so the below grid will become obsolete, where currently we are mapping the process with auto eff.\nFor existing, clients, in the master, if any process is marked as auto eff then in eff master in that process dropdown the process will get tagged automatically and Factory, Buyer Dept and material type will be all.",
+      "locator": "§ Functional Requirements › … › 3.1 Addition of Factory in Eff Matrix",
+      "kind": "section"
+    },
+    {
+      "title": "Changes Required",
+      "heading": "Functional Requirements › … › Changes Required",
+      "text": "This must also be handled for the master costsheet used by Shahi. In routing, efficiency will be derived from product group, sub-category, buyer, slab and factory.\nCurrently this is handled in the Standard BOM based on expected order quantity. It must also be handled in the Execution (Normal) BOM based on the order quantity tagged in the BOM.",
+      "locator": "§ Functional Requirements › … › Changes Required",
+      "kind": "section"
+    },
+    {
+      "title": "Changes Required – Table 3",
+      "heading": "Functional Requirements › … › Changes Required",
+      "text": "Columns: In the Execution BOM the slab will be derived from Order Qty; in the Standard BOM it will continue to be derived from expected order quantity. (empty, quantity (unit of the row))\nIn the Execution BOM the slab will be derived from Order Qty; in the Standard BOM it will continue to be derived from expected order quantity.",
+      "locator": "§ Functional Requirements › … › Changes Required, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Order Qty Revision",
+      "heading": "Functional Requirements › … › Order Qty Revision",
+      "text": "The system should not perform any automatic update when the order quantity changes. The Merchant will revise the Cost Sheet manually.\nOnce the Merchant revises the Cost Sheet, the system will give a promt that “there’s a change in order qty and eff will get recalculate” and then should recalculate the applicable efficiency percentage and automatically calculate the run-time based on the revised efficiency. This change in run-time will impact the cost, and the revised Cost Sheet should subsequently go through the approval process again. This calculation development was already requested in the Routing changes development point.",
+      "locator": "§ Functional Requirements › … › Order Qty Revision",
+      "kind": "section"
+    },
+    {
+      "title": "User Permission- To Edit the Auto Eff.",
+      "heading": "Functional Requirements › … › User Permission- To Edit the Auto Eff.",
+      "text": "Currently, auto eff that is taken from master is non editable. So, we need to permission in user master (Allow to edit auto eff.)\nIf this permission is given to any user then they will be able to edit the eff.",
+      "locator": "§ Functional Requirements › … › User Permission- To Edit the Auto Eff.",
+      "kind": "section"
+    }
+  ]
+}

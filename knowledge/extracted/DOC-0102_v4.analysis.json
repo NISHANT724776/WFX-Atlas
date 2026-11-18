@@ -1,0 +1,797 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Adhoc Indent Field",
+        "Mapping",
+        "Source"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Indent Type",
+          "Buyer Block Booking",
+          "Default"
+        ],
+        [
+          "Reason",
+          "Auto Indent Against Buyer Block Booking",
+          "Default"
+        ],
+        [
+          "Booking No",
+          "Buyer Block Booking",
+          "From Buyer Block Booking"
+        ],
+        [
+          "Buyer",
+          "Buyer",
+          "From Buyer Block Booking"
+        ],
+        [
+          "Style",
+          "Style",
+          "From Buyer Block Booking"
+        ],
+        [
+          "Total Qty",
+          "Total Block Booking Qty",
+          "From Buyer Block Booking"
+        ],
+        [
+          "Article",
+          "Article",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "Color",
+          "Color",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "Size",
+          "Size",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "Booking Line No",
+          "From Buyer Block Booking Line",
+          "Details will come as per Block Booking Line"
+        ],
+        [
+          "Booking No",
+          "From Buyer Block Booking",
+          "From Buyer Block Booking"
+        ],
+        [
+          "Units",
+          "Units",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "Rate",
+          "Rate",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "Currency",
+          "Currency",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "UOM",
+          "UOM",
+          "From Material Details of Buyer Block Booking"
+        ],
+        [
+          "Purchase Officer",
+          "From Mapping",
+          "1st priority: Cost Sheet default from the User Profile; otherwise from Inventory Setting mapping > Enable Buyer Wise, Category Wise, Product Group Wise, Sub Category Wise Purchasing Officer."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Rule",
+        "Behaviour"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Rule"
+      ],
+      "rows": [
+        [
+          "Indent generation",
+          "Only on BB confirmation, never draft"
+        ],
+        [
+          "Supplier match",
+          "All Indents combined into one SBB must share the same Supplier (exact master value) — mismatch blocks"
+        ],
+        [
+          "Currency match",
+          "Indent lines' Material Details currency must match across selection — mismatch blocks"
+        ],
+        [
+          "Qty to Book ceiling",
+          "Can never exceed the Indent line's Remaining Qty — blocked with validation if attempted"
+        ],
+        [
+          "Rate ceiling",
+          "SBB line Rate can never exceed the Indent line's Rate — can only be equal or lower"
+        ],
+        [
+          "BB Qty reduction (post-consumption)",
+          "Blocked if it would go below cumulative qty already consumed via SBB(s)"
+        ],
+        [
+          "BB Rate reduction (post-consumption)",
+          "Blocked entirely once any SBB exists against its Indent — even a small amount"
+        ],
+        [
+          "Deleting a Material Details line",
+          "Treated as reducing qty to zero — same block applies if any qty consumed"
+        ],
+        [
+          "BB Cancel",
+          "Blocked while any active (not cancelled/short-closed) SBB is linked to its Indent"
+        ],
+        [
+          "BB Short Close",
+          "Blocked unless all linked SBBs are Cancelled or Short Closed"
+        ],
+        [
+          "BB Cancel/Short Close w/ no active SBB",
+          "Also cancels/short-closes the Indent + remaining open lines"
+        ],
+        [
+          "SBB Cancel",
+          "Releases consumed qty back to Indent's Remaining Qty (re-enters queue)"
+        ],
+        [
+          "SBB Short Close",
+          "Does not release qty; booking locked at final qty; no further PO linking"
+        ],
+        [
+          "Qty reservation",
+          "Reserved the instant it's added to an SBB (draft or confirmed); released only if the SBB is abandoned unsaved"
+        ],
+        [
+          "Concurrency",
+          "Two Sourcing users can't reserve the same Indent quantity simultaneously"
+        ],
+        [
+          "Manual SBB lines",
+          "Exempt from Qty/Rate ceiling; show blank Indent No./BB No./Buyer"
+        ],
+        [
+          "Indent removal from queue",
+          "Only when its full original qty is fully consumed"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "437763 PD Queries",
+  "keyTerms": [
+    "block booking",
+    "booking",
+    "indent",
+    "block",
+    "buyer block",
+    "supplier",
+    "buyer",
+    "qty",
+    "supplier block",
+    "material",
+    "indent qty",
+    "supplier booking",
+    "create",
+    "material buyer",
+    "linked"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 63
+    },
+    {
+      "module": "Sales Order",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Buyer Block Booking (BBB)",
+    "BBB Adhoc Indent",
+    "Purchase Order from Buyer (OC)",
+    "RMPO – Raw Material Purchase Order"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Need to Handle Buyer Blocking Booking based Indent Creation later Indent will be Tagged to Supplier Block booking for Greige Booking.",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking” 4",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List 5",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "3.3.1 Create New Supplier Block Booking on the Indent View 5",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "3.3.2 Create New Supplier Block Booking on the User Indent List 6",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "3.4 Changes to the Supplier Block Booking Screen 7",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "3.4.3 New Booking Type Dropdown (Mandatory) 9",
+      "locator": "start",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "WFX ERP already supports Buyer Block Booking (a buyer-side projection commitment, e.g. a season's forecast quantity from a buyer such as GAP or Old Navy) and Supplier Block Booking (a supplier-side raw-material booking, typically for Greige fabric) as independent modules.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Today these two records are not connected: a Merchandiser captures a buyer's projection and its material requirement on a Buyer Block Booking, and Sourcing separately, manually, re-enters an equivalent material requirement on a new Supplier Block Booking against a chosen supplier.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Today these two records are not connected: a Merchandiser captures a buyer's projection and its material requirement on a Buyer Block Booking, and Sourcing separately, manually, re-enters an equivalent material requirement on a new Supplier Block Booking against a chosen supplier.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "This Business Requirements is to connect the two end-to-end.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "On confirmation of a Buyer Block Booking, WFX shall automatically generate an Indent carrying the material requirement, linked back to that Buyer Block Booking.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Sourcing shall then be able to select one or more open Indents — including Indents from different buyers, where they share a common supplier — and consolidate them into a single Supplier Block Booking.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "A new setting is required for this change: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking” under Misc Setting > Misc Section.",
+      "locator": "§ Functional Requirements › 3.1 New Setting in Misc. Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking”",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "A new setting is required for this change: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking” under Misc Setting > Misc Section.",
+      "locator": "§ Functional Requirements › 3.1 New Setting in Misc. Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking”",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Once this setting is enabled, the system will automatically create an Adhoc Indent for the materials present in the Material Details of the Buyer Block Booking.",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Once this setting is enabled, the system will automatically create an Adhoc Indent for the materials present in the Material Details of the Buyer Block Booking.",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Below is the mapping of the Material Details fields to the auto-created Adhoc Indent:",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Adhoc Indent Field, Mapping, Source (16 rows)",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Same Option is required in User indent List as well as “New Supplier Booking”.",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Same Option is required in User indent List as well as “New Supplier Booking”.",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The block booking of multiple buyers, Materials can also be selected for single supplier booking.",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.3.2 Create New Supplier Block Booking on the User Indent List:\n1. Same Option is required in User indent List as well as “New Supplier Booking”.\n2. User can select multiple buyers booking indents from this list and can create a Single Supplier Booking.\n3. The block booking of multiple buyers, Materials can also be selected for single supplier booking.",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Currently, since supplier block booking is not linked with any indent.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.1 Indent Visibility with Consolidated and Detail Views",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The new “Internal Ref” Column will Show:- Indent No, Buyer, Style, Block Booking No (Booking Ref)\n\nPD Query: What is the Internal Ref Column, and what value will come in it?",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.1 Indent Visibility with Consolidated and Detail Views",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.4.1 Indent Visibility with Consolidated and Detail Views:\n1. Currently, since supplier block booking is not linked with any indent. So, there no indent column in this screen.\n2. Now, as we are connecting indent with Supplier booking so the supplier booking will have visibility of indents and Consolidate and Detail view same as PO.\n3. When user clicks on Show Details then system will show the indent details as well in Internal Ref Column.\n4. The new “Internal Ref” Column will Show:- Indent No, Buyer, Style, Block Booking No (Booking Ref)\n\nPD Query: What is the Internal Ref Column, and what value will come in it?",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.1 Indent Visibility with Consolidated and Detail Views",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.4.2 New Indent Qty and Open Qty Columns:\n1. Required two more column in this screen as Indent Qty and Open Qty.\n2. Indent Qty will only be added in Show Details\n3. And Open qty will be on both Consolidate and Show Detail.\n4. Indent Qty:- In Show Details as we are showing the indent no, so it will show the total indent qty for that material\n5. Open Qty (In Show Detail Tab):- Indent Qty – Any Previous Supplier Booking Qty for that indent\n6. Open Qty (In Consolidate Tab):- Total Indent Qty (From Show detail) - Any Previous Total Supplier Booking Qty for that",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.2 New Indent Qty and Open Qty Columns",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Are multiple Supplier Block Booking Allowed for single indent?\n2.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.2 New Indent Qty and Open Qty Columns",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Raw material Indent Qty is of 1000, RMPO of 300 was Made then what would be the Open qty at Supplier block booking and will the RMPO of 300 be linked at Supplier Block booking?",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.2 New Indent Qty and Open Qty Columns",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Raw material Indent Qty is of 1000, RMPO of 300 was Made then what would be the Open qty at Supplier block booking and will the RMPO of 300 be linked at Supplier Block booking?",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.2 New Indent Qty and Open Qty Columns",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Greige: If a material line is marked as Greige, this Supplier Block Booking is auto-linked to POs at article level.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "A PO is linked when all three conditions are met: (1) the PO was created from an OC Indent, (2) that OC is linked to the same Buyer Block Booking this Supplier Booking was created against, and (3) the article matches.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "A PO is linked when all three conditions are met: (1) the PO was created from an OC Indent, (2) that OC is linked to the same Buyer Block Booking this Supplier Booking was created against, and (3) the article matches.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Article level means the system matches on the article only.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Finished: If a material line is marked as Finished, this Supplier Block Booking is auto-linked to POs at article-colour-size level.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Article-colour-size level means the system matches on article, colour and size together .",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Only if all three match is the link made automatically.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Only if all three match is the link made automatically.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.4.3 New Booking Type Dropdown (Mandatory):\n1. In this Booking details, we require a new dropdown as “Booking Type”. It will have two options:- 1. Greige, 2. Finished\n2. Greige: If a material line is marked as Greige, this Supplier Block Booking is auto-linked to POs at article level. A PO is linked when all three conditions are met: (1) the PO was created from an OC Indent, (2) that OC is linked to the same Buyer Block Booking this Supplier Booking was created against, and (3) the article matches.\n3. Article level means the system matches on the article only. If the articles match, the link is made automatically.\n4. Finished: If a material line is marked as Finished, this Supplier Block Booking is auto-linked to POs at article-colour-size level. The same three conditions apply as above, except the match is on article, colour and size.\n5. Article-colour-size level means the system matches on article, colour and size together . Only if all three match is the link made automatically.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Rule, Behaviour (17 rows; identifiers: Rule)",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "437763 PD Queries",
+      "heading": "",
+      "text": "Software Requirements Specification\nNeed to Handle Buyer Blocking Booking based Indent Creation later Indent will be Tagged to Supplier Block booking for Greige Booking. Need to Track Projection end to end.\n# 437763\nVersion 1.0●04 Sep 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nSection 2. 3\nAssumptions 3\nSection 3. 3\nFunctional Requirements 3\n3.1 New Setting in Misc. Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking” 4\n3.2 Auto Indent Creation 4\n3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List 5\n3.3.1 Create New Supplier Block Booking on the Indent View 5\n3.3.2 Create New Supplier Block Booking on the User Indent List 6\n3.4 Changes to the Supplier Block Booking Screen 7\n3.4.1 Indent Visibility with Consolidated and Detail Views 7\n3.4.2 New Indent Qty and Open Qty Columns 8\n3.4.3 New Booking Type Dropdown (Mandatory) 9\n3.5 Business Rules and Validations 9",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Need to Handle Buyer Blocking Booking based Indent Creation later Indent will be Tagged to Supplier Block booking for Greige Booking. Need to Track Projection end to end.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "WFX ERP already supports Buyer Block Booking (a buyer-side projection commitment, e.g. a season's forecast quantity from a buyer such as GAP or Old Navy) and Supplier Block Booking (a supplier-side raw-material booking, typically for Greige fabric) as independent modules. Today these two records are not connected: a Merchandiser captures a buyer's projection and its material requirement on a Buyer Block Booking, and Sourcing separately, manually, re-enters an equivalent material requirement on a new Supplier Block Booking against a chosen supplier.\nThis Business Requirements is to connect the two end-to-end. On confirmation of a Buyer Block Booking, WFX shall automatically generate an Indent carrying the material requirement, linked back to that Buyer Block Booking. Sourcing shall then be able to select one or more open Indents — including Indents from different buyers, where they share a common supplier — and consolidate them into a single Supplier Block Booking. Combined with the existing Buyer Linked OC Detail and Supplier Linked PO Detail grids, this gives a single, system-traceable chain from a buyer's original projection through to actual fulfilment on both the demand and supply sides.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 New Setting in Misc. Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking”",
+      "heading": "Functional Requirements › 3.1 New Setting in Misc. Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking”",
+      "text": "• A new setting is required for this change: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking” under Misc Setting > Misc Section.",
+      "locator": "§ Functional Requirements › 3.1 New Setting in Misc. Setting: “Create Auto Adhoc Indent of Materials on Confirmation of Block Booking”",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 Auto Indent Creation",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "• Once this setting is enabled, the system will automatically create an Adhoc Indent for the materials present in the Material Details of the Buyer Block Booking.\nBelow is the mapping of the Material Details fields to the auto-created Adhoc Indent:",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 Auto Indent Creation – Table 1",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Columns: Adhoc Indent Field (text); Mapping (text); Source (text)\nAdhoc Indent Field | Mapping | Source\nIndent Type | Buyer Block Booking | Default\nReason | Auto Indent Against Buyer Block Booking | Default\nBooking No | Buyer Block Booking | From Buyer Block Booking\nBuyer | Buyer | From Buyer Block Booking\nStyle | Style | From Buyer Block Booking\nTotal Qty | Total Block Booking Qty | From Buyer Block Booking\nArticle | Article | From Material Details of Buyer Block Booking\nColor | Color | From Material Details of Buyer Block Booking\nSize | Size | From Material Details of Buyer Block Booking\nBooking Line No | From Buyer Block Booking Line | Details will come as per Block Booking Line\nBooking No | From Buyer Block Booking | From Buyer Block Booking\nUnits | Units | From Material Details of Buyer Block Booking\nRate | Rate | From Material Details of Buyer Block Booking\nCurrency | Currency | From Material Details of Buyer Block Booking\nUOM | UOM | From Material Details of Buyer Block Booking\nPurchase Officer | From Mapping | 1st priority: Cost Sheet default from the User Profile; otherwise from Inventory Setting mapping > Enable Buyer Wise, Category Wise, Product Group Wise, Sub Category Wise Purchasing Officer.",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Indent Type; Mapping: Buyer Block Booking; Source: Default",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Reason; Mapping: Auto Indent Against Buyer Block Booking; Source: Default",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Booking No; Mapping: Buyer Block Booking; Source: From Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Buyer; Mapping: Buyer; Source: From Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Style; Mapping: Style; Source: From Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Total Qty; Mapping: Total Block Booking Qty; Source: From Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Article; Mapping: Article; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Color; Mapping: Color; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Size; Mapping: Size; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Booking Line No; Mapping: From Buyer Block Booking Line; Source: Details will come as per Block Booking Line",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 11",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Booking No; Mapping: From Buyer Block Booking; Source: From Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 12",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Units; Mapping: Units; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 13",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Rate; Mapping: Rate; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 14",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Currency; Mapping: Currency; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 15",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: UOM; Mapping: UOM; Source: From Material Details of Buyer Block Booking",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 16",
+      "heading": "Functional Requirements › 3.2 Auto Indent Creation",
+      "text": "Adhoc Indent Field: Purchase Officer; Mapping: From Mapping; Source: 1st priority: Cost Sheet default from the User Profile; otherwise from Inventory Setting mapping > Enable Buyer Wise, Category Wise, Product Group Wise, Sub Category Wise Purchasing Officer.",
+      "locator": "§ Functional Requirements › 3.2 Auto Indent Creation, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Current Behaviour",
+      "heading": "Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.1 Create New Supplier Block Booking on the Indent View › Current Behaviour",
+      "text": "• Currently, when we click on Indent, then system shows option to either adjust the stock or to Create a PO.",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.1 Create New Supplier Block Booking on the Indent View › Current Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Behaviour",
+      "heading": "Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.1 Create New Supplier Block Booking on the Indent View › Proposed Behaviour",
+      "text": "• We require one more option here as “Create New Supplier Booking”",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.1 Create New Supplier Block Booking on the Indent View › Proposed Behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "heading": "Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "text": "• Same Option is required in User indent List as well as “New Supplier Booking”.\n• User can select multiple buyers booking indents from this list and can create a Single Supplier Booking.\n• The block booking of multiple buyers, Materials can also be selected for single supplier booking.",
+      "locator": "§ Functional Requirements › 3.3 Option to Create a New Supplier Block Booking from the Indent Page and User Indent List › 3.3.2 Create New Supplier Block Booking on the User Indent List",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.1 Indent Visibility with Consolidated and Detail Views",
+      "heading": "Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.1 Indent Visibility with Consolidated and Detail Views",
+      "text": "• Currently, since supplier block booking is not linked with any indent. So, there no indent column in this screen.\n• Now, as we are connecting indent with Supplier booking so the supplier booking will have visibility of indents and Consolidate and Detail view same as PO.\n• When user clicks on Show Details then system will show the indent details as well in Internal Ref Column.\n• The new “Internal Ref” Column will Show:- Indent No, Buyer, Style, Block Booking No (Booking Ref)\n\nPD Query: What is the Internal Ref Column, and what value will come in it?",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.1 Indent Visibility with Consolidated and Detail Views",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.2 New Indent Qty and Open Qty Columns",
+      "heading": "Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.2 New Indent Qty and Open Qty Columns",
+      "text": "• Required two more column in this screen as Indent Qty and Open Qty.\n• Indent Qty will only be added in Show Details\n• And Open qty will be on both Consolidate and Show Detail.\n• Indent Qty:- In Show Details as we are showing the indent no, so it will show the total indent qty for that material\n• Open Qty (In Show Detail Tab):- Indent Qty – Any Previous Supplier Booking Qty for that indent\n• Open Qty (In Consolidate Tab):- Total Indent Qty (From Show detail) - Any Previous Total Supplier Booking Qty for that\nPD Query:\n1. Are multiple Supplier Block Booking Allowed for single indent?\n2. Raw material Indent Qty is of 1000, RMPO of 300 was Made then what would be the Open qty at Supplier block booking and will the RMPO of 300 be linked at Supplier Block booking?",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.2 New Indent Qty and Open Qty Columns",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.3 New Booking Type Dropdown (Mandatory)",
+      "heading": "Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "text": "• In this Booking details, we require a new dropdown as “Booking Type”. It will have two options:- 1. Greige, 2. Finished\n• Greige: If a material line is marked as Greige, this Supplier Block Booking is auto-linked to POs at article level. A PO is linked when all three conditions are met: (1) the PO was created from an OC Indent, (2) that OC is linked to the same Buyer Block Booking this Supplier Booking was created against, and (3) the article matches.\n• Article level means the system matches on the article only. If the articles match, the link is made automatically.\n• Finished: If a material line is marked as Finished, this Supplier Block Booking is auto-linked to POs at article-colour-size level. The same three conditions apply as above, except the match is on article, colour and size.\n• Article-colour-size level means the system matches on article, colour and size together . Only if all three match is the link made automatically.",
+      "locator": "§ Functional Requirements › 3.4 Changes to the Supplier Block Booking Screen › 3.4.3 New Booking Type Dropdown (Mandatory)",
+      "kind": "section"
+    },
+    {
+      "title": "3.5 Business Rules and Validations – Table 2",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Columns: Rule (text); Behaviour (text)\nRule | Behaviour\nIndent generation | Only on BB confirmation, never draft\nSupplier match | All Indents combined into one SBB must share the same Supplier (exact master value) — mismatch blocks\nCurrency match | Indent lines' Material Details currency must match across selection — mismatch blocks\nQty to Book ceiling | Can never exceed the Indent line's Remaining Qty — blocked with validation if attempted\nRate ceiling | SBB line Rate can never exceed the Indent line's Rate — can only be equal or lower\nBB Qty reduction (post-consumption) | Blocked if it would go below cumulative qty already consumed via SBB(s)\nBB Rate reduction (post-consumption) | Blocked entirely once any SBB exists against its Indent — even a small amount\nDeleting a Material Details line | Treated as reducing qty to zero — same block applies if any qty consumed\nBB Cancel | Blocked while any active (not cancelled/short-closed) SBB is linked to its Indent\nBB Short Close | Blocked unless all linked SBBs are Cancelled or Short Closed\nBB Cancel/Short Close w/ no active SBB | Also cancels/short-closes the Indent + remaining open lines\nSBB Cancel | Releases consumed qty back to Indent's Remaining Qty (re-enters queue)\nSBB Short Close | Does not release qty; booking locked at final qty; no further PO linking\nQty reservation | Reserved the instant it's added to an SBB (draft or confirmed); released only if the SBB is abandoned unsaved\nConcurrency | Two Sourcing users can't reserve the same Indent quantity simultaneously\nManual SBB lines | Exempt from Qty/Rate ceiling; show blank Indent No./BB No./Buyer\nIndent removal from queue | Only when its full original qty is fully consumed",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Indent generation; Behaviour: Only on BB confirmation, never draft",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Supplier match; Behaviour: All Indents combined into one SBB must share the same Supplier (exact master value) — mismatch blocks",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Currency match; Behaviour: Indent lines' Material Details currency must match across selection — mismatch blocks",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Qty to Book ceiling; Behaviour: Can never exceed the Indent line's Remaining Qty — blocked with validation if attempted",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Rate ceiling; Behaviour: SBB line Rate can never exceed the Indent line's Rate — can only be equal or lower",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: BB Qty reduction (post-consumption); Behaviour: Blocked if it would go below cumulative qty already consumed via SBB(s)",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: BB Rate reduction (post-consumption); Behaviour: Blocked entirely once any SBB exists against its Indent — even a small amount",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Deleting a Material Details line; Behaviour: Treated as reducing qty to zero — same block applies if any qty consumed",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: BB Cancel; Behaviour: Blocked while any active (not cancelled/short-closed) SBB is linked to its Indent",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: BB Short Close; Behaviour: Blocked unless all linked SBBs are Cancelled or Short Closed",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: BB Cancel/Short Close w/ no active SBB; Behaviour: Also cancels/short-closes the Indent + remaining open lines",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 12",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: SBB Cancel; Behaviour: Releases consumed qty back to Indent's Remaining Qty (re-enters queue)",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 13",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: SBB Short Close; Behaviour: Does not release qty; booking locked at final qty; no further PO linking",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 14",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Qty reservation; Behaviour: Reserved the instant it's added to an SBB (draft or confirmed); released only if the SBB is abandoned unsaved",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 15",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Concurrency; Behaviour: Two Sourcing users can't reserve the same Indent quantity simultaneously",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 16",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Manual SBB lines; Behaviour: Exempt from Qty/Rate ceiling; show blank Indent No./BB No./Buyer",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 17",
+      "heading": "Functional Requirements › 3.5 Business Rules and Validations",
+      "text": "Rule: Indent removal from queue; Behaviour: Only when its full original qty is fully consumed",
+      "locator": "§ Functional Requirements › 3.5 Business Rules and Validations, table 2, row 17",
+      "kind": "data_row"
+    }
+  ]
+}

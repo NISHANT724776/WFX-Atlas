@@ -1,0 +1,97 @@
+{
+  "tables": [],
+  "subject": "334178 -In Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection.",
+  "keyTerms": [
+    "heading",
+    "char",
+    "consignor address",
+    "address location",
+    "company factory",
+    "consignor",
+    "execution company",
+    "heading heading",
+    "char heading",
+    "heading char",
+    "location name",
+    "company",
+    "factory",
+    "theme",
+    "address"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Business Requirement\r\rThe system should restrict and display only the Consignor Address and Location values that belong to the selected Execution Company & Factory.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Default values are auto-populated based on selected company and factory.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Scope\r\rThis requirement applies to a Pre-shipment Export Invoice where Execution Company and Factory are selected and Consignor Address and Location Name are required.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Dropdown values for Consignor Address and Location Name should be restricted/filtered only to records that belong to the selected Execution Company & Factory in the Division Consignor Master.",
+      "locator": "start",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "334178 -In Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection.",
+      "heading": "",
+      "text": "WFX-NEW-LOGO\nPicture 1\nWFX-NEW-LOGO.png\nNormal\nHeading 1\nHeading 2\nHeading 3\nHeading 4\nHeading 5\nHeading 6\nHeading 7\nHeading 8\nHeading 9\nDefault Paragraph Font\nTable Normal\nNo List\nDefault\nZ-cvr-Title\nZ-cvr-SubTitle\nBalloon Text\nBalloon Text Char\nHeader\nHeader Char\nFooter\nFooter Char\nHeading 1 Char\nHeading 2 Char\nHeading 3 Char\nHeading 4 Char\nHeading 5 Char\nHeading 6 Char\nHeading 7 Char\nHeading 8 Char\nHeading 9 Char\nCaption\n©\nTitle Char\nSubtitle\nZ°\rSubtitle Char\nStrong\nEmphasis\nNo Spacing\nList Paragraph\nZǐ\nQuote Char\nZǠ\rIntense Quote\nIntense Quote Char\nSubtle Emphasis\nIntense Emphasis\nSubtle Reference\nIntense Reference\nZȐ\nBook Title\nTOC Heading\nNo Spacing Char\nHyperlink\nTable Grid\nBody Text\nBody Text Char\nNormal (Web)\nUnknown\nTimes New Roman\nSymbol\nCalibri\nVerdana\nCambria\nTahoma\nAptos Display\nCourier New\nWingdings\nCambria Math\nAnuj George\nLalit Rajwar\nRoot Entry\n1Table\nWordDocument\nSummaryInformation\nDocumentSummaryInformation\nMsoDataStore\nProperties\nCompObj\nSoftware Requirements Specification\rIn Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection.\rDocument # 334178\nVersion 1.0\nTOC \\h \\z \\t \"Heading 1,2,Heading 2,3,Heading 3,4,Title,1\"\nSection 1: Overview\nTo provide the user to view Bea Cukai related information in the view page.\nBusiness Requirement\nSection 2. Assumptions",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "334178 -In Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection.",
+      "heading": "",
+      "text": "Section 3. Solution\nExpected Functionality\nFunctional Requirements\n1. Inventory>Dispatch->New\nSection 5. Revision History\nSection 1: Overview\rPurpose\r To automatically default the values in Consignor Address and Location Name fields on the Pre-Shipment Export Invoice screen, based on the selected Execution Company and Factory. This ensures accuracy, reduces manual entry, and improves efficiency.\rBusiness Requirement\r\rThe system should restrict and display only the Consignor Address and Location values that belong to the selected Execution Company & Factory.\rIf a user has access to multiple companies/divisions, once they select a company and factory, the dropdown for Consignor Address and Location should be filtered accordingly.\rDefault values should be pre-populated based on:\rExecution Company\rSelected Factory\rThis will minimize errors caused by users accidentally selecting invalid addresses.\rExpected Outcome:\rUser sees only relevant Consignor Address and Location options in dropdowns.\rDefault values are auto-populated based on selected company and factory.\rReduces risk of incorrect data entry in export documentation.\r\r\r\r\rScope\r\rThis requirement applies to a Pre-shipment Export Invoice where Execution Company and Factory are selected and Consignor Address and Location Name are required.\rRequirement:",
+      "locator": "start (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "334178 -In Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection.",
+      "heading": "",
+      "text": "When user selects an Execution Company and Factory, the system should:\rPick up the Consignor Address and Location Name automatically from the Division Consignor Master.\rPopulate them as default values in the respective fields.\rDropdown values for Consignor Address and Location Name should be restricted/filtered only to records that belong to the selected Execution Company & Factory in the Division Consignor Master.\rSection 2. Assumptions \rThis change will not impact on existing functionalities.\r\rSection 3. Solution\r\r\rExpected Functionality\r\r\r Functional Requirements\r\rWhen user selects an Execution Company and Factory, the system should:\rPick up the Consignor Address and Location Name automatically from the Division Consignor Master.\rPopulate them as default values in the respective fields.\rDropdown values for Consignor Address and Location Name should be restricted/filtered only to records that belong to the selected Execution Company & Factory in the Division Consignor Master.\nSection 4. Glossary\rSection 5. Revision History\rVersion\nInitial document created.\nWORLD FASHION EXCHANGE SOFTWARE REQUIREMENTS SPECIFICATION\r\r\rClient: Bintang Page\nPAGE \\* MERGEFORMAT\n[Type here]\nviRNEEEE>E8E\n~UVVfgg[,/j>\ncmPPJCmp0712\n[Content_Types].xml\ntheme/theme/themeManager.xml\ntheme/theme/theme1.xml\ntheme/theme/_rels/themeManager.xml.rels\n[Content_Types].xmlPK\n_rels/.relsPK",
+      "locator": "start (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "334178 -In Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection.",
+      "heading": "",
+      "text": "theme/theme/themeManager.xmlPK\ntheme/theme/theme1.xmlPK\ntheme/theme/_rels/themeManager.xml.relsPK\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<a:clrMap xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" bg1=\"lt1\" tx1=\"dk1\" bg2=\"lt2\" tx2=\"dk2\" accent1=\"accent1\" accent2=\"accent2\" accent3=\"accent3\" accent4=\"accent4\" accent5=\"accent5\" accent6=\"accent6\" hlink=\"hlink\" folHlink=\"folHlink\"/>\nMicrosoft Office Word\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><b:Sources SelectedStyle=\"\\APA.XSL\" StyleName=\"APA Fifth Edition\" xmlns:b=\"http://schemas.openxmlformats.org/officeDocument/2006/bibliography\" xmlns=\"http://schemas.openxmlformats.org/officeDocument/2006/bibliography\"></b:Sources>\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\r\n<ds:datastoreItem ds:itemID=\"{0CB1C892-73B1-4226-8451-3BE7DC5266BC}\" xmlns:ds=\"http://schemas.openxmlformats.org/officeDocument/2006/customXml\"><ds:schemaRefs><ds:schemaRef ds:uri=\"http://schemas.openxmlformats.org/officeDocument/2006/bibliography\"/></ds:schemaRefs></ds:datastoreItem>\nMicrosoft Word 97-2003 Document\nWord.Document.8",
+      "locator": "start (part 4)",
+      "kind": "section"
+    }
+  ]
+}

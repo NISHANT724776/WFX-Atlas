@@ -1,0 +1,182 @@
+{
+  "tables": [],
+  "subject": "Sales Order Gaps",
+  "keyTerms": [
+    "delivery",
+    "sales order",
+    "order",
+    "sales",
+    "revision",
+    "name",
+    "quantity",
+    "revision log",
+    "version",
+    "log",
+    "approver name",
+    "activity timeline",
+    "level",
+    "delivery date",
+    "extra production"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 44
+    },
+    {
+      "module": "Production",
+      "score": 4
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "This is a traceability gap that could matter if a customer disputes a change later.",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If OC is sent to approval then approver name not showing on OC activity timeline.",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. The system should prevent duplicate combinations of Delivery Order No, OC Delivery Date, Buyer Delivery, and Mode of Shipment — this needs a composite uniqueness check.\n2. Visible activity/audit log for quantity changes, price changes, or adding/deleting a delivery line. This is a traceability gap that could matter if a customer disputes a change later.\n3. The Sales Order(OC) with \"Confirmed *\" status will not be having delete button.\nSelling Price should be handled through SLC.\n4. If OC is sent to approval then approver name not showing on OC activity timeline.\n5. Delivery/OC-level grouping: Group deliveries at the OC level and display the corresponding subtotal.\n6. Quantity visibility: Display the quantity, including the extra production %, in a separate grid.",
+      "locator": "§ Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "It should be restricted if Delivery Buyer Order Ref, Buyer Delivery Date, OC Delivery Date & Mode of Shipment are same, if any one of them changes then it will allow making Delivery.",
+      "locator": "§ Solution › Delivery Duplication",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "At grid level context menu at sales order list there is a tool name Revision Log, which is enabled only when a confirmed order is being revised.",
+      "locator": "§ Solution › Revision Log",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At grid level context menu at sales order list there is a tool name Revision Log, which is enabled only when a confirmed order is being revised.",
+      "locator": "§ Solution › Revision Log",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Versions are controlled from header level by clicking on dropdown will show all the versions and multi select is also allowed.",
+      "locator": "§ Solution › Revision Log",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Row names will be shown only when changes are done:",
+      "locator": "§ Solution › Revision Log",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If a Sales Order is confirmed and then revised and a delivery is kept in draft then Delete button will be disabled on both list and edit page.",
+      "locator": "§ Solution › Confirmed * Functionality",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Sub Total Calculation = Value($)",
+      "locator": "§ Solution › Sales Order Print Screen Enhancement › Delivery/OC-level grouping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "67,200 = $ 800, when 1 USD ($) = 84 INR.",
+      "locator": "§ Solution › Sales Order Print Screen Enhancement › Delivery/OC-level grouping",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "1.98 = VDN 600, When 1INR = 300 VDN.",
+      "locator": "§ Solution › Sales Order Print Screen Enhancement › Delivery/OC-level grouping",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Sales Order Gaps › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\nDelivery Duplication 2\nRevision Log 3\nConfirmed * Functionality 6\nApprover Name at Activity Timeline 6\nSales Order Print Screen Enhancement 6\nDelivery/OC-level grouping 6\nQuantity visibility 7",
+      "locator": "§ Sales Order Gaps › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "• The system should prevent duplicate combinations of Delivery Order No, OC Delivery Date, Buyer Delivery, and Mode of Shipment — this needs a composite uniqueness check.\n• Visible activity/audit log for quantity changes, price changes, or adding/deleting a delivery line. This is a traceability gap that could matter if a customer disputes a change later.\n• The Sales Order(OC) with \"Confirmed *\" status will not be having delete button.\nSelling Price should be handled through SLC.\n• If OC is sent to approval then approver name not showing on OC activity timeline.\n• Delivery/OC-level grouping: Group deliveries at the OC level and display the corresponding subtotal.\n• Quantity visibility: Display the quantity, including the extra production %, in a separate grid.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery Duplication",
+      "heading": "Solution › Delivery Duplication",
+      "text": "It should be restricted if Delivery Buyer Order Ref, Buyer Delivery Date, OC Delivery Date & Mode of Shipment are same, if any one of them changes then it will allow making Delivery.",
+      "locator": "§ Solution › Delivery Duplication",
+      "kind": "section"
+    },
+    {
+      "title": "Revision Log",
+      "heading": "Solution › Revision Log",
+      "text": "At grid level context menu at sales order list there is a tool name Revision Log, which is enabled only when a confirmed order is being revised. Revision Log will by default show the Latest revised version and that too modified tab.\nModified Tab:\nNow when user clicks on Revision Log a page opens with latest version in modified tab.\nVersions are controlled from header level by clicking on dropdown will show all the versions and multi select is also allowed.\nOnce the user selects the version it will load on the screen simultaneously on all tabs All, Modified & Inserted/Deleted.\nRow names will be shown only when changes are done:\nVersion Change\nRevision Authorised By\nReason for Revision\nDelivery Name\nDelivery Header Detail Changes\nTotal Qty & UOM\nTotal Value & Currency\nDelivery Quantity Detail\nArticle\nColor & Size\nQty & UOM\nPrice\nValue & Currency\nInserted/Deleted tab:\nVersion and Deliveries will be left pinned.\nColumns name – Version, Delivery Name, Status(Inserted/Deleted), Delivery Buyer Order Ref, Destination, Mode Of Shipment, Delivery Date, Total Qty & UOM(Have an hyperlink that show a pop -up at color/size breakdown of that delivery, it shows those colors and sizes that are been chooses at the time of sales order creation), Total Value & Currency, version Change, Revision Authorized By, Reason for Revision.\nAll tab:",
+      "locator": "§ Solution › Revision Log",
+      "kind": "section"
+    },
+    {
+      "title": "Revision Log",
+      "heading": "Solution › Revision Log",
+      "text": "Will show the consolidated view of insert and delete but in row wise format and row names will be as provided above for modified and inserted/delete tab",
+      "locator": "§ Solution › Revision Log (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Confirmed * Functionality",
+      "heading": "Solution › Confirmed * Functionality",
+      "text": "If a Sales Order is confirmed and then revised and a delivery is kept in draft then Delete button will be disabled on both list and edit page.",
+      "locator": "§ Solution › Confirmed * Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "Approver Name at Activity Timeline",
+      "heading": "Solution › Approver Name at Activity Timeline",
+      "text": "When User sent Sales order for approval to a particular user then it should show the approver name to which the approval request has been sent to be shown at activity timeline.",
+      "locator": "§ Solution › Approver Name at Activity Timeline",
+      "kind": "section"
+    },
+    {
+      "title": "Delivery/OC-level grouping",
+      "heading": "Solution › Sales Order Print Screen Enhancement › Delivery/OC-level grouping",
+      "text": "Need a Column name Sub Total(will have Sales Order Currency)\nValue will have currency coming from Deliveries.\nSub Total Calculation = Value($)\n67,200 = $ 800, when 1 USD ($) = 84 INR.\n1.98 = VDN 600, When 1INR = 300 VDN.",
+      "locator": "§ Solution › Sales Order Print Screen Enhancement › Delivery/OC-level grouping",
+      "kind": "section"
+    },
+    {
+      "title": "Quantity visibility",
+      "heading": "Solution › Sales Order Print Screen Enhancement › Quantity visibility",
+      "text": "When user put on the Extra production % at article header inside delivery of a sales order.\nDisplay the quantity, including the extra production %, in a separate grid in Performa invoice and Print page.\nWe have added under each Delivery OC card, directly beneath the 'Quantity Breakup' matrix, an 'Extra Production %' grid.\nSales Order Print Screen Link- https://sales-order-sprint-3-screendesign-1.vercel.app/PrintView%202.html",
+      "locator": "§ Solution › Sales Order Print Screen Enhancement › Quantity visibility",
+      "kind": "section"
+    }
+  ]
+}

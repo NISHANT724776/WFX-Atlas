@@ -1,0 +1,85 @@
+# Business rules: planning (MRP)
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: RULE-MRP-EXPLOSION
+RULE NAME: MRP explosion
+MODULE: Planning
+SUBMODULE: MRP
+TRANSACTION: MRP
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Running MRP for Level 1 (the garment) for the full quantity also generates the indents for the child level (the raw materials of the BOM) in the same run: child quantity = Level 1 quantity × BOM Final Consumption. If the parent changes later, re-running MRP carries the change into the child indent.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Level 1 of 500 garments, full quantity: the fabric indent is generated as 500 × Final Consumption.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Planning › MRP
+SOURCE: Explained by the product owner and verified against the NIS-58 trial, 2026-11-12. Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-MRP-ADJUSTMENT
+RULE NAME: MRP adjustment
+MODULE: Planning
+SUBMODULE: MRP
+TRANSACTION: MRP
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Every MRP level (parent and child) can take a negative quantity (for example -500). The level where you enter it is the level that changes. To reduce or cancel a child indent, the negative has to be entered at its parent level: that lowers the parent quantity MRP acts on, so once MRP is re-run the child indent is reduced by the same share (any change in the parent followed by a re-run of MRP impacts the child indent), and taking off the whole parent quantity (-500 of 500) cancels it.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Level 1 = 500. Negative -200 at Level 1: net 300, child = 300 × Final Consumption. Negative -500 at Level 1: net 0, child indent cancelled.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Planning › MRP
+SOURCE: Explained by the product owner and verified against the NIS-58 trial, 2026-11-12. Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-MRP-ADJUSTMENT-CHILD
+RULE NAME: Negative at the child level
+MODULE: Planning
+SUBMODULE: MRP
+TRANSACTION: MRP
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A negative quantity entered at a child level changes only that child level. It does not reach the parent and does not cancel the child indent by itself: cancelling a child indent needs the negative at the parent level.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Fabric (Level 2) 750 with -200 entered at Level 2: fabric 550, garment Level 1 stays 500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Planning › MRP
+SOURCE: Explained by the product owner and verified against the NIS-58 trial, 2026-11-12. Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

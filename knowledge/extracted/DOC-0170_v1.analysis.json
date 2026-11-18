@@ -1,0 +1,153 @@
+{
+  "tables": [],
+  "subject": "WFX-ERP 1",
+  "keyTerms": [
+    "step",
+    "create",
+    "product",
+    "step click",
+    "techpack",
+    "group",
+    "material type",
+    "product group",
+    "group sub",
+    "sub category",
+    "type",
+    "category",
+    "click",
+    "user",
+    "step admin"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 12
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 3
+    },
+    {
+      "module": "Planning",
+      "score": 2
+    },
+    {
+      "module": "Production",
+      "score": 2
+    }
+  ],
+  "transactions": [
+    "Apparel Style (Techpack)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "ERP (Enterprise Resource Planning) is a software system that helps a company manage all its business processes in one place.",
+      "locator": "§ … › What is ERP?",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "What is ERP?:\n1. Finance 💰\n2. Inventory 📦\n3. Sales 🛒\n4. HR 👥\n5. Production 🏭",
+      "locator": "§ … › What is ERP?",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "WFX-ERP (World Fashion Exchange ERP) is a cloud-based Enterprise Resource Planning (ERP) system designed specifically for the fashion, apparel, and garment manufacturing industry.",
+      "locator": "§ … › What is WFX-ERP?",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Modules in WFX-ERP:\n1. Catalog Module\n2. Sales Module\n3. Sourcing Module\n4. Production\n5. Inventory\n6. QC\n7. QA\n8. F/A\n9. PPC\n10. TNA\n11. Reports\n12. Admin",
+      "locator": "§ … › Modules in WFX-ERP",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Step 3: Click on the new Button and fill the mandatory details, then save to create the user.",
+      "locator": "§ … › CATALOG MODULE › Initial Configuration (For all Modules)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Step 2: Click on add button and fill the mandatory details.",
+      "locator": "§ … › CATALOG MODULE › Initial Configuration (For all Modules)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Techpack is a document A tech pack (short for technical package) is a detailed document used in product manufacturing—most commonly in fashion and apparel, but also in accessories, footwear, and other physical products.",
+      "locator": "§ … › CATALOG MODULE › TechPack",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "TechPack:\n1. Product Overview\n2. Product name and style number\n3. Designer/brand name\n4. Season or collection\n5. Product description\n6. Technical Sketches\n7. Front and back drawings\n8. Close-up details\n9. Stitching and construction notes\n10. Bill of Materials (BOM)\n11. Fabrics (type, weight, composition)\n12. Trims (zippers, buttons, labels, elastics, etc.)\n13. Thread type and colors\n14. Measurements & Size Specs\n15. Size chart (XS–XXL, etc.)\n16. Detailed measurement points (chest width, sleeve length, etc.)\n17. Tolerance (allowed variation)\n18. Construction Details\n19. Seam types\n20. Stitch types\n21. Finishing instructions\n22. Packaging instructions\n23. Colorways\n24. Exact color codes (Pantone references)\n25. Fabric color variations",
+      "locator": "§ … › CATALOG MODULE › TechPack",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "TechPack Creation:\n1. Apparel\n2. Trims\n3. Yarns\n4. Textile/Fabrics\n5. Services\n6. Miscellaneous\n7. Footwear\n8. Fixed Asset\n9. Leather\n10. Furnishings",
+      "locator": "§ … › CATALOG MODULE › TechPack Creation",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "WFX-ERP 1",
+      "heading": "",
+      "text": "WFX-ERP",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "What is ERP?",
+      "heading": "… › What is ERP?",
+      "text": "ERP (Enterprise Resource Planning) is a software system that helps a company manage all its business processes in one place.\nWhat does ERP manage?\nIt integrates different departments like:\n• Finance 💰\n• Inventory 📦\n• Sales 🛒\n• HR 👥\n• Production 🏭",
+      "locator": "§ … › What is ERP?",
+      "kind": "section"
+    },
+    {
+      "title": "What is WFX-ERP?",
+      "heading": "… › What is WFX-ERP?",
+      "text": "WFX-ERP (World Fashion Exchange ERP) is a cloud-based Enterprise Resource Planning (ERP) system designed specifically for the fashion, apparel, and garment manufacturing industry.",
+      "locator": "§ … › What is WFX-ERP?",
+      "kind": "section"
+    },
+    {
+      "title": "Modules in WFX-ERP",
+      "heading": "… › Modules in WFX-ERP",
+      "text": "• Catalog Module\n• Sales Module\n• Sourcing Module\n• Production\n• Inventory\n• QC\n• QA\n• F/A\n• PPC\n• TNA\n• Reports\n• Admin",
+      "locator": "§ … › Modules in WFX-ERP",
+      "kind": "section"
+    },
+    {
+      "title": "Initial Configuration (For all Modules)",
+      "heading": "… › CATALOG MODULE › Initial Configuration (For all Modules)",
+      "text": "• User Creation\nStep 1: Go to Admin Org. Structure User Group\nStep 2: Choose any user group in any division or create a new user group.\nFrom this screen, we can create new divisions, departments, user groups, and site groups. We can also edit and delete them.\nStep 3: Click on the new Button and fill the mandatory details, then save to create the user.\n• Material Type Creation\nStep 1: Go to Admin Company Setup Material Type (42)\nStep 2: Click on add button and fill the mandatory details.\nStep 1: Then Map this material type with categories.\nStep 1: Click on save to create the material type.\n• Product Group – Sub Category Creation\nStep 1: Go to Admin Product Group & Sub-Category Choose Category (For which we want to create a product group & Sub category)\nStep 2: Then click on Add Button\nStep 3: Then fill necessary details and map with material type.\nStep 4: Then click on Save Button to create the product group and Sub category.\n• System Coding\nStep 1: Go to Admin System Coding Choose Category (For which we want to create a product group & Sub category)\nStep 2: Then click on Add Button\nStep 3: Then fill necessary details and map with material type.\nStep 4: Then click on Save Button to create the product group and Sub category.",
+      "locator": "§ … › CATALOG MODULE › Initial Configuration (For all Modules)",
+      "kind": "section"
+    },
+    {
+      "title": "TechPack",
+      "heading": "… › CATALOG MODULE › TechPack",
+      "text": "What is Techpack?\nTechpack is a document A tech pack (short for technical package) is a detailed document used in product manufacturing—most commonly in fashion and apparel, but also in accessories, footwear, and other physical products.\nIt acts as the blueprint that tells manufacturers exactly how to make your product.\nWhat a Tech Pack Typically Includes\n• Product Overview\n• Product name and style number\n• Designer/brand name\n• Season or collection\n• Product description\n• Technical Sketches\n• Front and back drawings\n• Close-up details\n• Stitching and construction notes\n• Bill of Materials (BOM)\n• Fabrics (type, weight, composition)\n• Trims (zippers, buttons, labels, elastics, etc.)\n• Thread type and colors\n• Measurements & Size Specs\n• Size chart (XS–XXL, etc.)\n• Detailed measurement points (chest width, sleeve length, etc.)\n• Tolerance (allowed variation)\n• Construction Details\n• Seam types\n• Stitch types\n• Finishing instructions\n• Packaging instructions\n• Colorways\n• Exact color codes (Pantone references)\n• Fabric color variations\nAnd other more informations.",
+      "locator": "§ … › CATALOG MODULE › TechPack",
+      "kind": "section"
+    },
+    {
+      "title": "TechPack Creation",
+      "heading": "… › CATALOG MODULE › TechPack Creation",
+      "text": "How to create Techpack?\nSo before creating a techpack we have to know that, there are categories for which we can create a techpack.\nCategories are as follows:\n• Apparel\n• Trims\n• Yarns\n• Textile/Fabrics\n• Services\n• Miscellaneous\n• Footwear\n• Fixed Asset\n• Leather\n• Furnishings\nSteps to create a new techpack\n• Go to.",
+      "locator": "§ … › CATALOG MODULE › TechPack Creation",
+      "kind": "section"
+    }
+  ]
+}

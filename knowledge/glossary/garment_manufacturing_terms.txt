@@ -1,0 +1,290 @@
+# Glossary: garment manufacturing terms as used in WFX
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+TERM ID: TERM-COLOUR-DEPENDENCY
+TERM: Colour dependency
+DEFINITION: How a BOM line takes its colours. Three types: Base Colour (apparel colours used directly), Table (the user maps each apparel colour to a material colour from the material colour master) and None (no colour).
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SIZE-DEPENDENCY
+TERM: Size dependency
+DEFINITION: How a BOM line takes its sizes. Three types: Base Size (apparel sizes used directly), Table (the user maps apparel sizes to material sizes) and None (no size).
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COLOUR-DEPENDENCY-BASE-COLOUR
+TERM: Colour dependency – Base Colour
+DEFINITION: The colours of the apparel are used directly for the material: the material is needed in the same colours as the garment.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COLOUR-DEPENDENCY-TABLE
+TERM: Colour dependency – Table
+DEFINITION: The user maps each apparel colour to a material colour. It tells the system "buy the fabric in this colour to achieve the apparel in that colour". The apparel colour master and the fabric (or any raw material) colour master can differ, so this map bridges them.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COLOUR-DEPENDENCY-NONE
+TERM: Colour dependency – None
+DEFINITION: The material has no colour. It is the same for every apparel colour (for example a polybag).
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SIZE-DEPENDENCY-BASE-SIZE
+TERM: Size dependency – Base Size
+DEFINITION: The apparel sizes are used directly for the material: the material comes in the same sizes as the garment.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SIZE-DEPENDENCY-TABLE
+TERM: Size dependency – Table
+DEFINITION: The user maps each apparel size to a material size (or leaves it unused), when the material is not sized like the garment.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SIZE-DEPENDENCY-NONE
+TERM: Size dependency – None
+DEFINITION: The material has no size. It is the same for every apparel size.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CONSUMPTION-UOM
+TERM: Consumption UOM
+DEFINITION: The unit in which the BOM states how much of the material one garment uses (Cons Qty, Final Consumption).
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ARTICLE-CODE-AND-ARTICLE-NAME-GENERATION
+TERM: Article Code and Article Name generation
+DEFINITION: The article code and article name of a techpack are generated in one of two ways: Automatically or Manually. Manually, the user types the code or name. Automatically, the system builds it from the rules set up in Admin › System Coding.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ARTICLE-CODE-DEFINITION
+TERM: Article Code Definition
+DEFINITION: A definition has a Category and a Logic (Manual or Automatic). For automatic logic each rule picks a Material Type, Product Group and Sub Category (or "ALL Other"), then lists code sections in Sort order (10, 20, 30…). The code is the sections joined in that order.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ARTICLE-SELECTION-MODES
+TERM: Article selection modes
+DEFINITION: Mode A is Style + Color + Size: one row per unique combination with Number of Sets, Size, Selling Price, Value and Total Quantity. Mode B is Style-wise grouping: one group per style with Color/Size, Quantity, Selling Price, Value, BOM and Total Quantity. A TBA colour/size line is always created by default.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BUYER-STYLE-REFERENCE-BSR
+TERM: Buyer Style Reference (BSR)
+DEFINITION: Shown under the article. Non-textile: taken from the Tech Pack, otherwise blank. Textile/fabric: taken first from the Linked Customer table for the selected buyer, then from the Tech Pack, otherwise blank. Whether the value can be edited follows the BSR configuration.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PACKING-TYPE
+TERM: Packing Type
+DEFINITION: Chosen per article: Solid Color / Solid Size (a single colour and size, existing popup), Solid Color / Assorted Size (a PP column; one colour only, ratios across sizes) and Multiple Prepack (PP ratios across colours and sizes). Price Per and its dropdown are not shown here, they come from the Tech Pack.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-KIT-ARTICLE
+TERM: Kit article
+DEFINITION: A delivery cannot mix kit and non-kit articles. The first article chosen fixes the type and later selections show only that type. Kit articles are shown in grid view only, with the kit name and kit ID and an indicator.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TECHPACK
+TERM: Techpack
+DEFINITION: The master record of an article in WFX: an Apparel techpack for the garment, and a Fabric or Trims techpack for each raw material.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-APPAREL-ARTICLE
+TERM: Apparel Article
+DEFINITION: The finished garment, e.g. Adi TShirt (NIS-59) or Flannel Shirt Adi (NIS-58), with buyer, colour card, size range and purchase UOM.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COLOUR-CARD
+TERM: Colour Card
+DEFINITION: Named palette of colour codes (e.g. Nis_colors). Styles and materials pick one, and may only use its colours.
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SIZE-RANGE
+TERM: Size Range
+DEFINITION: Named list of size codes (e.g. ERPSIZE) a style or material can use.
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-WASTAGE
+TERM: Wastage %
+DEFINITION: Allowance for material lost in marker/cutting waste.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SHRINKAGE
+TERM: Shrinkage %
+DEFINITION: Allowance for size reduction after washing or finishing. It is the last step of the chain: Cons incl Shrinkage = Cons incl Wastage ÷ (1 − Shrinkage %).
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-FINAL-CONSUMPTION
+TERM: Final Consumption
+DEFINITION: The last figure of the consumption chain, also called the total consumption of the line: Cons × 1/(1 − Loss %), then + Wastage %, then ÷ (1 − Shrinkage %). MRP and FPO multiply quantity by it.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TOTAL-CONSUMPTION
+TERM: Total consumption
+DEFINITION: The final figure of the chain loss → wastage → shrinkage, i.e. Final Consumption. If only one of loss, wastage or shrinkage is filled, only that step runs and its result becomes the total consumption. Not the same as Total Cons Qty, the quantity the user enters for Cons per Item garments.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COLOUR-DEPENDENCY-2
+TERM: Colour Dependency
+DEFINITION: Rule mapping each garment colour to the material colour used. "Table" = mapped colour by colour; unmapped colours are [Not Used].
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SIZE-DEPENDENCY-2
+TERM: Size Dependency
+DEFINITION: Rule mapping each garment size to the material size used.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TRIMS
+TERM: Trims
+DEFINITION: Non-fabric materials such as sewing thread, cufflinks and polybags; each has its own techpack.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

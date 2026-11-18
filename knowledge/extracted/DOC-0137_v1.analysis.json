@@ -1,0 +1,1407 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "User have options to run the MRP.",
+        "Column 2",
+        "Column 3"
+      ],
+      "types": [
+        "text",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [
+        "User have options to run the MRP."
+      ],
+      "rows": [
+        [
+          "1. Sourcing --> Indent --> List",
+          "",
+          ""
+        ],
+        [
+          "2. Sourcing --> Indent --> User Indent List",
+          "",
+          ""
+        ],
+        [
+          "3. Sourcing --> Indent --> Indent Fulfilment Status",
+          "",
+          ""
+        ],
+        [
+          "4. Catelog --> NewBOM",
+          "",
+          ""
+        ],
+        [
+          "5. Sales--> Purchase Order from Buyer (OC) List.",
+          "",
+          ""
+        ],
+        [
+          "6. Sourcing --> Material Requirement Planning",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Level 1",
+        "Column 2",
+        "Column 3",
+        "Column 4",
+        "Column 5",
+        "Column 6",
+        "Column 7",
+        "Column 8",
+        "Column 9"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Apparels",
+          "Shirt",
+          "Red",
+          "M",
+          "A00001",
+          "100",
+          "100"
+        ],
+        [
+          "Level 2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Textile",
+          "100% Cotton",
+          "Red",
+          "55\"",
+          "F00002",
+          "100",
+          "100"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Trims",
+          "Button",
+          "Red",
+          "M",
+          "T00003",
+          "100",
+          "100"
+        ],
+        [
+          "Level 3",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Yarn",
+          "100% Yarn",
+          "Red",
+          "55\"",
+          "Y00003",
+          "100",
+          "100"
+        ],
+        [
+          "Level 4",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Purchase Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Fiber",
+          "Cotton Fiber",
+          "Red",
+          "",
+          "C00003",
+          "100",
+          "100"
+        ],
+        [
+          "Case 1: If user have only the permission of apparels category then user has to show only two levels.",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Level 1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Apparels",
+          "Shirt",
+          "Red",
+          "M",
+          "A00001",
+          "100",
+          "100"
+        ],
+        [
+          "Level 2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Textile",
+          "100% Cotton",
+          "Red",
+          "55\"",
+          "F00002",
+          "100",
+          "100"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Trims",
+          "Button",
+          "Red",
+          "M",
+          "T00003",
+          "100",
+          "100"
+        ],
+        [
+          "Note : User can edit the level 1 but level 2 is to be on only read only mode and tools also not visible",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Case 2: If user have only the permission of Textile/Fabric category then user has to show only two levels.",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Level 1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Textile",
+          "100% Cotton",
+          "Red",
+          "55\"",
+          "F00002",
+          "100",
+          "100"
+        ],
+        [
+          "Level 2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Yarn",
+          "100% Yarn",
+          "Red",
+          "55\"",
+          "Y00003",
+          "100",
+          "100"
+        ],
+        [
+          "Note : User can edit the level 1 but level 2 is to be on only read only mode and tools also not visible",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Case 3: If user have only the permission of Yarn category then user has to show only two levels.",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Level 1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Production Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Yarn",
+          "100% Yarn",
+          "Red",
+          "55\"",
+          "Y00003",
+          "100",
+          "100"
+        ],
+        [
+          "Level 2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Purchase Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Fiber",
+          "Cotton Fiber",
+          "Red",
+          "",
+          "C00003",
+          "100",
+          "100"
+        ],
+        [
+          "Note : User can edit the level 1 but level 2 is to be on only read only mode and tools also not visible",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Case 4: If user have only the permission of Fiber category then user has to show only one levels.",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Level 1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "Category",
+          "Article",
+          "Color",
+          "Size",
+          "IndentNo",
+          "ReqQty",
+          "Purchase Demand"
+        ],
+        [
+          "",
+          "Confirmed",
+          "Fiber",
+          "Cotton Fiber",
+          "Red",
+          "",
+          "C00003",
+          "100",
+          "100"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Cases",
+        "Role",
+        "User",
+        "Apparel",
+        "Fabric",
+        "Trims",
+        "Indent Assign TO",
+        "MRL Level",
+        "MRP Action"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "boolean",
+        "boolean",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Cases"
+      ],
+      "rows": [
+        [
+          "Case -1",
+          "Merchant",
+          "User A",
+          "Yes",
+          "Yes",
+          "Yes",
+          "No",
+          "Level -1",
+          "Editable"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 (All Indents)",
+          "Read-Only"
+        ],
+        [
+          "Case -2",
+          "Merchant",
+          "User A",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Fabric Indents",
+          "Level -1",
+          "Editable"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Fabric",
+          "Editable"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Trims",
+          "Read-Only"
+        ],
+        [
+          "Case -3",
+          "Merchant",
+          "User B",
+          "No",
+          "Yes",
+          "No",
+          "Fabric Indents",
+          "Level -1",
+          "Not Visible"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Fabric",
+          "Editable"
+        ],
+        [
+          "Case -4",
+          "Merchant",
+          "User B",
+          "No",
+          "Yes",
+          "No",
+          "No",
+          "Level -1",
+          "Not Visible"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Fabric",
+          "Read-Only"
+        ],
+        [
+          "Case -5",
+          "Merchant",
+          "User B",
+          "No",
+          "Yes",
+          "Yes",
+          "Fabric Indents",
+          "Level -1",
+          "Not Visible"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Trims Indent - Not Assigned",
+          "Level -2 - Fabric",
+          "Editable"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Trims",
+          "Read-Only"
+        ],
+        [
+          "Case -6",
+          "Merchant",
+          "User A",
+          "No",
+          "No",
+          "Yes",
+          "Fabric Indents",
+          "Level -1",
+          "Not Visible"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Fabric",
+          "Not Visible"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Level -2 - Trims",
+          "Editable"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Version",
+        "Changes",
+        "Page no.",
+        "Date",
+        "Color"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "empty",
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Initial Draft",
+          "",
+          "09th Oct 2024",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "MRP-284648V01",
+  "keyTerms": [
+    "level",
+    "mrp",
+    "user",
+    "indent",
+    "run mrp",
+    "category",
+    "list",
+    "status",
+    "column column",
+    "run",
+    "column",
+    "fabric",
+    "permission",
+    "mrp list",
+    "sourcing indent"
+  ],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 39
+    },
+    {
+      "module": "Sales Order",
+      "score": 7
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 7
+    },
+    {
+      "module": "Production",
+      "score": 6
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The Purpose of this document is to categorize the indent category on the permission based.",
+      "locator": "§ Purpose",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: User have options to run the MRP., Column 2, Column 3 (6 rows; identifiers: User have options to run the MRP.)",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Level 1, Column 2, Column 3, Column 4, Column 5, Column 6, Column 7, Column 8, Column 9 (41 rows)",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "Following are the cases and validations: -",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Cases, Role, User, Apparel, Fabric, Trims, Indent Assign TO, MRL Level, MRP Action (15 rows; identifiers: Cases)",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "Step 2: After run the MRP system will open the MRP levels for Yarn category as well as Fiber also because the category indents are dependent on yarn.",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MRP list visibility based on Category permission:\n1. Company\n2. Division\n3. Buyer/Supplier Folder\n4. Category\n5. Catalog folder\n6. Indent assigned to User",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Required floating filter and some more columns in pending MRP List:\n1. Status: - It should be OC/MRL/Sample Order (Status).\n2. Summary Buyer Order Ref Number: - Require in pending list.\n3. Order Type: - Summary OC Type.\n4. In pending MRP list not show closed, cancel OC by default, if user want to search they can search it.",
+      "locator": "§ Solution › Required floating filter and some more columns in pending MRP List",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Version, Changes, Page no., Date, Color (1 rows)",
+      "locator": "§ Version Control, table 4",
+      "module": "Planning"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "MRP-284648V01",
+      "heading": "",
+      "text": "MRP Enhancements\nDevelopment ID: 284648\nMRP Enhancements\nDevelopment ID: 284648",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Version Control 2\n1. Purpose 2\n2. Business Requirement 2\n3. Scope 2\n4. Solution 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The Purpose of this document is to categorize the indent category on the permission based.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "At present we need to provision the filter the data of",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This document contains the below scope:\n• Required new development which will provide different visibility in Pending MRP list against granted permission.\n• Require Floating filter on pending MRP list also need to add Status, Summary buyer order ref, OC type in pending MRP list.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "MRP list visibility based on Category permission",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Scope : We need to categorize the MRP levels on the basis of category permission.",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "kind": "section"
+    },
+    {
+      "title": "MRP list visibility based on Category permission – Table 1",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Columns: User have options to run the MRP. (text); Column 2 (empty); Column 3 (empty)\nUser have options to run the MRP. | Column 2 | Column 3\n1. Sourcing --> Indent --> List |  | \n2. Sourcing --> Indent --> User Indent List |  | \n3. Sourcing --> Indent --> Indent Fulfilment Status |  | \n4. Catelog --> NewBOM |  | \n5. Sales--> Purchase Order from Buyer (OC) List. |  | \n6. Sourcing --> Material Requirement Planning |  | ",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "User have options to run the MRP.: 1. Sourcing --> Indent --> List",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "User have options to run the MRP.: 2. Sourcing --> Indent --> User Indent List",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "User have options to run the MRP.: 3. Sourcing --> Indent --> Indent Fulfilment Status",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "User have options to run the MRP.: 4. Catelog --> NewBOM",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "User have options to run the MRP.: 5. Sales--> Purchase Order from Buyer (OC) List.",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "User have options to run the MRP.: 6. Sourcing --> Material Requirement Planning",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "MRP list visibility based on Category permission",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Whenever user will run the MRP at initially stage then system has to direct the page first on material requirement planning for \"Add to Existing MRL group\" & \"Set Material. But if we need to run the MRP for generated indent then we have to do it directly from above given option and then will be direct it to MRP level wise page.\nAfter filling this information system will direct it to MRP level wise page as per given below scenarios.\nFor below cases system has to show the indents from level 1 as we defined for all given cases.\nSuppose we run the MRP for all level then system generate the four level as per our scenario.",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "kind": "section"
+    },
+    {
+      "title": "MRP list visibility based on Category permission – Table 2",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Columns: Level 1 (text); Column 2 (text); Column 3 (text); Column 4 (text); Column 5 (text); Column 6 (text); Column 7 (text); Column 8 (text); Column 9 (text)\nLevel 1 | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9\n | Status | Category | Article | Color | Size | IndentNo | ReqQty | Production Demand\n | Confirmed | Apparels | Shirt | Red | M | A00001 | 100 | 100\nLevel 2 |  |  |  |  |  |  |  | \n | Status | Category | Article | Color | Size | IndentNo | ReqQty | Production Demand\n | Confirmed | Textile | 100% Cotton | Red | 55\" | F00002 | 100 | 100\n | Confirmed | Trims | Button | Red | M | T00003 | 100 | 100\nLevel 3 |  |  |  |  |  |  |  | \n | Status | Category | Article | Color | Size | IndentNo | ReqQty | Production Demand\n | Confirmed | Yarn | 100% Yarn | Red | 55\" | Y00003 | 100 | 100\nLevel 4 |  |  |  |  |  |  |  | \n | Status | Category | Article | Color | Size | IndentNo | ReqQty | Purchase Demand\n | Confirmed | Fiber | Cotton Fiber | Red |  | C00003 | 100 | 100\nCase 1: If user have only the permission of apparels category then user has to show only two levels. |  |  |  |  |  |  |  | \nLevel 1 |  |  |  |  |  |  |  | \n | Status | Category | Article | Color | Size | IndentNo | ReqQty | Production Demand\n | Confirmed | Apparels | Shirt | Red | M | A00001 | 100 | 100\nLevel 2 |  |  |  |  |  |  |  | \n | Status | Category | Article | Color | Size | IndentNo | ReqQty | Production Demand\n | Confirmed | Textile | 100% Cotton | Red | 55\" | F00002 | 100 | 100\n | Confirmed | Trims | Button | Red | M | T00003 | 100 | 100\n… 21 more rows",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Apparels; Column 4: Shirt; Column 5: Red; Column 6: M; Column 7: A00001; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 2",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Textile; Column 4: 100% Cotton; Column 5: Red; Column 6: 55\"; Column 7: F00002; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Trims; Column 4: Button; Column 5: Red; Column 6: M; Column 7: T00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 3",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Yarn; Column 4: 100% Yarn; Column 5: Red; Column 6: 55\"; Column 7: Y00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 4",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Purchase Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 12",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Fiber; Column 4: Cotton Fiber; Column 5: Red; Column 7: C00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 13",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Case 1: If user have only the permission of apparels category then user has to show only two levels.",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 14",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 1",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 15",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 16",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Apparels; Column 4: Shirt; Column 5: Red; Column 6: M; Column 7: A00001; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 17",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 2",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 18",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 19",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Textile; Column 4: 100% Cotton; Column 5: Red; Column 6: 55\"; Column 7: F00002; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 20",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Trims; Column 4: Button; Column 5: Red; Column 6: M; Column 7: T00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 21",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Note : User can edit the level 1 but level 2 is to be on only read only mode and tools also not visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 22",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Case 2: If user have only the permission of Textile/Fabric category then user has to show only two levels.",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 23",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 1",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 24",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 25",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Textile; Column 4: 100% Cotton; Column 5: Red; Column 6: 55\"; Column 7: F00002; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 26",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 2",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 27",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 28",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Yarn; Column 4: 100% Yarn; Column 5: Red; Column 6: 55\"; Column 7: Y00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 29",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Note : User can edit the level 1 but level 2 is to be on only read only mode and tools also not visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 30",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Case 3: If user have only the permission of Yarn category then user has to show only two levels.",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 31",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 1",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 32",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Production Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 33",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Yarn; Column 4: 100% Yarn; Column 5: Red; Column 6: 55\"; Column 7: Y00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 34",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 2",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 35",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Purchase Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 35",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 36",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Fiber; Column 4: Cotton Fiber; Column 5: Red; Column 7: C00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 36",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 37",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Note : User can edit the level 1 but level 2 is to be on only read only mode and tools also not visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 37",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 38",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Case 4: If user have only the permission of Fiber category then user has to show only one levels.",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 38",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 39",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Level 1: Level 1",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 39",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 40",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Status; Column 3: Category; Column 4: Article; Column 5: Color; Column 6: Size; Column 7: IndentNo; Column 8: ReqQty; Column 9: Purchase Demand",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 40",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 41",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Column 2: Confirmed; Column 3: Fiber; Column 4: Cotton Fiber; Column 5: Red; Column 7: C00003; Column 8: 100; Column 9: 100",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 2, row 41",
+      "kind": "data_row"
+    },
+    {
+      "title": "MRP list visibility based on Category permission",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Following are the cases and validations: -",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "kind": "section"
+    },
+    {
+      "title": "MRP list visibility based on Category permission – Table 3",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Columns: Cases (text); Role (text); User (text); Apparel (boolean); Fabric (boolean); Trims (boolean); Indent Assign TO (text); MRL Level (text); MRP Action (text)\nCases | Role | User | Apparel | Fabric | Trims | Indent Assign TO | MRL Level | MRP Action\nCase -1 | Merchant | User A | Yes | Yes | Yes | No | Level -1 | Editable\n |  |  |  |  |  |  | Level -2 (All Indents) | Read-Only\nCase -2 | Merchant | User A | Yes | Yes | Yes | Fabric Indents | Level -1 | Editable\n |  |  |  |  |  |  | Level -2 - Fabric | Editable\n |  |  |  |  |  |  | Level -2 - Trims | Read-Only\nCase -3 | Merchant | User B | No | Yes | No | Fabric Indents | Level -1 | Not Visible\n |  |  |  |  |  |  | Level -2 - Fabric | Editable\nCase -4 | Merchant | User B | No | Yes | No | No | Level -1 | Not Visible\n |  |  |  |  |  |  | Level -2 - Fabric | Read-Only\nCase -5 | Merchant | User B | No | Yes | Yes | Fabric Indents | Level -1 | Not Visible\n |  |  |  |  |  | Trims Indent - Not Assigned | Level -2 - Fabric | Editable\n |  |  |  |  |  |  | Level -2 - Trims | Read-Only\nCase -6 | Merchant | User A | No | No | Yes | Fabric Indents | Level -1 | Not Visible\n |  |  |  |  |  |  | Level -2 - Fabric | Not Visible\n |  |  |  |  |  |  | Level -2 - Trims | Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Cases: Case -1; Role: Merchant; User: User A; Apparel: Yes; Fabric: Yes; Trims: Yes; Indent Assign TO: No; MRL Level: Level -1; MRP Action: Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 (All Indents); MRP Action: Read-Only",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Cases: Case -2; Role: Merchant; User: User A; Apparel: Yes; Fabric: Yes; Trims: Yes; Indent Assign TO: Fabric Indents; MRL Level: Level -1; MRP Action: Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Fabric; MRP Action: Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Trims; MRP Action: Read-Only",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Cases: Case -3; Role: Merchant; User: User B; Apparel: No; Fabric: Yes; Trims: No; Indent Assign TO: Fabric Indents; MRL Level: Level -1; MRP Action: Not Visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Fabric; MRP Action: Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Cases: Case -4; Role: Merchant; User: User B; Apparel: No; Fabric: Yes; Trims: No; Indent Assign TO: No; MRL Level: Level -1; MRP Action: Not Visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Fabric; MRP Action: Read-Only",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Cases: Case -5; Role: Merchant; User: User B; Apparel: No; Fabric: Yes; Trims: Yes; Indent Assign TO: Fabric Indents; MRL Level: Level -1; MRP Action: Not Visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Indent Assign TO: Trims Indent - Not Assigned; MRL Level: Level -2 - Fabric; MRP Action: Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 12",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Trims; MRP Action: Read-Only",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 13",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "Cases: Case -6; Role: Merchant; User: User A; Apparel: No; Fabric: No; Trims: Yes; Indent Assign TO: Fabric Indents; MRL Level: Level -1; MRP Action: Not Visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 14",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Fabric; MRP Action: Not Visible",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 15",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "MRL Level: Level -2 - Trims; MRP Action: Editable",
+      "locator": "§ Solution › MRP list visibility based on Category permission, table 3, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "MRP list visibility based on Category permission",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "For Example: -\nStep 1 : -User have the permission of yarn category only and now user wants to run MRP from Indent list then we need a provision of Run MRP tool where user can run the MRP.\nStep 2: After run the MRP system will open the MRP levels for Yarn category as well as Fiber also because the category indents are dependent on yarn.\nNote :- Total Unit will be comes on the basis of parent line (Production BOM) which is now yarn as per below case.\nWe need the run MRP provision & MRL group number fields in below given transaction\nSourcing --> Indent --> List\nSourcing --> Indent --> User Indent List\nSourcing --> Indent --> Indent Fulfilment Status\nWe need following changes over Indent Fulfilment status screen.\n• We need header tool on footer level and it will work on the basis of user permission for menu. i.e. if we have given the permission of purchase order then system has to only PO tool and it will be working same like another tool.\nNote : It will be work on the based on following criteria’s :-\n• Company\n• Division\n• Buyer/Supplier Folder\n• Category\n• Catalog folder\n• Indent assigned to User\nAcceptance Criteria:\n• In this we have to check the child indent level assigned to user with logged in user and if both will same then user can take action for Indent fulfillment in the MRP otherwise the Run MRP button and other fulfillment option will be disable for that indent.",
+      "locator": "§ Solution › MRP list visibility based on Category permission",
+      "kind": "section"
+    },
+    {
+      "title": "MRP list visibility based on Category permission",
+      "heading": "Solution › MRP list visibility based on Category permission",
+      "text": "• The main run MRP button will be visible where user have the permission of all level categories.",
+      "locator": "§ Solution › MRP list visibility based on Category permission (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Required floating filter and some more columns in pending MRP List",
+      "heading": "Solution › Required floating filter and some more columns in pending MRP List",
+      "text": "• Status: - It should be OC/MRL/Sample Order (Status).\n• Summary Buyer Order Ref Number: - Require in pending list.\n• Order Type: - Summary OC Type.\n• In pending MRP list not show closed, cancel OC by default, if user want to search they can search it.\nAlso, Level Wise MRP need to open in new tab, because for every MRP User Clicks increasing.\nThis page still in same status and level wise mrp need to open in new tab.",
+      "locator": "§ Solution › Required floating filter and some more columns in pending MRP List",
+      "kind": "section"
+    },
+    {
+      "title": "Version Control – Table 4",
+      "heading": "Version Control",
+      "text": "Columns: Version (decimal); Changes (text); Page no. (empty); Date (text); Color (empty)\nVersion | Changes | Page no. | Date | Color\n1.0 | Initial Draft |  | 09th Oct 2024 | ",
+      "locator": "§ Version Control, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Version Control",
+      "text": "Version: 1.0; Changes: Initial Draft; Date: 09th Oct 2024",
+      "locator": "§ Version Control, table 4, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

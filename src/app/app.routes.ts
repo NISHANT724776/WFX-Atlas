@@ -1,0 +1,33 @@
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  { path: '', loadComponent: () => import('./pages/home') },
+  { path: 'workflows', loadComponent: () => import('./pages/workflow-builder') },
+  { path: 'workflows/:flow', loadComponent: () => import('./pages/workflow-builder') },
+  { path: 'data-model', loadComponent: () => import('./pages/data-model') },
+  { path: 'data', loadComponent: () => import('./pages/data-explorer') },
+  { path: 'theory', loadComponent: () => import('./pages/theory-list') },
+  { path: 'theory/:slug', loadComponent: () => import('./pages/theory') },
+  { path: 'color-cards', loadComponent: () => import('./pages/color-cards') },
+  { path: 'color-cards/:card', loadComponent: () => import('./pages/color-card-detail') },
+  { path: 'color-cards/:card/:color', loadComponent: () => import('./pages/color-trace') },
+  { path: 'calculations', loadComponent: () => import('./pages/calculations') },
+  { path: 'glossary', loadComponent: () => import('./pages/glossary') },
+  { path: 'assistant', loadComponent: () => import('./pages/assistant') },
+  { path: 'ask', loadComponent: () => import('./pages/ask') },
+  // knowledge platform (needs the knowledge server; prerendered as shells, data loads in the browser)
+  { path: 'login', loadComponent: () => import('./platform/login') },
+  { path: 'dashboard', loadComponent: () => import('./platform/dashboard') },
+  { path: 'library', loadComponent: () => import('./platform/library') },
+  { path: 'rulebook', loadComponent: () => import('./platform/rulebook') },
+  { path: 'transactions', loadComponent: () => import('./platform/transactions') },
+  { path: 'calc-lab', loadComponent: () => import('./platform/calc-lab') },
+  { path: 'ba-copilot', loadComponent: () => import('./platform/ba-copilot') },
+  { path: 'workflow-designer', loadComponent: () => import('./platform/workflow-designer') },
+  { path: 'workflow-designer/:id', loadComponent: () => import('./platform/workflow-designer') },
+  { path: 'data-modelling', loadComponent: () => import('./platform/data-modelling') },
+  { path: 'profile', loadComponent: () => import('./platform/profile') },
+  { path: 'admin', loadComponent: () => import('./platform/admin') },
+  { path: '404', loadComponent: () => import('./pages/not-found') },
+  { path: '**', loadComponent: () => import('./pages/not-found') },
+];

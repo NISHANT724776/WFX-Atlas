@@ -1,0 +1,569 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "#",
+        "Functionality / Rule",
+        "Expected Behavior"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Pending MRP List – Kit Demand tab (Level ‑1)",
+          "Displays KIT/Pack Sales Orders with defined columns; selections and actions taken here generate the requirement shown on the MRP tab."
+        ],
+        [
+          "2",
+          "Clubbing of Packs by Style",
+          "Where two or more Packs are built on the same Style, the system allows them to be clubbed and plans a single consolidated Style requirement (e.g., Pack 1 – 500 Qty and Pack 2 – 500 Qty on Flannel Pants are planned as one requirement of 1000 Qty)."
+        ],
+        [
+          "4",
+          "Pending MRP List – MRP tab",
+          "Displays Styles at Level 1 (with clubbed quantity) and Raw Materials at Level 2, derived from the Kit Demand tab requirement."
+        ],
+        [
+          "5",
+          "Requirement traceability",
+          "The planner can trace a Style-level requirement back to the KIT/Pack Sales Orders that contributed to it."
+        ],
+        [
+          "6",
+          "Job Order (JO) generation – KIT/Pack level",
+          "Running MRP on the KIT/Pack directly creates the Job Order at KIT/Pack level; no Production Order is raised at this level."
+        ],
+        [
+          "7",
+          "Production Order (PO) generation – Style level",
+          "One Production Order is created per distinct Style contained in the KIT/Pack, against the clubbed Style requirement."
+        ],
+        [
+          "8",
+          "PO generation for a Pack",
+          "A Pack contains two or more units of the same Style, so a single Production Order is generated for the Pack."
+        ],
+        [
+          "9",
+          "PO generation for a KIT",
+          "A KIT contains multiple Styles (e.g., Style 1 and Style 2), so two Production Orders are generated — one per Style."
+        ],
+        [
+          "10",
+          "FPO generation",
+          "FPO is created at Style level against the clubbed Style requirement."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Role",
+        "Name",
+        "Organization",
+        "Signature",
+        "Date"
+      ],
+      "types": [
+        "text",
+        "empty",
+        "text",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Customer Business Owner",
+          "",
+          "Customer",
+          "",
+          ""
+        ],
+        [
+          "Customer SPOC",
+          "",
+          "Customer",
+          "",
+          ""
+        ],
+        [
+          "WFX Representative",
+          "",
+          "WFX",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Version",
+        "Date",
+        "Description of Change",
+        "Prepared By"
+      ],
+      "types": [
+        "text",
+        "empty",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "V1.0",
+          "",
+          "Initial Version",
+          "Nishant"
+        ],
+        [
+          "V1.1",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "KIT Pack MRP Enhancement",
+  "keyTerms": [
+    "style",
+    "level",
+    "kitpack",
+    "kit",
+    "order",
+    "pack",
+    "style level",
+    "mrp",
+    "requirement",
+    "production",
+    "production order",
+    "sales",
+    "two",
+    "sales order",
+    "kitpack level"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 63
+    },
+    {
+      "module": "Planning",
+      "score": 36
+    },
+    {
+      "module": "Sales Order",
+      "score": 30
+    },
+    {
+      "module": "Style & BOM",
+      "score": 4
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "Production Order",
+    "FPO & FPPO",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "User visibility is provided at MRP level through two tabs — Kit Demand and MRP — so that the planner can see the KIT/Pack demand and the resulting Style and Raw Material requirement, and thereby plan the requirement more accurately.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The objective is therefore to enhance MRP so that a KIT/Pack Sales Order is exploded down to its constituent Styles and Raw Materials, and the requirement is planned at Style level — clubbing Packs that share the same Style into a single consolidated Style requirement.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "A KIT (KIT-364) is made up of two different Styles — Style 1 (Flannel Pants) and Style 2 (Flannel LS Shirt).",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Pack 1 (KIT-366) is made up of two or more units of the same Style (Style 1 & 2 – Flannel Pants).",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Pack 2 (KIT-367) is made up of two or more units of the same Style (Style 1 & 2 – Flannel Pants).",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Pack 1 and Pack 2 are built on the same Style, so at the time of MRP the planner can club them together and plan a single consolidated Style requirement instead of planning each Pack separately.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "dependency",
+      "text": "Clubbing example: if a single Sales Order contains Pack 1 on Style 1 and Pack 2 on Style 1, both Packs are clubbed and a single Production Order is generated for Style 1, covering the combined quantity of both Packs & trigger point is Run MRP.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1. Requirement & Objective:\n1. A KIT (KIT-364) is made up of two different Styles — Style 1 (Flannel Pants) and Style 2 (Flannel LS Shirt). Sales Order for KIT: 1,000 Qty.\n2. Pack 1 (KIT-366) is made up of two or more units of the same Style (Style 1 & 2 – Flannel Pants). Sales Order for Pack 1: 500 Qty.\n3. Pack 2 (KIT-367) is made up of two or more units of the same Style (Style 1 & 2 – Flannel Pants). Sales Order for Pack 2: 500 Qty.\n4. Pack 1 and Pack 2 are built on the same Style, so at the time of MRP the planner can club them together and plan a single consolidated Style requirement instead of planning each Pack separately.\n5. Clubbing example: if a single Sales Order contains Pack 1 on Style 1 and Pack 2 on Style 1, both Packs are clubbed and a single Production Order is generated for Style 1, covering the combined quantity of both Packs & trigger point is Run MRP.\n6. On the Pending MRP screen, the planner can see the KIT/Pack at Level ‑1 and drill down to the Styles (Level 1) and Raw Materials (Level 2) that the KIT/Pack will consume, giving full visibility of what is being planned before any document is raised.\n7. Pack: since a Pack contains two or more units of the same Style, a single Production Order is generated for that Pack.\n8. KIT: since KIT-364 contains two different Styles (Style 1 and Style 2), two Production Orders are generated — one per Style.\n9. Running MRP on the KIT/Pack directly creates the Job Order at KIT/Pack level, while the Production Orders are created at Style level.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "module": "Production"
+    },
+    {
+      "kind": "dependency",
+      "text": "Clubbing at MRP level: Packs built on the same Style can be clubbed at the time of MRP (Trigger Point), into a single consolidated requirement.",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "module": "Production"
+    },
+    {
+      "kind": "dependency",
+      "text": "MRP tab: displays Styles (Level 1) and Raw Materials (Level 2) generated from the Kit Demand tab, giving the planner visibility of the full requirement before documents are raised.",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Job Order (JO) generation at KIT/Pack level when MRP is run — no Production Order is raised at KIT/Pack level.",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In Scope:\n1. Definition of KIT and Pack as a combination of two or more Styles.\n2. Clubbing at MRP level: Packs built on the same Style can be clubbed at the time of MRP (Trigger Point), into a single consolidated requirement.\n3. Enhancement of the Pending MRP List screen for KIT and Pack Sales Orders, with two tabs: Kit Demand and MRP.\n4. Kit Demand tab (Level ‑1): displays KIT/Pack Sales Orders and allows same-Style Packs to be clubbed; actions taken here drive the requirement generated on the MRP tab.\n5. MRP tab: displays Styles (Level 1) and Raw Materials (Level 2) generated from the Kit Demand tab, giving the planner visibility of the full requirement before documents are raised.\n6. Job Order (JO) generation at KIT/Pack level when MRP is run — no Production Order is raised at KIT/Pack level.\n7. Production Order (PO) generation at Style level — one PO per distinct Style in the KIT/Pack (single PO for a Pack; multiple POs for a KIT).\n8. FPO generation at Style level against the clubbed requirement.\n9. Traceability from the Style-level requirement back to the contributing KIT/Pack Sales Orders.",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The resulting requirement is shown on a new MRP tab, which lists the Styles that make up the selected KIT/Packs (Level 1) and the Raw Materials those Styles consume (Level 2) — giving the planner clear visibility of the full requirement before any document is raised.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Solution Overview",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The Job Order (JO) is generated at KIT/Pack level — running MRP on the KIT/Pack directly creates its Job Order.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Solution Overview",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The Production Orders (PO) are generated at Style level, one per distinct Style contained in the KIT/Pack.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Solution Overview",
+      "module": "Production"
+    },
+    {
+      "kind": "dependency",
+      "text": "Pack- Tab 1 Kit Demand user can take actions such as Purchase and Production to raise their demands at level 1 of Kit Details, based on this requirement is genertaed at 2nd tab MRP for Style at level 1and raw materials at level 2 respectively.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Screen / UI",
+      "module": "Production"
+    },
+    {
+      "kind": "dependency",
+      "text": "Kit - Pack- Tab 1 Kit Demand user can take actions such as Purchase and Production to raise their demands at level 1 of Kit Details, based on this requirement is genertaed at 2nd tab MRP for Style at level 1and raw materials at level 2 respectively.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Screen / UI",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: #, Functionality / Rule, Expected Behavior (9 rows)",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Only Packs built on the same Style may be clubbed together; Packs on different Styles cannot be combined.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Job Orders are generated at KIT/Pack level; Production Orders are generated at Style level.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "No Production Order is raised against the KIT/Pack itself.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Style-level PO and FPO quantities must reconcile to the KIT/Pack Sales Order quantity as per the KIT/Pack composition ratio.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Key Validations / Business Rules:\n1. A KIT consists of two distinct Styles (e.g., Style 1 – Flannel Pants & Style 2 – Flannel LS Shirt).\n2. A Pack consists of two or more units of the same Style combination (e.g., Style 1 & 2 – Flannel Pants).\n3. Only Packs built on the same Style may be clubbed together; Packs on different Styles cannot be combined.\n4. Requirement generation always flows top-down: KIT/Pack (Level ‑1) → Style (Level 1) → Raw Material (Level 2).\n5. Job Orders are generated at KIT/Pack level; Production Orders are generated at Style level. No Production Order is raised against the KIT/Pack itself.\n6. The number of Production Orders generated equals the number of distinct Styles in the KIT/Pack: one PO for a Pack (same Style), two POs for a two-Style KIT.\n7. Where a Sales Order contains two or more Packs built on the same Style, those Packs are clubbed and a single Production Order is generated for that Style, for the combined quantity of the clubbed Packs.\n8. Style-level PO and FPO quantities must reconcile to the KIT/Pack Sales Order quantity as per the KIT/Pack composition ratio.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Style-wise BOM (Bill of Material) is already configured for each Style used in a KIT/Pack.",
+      "locator": "§ WFX ERP › 4. Assumptions & Dependencies",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Sales Orders for KIT/Pack are booked with the correct Style linkage.",
+      "locator": "§ WFX ERP › 4. Assumptions & Dependencies",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4. Assumptions & Dependencies:\n1. Style-wise BOM (Bill of Material) is already configured for each Style used in a KIT/Pack.\n2. KIT/Pack master mapping (which Styles and quantity ratio make up each KIT/Pack) is configured in the system.\n3. Sales Orders for KIT/Pack are booked with the correct Style linkage.\n4. [Integration dependency, if any]",
+      "locator": "§ WFX ERP › 4. Assumptions & Dependencies",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "5. Acceptance Criteria:\n1. The Pending MRP List screen shows the Kit Demand tab and MRP tab as specified.\n2. Packs built on the same Style can be clubbed, and the clubbed quantity is correctly reflected in the Style-level requirement.\n3. Actions taken on the Kit Demand tab correctly generate the requirement on the MRP tab (Style – Level 1, Raw Material – Level 2).\n4. The planner can trace a Style-level requirement back to the contributing KIT/Pack Sales Orders.\n5. Running MRP for a KIT/Pack directly creates the Job Order at KIT/Pack level, with no Production Order raised at that level.\n6. A Pack generates a single Production Order at Style level; a two-Style KIT generates two Production Orders, one per Style.\n7. A Sales Order containing two Packs on the same Style (Pack 1 – Style 1 and Pack 2 – Style 1) generates a single Production Order for Style 1 with the combined quantity.\n8. PO and FPO quantities reconcile to the KIT/Pack Sales Order quantities as per the composition ratio.",
+      "locator": "§ WFX ERP › 5. Acceptance Criteria",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Role, Name, Organization, Signature, Date (3 rows)",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Version, Date, Description of Change, Prepared By (2 rows)",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Customer Specification & Approval Document",
+      "heading": "WFX ERP › Customer Specification & Approval Document",
+      "text": "Project / Customer: Shahi Exports\nModule / Functionality: KIT / Pack MRP Enhancement\nHelpdesk ID: 445486\nVersion: [V1.0]\nDate: [16-09-2026]\nPrepared By: Nishant [Product Team]\nCustomer SPOC: [Customer Name / Designation]",
+      "locator": "§ WFX ERP › Customer Specification & Approval Document",
+      "kind": "section"
+    },
+    {
+      "title": "1. Requirement & Objective",
+      "heading": "WFX ERP › 1. Requirement & Objective",
+      "text": "Business Requirement\nWe are providing a functionality to combine Styles. For example, a Sales Order contains two Packs built on the same Style — Pack 1 on Style 1 and Pack 2 on Style 1 — MRP will generate for all the Packs added into Sales Order. At MRP event Style level -1 indent will be created as a clubbed requirement against the Sales Order which will lead to create one production Order for a Style.\nUser visibility is provided at MRP level through two tabs — Kit Demand and MRP — so that the planner can see the KIT/Pack demand and the resulting Style and Raw Material requirement, and thereby plan the requirement more accurately.\nObjective\nPlanning in WFX is done at Style level, not at KIT/Pack level. The objective is therefore to enhance MRP so that a KIT/Pack Sales Order is exploded down to its constituent Styles and Raw Materials, and the requirement is planned at Style level — clubbing Packs that share the same Style into a single consolidated Style requirement. Accordingly, the Production Order (PO) is raised at Style level, one per distinct Style, while the Job Order (JO) is generated for KIT/Pack.\nUse Case / Business Scenario\n• A KIT (KIT-364) is made up of two different Styles — Style 1 (Flannel Pants) and Style 2 (Flannel LS Shirt). Sales Order for KIT: 1,000 Qty.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective",
+      "kind": "section"
+    },
+    {
+      "title": "1. Requirement & Objective",
+      "heading": "WFX ERP › 1. Requirement & Objective",
+      "text": "• Pack 1 (KIT-366) is made up of two or more units of the same Style (Style 1 & 2 – Flannel Pants). Sales Order for Pack 1: 500 Qty.\n• Pack 2 (KIT-367) is made up of two or more units of the same Style (Style 1 & 2 – Flannel Pants). Sales Order for Pack 2: 500 Qty.\n• Pack 1 and Pack 2 are built on the same Style, so at the time of MRP the planner can club them together and plan a single consolidated Style requirement instead of planning each Pack separately.\n• Clubbing example: if a single Sales Order contains Pack 1 on Style 1 and Pack 2 on Style 1, both Packs are clubbed and a single Production Order is generated for Style 1, covering the combined quantity of both Packs & trigger point is Run MRP.\n• On the Pending MRP screen, the planner can see the KIT/Pack at Level ‑1 and drill down to the Styles (Level 1) and Raw Materials (Level 2) that the KIT/Pack will consume, giving full visibility of what is being planned before any document is raised.\n• Pack: since a Pack contains two or more units of the same Style, a single Production Order is generated for that Pack.\n• KIT: since KIT-364 contains two different Styles (Style 1 and Style 2), two Production Orders are generated — one per Style.\n• Running MRP on the KIT/Pack directly creates the Job Order at KIT/Pack level, while the Production Orders are created at Style level.",
+      "locator": "§ WFX ERP › 1. Requirement & Objective (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "In Scope",
+      "heading": "WFX ERP › 2. Scope › In Scope",
+      "text": "• Definition of KIT and Pack as a combination of two or more Styles.\n• Clubbing at MRP level: Packs built on the same Style can be clubbed at the time of MRP (Trigger Point), into a single consolidated requirement.\n• Enhancement of the Pending MRP List screen for KIT and Pack Sales Orders, with two tabs: Kit Demand and MRP.\n• Kit Demand tab (Level ‑1): displays KIT/Pack Sales Orders and allows same-Style Packs to be clubbed; actions taken here drive the requirement generated on the MRP tab.\n• MRP tab: displays Styles (Level 1) and Raw Materials (Level 2) generated from the Kit Demand tab, giving the planner visibility of the full requirement before documents are raised.\n• Job Order (JO) generation at KIT/Pack level when MRP is run — no Production Order is raised at KIT/Pack level.\n• Production Order (PO) generation at Style level — one PO per distinct Style in the KIT/Pack (single PO for a Pack; multiple POs for a KIT).\n• FPO generation at Style level against the clubbed requirement.\n• Traceability from the Style-level requirement back to the contributing KIT/Pack Sales Orders.",
+      "locator": "§ WFX ERP › 2. Scope › In Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Out of Scope",
+      "heading": "WFX ERP › 2. Scope › Out of Scope",
+      "text": "• Clubbing of Packs built on different Styles.\n• Changes to the existing Style-level MRP, Production Order, FPO and Job Order logic beyond what is described in this document.\nAny requirement not explicitly covered under the approved scope will be treated as a change request.",
+      "locator": "§ WFX ERP › 2. Scope › Out of Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Solution Overview",
+      "heading": "WFX ERP › 3. Proposed Solution › Solution Overview",
+      "text": "WFX will enhance the Pending MRP List screen so that KIT and Pack Sales Orders are visible as demand and are exploded to Style level, where planning is actually carried out. A new Kit Demand tab will show the KIT/Pack at Level ‑1, where the planner can select and club Packs that are built on the same Style so they are planned as one consolidated requirement rather than Pack by Pack. The resulting requirement is shown on a new MRP tab, which lists the Styles that make up the selected KIT/Packs (Level 1) and the Raw Materials those Styles consume (Level 2) — giving the planner clear visibility of the full requirement before any document is raised.\nThe Job Order (JO) is generated at KIT/Pack level — running MRP on the KIT/Pack directly creates its Job Order. The Production Orders (PO) are generated at Style level, one per distinct Style contained in the KIT/Pack. For a Pack, which holds two or more units of the same Style, this results in a single PO. For a KIT such as KIT-364, which holds Style 1 (Flannel Pants) and Style 2 (Flannel LS Shirt), this results in two POs — one per Style. Where Packs have been clubbed, the Style-level PO carries the clubbed quantity.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Solution Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Process / Workflow",
+      "heading": "WFX ERP › 3. Proposed Solution › Process / Workflow",
+      "text": "KIT/Pack build-up from Style BOMs",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Process / Workflow",
+      "kind": "section"
+    },
+    {
+      "title": "Screen / UI",
+      "heading": "WFX ERP › 3. Proposed Solution › Screen / UI",
+      "text": "• KIT: KIT-376 - Lounge Set\nKit Items- Show Style detials (Style 1 & Style 2)\nPackaging Material – Items required for packaging of Kit.\nRouting Process – Process required for KIT\nAdditional Cost\nSummary\n• Pack: Lounge Shirt Set Pack\nPack items – Style added in a pack\nPacking Materials\nRouting Process\nAdditional Costs\nSummary\n• KIT/Pack Sales Order:\nPack – Sales Order\nKit – Sales Order\n• Pending MRP for KIT/Pack:\nPack- Tab 1 Kit Demand user can take actions such as Purchase and Production to raise their demands at level 1 of Kit Details, based on this requirement is genertaed at 2nd tab MRP for Style at level 1and raw materials at level 2 respectively.\nKit - Pack- Tab 1 Kit Demand user can take actions such as Purchase and Production to raise their demands at level 1 of Kit Details, based on this requirement is genertaed at 2nd tab MRP for Style at level 1and raw materials at level 2 respectively.\nPrototype / Design URL: “https://kit-fulfillment-screen.vercel.app/sourcing/pending-mrp”",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Screen / UI",
+      "kind": "section"
+    },
+    {
+      "title": "Key Functional Behavior – Table 1",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "Columns: # (integer); Functionality / Rule (text); Expected Behavior (text)\n# | Functionality / Rule | Expected Behavior\n1 | Pending MRP List – Kit Demand tab (Level ‑1) | Displays KIT/Pack Sales Orders with defined columns; selections and actions taken here generate the requirement shown on the MRP tab.\n2 | Clubbing of Packs by Style | Where two or more Packs are built on the same Style, the system allows them to be clubbed and plans a single consolidated Style requirement (e.g., Pack 1 – 500 Qty and Pack 2 – 500 Qty on Flannel Pants are planned as one requirement of 1000 Qty).\n4 | Pending MRP List – MRP tab | Displays Styles at Level 1 (with clubbed quantity) and Raw Materials at Level 2, derived from the Kit Demand tab requirement.\n5 | Requirement traceability | The planner can trace a Style-level requirement back to the KIT/Pack Sales Orders that contributed to it.\n6 | Job Order (JO) generation – KIT/Pack level | Running MRP on the KIT/Pack directly creates the Job Order at KIT/Pack level; no Production Order is raised at this level.\n7 | Production Order (PO) generation – Style level | One Production Order is created per distinct Style contained in the KIT/Pack, against the clubbed Style requirement.\n8 | PO generation for a Pack | A Pack contains two or more units of the same Style, so a single Production Order is generated for the Pack.\n9 | PO generation for a KIT | A KIT contains multiple Styles (e.g., Style 1 and Style 2), so two Production Orders are generated — one per Style.\n10 | FPO generation | FPO is created at Style level against the clubbed Style requirement.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 1; Functionality / Rule: Pending MRP List – Kit Demand tab (Level ‑1); Expected Behavior: Displays KIT/Pack Sales Orders with defined columns; selections and actions taken here generate the requirement shown on the MRP tab.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 2; Functionality / Rule: Clubbing of Packs by Style; Expected Behavior: Where two or more Packs are built on the same Style, the system allows them to be clubbed and plans a single consolidated Style requirement (e.g., Pack 1 – 500 Qty and Pack 2 – 500 Qty on Flannel Pants are planned as one requirement of 1000 Qty).",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 4; Functionality / Rule: Pending MRP List – MRP tab; Expected Behavior: Displays Styles at Level 1 (with clubbed quantity) and Raw Materials at Level 2, derived from the Kit Demand tab requirement.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 5; Functionality / Rule: Requirement traceability; Expected Behavior: The planner can trace a Style-level requirement back to the KIT/Pack Sales Orders that contributed to it.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 6; Functionality / Rule: Job Order (JO) generation – KIT/Pack level; Expected Behavior: Running MRP on the KIT/Pack directly creates the Job Order at KIT/Pack level; no Production Order is raised at this level.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 7; Functionality / Rule: Production Order (PO) generation – Style level; Expected Behavior: One Production Order is created per distinct Style contained in the KIT/Pack, against the clubbed Style requirement.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 8; Functionality / Rule: PO generation for a Pack; Expected Behavior: A Pack contains two or more units of the same Style, so a single Production Order is generated for the Pack.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 9; Functionality / Rule: PO generation for a KIT; Expected Behavior: A KIT contains multiple Styles (e.g., Style 1 and Style 2), so two Production Orders are generated — one per Style.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Functional Behavior",
+      "text": "#: 10; Functionality / Rule: FPO generation; Expected Behavior: FPO is created at Style level against the clubbed Style requirement.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Functional Behavior, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Key Validations / Business Rules",
+      "heading": "WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "text": "• A KIT consists of two distinct Styles (e.g., Style 1 – Flannel Pants & Style 2 – Flannel LS Shirt).\n• A Pack consists of two or more units of the same Style combination (e.g., Style 1 & 2 – Flannel Pants).\n• Only Packs built on the same Style may be clubbed together; Packs on different Styles cannot be combined.\n• Requirement generation always flows top-down: KIT/Pack (Level ‑1) → Style (Level 1) → Raw Material (Level 2).\n• Job Orders are generated at KIT/Pack level; Production Orders are generated at Style level. No Production Order is raised against the KIT/Pack itself.\n• The number of Production Orders generated equals the number of distinct Styles in the KIT/Pack: one PO for a Pack (same Style), two POs for a two-Style KIT.\n• Where a Sales Order contains two or more Packs built on the same Style, those Packs are clubbed and a single Production Order is generated for that Style, for the combined quantity of the clubbed Packs.\n• Style-level PO and FPO quantities must reconcile to the KIT/Pack Sales Order quantity as per the KIT/Pack composition ratio.",
+      "locator": "§ WFX ERP › 3. Proposed Solution › Key Validations / Business Rules",
+      "kind": "section"
+    },
+    {
+      "title": "4. Assumptions & Dependencies",
+      "heading": "WFX ERP › 4. Assumptions & Dependencies",
+      "text": "• Style-wise BOM (Bill of Material) is already configured for each Style used in a KIT/Pack.\n• KIT/Pack master mapping (which Styles and quantity ratio make up each KIT/Pack) is configured in the system.\n• Sales Orders for KIT/Pack are booked with the correct Style linkage.\n• [Integration dependency, if any]",
+      "locator": "§ WFX ERP › 4. Assumptions & Dependencies",
+      "kind": "section"
+    },
+    {
+      "title": "5. Acceptance Criteria",
+      "heading": "WFX ERP › 5. Acceptance Criteria",
+      "text": "The delivered functionality will be considered as meeting the approved specification when:\n• The Pending MRP List screen shows the Kit Demand tab and MRP tab as specified.\n• Packs built on the same Style can be clubbed, and the clubbed quantity is correctly reflected in the Style-level requirement.\n• Actions taken on the Kit Demand tab correctly generate the requirement on the MRP tab (Style – Level 1, Raw Material – Level 2).\n• The planner can trace a Style-level requirement back to the contributing KIT/Pack Sales Orders.\n• Running MRP for a KIT/Pack directly creates the Job Order at KIT/Pack level, with no Production Order raised at that level.\n• A Pack generates a single Production Order at Style level; a two-Style KIT generates two Production Orders, one per Style.\n• A Sales Order containing two Packs on the same Style (Pack 1 – Style 1 and Pack 2 – Style 1) generates a single Production Order for Style 1 with the combined quantity.\n• PO and FPO quantities reconcile to the KIT/Pack Sales Order quantities as per the composition ratio.",
+      "locator": "§ WFX ERP › 5. Acceptance Criteria",
+      "kind": "section"
+    },
+    {
+      "title": "6. Approval & Sign-Off",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "By signing below, the customer confirms that the Requirement, Scope, Proposed Solution, Workflow, Screens/Prototype and Business Rules documented above have been reviewed and approved.\nAny subsequent change or additional requirement will be evaluated and managed through the agreed Change Request / Scope Change process.",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off",
+      "kind": "section"
+    },
+    {
+      "title": "6. Approval & Sign-Off – Table 2",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Columns: Role (text); Name (empty); Organization (text); Signature (empty); Date (empty)\nRole | Name | Organization | Signature | Date\nCustomer Business Owner |  | Customer |  | \nCustomer SPOC |  | Customer |  | \nWFX Representative |  | WFX |  | ",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Role: Customer Business Owner; Organization: Customer",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Role: Customer SPOC; Organization: Customer",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "WFX ERP › 6. Approval & Sign-Off",
+      "text": "Role: WFX Representative; Organization: WFX",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Document Control – Table 3",
+      "heading": "WFX ERP › 6. Approval & Sign-Off › Document Control",
+      "text": "Columns: Version (text); Date (empty); Description of Change (text); Prepared By (text)\nVersion | Date | Description of Change | Prepared By\nV1.0 |  | Initial Version | Nishant\nV1.1 |  |  | ",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "WFX ERP › 6. Approval & Sign-Off › Document Control",
+      "text": "Version: V1.0; Description of Change: Initial Version; Prepared By: Nishant",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "WFX ERP › 6. Approval & Sign-Off › Document Control",
+      "text": "Version: V1.1",
+      "locator": "§ WFX ERP › 6. Approval & Sign-Off › Document Control, table 3, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

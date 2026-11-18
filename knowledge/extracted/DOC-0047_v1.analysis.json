@@ -1,0 +1,78 @@
+{
+  "tables": [],
+  "subject": "18. Need Designer name field in WFXSOPackage import file format. Company - indochine international",
+  "keyTerms": [
+    "designer name",
+    "name",
+    "import",
+    "import file",
+    "file",
+    "file format",
+    "sample",
+    "name field",
+    "field wfxsopackage",
+    "sample order",
+    "designer",
+    "wfxsopackage",
+    "format",
+    "field",
+    "wfxsopackage import"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Validation 5",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall be enhanced to include a mandatory “Designer Name” field in the WFXSOPackage sample order import file format, ensuring that sample orders cannot be created unless a valid designer name is provided and properly mapped during the import process.",
+      "locator": "§ 2. Functional Requirements",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "18. Need Designer name field in WFXSOPackage import file format. Company - indochine international",
+      "heading": "",
+      "text": "Software Requirements Specification\n“Need Designer name field in WFXSOPackage import file format.\nDocument # <414946>\nVersion 1.1 ● 14-04-2026\nContents\n1. Current Functionality 2\n2. Functional Requirements 4\n3. Validation 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "1. Current Functionality",
+      "heading": "1. Current Functionality",
+      "text": "Currently, there is a functionality to import sample orders into the system through EDI using the WFXSOPackage. Users fill in the details in a pre-formatted file, upload the file, and the system automatically creates the sample order based on the provided information.",
+      "locator": "§ 1. Current Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "2. Functional Requirements",
+      "heading": "2. Functional Requirements",
+      "text": "The system shall be enhanced to include a mandatory “Designer Name” field in the WFXSOPackage sample order import file format, ensuring that sample orders cannot be created unless a valid designer name is provided and properly mapped during the import process.",
+      "locator": "§ 2. Functional Requirements",
+      "kind": "section"
+    }
+  ]
+}

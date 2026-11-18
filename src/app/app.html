@@ -1,0 +1,80 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a routerLink="/" class="brand" aria-label="WFX Knowledge Hub home">
+      <span class="brand-mark" aria-hidden="true">W</span>
+      <span class="brand-name">WFX <em>Knowledge Hub</em></span>
+    </a>
+    <nav id="main-nav" class="main-nav" [class.open]="menuOpen()" aria-label="Main">
+      @for (n of nav; track n.path) {
+        <a [routerLink]="n.path" [class.active]="on(n)" (click)="closeMenus()">{{ n.label }}</a>
+      }
+      <div class="kb-menu">
+        <button type="button" class="kb-menu-btn" [class.active]="kbActive()" (click)="kbOpen.set(!kbOpen())" [attr.aria-expanded]="kbOpen()" aria-haspopup="true" aria-controls="kb-menu-list">Knowledge <span aria-hidden="true">▾</span></button>
+        <div id="kb-menu-list" class="kb-menu-list" [class.open]="kbOpen()">
+          @for (t of kbTabs(); track t.path) { <a [routerLink]="t.path" routerLinkActive="active" (click)="closeMenus()">{{ t.label }}</a> }
+        </div>
+      </div>
+    </nav>
+    <button #tbtn type="button" class="theme-btn" (click)="theme.toggle(tbtn)"
+            [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        @if (theme.theme() === 'dark') {
+          <circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g>
+        } @else {
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/>
+        }
+      </svg>
+    </button>
+    <button class="menu-btn" type="button" (click)="menuOpen.set(!menuOpen())" [attr.aria-expanded]="menuOpen()" aria-controls="main-nav">
+      <span class="visually-hidden">Menu</span>
+      <span class="burger" [class.x]="menuOpen()" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+@if (seo.crumbs().length) {
+  <nav class="wrap breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      @for (c of seo.crumbs(); track c.path; let last = $last) {
+        <li>
+          @if (last) { <span aria-current="page">{{ c.label }}</span> }
+          @else { <a [routerLink]="c.path">{{ c.label }}</a> }
+        </li>
+      }
+    </ol>
+  </nav>
+}
+
+<main id="main" class="wrap">
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-title brand-name">WFX <em>Knowledge Hub</em></p>
+      <p class="muted small">Interactive workflows and short, precise theory of the WFX ERP, verified step by step on Flannel Shirt Adi (NIS-58).</p>
+    </div>
+    <div>
+      <p class="footer-title">Workflows</p>
+      <ul class="footer-links one">
+        @for (f of flows; track f.slug) { <li><a [routerLink]="['/workflows', f.slug]">{{ f.name }}</a></li> }
+      </ul>
+      <p class="footer-title">Explore</p>
+      <ul class="footer-links one">
+        @for (n of nav; track n.path) { <li><a [routerLink]="n.path">{{ n.label }}</a></li> }
+        @for (n of kbTabs(); track n.path) { <li><a [routerLink]="n.path">{{ n.label }}</a></li> }
+        @for (n of more; track n.path) { <li><a [routerLink]="n.path">{{ n.label }}</a></li> }
+      </ul>
+    </div>
+    <div>
+      <p class="footer-title">Theory</p>
+      <ul class="footer-links">
+        @for (t of txns; track t.slug) { <li><a [routerLink]="['/theory', t.slug]">{{ t.short }}</a></li> }
+      </ul>
+    </div>
+  </div>
+  <p class="wrap muted small footer-base">© {{ year }} WFX Knowledge Hub</p>
+</footer>
+<app-chat-widget />

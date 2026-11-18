@@ -1,0 +1,103 @@
+# Data models: Admin & setup rules
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+# These are screen-level fields captured from WFX screens or specifications, not the WFX database schema.
+# Field lines: label | type (key, entered, calc, link, copied) | formula | rule | source column | note
+
+================================================================================
+MODEL ID: DM-ARTICLE-CODING
+MODEL NAME: Article Code Definition
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Admin & setup rules – Rules explained by the WFX functional owner
+SCREEN: Admin › System Coding › Article Code
+SUMMARY: How article codes (and names) are generated. Manual: the user types it. Automatic: the code is the code sections of the matching rule joined in Sort order. Rules differ per category.
+HEADER FIELDS:
+  Category | entered
+  Logic | entered
+  Used on | link | from: rm-techpack.code
+GRIDS:
+  [Rules] (19 captured rows)
+  Rule | key
+  Material Type | entered | note: The rule applies to techpacks with this material type.
+  Product Group | entered | note: "ALL Other" applies to every product group.
+  Sub Category | entered
+  Code Section | entered | note: One part of the code, chosen from the Code Section list.
+  Value | entered | note: Typed text or separator; empty when the section is read from the techpack (Material Type, Product Group…).
+  Sort | entered | note: Order of the sections in the code: 10, 20, 30…
+  [Code Section list] (19 captured rows)
+  Code Section | key
+  Meaning | entered
+SCREENSHOTS:
+  /screens/article-code-definition.webp
+  /screens/article-code-sections.webp
+THEORY: rm-techpack
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Rules explained by the WFX functional owner.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-UOM-TYPES
+MODEL NAME: UOM types
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Admin & setup rules – Rules explained by the WFX functional owner
+SCREEN: Raw material techpack › UOM
+SUMMARY: Three kinds of unit run through WFX: the unit stock is kept in, the unit the BOM consumes in, and the unit the material is bought in. A conversion factor links purchase to consumption.
+HEADER FIELDS: Conversion | calc
+GRIDS:
+  [UOM types] (3 captured rows)
+  UOM type | key
+  Meaning | entered
+  Set on | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: rm-techpack
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Rules explained by the WFX functional owner.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-DEPENDENCY-TYPES
+MODEL NAME: Colour & size dependency types
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Admin & setup rules – Rules explained by the WFX functional owner
+SCREEN: BOM › Materials › Dependency
+SUMMARY: Each BOM line says how it takes its colours and sizes from the apparel: directly (Base), through a map the user keeps (Table), or not at all (None).
+HEADER FIELDS: Table map | entered
+GRIDS:
+  [Dependency types] (6 captured rows)
+  Dependency | key
+  Type | entered
+  Meaning | entered
+  Example | entered
+SCREENSHOTS:
+THEORY: bom-materials
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Rules explained by the WFX functional owner.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-BOM-TYPES
+MODEL NAME: BOM types, versions & indent rule
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Admin & setup rules – Rules explained by the WFX functional owner
+SCREEN: Apparel › BOM › header
+SUMMARY: A BOM is kept version-wise with a cost sheet (currency, date and time). One BOM is the Standard BOM and acts as the budget. Missing User Group / Purchase Officer leaves the post-MRP indent Inactive.
+HEADER FIELDS:
+  Created by | entered
+  Standard BOM | entered
+GRIDS:
+  [BOM rules] (7 captured rows)
+  Topic | key
+  Kind | entered
+  What it means | entered
+  Where | entered
+SCREENSHOTS:
+THEORY: bom-materials
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Rules explained by the WFX functional owner.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

@@ -1,0 +1,277 @@
+# Calculation rules: Planning
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: CALC-MRP-L1-REQ
+RULE NAME: Level 1 Req Qty (garment)
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: MRP – Material Requirement Planning
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Actual Requirement is the OC colour/size qty. MRP % = 1 means 100 %.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Actual Requirement
+  MRP % (multiplier, 1 = 100 %)
+  Loss %
+FORMULA / LOGIC: Req Qty = Actual Requirement × MRP % × (1 + Loss % ÷ 100)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Req Qty
+VALIDATIONS:
+EXAMPLE: 200 × 1 × (1 + 0) = 200 for BALSAM TREE / Medium.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  actual_requirement | Actual Requirement | quantity | required
+  mrp_pct | MRP % (multiplier, 1 = 100 %) | multiplier | default 1
+  loss_pct | Loss % | percent | default 0
+EXPRESSION: req_qty = actual_requirement * mrp_pct * (1 + loss_pct / 100)
+CALC OUTPUT: req_qty
+OPEN QUESTION: Confirm MRP % is a multiplier (1 = 100 %) and that Loss % at Level 1 is additive on top of it.
+V1 STATUS: assumed (inferred, waiting for confirmation)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-MRP-L2-REQ
+RULE NAME: Level 2 Actual Requirement (fabric)
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: MRP – Material Requirement Planning
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: BOM explosion: each garment colour/size line is multiplied by the final consumption of every BOM material that is "Used" for that colour and size.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Garment Req Qty
+  BOM Final Consumption
+FORMULA / LOGIC: Actual Requirement = Garment Req Qty × BOM Final Consumption (for the mapped material colour/size)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Actual Requirement
+VALIDATIONS:
+EXAMPLE: 200 × 1.5 = 300 KG_Nis for BALSAM TREE / Medium; total 1,500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  garment_req_qty | Garment Req Qty | quantity | required
+  final_consumption | BOM Final Consumption | quantity | required
+EXPRESSION: actual_requirement = garment_req_qty * final_consumption
+CALC OUTPUT: actual_requirement
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-MRP-DEMAND
+RULE NAME: Demand Type split
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: MRP – Material Requirement Planning
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Level 1 garment → Production demand → Production Order. Level 2 fabric → Purchase demand → RMPO.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Production Qty when the item is manufactured (has a lower BOM level); Purchase Qty when it is bought. Net = Req Qty − Available Stock − Open Purchase
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Production Qty when the item is manufactured (has a lower BOM level); Purchase Qty when it is bought. Net
+VALIDATIONS:
+EXAMPLE: L1: Production 1,000, Purchase 0. L2: Purchase 1,500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-MRP-ADJUST
+RULE NAME: MRP adjustment (negative quantity)
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: MRP – Material Requirement Planning
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Every MRP level can take a negative quantity. A child indent is reduced or cancelled only by a negative at its parent level, and it takes effect when MRP is re-run: any change in the parent followed by a re-run of MRP impacts the child indent. Taking off the whole parent quantity (-500 of 500) cancels it.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Parent Qty
+  Adjustment (negative reduces)
+  BOM Final Consumption
+FORMULA / LOGIC: Entered at the parent: Net Parent Qty = Parent Qty + Adjustment; Child Indent Qty = Net Parent Qty × BOM Final Consumption. Entered at a child level: only that level changes (Child Qty + Adjustment).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Entered at the parent: Net Parent Qty
+VALIDATIONS:
+EXAMPLE: Level 1 = 500, Final Consumption 1.5: no adjustment → 750; -200 at Level 1, re-run MRP → 300 × 1.5 = 450; -500 at Level 1, re-run MRP → 0 (cancelled); -200 at Level 2 → fabric 550, Level 1 stays 500.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  parent_qty | Parent Qty | quantity | required
+  adjustment | Adjustment (negative reduces) | quantity | default 0
+  final_consumption | BOM Final Consumption | quantity | required
+EXPRESSION:
+  net_parent_qty = parent_qty + adjustment
+  child_indent_qty = net_parent_qty * final_consumption
+CALC OUTPUT: child_indent_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-PI-PURCHASE-UOM
+RULE NAME: Purchase UOM Indent Qty
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: Sales Order Indents (MRP)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Indent qty is in Cons UOM (KG_Nis); the supplier is paid per meter.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Indent Qty
+  Conversion Factor
+FORMULA / LOGIC: Purchase UOM Indent Qty = Indent Qty × Conversion Factor
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Purchase UOM Indent Qty
+VALIDATIONS:
+EXAMPLE: 150 × 1,000 = 150,000 meter; total 1,500,000.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  indent_qty | Indent Qty | quantity | required
+  conversion_factor | Conversion Factor | number | default 1
+EXPRESSION: purchase_uom_indent_qty = indent_qty * conversion_factor
+CALC OUTPUT: purchase_uom_indent_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-PI-INHOUSE-ADJ
+RULE NAME: In-house Adj. (from BBB stock)
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: Sales Order Indents (MRP)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Stock received earlier against block booking PPJ179 for the same article|colour|size is reserved automatically.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Indent Qty
+  BBB stock available for the same Stock Key
+FORMULA / LOGIC: In-house Adj. = MIN(Indent Qty, BBB stock available for the same Stock Key)
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: In-house Adj.
+VALIDATIONS:
+EXAMPLE: N-8|372|34S: MIN(150, 100) = 100.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  indent_qty | Indent Qty | quantity | required
+  bbb_stock_available | BBB stock available for the same Stock Key | quantity | default 0
+EXPRESSION: in_house_adj = MIN(indent_qty, bbb_stock_available)
+CALC OUTPUT: in_house_adj
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-PI-ORDERED
+RULE NAME: Ordered Qty (to RMPO)
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: Sales Order Indents (MRP)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Only the uncovered part goes to a new purchase order (RMPO 1230).
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Indent Qty
+  In-house Adj.
+  On Order Adj.
+FORMULA / LOGIC: Ordered Qty = Indent Qty − In-house Adj. − On Order Adj.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Ordered Qty
+VALIDATIONS:
+EXAMPLE: 150 − 100 − 0 = 50; total 1,500 − 400 = 1,100.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  indent_qty | Indent Qty | quantity | required
+  in_house_adj | In-house Adj. | quantity | default 0
+  on_order_adj | On Order Adj. | quantity | default 0
+EXPRESSION: ordered_qty = indent_qty - in_house_adj - on_order_adj
+CALC OUTPUT: ordered_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-PI-PRICE
+RULE NAME: Indent Price
+MODULE: Planning
+SUBMODULE:
+TRANSACTION: Sales Order Indents (MRP)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Production indents carry the BOM price per Cons UOM.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Price = BOM Cons UOM Price
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Price
+VALIDATIONS:
+EXAMPLE: 15,000 (from BOM line 1).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+EXPRESSION:
+CALC OUTPUT:
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

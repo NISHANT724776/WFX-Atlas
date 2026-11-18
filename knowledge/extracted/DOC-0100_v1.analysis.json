@@ -1,0 +1,85 @@
+{
+  "tables": [],
+  "subject": "431936 -Tracker Point 67-PSN-Make default values in 'Location Name' based on factory selection-Ref ID-67-379437",
+  "keyTerms": [
+    "heading",
+    "char",
+    "heading heading",
+    "location name",
+    "char heading",
+    "heading char",
+    "location",
+    "factory",
+    "theme",
+    "execution company",
+    "company factory",
+    "default",
+    "name",
+    "theme theme",
+    "section"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Dropdown values for Location Name should be restricted/filtered only to records that belong to the selected Execution Company & Factory in the Division Consignor Master.",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Solution\r\rExpected Functionality\r\rNote: The \"PSN Default Location\" field should be available in the Factory Master only when the Pre-Shipment Export Invoice feature is enabled.",
+      "locator": "start",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "431936 -Tracker Point 67-PSN-Make default values in 'Location Name' based on factory selection-Ref ID-67-379437",
+      "heading": "",
+      "text": "WFX-NEW-LOGO\nPicture 1\nWFX-NEW-LOGO.png\nicon_next_inactive\nPicture 4\nicon_next_inactive.gif\nNormal\nHeading 1\nHeading 2\nHeading 3\nHeading 4\nHeading 5\nHeading 6\nHeading 7\nHeading 8\nHeading 9\nDefault Paragraph Font\nTable Normal\nNo List\nDefault\nZ-cvr-Title\nZ-cvr-SubTitle\nBalloon Text\nBalloon Text Char\nHeader\nHeader Char\nFooter\nFooter Char\nHeading 1 Char\nHeading 2 Char\nHeading 3 Char\nHeading 4 Char\nHeading 5 Char\nHeading 6 Char\nHeading 7 Char\nHeading 8 Char\nHeading 9 Char\nCaption\n©\nTitle Char\nSubtitle\nZ°\rSubtitle Char\nStrong\nEmphasis\nNo Spacing\nList Paragraph\nZǐ\nQuote Char\nZǠ\rIntense Quote\nIntense Quote Char\nSubtle Emphasis\nIntense Emphasis\nSubtle Reference\nIntense Reference\nZȐ\nBook Title\nTOC Heading\nNo Spacing Char\nHyperlink\nTable Grid\nBody Text\nBody Text Char\nNormal (Web)\n4H4sIAAAAAAAEAKtWckksSQxILCpxzi/NK1GyMqwFAAEhoTITAAAATH4sIAAAAAAAEAKtWcslP9kxRslIyNDa0MDQwsTA3NDUwNjMyM7FU0lEKTi0uzszPAymwqAUAZJu2OywAAAA=\nRoot Entry\n1Table\nWordDocument\nSummaryInformation\nDocumentSummaryInformation\nMsoDataStore\nProperties\nCompObj\nSoftware Requirements Specification\rTracker Point 67-In Pre shipment export invoice screen, make default values in 'Location Name' based on factory selection-Ref ID-67-379437\rDocument # 431936\r Version 1.0\nTOC \\h \\z \\t \"Heading 1,2,Heading 2,3,Heading 3,4,Title,1\"\nSection 1: Overview",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "431936 -Tracker Point 67-PSN-Make default values in 'Location Name' based on factory selection-Ref ID-67-379437",
+      "heading": "",
+      "text": "Automatically populate the \"Location Name\" fields on the Pre-Shipment Export Invoice screen based on the selected Execution Company and Factory.\nBusiness Requirement\nSection 3. Solution\nExpected Functionality\nFunctional Requirements\nSection 5. Revision History\nSection 1: Overview\rPurpose\rAutomatically populate the \"Location Name\" fields on the Pre-Shipment Export Invoice screen based on the selected Execution Company and Factory.\rBusiness Requirement\r\rThe system should display as default\nLocation Name\nvalues that belong to the selected Execution Company & Factory.\rScope\r\rThis requirement applies to a Pre-shipment Export Invoice where Execution Company and Factory are selected based on that Location Name get populated.\rRequirement:",
+      "locator": "start (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "431936 -Tracker Point 67-PSN-Make default values in 'Location Name' based on factory selection-Ref ID-67-379437",
+      "heading": "",
+      "text": "When user selects an Execution Company and Factory, the system should:\rPick up the Location Name automatically from the Factory master mapped location address which is defined in company division master.\rPopulate them as default values in the respective fields.\rDropdown values for Location Name should be restricted/filtered only to records that belong to the selected Execution Company & Factory in the Division Consignor Master.\r\r\r\rSection 2. Assumptions \rThis change will not impact on existing functionalities.\rSection 3. Solution\r\rExpected Functionality\r\rNote: The \"PSN Default Location\" field should be available in the Factory Master only when the Pre-Shipment Export Invoice feature is enabled.\nFunctional Requirements\r\rWhen the user selects an Execution Company and Factory, the system should:\rAutomatically retrieve the Location Name from the PSN Default Location mapped in the selected Factory. \rPopulate the corresponding fields with these values by default.\nSection 4. Glossary\rSection 5. Revision History\rVersion\nLalit Rajwar\nInitial document created.\nWORLD FASHION EXCHANGE SOFTWARE REQUIREMENTS SPECIFICATION\r\r\r\r\rPage\nPAGE \\* Arabic \\* MERGEFORMAT\nNUMPAGES \\* Arabic \\* MERGEFORMAT\ng___oooOOOww\ncmPPJCmp0712\n[Content_Types].xml\ntheme/theme/themeManager.xml\ntheme/theme/theme1.xml\ntheme/theme/_rels/themeManager.xml.rels\n[Content_Types].xmlPK\n_rels/.relsPK",
+      "locator": "start (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "431936 -Tracker Point 67-PSN-Make default values in 'Location Name' based on factory selection-Ref ID-67-379437",
+      "heading": "",
+      "text": "theme/theme/themeManager.xmlPK\ntheme/theme/theme1.xmlPK\ntheme/theme/_rels/themeManager.xml.relsPK\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<a:clrMap xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" bg1=\"lt1\" tx1=\"dk1\" bg2=\"lt2\" tx2=\"dk2\" accent1=\"accent1\" accent2=\"accent2\" accent3=\"accent3\" accent4=\"accent4\" accent5=\"accent5\" accent6=\"accent6\" hlink=\"hlink\" folHlink=\"folHlink\"/>\nMicrosoft Office Word\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><b:Sources SelectedStyle=\"\\APA.XSL\" StyleName=\"APA Fifth Edition\" xmlns:b=\"http://schemas.openxmlformats.org/officeDocument/2006/bibliography\" xmlns=\"http://schemas.openxmlformats.org/officeDocument/2006/bibliography\"></b:Sources>\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\r\n<ds:datastoreItem ds:itemID=\"{0CB1C892-73B1-4226-8451-3BE7DC5266BC}\" xmlns:ds=\"http://schemas.openxmlformats.org/officeDocument/2006/customXml\"><ds:schemaRefs><ds:schemaRef ds:uri=\"http://schemas.openxmlformats.org/officeDocument/2006/bibliography\"/></ds:schemaRefs></ds:datastoreItem>\nMicrosoft Word 97-2003 Document\nWord.Document.8",
+      "locator": "start (part 4)",
+      "kind": "section"
+    }
+  ]
+}

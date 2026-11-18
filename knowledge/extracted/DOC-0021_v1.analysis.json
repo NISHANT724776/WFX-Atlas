@@ -1,0 +1,145 @@
+{
+  "tables": [],
+  "subject": "New BOM NK1",
+  "keyTerms": [
+    "bom",
+    "recipe",
+    "fabric",
+    "time",
+    "production",
+    "create",
+    "order",
+    "operation",
+    "create recipe",
+    "manufacturing bom",
+    "fabric article",
+    "article",
+    "add",
+    "sub",
+    "process"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 26
+    },
+    {
+      "module": "Production",
+      "score": 10
+    },
+    {
+      "module": "Planning",
+      "score": 7
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "In future we are in development where we can track production Sub-Operation wise",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New BOM NK1:\n1. Operation Library - We need to add Production processes in Operation Library, define Operations and Sub-Operations and Machine Sub Categories If Required. In future we are in development where we can track production Sub-Operation wise\n2. Operation Time Component - We can add time components like production time, queue time and preparation time.\n3. Operation Cost Template – We can add operation costs like Prod Charges, Overhead, Dyeing Charges with their cost components.\n4. Operation Parameter – Against Production Process, Operation, Sub-Operations Efficiency and loss% can be defined. Also, you can define the total quantity produced with respect to total time including production time, queue time and others if applicable.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "It’s not mandatory.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If any Fabric is achieved from any process like dyeing then mark that fabric Manufacturing and attach Manufacturing BOM.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If a Recipe is required, it can also be added, as shown below.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "If a Recipe is required, it can also be added, as shown below.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New BOM NK1:\n1. In New BOM we have options to create multiple BOM View as per the User groups, can have options to make fields visible, editable, pin at left right and can increase width of fields at their end. We have View Configuration from where we can create multiple View templates and assign permissions.\n2. We can give these BOM Views permissions to users from Program permission. We can give multiple Views permission as well.\n3. We will create New BOM using Template, and will define all the fabric trims articles.\n4. If any Fabric is achieved from any process like dyeing then mark that fabric Manufacturing and attach Manufacturing BOM.\n5. To create a manufacturing BOM, you need to add a new BOM under the fabric article and define the articles that need to be processed to produce the main fabric article. If a Recipe is required, it can also be added, as shown below. After approving the total BOM cost, the cost of the processed fabric will automatically update in the Style BOM once the fabric BOM is attached to it.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If required quantity is not coming against recipe article then check if conversion is defined between Sample Weight UOM and the article UOM on Recipe.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Since fabric article manufacturing BOM is also added so two production orders will be created one against style and one against fabric article.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "PD is also created on the event of material requirement planning as we define processes in material linkage in Fabric BOM and Style BOM as well.",
+      "locator": "start",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New BOM NK1:\n1. In order to link the buyer order, we have to link with actual order qty and attach the orders.\n2. After Attaching order, we can run MRP and Mark order qty as Mark for Purchase or Mark for Production\n3. We have to run 2nd level of MRP to generate Recipe articles if recipe is attached to 2nd level.\n4. If required quantity is not coming against recipe article then check if conversion is defined between Sample Weight UOM and the article UOM on Recipe.\n5. Since fabric article manufacturing BOM is also added so two production orders will be created one against style and one against fabric article. PD is also created on the event of material requirement planning as we define processes in material linkage in Fabric BOM and Style BOM as well.\n6. Further we have to define FPO and FPPOs for both manufacturing BOM (process order) and Production orders and proceed accordingly.",
+      "locator": "start",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "New BOM NK1",
+      "heading": "",
+      "text": "New BOM, Recipe Management and MRP SOP\nWe have to define the given operations in order to run production from new BOM:\n• Operation Library - We need to add Production processes in Operation Library, define Operations and Sub-Operations and Machine Sub Categories If Required. In future we are in development where we can track production Sub-Operation wise\n• Operation Time Component - We can add time components like production time, queue time and preparation time.\n• Operation Cost Template – We can add operation costs like Prod Charges, Overhead, Dyeing Charges with their cost components.\n• Operation Parameter – Against Production Process, Operation, Sub-Operations Efficiency and loss% can be defined. Also, you can define the total quantity produced with respect to total time including production time, queue time and others if applicable.\nRecipe Management:\n• Recipe Group – We have to create recipe group w.r.t their categories and product group sub-categories. ProductionRecipeRecipe Group\nRecipe Type: -\nBatch – Used to send fabric in one bunch.\nContinuous – Used to send fabric one by one.\n• Recipe Category – We have to create Recipe Category in order to create Recipe.\nProductionRecipeRecipe Category",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "New BOM NK1",
+      "heading": "",
+      "text": "• Light Master – We can create light master, which is used to show which type of light will be used at the time of process with Recipe Management. It’s not mandatory. ProductionRecipeLight Master\n• Recipe – We can create Recipe by adding total water consumption and liquid consumption.\nPickup % - In the dyeing process, pickup refers to the percentage of dye that is absorbed by the fabric.\nNew BOM:\n• In New BOM we have options to create multiple BOM View as per the User groups, can have options to make fields visible, editable, pin at left right and can increase width of fields at their end. We have View Configuration from where we can create multiple View templates and assign permissions.\n• We can give these BOM Views permissions to users from Program permission. We can give multiple Views permission as well.\n• We will create New BOM using Template, and will define all the fabric trims articles.\n• If any Fabric is achieved from any process like dyeing then mark that fabric Manufacturing and attach Manufacturing BOM.",
+      "locator": "start (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "New BOM NK1",
+      "heading": "",
+      "text": "• To create a manufacturing BOM, you need to add a new BOM under the fabric article and define the articles that need to be processed to produce the main fabric article. If a Recipe is required, it can also be added, as shown below. After approving the total BOM cost, the cost of the processed fabric will automatically update in the Style BOM once the fabric BOM is attached to it.\nMRP:\n• In order to link the buyer order, we have to link with actual order qty and attach the orders.\n• After Attaching order, we can run MRP and Mark order qty as Mark for Purchase or Mark for Production\n• We have to run 2nd level of MRP to generate Recipe articles if recipe is attached to 2nd level.\n• If required quantity is not coming against recipe article then check if conversion is defined between Sample Weight UOM and the article UOM on Recipe.\n• Since fabric article manufacturing BOM is also added so two production orders will be created one against style and one against fabric article. PD is also created on the event of material requirement planning as we define processes in material linkage in Fabric BOM and Style BOM as well.\n• Further we have to define FPO and FPPOs for both manufacturing BOM (process order) and Production orders and proceed accordingly.\nNote: - We can add recipe at the time of FPPO creation also as attached below.",
+      "locator": "start (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "New BOM NK1",
+      "heading": "",
+      "text": "• The articles added in recipe will be added in FPPO and use to show in dispatch instruction list, also an indent is being added in adhoc indent details on FPPO page.",
+      "locator": "start (part 4)",
+      "kind": "section"
+    }
+  ]
+}

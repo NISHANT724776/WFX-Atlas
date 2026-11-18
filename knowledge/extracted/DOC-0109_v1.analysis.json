@@ -1,0 +1,374 @@
+{
+  "tables": [],
+  "subject": "Approval MRP Final",
+  "keyTerms": [
+    "approval",
+    "mrp",
+    "user",
+    "bom",
+    "lines",
+    "line",
+    "material",
+    "mrp approval",
+    "bom line",
+    "approver",
+    "level",
+    "pending",
+    "qty",
+    "remarks",
+    "discussed munish"
+  ],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 39
+    },
+    {
+      "module": "Style & BOM",
+      "score": 29
+    },
+    {
+      "module": "Sales Order",
+      "score": 9
+    },
+    {
+      "module": "Production",
+      "score": 5
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. Need a new Approval permission in user group. I.e., MRP.\n2. It will be multi-level approval.\n3. We also need to handle the multi-level approval from the Multi-Level Approval Settings only.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "When user click on Run MRP in the BOM then system will open up the screen of Material planning screen to validate the all necessary details.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Before sending it to the approval screen, the user must first review and validate the material details in the screen below.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "Once this action is completed, the system will display the approval popup and automatically load the user list according to the approver configured as a default.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If only a single user is associated with the approver, the system will automatically select that user.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "Whenever an approval is defined, the MRP will be routed for approval whenever the user attempts to run it.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. Whenever an approval is defined, the MRP will be routed for approval whenever the user attempts to run it.\n2. A new section titled ‘MRP ’ has been added in the Approval Center.\n3. This section will display the information as shown in the screenshot below.\n4. Under the document reference section, the MRP group will be shown.\n5. Last remark should automatically populate in the approval center remarks column.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "Style number should show in the bracket after the MRP Approval\nExample :- MRP APPROVAL (StyleName- With code)",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. Article Code\n2. Article Name\n3. Color Name\n4. Size Name: On the over of size system will open the size wise consumption screen when the consumption mentioned as size wise.\n5. Order Qty: System will show the pop-up at the hover of Order qty.\n6. Cons\n7. Final Cons Cons+ Inc wast\n8. Required Qty\n9. UOM\n10. Manufacturing BOM\n11. Supplier\n12. Material Delivery Date\n13. Buyer\n14. Category\n15. Sub Category\n16. Indent Lines\n17. Assigned To\n18. Market Merchandiser\n19. Season\n20. Order Type\n21. Remarks\n22. BOM Line\n23. Action\n24. Order Information: - This contain sales order related data with destination, color & size wise data.This grid contains the following columns: -\n25. Order Confirmation\n26. Color-Size Name\n27. Total\n28. Collapse All: - This feature will allow to collapse and expand all the grid level data.\n29. Action: - This feature helps to make an indent of approved line. User can make the indent of approved lines.\n30. Audit Table: - In this we have given the feature to filter the data based on search parameter.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "In last there is one option where the material section get it extend.(As discussed with Munish sir there will be no search on audit table)",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. On Click on Order qty system will open the below given pop-up which carries the required qty based on color-size dependency. System will always highlight the color-size based on the dependency.\n2. On this screen, the user can only view the data and take actions to either approve or reject.\n3. The data from all levels will be consolidated in this screen, and the dependent BOM materials (i.e., the manufacturing BOM materials) will always appear under the main material.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Old BOM Screen for Reference: This screen is provided for reference; a similar view is required in the Angular pages.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. We have also provided a feature that allows the user to approve or reject the line status in one go by selecting the checkbox option.\n2. Material Mapping Details: -\n3. This grid will only display raw material data, and styles will not be shown.\n4. The screen also includes an option to select materials via checkboxes:\n5. User can run the MRP for partially approved line to create the indents of that particular lines.\n6. To reject any material line, the user can select individual lines or multi-select it and then reject them.\n7. In case of rejection, the system will display the impact on the BOM. For example, if an MRL has 5 material lines and the approver selects only 3 lines to approve and rejects the rest, the selected lines will be marked with red lines in the BOM material section and also don’t allow to editing in the BOM.\n8. If the user sends the MRL for approval again without changing the material lines, the system will retain the checkbox selections from the previous approval cycle. In this case, during re-approval, the system will show the two checked lines and two unchecked lines at the approver's screen.\n9. In this we also need to provision to approve and reject the material line with using multi select option.\n10. Old BOM Screen for Reference: This screen is provided for reference; a similar view is required in the Angular pages.\n11. By default, the order detail grid screen will be in a shutter-down state. The user can shutter it up by using the arrow-up control.\n12. We also given a provision where user can put the remarks on rejection remarks on line level and header level.\n13. When we will put a remark on line level then system will update it in the BOM line.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "The system must generate a rejection log entry and introduce a new ‘Remarks’ column, where the same remarks will be recorded exactly as entered.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If the user revises the cost sheet and there are changes in BOM lines that are currently on Hold, and the user sends them again for approval, the system will display the action tool in disabled mode for those specific lines on the approval screen. ------As discussed with munish sir not handled",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "To enable action tool for these lines, the user must first mark them as 'Ready for Processing' and then resend them for approval.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. When the user updates the remarks at the header-level rejection, the system should display these remarks in the MRP log. The system must generate a rejection log entry and introduce a new ‘Remarks’ column, where the same remarks will be recorded exactly as entered.\n2. If the user revises the cost sheet and there are changes in BOM lines that are currently on Hold, and the user sends them again for approval, the system will display the action tool in disabled mode for those specific lines on the approval screen. ------As discussed with munish sir not handled\n3. To enable action tool for these lines, the user must first mark them as 'Ready for Processing' and then resend them for approval. Only after this step will the checkboxes become enabled for selection and approval.-----As discussed with munish sir not handled\n4. We also need to implement category-wise approval permissions for MRL within the MRP. To achieve this, we should replicate the same configuration used for category-wise approval, as described below.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If any line is rejected during approval, is there a provision to capture remarks so that users can view the feedback, make necessary changes, and resubmit for approval.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "To enhance user experience and clarity during BOM (Bill of Materials) review and MRP (Material Requirements Planning) regeneration by visually distinguishing BOM lines based on their change status.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. Add: Allows the user to insert a new row in the grid.\n2. Save: Saves the current record in the grid.\n3. Delete: Removes a selected record from the grid.\n4. Category: A single-selection dropdown that displays available categories.\n5. Approver: A single-selection dropdown populated with usernames from the user list.\n6. We also need an option to attach any BI report through Layout Mapping Engine.??\n7. If any line is rejected during approval, is there a provision to capture remarks so that users can view the feedback, make necessary changes, and resubmit for approval. So, this log should be maintaining in BOM Log with respective of MRP Approval tagging.\n?\n8. To enhance user experience and clarity during BOM (Bill of Materials) review and MRP (Material Requirements Planning) regeneration by visually distinguishing BOM lines based on their change status.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Purpose: This allows users to quickly recognize changes and compare current vs. previous values for audit and validation purposes.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. New BOM Line Identification: -\n2. Description: When a new line is added to the BOM and the MRP is regenerated, the newly added lines should be displayed with a white background.\n3. Purpose: This visual cue helps users easily identify which lines have been newly introduced in the BOM.\n4. Reference: As illustrated in the provided screenshot.\n5. Modified BOM Line Identification: -\n6. Description: - If a user modifies an existing BOM line and regenerates the MRP.\n7. The modified line should be highlighted with an orange strip.\n8. The updated value should be shown in orange.\n9. The previous value should be displayed on hover via the information icon (i).(This is not developed as discussed with dev)\n10. Purpose: This allows users to quickly recognize changes and compare current vs. previous values for audit and validation purposes.\n11. Unchanged BOM Line Identification: -\n12. Description: If no changes are made to a BOM line during MRP regeneration, the line should be displayed with a grey Strip.\n13. Purpose: This helps users easily identify lines that remain unchanged, reducing confusion and improving review efficiency.\n14. Deletion & Reject BOM Line Identification: - Not hanled as discussed with munish sir\n15. Description: If the line is deleted from the BOM then then, the line should be displayed with a Red Strip.\n16. Purpose: This helps users easily identify lines that remain unchanged, reducing confusion and improving review efficiency.\n17. Notification & Alert : Needs to handle in following screens: -",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "As discussed with munish sir this is not handled hence leaving this",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: Production % should NOT be considered, so the planned (PD) quantity must remain 1300.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. OC Qty: 1200\n2. Calculated Req qty: 1320\n3. Note: Production % should NOT be considered, so the planned (PD) quantity must remain 1300.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Note: Additional quantity should NOT be considered, but again, the PD quantity should be 1300.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. OC Qty: 1100\n2. Calculated Req qty: 1210\n3. Note: Additional quantity should NOT be considered, but again, the PD quantity should be 1300.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Regardless of whether Extra Production % or Additional Quantity is excluded in MRL generation,\nthe PD (planned) quantity should still be calculated as 1300, matching the Total OC Qty derived from the Sales Order.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "To handle situations where an assigned approver is unavailable, we are introducing a Re-Assign MRP Approval functionality.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "Assume that the approval workflow for user A is configured with two possible approvers: X and Y.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If Approver X is unavailable (e.g., out of office, on leave, or unable to respond), the approval cannot proceed, which may cause delays for urgent requirements.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "If Approver X is unavailable (e.g., out of office, on leave, or unable to respond), the approval cannot proceed, which may cause delays for urgent requirements.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. User A submits an MRP approval request.\n2. The system routes the request to Approver X as per the configured sequence.\n3. If Approver X is unavailable (e.g., out of office, on leave, or unable to respond), the approval cannot proceed, which may cause delays for urgent requirements.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "When the request is pending with X, it will appear in the “Approval Pending with Others” section for User A.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. When the request is pending with X, it will appear in the “Approval Pending with Others” section for User A.\n2. From there, User A will have the ability to re-assign the pending request from X to Y.\n3. This allows the originator (A) to redirect the approval to the next available approver.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "If X is available but chooses to delegate, the re-assignment can also be done directly from the “Approval Pending” screen.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. If X is available but chooses to delegate, the re-assignment can also be done directly from the “Approval Pending” screen.\n2. User X will have an option to re-assign the approval request to Y.\n3. This supports approver-level delegation.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation: -",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "System should not allow to take the action on those OC in MRP pending list those are already in a waiting status.",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Approval MRP Final:\n1. System should not allow to take the action on those OC in MRP pending list those are already in a waiting status. For this we need to add a new column also in the list with name Status where system will show the status of the MRP.\n2. BOM will be in disable mode on MRP waiting in approval status.\n3. System will show the value in required qty un-rounding for next level.----By MK sir discuss",
+      "locator": "start",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "When partial material is approved /rejected",
+      "locator": "§ … › … › Conclusion",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Added validation to prevent action on MRP records already pending approval.",
+      "locator": "§ … › … › Conclusion",
+      "module": "Planning"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "Issue id.349251\nNeed Line wise MRP Approval same as Existing MRL Approval Functionality.\n• Need a new Approval permission in user group. I.e., MRP.\n• It will be multi-level approval.\n• We also need to handle the multi-level approval from the Multi-Level Approval Settings only.\nMenu From pending MRP LIST\nWhen user click on Run MRP in the BOM then system will open up the screen of Material planning screen to validate the all necessary details. Before sending it to the approval screen, the user must first review and validate the material details in the screen below. Once all necessary information has been confirmed, they will run the MRP.\nOnce will sent the approval request from the system will drive us on material requirement planning screen where we can club the multiple OC and run the MRP.\nOnce this action is completed, the system will display the approval popup and automatically load the user list according to the approver configured as a default. If only a single user is associated with the approver, the system will automatically select that user.\nWe also need to introduce the column of sent to in the MRP activity log where we need to show the user name where we sent the approval of it. OK\n• Whenever an approval is defined, the MRP will be routed for approval whenever the user attempts to run it.\n• A new section titled ‘MRP ’ has been added in the Approval Center.",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "• This section will display the information as shown in the screenshot below.\n• Under the document reference section, the MRP group will be shown.\n• Last remark should automatically populate in the approval center remarks column.\nMRP Approval Screen carries the information in two groups.\nStyle number should show in the bracket after the MRP Approval\nExample :- MRP APPROVAL (StyleName- With code)\n---As discussed with munish sir only few column should be there\n• Material mapping: - In this we are showing the material related data which we have entered in the BOM.\nThis grid contains the following columns: -\n• Article Code\n• Article Name\n• Color Name\n• Size Name: On the over of size system will open the size wise consumption screen when the consumption mentioned as size wise.\n• Order Qty: System will show the pop-up at the hover of Order qty.\n• Cons\n• Final Cons Cons+ Inc wast\n• Required Qty\n• UOM\n• Manufacturing BOM\n• Supplier\n• Material Delivery Date\n• Buyer\n• Category\n• Sub Category\n• Indent Lines\n• Assigned To\n• Market Merchandiser\n• Season\n• Order Type\n• Remarks\n• BOM Line\n• Action\n• Order Information: - This contain sales order related data with destination, color & size wise data.This grid contains the following columns: -\n• Order Confirmation\n• Color-Size Name\n• Total\n• Collapse All: - This feature will allow to collapse and expand all the grid level data.",
+      "locator": "start (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "• Action: - This feature helps to make an indent of approved line. User can make the indent of approved lines.\n• Audit Table: - In this we have given the feature to filter the data based on search parameter.\nIn last there is one option where the material section get it extend.(As discussed with Munish sir there will be no search on audit table)\n• On Click on Order qty system will open the below given pop-up which carries the required qty based on color-size dependency. System will always highlight the color-size based on the dependency.\n• On this screen, the user can only view the data and take actions to either approve or reject.\n• The data from all levels will be consolidated in this screen, and the dependent BOM materials (i.e., the manufacturing BOM materials) will always appear under the main material.\nSystem will show the approve and reject icon on main material only.\n• We have also provided a feature that allows the user to approve or reject the line status in one go by selecting the checkbox option.\n• Material Mapping Details: -\n• This grid will only display raw material data, and styles will not be shown.\n• The screen also includes an option to select materials via checkboxes:\n• User can run the MRP for partially approved line to create the indents of that particular lines.",
+      "locator": "start (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "• To reject any material line, the user can select individual lines or multi-select it and then reject them.\n• In case of rejection, the system will display the impact on the BOM. For example, if an MRL has 5 material lines and the approver selects only 3 lines to approve and rejects the rest, the selected lines will be marked with red lines in the BOM material section and also don’t allow to editing in the BOM.\n• If the user sends the MRL for approval again without changing the material lines, the system will retain the checkbox selections from the previous approval cycle. In this case, during re-approval, the system will show the two checked lines and two unchecked lines at the approver's screen.\n• In this we also need to provision to approve and reject the material line with using multi select option.\n• Old BOM Screen for Reference: This screen is provided for reference; a similar view is required in the Angular pages.\n• By default, the order detail grid screen will be in a shutter-down state. The user can shutter it up by using the arrow-up control.\n• We also given a provision where user can put the remarks on rejection remarks on line level and header level.\n• When we will put a remark on line level then system will update it in the BOM line.",
+      "locator": "start (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "In new BOM: - This will be like mentioned and in screenshot where we put the red strip over the line which has been rejected and also provide a tool (i) where user can see the rejection remarks on the hovering.\n• When the user updates the remarks at the header-level rejection, the system should display these remarks in the MRP log. The system must generate a rejection log entry and introduce a new ‘Remarks’ column, where the same remarks will be recorded exactly as entered.\n• If the user revises the cost sheet and there are changes in BOM lines that are currently on Hold, and the user sends them again for approval, the system will display the action tool in disabled mode for those specific lines on the approval screen. ------As discussed with munish sir not handled\n• To enable action tool for these lines, the user must first mark them as 'Ready for Processing' and then resend them for approval. Only after this step will the checkboxes become enabled for selection and approval.-----As discussed with munish sir not handled\n• We also need to implement category-wise approval permissions for MRL within the MRP. To achieve this, we should replicate the same configuration used for category-wise approval, as described below.\nFunctionality of columns and tools:\n• Add: Allows the user to insert a new row in the grid.\n• Save: Saves the current record in the grid.",
+      "locator": "start (part 5)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "• Delete: Removes a selected record from the grid.\n• Category: A single-selection dropdown that displays available categories.\n• Approver: A single-selection dropdown populated with usernames from the user list.\n• We also need an option to attach any BI report through Layout Mapping Engine.??\n• If any line is rejected during approval, is there a provision to capture remarks so that users can view the feedback, make necessary changes, and resubmit for approval. So, this log should be maintaining in BOM Log with respective of MRP Approval tagging.\n?\n• To enhance user experience and clarity during BOM (Bill of Materials) review and MRP (Material Requirements Planning) regeneration by visually distinguishing BOM lines based on their change status.\nWe also need to apply the same color identification used in the MRP level-wise screen to the MRP approval and MRP audit screens.\n• New BOM Line Identification: -\n• Description: When a new line is added to the BOM and the MRP is regenerated, the newly added lines should be displayed with a white background.\n• Purpose: This visual cue helps users easily identify which lines have been newly introduced in the BOM.\n• Reference: As illustrated in the provided screenshot.\n• Modified BOM Line Identification: -\n• Description: - If a user modifies an existing BOM line and regenerates the MRP.",
+      "locator": "start (part 6)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "• The modified line should be highlighted with an orange strip.\n• The updated value should be shown in orange.\n• The previous value should be displayed on hover via the information icon (i).(This is not developed as discussed with dev)\n• Purpose: This allows users to quickly recognize changes and compare current vs. previous values for audit and validation purposes.\n• Unchanged BOM Line Identification: -\n• Description: If no changes are made to a BOM line during MRP regeneration, the line should be displayed with a grey Strip.\n• Purpose: This helps users easily identify lines that remain unchanged, reducing confusion and improving review efficiency.\n• Deletion & Reject BOM Line Identification: - Not hanled as discussed with munish sir\n• Description: If the line is deleted from the BOM then then, the line should be displayed with a Red Strip.\n• Purpose: This helps users easily identify lines that remain unchanged, reducing confusion and improving review efficiency.\n• Notification & Alert : Needs to handle in following screens: -\nNeed to handle this on Approval Pending, Approval pending with Others and Approved Today as well.\n• We also need to handle following setting: -?? As discussed with munish sir this is not handled hence leaving this\nCase: -\nThe table shows two different configuration options and how they influence the final required quantity (Req) used for MRL generation.",
+      "locator": "start (part 7)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "A. Exclude Extra Production % in MRL Generation\n• OC Qty: 1200\n• Calculated Req qty: 1320\n• Note: Production % should NOT be considered, so the planned (PD) quantity must remain 1300.\nB. Exclude Additional Production Quantities in MRL Generation\n• OC Qty: 1100\n• Calculated Req qty: 1210\n• Note: Additional quantity should NOT be considered, but again, the PD quantity should be 1300.\nSummary\nThe key point being demonstrated:\n• Regardless of whether Extra Production % or Additional Quantity is excluded in MRL generation,\nthe PD (planned) quantity should still be calculated as 1300, matching the Total OC Qty derived from the Sales Order.\nThe table shows how different exclusion settings alter the intermediate required quantities, but the final PD quantity should remain consistent.\n15. Introducing the MRP Approval Re-Assignment Feature\nTo handle situations where an assigned approver is unavailable, we are introducing a Re-Assign MRP Approval functionality.\nScenario Overview\nAssume that the approval workflow for user A is configured with two possible approvers: X and Y.\n• User A submits an MRP approval request.\n• The system routes the request to Approver X as per the configured sequence.\n• If Approver X is unavailable (e.g., out of office, on leave, or unable to respond), the approval cannot proceed, which may cause delays for urgent requirements.\nNew Solution: Re-Assign Approval",
+      "locator": "start (part 8)",
+      "kind": "section"
+    },
+    {
+      "title": "Approval MRP Final",
+      "heading": "",
+      "text": "To avoid such delays, we are introducing a provision that allows the approval request to be reassigned from one approver to another.\nRe-Assignment Options\nOption 1: Re-Assign from “Approval Pending with Others”\n• When the request is pending with X, it will appear in the “Approval Pending with Others” section for User A.\n• From there, User A will have the ability to re-assign the pending request from X to Y.\n• This allows the originator (A) to redirect the approval to the next available approver.\nOption 2: Re-Assign from “Approval Pending” by the Approver\n• If X is available but chooses to delegate, the re-assignment can also be done directly from the “Approval Pending” screen.\n• User X will have an option to re-assign the approval request to Y.\n• This supports approver-level delegation.\nValidation: -\n• System should not allow to take the action on those OC in MRP pending list those are already in a waiting status. For this we need to add a new column also in the list with name Status where system will show the status of the MRP.\n• BOM will be in disable mode on MRP waiting in approval status.\n• System will show the value in required qty un-rounding for next level.----By MK sir discuss\n______________________________________________________________________",
+      "locator": "start (part 9)",
+      "kind": "section"
+    },
+    {
+      "title": "Conclusion",
+      "heading": "… › … › Conclusion",
+      "text": "The MRP system facilitates the approval workflow by allowing users to manage individual lines in the BOM, reject materials, mark lines as awaited, and approve changes incrementally. It ensures transparency by displaying red lines for rejected items, and it supports efficient approval and indent generation processes by focusing on only the modified lines when new changes are introduced.\nThis structured approval and material planning process helps maintain accuracy in the procurement and production cycles, especially when dealing with multiple materials and frequent updates.\nCases\n1. When partial material is approved /rejected\nIn case ---In case we have defined different approver for different categories so for the first category attached in bom , all the approval will work from there no use of other categories\nOn approving all lines generates indents for all approved material lines.\nAdded validation to prevent action on MRP records already pending approval.\nMultilingual on tools",
+      "locator": "§ … › … › Conclusion",
+      "kind": "section"
+    }
+  ]
+}

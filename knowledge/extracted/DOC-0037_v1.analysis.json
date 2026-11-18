@@ -1,0 +1,1682 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Screen",
+        "Route",
+        "Reached from"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Screen"
+      ],
+      "rows": [
+        [
+          "Kit/Pack Management (list)",
+          "catalog/kit-pack",
+          "Catalog menu"
+        ],
+        [
+          "Kit/Pack Costing (detail, new)",
+          "catalog/kit-pack/new",
+          "List › \"Configure Kit/Pack\""
+        ],
+        [
+          "Kit/Pack Costing (detail, existing)",
+          "catalog/kit-pack/:id",
+          "List › click a Kit ID link, or › row menu › \"Open Kit/Pack Costing\""
+        ],
+        [
+          "Duplicate dialog (modal)",
+          "—",
+          "List › row menu › \"Duplicate\" (master kits only)"
+        ],
+        [
+          "Review for Approval dialog (modal)",
+          "—",
+          "List › row menu › \"Review for Approval\" (master kits with ≥1 duplicated child only)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Column",
+        "Source field(s)",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Source field(s)": "s"
+      },
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Kit",
+          "PackingKitID (link) + PackingKitName",
+          "Combined cell, primary + secondary line"
+        ],
+        [
+          "Kit SKU",
+          "KitSKU",
+          ""
+        ],
+        [
+          "SKU Description",
+          "SKUDescription",
+          ""
+        ],
+        [
+          "Component Type",
+          "ComponentType",
+          "Set filter"
+        ],
+        [
+          "Ratio Type",
+          "RatioType",
+          "Set filter"
+        ],
+        [
+          "UOM",
+          "UOM",
+          "Set filter"
+        ],
+        [
+          "BOM Status",
+          "BOMStatus",
+          "Badge (Open/Approved), set filter"
+        ],
+        [
+          "Total Cost",
+          "computed (Pack Items + Packing Materials + Production Cost + Additional Cost)",
+          "Client-side valueGetter, sortable, no filter"
+        ],
+        [
+          "Created By",
+          "CreatedBy",
+          "Avatar + name"
+        ],
+        [
+          "Created On",
+          "CreatedOn",
+          "Date filter"
+        ],
+        [
+          "Last Modified",
+          "LastChanged",
+          "Date filter"
+        ],
+        [
+          "(row actions)",
+          "—",
+          "Pinned right; opens the row context menu"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Rules",
+        "Source"
+      ],
+      "types": [
+        "text",
+        "text",
+        "boolean",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Size(s)",
+          "Multi-select",
+          "Yes",
+          "At least one; options = the kit's own Pack Items sizes (or a generic XS–XXL list when none exist yet), excluding any size already used by an existing child",
+          "Derived from PackItems / WFX_KIT_GENERIC_SIZE_OPTIONS"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Column",
+        "Source field(s)",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Source field(s)": "s"
+      },
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Kit",
+          "PackingKitID + PackingKitName + MASTER badge",
+          "Combined cell; badge only on the master's own row"
+        ],
+        [
+          "Kit SKU",
+          "KitSKU",
+          ""
+        ],
+        [
+          "SKU Description",
+          "SKUDescription",
+          "Header reads \"SKU Description\" here — see Finding F-12"
+        ],
+        [
+          "Component Type",
+          "ComponentType",
+          ""
+        ],
+        [
+          "Ratio Type",
+          "RatioType",
+          ""
+        ],
+        [
+          "UOM",
+          "UOM",
+          ""
+        ],
+        [
+          "BOM Status",
+          "BOMStatus",
+          "Badge"
+        ],
+        [
+          "Total Cost",
+          "computed",
+          "Currency-coded header"
+        ],
+        [
+          "Selling Price / FOB",
+          "SellingPrice",
+          "Currency-coded header"
+        ],
+        [
+          "Profit % (Margin)",
+          "computed",
+          ""
+        ],
+        [
+          "Markup %",
+          "computed",
+          ""
+        ],
+        [
+          "(Open)",
+          "—",
+          "Navigates to the row's own detail page and closes this dialog"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Rules",
+        "Default"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Packing Kit ID",
+          "Text",
+          "—",
+          "Read-only, system-generated once created (\"Generated by System Coding\" until then)",
+          "—"
+        ],
+        [
+          "Packing Kit Name",
+          "Text",
+          "Yes",
+          "≤120 chars",
+          "—"
+        ],
+        [
+          "Kit SKU",
+          "Text",
+          "Yes",
+          "≤60 chars",
+          "—"
+        ],
+        [
+          "SKU Description",
+          "Text",
+          "No",
+          "≤250 chars",
+          "—"
+        ],
+        [
+          "Component Type",
+          "Select",
+          "Yes",
+          "Single (Pack) / Multi (Kit)",
+          "—"
+        ],
+        [
+          "Ratio Type",
+          "Select",
+          "Yes",
+          "Color Ratio / Size Ratio — decides which Pack Items axis is multi- vs single-select (see 4.2)",
+          "—"
+        ],
+        [
+          "Product Group",
+          "Select",
+          "Yes",
+          "—",
+          "—"
+        ],
+        [
+          "Sub-Category",
+          "Select",
+          "Yes",
+          "—",
+          "—"
+        ],
+        [
+          "UOM",
+          "Select",
+          "Yes",
+          "PCS / SET",
+          "PCS"
+        ],
+        [
+          "Order Qty Expected",
+          "Number",
+          "Gate only — see Finding F-8",
+          "Integer, > 0",
+          "1"
+        ],
+        [
+          "Buyer",
+          "Select",
+          "Yes",
+          "—",
+          "—"
+        ],
+        [
+          "Buyer Dept",
+          "Select",
+          "Yes",
+          "—",
+          "—"
+        ],
+        [
+          "Season",
+          "Select",
+          "Yes",
+          "—",
+          "—"
+        ],
+        [
+          "Packing Kit Description",
+          "Textarea",
+          "No",
+          "≤2000 chars",
+          "—"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Column",
+        "On",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Article Code / Article Name",
+          "Parent only",
+          "Free text"
+        ],
+        [
+          "Color",
+          "Parent: editable (multi- or single-select per Ratio Type) · Child: read-only, one value",
+          "—"
+        ],
+        [
+          "Size",
+          "Parent: editable (multi- or single-select per Ratio Type) · Child: read-only, one value",
+          "—"
+        ],
+        [
+          "Quantity",
+          "Child only",
+          "≥0, 2dp"
+        ],
+        [
+          "Cons. UOM",
+          "Child only",
+          "Free text"
+        ],
+        [
+          "Price",
+          "Child only",
+          "≥0, 2dp"
+        ],
+        [
+          "Value",
+          "Child/parent (computed)",
+          "Quantity × Price, read-only"
+        ],
+        [
+          "Manufacturing BOM",
+          "Parent only",
+          "Free text (see Mock shortcuts)"
+        ],
+        [
+          "(row actions)",
+          "Both",
+          "Delete — on a parent, also deletes all its children"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Column",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Article Code / Article Name",
+          "Free text"
+        ],
+        [
+          "Material Color / Material Size",
+          "Optional; \"None\" placeholder when blank"
+        ],
+        [
+          "Cons. Qty",
+          "≥0, 2dp"
+        ],
+        [
+          "Wastage %",
+          "≥0, 2dp — no defined upper bound (Open Question Q-4)"
+        ],
+        [
+          "Cons. UOM",
+          "Free text"
+        ],
+        [
+          "Supplier / Delivery Term",
+          "Free text"
+        ],
+        [
+          "Currency",
+          "Select (material can be quoted in a different currency than the kit)"
+        ],
+        [
+          "Cons. UOM Price / Purchase UOM / Purchase Price",
+          "≥0, 2dp / free text / ≥0, 2dp"
+        ],
+        [
+          "Value",
+          "Computed: (Cons. Qty × (1 + Wastage % / 100)) × Cons. UOM Price, read-only"
+        ],
+        [
+          "(row actions)",
+          "Delete"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "Column",
+        "Rules"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "Charges",
+          "Free text"
+        ],
+        [
+          "Basis",
+          "Select: Amount / Percentage"
+        ],
+        [
+          "Currency",
+          "Free text — see Finding F-7"
+        ],
+        [
+          "Rate",
+          "≥0, 2dp"
+        ],
+        [
+          "Value",
+          "Computed: Amount basis = Rate as-is; Percentage basis = Rate% × the shared subtotal above. Read-only"
+        ],
+        [
+          "(row actions)",
+          "Delete"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "Version",
+        "Owner",
+        "Git user",
+        "Date",
+        "Summary"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "V1",
+          "Gaurav Sharma (Product Owner)",
+          "Gaurav Sharma",
+          "02 Oct 2026",
+          "Initial Kit/Pack BOM & Costing spec: list, duplicate/review dialogs, 6-tab costing detail, findings and open questions"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Kit Enhancements",
+  "keyTerms": [
+    "kit",
+    "pct",
+    "one",
+    "child",
+    "row",
+    "kitpack",
+    "master",
+    "open",
+    "select",
+    "cost",
+    "size",
+    "duplicated",
+    "packing",
+    "kits",
+    "packing materials"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 60
+    },
+    {
+      "module": "Production",
+      "score": 3
+    },
+    {
+      "module": "Sales Order",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "Masters – Colour, Size, UOM"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Once the costing is agreed, the kit is Approved, which locks it.",
+      "locator": "§ 1 Overview",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Screen, Route, Reached from (5 rows; identifiers: Screen)",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Both dialogs are opened from the list's row context menu and never navigate away from the list on their own; the Review dialog's \"Open\" link per row closes the dialog and navigates to that kit's own detail page.",
+      "locator": "§ 2 Screen inventory & navigation flow",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Conventions:\n1. Money — 2 decimal places always (1,200.50, never 1,201), en-US grouping. Shown as a plain formatted number with the currency code named in the column/field header (e.g. \"Total Cost (VND)\") — see Finding F-11 for the gap against the studio standard of symbol and code on the value itself.\n2. Percent — 2 decimal places + % suffix (Profit %, Markup %, Wastage %); can go negative (Profit %/Markup % are not clamped at 0).\n3. Required field — red asterisk on the label; inline error shown on blur/submit via Signal Forms.\n4. Short text — Kit SKU: required, ≤60 chars. Long text — Packing Kit Name ≤120, SKU Description ≤250, Packing Kit Description ≤2000.\n5. Grid numeric fields (Quantity, Price, Cons. Qty, Wastage %, Rate, …) — ≥0 (no negatives), 2 decimal places shown, entered via an always-visible wfx-input-number cell (not click-to-edit).\n6. Audit fields — Created By / Created On / Last Modified: system-set, ISO date, never user-edited.\n7. Empty value — \"—\" dash in combined list/summary cells; a plain blank cell in editable grids; \"None\" placeholder for an optional Material Color/Size that hasn't been set.\n8. BOM Status badge — \"Open\" (neutral/draft tone) vs \"Approved\" (success tone).",
+      "locator": "§ 2 Screen inventory & navigation flow › Conventions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Client-side tree grid (record count is small; see F-/Mock-shortcuts for when to move to server paging).",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Column, Source field(s), Notes (12 rows; identifiers: Column)",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.1 Kit/Pack Management (list):\n1. Search (by Kit ID, Name or SKU) keeps a matched child's master kit visible too, since the tree needs the parent row present to nest under — a search for \"KIT-382\" alone still shows its master \"KIT-381\" above it.\n2. \"Configure Kit/Pack\" button opens a new, blank detail screen.\n3. Row menu: Open Kit/Pack Costing (always); Duplicate (master kits only — a kit that is itself a duplicated child has no Duplicate option, one level of nesting only); Review for Approval (master kits with ≥1 duplicated child only); Delete (Open kits only — hidden entirely once Approved).",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "This cannot be undone.\"",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.1 Kit/Pack Management (list):\n1. Delete confirm, no children — title \"Confirm Deletion\": \"{PackingKitID} will be deleted. This cannot be undone.\"\n2. Delete confirm, with children — title \"Confirm Deletion\": \"{PackingKitID} and its {N} duplicated child kit(s) will be deleted. This cannot be undone.\"\n3. Delete success — title \"Deleted\": \"{PackingKitID} was deleted.\"\n4. Delete failure — title \"Delete Failed\": \"Could not delete the Kit/Pack.\"\n5. Load failure — title \"Load Failed\": \"Could not load Kit/Packs from the mock store.\"",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Field, Type, Required, Rules, Source (1 rows)",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog, table 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Children are saved one at a time, sequentially — never in parallel.",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.2 Duplicate dialog:\n1. Success, one size — title \"Kit Duplicated\": \"{newID} was created from {masterID}.\"\n2. Success, multiple sizes — title \"Kits Duplicated\": \"{N} kits created from {masterID}: {id, id, …}.\"\n3. Failure — title \"Duplicate Failed\": \"Could not create the duplicate Kit/Pack(s).\"",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Column, Source field(s), Notes (12 rows; identifiers: Column)",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The Approve button is disabled once already Approved (label flips to \"Approved\"); Cancel returns to the list and flushes any pending auto-save first.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail)",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Field, Type, Required, Rules, Default (14 rows; identifiers: Field)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Create blocked — title \"Cannot Create Kit\": \"Fill in every required field first (Name, Kit SKU, Component Type, Ratio Type, Product Group, Sub-Category, UOM, Buyer, Buyer Dept, Season).\"",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.4.1 Tab — Kit/Pack:\n1. Create blocked — title \"Cannot Create Kit\": \"Fill in every required field first (Name, Kit SKU, Component Type, Ratio Type, Product Group, Sub-Category, UOM, Buyer, Buyer Dept, Season).\"\n2. Create success — title \"Kit Created\": \"{PackingKitID} was created.\"\n3. Create failure — title \"Create Failed\": \"Could not create the Kit/Pack.\"\n4. Save failure (auto-save) — title \"Save Failed\": \"Could not save the Kit/Pack.\"\n5. Record not found on load — title \"Not Found\": \"That Kit/Pack does not exist.\" (returns to the list)\n6. \"Copy From\" click — title \"Not Available Yet\": \"Copying an existing Kit/Pack is not built in this proto yet.\"",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Which axis is multi-select vs single-select is set by the kit's Ratio Type: Color Ratio pins Size to one kit-wide value (Color is the free multi-select); Size Ratio pins Color the same way.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Column, On, Rules (9 rows; identifiers: Column)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no \"Add Variant\" action — breakdown rows exist only as a function of the parent's own Color/Size picks.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Column, Rules (10 rows; identifiers: Column)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Process is a clearable select from a fixed list (Packing 1, Packing 2, Ironing, Folding, Labeling); clearing it also clears Rate (≥0, 2dp).",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.4 Tab — Routing/Processes",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: Column, Rules (6 rows; identifiers: Column)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This is a simplification — see Mock shortcuts for the real screen's nested MATERIAL rows.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.6 Tab — Summary",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.4.6 Tab — Summary:\n1. Kit Information panel — read-only echo of Kit ID, Kit Name, Component Type, Ratio Type.\n2. BOM Line Items grid — one flat row per Pack Items article (rolled up across its Color/Size children), Packing Materials row, the one Routing/Processes line, and each Additional Cost row. Columns: Line #, Item Type (badge: KIT ITEM / PACKAGING MATERIAL / PRODUCTION COST / ADDITIONAL COST), Article, Final Cons. Qty, UOM, Rate, Value. This is a simplification — see Mock shortcuts for the real screen's nested MATERIAL rows.\n3. Totals card — Total Cost (computed, read-only); Selling Price (editable, per-kit currency); Discount % (editable, 0–100 — see Finding F-9, it is not currently used in any calculation); Profit % and Markup % (computed, read-only, can go negative); BMV and EPM (static 0.00 placeholders — see Open Question Q-1).\n4. Approval Summary panel — master kits only (not shown at all on a duplicated child's own detail page): one row for the master plus one row per duplicated child, so an approver sees the whole family before approving. Columns: Kit (ID + MASTER badge), Kit SKU, Kit SKU Description, BOM Status, Total Cost, Selling Price / FOB, Profit % (Margin), Markup %, EPM.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.6 Tab — Summary",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is no path back to Open (no un-approve action) — see Open Question Q-5.",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "A child that doesn't match this stays Open and must be approved individually from its own detail page.",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Delete is offered only on an Open kit (mirrors the real sales-order list's \"Delete only when Saved\" convention) and requires confirmation.",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Delete is offered only on an Open kit (mirrors the real sales-order list's \"Delete only when Saved\" convention) and requires confirmation.",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "An Approved kit cannot be deleted, and there is no separate Cancel-with-reason flow.",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Duplicate is offered only from a master row — a duplicated child can never itself be duplicated further (one level of nesting only).",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4 Workflow & status lifecycle:\n1. Not yet created — only the Kit/Pack tab is usable; \"Create Kit\" is enabled once every required field on it is filled (plus Order Qty Expected > 0); tabs 2–6 stay disabled until then.\n2. Open — every field on every tab is editable and auto-saves on change; \"Approve\" is available.\n3. Approved — every field on every tab becomes read-only (header fields, all four grids, Routing, Selling Price/Discount %); the Approve button shows \"Approved\" and is disabled. There is no path back to Open (no un-approve action) — see Open Question Q-5.\n4. Approving a master also auto-approves every duplicated child whose own Pack Items breakdown is an unmodified copy of the master's data for the size(s) it carries, whose Packing Materials/Routing/Additional Cost are identical to the master's, and whose Selling Price matches the master's exactly (\"same items, materials, FOB and Margin\"). A child that doesn't match this stays Open and must be approved individually from its own detail page.\n5. Delete is offered only on an Open kit (mirrors the real sales-order list's \"Delete only when Saved\" convention) and requires confirmation. Deleting a master cascades to delete every one of its duplicated children in the same action, with the confirm message stating the exact count up front. An Approved kit cannot be deleted, and there is no separate Cancel-with-reason flow.\n6. Duplicate is offered only from a master row — a duplicated child can never itself be duplicated further (one level of nesting only).",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Order Qty Expected — required to enable \"Create Kit\" (no inline Signal Forms validator — Finding F-8), integer, must be > 0",
+      "locator": "§ 5 Validations master list",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "5 Validations master list:\n1. Packing Kit Name — required, ≤120 chars\n2. Kit SKU — required, ≤60 chars\n3. SKU Description — optional, ≤250 chars\n4. Component Type — required (select)\n5. Ratio Type — required (select)\n6. Product Group — required (select)\n7. Sub-Category — required (select)\n8. UOM — required (select), default PCS\n9. Order Qty Expected — required to enable \"Create Kit\" (no inline Signal Forms validator — Finding F-8), integer, must be > 0\n10. Buyer — required (select)\n11. Buyer Dept — required (select)\n12. Season — required (select)\n13. Packing Kit Description — optional, ≤2000 chars\n14. Pack Items Quantity / Price, Packing Materials Cons. Qty / Wastage % / Cons. UOM Price / Purchase Price, Additional Cost Rate — all ≥0, 2 decimal places shown, no defined maximum (Open Question Q-4 for Wastage %)\n15. Duplicate dialog Size(s) — required, at least one; options exclude any size already used by an existing duplicated child\n16. Selling Price — optional (nullable; Profit %/Markup % simply read 0%/negative without it), ≥0, 2dp, shown in the kit's own currency\n17. Discount % — optional, range 0–100, 2dp (currently has no effect on any calculation — Finding F-9)",
+      "locator": "§ 5 Validations master list",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "The Summary tab's BOM Line Items list is flat, not a tree: the real screen's \"MATERIAL\" child rows come from the linked article's own Manufacturing BOM, which is out of scope until that screen exists — here Manufacturing BOM is a free-text field, not a real link.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "BMV and EPM are static 0.00 placeholders — the product team has not yet defined their formula (Open Question Q-1).",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "BMV and EPM are static 0.00 placeholders — the product team has not yet defined their formula (Open Question Q-1).",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "A duplicated kit is exactly one level of nesting — a child can never itself be duplicated.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "All grids are client-side (no server paging) — fine at today's record counts; flag for server-side paging once volume grows (QA checklist §6).",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "6.1 Mock shortcuts:\n1. One committed record holds the kit's header, full BOM and costing fields together — the real app splits these across separate article/BOM/cost-sheet tables.\n2. Tabs 2–6 are locked behind a manual \"Create Kit\" button instead of the studio's usual auto-create-on-seed-fields pattern — deliberate, mirroring both the source PDF spec and the real wfx-kit-pack-detail screen's own convention.\n3. The Summary tab's BOM Line Items list is flat, not a tree: the real screen's \"MATERIAL\" child rows come from the linked article's own Manufacturing BOM, which is out of scope until that screen exists — here Manufacturing BOM is a free-text field, not a real link.\n4. BMV and EPM are static 0.00 placeholders — the product team has not yet defined their formula (Open Question Q-1).\n5. A duplicated kit is exactly one level of nesting — a child can never itself be duplicated.\n6. \"Copy From\" is present in the UI but not implemented.\n7. Routing/Processes models a single process + rate, not a sequence of routing steps.\n8. All grids are client-side (no server paging) — fine at today's record counts; flag for server-side paging once volume grows (QA checklist §6).",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "(Missing validation, open) Order Qty Expected has no visible inline validation — it silently blocks \"Create Kit\" via the enablement gate, but nothing on the field itself tells the user why.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "(Missing validation / dead field, open) Discount % is captured on the Summary tab but is never read by any Total Cost, Selling Price, Profit % or Markup % calculation in wfx-kit-pack.util.ts — it currently has no effect.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Low severity since the code is always visible one column/label away, but worth a conscious decision rather than an oversight.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "6.2 Findings:\n1. (Bug, fixed this cycle) The \"BOM Line Items\" and \"Approval Summary\" grids on the Summary tab, and the grid in the \"Review for Approval\" dialog, rendered header-only with no visible rows: each one's <wfx-surface> wrapper collapsed to 0 height because it sat inside a non-flex ancestor (a <wfx-panel> body or a dialog body) with no definite height to resolve its own flex:1;height:100% against. Corrected by giving each wfx-surface an explicit [minHeight] (320px / 200px / 360px to match each grid) and the grid itself height=\"100%\".\n2. (Bug, fixed this cycle) Duplicating two or more sizes at once could silently drop a child kit record: the dialog saved every new child in parallel, which raced against the mock server's unlocked read-modify-write file I/O, and the loser's write was overwritten before it could persist — though the dialog reported success for every size. Corrected by saving children one at a time, sequentially, never in parallel.\n3. (Bug, fixed this cycle) The Summary tab's own content (Kit Information + BOM Line Items + Totals + Approval Summary) is taller than the viewport once a master kit has duplicated children, but the page could not be scrolled far enough to reach the bottom: the tab's wrapping stack had no overflow handling of its own, while the page-level container intentionally disables page-level scrolling for this \"grid fills the viewport\" tab style (used by the other, single-grid tabs). Corrected by adding vertical scroll to this one tab's own wrapping stack.\n4. (Bug, fixed this cycle) Delete used to run with no confirmation, no eligibility check, and never cleaned up a master's duplicated children (left them pointing at a ParentId that no longer existed). Corrected: Delete now confirms first (stating the child count up front), is hidden entirely on an Approved kit, and cascades to delete all of a master's children in the same action.\n5. (Standards gap, fixed this cycle) The list's \"Created\" column header has been renamed to \"Created On\", matching the studio convention of naming the header after the field.\n6. (Standards gap, fixed this cycle) The list's Total Cost column was marked non-sortable with no technical reason (it is an ordinary client-side valueGetter column); it now sorts like any other numeric column.\n7. (Standards gap, open) The Additional Cost tab's Currency column is a free-text cell, while the otherwise-identical Packing Materials tab's Currency column is a proper select from the same currency list (see the Additional Cost screenshot). Recommended: make Additional Cost's Currency a select too, for the same reason Packing Materials already is — a typo currency code shouldn't be able to corrupt a cost line. See Open Question Q-3.\n8. (Missing validation, open) Order Qty Expected has no visible inline validation — it silently blocks \"Create Kit\" via the enablement gate, but nothing on the field itself tells the user why. Recommend an inline Signal Forms required() / min() validator consistent with the kit's other seed fields.\n9. (Missing validation / dead field, open) Discount % is captured on the Summary tab but is never read by any Total Cost, Selling Price, Profit % or Markup % calculation in wfx-kit-pack.util.ts — it currently has no effect. See Open Question Q-2.\n10. (UX, open) Pack Items, Packing Materials and Additional Cost show no empty-state message when a freshly-created kit has zero rows — just a blank grid body under the \"Add …\" button. Recommend the studio's shared empty-state pattern (\"No items yet — click Add Item to add one.\").\n11. (Standards gap, open) Money values are shown as a plain formatted number with the currency code named only in the column/field header (e.g. \"Total Cost (VND)\"), never a currency symbol on the value itself — the studio standard (QA checklist §2) calls for both. Low severity since the code is always visible one column/label away, but worth a conscious decision rather than an oversight.\n12. (UX, open) The \"SKU Description\" column header reads just \"SKU Description\" in the Review for Approval dialog but \"Kit SKU Description\" in the Summary tab's Approval Summary grid — same field, two labels. Recommend picking one wording and using it in both places.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "What is the BMV and EPM formula for the Summary tab's totals card and Approval Summary grid?",
+      "locator": "§ 7 Open questions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "What is the BMV and EPM formula for the Summary tab's totals card and Approval Summary grid?",
+      "locator": "§ 7 Open questions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "formula",
+      "text": "Should Discount % actually affect the costing math (Selling Price, Profit %, Markup %), and if so how — applied before or after Markup is computed?",
+      "locator": "§ 7 Open questions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "There is currently no path back from Approved.",
+      "locator": "§ 7 Open questions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "7 Open questions:\n1. What is the BMV and EPM formula for the Summary tab's totals card and Approval Summary grid? Currently static 0.00 placeholders. Owner: Product team.\n2. Should Discount % actually affect the costing math (Selling Price, Profit %, Markup %), and if so how — applied before or after Markup is computed? See Finding F-9. Owner: Product team.\n3. Should Additional Cost's Currency be a select (matching Packing Materials) instead of free text? See Finding F-7. Owner: Product team / Dev lead.\n4. Is there an upper bound on Packing Materials' Wastage %, or a maximum number of colors/sizes a Pack Items parent row may carry? Owner: Product team.\n5. Does an Approved kit ever need to be reopened (e.g. a costing error found after approval), and if so what audit trail does that need? There is currently no path back from Approved. Owner: Product team.\n6. What should happen if two users duplicate the same size from the same master at nearly the same time (two \"L\" children created from one master in quick succession)? Nothing in the client or the mock server currently prevents this. Owner: Product team / Dev lead.",
+      "locator": "§ 7 Open questions",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: Version, Owner, Git user, Date, Summary (1 rows)",
+      "locator": "§ Version History, table 9",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Kit Enhancements",
+      "heading": "",
+      "text": "Kit/Pack BOM & Costing — Product Mock Spec\nFeature: wfx-erp-product-kit-pack · Owner: Gaurav Sharma (Product Owner)",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "1 Overview",
+      "heading": "1 Overview",
+      "text": "The Kit/Pack BOM & Costing screen lets a merchandiser or costing team build the bill of materials and cost sheet for a kitted or packed product — a single sellable unit made of several garments and/or packaging articles (e.g. a boys' 5-pack tee combo, a girls' polo assortment across sizes). It lives under Catalog › Kit/Pack Management in the ERP product studio.\nOn one kit record, the user defines the component articles and their colour/size breakdown, the packing materials, a routing process, and any additional charges; the screen rolls all of that up into a Total Cost, and the user enters a Selling Price to see the resulting Profit % and Markup %. Once the costing is agreed, the kit is Approved, which locks it. A kit can also be duplicated into one linked child kit per size variant, and a master kit's family (itself plus every duplicated child) can be reviewed and approved together.\nPrimary users: merchandising / costing team (build and price the kit), approver (reviews the family and approves).",
+      "locator": "§ 1 Overview",
+      "kind": "section"
+    },
+    {
+      "title": "2 Screen inventory & navigation flow – Table 1",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "Columns: Screen (text); Route (text); Reached from (text)\nScreen | Route | Reached from\nKit/Pack Management (list) | catalog/kit-pack | Catalog menu\nKit/Pack Costing (detail, new) | catalog/kit-pack/new | List › \"Configure Kit/Pack\"\nKit/Pack Costing (detail, existing) | catalog/kit-pack/:id | List › click a Kit ID link, or › row menu › \"Open Kit/Pack Costing\"\nDuplicate dialog (modal) | — | List › row menu › \"Duplicate\" (master kits only)\nReview for Approval dialog (modal) | — | List › row menu › \"Review for Approval\" (master kits with ≥1 duplicated child only)",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "Screen: Kit/Pack Management (list); Route: catalog/kit-pack; Reached from: Catalog menu",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "Screen: Kit/Pack Costing (detail, new); Route: catalog/kit-pack/new; Reached from: List › \"Configure Kit/Pack\"",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "Screen: Kit/Pack Costing (detail, existing); Route: catalog/kit-pack/:id; Reached from: List › click a Kit ID link, or › row menu › \"Open Kit/Pack Costing\"",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "Screen: Duplicate dialog (modal); Route: —; Reached from: List › row menu › \"Duplicate\" (master kits only)",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "Screen: Review for Approval dialog (modal); Route: —; Reached from: List › row menu › \"Review for Approval\" (master kits with ≥1 duplicated child only)",
+      "locator": "§ 2 Screen inventory & navigation flow, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "2 Screen inventory & navigation flow",
+      "heading": "2 Screen inventory & navigation flow",
+      "text": "The list shows every kit in a tree grid: a master kit's duplicated children nest under it. The detail screen's back arrow / Cancel button returns to the list (flushing any pending auto-save first). Both dialogs are opened from the list's row context menu and never navigate away from the list on their own; the Review dialog's \"Open\" link per row closes the dialog and navigates to that kit's own detail page.",
+      "locator": "§ 2 Screen inventory & navigation flow",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions",
+      "heading": "2 Screen inventory & navigation flow › Conventions",
+      "text": "• Money — 2 decimal places always (1,200.50, never 1,201), en-US grouping. Shown as a plain formatted number with the currency code named in the column/field header (e.g. \"Total Cost (VND)\") — see Finding F-11 for the gap against the studio standard of symbol and code on the value itself.\n• Percent — 2 decimal places + % suffix (Profit %, Markup %, Wastage %); can go negative (Profit %/Markup % are not clamped at 0).\n• Required field — red asterisk on the label; inline error shown on blur/submit via Signal Forms.\n• Short text — Kit SKU: required, ≤60 chars. Long text — Packing Kit Name ≤120, SKU Description ≤250, Packing Kit Description ≤2000.\n• Grid numeric fields (Quantity, Price, Cons. Qty, Wastage %, Rate, …) — ≥0 (no negatives), 2 decimal places shown, entered via an always-visible wfx-input-number cell (not click-to-edit).\n• Audit fields — Created By / Created On / Last Modified: system-set, ISO date, never user-edited.\n• Empty value — \"—\" dash in combined list/summary cells; a plain blank cell in editable grids; \"None\" placeholder for an optional Material Color/Size that hasn't been set.\n• BOM Status badge — \"Open\" (neutral/draft tone) vs \"Approved\" (success tone).",
+      "locator": "§ 2 Screen inventory & navigation flow › Conventions",
+      "kind": "section"
+    },
+    {
+      "title": "3 Screen specifications",
+      "heading": "3 Screen specifications",
+      "text": "One sub-section per screen below: purpose, screenshot, field/column table, behaviours, and exact alert wording.",
+      "locator": "§ 3 Screen specifications",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Kit/Pack Management (list)",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Purpose: the landing screen for every kit/pack — browse, search, open, duplicate, review and delete. Client-side tree grid (record count is small; see F-/Mock-shortcuts for when to move to server paging). A master kit's duplicated children render nested underneath it (expanded by default).\nKit/Pack Management — list, master kits expanded to show duplicated children",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Kit/Pack Management (list) – Table 2",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Columns: Column (text); Source field(s) (text, s); Notes (text)\nColumn | Source field(s) | Notes\nKit | PackingKitID (link) + PackingKitName | Combined cell, primary + secondary line\nKit SKU | KitSKU | \nSKU Description | SKUDescription | \nComponent Type | ComponentType | Set filter\nRatio Type | RatioType | Set filter\nUOM | UOM | Set filter\nBOM Status | BOMStatus | Badge (Open/Approved), set filter\nTotal Cost | computed (Pack Items + Packing Materials + Production Cost + Additional Cost) | Client-side valueGetter, sortable, no filter\nCreated By | CreatedBy | Avatar + name\nCreated On | CreatedOn | Date filter\nLast Modified | LastChanged | Date filter\n(row actions) | — | Pinned right; opens the row context menu",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Kit; Source field(s): PackingKitID (link) + PackingKitName; Notes: Combined cell, primary + secondary line",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Kit SKU; Source field(s): KitSKU",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: SKU Description; Source field(s): SKUDescription",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Component Type; Source field(s): ComponentType; Notes: Set filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Ratio Type; Source field(s): RatioType; Notes: Set filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: UOM; Source field(s): UOM; Notes: Set filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: BOM Status; Source field(s): BOMStatus; Notes: Badge (Open/Approved), set filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Total Cost; Source field(s): computed (Pack Items + Packing Materials + Production Cost + Additional Cost); Notes: Client-side valueGetter, sortable, no filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Created By; Source field(s): CreatedBy; Notes: Avatar + name",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Created On; Source field(s): CreatedOn; Notes: Date filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: Last Modified; Source field(s): LastChanged; Notes: Date filter",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 12",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Column: (row actions); Source field(s): —; Notes: Pinned right; opens the row context menu",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list), table 2, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.1 Kit/Pack Management (list)",
+      "heading": "3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "text": "Behaviours\n• Search (by Kit ID, Name or SKU) keeps a matched child's master kit visible too, since the tree needs the parent row present to nest under — a search for \"KIT-382\" alone still shows its master \"KIT-381\" above it.\n• \"Configure Kit/Pack\" button opens a new, blank detail screen.\n• Row menu: Open Kit/Pack Costing (always); Duplicate (master kits only — a kit that is itself a duplicated child has no Duplicate option, one level of nesting only); Review for Approval (master kits with ≥1 duplicated child only); Delete (Open kits only — hidden entirely once Approved).\nRow context menu on a master kit with a duplicated child\nAlerts (exact wording)\n• Delete confirm, no children — title \"Confirm Deletion\": \"{PackingKitID} will be deleted. This cannot be undone.\"\n• Delete confirm, with children — title \"Confirm Deletion\": \"{PackingKitID} and its {N} duplicated child kit(s) will be deleted. This cannot be undone.\"\n• Delete success — title \"Deleted\": \"{PackingKitID} was deleted.\"\n• Delete failure — title \"Delete Failed\": \"Could not delete the Kit/Pack.\"\n• Load failure — title \"Load Failed\": \"Could not load Kit/Packs from the mock store.\"",
+      "locator": "§ 3 Screen specifications › 3.1 Kit/Pack Management (list)",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 Duplicate dialog",
+      "heading": "3 Screen specifications › 3.2 Duplicate dialog",
+      "text": "Purpose: clone a master kit's whole BOM into one new linked child kit per size picked — the fast path for pricing the same kit across a size run. Opened from the list's row menu on a master kit only.\nDuplicate dialog — one or more sizes can be picked; each creates one linked child kit",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 Duplicate dialog – Table 3",
+      "heading": "3 Screen specifications › 3.2 Duplicate dialog",
+      "text": "Columns: Field (text); Type (text); Required (boolean); Rules (text); Source (text)\nField | Type | Required | Rules | Source\nSize(s) | Multi-select | Yes | At least one; options = the kit's own Pack Items sizes (or a generic XS–XXL list when none exist yet), excluding any size already used by an existing child | Derived from PackItems / WFX_KIT_GENERIC_SIZE_OPTIONS",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "3 Screen specifications › 3.2 Duplicate dialog",
+      "text": "Field: Size(s); Type: Multi-select; Required: Yes; Rules: At least one; options = the kit's own Pack Items sizes (or a generic XS–XXL list when none exist yet), excluding any size already used by an existing child; Source: Derived from PackItems / WFX_KIT_GENERIC_SIZE_OPTIONS",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.2 Duplicate dialog",
+      "heading": "3 Screen specifications › 3.2 Duplicate dialog",
+      "text": "Behaviours\n• One new kit is created per size picked: PackingKitID auto-numbered (next KIT-nnn), name = \"{master name} - {size}\", linked via ParentId / ParentPackingKitID, every Pack Items/Packing Materials/Routing/Additional Cost value copied from the master, the Pack Items Color/Size narrowed to the one picked size, OrderQtyActual reset to 0, BOMStatus reset to Open, Created By/On and Last Modified reset to the current user/now.\n• Children are saved one at a time, sequentially — never in parallel. Corrected this cycle: see Finding F-2.\nAlerts (exact wording)\n• Success, one size — title \"Kit Duplicated\": \"{newID} was created from {masterID}.\"\n• Success, multiple sizes — title \"Kits Duplicated\": \"{N} kits created from {masterID}: {id, id, …}.\"\n• Failure — title \"Duplicate Failed\": \"Could not create the duplicate Kit/Pack(s).\"",
+      "locator": "§ 3 Screen specifications › 3.2 Duplicate dialog",
+      "kind": "section"
+    },
+    {
+      "title": "3.3 Review for Approval dialog",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Purpose: a read-only, side-by-side view of a master kit and every kit duplicated from it, so an approver compares cost and margin across the whole family before approving any of them. Opened from the list's row menu, only on a master with ≥1 duplicated child. \"Open\" on a row closes the dialog and navigates to that kit's own detail page, where the actual Approve action lives.\nReview for Approval — master + every duplicated child, same grid shape as the list but with costing columns",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog",
+      "kind": "section"
+    },
+    {
+      "title": "3.3 Review for Approval dialog – Table 4",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Columns: Column (text); Source field(s) (text, s); Notes (text)\nColumn | Source field(s) | Notes\nKit | PackingKitID + PackingKitName + MASTER badge | Combined cell; badge only on the master's own row\nKit SKU | KitSKU | \nSKU Description | SKUDescription | Header reads \"SKU Description\" here — see Finding F-12\nComponent Type | ComponentType | \nRatio Type | RatioType | \nUOM | UOM | \nBOM Status | BOMStatus | Badge\nTotal Cost | computed | Currency-coded header\nSelling Price / FOB | SellingPrice | Currency-coded header\nProfit % (Margin) | computed | \nMarkup % | computed | \n(Open) | — | Navigates to the row's own detail page and closes this dialog",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Kit; Source field(s): PackingKitID + PackingKitName + MASTER badge; Notes: Combined cell; badge only on the master's own row",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Kit SKU; Source field(s): KitSKU",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: SKU Description; Source field(s): SKUDescription; Notes: Header reads \"SKU Description\" here — see Finding F-12",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Component Type; Source field(s): ComponentType",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Ratio Type; Source field(s): RatioType",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: UOM; Source field(s): UOM",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: BOM Status; Source field(s): BOMStatus; Notes: Badge",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Total Cost; Source field(s): computed; Notes: Currency-coded header",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 9",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Selling Price / FOB; Source field(s): SellingPrice; Notes: Currency-coded header",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 10",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Profit % (Margin); Source field(s): computed",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 11",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: Markup %; Source field(s): computed",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 12",
+      "heading": "3 Screen specifications › 3.3 Review for Approval dialog",
+      "text": "Column: (Open); Source field(s): —; Notes: Navigates to the row's own detail page and closes this dialog",
+      "locator": "§ 3 Screen specifications › 3.3 Review for Approval dialog, table 4, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.4 Kit/Pack Costing (detail)",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail)",
+      "text": "Purpose: build and cost one kit's full BOM across six tabs, then approve it. Header shows the kit name as the page title, a BOM Status badge, a save-status indicator (\"auto-saves as you type\"), and a metadata bar (Order Qty Expected, Actual, Currency, and \"Duplicated From\" when the kit is itself a child). The Approve button is disabled once already Approved (label flips to \"Approved\"); Cancel returns to the list and flushes any pending auto-save first.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail)",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.1 Tab — Kit/Pack",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "The seed form. Before a kit exists, only this tab is enabled — tabs 2–6 stay disabled until \"Create Kit\" is clicked, which requires every field marked Required below plus Order Qty Expected > 0. Once created, every field everywhere auto-saves on change (no Save button) until the kit is Approved, when every field across all six tabs becomes read-only.\nKit/Pack tab — header/seed fields for an existing kit",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.1 Tab — Kit/Pack – Table 5",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Columns: Field (text); Type (text); Required (text); Rules (text); Default (text)\nField | Type | Required | Rules | Default\nPacking Kit ID | Text | — | Read-only, system-generated once created (\"Generated by System Coding\" until then) | —\nPacking Kit Name | Text | Yes | ≤120 chars | —\nKit SKU | Text | Yes | ≤60 chars | —\nSKU Description | Text | No | ≤250 chars | —\nComponent Type | Select | Yes | Single (Pack) / Multi (Kit) | —\nRatio Type | Select | Yes | Color Ratio / Size Ratio — decides which Pack Items axis is multi- vs single-select (see 4.2) | —\nProduct Group | Select | Yes | — | —\nSub-Category | Select | Yes | — | —\nUOM | Select | Yes | PCS / SET | PCS\nOrder Qty Expected | Number | Gate only — see Finding F-8 | Integer, > 0 | 1\nBuyer | Select | Yes | — | —\nBuyer Dept | Select | Yes | — | —\nSeason | Select | Yes | — | —\nPacking Kit Description | Textarea | No | ≤2000 chars | —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Packing Kit ID; Type: Text; Required: —; Rules: Read-only, system-generated once created (\"Generated by System Coding\" until then); Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Packing Kit Name; Type: Text; Required: Yes; Rules: ≤120 chars; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Kit SKU; Type: Text; Required: Yes; Rules: ≤60 chars; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: SKU Description; Type: Text; Required: No; Rules: ≤250 chars; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Component Type; Type: Select; Required: Yes; Rules: Single (Pack) / Multi (Kit); Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Ratio Type; Type: Select; Required: Yes; Rules: Color Ratio / Size Ratio — decides which Pack Items axis is multi- vs single-select (see 4.2); Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Product Group; Type: Select; Required: Yes; Rules: —; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 8",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Sub-Category; Type: Select; Required: Yes; Rules: —; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 9",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: UOM; Type: Select; Required: Yes; Rules: PCS / SET; Default: PCS",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 10",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Order Qty Expected; Type: Number; Required: Gate only — see Finding F-8; Rules: Integer, > 0; Default: 1",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 11",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Buyer; Type: Select; Required: Yes; Rules: —; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 12",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Buyer Dept; Type: Select; Required: Yes; Rules: —; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 13",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Season; Type: Select; Required: Yes; Rules: —; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 14",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "Field: Packing Kit Description; Type: Textarea; Required: No; Rules: ≤2000 chars; Default: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack, table 5, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.4.1 Tab — Kit/Pack",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "text": "A \"Copy From\" button is present but not implemented in this proto (see Mock shortcuts) — clicking it just shows an info toast.\nAlerts (exact wording)\n• Create blocked — title \"Cannot Create Kit\": \"Fill in every required field first (Name, Kit SKU, Component Type, Ratio Type, Product Group, Sub-Category, UOM, Buyer, Buyer Dept, Season).\"\n• Create success — title \"Kit Created\": \"{PackingKitID} was created.\"\n• Create failure — title \"Create Failed\": \"Could not create the Kit/Pack.\"\n• Save failure (auto-save) — title \"Save Failed\": \"Could not save the Kit/Pack.\"\n• Record not found on load — title \"Not Found\": \"That Kit/Pack does not exist.\" (returns to the list)\n• \"Copy From\" click — title \"Not Available Yet\": \"Copying an existing Kit/Pack is not built in this proto yet.\"",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.1 Tab — Kit/Pack",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.2 Tab — Pack Items",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "A tree grid: each parent row is one component article; its child rows are the Color × Size breakdown, auto-generated from the parent's own Color/Size picks (never hand-added). Which axis is multi-select vs single-select is set by the kit's Ratio Type: Color Ratio pins Size to one kit-wide value (Color is the free multi-select); Size Ratio pins Color the same way. Editing a parent's Color/Size list regenerates its children: an existing combination keeps its Quantity/Price, a new combination gets a blank row, a dropped combination is removed.\nPack Items — parent article row with its Color/Size breakdown child",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.2 Tab — Pack Items – Table 6",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Columns: Column (text); On (text); Rules (text)\nColumn | On | Rules\nArticle Code / Article Name | Parent only | Free text\nColor | Parent: editable (multi- or single-select per Ratio Type) · Child: read-only, one value | —\nSize | Parent: editable (multi- or single-select per Ratio Type) · Child: read-only, one value | —\nQuantity | Child only | ≥0, 2dp\nCons. UOM | Child only | Free text\nPrice | Child only | ≥0, 2dp\nValue | Child/parent (computed) | Quantity × Price, read-only\nManufacturing BOM | Parent only | Free text (see Mock shortcuts)\n(row actions) | Both | Delete — on a parent, also deletes all its children",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Article Code / Article Name; On: Parent only; Rules: Free text",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Color; On: Parent: editable (multi- or single-select per Ratio Type) · Child: read-only, one value; Rules: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Size; On: Parent: editable (multi- or single-select per Ratio Type) · Child: read-only, one value; Rules: —",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Quantity; On: Child only; Rules: ≥0, 2dp",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Cons. UOM; On: Child only; Rules: Free text",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 6",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Price; On: Child only; Rules: ≥0, 2dp",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 7",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Value; On: Child/parent (computed); Rules: Quantity × Price, read-only",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 8",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: Manufacturing BOM; On: Parent only; Rules: Free text (see Mock shortcuts)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 9",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "Column: (row actions); On: Both; Rules: Delete — on a parent, also deletes all its children",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items, table 6, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.4.2 Tab — Pack Items",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "text": "\"Add Item\" adds a new blank parent row. There is no \"Add Variant\" action — breakdown rows exist only as a function of the parent's own Color/Size picks.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.2 Tab — Pack Items",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.3 Tab — Packing Materials",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "A flat grid — every row is independent, no parent/child nesting.\nPacking Materials — flat grid (left columns shown; Supplier/Delivery Term/Currency/UOM Price/Purchase columns continue to the right)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.3 Tab — Packing Materials – Table 7",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Columns: Column (text); Rules (text)\nColumn | Rules\nArticle Code / Article Name | Free text\nMaterial Color / Material Size | Optional; \"None\" placeholder when blank\nCons. Qty | ≥0, 2dp\nWastage % | ≥0, 2dp — no defined upper bound (Open Question Q-4)\nCons. UOM | Free text\nSupplier / Delivery Term | Free text\nCurrency | Select (material can be quoted in a different currency than the kit)\nCons. UOM Price / Purchase UOM / Purchase Price | ≥0, 2dp / free text / ≥0, 2dp\nValue | Computed: (Cons. Qty × (1 + Wastage % / 100)) × Cons. UOM Price, read-only\n(row actions) | Delete",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Article Code / Article Name; Rules: Free text",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Material Color / Material Size; Rules: Optional; \"None\" placeholder when blank",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Cons. Qty; Rules: ≥0, 2dp",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Wastage %; Rules: ≥0, 2dp — no defined upper bound (Open Question Q-4)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Cons. UOM; Rules: Free text",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Supplier / Delivery Term; Rules: Free text",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 7",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Currency; Rules: Select (material can be quoted in a different currency than the kit)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 8",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Cons. UOM Price / Purchase UOM / Purchase Price; Rules: ≥0, 2dp / free text / ≥0, 2dp",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 9",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: Value; Rules: Computed: (Cons. Qty × (1 + Wastage % / 100)) × Cons. UOM Price, read-only",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 10",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "Column: (row actions); Rules: Delete",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials, table 7, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.4.3 Tab — Packing Materials",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "text": "\"Add Article\" adds a blank row.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.3 Tab — Packing Materials",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.4 Tab — Routing/Processes",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.4 Tab — Routing/Processes",
+      "text": "A simple two-field form, no grid — the kit's single routing process and its rate (proto scope: one process, not a sequence of routing steps). Process is a clearable select from a fixed list (Packing 1, Packing 2, Ironing, Folding, Labeling); clearing it also clears Rate (≥0, 2dp). A helper line shows \"Current process: {name}\" when one is set.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.4 Tab — Routing/Processes",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.5 Tab — Additional Cost",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "A flat grid of extra charges, each entered either as a flat amount or as a percentage of the subtotal before additional costs (Pack Items + Packing Materials + Production Cost) — every percentage row shares that same base, so the order of rows never changes the result.\nAdditional Cost — note the Currency cell is plain text here, unlike Packing Materials' Currency select (Finding F-7)",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.5 Tab — Additional Cost – Table 8",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Columns: Column (text); Rules (text)\nColumn | Rules\nCharges | Free text\nBasis | Select: Amount / Percentage\nCurrency | Free text — see Finding F-7\nRate | ≥0, 2dp\nValue | Computed: Amount basis = Rate as-is; Percentage basis = Rate% × the shared subtotal above. Read-only\n(row actions) | Delete",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Column: Charges; Rules: Free text",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Column: Basis; Rules: Select: Amount / Percentage",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Column: Currency; Rules: Free text — see Finding F-7",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Column: Rate; Rules: ≥0, 2dp",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 5",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Column: Value; Rules: Computed: Amount basis = Rate as-is; Percentage basis = Rate% × the shared subtotal above. Read-only",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 6",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "Column: (row actions); Rules: Delete",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost, table 8, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "3.4.5 Tab — Additional Cost",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "text": "\"Add Cost\" adds a blank row.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.5 Tab — Additional Cost",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.6 Tab — Summary",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.6 Tab — Summary",
+      "text": "A read-only roll-up of the whole kit, plus the Selling Price entry that drives Profit %/Markup %, plus (master kits only) the family-wide Approval Summary.\nSummary — Kit Information, BOM Line Items (flat roll-up) and the costing totals card\n• Kit Information panel — read-only echo of Kit ID, Kit Name, Component Type, Ratio Type.\n• BOM Line Items grid — one flat row per Pack Items article (rolled up across its Color/Size children), Packing Materials row, the one Routing/Processes line, and each Additional Cost row. Columns: Line #, Item Type (badge: KIT ITEM / PACKAGING MATERIAL / PRODUCTION COST / ADDITIONAL COST), Article, Final Cons. Qty, UOM, Rate, Value. This is a simplification — see Mock shortcuts for the real screen's nested MATERIAL rows.\n• Totals card — Total Cost (computed, read-only); Selling Price (editable, per-kit currency); Discount % (editable, 0–100 — see Finding F-9, it is not currently used in any calculation); Profit % and Markup % (computed, read-only, can go negative); BMV and EPM (static 0.00 placeholders — see Open Question Q-1).",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.6 Tab — Summary",
+      "kind": "section"
+    },
+    {
+      "title": "3.4.6 Tab — Summary",
+      "heading": "3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.6 Tab — Summary",
+      "text": "• Approval Summary panel — master kits only (not shown at all on a duplicated child's own detail page): one row for the master plus one row per duplicated child, so an approver sees the whole family before approving. Columns: Kit (ID + MASTER badge), Kit SKU, Kit SKU Description, BOM Status, Total Cost, Selling Price / FOB, Profit % (Margin), Markup %, EPM.\nSummary, scrolled — Approval Summary showing the master (KIT-381) and its duplicated child (KIT-382)\nThree bugs on this tab were fixed this cycle — see Findings F-1 and F-3: both grids used to render header-only with no visible rows, and the tab's own content could not be scrolled far enough to reach the Approval Summary panel on a normal-height screen.",
+      "locator": "§ 3 Screen specifications › 3.4 Kit/Pack Costing (detail) › 3.4.6 Tab — Summary (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "4 Workflow & status lifecycle",
+      "heading": "4 Workflow & status lifecycle",
+      "text": "States: (not yet created) → Open → Approved.\n• Not yet created — only the Kit/Pack tab is usable; \"Create Kit\" is enabled once every required field on it is filled (plus Order Qty Expected > 0); tabs 2–6 stay disabled until then.\n• Open — every field on every tab is editable and auto-saves on change; \"Approve\" is available.\n• Approved — every field on every tab becomes read-only (header fields, all four grids, Routing, Selling Price/Discount %); the Approve button shows \"Approved\" and is disabled. There is no path back to Open (no un-approve action) — see Open Question Q-5.\n• Approving a master also auto-approves every duplicated child whose own Pack Items breakdown is an unmodified copy of the master's data for the size(s) it carries, whose Packing Materials/Routing/Additional Cost are identical to the master's, and whose Selling Price matches the master's exactly (\"same items, materials, FOB and Margin\"). A child that doesn't match this stays Open and must be approved individually from its own detail page.",
+      "locator": "§ 4 Workflow & status lifecycle",
+      "kind": "section"
+    },
+    {
+      "title": "4 Workflow & status lifecycle",
+      "heading": "4 Workflow & status lifecycle",
+      "text": "• Delete is offered only on an Open kit (mirrors the real sales-order list's \"Delete only when Saved\" convention) and requires confirmation. Deleting a master cascades to delete every one of its duplicated children in the same action, with the confirm message stating the exact count up front. An Approved kit cannot be deleted, and there is no separate Cancel-with-reason flow.\n• Duplicate is offered only from a master row — a duplicated child can never itself be duplicated further (one level of nesting only).",
+      "locator": "§ 4 Workflow & status lifecycle (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "5 Validations master list",
+      "heading": "5 Validations master list",
+      "text": "• Packing Kit Name — required, ≤120 chars\n• Kit SKU — required, ≤60 chars\n• SKU Description — optional, ≤250 chars\n• Component Type — required (select)\n• Ratio Type — required (select)\n• Product Group — required (select)\n• Sub-Category — required (select)\n• UOM — required (select), default PCS\n• Order Qty Expected — required to enable \"Create Kit\" (no inline Signal Forms validator — Finding F-8), integer, must be > 0\n• Buyer — required (select)\n• Buyer Dept — required (select)\n• Season — required (select)\n• Packing Kit Description — optional, ≤2000 chars\n• Pack Items Quantity / Price, Packing Materials Cons. Qty / Wastage % / Cons. UOM Price / Purchase Price, Additional Cost Rate — all ≥0, 2 decimal places shown, no defined maximum (Open Question Q-4 for Wastage %)\n• Duplicate dialog Size(s) — required, at least one; options exclude any size already used by an existing duplicated child\n• Selling Price — optional (nullable; Profit %/Markup % simply read 0%/negative without it), ≥0, 2dp, shown in the kit's own currency\n• Discount % — optional, range 0–100, 2dp (currently has no effect on any calculation — Finding F-9)",
+      "locator": "§ 5 Validations master list",
+      "kind": "section"
+    },
+    {
+      "title": "6.1 Mock shortcuts",
+      "heading": "6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "text": "• One committed record holds the kit's header, full BOM and costing fields together — the real app splits these across separate article/BOM/cost-sheet tables.\n• Tabs 2–6 are locked behind a manual \"Create Kit\" button instead of the studio's usual auto-create-on-seed-fields pattern — deliberate, mirroring both the source PDF spec and the real wfx-kit-pack-detail screen's own convention.\n• The Summary tab's BOM Line Items list is flat, not a tree: the real screen's \"MATERIAL\" child rows come from the linked article's own Manufacturing BOM, which is out of scope until that screen exists — here Manufacturing BOM is a free-text field, not a real link.\n• BMV and EPM are static 0.00 placeholders — the product team has not yet defined their formula (Open Question Q-1).\n• A duplicated kit is exactly one level of nesting — a child can never itself be duplicated.\n• \"Copy From\" is present in the UI but not implemented.\n• Routing/Processes models a single process + rate, not a sequence of routing steps.\n• All grids are client-side (no server paging) — fine at today's record counts; flag for server-side paging once volume grows (QA checklist §6).",
+      "locator": "§ 6 Out-of-scope & deltas › 6.1 Mock shortcuts",
+      "kind": "section"
+    },
+    {
+      "title": "6.2 Findings",
+      "heading": "6 Out-of-scope & deltas › 6.2 Findings",
+      "text": "• (Bug, fixed this cycle) The \"BOM Line Items\" and \"Approval Summary\" grids on the Summary tab, and the grid in the \"Review for Approval\" dialog, rendered header-only with no visible rows: each one's <wfx-surface> wrapper collapsed to 0 height because it sat inside a non-flex ancestor (a <wfx-panel> body or a dialog body) with no definite height to resolve its own flex:1;height:100% against. Corrected by giving each wfx-surface an explicit [minHeight] (320px / 200px / 360px to match each grid) and the grid itself height=\"100%\".\n• (Bug, fixed this cycle) Duplicating two or more sizes at once could silently drop a child kit record: the dialog saved every new child in parallel, which raced against the mock server's unlocked read-modify-write file I/O, and the loser's write was overwritten before it could persist — though the dialog reported success for every size. Corrected by saving children one at a time, sequentially, never in parallel.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings",
+      "kind": "section"
+    },
+    {
+      "title": "6.2 Findings",
+      "heading": "6 Out-of-scope & deltas › 6.2 Findings",
+      "text": "• (Bug, fixed this cycle) The Summary tab's own content (Kit Information + BOM Line Items + Totals + Approval Summary) is taller than the viewport once a master kit has duplicated children, but the page could not be scrolled far enough to reach the bottom: the tab's wrapping stack had no overflow handling of its own, while the page-level container intentionally disables page-level scrolling for this \"grid fills the viewport\" tab style (used by the other, single-grid tabs). Corrected by adding vertical scroll to this one tab's own wrapping stack.\n• (Bug, fixed this cycle) Delete used to run with no confirmation, no eligibility check, and never cleaned up a master's duplicated children (left them pointing at a ParentId that no longer existed). Corrected: Delete now confirms first (stating the child count up front), is hidden entirely on an Approved kit, and cascades to delete all of a master's children in the same action.\n• (Standards gap, fixed this cycle) The list's \"Created\" column header has been renamed to \"Created On\", matching the studio convention of naming the header after the field.\n• (Standards gap, fixed this cycle) The list's Total Cost column was marked non-sortable with no technical reason (it is an ordinary client-side valueGetter column); it now sorts like any other numeric column.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "6.2 Findings",
+      "heading": "6 Out-of-scope & deltas › 6.2 Findings",
+      "text": "• (Standards gap, open) The Additional Cost tab's Currency column is a free-text cell, while the otherwise-identical Packing Materials tab's Currency column is a proper select from the same currency list (see the Additional Cost screenshot). Recommended: make Additional Cost's Currency a select too, for the same reason Packing Materials already is — a typo currency code shouldn't be able to corrupt a cost line. See Open Question Q-3.\n• (Missing validation, open) Order Qty Expected has no visible inline validation — it silently blocks \"Create Kit\" via the enablement gate, but nothing on the field itself tells the user why. Recommend an inline Signal Forms required() / min() validator consistent with the kit's other seed fields.\n• (Missing validation / dead field, open) Discount % is captured on the Summary tab but is never read by any Total Cost, Selling Price, Profit % or Markup % calculation in wfx-kit-pack.util.ts — it currently has no effect. See Open Question Q-2.\n• (UX, open) Pack Items, Packing Materials and Additional Cost show no empty-state message when a freshly-created kit has zero rows — just a blank grid body under the \"Add …\" button. Recommend the studio's shared empty-state pattern (\"No items yet — click Add Item to add one.\").",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "6.2 Findings",
+      "heading": "6 Out-of-scope & deltas › 6.2 Findings",
+      "text": "• (Standards gap, open) Money values are shown as a plain formatted number with the currency code named only in the column/field header (e.g. \"Total Cost (VND)\"), never a currency symbol on the value itself — the studio standard (QA checklist §2) calls for both. Low severity since the code is always visible one column/label away, but worth a conscious decision rather than an oversight.\n• (UX, open) The \"SKU Description\" column header reads just \"SKU Description\" in the Review for Approval dialog but \"Kit SKU Description\" in the Summary tab's Approval Summary grid — same field, two labels. Recommend picking one wording and using it in both places.",
+      "locator": "§ 6 Out-of-scope & deltas › 6.2 Findings (part 4)",
+      "kind": "section"
+    },
+    {
+      "title": "7 Open questions",
+      "heading": "7 Open questions",
+      "text": "• What is the BMV and EPM formula for the Summary tab's totals card and Approval Summary grid? Currently static 0.00 placeholders. Owner: Product team.\n• Should Discount % actually affect the costing math (Selling Price, Profit %, Markup %), and if so how — applied before or after Markup is computed? See Finding F-9. Owner: Product team.\n• Should Additional Cost's Currency be a select (matching Packing Materials) instead of free text? See Finding F-7. Owner: Product team / Dev lead.\n• Is there an upper bound on Packing Materials' Wastage %, or a maximum number of colors/sizes a Pack Items parent row may carry? Owner: Product team.\n• Does an Approved kit ever need to be reopened (e.g. a costing error found after approval), and if so what audit trail does that need? There is currently no path back from Approved. Owner: Product team.\n• What should happen if two users duplicate the same size from the same master at nearly the same time (two \"L\" children created from one master in quick succession)? Nothing in the client or the mock server currently prevents this. Owner: Product team / Dev lead.",
+      "locator": "§ 7 Open questions",
+      "kind": "section"
+    },
+    {
+      "title": "8 Technical appendix — Data & API contract",
+      "heading": "8 Technical appendix — Data & API contract",
+      "text": "This section was collapsed in the source document when it was exported, so its contents were not captured.",
+      "locator": "§ 8 Technical appendix — Data & API contract",
+      "kind": "section"
+    },
+    {
+      "title": "Version History – Table 9",
+      "heading": "Version History",
+      "text": "Columns: Version (text); Owner (text); Git user (text); Date (date); Summary (text)\nVersion | Owner | Git user | Date | Summary\nV1 | Gaurav Sharma (Product Owner) | Gaurav Sharma | 02 Oct 2026 | Initial Kit/Pack BOM & Costing spec: list, duplicate/review dialogs, 6-tab costing detail, findings and open questions",
+      "locator": "§ Version History, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Version History",
+      "text": "Version: V1; Owner: Gaurav Sharma (Product Owner); Git user: Gaurav Sharma; Date: 02 Oct 2026; Summary: Initial Kit/Pack BOM & Costing spec: list, duplicate/review dialogs, 6-tab costing detail, findings and open questions",
+      "locator": "§ Version History, table 9, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

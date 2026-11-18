@@ -1,0 +1,5 @@
+﻿apparel_code,line,article_code,article_name,purchase_uom,cons_uom,material_colors,material_sizes,total_cons_qty,cons_per_item,cons_qty,loss_pct,cons_incl_loss,wastage_pct,cons_incl_wastage,shrinkage_pct,final_consumption,supplier,purchase_price,conversion,cons_uom_price,value
+NIS-59,1,N-8,Finished_FABRIC,meter,KG_Nis,Table,Table,3,2,1.5,0,1.5,10,1.65,0,1.65,GAP Kids_Nis,15,1000,15000,24750
+NIS-59,2,T-1,Spun Polyester Sewing Thread,PCS,meter,Table,Table,2,1,2,0,2,2,2.04,0,2.04,GAP Kids_Nis,10,1,10,20.4
+NIS-59,3,NS1-1,Cufflings_flanel,PCS,PCS,Table,Table,2,1,2,0,2,2,2.04,0,2.04,GAP Kids_Nis,8,1,8,16.32
+NIS-59,4,PP-1,Garment Polybag,PCS,PCS,Table,Table,1,1,1,0,1,0,1,0,1,GAP Kids_Nis,4,1,4,4

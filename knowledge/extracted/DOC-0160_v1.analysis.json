@@ -1,0 +1,502 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Field",
+        "Value"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {
+        "Value": "amount (currency of the row)"
+      },
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Document Title",
+          "SEPL-BRD - WFX Standalone Material Creation Request"
+        ],
+        [
+          "Document ID / Version",
+          "3 / 1.0 - Draft"
+        ],
+        [
+          "Prepared By / Reviewed By / Approved By",
+          "Naveenkumar Varadharaj / Abhimanyu / Abhimanyu"
+        ],
+        [
+          "Date",
+          "24-Aug-2026"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field",
+        "Required?",
+        "What it means"
+      ],
+      "types": [
+        "text",
+        "boolean",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Category",
+          "Yes",
+          "Fabric, Trim, etc."
+        ],
+        [
+          "Required fields for that Category",
+          "Yes",
+          "Same required fields as today's Article form for that Category - not free text."
+        ],
+        [
+          "Comments",
+          "No",
+          "Any extra notes the user wants to add."
+        ],
+        [
+          "Attachment",
+          "No",
+          "A file if needed - photo, spec sheet, or similar."
+        ],
+        [
+          "Sourcing Person",
+          "No",
+          "Who the request is sent to."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "AC ID",
+        "What we are checking"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "AC ID"
+      ],
+      "rows": [
+        [
+          "AC-01",
+          "A user can send a request with no Tech pack and no BOM, by picking a Category."
+        ],
+        [
+          "AC-02",
+          "The form shows the required fields for the chosen Category - same as today's Article form, for every Category."
+        ],
+        [
+          "AC-03",
+          "The user can attach a file if they want to, for any Category, but it is not required."
+        ],
+        [
+          "AC-04",
+          "The user can add optional Comments."
+        ],
+        [
+          "AC-05",
+          "The old BOM-linked request still works with no changes."
+        ],
+        [
+          "AC-06",
+          "The new request shows up in Sourcing's existing list - either with the requester's chosen Sourcing person, or unassigned in the shared queue if none was picked."
+        ],
+        [
+          "AC-07",
+          "Sourcing can change any details, add more details, then confirm or reject."
+        ],
+        [
+          "AC-08",
+          "On confirm, the user gets a message with the new material code and its details."
+        ],
+        [
+          "AC-09",
+          "On rejection, the user gets a message with the reason."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Role",
+        "Name",
+        "Date"
+      ],
+      "types": [
+        "text",
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Prepared By",
+          "Naveenkumar Varadharaj",
+          ""
+        ],
+        [
+          "Reviewed By",
+          "Abhimanyu",
+          ""
+        ],
+        [
+          "Approved By",
+          "Abhimanyu",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "SEPL-BRD WFX Standalone Material Creation Request v1 0",
+  "keyTerms": [
+    "request",
+    "user",
+    "material",
+    "category",
+    "required fields",
+    "sourcing",
+    "material code",
+    "form",
+    "required",
+    "bom",
+    "fields",
+    "user message",
+    "sourcing person",
+    "article form",
+    "form category"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 13
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 11
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Field, Value (4 rows; identifiers: Field)",
+      "locator": "§ BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request, table 1",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2. Current State (AS-IS):\n1. Today, a material code can only be requested from inside a BOM.\n2. The user picks a Sourcing person and sends the request.\n3. The request shows up in that person's list, along with the Style and Buyer name.\n4. Sourcing creates the material and approves the request.\n5. Problem: if there is no BOM, there is no way to ask for a material code today.",
+      "locator": "§ 2. Current State (AS-IS)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "These are the same required fields already used on today's Article form - this works the same way for every Category.",
+      "locator": "§ 3. Proposed Logic (TO-BE)",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3. Proposed Logic (TO-BE):\n1. Pick a Category - Fabric, Trim, etc.\n2. Fill in the required fields for that Category. These are the same required fields already used on today's Article form - this works the same way for every Category.\n3. Add Comments if needed (optional).\n4. Attach a file if needed - a photo, spec sheet, or similar (optional).\n5. Pick a Sourcing person, then send the request.",
+      "locator": "§ 3. Proposed Logic (TO-BE)",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field, Required?, What it means (5 rows; identifiers: Field)",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The required fields are the same fields used on today's Article form - for every Category, not only Fabric.",
+      "locator": "§ 5. Business Rules",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Attachment is optional, for every Category.",
+      "locator": "§ 5. Business Rules",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "5. Business Rules:\n1. The old BOM-linked request still works, with no changes.\n2. The new form needs a Category and that Category's required fields. It does not need a Buyer or a Style.\n3. The required fields are the same fields used on today's Article form - for every Category, not only Fabric.\n4. Attachment is optional, for every Category.\n5. Sourcing Person, the request goes to the Sourcing selected user to create.\n6. Sourcing can change any details the user gave, and can add more details before creating the material.\n7. Both types of requests - old and new - show up together in the same list Sourcing already uses.\n8. When confirmed, the user gets a message with the new material code and its details. When rejected, the user gets a message with the reason.",
+      "locator": "§ 5. Business Rules",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: AC ID, What we are checking (9 rows; identifiers: AC ID)",
+      "locator": "§ 6. Acceptance Criteria, table 3",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "7. Assumptions & Open Items:\n1. This uses Sourcing's existing request list - no new list is built.\n2. Anyone who can send today's BOM-linked request can also send this new one.\n3. The required fields come from the Article form itself, not a separate list we maintain - to confirm with the dev team.\n4. Attachment file types and size follow WFX's normal upload rules - to confirm with the dev team.\n5. Where this new form appears in the WFX menu needs to be confirmed with the dev team.",
+      "locator": "§ 7. Assumptions & Open Items",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Role, Name, Date (3 rows)",
+      "locator": "§ 8. Approval & Sign-Off, table 4",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "SEPL-BRD WFX Standalone Material Creation Request v1 0",
+      "heading": "",
+      "text": "CONFIDENTIAL - INTERNAL USE ONLY",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "WFX - Standalone Material Creation Request – Table 1",
+      "heading": "BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request",
+      "text": "Columns: Field (text); Value (text, amount (currency of the row))\nField | Value\nDocument Title | SEPL-BRD - WFX Standalone Material Creation Request\nDocument ID / Version | 3 / 1.0 - Draft\nPrepared By / Reviewed By / Approved By | Naveenkumar Varadharaj / Abhimanyu / Abhimanyu\nDate | 24-Aug-2026",
+      "locator": "§ BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request",
+      "text": "Field: Document Title; Value: SEPL-BRD - WFX Standalone Material Creation Request",
+      "locator": "§ BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request",
+      "text": "Field: Document ID / Version; Value: 3 / 1.0 - Draft",
+      "locator": "§ BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request",
+      "text": "Field: Prepared By / Reviewed By / Approved By; Value: Naveenkumar Varadharaj / Abhimanyu / Abhimanyu",
+      "locator": "§ BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request",
+      "text": "Field: Date; Value: 24-Aug-2026",
+      "locator": "§ BUSINESS REQUIREMENTS DOCUMENT › WFX - Standalone Material Creation Request, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "1. Objective",
+      "heading": "1. Objective",
+      "text": "Today, a user needs a Techpack and a BOM before they can ask for a new material code. This document adds a new, simpler way to ask for a material code - directly, with no Techpack and no BOM needed. The old way still works too, with no changes.",
+      "locator": "§ 1. Objective",
+      "kind": "section"
+    },
+    {
+      "title": "2. Current State (AS-IS)",
+      "heading": "2. Current State (AS-IS)",
+      "text": "• Today, a material code can only be requested from inside a BOM.\n• The user picks a Sourcing person and sends the request.\n• The request shows up in that person's list, along with the Style and Buyer name.\n• Sourcing creates the material and approves the request.\n• Problem: if there is no BOM, there is no way to ask for a material code today.",
+      "locator": "§ 2. Current State (AS-IS)",
+      "kind": "section"
+    },
+    {
+      "title": "3. Proposed Logic (TO-BE)",
+      "heading": "3. Proposed Logic (TO-BE)",
+      "text": "Add a new, simple request form. No Tech pack and no BOM needed.\n• Pick a Category - Fabric, Trim, etc.\n• Fill in the required fields for that Category. These are the same required fields already used on today's Article form - this works the same way for every Category.\n• Add Comments if needed (optional).\n• Attach a file if needed - a photo, spec sheet, or similar (optional).\n• Pick a Sourcing person, then send the request.\nSourcing gets the request, they can change any field data the user gave, and can also add more details. Once they confirm it, the user gets a message with the new material code and its details. If they reject it, the user gets a message with the reason.",
+      "locator": "§ 3. Proposed Logic (TO-BE)",
+      "kind": "section"
+    },
+    {
+      "title": "4. New Form: Standalone Material Creation Request – Table 2",
+      "heading": "4. New Form: Standalone Material Creation Request",
+      "text": "Columns: Field (text); Required? (boolean); What it means (text)\nField | Required? | What it means\nCategory | Yes | Fabric, Trim, etc.\nRequired fields for that Category | Yes | Same required fields as today's Article form for that Category - not free text.\nComments | No | Any extra notes the user wants to add.\nAttachment | No | A file if needed - photo, spec sheet, or similar.\nSourcing Person | No | Who the request is sent to.",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "4. New Form: Standalone Material Creation Request",
+      "text": "Field: Category; Required?: Yes; What it means: Fabric, Trim, etc.",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "4. New Form: Standalone Material Creation Request",
+      "text": "Field: Required fields for that Category; Required?: Yes; What it means: Same required fields as today's Article form for that Category - not free text.",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "4. New Form: Standalone Material Creation Request",
+      "text": "Field: Comments; Required?: No; What it means: Any extra notes the user wants to add.",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "4. New Form: Standalone Material Creation Request",
+      "text": "Field: Attachment; Required?: No; What it means: A file if needed - photo, spec sheet, or similar.",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "4. New Form: Standalone Material Creation Request",
+      "text": "Field: Sourcing Person; Required?: No; What it means: Who the request is sent to.",
+      "locator": "§ 4. New Form: Standalone Material Creation Request, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "5. Business Rules",
+      "heading": "5. Business Rules",
+      "text": "• The old BOM-linked request still works, with no changes.\n• The new form needs a Category and that Category's required fields. It does not need a Buyer or a Style.\n• The required fields are the same fields used on today's Article form - for every Category, not only Fabric.\n• Attachment is optional, for every Category.\n• Sourcing Person, the request goes to the Sourcing selected user to create.\n• Sourcing can change any details the user gave, and can add more details before creating the material.\n• Both types of requests - old and new - show up together in the same list Sourcing already uses.\n• When confirmed, the user gets a message with the new material code and its details. When rejected, the user gets a message with the reason.",
+      "locator": "§ 5. Business Rules",
+      "kind": "section"
+    },
+    {
+      "title": "6. Acceptance Criteria – Table 3",
+      "heading": "6. Acceptance Criteria",
+      "text": "Columns: AC ID (text); What we are checking (text)\nAC ID | What we are checking\nAC-01 | A user can send a request with no Tech pack and no BOM, by picking a Category.\nAC-02 | The form shows the required fields for the chosen Category - same as today's Article form, for every Category.\nAC-03 | The user can attach a file if they want to, for any Category, but it is not required.\nAC-04 | The user can add optional Comments.\nAC-05 | The old BOM-linked request still works with no changes.\nAC-06 | The new request shows up in Sourcing's existing list - either with the requester's chosen Sourcing person, or unassigned in the shared queue if none was picked.\nAC-07 | Sourcing can change any details, add more details, then confirm or reject.\nAC-08 | On confirm, the user gets a message with the new material code and its details.\nAC-09 | On rejection, the user gets a message with the reason.",
+      "locator": "§ 6. Acceptance Criteria, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-01; What we are checking: A user can send a request with no Tech pack and no BOM, by picking a Category.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-02; What we are checking: The form shows the required fields for the chosen Category - same as today's Article form, for every Category.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-03; What we are checking: The user can attach a file if they want to, for any Category, but it is not required.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-04; What we are checking: The user can add optional Comments.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-05; What we are checking: The old BOM-linked request still works with no changes.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-06; What we are checking: The new request shows up in Sourcing's existing list - either with the requester's chosen Sourcing person, or unassigned in the shared queue if none was picked.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-07; What we are checking: Sourcing can change any details, add more details, then confirm or reject.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-08; What we are checking: On confirm, the user gets a message with the new material code and its details.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "6. Acceptance Criteria",
+      "text": "AC ID: AC-09; What we are checking: On rejection, the user gets a message with the reason.",
+      "locator": "§ 6. Acceptance Criteria, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "7. Assumptions & Open Items",
+      "heading": "7. Assumptions & Open Items",
+      "text": "• This uses Sourcing's existing request list - no new list is built.\n• Anyone who can send today's BOM-linked request can also send this new one.\n• The required fields come from the Article form itself, not a separate list we maintain - to confirm with the dev team.\n• Attachment file types and size follow WFX's normal upload rules - to confirm with the dev team.\n• Where this new form appears in the WFX menu needs to be confirmed with the dev team.",
+      "locator": "§ 7. Assumptions & Open Items",
+      "kind": "section"
+    },
+    {
+      "title": "8. Approval & Sign-Off – Table 4",
+      "heading": "8. Approval & Sign-Off",
+      "text": "Columns: Role (text); Name (text); Date (empty)\nRole | Name | Date\nPrepared By | Naveenkumar Varadharaj | \nReviewed By | Abhimanyu | \nApproved By | Abhimanyu | ",
+      "locator": "§ 8. Approval & Sign-Off, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "8. Approval & Sign-Off",
+      "text": "Role: Prepared By; Name: Naveenkumar Varadharaj",
+      "locator": "§ 8. Approval & Sign-Off, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "8. Approval & Sign-Off",
+      "text": "Role: Reviewed By; Name: Abhimanyu",
+      "locator": "§ 8. Approval & Sign-Off, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "8. Approval & Sign-Off",
+      "text": "Role: Approved By; Name: Abhimanyu",
+      "locator": "§ 8. Approval & Sign-Off, table 4, row 3",
+      "kind": "data_row"
+    }
+  ]
+}

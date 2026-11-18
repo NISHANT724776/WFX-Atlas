@@ -1,0 +1,288 @@
+{
+  "tables": [
+    {
+      "name": "ShipmentDetails.xlsx",
+      "headers": [
+        "Order No.",
+        "Market",
+        "Del. Order Ref",
+        "Del. Date",
+        "Article",
+        "Color",
+        "Size",
+        "Ordered Qty",
+        "Shipped Qty",
+        "Shipping Qty"
+      ],
+      "types": [
+        "text",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "Ordered Qty": "quantity (unit of the row)",
+        "Shipped Qty": "quantity (unit of the row)",
+        "Shipping Qty": "quantity (unit of the row)"
+      },
+      "identifiers": [
+        "Order No.",
+        "Del. Order Ref"
+      ],
+      "rows": [
+        [
+          "Order No.",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Market",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Del. Order Ref",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Del. Date",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Article",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Color",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Size",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Ordered Qty",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Shipped Qty",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Shipping Qty",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "ShipmentDetails 20260429125713",
+  "keyTerms": [
+    "qty",
+    "order",
+    "del",
+    "order market",
+    "market del",
+    "del order",
+    "order ref",
+    "ref del",
+    "del date",
+    "date article",
+    "article color",
+    "color size",
+    "size ordered",
+    "ordered qty",
+    "qty shipped"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "ShipmentDetails.xlsx: Order No., Market, Del. Order Ref, Del. Date, Article, Color, Size, Ordered Qty, Shipped Qty, Shipping Qty (10 rows; identifiers: Order No., Del. Order Ref)",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: ShipmentDetails.xlsx – ShipmentDetails.xlsx",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Columns: Order No. (text); Market (empty); Del. Order Ref (empty); Del. Date (empty); Article (empty); Color (empty); Size (empty); Ordered Qty (empty, quantity (unit of the row)); Shipped Qty (empty, quantity (unit of the row)); Shipping Qty (empty, quantity (unit of the row))\nOrder No. | Market | Del. Order Ref | Del. Date | Article | Color | Size | Ordered Qty | Shipped Qty | Shipping Qty\nOrder No. |  |  |  |  |  |  |  |  | \nMarket |  |  |  |  |  |  |  |  | \nDel. Order Ref |  |  |  |  |  |  |  |  | \nDel. Date |  |  |  |  |  |  |  |  | \nArticle |  |  |  |  |  |  |  |  | \nColor |  |  |  |  |  |  |  |  | \nSize |  |  |  |  |  |  |  |  | \nOrdered Qty |  |  |  |  |  |  |  |  | \nShipped Qty |  |  |  |  |  |  |  |  | \nShipping Qty |  |  |  |  |  |  |  |  | ",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 1",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Order No.",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 2",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Market",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 3",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Del. Order Ref",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 4",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Del. Date",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 5",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Article",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 6",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Color",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 7",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Size",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 8",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Ordered Qty",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 9",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Shipped Qty",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "ShipmentDetails.xlsx row 10",
+      "heading": "Sheet: ShipmentDetails.xlsx",
+      "text": "Order No.: Shipping Qty",
+      "locator": "sheet \"ShipmentDetails.xlsx\", § Sheet: ShipmentDetails.xlsx, table 1, row 10",
+      "kind": "data_row"
+    }
+  ]
+}

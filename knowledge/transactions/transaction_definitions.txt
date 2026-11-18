@@ -1,0 +1,588 @@
+# Transaction definitions
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+TRANSACTION ID: TXN-MASTERS
+TRANSACTION NAME: Masters – Colour, Size, UOM
+SLUG: masters
+MODULE: Style & BOM
+V1 MODULE LABEL: Masters
+STEP: 1
+NAVIGATION PATH: Setup › Colour Card / Size Range / UOM
+PURPOSE: Colour card, size range, UOM master and material-wise UOM conversion that every WFX transaction reads from.
+ONE LINE: The shared lists – colours, sizes and units – that every WFX document must pick from.
+BUSINESS CONTEXT:
+  Masters are the shared vocabulary of WFX. A colour card groups colour codes; a size range groups size codes; the UOM master lists units, and the UOM conversion table says how one unit converts to another for a specific material.
+  Nothing in a transaction can use a colour, size or unit that is not in a master. Styles pick a colour card and size range, and every downstream line (BOM, booking, OC, MRP, FPO) carries the same codes, which is what lets you trace one colour from design to the factory floor.
+KEYS:
+  Colour: Colour Code (inside a Colour Card) (example 372 in Nis_colors)
+  Size: Size Code (inside a Size Range) (example 34S in ERPSIZE)
+  UOM Conversion: Article Code | From UOM | To UOM (example N-8|KG_Nis|meter)
+UPSTREAM:
+DOWNSTREAM:
+  Apparel Style (Techpack) (apparel-style): Base colour list and base size list
+  BOM – Materials & Dependency (bom-materials): UOM conversion factor (Cons UOM Price)
+  Buyer Block Booking (BBB) (buyer-block-booking): Colour and size on material lines
+  Purchase Order from Buyer (OC) (buyer-po): Colour × size quantity breakup
+CALCULATIONS:
+VERIFICATION:
+FACTS:
+  Colour card: Nis_colors (8)
+  Size range: ERPSIZE (7)
+  N-8 conversion: 1 KG_Nis = 1,000 m
+CAPTURED TABLES:
+  Colour Master – Nis_colors (8 rows; Color Code, Color Name, Color Card)
+  Size Master – ERPSIZE (7 rows; Size Code, Size Name, Display Name)
+  UOM Master & Conversion (1 rows; Article, From UOM, To UOM, Factor, Remarks)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-APPAREL-STYLE
+TRANSACTION NAME: Apparel Style (Techpack)
+SLUG: apparel-style
+MODULE: Style & BOM
+V1 MODULE LABEL: Product Development
+STEP: 2
+NAVIGATION PATH: Product Development › Apparel Techpack
+PURPOSE: Style Flannel Shirt Adi (NIS-58) header, base colour list and base size list that drive BOM dependencies and order breakups.
+ONE LINE: The finished garment: who buys it, which colour card and size range it uses, and how it is purchased and priced.
+BUSINESS CONTEXT:
+  The style (apparel techpack) is the finished-goods article. It fixes the buyer, department, colour card and size range, and lists which of those colours and sizes the style is offered in (base colour list, base size list).
+  The base lists are the "rows" that the BOM dependency maps from: every style colour must be mapped to a material colour or explicitly left as Not Used.
+KEYS: Article Code: Style code (example NIS-58)
+UPSTREAM: Masters – Colour, Size, UOM (masters): Colour card Nis_colors and size range ERPSIZE
+DOWNSTREAM:
+  BOM – Materials & Dependency (bom-materials): BOM header (article) and colour/size dependency rows
+  Buyer Block Booking (BBB) (buyer-block-booking): Buyer and buyer department
+  Purchase Order from Buyer (OC) (buyer-po): Style, buyer, department and UOM on the OC
+  MRP – Material Requirement Planning (mrp): Article code and name of Level 1 demand
+CALCULATIONS:
+VERIFICATION:
+FACTS:
+  Styles traced: Flannel Shirt Adi (NIS-58) · Adi TShirt (NIS-59)
+  Buyer: GAP Kids
+  Purchase UOM: PCS
+CAPTURED TABLES:
+  Base Colour List (7 rows; Color Code, Color Name, In-Active)
+  Adi TShirt (NIS-59) – techpack header (live WFX) (9 rows; Field, Value, How it is set)
+  Base Size List (7 rows; Size Code, Size)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-BOM-MATERIALS
+TRANSACTION NAME: BOM – Materials & Dependency
+SLUG: bom-materials
+MODULE: Style & BOM
+V1 MODULE LABEL: Product Development
+STEP: 3
+NAVIGATION PATH: Product Development › BOM › Materials
+PURPOSE: BOM material lines with consumption, wastage, loss and shrinkage maths, price conversion and colour/size dependency.
+ONE LINE: How much of each material one garment needs, at what price, and which material colour goes with which garment colour.
+BUSINESS CONTEXT:
+  The Bill of Materials lists every raw material needed to make one garment. Each line says which material, how much of it per garment (consumption), what allowances are added (wastage, loss, shrinkage), what it costs, and – through dependency – which material colour/size is used for each garment colour/size.
+  Final Consumption is the single most important number on the BOM: MRP multiplies garment quantity by it to get fabric demand, and FPO multiplies factory quantity by it to get fabric to issue.
+  Price is entered per Purchase UOM (what the supplier invoices) and converted to Cons UOM (what the garment consumes) using the material UOM conversion.
+KEYS:
+  BOM ID: Article | BOM Name | Version (example NIS-58|#1 DP|V1)
+  BOM Line ID: BOM ID | Line (example NIS-58|#1 DP|V1|1)
+UPSTREAM:
+  Apparel Style (Techpack) (apparel-style): Article, base colours and base sizes
+  Raw Material Techpack (rm-techpack): Material article N-8, Cons UOM, buying price
+  Masters – Colour, Size, UOM (masters): UOM conversion factor 1,000
+DOWNSTREAM:
+  BOM – Routing (bom-routing): Material linkage to a process
+  BOM – Costing (bom-costing): Material cost by section
+  Purchase Order from Buyer (OC) (buyer-po): BOM selected on the delivery OC
+  MRP – Material Requirement Planning (mrp): Final Consumption and dependency for BOM explosion
+  Sales Order Indents (MRP) (production-indents): Cons, wastage, CSV and price on the fabric indent
+  FPO & FPPO (fpo): Final Consumption for fabric requirement
+CALCULATIONS: CALC-BOM-CONS-QTY, CALC-BOM-LOSS-FACTOR, CALC-BOM-CONS-LOSS, CALC-BOM-CONS-WASTAGE, CALC-BOM-CONS-SHRINKAGE, CALC-BOM-FINAL-CONS, CALC-BOM-CONS-UOM-PRICE, CALC-BOM-VALUE, CALC-BOM-VALUE-CS, CALC-BOM-DEPENDENCY
+VERIFICATION:
+  Cons Qty: workbook 1.5 / WFX 1.5 → match
+  Final Consumption: workbook 1.5 / WFX 1.5 → match
+  Cons UOM Price: workbook 15000 / WFX 15000 → match
+  Value: workbook 22500 / WFX 22500 → match
+  Adi TShirt (NIS-59) N-8 Cons incl Wastage (1.5 × 10 % + 1.5): workbook 1.65 / WFX 1.65 → match
+  Adi TShirt (NIS-59) T-1 Cons incl Wastage (2 × 2 % + 2): workbook 2.04 / WFX 2.04 → match
+  Adi TShirt (NIS-59) N-8 Value (1.65 × 15,000): workbook 24750 / WFX 24750 → match
+  Adi TShirt (NIS-59) trims value (20.40 + 16.32 + 4.00): workbook 40.72 / WFX 40.72 → match
+FACTS:
+  Adi TShirt (NIS-59) lines: Fabric 1 · Trims 3
+  Cons incl wastage: 1.5 × 10 % + 1.5 = 1.65
+  Material value: 24,790.72 / pc
+CAPTURED TABLES:
+  Adi TShirt (NIS-59) Materials tab – quantity (live WFX) (4 rows; Line, Section, Article, Purchase UOM, Cons UOM, Total Cons, Per Item, Cons Qty, Wastage %, Incl Wastage, Loss %, Final Cons)
+  Adi TShirt (NIS-59) Materials tab – price (live WFX) (4 rows; Line, Article, Supplier, Purchase Price, Factor, Cons UOM Price, Value (INR))
+  Dependency – Colour (style colour → material colour) (8 rows; Style Color, Material Color, Used)
+  Dependency – Size (style size → material size) (7 rows; Style Size, Material Size, Used)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-BOM-ROUTING
+TRANSACTION NAME: BOM – Routing
+SLUG: bom-routing
+MODULE: Style & BOM
+V1 MODULE LABEL: Product Development
+STEP: 4
+NAVIGATION PATH: Product Development › BOM › Routing
+PURPOSE: Production processes, operations and material linkage of BOM #1 DP, which later become FPPO process orders.
+ONE LINE: The ordered processes that make the garment, what each costs (Cost Of × Production Time) and which material each consumes.
+BUSINESS CONTEXT:
+  Routing is the ordered list of production processes that turn materials into the garment. Each process has an output item, the process it follows, and a rate. Operations break a process into machine-level steps with time.
+  Material linkage tells WFX which process consumes a BOM material – fabric N-8 is required for VCutting. This is why the Level 2 production indent shows "Required For: VCutting".
+KEYS:
+  Routing ID: BOM ID | R<no> (example NIS-58|#1 DP|V1|R1)
+  Process ID: Routing ID | Seq (example NIS-58|#1 DP|V1|R1|2)
+UPSTREAM: BOM – Materials & Dependency (bom-materials): BOM ID and material lines for linkage
+DOWNSTREAM:
+  BOM – Costing (bom-costing): Process rates → Production Cost
+  Sales Order Indents (MRP) (production-indents): "Required For" process on the fabric indent
+  FPO & FPPO (fpo): Processes of the FPPO
+CALCULATIONS: CALC-ROUTING-AFTER-VALID, CALC-ROUTING-PROCESS-RATE, CALC-ROUTING-LINKAGE
+VERIFICATION:
+FACTS:
+  Processes: VCutting · Sewing · VPacking
+  Rates: 300 + 10 + 15 = 325
+  Linkage: Fabric → Cut, trims → Sew/Pack
+CAPTURED TABLES:
+  Processes (3 rows; Seq, Process, Code, Output, After, Rate, Total Time)
+  Adi TShirt (NIS-59) Operations tab → Process Rate (live WFX) (3 rows; Process, Operation, Machine, Efficiency %, Cost Of, Production Time, Cost Of × Time, Process Rate (WFX))
+  Adi TShirt (NIS-59) Material Linkage tab (4 rows; Line, Article, Cons UOM, Wastage %, Cons Qty, Incl Wastage & Loss, Linked Process)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-BOM-COSTING
+TRANSACTION NAME: BOM – Costing
+SLUG: bom-costing
+MODULE: Style & BOM
+V1 MODULE LABEL: Product Development
+STEP: 5
+NAVIGATION PATH: Product Development › BOM › Cost
+PURPOSE: Material cost, production cost, total cost, profit, profit % and markup % for BOM #1 DP.
+ONE LINE: Cost per piece – material plus production – against the selling price: Profit uses the price after discount, Markup the price before it.
+BUSINESS CONTEXT:
+  Costing rolls up the BOM into a per-piece cost and compares it with the selling price. Material cost comes from BOM line values grouped by section; production cost comes from routing process rates.
+  Profit % = (selling price after discount − total cost) ÷ selling price after discount. Markup % = (selling price before discount − total cost) ÷ total cost. Adi TShirt (NIS-59): −597.66 % and −84.07 %.
+KEYS: BOM ID: Article | BOM Name | Version (example NIS-58|#1 DP|V1)
+UPSTREAM:
+  BOM – Materials & Dependency (bom-materials): Line Value (CS Curr) by section
+  BOM – Routing (bom-routing): Process rates
+DOWNSTREAM:
+CALCULATIONS: CALC-COST-SECTION, CALC-COST-MATERIAL, CALC-COST-PRODUCTION, CALC-COST-TOTAL, CALC-COST-NET-SELLING, CALC-COST-PROFIT, CALC-COST-PROFIT-PCT, CALC-COST-MARKUP-PCT
+VERIFICATION:
+  Total Cost: workbook 22825 / WFX 22825 → match
+  Profit: workbook -19825 / WFX -19825 → match
+  Profit %: workbook -6.6083 / WFX -6.6083 → match
+  Markup %: workbook -0.8686 / WFX -0.8686 → match
+  Adi TShirt (NIS-59) Total Cost: workbook 25115.72 / WFX 25115.72 → match
+  Adi TShirt (NIS-59) Discount (4,000 × 10 %): workbook 400 / WFX 400 → match
+  Adi TShirt (NIS-59) Profit (3,600 − 25,115.72): workbook -21515.72 / WFX -21515.72 → match
+  Adi TShirt (NIS-59) Profit %: workbook −597.66 % / WFX −597.66 % → match
+  Adi TShirt (NIS-59) Markup (4,000 − 25,115.72): workbook -21115.72 / WFX -21115.72 → match
+  Adi TShirt (NIS-59) Markup %: workbook −84.07 % / WFX −84.07 % → match
+FACTS:
+  Adi TShirt (NIS-59) total cost: 25,115.72
+  Profit: −597.66 %
+  Markup: −84.07 %
+CAPTURED TABLES:
+  Adi TShirt (NIS-59) cost summary (live WFX) (8 rows; Item, Value (INR), How)
+  Materials by section (5 rows; Section, Total Cost, Budget, Additional Cost)
+  Production cost (3 rows; Process, Basis, Currency, Value)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-RM-TECHPACK
+TRANSACTION NAME: Raw Material Techpack
+SLUG: rm-techpack
+MODULE: Style & BOM
+V1 MODULE LABEL: Product Development
+STEP: 6
+NAVIGATION PATH: Product Development › Raw Material Techpack (Textile/Fabric)
+PURPOSE: Fabric article N-8 master: UOMs, colour card, dependency, buying price and cross-document checks.
+ONE LINE: The master of a purchasable material – fabric or trim: its units, colour card, pricing basis and how stock is tracked.
+BUSINESS CONTEXT:
+  The raw-material techpack is the master of a purchasable material. It defines UOMs (consumption, purchase, storage, secondary), the colour card, how the material depends on garment colour/size, and default buying price.
+  Material Dependency = ColorSize means stock and demand are kept per colour and size, which is why the stock key is Article|Colour|Size (e.g. N-8|372|34S).
+KEYS:
+  Article Code: Material code (example N-8)
+  Stock Key: Article | Colour | Size (example N-8|372|34S)
+UPSTREAM: Masters – Colour, Size, UOM (masters): Colour card and size range
+DOWNSTREAM:
+  BOM – Materials & Dependency (bom-materials): Material line article, UOM
+  Buyer Block Booking (BBB) (buyer-block-booking): Material on booking lines
+  BBB Adhoc Indent (adhoc-indent): Article and UOM on indent lines
+  MRP – Material Requirement Planning (mrp): Article of Level 2 demand
+CALCULATIONS:
+VERIFICATION:
+  Consumption UOM = BOM Cons UOM: workbook KG_Nis / WFX KG_Nis → match
+  Purchase UOM = BOM Purchase UOM: workbook KG_Nis / WFX meter → mismatch
+  Storage UOM = Purchase UOM: workbook KG_Nis / WFX KG_Nis → match
+  Secondary UOM Conversion = Masters conversion: workbook 0 / WFX 1000 → mismatch
+  Purchase UOM = Indent UOM: workbook KG_Nis / WFX KG_Nis → match
+  Season = BBB Season: workbook Fall 2024 / WFX AW26 → mismatch
+  Indent supplier (header) = RMPO supplier: workbook NS_N1 / WFX GAP Kids_Nis → mismatch
+  Indent rate = RMPO price: workbook 5 / WFX 10 → mismatch
+FACTS:
+  Fabric: N-8 (KG_Nis)
+  Trims: T-1 · NS1-1 · PP-1
+  Stock key: Article | Colour | Size
+CAPTURED TABLES: Raw materials used by Adi TShirt (NIS-59) (live WFX) (4 rows; Article, Name, Library, Type, Material Type, Cons UOM, Price Per, Bypass check on prod. GRN)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-BUYER-BLOCK-BOOKING
+TRANSACTION NAME: Buyer Block Booking (BBB)
+SLUG: buyer-block-booking
+MODULE: Booking & sourcing
+V1 MODULE LABEL: Pre-booking & Sourcing
+STEP: 7
+NAVIGATION PATH: Order › Buyer Block Booking
+PURPOSE: Projection booking PPJ179 that reserves fabric by colour and size before a confirmed buyer order exists.
+ONE LINE: A projection that lets you book and buy long-lead fabric before the buyer confirms the order.
+BUSINESS CONTEXT:
+  A Buyer Block Booking (BBB) is a projection: the buyer signals expected volume before confirming styles. It lets sourcing reserve and buy long-lead material (fabric) early, by colour and size.
+  Material bought against the booking is stocked with the booking number. When the confirmed OC arrives and MRP runs, that stock is adjusted in-house automatically, so only the gap is purchased again.
+KEYS:
+  Block Booking No.: Code (example PPJ179)
+  Booking Line No.: Booking . Line (example PPJ179.1)
+  Material Line Key: Booking Line | Article | Colour | Size (example PPJ179.1|N-8|475|38M)
+UPSTREAM:
+  Apparel Style (Techpack) (apparel-style): Buyer and department
+  Raw Material Techpack (rm-techpack): Material article
+  Masters – Colour, Size, UOM (masters): Colours and sizes
+  Purchase Order from Buyer (OC) (buyer-po): Linked OC (qty and value)
+DOWNSTREAM: BBB Adhoc Indent (adhoc-indent): Booked units and booking line reference
+CALCULATIONS: CALC-BBB-MATERIAL-VALUE, CALC-BBB-BALANCE
+VERIFICATION:
+  Booking Qty: workbook 100 / WFX 100 → match
+  Material lines: workbook 6 / WFX 6 → match
+  Total Material Units: workbook 600 / WFX 600 → match
+FACTS:
+  Booking: PPJ179
+  Booked: 600 KG_Nis
+  Value: 3,000
+CAPTURED TABLES: Material Details (PPJ179.1, N-8) (6 rows; Color, Size, Units, Rate, Value, Indented, Balance)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-ADHOC-INDENT
+TRANSACTION NAME: BBB Adhoc Indent
+SLUG: adhoc-indent
+MODULE: Booking & sourcing
+V1 MODULE LABEL: Pre-booking & Sourcing
+STEP: 8
+NAVIGATION PATH: Sourcing › Indent (Adhoc – Buyer Block Booking)
+PURPOSE: Manual indent PPM-000735-001 of type Buyer Block Booking: buys the booked fabric before any sales order exists.
+ONE LINE: A purchase request raised by hand against the block booking – not by MRP and not for a sales order.
+BUSINESS CONTEXT:
+  An indent is an internal request to buy material. An adhoc indent is raised manually (not by MRP); here it is raised against booking PPJ179 so the material carries the booking reference.
+  Each indent line can only take up to the booking balance. Once a PO covers the full indent qty the open qty becomes 0 and the indent is Completed.
+KEYS:
+  Indent No.: PPM-xxxxxx-xxx (example PPM-000735-001)
+  Indent Line Key: Indent | S.No (example PPM-000735-001|1)
+UPSTREAM:
+  Buyer Block Booking (BBB) (buyer-block-booking): Booking line, booked units
+  Raw Material Techpack (rm-techpack): Article and UOM
+  RMPO – Raw Material Purchase Order (rmpo): Ordered qty (indent log)
+DOWNSTREAM:
+  RMPO – Raw Material Purchase Order (rmpo): Indent lines → RMPO 1229 lines
+  Buyer Block Booking (BBB) (buyer-block-booking): Indented qty
+CALCULATIONS: CALC-INDENT-BALANCE, CALC-INDENT-OPEN
+VERIFICATION:
+  Total Indent Qty: workbook 600 / WFX 600 → match
+  Total Ordered Qty: workbook 600 / WFX 600 → match
+  Total Open Qty: workbook 0 / WFX 0 → match
+  Status: workbook Completed / WFX Completed → match
+FACTS:
+  Indent: PPM-000735-001
+  Type: Buyer Block Booking
+  Qty: 600 KG_Nis
+CAPTURED TABLES: Indent lines – PPM-000735-001 (6 rows; S.No, Color, Size, Booked, Balance, Indent Qty, Rate, Ordered, Open)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-RMPO
+TRANSACTION NAME: RMPO – Raw Material Purchase Order
+SLUG: rmpo
+MODULE: Booking & sourcing
+V1 MODULE LABEL: Pre-booking & Sourcing
+STEP: 9
+NAVIGATION PATH: Sourcing › Raw Material Purchase Order
+PURPOSE: Purchase orders 1229 (against the adhoc indent) and 1230 (against the MRP production indent) with value and open qty maths.
+ONE LINE: The purchase order to the supplier. Value = ordered qty × PO price; open qty closes as GRN accepts material.
+BUSINESS CONTEXT:
+  The RMPO is the commitment to the supplier. Lines come from indent lines; quantity can be increased by MOQ/MCQ/MSQ rules or additional qty; value is ordered qty × PO price plus surcharge.
+  Two RMPOs exist for Flannel Shirt Adi (NIS-58): 1229 against the adhoc (booking) indent – fully received – and 1230 against the MRP production indent for the 1,100 KG_Nis not covered by booking stock.
+KEYS:
+  Order No.: FAB/<co>/Rmpo/<member>/<no> (example FAB/PPJ/Rmpo/PPS12/1229)
+  PO Line Key: Order No | S.No (example FAB/PPJ/Rmpo/PPS12/1229|1)
+UPSTREAM:
+  BBB Adhoc Indent (adhoc-indent): Indent lines (1229)
+  Sales Order Indents (MRP) (production-indents): Level 2 indent open qty (1230)
+  GRN – Goods Receipt Note (grn): Shipped qty
+DOWNSTREAM:
+  GRN – Goods Receipt Note (grn): PO lines to receive
+  BBB Adhoc Indent (adhoc-indent): Ordered qty / indent log
+CALCULATIONS: CALC-RMPO-VALUE, CALC-RMPO-OPEN, CALC-RMPO-STORING-QTY
+VERIFICATION:
+  Total Ordered Qty (1229): workbook 600 / WFX 600 → match
+  Total Value (1229): workbook 6000 / WFX 6000 → match
+  Total Ordered Qty (1230): workbook 1100 / WFX 1100 → match
+FACTS:
+  RMPO 1229 (BBB): 600 KG · 6,000
+  RMPO 1230 (sales order): 1,100 KG
+CAPTURED TABLES:
+  RMPO 1229 – against adhoc indent (Confirmed) (6 rows; S.No, Indent Line, Color, Size, Ordered, Price, Value, Shipped, Open)
+  RMPO 1230 – against production indent PPM-000738-001 (Unconfirmed) (4 rows; S.No, Color, Size, Indent Qty, In-house Adj., Ordered, Shipped, Open)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-GRN
+TRANSACTION NAME: GRN – Goods Receipt Note
+SLUG: grn
+MODULE: Booking & sourcing
+V1 MODULE LABEL: Pre-booking & Sourcing
+STEP: 10
+NAVIGATION PATH: Inventory › GRN (ASN from Supplier – Against PO)
+PURPOSE: Receipt of RMPO 1229 into the cut store: balance, received, rejected, accepted qty and stock keys.
+ONE LINE: Receipt of material against a PO. Only accepted qty becomes stock, tagged with the PO's booking.
+BUSINESS CONTEXT:
+  A Goods Receipt Note records material physically received at a site against a PO. Balance qty limits what can be received; accepted qty (received − rejected) becomes stock with the PO's stock key and booking number.
+  Accepted qty flows back to the RMPO as shipped qty and closes its open qty.
+KEYS: GRN Line Key: GRN No | S.No (example (GRN no. generated on save)|1)
+UPSTREAM: RMPO – Raw Material Purchase Order (rmpo): PO lines, rate, stock key, booking no.
+DOWNSTREAM:
+  RMPO – Raw Material Purchase Order (rmpo): Shipped qty
+  Sales Order Indents (MRP) (production-indents): Stock available for in-house adjustment
+CALCULATIONS: CALC-GRN-BALANCE, CALC-GRN-ACCEPTED, CALC-GRN-EXCESS
+VERIFICATION:
+  Total Balance Qty: workbook 600 / WFX 600 → match
+  Total Received Qty: workbook 600 / WFX 600 → match
+  Total Rejected Qty: workbook 0 / WFX 0 → match
+FACTS:
+  Received: 600 KG_Nis
+  Accepted: 600
+  Value: 6,000
+CAPTURED TABLES: GRN lines against RMPO 1229 (6 rows; S.No, Color, Size, Ordered, Balance, Received, Rejected, Accepted, Value)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-BUYER-PO
+TRANSACTION NAME: Purchase Order from Buyer (OC)
+SLUG: buyer-po
+MODULE: Sales Order
+V1 MODULE LABEL: Order
+STEP: 11
+NAVIGATION PATH: Order › Purchase Order from Buyer (OC)
+PURPOSE: Order confirmation GAPS.NEWOC -249 with delivery OC, colour × size quantity breakup and selling value.
+ONE LINE: The confirmed buyer order. Its colour × size breakup is the demand MRP plans from.
+BUSINESS CONTEXT:
+  The buyer purchase order, captured as an Order Confirmation (OC), is the confirmed demand. A main OC holds one or more delivery OCs; each delivery OC has a BOM, a delivery date and a colour × size quantity breakup.
+  Confirming the OC triggers MRP: the breakup becomes Level 1 garment demand and is exploded through the BOM.
+KEYS:
+  Main OC No: Code (example GAPS.NEWOC -249)
+  Service/OC No: Main OC . n (example GAPS.NEWOC -249.1)
+  BreakUp Key: OC | Colour | Size (example GAPS.NEWOC -249.1|372|34S)
+UPSTREAM:
+  Apparel Style (Techpack) (apparel-style): Style, buyer, department, UOM
+  BOM – Materials & Dependency (bom-materials): BOM #1 DP on the delivery OC
+  Masters – Colour, Size, UOM (masters): Colours and sizes for the breakup
+  Buyer Block Booking (BBB) (buyer-block-booking): Block Booking No PPJ179/1
+DOWNSTREAM:
+  MRP – Material Requirement Planning (mrp): Level 1 demand per colour/size
+  Production Order (production-order): OC qty and delivery date
+  Buyer Block Booking (BBB) (buyer-block-booking): Linked OC detail
+CALCULATIONS: CALC-OC-VALUE
+VERIFICATION:
+  Total Qty: workbook 1000 / WFX 1000 → match
+  Total Value: workbook 33333.3 / WFX 33333.3 → match
+FACTS:
+  OC: GAPS.NEWOC -249.1
+  Qty: 1,000 pcs
+  Value: USD 33,333.30
+CAPTURED TABLES: Add Quantity BreakUp – GAPS.NEWOC -249.1 (4 rows; Color, Size, Qty, Selling Price, Total Value, In BOM?)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-MRP
+TRANSACTION NAME: MRP – Material Requirement Planning
+SLUG: mrp
+MODULE: Planning
+V1 MODULE LABEL: Planning
+STEP: 12
+NAVIGATION PATH: Planning › MRP (Style-wise)
+PURPOSE: MRP run for the OC: Level 1 garment production demand and Level 2 fabric purchase demand from BOM explosion.
+ONE LINE: Turns the buyer order into requirements: garment to make (Level 1) and materials to buy (Level 2).
+BUSINESS CONTEXT:
+  MRP converts confirmed order quantity into requirements level by level. Level 1 is the garment itself (production demand). Level 2 is every BOM material, found by multiplying Level 1 quantity by Final Consumption for the mapped material colour/size (purchase demand).
+  Demand type decides the next document: production demand → production order; purchase demand for fabric/trims → RMPO; purchase demand for a garment should create a GMPO.
+KEYS:
+  L1 Key: OC | Colour | Size (example GAPS.NEWOC -249.1|372|38M)
+  L2 Key: OC | Material | Colour | Size (example GAPS.NEWOC -249.1|N-8|372|38M)
+UPSTREAM:
+  Purchase Order from Buyer (OC) (buyer-po): Colour × size qty
+  BOM – Materials & Dependency (bom-materials): Final consumption and dependency
+  Apparel Style (Techpack) (apparel-style): Article
+DOWNSTREAM: Sales Order Indents (MRP) (production-indents): Level 1 manufacture indent and Level 2 production indent
+CALCULATIONS: CALC-MRP-L1-REQ, CALC-MRP-L2-REQ, CALC-MRP-DEMAND
+VERIFICATION:
+  L1 Req Qty total: workbook 1000 / WFX 1000 → match
+  L2 Req Qty total: workbook 1500 / WFX 1500 → match
+FACTS:
+  Level 1: 1,000 pcs
+  Level 2: 1,500 KG_Nis
+  Formula: qty × final cons
+CAPTURED TABLES:
+  Level 1 – Garment (production demand) (4 rows; Color, Size, Actual Req, MRP %, Req Qty, Production Qty)
+  Level 2 – Fabric N-8 (purchase demand) (4 rows; Color, Size, Garment Req, Final Cons, Actual Req, Purchase Qty)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-PRODUCTION-INDENTS
+TRANSACTION NAME: Sales Order Indents (MRP)
+SLUG: production-indents
+MODULE: Planning
+V1 MODULE LABEL: Planning
+STEP: 13
+NAVIGATION PATH: Sourcing › Indent (MRP generated)
+PURPOSE: Indents MRP raises for the sales order: Manufacture Indent (Level 1, garment) and Production Indent (Level 2, fabric) with in-house adjustment from BBB stock.
+ONE LINE: The two indents MRP raises for a sales order: a Manufacture Indent to make the garment and a Production Indent to buy the fabric.
+BUSINESS CONTEXT:
+  MRP writes its requirements as indents. The Level 1 manufacture indent asks production to make 1,000 garments. The Level 2 production indent asks purchasing for 1,500 KG_Nis of N-8.
+  Before ordering, the production indent adjusts available stock with the same stock key in-house. 400 KG_Nis from booking PPJ179 (100 per colour/size) is reserved, so only 1,100 goes to RMPO 1230.
+KEYS:
+  Indent No.: PPM-xxxxxx-xxx (example PPM-000737-001 (L1), PPM-000738-001 (L2))
+  Stock Key: Article | Colour | Size (example N-8|3909|38M)
+UPSTREAM:
+  MRP – Material Requirement Planning (mrp): L1 and L2 requirement lines
+  BOM – Materials & Dependency (bom-materials): Cons, wastage, CSV, price
+  BOM – Routing (bom-routing): Required-for process (VCutting)
+  GRN – Goods Receipt Note (grn): Booking stock for in-house adjustment
+DOWNSTREAM:
+  RMPO – Raw Material Purchase Order (rmpo): RMPO 1230 for open qty
+  FPO & FPPO (fpo): Indent lines for material allocation
+CALCULATIONS: CALC-PI-PURCHASE-UOM, CALC-PI-INHOUSE-ADJ, CALC-PI-ORDERED, CALC-PI-PRICE
+VERIFICATION:
+  L1 Total Indent Qty: workbook 1000 / WFX 1000 → match
+  L2 Total Indent Qty: workbook 1500 / WFX 1500 → match
+  L2 Total Purchase UOM Indent Qty: workbook 1500000 / WFX 1500000 → match
+  L2 Total Ordered Qty: workbook 1100 / WFX 1100 → match
+  L2 Total In-house Adj.: workbook 400 / WFX 400 → match
+FACTS:
+  Manufacture (L1): 1,000 pcs
+  Production (L2): 1,500 KG
+  From BBB stock: 400 KG
+CAPTURED TABLES: Level 2 indent lines – PPM-000738-001 (4 rows; S.No, Color, Size, Indent Qty, Purchase UOM Qty, BBB Stock, In-house Adj., Ordered, Open)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-PRODUCTION-ORDER
+TRANSACTION NAME: Production Order
+SLUG: production-order
+MODULE: Production
+V1 MODULE LABEL: Production
+STEP: 14
+NAVIGATION PATH: Production › My Production Orders
+PURPOSE: Production order PPS12SO/11325 and colour-wise style quantities allocated to the factory production order.
+ONE LINE: The make order for the sales order; decides colour quantities released to the factory.
+BUSINESS CONTEXT: A production order represents the Level 1 manufacture demand of an OC. "Add Style Quantities" decides, per colour, how much goes into the factory production order – Qty % can hold some back.
+KEYS: Production Order No: Code (example PPS12SO/11325)
+UPSTREAM: Purchase Order from Buyer (OC) (buyer-po): OC qty, delivery date, style
+DOWNSTREAM: FPO & FPPO (fpo): Allocated qty per colour
+CALCULATIONS: CALC-PO-ALLOCATED
+VERIFICATION:
+  Ordered Qty: workbook 1000 / WFX 1000 → match
+  BALSAM TREE allocated: workbook 300 / WFX 300 → match
+  Cosmic sky purple allocated: workbook 700 / WFX 700 → match
+FACTS:
+  Order: PPS12SO/11325
+  Allocated: 1,000 pcs
+CAPTURED TABLES: Style quantities by colour (2 rows; Color, Qty, Qty %, Allocated to FPO)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TRANSACTION ID: TXN-FPO
+TRANSACTION NAME: FPO & FPPO
+SLUG: fpo
+MODULE: Production
+V1 MODULE LABEL: Production
+STEP: 15
+NAVIGATION PATH: Production › Factory Production Order / FPPO
+PURPOSE: Factory production order PPS12FP0158, fabric requirement, stock material allocation and process orders per colour and size.
+ONE LINE: Releases quantity to a factory, checks fabric against it and creates one process order per routing step.
+BUSINESS CONTEXT:
+  The Factory Production Order (FPO) releases quantity to a factory. WFX explodes it again through the BOM to get fabric required, then allocates stock: what is already reserved (from booking stock) is "instructed", the rest stays open until RMPO 1230 is received.
+  Each routing process becomes a Factory Production Process Order (FPPO) carrying the full FPO qty per colour/size.
+KEYS:
+  FPO No.: Code (example PPS12FP0158)
+  Breakdown Key: FPO | Colour | Size (example PPS12FP0158|372|34S)
+  FPPO Line Key: FPO | Colour | Size | Process (example PPS12FP0158|372|34S|Sewing)
+UPSTREAM:
+  Production Order (production-order): Allocated qty
+  BOM – Materials & Dependency (bom-materials): Final consumption
+  Sales Order Indents (MRP) (production-indents): Indent lines and in-house adjustment
+  BOM – Routing (bom-routing): Processes
+DOWNSTREAM:
+CALCULATIONS: CALC-FPO-QTY, CALC-FPO-FABRIC, CALC-FPO-ALLOC-OPEN, CALC-FPPO-OPEN
+VERIFICATION:
+  FPO Production Qty: workbook 1000 / WFX 1000 → match
+  Material Qty Reqd (total): workbook 1500 / WFX 1500 → match
+  Material Open Qty (total): workbook 1100 / WFX 1100 → match
+  Net Qty Instructed (total): workbook 400 / WFX 400 → match
+  VCutting / Sewing / VPacking Open Qty: workbook 1000 / WFX 1000 → match
+FACTS:
+  FPO: PPS12FP0158
+  Fabric ready / open: 400 / 1,100 KG
+  Processes: 3 × 1,000 pcs
+CAPTURED TABLES:
+  FPO Qty – colour/size and fabric requirement (4 rows; Color, Size, Order Qty, Allocated, Reduced, FPO Qty, Final Cons, Fabric Reqd)
+  Stock FPO material allocation (4 rows; Color, Size, Qty Reqd, Net Instructed, Open, Available)
+  FPPO – processes (3 rows; S.No, Process, Required, Ordered, Received, Open)
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

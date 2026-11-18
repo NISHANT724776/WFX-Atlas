@@ -1,0 +1,21 @@
+# History of FLD-BOM-ROUTING-OUTPUT-ITEM. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:21:50.477Z · superseded by v2
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-OUTPUT-ITEM
+FIELD NAME: Output Item
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Entered by the user
+DEFINITION: Semi-finished output (Cut PCS, Sew PCS).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Superseded
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+

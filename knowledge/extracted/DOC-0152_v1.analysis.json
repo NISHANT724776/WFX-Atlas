@@ -1,0 +1,1364 @@
+{
+  "tables": [
+    {
+      "name": "Sheet1",
+      "headers": [
+        "Sales Order – Missing Features, Fields & Functionalities",
+        "Column 2",
+        "Column 3",
+        "Column 4",
+        "Column 5",
+        "Column 6",
+        "Column 7"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Missing Features in Sales Order List Tool",
+          "Status",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Generate Combine MRL",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Generate MRL (Now this can be handled from MRP.)",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Notes",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Delete Track",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Msg",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Export / Export Kit OC",
+          "To be taken Later with KIT/PACK",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Synch",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Inspection Schedule",
+          "Need To take Up with PWN",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Update Business Unit",
+          "YES",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Update Extra Production",
+          "YES",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Update Notes",
+          "YES",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Update TNA",
+          "Currently Working",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Update Sustainability",
+          "To be taken Later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Split-Shuffle SOC/DOC",
+          "YES",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Missing Columns in Sales Order List",
+          "Status",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Sync Status",
+          "To be taken later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Sync Error",
+          "To be taken later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Request for Cancellation",
+          "Need to confirm",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Packaging UOM (In the old system, this existed as we were working on a single article; however, in the new Sales Order, we have multiple orders.)",
+          "NR",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Packaging QTY",
+          "NR",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Request for Budget",
+          "Need to confirm",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Dispatch Status",
+          "Update as Progress",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Business Unit",
+          "Need to take-up",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Over Planned/Produce",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Kit Ref",
+          "To be taken later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "PO(s) (GMPO – New PO / Review)",
+          "Need to Confirm",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Task",
+          "need to confirm",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Task Status",
+          "need to confirm",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Post Shipment Cost sheet",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "NP - Not Present",
+          "P - Present",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Fields Missing in Sales Order New/revise Page",
+          "Status",
+          "NP/P",
+          "NP/P",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Creation Screen",
+          "SLC",
+          "",
+          "",
+          ""
+        ],
+        [
+          "CM Price",
+          "To be taken when discussed with IMPL",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Base Price",
+          "To be taken when discussed with IMPL",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Add Additional Quantity",
+          "Taken",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Payment Method",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Reason for Order Revision",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Main OC No",
+          "NO",
+          "NP - NR",
+          "NP - NR",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Use My Address",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Copy Below (Price/qty.) in Add Qty breakup.",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "No. of Cartons",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Pcs / PP",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Del OC Currency (Now Editing is not permitted for this field in newly created sales orders.)",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Upcharge/Discount",
+          "Yes",
+          "Total Upcharge amount is present but Upcharge/Discount NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Market Buyer Order Ref",
+          "NO",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Destination Buyer Order Ref",
+          "NO",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Pack Breakup in in Add Qty breakup",
+          "NO",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Retail Price",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Retail Currency",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Reason for Order Revision",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Revision Authorised By",
+          "Yes",
+          "NP",
+          "NP",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Sales Order View Tool Missing",
+          "Status",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Request for Cancellation",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Proforma Invoice",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Print",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Factory Allocation",
+          "To be taken later",
+          "For Creating FPO, Loads Landing page of Production Order",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Missing Fields in Sales Order View Page",
+          "Status",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Group By (Market, Destination)",
+          "Need to confrim",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Use My Address",
+          "Need to confrim",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Delivery OC ID",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Parent OC No / Del Order Ref",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Retail Price",
+          "To be taken later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Retail Currency",
+          "To be taken later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Summary Level (Now This is no longer applicable because new sales orders are not included in the Sales Order Summary Level.)",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Market Level",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Destination Level",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Delivery Level",
+          "To be taken later",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Order by",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Missing Functionalities in Sales Order",
+          "Status",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "TP/non-TP",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Additional Quantity",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Inquiry Order",
+          "Need to show Business case to Gaurav Sir.",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Inseam Size Concept (Sales Order New)",
+          "Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "EX Factory Functionality",
+          "PPC based Yes",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "PCD Date Handling",
+          "Need to confirm",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Desync Price OC List ( This item is currently pending with the technical team.)",
+          "Pending with Tech",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Status",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Manager List",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Speed Code",
+          "No",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales Order Missing fields formatted",
+  "keyTerms": [
+    "taken later",
+    "taken",
+    "later",
+    "sales order",
+    "column column",
+    "column",
+    "sales",
+    "order",
+    "update",
+    "missing",
+    "order missing",
+    "missing fields",
+    "order list",
+    "status"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 19
+    },
+    {
+      "module": "Planning",
+      "score": 1
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "TNA",
+      "score": 1
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Sheet1: Sales Order – Missing Features, Fields & Functionalities, Column 2, Column 3, Column 4, Column 5, Column 6, Column 7 (80 rows)",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: Sheet1 – Sheet1",
+      "heading": "Sheet: Sheet1",
+      "text": "Columns: Sales Order – Missing Features, Fields & Functionalities (text); Column 2 (text); Column 3 (text); Column 4 (text); Column 5 (empty); Column 6 (empty); Column 7 (empty)\nSales Order – Missing Features, Fields & Functionalities | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7\nMissing Features in Sales Order List Tool | Status |  |  |  |  | \nGenerate Combine MRL | To be taken Later |  |  |  |  | \nGenerate MRL (Now this can be handled from MRP.) | To be taken Later |  |  |  |  | \nNotes | To be taken Later |  |  |  |  | \nDelete Track | To be taken Later |  |  |  |  | \nMsg | To be taken Later |  |  |  |  | \nExport / Export Kit OC | To be taken Later with KIT/PACK |  |  |  |  | \nSynch | To be taken Later |  |  |  |  | \nInspection Schedule | Need To take Up with PWN |  |  |  |  | \nUpdate Business Unit | YES |  |  |  |  | \nUpdate Extra Production | YES |  |  |  |  | \nUpdate Notes | YES |  |  |  |  | \nUpdate TNA | Currently Working |  |  |  |  | \nUpdate Sustainability | To be taken Later |  |  |  |  | \nSplit-Shuffle SOC/DOC | YES |  |  |  |  | \nMissing Columns in Sales Order List | Status |  |  |  |  | \nSync Status | To be taken later |  |  |  |  | \nSync Error | To be taken later |  |  |  |  | \nRequest for Cancellation | Need to confirm |  |  |  |  | \nPackaging UOM (In the old system, this existed as we were working on a single article; however, in the new Sales Order, we have multiple orders.) | NR |  |  |  |  | \n… 60 more rows",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Sheet1 row 1",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Missing Features in Sales Order List Tool; Column 2: Status",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 2",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Generate Combine MRL; Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 3",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Generate MRL (Now this can be handled from MRP.); Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 4",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Notes; Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 5",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Delete Track; Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 6",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Msg; Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 7",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Export / Export Kit OC; Column 2: To be taken Later with KIT/PACK",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 8",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Synch; Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 9",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Inspection Schedule; Column 2: Need To take Up with PWN",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 10",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Update Business Unit; Column 2: YES",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 11",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Update Extra Production; Column 2: YES",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 12",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Update Notes; Column 2: YES",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 13",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Update TNA; Column 2: Currently Working",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 14",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Update Sustainability; Column 2: To be taken Later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 15",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Split-Shuffle SOC/DOC; Column 2: YES",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 16",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Missing Columns in Sales Order List; Column 2: Status",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 17",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Sync Status; Column 2: To be taken later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 18",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Sync Error; Column 2: To be taken later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 19",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Request for Cancellation; Column 2: Need to confirm",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 20",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Packaging UOM (In the old system, this existed as we were working on a single article; however, in the new Sales Order, we have multiple orders.); Column 2: NR",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 21",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Packaging QTY; Column 2: NR",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 22",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Request for Budget; Column 2: Need to confirm",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 23",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Dispatch Status; Column 2: Update as Progress",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 24",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Business Unit; Column 2: Need to take-up",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 25",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Over Planned/Produce; Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 26",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Kit Ref; Column 2: To be taken later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 27",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: PO(s) (GMPO – New PO / Review); Column 2: Need to Confirm",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 28",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Task; Column 2: need to confirm",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 29",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Task Status; Column 2: need to confirm",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 30",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Post Shipment Cost sheet",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 31",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: NP - Not Present; Column 4: P - Present",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 32",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Fields Missing in Sales Order New/revise Page; Column 2: Status; Column 3: NP/P; Column 4: NP/P",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 32",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 33",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 3: Creation Screen; Column 4: SLC",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 33",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 34",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: CM Price; Column 2: To be taken when discussed with IMPL; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 34",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 35",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Base Price; Column 2: To be taken when discussed with IMPL; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 35",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 36",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Add Additional Quantity; Column 2: Taken; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 36",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 37",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Payment Method; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 37",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 38",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Reason for Order Revision; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 38",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 39",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Main OC No; Column 2: NO; Column 3: NP - NR; Column 4: NP - NR",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 39",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 40",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Use My Address; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 40",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 41",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Copy Below (Price/qty.) in Add Qty breakup.; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 41",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 42",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: No. of Cartons; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 42",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 43",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Pcs / PP; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 43",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 44",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Del OC Currency (Now Editing is not permitted for this field in newly created sales orders.); Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 44",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 45",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Upcharge/Discount; Column 2: Yes; Column 3: Total Upcharge amount is present but Upcharge/Discount NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 45",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 46",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Market Buyer Order Ref; Column 2: NO; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 46",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 47",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Destination Buyer Order Ref; Column 2: NO; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 47",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 48",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Pack Breakup in in Add Qty breakup; Column 2: NO; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 48",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 49",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Retail Price; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 49",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 50",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Retail Currency; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 50",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 51",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Reason for Order Revision; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 51",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 52",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Revision Authorised By; Column 2: Yes; Column 3: NP; Column 4: NP",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 52",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 53",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Sales Order View Tool Missing; Column 2: Status",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 53",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 54",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Request for Cancellation; Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 54",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 55",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Proforma Invoice; Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 55",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 56",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Print; Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 56",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 57",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Factory Allocation; Column 2: To be taken later; Column 3: For Creating FPO, Loads Landing page of Production Order",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 57",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 58",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Missing Fields in Sales Order View Page; Column 2: Status",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 58",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 59",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Group By (Market, Destination); Column 2: Need to confrim",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 59",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 60",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Use My Address; Column 2: Need to confrim",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 60",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 61",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Delivery OC ID; Column 2: No",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 61",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 62",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Parent OC No / Del Order Ref; Column 2: No",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 62",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 63",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Retail Price; Column 2: To be taken later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 63",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 64",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Retail Currency; Column 2: To be taken later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 64",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 65",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Summary Level (Now This is no longer applicable because new sales orders are not included in the Sales Order Summary Level.); Column 2: No",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 65",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 66",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Market Level",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 66",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 67",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Destination Level",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 67",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 68",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Delivery Level; Column 2: To be taken later",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 68",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 69",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Order by",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 69",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 70",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Missing Functionalities in Sales Order; Column 2: Status",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 70",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 71",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: TP/non-TP; Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 71",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 72",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Additional Quantity; Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 72",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 73",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Inquiry Order; Column 2: Need to show Business case to Gaurav Sir.",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 73",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 74",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Inseam Size Concept (Sales Order New); Column 2: Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 74",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 75",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: EX Factory Functionality; Column 2: PPC based Yes",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 75",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 76",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: PCD Date Handling; Column 2: Need to confirm",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 76",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 77",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Desync Price OC List ( This item is currently pending with the technical team.); Column 2: Pending with Tech",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 77",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 78",
+      "heading": "Sheet: Sheet1",
+      "text": "Column 2: Status",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 78",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 79",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Manager List; Column 2: No",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 79",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 80",
+      "heading": "Sheet: Sheet1",
+      "text": "Sales Order – Missing Features, Fields & Functionalities: Speed Code; Column 2: No",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 80",
+      "kind": "data_row"
+    }
+  ]
+}

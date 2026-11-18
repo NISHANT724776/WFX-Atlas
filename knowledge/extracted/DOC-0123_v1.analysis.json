@@ -1,0 +1,1267 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Case 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Job Order Created Material Dispatched to RDP via TRF to Site",
+          "Gurugram FPPO",
+          "Total Gurugram Site Qty + Total Transfer to site Qty"
+        ],
+        [
+          "Child Job Order Created Material dispatched against this FPPO Output not yet received",
+          "Rudrapur Division",
+          "Production process order input"
+        ],
+        [
+          "Case 2",
+          "",
+          ""
+        ],
+        [
+          "Job Order Created Material Dispatched to RDP via TRF to Site",
+          "Gurugram FPPO",
+          "Total Gurugram Site Qty + Total Transfer to site Qty"
+        ],
+        [
+          "Child Job Order Created Material dispatched against this FPPO Output received",
+          "Rudrapur Division",
+          "Production process order input – Consumption in Rudrapur"
+        ],
+        [
+          "Case 3",
+          "",
+          ""
+        ],
+        [
+          "Job Order Created Material Dispatched to RDP via TRF to Site Output received",
+          "Gurugram FPPO",
+          "Total Gurugram Site Qty + Total Transfer to site Qty – Consumed Qty"
+        ],
+        [
+          "Child Job Order Created Material dispatched against this FPPO Output received",
+          "Rudrapur Division",
+          "Production process order input – Consumption in Rudrapur"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Case 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Job Order Created Material Dispatched to RDP via TRF to Site",
+          "Gurgaon Division",
+          "Production process order input issued to Outsource vendor from FA Rudrapur"
+        ],
+        [
+          "Child Job Order Created Material dispatched against this FPPO Output not yet received",
+          "Rudrapur Division",
+          "Production process order input issued to Outsource vendor from FA Rudrapur"
+        ],
+        [
+          "Case 2",
+          "",
+          ""
+        ],
+        [
+          "Job Order Created Material Dispatched to RDP via TRF to Site",
+          "Gurugram FPPO",
+          "Production process order input issued to Outsource vendor from FA Rudrapur – Consumption in Rudrapur"
+        ],
+        [
+          "Child Job Order Created Material dispatched against this FPPO Output received",
+          "Rudrapur Division",
+          "Production process order input issued to Outsource vendor from FA Rudrapur – Consumption in Rudrapur"
+        ],
+        [
+          "Case 3",
+          "",
+          ""
+        ],
+        [
+          "Job Order Created Material Dispatched to RDP via TRF to Site (1000)",
+          "Gurugram FPPO",
+          "500 will be shown pending to RDP and 500 to Outsource vendor"
+        ],
+        [
+          "Child Job Order Created Material dispatched against this FPPO (500)",
+          "Rudrapur Division",
+          "500 will be shown pending to RDP and 500 to Outsource vendor"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "FPO List Fields",
+        "Filter Required",
+        "Filter Type"
+      ],
+      "types": [
+        "text",
+        "boolean",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "FPO List Fields"
+      ],
+      "rows": [
+        [
+          "Status",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Factory",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "FPO No.",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Order For",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Article Name",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Production/Service",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "End Customer",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Factory Production Ordered Quantity",
+          "Yes",
+          "Quantity Range."
+        ],
+        [
+          "Production Order Sync Status",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "OC Delivery",
+          "Yes",
+          "Date Range Based"
+        ],
+        [
+          "Season",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Created By",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "OC No.(Buyer Order",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Style Name",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Buyer Delivery Order Ref.",
+          "Yes",
+          "Text based"
+        ],
+        [
+          "Start Date",
+          "Yes",
+          "Date Range Based"
+        ],
+        [
+          "End Date",
+          "Yes",
+          "Date Range Based"
+        ],
+        [
+          "Factory Delivery Date",
+          "Yes",
+          "Date Range Based"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "FA New FPPO Split Division Wise Structure (with 3 GSTN) of FA Home and Apparel Pvt LimitedV1 1 V5 1 1",
+  "keyTerms": [
+    "fppo",
+    "user",
+    "order",
+    "division",
+    "job order",
+    "material",
+    "created",
+    "job",
+    "process",
+    "site",
+    "transfer",
+    "factory",
+    "output",
+    "against",
+    "transfer site"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 56
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 28
+    },
+    {
+      "module": "Sales Order",
+      "score": 16
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "FPO & FPPO",
+    "GRN – Goods Receipt Note",
+    "BBB Adhoc Indent",
+    "Purchase Order from Buyer (OC)",
+    "Production Order"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "This is an mandatory field(Division) need to add in New & Old UI to bind with factory.",
+      "locator": "§ Division-wise Transaction Flow › … › 1. Provide option to bind division in Factory Master.",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "This is an mandatory field(Division) need to add in New & Old UI to bind with factory.",
+      "locator": "§ Division-wise Transaction Flow › … › 1. Provide option to bind division in Factory Master.",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "1. Provide option to bind division in Factory Master.:\n1. Currently on opening Factory master the labels name shows site it should be “factory code” & “Factory Name”\n2. This is an mandatory field(Division) need to add in New & Old UI to bind with factory.\n3. Division need to be shown for current logged in company.",
+      "locator": "§ Division-wise Transaction Flow › … › 1. Provide option to bind division in Factory Master.",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2.4 FPPO (Factory Production Process Order):\n1. Action: FPPO creation of each process.\n2. Description: The FPPO of Cutting will be of own factory type where cut pcs will be recorded as output. For the process “Quilting”, the team will raise the FPPO to Other Factory “FA Rudrapur” by selecting execution type as “other factory” .\n3. From FPPO List(Production > Production Process Order > List) required one option “transfer to other factory” need to provide and after selecting the FPPO user will click on “Transfer to other factory” then a pop will open in which user is able to view bind Division with the factory and user is able to select “site” this hyperlink will be enable only execution type other factory, In case of “own factory” & “outsourced” “Transfer to other factory” hyperlink is disabled.\n4. This hyperlink allows to click for execution type other factory when GDI is not created for input material for that FPPO.\n5. When user creating the FPPO manually, Transferred Division need to be auto pick from factory’s Division and in FPPO Creation Division system will pick Division of logged In Division.\n6. When user click on “Transfer to other factory” then a pop will appear where Division will auto selected by FPPO’s Factory’s Division in freeze mode (From Factory Master) and user have to select the site only.\n7. Note : In Case of Auto created FPPO, in “FPPO creation Division” field Rudarpur Division need to be shown.\n8. Note :- Below List(Old & New) will be accessible where FPPO Creation division is matching to logged in Division.\n9. Review Hyperlink link also required after clicking on it user will redirected on factory production process order list screen (Production > Factory Production Order > FPO List – New > Factory Production Process Order hyperlink > Ordered Qty.).",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "In case GDN is created/child FPPO split/Revise FPPO, then system will not allow to user cancel the Parent FPPO.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "User is also able to define price for other factory FPPO.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2.4 FPPO (Factory Production Process Order):\n1. System will create GDI from input material sites defined in FPPO, it can be single/Multiple.\n2. The Auto Created FPPO that will create in Rudarpur division, input dispatch site & output received site should be same(To Site selected in Gurgaon division).\n3. In case user cancel(Parent FPPO) the transferred FPPO then “Auto Created ” GDI, FPPO in Rudarpur Division need to be cancel automatically.\n4. In case GDN is created/child FPPO split/Revise FPPO, then system will not allow to user cancel the Parent FPPO.\n5. User is also able to define price for other factory FPPO.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2.5 Material Dispatch (Transfer to Site):\n1. Action: Material has to be Dispatched against this FPPO. Auto-Transfer-to-site GDI will get created from Gurgaon to Rudrapur with reference to the above FPPO.\n2. Description: The material is dispatched based on the FPPO, and a dispatch note is created, but this Materials dispatched has to be of transfer type rather than against production process order input as against this dispatch we need to show the receiving in Rudrapur division.\n3. In GDN view process and FPPO no should be visible.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.5 Material Dispatch (Transfer to Site)",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2.6 E-way Bill:\n1. Action: Once GDN is created in Section 1.5 Then eway bill will be done.\n2. Description: The E way bill will be created against the dispatch of the materials from GGN to RDP. This eway bill will be generated against the Goods dispatch note created in section 1.5.\n3. The transfer to site GDN created in above section will get displayed in GST Doc integration (As Shown in below screenshot with Transfer to site Dispatch Type) where factory name selected in FPPO will show as a party in E-way bill/E-Invoice.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.6 E-way Bill",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "QC will not allowed for transferred material.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.1 Transfer from Site (Receiving of Input Items from GGN)",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.1 Transfer from Site (Receiving of Input Items from GGN):\n1. Action:\n2. User will be able to do the receiving of Transfer to site created in Gurgaon Division (Section 1.5)\n3. Upon creation of this transfer, the material received at the site will be auto reserved against this FPO (Section 2.2,2.3)\n4. Reference of Parent Dispatch from Gurgaon FPPO to be maintained.\n5. Description: The system will give a provision to the users of Rudrapur division to receive the material against the transfer to site (Section 1.5) created in Gurgaon Division and upon receiving of this, the material will get auto reserved to the FPO created in Rudrapur division.\n6. QC will not allowed for transferred material.\n7. No material movement/adjustment will allowed for transferred material in Rudarpur division.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.1 Transfer from Site (Receiving of Input Items from GGN)",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division):\n1. Action: Required a provision where user can split whole/Partial to create the outsource FPPO of quilting process if required.\n2. Description: The system will give user a provision to create a child FPPO in Rudrapur based on the parent auto created FPPO raised by the Gurgaon division.\n3. The qty for which the child FPPO can create by Rudrapur Division through split, that qty will get reduced from the parent auto created FPPO in Gurgaon Division.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division)",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division):\n1. Qty from GGN to RDP: - 6000\n2. RDP Creates 3000 Units order to Outsource (Screens Below).\n3. Balance Qty left in Parent FPPO: - 3000",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division)",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The user is able to revise the auto-generated FPPO up to the quantity that was originally created.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Then user is able to do modification(Creating order in Rudarpur or outsourcing the order) in Rudarpur company upto 100 Qty.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.3 Material Dispatch:\n1. Action:\n2. The input material will be dispatched to the outsource Job worker against this FPPO.\n3. Reference of Parent-FPPO and Parent-Dispatch will be maintained.\n4. Description: The material for outsourcing is dispatched to the job worker with a Child-Dispatch-Note, and references to the parent FPPO and dispatch are maintained. The dispatch type here will be as usual “Production Process Order Output”\n5. Available site stock will not have hyperlink to allocate the material (In case auto created FPPO & Splitted FPPO.)\n6. The user is able to revise the auto-generated FPPO up to the quantity that was originally created.\n7. For example – OC is created of 120 PCS and FPPO is auto-created for 100 units. when user update or modify the FPPO, qty will be update originally created quantity of 100 units. they can revise the quantity, but not exceed the initial 100 units.\n8. Case 1\n9. Company A have OC of 120\n10. User trasnffered FPPO for 100 qty in Rudarpur Company(Company B).\n11. Then user is able to do modification(Creating order in Rudarpur or outsourcing the order) in Rudarpur company upto 100 Qty.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the materials are dispatched to Outsource vendors in FA RDP.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the GDN is created then that will be moved to GST Doc Integration for Eway bill.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI):\n1. Action:\n2. Handling of Additional Process in RDP other than Quilting.\n3. The additional Processes Created in RDP will have ref of Parent FPPO Created in GGN division.\n4. Description: The GGN division will give the Order of Quilting to RDP Division. But RDP division can do some additional Process also against that Order. So, this will be handled via GRN Receiving New > List > update re-process hyperlink as mentioned in below screen where the Source of the Stock (Parent FPPO / FPPO Created in RDP for quilting Process) is maintained.\n5. Once User click on update “Add Process” hyperlink then below mentioned screen will open, where user will Add–Process before/After the Quilting process (Stock should be available at that moment).",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI)",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "If FPPO (Alteration) is for outsource supplier then GDN should reflect in E-invoice/Eway bill integration bill where user will generate e-way bill of that GDN/Challan.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI)",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "If FPPO alteration is for outsource supplier then its GRN should reflect in GRN pending invoice and Supplier invoice.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI) › Supplier Invoice (FPPO Alteration)",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "User is able to create multiple GDI’s as per the Stock availability and GDN will create manually.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.7 Material Transfer",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "3.7 Material Transfer:\n1. Action: This output material will be dispatched to Gurgaon via Transfer to Site.\n2. Description: The output material is dispatched from Rudrapur to Gurgaon, with Transfer to site transaction by maintaining the parent FPPO.\n3. In FPPO list there will be option Transfer output material, User is able to allow transfer output material only for those FPPO for which “Transfer to other factory” field is “ No” and it should be Auto created FPPO or it’s Split FPPO, otherwise it will show a message “Transfer Output Material is applicable for only Auto created or it’s Split FPPO ”.\n4. New UI Look for Buttons functionality need to be follow same as.\n5. When user click on transfer output material then system will raise automatic transfer to site GDI with picklist QTY. of output material as mentioned in below screen. User is able to create multiple GDI’s as per the Stock availability and GDN will create manually.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.7 Material Transfer",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4.1 Material Receipt:\n1. Action: Output material to be received against this Main-FPPO by receiving against the transfer to site created from Rudrapur (section 2.6).\n2. Description: The output material from Rudrapur is received against the Main-FPPO, by receiving against the transfer to site dispatch created in (section 2.6) with consumption details recorded against the Parent-Dispatch-Note and Parent-FPPO, along with the receiving details of the Child-Dispatch-Note from Rudrapur.\n3. While doing the receiving in GGN against transfer from site then original FPPO number need to shown which was 0\n4. As soon as misc. sales invoice created in rudarpur division system will show data in Pending supplier invoice tab below screen mentioned.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation need to be handle.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Put a validation in both Division that for further process where output is different, then user cannot create FPPO GDI until the original FPPO output is received Gurgaon Division.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "For Example there are four process Cutting, Stitching, Finishing and Packing.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Stitching is being done by Rudrapur division as a jobwork then till the output Stitch Pcs are received to Gurgaon Division, user cannot make GDI for Finishing Process.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Stitching is being done by Rudrapur division as a jobwork then till the output Stitch Pcs are received to Gurgaon Division, user cannot make GDI for Finishing Process.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4.1 Material Receipt:\n1. Change in PD/BOM for consumption increase, in this case Rudrapur have to revise and update their FPPO with latest PD and if that material have to come from Gurgaon then Adhoc material have to transfer manually against Original FPPO(From Gurgaon Division through “Adhoc Transfer against Production Process order” which will create Transfer to site GDI and GDN will create manually and in Rudrapur Division GIN/GRN manually).\n2. Transferred FPPO no will not show in Common GDI.\n3. Only same divisions wise FPPO should visible in Common GDI FPPO (Program Permission).\n4. Cancellation of FPPO will allowed for logged in division FPPO.\n5. Put a validation in both Division that for further process where output is different, then user cannot create FPPO GDI until the original FPPO output is received Gurgaon Division. For Example there are four process Cutting, Stitching, Finishing and Packing. Stitching is being done by Rudrapur division as a jobwork then till the output Stitch Pcs are received to Gurgaon Division, user cannot make GDI for Finishing Process. We can discuss this during specs discussion.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Case 1, Column 2, Column 3 (8 rows)",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Case 1, Column 2, Column 3 (8 rows)",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "The objective of these changes is to enhance user experience and improve functionality.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "To re-write screen for FPO Existing and New screens are attached below.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New FPO List Screen:\n1. Search Parameter\n2. FPO No.\n3. Article Name\n4. Article Code\n5. Buyer Style reference\n6. OC no.\n7. Buyer Order Reference\n8. Filter Parameter\n9. Filter Fields mentioned below should be comes from floating filter and advance filter.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: FPO List Fields, Filter Required, Filter Type (18 rows; identifiers: FPO List Fields)",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New FPO List Screen:\n1. In above screen all data will be shown same as shown in Existing FPO list screen some functionality and action item will perform same as mentioned below.\n2. By default, the column should be freeze till article name and also need the provision to change the freeze column.\n3. On FPO Column hyper link “Docket View” will be open as it is from the FPO list.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "New FPO List Screen:\n1. Feature & Functionality of Actions Column: -\n2. In this column we purposed the status bar as per action items fulfilment graph will update.\n3. Release to Factory (Button) – On the click of “RTF” button action will be perform on grid level bar and the color of status will change accordingly which we have mentioned in the ss.\n4. Release to Production (Button) - On the click of “RTP” button action will be perform on grid level bar and the color of status will change accordingly which we have mentioned in the ss.\n5. Create Job Order (Button) – On the click of “Create JO” button action will be perform on grid level bar and the color of status will change accordingly which we have mentioned in the ss, once user click on “create job order system will opening below mentioned screen.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "For the reallocation we are not opening any pop-up screen.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order Creation Flow",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Currently it is opening below mentioned screen after clicking on new order column hyperlink.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order Creation Flow",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Job Order Creation Flow:\n1. In-case user clicks on “Ordered (Qty.)” field then below attached po-up will open.\n2. In-case user clicks on “Received (Qty.)” field then below attached po-up will open.\n3. For the reallocation we are not opening any pop-up screen. Since we didn’t find any use of this, so we are considering the reallocation from this hyperlink\n4. To Create New job order in New screen user will click on “Action” Button then user will open Below mentioned screen in which user will fill the required detail.\n5. Currently it is opening below mentioned screen after clicking on new order column hyperlink.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order Creation Flow",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header Tools::\n1. Save: To save the record.\n2. Confirm: To confirm the save data.\n3. Release for Production: To change the status of Job order to RTP.\n4. Close: To close the tab.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Header Tools:",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "It is same like we are doing in old one for attaching any file over here.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Annexures",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "How to do amendment in existing Job Order:\n1. All: If user want to show the all status of FPPO then user will prefer to go in All section.\n2. Pending Action: If any FPPO is waiting for action like RTF & RFP then user will prefer this section.\n3. Waiting: If any FPPO is on waiting state then they will prefer this.\n4. Closed & Completed: Closed and completed status FFPO should come here.\n5. Cancelled & Rejected: Cancelled and Rejected status will be come this section.\n6. In the header of screen, we have given the option to Release for Prod. where user can change the status of any Job order with single and multiple selection.\n7. New Job Order: This is an option that user can add the alteration feature from here.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › How to do amendment in existing Job Order",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "This is view mode screen of any FPPO where user can check and verify the details of FPPO and if user wants to do the changes then user will click on the Revise Order.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order View Page Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "If user want to close this view then there is one option in header i.e. “close order”.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order View Page Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Job Order View Page Screen:\n1. This is view mode screen of any FPPO where user can check and verify the details of FPPO and if user wants to do the changes then user will click on the Revise Order.\n2. After click on revise order system will open the Job order screen in editable mode.\n3. Also given a feature to Expand and collapse all feature where user can expand and collapse in on go for all section.\n4. User can also take a print of all section through print tool button. In the print button we need to print the same FPPO print which we using in currently FPPO click. We also need a provision in layout engine mapping where user can add the user print from their by default the system print will open if user bind and print over layout mapping engine then the priority will work on user print.\n5. If user want to close this view then there is one option in header i.e. “close order”.\n6. Arrow works like a back key.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order View Page Screen",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "If user open this FPPO list then the all details will come except left side block.",
+      "locator": "§ FPPO New Screens › … › Job Order List",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "From the eye icon system should open the overview page which are running in the old function.",
+      "locator": "§ FPPO New Screens › … › Job Order List",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Job Order List:\n1. Close: To close the screen.\n2. Cancel FPPO: To can the Job Order\n3. Export: To Export the grid data.\n4. Delete: To delete the grid data.",
+      "locator": "§ FPPO New Screens › … › Job Order List",
+      "module": "Production"
+    },
+    {
+      "kind": "validation",
+      "text": "Block/Unblock Invoice: To block and Unblock the invoice based on the status.",
+      "locator": "§ FPPO New Screens › … › Job Order List",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Job Order List:\n1. Revise : To revise the Job order\n2. Split : User can split any job order to using this\n3. Transfer to Other Factory :\n4. Transfer Output material :\n5. Reopen : To open then state of the Job order\n6. Delete : To delete the record from the grid.\n7. Create Credit Note : To make the CN against any Job order.\n8. Create Debit Note : To make the DN against any Job order.\n9. Block/Unblock Invoice: To block and Unblock the invoice based on the status.\n10. New UI Look for Buttons functionality need to be followed same as.",
+      "locator": "§ FPPO New Screens › … › Job Order List",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "There are some tools are in header part on Article detail Tab: This is same like in previous old UI and it should be work like as it is working.",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Article Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Article Detail Tab:\n1. Confirm\n2. Auto Fill by stock\n3. Auto Fill by FPO Allocation\n4. Auto Fill\n5. Clear All\n6. The Article Detail tab (as shown above) will have the following column grid:\n7. The Adhoc Indent Detail tab (as shown below):",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Article Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "There are some tools are in header part on Adhoc Indent detail Tab: This is same like in previous old UI and it should be work like as it is working.",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Article Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Article Detail Tab:\n1. Confirm\n2. AutoFill\n3. Clear All",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Article Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Adhoc Indent Detail Tab:\n1. For the Adhoc Indent Detail Tab there will be following two Grid Columns:\n2. [Setting: - Admin >> Company Setup >> Production Process Order Settings >> Create separate indent if reason are different of additional required qty ]\n3. Case 1: Setting is Turned Off",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Adhoc Indent Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "For Case 2 Above (Setting is turned ON) , if the user clicks on the “Qty.",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Adhoc Indent Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Adhoc Indent Detail Tab:\n1. Save\n2. Close\n3. The attachment number shows the no. of attachments added by the user.\n4. The attachment option once clicked the user will be shown the following screen:\n5. For Case 2 Above (Setting is turned ON) , if the user clicks on the “Qty. To Be Instructed”( as shown below) -column value",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Adhoc Indent Detail Tab",
+      "module": "Production"
+    },
+    {
+      "kind": "formula",
+      "text": "https://www.figma.com/proto/heoU83q5BCoLlorZFl1meL/ERP-(FPPO)?page-id=0%3A1&node-id=22-153&viewport=-858%2C1664%2C0.36&t=IEEXwrrpM5g0sPRj-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=22%3A153&show-proto-sidebar=1",
+      "locator": "§ FPPO New Screens › Figma Link",
+      "module": "Production"
+    },
+    {
+      "kind": "definition",
+      "text": "Example is given below :-",
+      "locator": "§ FPPO New Screens › Add the wastage & loss for semi-finish article",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "FA New FPPO Split Division Wise Structure (with 3 GSTN) of FA Home and Apparel Pvt LimitedV1 1 V5 1 1",
+      "heading": "",
+      "text": "Software Requirements Specification\nDivision Wise Structure (with 3 GSTN) of FA Home and Apparel Pvt Limited\n# 330160\nVersion 2.0●29 Jan 2025\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. 3\nAssumptions 3\nSection 3. 3\nFunctional Requirements 3\nFPPO New Screens 3\nDivision-wise Transaction Flow 3\n1. Provide option to bind division in Factory Master. 4\n2. Gurgaon Division 4\n2.1 Sales Order Received(No Change only for flow) 4\n2.2 Material Requisitions(No Change only for flow) 4\n2.3 PD and FPO (No Change only for flow) 4\n2.4 FPPO (Factory Production Process Order) 4\n2.5 Material Dispatch (Transfer to Site) 4\n2.6 E-way Bill 4\n3. Rudrapur Division 4\n3.1 Transfer from Site (Receiving of Input Items from GGN) 4\n3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division) 4\n3.3 Material Dispatch 4\n3.4 Output Material Receipt 4\n3.5 Supplier Invoice (At RP for outsource Job Work) 4\n3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI) 4\n3.7 Material Transfer 4\n3.8 Misc. Invoice (Job Work Invoice to FA GGN by FA RDP) 4\n4. Gurgaon Division (Continued) 4\n4.1 Material Receipt 4\nNote: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling 4\n5. Report to See additional Processes against the Parent FPPO 4\n6. User permission need to handle for FPPO Tools 4\n7. WIP 5",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Division Wise Structure (with 3 GSTN) of FA Home and Apparel Pvt Limited",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "To handling job order from GGN to Rudrapur and then Rudrapur to any other outsource vendor.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "?",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirements",
+      "heading": "Functional Requirements",
+      "text": "Need to write about the functional requirement?",
+      "locator": "§ Functional Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Division-wise Transaction Flow",
+      "heading": "Division-wise Transaction Flow",
+      "text": "Note: This Functionality will be work setting wise if user enable the setting “FPPO split Division wise” in Production process order setting.",
+      "locator": "§ Division-wise Transaction Flow",
+      "kind": "section"
+    },
+    {
+      "title": "1. Provide option to bind division in Factory Master.",
+      "heading": "Division-wise Transaction Flow › … › 1. Provide option to bind division in Factory Master.",
+      "text": "• Currently on opening Factory master the labels name shows site it should be “factory code” & “Factory Name”\n• This is an mandatory field(Division) need to add in New & Old UI to bind with factory.\n• Division need to be shown for current logged in company.",
+      "locator": "§ Division-wise Transaction Flow › … › 1. Provide option to bind division in Factory Master.",
+      "kind": "section"
+    },
+    {
+      "title": "2.1 Sales Order Received(No Change only for flow)",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.1 Sales Order Received(No Change only for flow)",
+      "text": "• Action: Sales OC is received from Buyer.\n• Description: The Sales Order Confirmation (OC) is received from the buyer to initiate the process.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.1 Sales Order Received(No Change only for flow)",
+      "kind": "section"
+    },
+    {
+      "title": "2.2 Material Requisitions(No Change only for flow)",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.2 Material Requisitions(No Change only for flow)",
+      "text": "• Action: Material Requisitions (CostsheetBOMMRLRMPO)\n• Description: The material requisition process starts once the sales order is received.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.2 Material Requisitions(No Change only for flow)",
+      "kind": "section"
+    },
+    {
+      "title": "2.3 PD and FPO (No Change only for flow)",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.3 PD and FPO (No Change only for flow)",
+      "text": "• Action: PD and FPO creation in Gurgaon.\n• Description: After MRL auto Production Order is created. Team will create the FPO and release it to factory in Gurgaon Division. After that, they will attach the PD which will include quilting process.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.3 PD and FPO (No Change only for flow)",
+      "kind": "section"
+    },
+    {
+      "title": "2.4 FPPO (Factory Production Process Order)",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "text": "• Action: FPPO creation of each process.\n• Description: The FPPO of Cutting will be of own factory type where cut pcs will be recorded as output. For the process “Quilting”, the team will raise the FPPO to Other Factory “FA Rudrapur” by selecting execution type as “other factory” .\n• From FPPO List(Production > Production Process Order > List) required one option “transfer to other factory” need to provide and after selecting the FPPO user will click on “Transfer to other factory” then a pop will open in which user is able to view bind Division with the factory and user is able to select “site” this hyperlink will be enable only execution type other factory, In case of “own factory” & “outsourced” “Transfer to other factory” hyperlink is disabled.\n• This hyperlink allows to click for execution type other factory when GDI is not created for input material for that FPPO.\n• When user creating the FPPO manually, Transferred Division need to be auto pick from factory’s Division and in FPPO Creation Division system will pick Division of logged In Division.\n• When user click on “Transfer to other factory” then a pop will appear where Division will auto selected by FPPO’s Factory’s Division in freeze mode (From Factory Master) and user have to select the site only.\n• Note : In Case of Auto created FPPO, in “FPPO creation Division” field Rudarpur Division need to be shown.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "kind": "section"
+    },
+    {
+      "title": "2.4 FPPO (Factory Production Process Order)",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order)",
+      "text": "• Note :- Below List(Old & New) will be accessible where FPPO Creation division is matching to logged in Division.\n• Review Hyperlink link also required after clicking on it user will redirected on factory production process order list screen (Production > Factory Production Order > FPO List – New > Factory Production Process Order hyperlink > Ordered Qty.).\nOnce user “Confirm” from the pop-up, system will create new FPPO (Own Factory) automatically in Rudrapur Division and Original FPPO’s(Gurgaon Division) qty will get Zero but in non-cancel mode. System will automatically create Transfer to Site GDI against the Gurgaon Division FPPO. As mentioned in 1.5 Point (Material Dispatch (Transfer to Site)) Screen.\n• System will create GDI from input material sites defined in FPPO, it can be single/Multiple.\n• The Auto Created FPPO that will create in Rudarpur division, input dispatch site & output received site should be same(To Site selected in Gurgaon division).\n• In case user cancel(Parent FPPO) the transferred FPPO then “Auto Created ” GDI, FPPO in Rudarpur Division need to be cancel automatically.\n• In case GDN is created/child FPPO split/Revise FPPO, then system will not allow to user cancel the Parent FPPO.\n• User is also able to define price for other factory FPPO.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.4 FPPO (Factory Production Process Order) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "2.5 Material Dispatch (Transfer to Site)",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.5 Material Dispatch (Transfer to Site)",
+      "text": "• Action: Material has to be Dispatched against this FPPO. Auto-Transfer-to-site GDI will get created from Gurgaon to Rudrapur with reference to the above FPPO.\n• Description: The material is dispatched based on the FPPO, and a dispatch note is created, but this Materials dispatched has to be of transfer type rather than against production process order input as against this dispatch we need to show the receiving in Rudrapur division.\n• In GDN view process and FPPO no should be visible.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.5 Material Dispatch (Transfer to Site)",
+      "kind": "section"
+    },
+    {
+      "title": "2.6 E-way Bill",
+      "heading": "Division-wise Transaction Flow › 2. Gurgaon Division › 2.6 E-way Bill",
+      "text": "• Action: Once GDN is created in Section 1.5 Then eway bill will be done.\n• Description: The E way bill will be created against the dispatch of the materials from GGN to RDP. This eway bill will be generated against the Goods dispatch note created in section 1.5.\n• The transfer to site GDN created in above section will get displayed in GST Doc integration (As Shown in below screenshot with Transfer to site Dispatch Type) where factory name selected in FPPO will show as a party in E-way bill/E-Invoice.",
+      "locator": "§ Division-wise Transaction Flow › 2. Gurgaon Division › 2.6 E-way Bill",
+      "kind": "section"
+    },
+    {
+      "title": "3.1 Transfer from Site (Receiving of Input Items from GGN)",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.1 Transfer from Site (Receiving of Input Items from GGN)",
+      "text": "• Action:\n• User will be able to do the receiving of Transfer to site created in Gurgaon Division (Section 1.5)\n• Upon creation of this transfer, the material received at the site will be auto reserved against this FPO (Section 2.2,2.3)\n• Reference of Parent Dispatch from Gurgaon FPPO to be maintained.\n• Description: The system will give a provision to the users of Rudrapur division to receive the material against the transfer to site (Section 1.5) created in Gurgaon Division and upon receiving of this, the material will get auto reserved to the FPO created in Rudrapur division.\n• QC will not allowed for transferred material.\n• No material movement/adjustment will allowed for transferred material in Rudarpur division.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.1 Transfer from Site (Receiving of Input Items from GGN)",
+      "kind": "section"
+    },
+    {
+      "title": "3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division)",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division)",
+      "text": "• In Rudarpur Division for quilting process system will show two FPPO’s one with zero Quantity i.e for Gurgaon division and another with full Qty. for Rudarpur division (which is auto created by Gurgaon division) as mentioned in below screen.\nNote: A division column need to add in above screen.\n• Action: Required a provision where user can split whole/Partial to create the outsource FPPO of quilting process if required.\n• Description: The system will give user a provision to create a child FPPO in Rudrapur based on the parent auto created FPPO raised by the Gurgaon division.\n• The qty for which the child FPPO can create by Rudrapur Division through split, that qty will get reduced from the parent auto created FPPO in Gurgaon Division.\nStep 1: - RDP team is creating a Outsource FPPO by Splitting the Parent auto created FPPO.\n• Qty from GGN to RDP: - 6000\n• RDP Creates 3000 Units order to Outsource (Screens Below).\n• Balance Qty left in Parent FPPO: - 3000\nAfter doing that, the Parent auto created FPPO which was created from GGN to RDP will get reduced by 3000 Units and we will see a new Row in the FPPO screen showing the order created in RDP division.\nNote: User will be able to see Only those FPPOs of the division and Factory in FPPO list for which he has the permission.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.2 FPPO Creation (By Splitting of Auto Created FPPO of Rudarpur Division)",
+      "kind": "section"
+    },
+    {
+      "title": "3.3 Material Dispatch",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "text": "• Action:\n• The input material will be dispatched to the outsource Job worker against this FPPO.\n• Reference of Parent-FPPO and Parent-Dispatch will be maintained.\n• Description: The material for outsourcing is dispatched to the job worker with a Child-Dispatch-Note, and references to the parent FPPO and dispatch are maintained. The dispatch type here will be as usual “Production Process Order Output”\n• Available site stock will not have hyperlink to allocate the material (In case auto created FPPO & Splitted FPPO.)\n• The user is able to revise the auto-generated FPPO up to the quantity that was originally created.\n• For example – OC is created of 120 PCS and FPPO is auto-created for 100 units. when user update or modify the FPPO, qty will be update originally created quantity of 100 units. they can revise the quantity, but not exceed the initial 100 units.\n• Case 1\n• Company A have OC of 120\n• User trasnffered FPPO for 100 qty in Rudarpur Company(Company B).\n• Then user is able to do modification(Creating order in Rudarpur or outsourcing the order) in Rudarpur company upto 100 Qty.\nNote: - Additional (Adhoc) material can also be dispatched against the above FPPO.\nOnce the materials are dispatched to Outsource vendors in FA RDP. Against that GDN, the Eway bill and E Invoice can be created.\nOnce the GDN is created then that will be moved to GST Doc Integration for Eway bill.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "kind": "section"
+    },
+    {
+      "title": "3.3 Material Dispatch",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch",
+      "text": "Eway Bill: -",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.3 Material Dispatch (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "3.4 Output Material Receipt",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.4 Output Material Receipt",
+      "text": "• Action: Output material to be received against the FPPO between Rudrapur division and outsource vendor.\n• Description: Output materials are received from the outsourced vendor and the consumption details are recorded against the FPPO.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.4 Output Material Receipt",
+      "kind": "section"
+    },
+    {
+      "title": "3.5 Supplier Invoice (At RP for outsource Job Work)",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.5 Supplier Invoice (At RP for outsource Job Work)",
+      "text": "• Action: Creation of Supplier invoice against the Child FPPO (Job Work) for Outsource vendor at FA RP.\n• Description: Once the semi-finished materials are received in RP then the supplier invoice will be created against the Child FPPO created in section 2.2",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.5 Supplier Invoice (At RP for outsource Job Work)",
+      "kind": "section"
+    },
+    {
+      "title": "3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI)",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI)",
+      "text": "• Action:\n• Handling of Additional Process in RDP other than Quilting.\n• The additional Processes Created in RDP will have ref of Parent FPPO Created in GGN division.\n• Description: The GGN division will give the Order of Quilting to RDP Division. But RDP division can do some additional Process also against that Order. So, this will be handled via GRN Receiving New > List > update re-process hyperlink as mentioned in below screen where the Source of the Stock (Parent FPPO / FPPO Created in RDP for quilting Process) is maintained.\n• Once User click on update “Add Process” hyperlink then below mentioned screen will open, where user will Add–Process before/After the Quilting process (Stock should be available at that moment).\nUser will create a FPPO as per above screen & Add extra input items in Article tab as attached in below screen confirm the transaction system will create a FPPO of added process type in FPO List as mentioned in below screen.\nAs soon as user confirm and release the production system will create a GDI along with picklist of output semi-finished material which need to sent to Supplier/Factory as mentioned in below screen.\nUser will create GDN as manually as mentioned in below screen.\nIf FPPO (Alteration) is for outsource supplier then GDN should reflect in E-invoice/Eway bill integration bill where user will generate e-way bill of that GDN/Challan.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI)",
+      "kind": "section"
+    },
+    {
+      "title": "Supplier Invoice (FPPO Alteration)",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI) › Supplier Invoice (FPPO Alteration)",
+      "text": "If FPPO alteration is for outsource supplier then its GRN should reflect in GRN pending invoice and Supplier invoice.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.6 Additional Process in RDP Other Than Quilting (Discussion On Hold till New UI) › Supplier Invoice (FPPO Alteration)",
+      "kind": "section"
+    },
+    {
+      "title": "3.7 Material Transfer",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.7 Material Transfer",
+      "text": "• Action: This output material will be dispatched to Gurgaon via Transfer to Site.\n• Description: The output material is dispatched from Rudrapur to Gurgaon, with Transfer to site transaction by maintaining the parent FPPO.\n• In FPPO list there will be option Transfer output material, User is able to allow transfer output material only for those FPPO for which “Transfer to other factory” field is “ No” and it should be Auto created FPPO or it’s Split FPPO, otherwise it will show a message “Transfer Output Material is applicable for only Auto created or it’s Split FPPO ”.\n• New UI Look for Buttons functionality need to be follow same as.\n• When user click on transfer output material then system will raise automatic transfer to site GDI with picklist QTY. of output material as mentioned in below screen. User is able to create multiple GDI’s as per the Stock availability and GDN will create manually.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.7 Material Transfer",
+      "kind": "section"
+    },
+    {
+      "title": "3.8 Misc. Invoice (Job Work Invoice to FA GGN by FA RDP)",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.8 Misc. Invoice (Job Work Invoice to FA GGN by FA RDP)",
+      "text": "• Action: Job work Invoice will be performed by Misc. Sales Invoice.\n• Description: Once the Materials is dispatched to FA GGN by FA RP. FA RP will create a Misc. Invoice to FA GGN via invoice type FPPO – other Factory then followed by E invoice and E way bill.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.8 Misc. Invoice (Job Work Invoice to FA GGN by FA RDP)",
+      "kind": "section"
+    },
+    {
+      "title": "Misc. Invoice: -",
+      "heading": "Division-wise Transaction Flow › 3. Rudrapur Division › 3.8 Misc. Invoice (Job Work Invoice to FA GGN by FA RDP) › Misc. Invoice: -",
+      "text": "• Note: While doing the misc. sales from Gurgaon to RDP, already tagged price in the FPPO, will be applied in this kind of sales and purchase.",
+      "locator": "§ Division-wise Transaction Flow › 3. Rudrapur Division › 3.8 Misc. Invoice (Job Work Invoice to FA GGN by FA RDP) › Misc. Invoice: -",
+      "kind": "section"
+    },
+    {
+      "title": "4.1 Material Receipt",
+      "heading": "Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "text": "• Action: Output material to be received against this Main-FPPO by receiving against the transfer to site created from Rudrapur (section 2.6).\n• Description: The output material from Rudrapur is received against the Main-FPPO, by receiving against the transfer to site dispatch created in (section 2.6) with consumption details recorded against the Parent-Dispatch-Note and Parent-FPPO, along with the receiving details of the Child-Dispatch-Note from Rudrapur.\n• While doing the receiving in GGN against transfer from site then original FPPO number need to shown which was 0\n• As soon as misc. sales invoice created in rudarpur division system will show data in Pending supplier invoice tab below screen mentioned.\nValidation need to be handle.\n• Change in PD/BOM for consumption increase, in this case Rudrapur have to revise and update their FPPO with latest PD and if that material have to come from Gurgaon then Adhoc material have to transfer manually against Original FPPO(From Gurgaon Division through “Adhoc Transfer against Production Process order” which will create Transfer to site GDI and GDN will create manually and in Rudrapur Division GIN/GRN manually).\n• Transferred FPPO no will not show in Common GDI.\n• Only same divisions wise FPPO should visible in Common GDI FPPO (Program Permission).\n• Cancellation of FPPO will allowed for logged in division FPPO.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "kind": "section"
+    },
+    {
+      "title": "4.1 Material Receipt",
+      "heading": "Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt",
+      "text": "• Put a validation in both Division that for further process where output is different, then user cannot create FPPO GDI until the original FPPO output is received Gurgaon Division. For Example there are four process Cutting, Stitching, Finishing and Packing. Stitching is being done by Rudrapur division as a jobwork then till the output Stitch Pcs are received to Gurgaon Division, user cannot make GDI for Finishing Process. We can discuss this during specs discussion.",
+      "locator": "§ Division-wise Transaction Flow › 4. Gurgaon Division (Continued) › 4.1 Material Receipt (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "5. Report to See additional Processes against the Parent FPPO",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 5. Report to See additional Processes against the Parent FPPO",
+      "text": "• A Report will be given where FA GGN can see the additional Process done at FA RDP against the parent FPPO shared by FA GGN with rate details.",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 5. Report to See additional Processes against the Parent FPPO",
+      "kind": "section"
+    },
+    {
+      "title": "6. User permission need to handle for FPPO Tools",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 6. User permission need to handle for FPPO Tools",
+      "text": "User permission need to provide for all FPPO tools instead of “Log Print”, “Ok”, “Send to smart factory”, “Dispatch Instruction”, “Vendor to vendor transfer”. This need to be implement for “New” & “Revision”.\n• By default for all tools setting will be enable.",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 6. User permission need to handle for FPPO Tools",
+      "kind": "section"
+    },
+    {
+      "title": "Division Level (Where WIP will be shown at division Level) – Table 1",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Columns: Case 1 (text); Column 2 (text); Column 3 (text)\nCase 1 | Column 2 | Column 3\nJob Order Created Material Dispatched to RDP via TRF to Site | Gurugram FPPO | Total Gurugram Site Qty + Total Transfer to site Qty\nChild Job Order Created Material dispatched against this FPPO Output not yet received | Rudrapur Division | Production process order input\nCase 2 |  | \nJob Order Created Material Dispatched to RDP via TRF to Site | Gurugram FPPO | Total Gurugram Site Qty + Total Transfer to site Qty\nChild Job Order Created Material dispatched against this FPPO Output received | Rudrapur Division | Production process order input – Consumption in Rudrapur\nCase 3 |  | \nJob Order Created Material Dispatched to RDP via TRF to Site Output received | Gurugram FPPO | Total Gurugram Site Qty + Total Transfer to site Qty – Consumed Qty\nChild Job Order Created Material dispatched against this FPPO Output received | Rudrapur Division | Production process order input – Consumption in Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Job Order Created Material Dispatched to RDP via TRF to Site; Column 2: Gurugram FPPO; Column 3: Total Gurugram Site Qty + Total Transfer to site Qty",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Child Job Order Created Material dispatched against this FPPO Output not yet received; Column 2: Rudrapur Division; Column 3: Production process order input",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Case 2",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Job Order Created Material Dispatched to RDP via TRF to Site; Column 2: Gurugram FPPO; Column 3: Total Gurugram Site Qty + Total Transfer to site Qty",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Child Job Order Created Material dispatched against this FPPO Output received; Column 2: Rudrapur Division; Column 3: Production process order input – Consumption in Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Case 3",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Job Order Created Material Dispatched to RDP via TRF to Site Output received; Column 2: Gurugram FPPO; Column 3: Total Gurugram Site Qty + Total Transfer to site Qty – Consumed Qty",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level)",
+      "text": "Case 1: Child Job Order Created Material dispatched against this FPPO Output received; Column 2: Rudrapur Division; Column 3: Production process order input – Consumption in Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Division Level (Where WIP will be shown at division Level), table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level) – Table 2",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Columns: Case 1 (text); Column 2 (text); Column 3 (text)\nCase 1 | Column 2 | Column 3\nJob Order Created Material Dispatched to RDP via TRF to Site | Gurgaon Division | Production process order input issued to Outsource vendor from FA Rudrapur\nChild Job Order Created Material dispatched against this FPPO Output not yet received | Rudrapur Division | Production process order input issued to Outsource vendor from FA Rudrapur\nCase 2 |  | \nJob Order Created Material Dispatched to RDP via TRF to Site | Gurugram FPPO | Production process order input issued to Outsource vendor from FA Rudrapur – Consumption in Rudrapur\nChild Job Order Created Material dispatched against this FPPO Output received | Rudrapur Division | Production process order input issued to Outsource vendor from FA Rudrapur – Consumption in Rudrapur\nCase 3 |  | \nJob Order Created Material Dispatched to RDP via TRF to Site (1000) | Gurugram FPPO | 500 will be shown pending to RDP and 500 to Outsource vendor\nChild Job Order Created Material dispatched against this FPPO (500) | Rudrapur Division | 500 will be shown pending to RDP and 500 to Outsource vendor",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Job Order Created Material Dispatched to RDP via TRF to Site; Column 2: Gurgaon Division; Column 3: Production process order input issued to Outsource vendor from FA Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Child Job Order Created Material dispatched against this FPPO Output not yet received; Column 2: Rudrapur Division; Column 3: Production process order input issued to Outsource vendor from FA Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Case 2",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Job Order Created Material Dispatched to RDP via TRF to Site; Column 2: Gurugram FPPO; Column 3: Production process order input issued to Outsource vendor from FA Rudrapur – Consumption in Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Child Job Order Created Material dispatched against this FPPO Output received; Column 2: Rudrapur Division; Column 3: Production process order input issued to Outsource vendor from FA Rudrapur – Consumption in Rudrapur",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Case 3",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Job Order Created Material Dispatched to RDP via TRF to Site (1000); Column 2: Gurugram FPPO; Column 3: 500 will be shown pending to RDP and 500 to Outsource vendor",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level)",
+      "text": "Case 1: Child Job Order Created Material dispatched against this FPPO (500); Column 2: Rudrapur Division; Column 3: 500 will be shown pending to RDP and 500 to Outsource vendor",
+      "locator": "§ Note: - Transfer to Site and Transfer from site should have misc. sales & Purchase and ITC-04 Handling › 7. WIP › … › Company Level (Not to show double WIP and to show WIP actual at Company Level instead of division Level), table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "FPO List Existing & New Screen",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen",
+      "text": "This area presents a comparison between the existing and newly updated screens of the FPO – List screen. The objective of these changes is to enhance user experience and improve functionality. You'll find the current screen layout and new design screen with its new features and improvements.\nTo re-write screen for FPO Existing and New screens are attached below.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen",
+      "kind": "section"
+    },
+    {
+      "title": "New FPO List Screen",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "• Search Parameter\n• FPO No.\n• Article Name\n• Article Code\n• Buyer Style reference\n• OC no.\n• Buyer Order Reference\n• Filter Parameter\n• Filter Fields mentioned below should be comes from floating filter and advance filter.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "kind": "section"
+    },
+    {
+      "title": "New FPO List Screen – Table 3",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "Columns: FPO List Fields (text); Filter Required (boolean); Filter Type (text)\nFPO List Fields | Filter Required | Filter Type\nStatus | Yes | Text based\nFactory | Yes | Text based\nFPO No. | Yes | Text based\nOrder For | Yes | Text based\nArticle Name | Yes | Text based\nProduction/Service | Yes | Text based\nEnd Customer | Yes | Text based\nFactory Production Ordered Quantity | Yes | Quantity Range.\nProduction Order Sync Status | Yes | Text based\nOC Delivery | Yes | Date Range Based\nSeason | Yes | Text based\nCreated By | Yes | Text based\nOC No.(Buyer Order | Yes | Text based\nStyle Name | Yes | Text based\nBuyer Delivery Order Ref. | Yes | Text based\nStart Date | Yes | Date Range Based\nEnd Date | Yes | Date Range Based\nFactory Delivery Date | Yes | Date Range Based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Status; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Factory; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: FPO No.; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Order For; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Article Name; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Production/Service; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: End Customer; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Factory Production Ordered Quantity; Filter Required: Yes; Filter Type: Quantity Range.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Production Order Sync Status; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: OC Delivery; Filter Required: Yes; Filter Type: Date Range Based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Season; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 12",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Created By; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 13",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: OC No.(Buyer Order; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 14",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Style Name; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 15",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Buyer Delivery Order Ref.; Filter Required: Yes; Filter Type: Text based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 16",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Start Date; Filter Required: Yes; Filter Type: Date Range Based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 17",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: End Date; Filter Required: Yes; Filter Type: Date Range Based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 18",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "FPO List Fields: Factory Delivery Date; Filter Required: Yes; Filter Type: Date Range Based",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen, table 3, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "New FPO List Screen",
+      "heading": "FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "text": "• In above screen all data will be shown same as shown in Existing FPO list screen some functionality and action item will perform same as mentioned below.\n• By default, the column should be freeze till article name and also need the provision to change the freeze column.\n• On FPO Column hyper link “Docket View” will be open as it is from the FPO list.\nExample attached as below.\n• Feature & Functionality of Actions Column: -\n• In this column we purposed the status bar as per action items fulfilment graph will update.\n• Release to Factory (Button) – On the click of “RTF” button action will be perform on grid level bar and the color of status will change accordingly which we have mentioned in the ss.\n• Release to Production (Button) - On the click of “RTP” button action will be perform on grid level bar and the color of status will change accordingly which we have mentioned in the ss.\n• Create Job Order (Button) – On the click of “Create JO” button action will be perform on grid level bar and the color of status will change accordingly which we have mentioned in the ss, once user click on “create job order system will opening below mentioned screen.\nIn old screen, we are checking and creating any FPPO through the mentioned ss highlighted area.\nNow same thing we mentioned that how it will be work in new UI.",
+      "locator": "§ FPPO New Screens › … › FPO List Existing & New Screen › … › New FPO List Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Context menu in header level: -",
+      "heading": "FPPO New Screens › … › FPO list screen with all Grid fields: › Context menu in header level: -",
+      "text": "Header level: - It will work like as it is working right now in old UI.\nClose: To close the screen\nCancel FPO: To cancel the FPO.\nExport: To export the data from the grid.\nDelete: To delete the record.",
+      "locator": "§ FPPO New Screens › … › FPO list screen with all Grid fields: › Context menu in header level: -",
+      "kind": "section"
+    },
+    {
+      "title": "Context menu in Grid level: -",
+      "heading": "FPPO New Screens › … › FPO list screen with all Grid fields: › Context menu in Grid level: -",
+      "text": "Line Level: - It will work like as it is working right now in old UI.\nClose: To close the screen.\nLog: To check the log user will select any FPO from the list.\nCancel FPO: To cancel the FPO from the list.\nRe-open FPO: User can reopen the FPO from the list.\nDelete: User can delete the record from the list.",
+      "locator": "§ FPPO New Screens › … › FPO list screen with all Grid fields: › Context menu in Grid level: -",
+      "kind": "section"
+    },
+    {
+      "title": "Job Order Creation Flow",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order Creation Flow",
+      "text": "• After click on create job order system will open the below given pop-up where user can made and review the process wise FPPO.\n• In the old functionality, On the click of Factory Production Process order div “>>” system redirect to the applicable process screen against each process user has provision to create the new FPPO against open qty.\nAs per new UI this pop will be replace with below.\n• In-case user clicks on “Ordered (Qty.)” field then below attached po-up will open.\n• In-case user clicks on “Received (Qty.)” field then below attached po-up will open.\n• For the reallocation we are not opening any pop-up screen. Since we didn’t find any use of this, so we are considering the reallocation from this hyperlink\n• To Create New job order in New screen user will click on “Action” Button then user will open Below mentioned screen in which user will fill the required detail.\n• Currently it is opening below mentioned screen after clicking on new order column hyperlink.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order Creation Flow",
+      "kind": "section"
+    },
+    {
+      "title": "New Screen – Header",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Header",
+      "text": "Functionality will be work same as currently working.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Header",
+      "kind": "section"
+    },
+    {
+      "title": "New – Screen -Article Details",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New – Screen -Article Details",
+      "text": "Note : The open qty will auto reflect in Article tab for output items. Based on output item qty system will calculate input article requirements and show under input item section. The provision has been given to user to change the output qty as per the plan. For making the amendment, user wants to change the qty details then user can do the changes by clicking of configured order qty tool.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New – Screen -Article Details",
+      "kind": "section"
+    },
+    {
+      "title": "Header Tools:",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Header Tools:",
+      "text": "In this header part of Job order we given 4 icons which relates:\n• Save: To save the record.\n• Confirm: To confirm the save data.\n• Release for Production: To change the status of Job order to RTP.\n• Close: To close the tab.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Header Tools:",
+      "kind": "section"
+    },
+    {
+      "title": "New Screen – Additional Charges",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Additional Charges",
+      "text": "Now Here we approch that user can add the tax template that same we are doing the old UI in header section,\nbased on this user can add the charges in grid level accordingly.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Additional Charges",
+      "kind": "section"
+    },
+    {
+      "title": "New Screen – Annexures",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Annexures",
+      "text": "It is same like we are doing in old one for attaching any file over here.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › New Screen – Annexures",
+      "kind": "section"
+    },
+    {
+      "title": "How to do amendment in existing Job Order",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › How to do amendment in existing Job Order",
+      "text": "If user want to edit any FPPO then user has to come over the below attached screen where we have given the option to click on edit button, based in this system will drag it on the FPPO list where user can edit the FPPO as per his requirement.\nOnce user client on the any FPPO then system will open the FPPO will open in view mode. We have given some features over there.\n• All: If user want to show the all status of FPPO then user will prefer to go in All section.\n• Pending Action: If any FPPO is waiting for action like RTF & RFP then user will prefer this section.\n• Waiting: If any FPPO is on waiting state then they will prefer this.\n• Closed & Completed: Closed and completed status FFPO should come here.\n• Cancelled & Rejected: Cancelled and Rejected status will be come this section.\n• In the header of screen, we have given the option to Release for Prod. where user can change the status of any Job order with single and multiple selection.\n• New Job Order: This is an option that user can add the alteration feature from here.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › How to do amendment in existing Job Order",
+      "kind": "section"
+    },
+    {
+      "title": "Job Order View Page Screen",
+      "heading": "FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order View Page Screen",
+      "text": "• This is view mode screen of any FPPO where user can check and verify the details of FPPO and if user wants to do the changes then user will click on the Revise Order.\n• After click on revise order system will open the Job order screen in editable mode.\n• Also given a feature to Expand and collapse all feature where user can expand and collapse in on go for all section.\n• User can also take a print of all section through print tool button. In the print button we need to print the same FPPO print which we using in currently FPPO click. We also need a provision in layout engine mapping where user can add the user print from their by default the system print will open if user bind and print over layout mapping engine then the priority will work on user print.\n• If user want to close this view then there is one option in header i.e. “close order”.\n• Arrow works like a back key.\nNote: We need the floating filter on the Job order list.",
+      "locator": "§ FPPO New Screens › … › For creating a job order flow is mentioned of existing & new screen › … › Job Order View Page Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Create New Job order or Add additional article detail",
+      "heading": "FPPO New Screens › … › Create New Job order or Add additional article detail",
+      "text": "Here we also giving an option to add output & input article. If user wants to add the additional article detail, then we provide the provision where user can user the add output item & add input item details.\nThis option should come when user will come through the FPPO list on the clicking of New Job Order tool.\nIn this we need to filter the data of default site and if user need to see the others site data then they can filter out it from the grid.\nNote : we need an option of filter the all pop-up fields for both section\nIn this we have given the provision to add the additional process detail over here, So here we can add the output & input item here through the button: Add Output” Item & “Add Input Item”\nBy default, the add to input toggle should be enable mode because if user will add any output item in the grid then the same will be reflect on input section as well. If user want to add additionally input item like thread etc.. in the input item, then they can add it from the add input item button.\nNote :-",
+      "locator": "§ FPPO New Screens › … › Create New Job order or Add additional article detail",
+      "kind": "section"
+    },
+    {
+      "title": "Create New Job order or Add additional article detail",
+      "heading": "FPPO New Screens › … › Create New Job order or Add additional article detail",
+      "text": "For Output Item: - When we will add any output against the FPPO for those input & output semi-finished will visible but user can select either input or output semi-finished and system will auto picked that item in the input section as well with 1 is to 1 consumption. As per our discussion with tech, we don’t need the Add to input toggler right now we’ll look this in future scope.\nFor Input Item: - System will check the stock from FPPO input & output site for free stock, System should check the stock from the FPO linked sites and also check the user permission. System should show the stock of OC reserve material, Adhoc indent stock, closed indent and cancel indent stock.",
+      "locator": "§ FPPO New Screens › … › Create New Job order or Add additional article detail (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Job Order List",
+      "heading": "FPPO New Screens › … › Job Order List",
+      "text": "If user comes this list through edit option in FPO the same screen will open with left section.\nIf user open this FPPO list then the all details will come except left side block.\n\nIn this we need to separate the data bases on given tab of header All, Pending Action, Waiting, Closed and completed & Cancelled & rejected. (This explanation we have already mentioned as above)\nFrom the eye icon system should open the overview page which are running in the old function.\nHeader context menu: It will work like as it is working right now in old UI.\n• Close: To close the screen.\n• Cancel FPPO: To can the Job Order\n• Export: To Export the grid data.\n• Delete: To delete the grid data.\nGrid level context menu: - It will work like as it is working right now in old UI.\n• Revise : To revise the Job order\n• Split : User can split any job order to using this\n• Transfer to Other Factory :\n• Transfer Output material :\n• Reopen : To open then state of the Job order\n• Delete : To delete the record from the grid.\n• Create Credit Note : To make the CN against any Job order.\n• Create Debit Note : To make the DN against any Job order.\n• Block/Unblock Invoice: To block and Unblock the invoice based on the status.\n• New UI Look for Buttons functionality need to be followed same as.",
+      "locator": "§ FPPO New Screens › … › Job Order List",
+      "kind": "section"
+    },
+    {
+      "title": "Create Dispatch Instruction",
+      "heading": "FPPO New Screens › … › Job Order List › Create Dispatch Instruction",
+      "text": "• When the User clicks on Dispatch Instruction ( as shown above) the following screen is opened :\nWe divided this instruction UI in two section, first one for the “Article Details” in which the all data come for the attached process details and second with name as “Adhoc indent detail” where system will show the adhoc indent request and also show the all article details for first tab where user can made the additional request for them also.",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction",
+      "kind": "section"
+    },
+    {
+      "title": "Article Detail Tab",
+      "heading": "FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Article Detail Tab",
+      "text": "There are some tools are in header part on Article detail Tab: This is same like in previous old UI and it should be work like as it is working.\n• Confirm\n• Auto Fill by stock\n• Auto Fill by FPO Allocation\n• Auto Fill\n• Clear All\n• The Article Detail tab (as shown above) will have the following column grid:\n• The Adhoc Indent Detail tab (as shown below):\nThere are some tools are in header part on Adhoc Indent detail Tab: This is same like in previous old UI and it should be work like as it is working.\n• Confirm\n• AutoFill\n• Clear All",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Article Detail Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Adhoc Indent Detail Tab",
+      "heading": "FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Adhoc Indent Detail Tab",
+      "text": "# The Adhoc Indent Tab should carry the adhoc indent details as it is done in current screen.\n• For the Adhoc Indent Detail Tab there will be following two Grid Columns:\n• [Setting: - Admin >> Company Setup >> Production Process Order Settings >> Create separate indent if reason are different of additional required qty ]\n• Case 1: Setting is Turned Off\n(the Additional Qty to be Instructed column values are editable as a number text box)\n• Case 2: Setting is Turned On\n(edit option is available in Additional Qty to be Instructed column values)\n• If the user clicks on the additional required units – column value, the following screen will be shown:\nTool in header are :-\n• Save\n• Close\n• The attachment number shows the no. of attachments added by the user.\n• The attachment option once clicked the user will be shown the following screen:\n• For Case 2 Above (Setting is turned ON) , if the user clicks on the “Qty. To Be Instructed”( as shown below) -column value\nThe following pop up will be shown:\n• Only FPO linked stores/sites of same FPPO process factory companies’ site should visible at FPPO “Transfer to other factory” pop-up.\nNote : Please consider this figma link for better understanding on screen columns and screen behavior or impact.",
+      "locator": "§ FPPO New Screens › … › Job Order List › Create Dispatch Instruction › Adhoc Indent Detail Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Figma Link",
+      "heading": "FPPO New Screens › Figma Link",
+      "text": "https://www.figma.com/proto/heoU83q5BCoLlorZFl1meL/ERP-(FPPO)?page-id=0%3A1&node-id=22-153&viewport=-858%2C1664%2C0.36&t=IEEXwrrpM5g0sPRj-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=22%3A153&show-proto-sidebar=1",
+      "locator": "§ FPPO New Screens › Figma Link",
+      "kind": "section"
+    },
+    {
+      "title": "Need to handle the ICR Consumption marking.",
+      "heading": "FPPO New Screens › Need to handle the ICR Consumption marking.",
+      "text": "• Handling of ICR Consumption Marking against job order GRN. System should ask user to specify Input Material consumption during Job order GRN Creation. Same as available for PRPO GRN. Existing Setting Name: Specify material consumption details at the time of GRN creation in Process Order Setting.\n• We also need to handling of Input Consumption Tolerance allowance to user while marking Input Consumption during Job order GRN Creation & Job Order ICR Marking.\nNote: This should applicable for only outsourced Job Order only\nAllow Input Consumption Marking on PRPO\nSetting Path: Admin Company Setup Process Order Settings Specify material consumption details at the time of GRN creation.(working for Job Order as well)",
+      "locator": "§ FPPO New Screens › Need to handle the ICR Consumption marking.",
+      "kind": "section"
+    },
+    {
+      "title": "Add the wastage & loss for semi-finish article",
+      "heading": "FPPO New Screens › Add the wastage & loss for semi-finish article",
+      "text": "• Allow to add the wastage & loss for semi-finish article:- Create FPPO including wastage quantity.\nImpact on below screen and based on this the FPO & Job order will made accordingly.\nExample is given below :-",
+      "locator": "§ FPPO New Screens › Add the wastage & loss for semi-finish article",
+      "kind": "section"
+    }
+  ]
+}

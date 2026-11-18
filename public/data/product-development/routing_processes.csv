@@ -1,0 +1,4 @@
+﻿apparel_code,seq,production_process,process_code,output_item,after_process,process_rate
+NIS-59,1,VCutting,VCutting01-1,Cut PCS,—,300
+NIS-59,2,Sewing,Service/257,Sew PCS,VCutting,10
+NIS-59,3,VPacking,VPacking-5,—,Sewing,15

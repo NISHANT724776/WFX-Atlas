@@ -1,0 +1,1529 @@
+# Glossary: WFX ERP terms
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+TERM ID: TERM-STORAGE-UOM
+TERM: Storage UOM
+DEFINITION: The unit in which the material is kept and counted in stock (warehouse, GRN, issue). Stock balances are held in this unit.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PURCHASE-UOM
+TERM: Purchase UOM
+DEFINITION: The unit in which the material is bought from the supplier (RMPO, price). When it differs from the Consumption UOM a conversion factor turns the purchase price into the Cons UOM Price.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BOM-MATERIALS-SECTION
+TERM: BOM · Materials section
+DEFINITION: Captures the raw materials needed to make one apparel, how much of each (consumption), at what cost, and the price at which the apparel is to be sold.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BOM-VERSION
+TERM: BOM version
+DEFINITION: A BOM is maintained version-wise. Each version carries its own cost sheet with a currency and a date and time, so older versions and their costs stay available.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-STANDARD-BOM
+TERM: Standard BOM
+DEFINITION: The BOM marked as standard, either by selecting the star or by choosing the Standard BOM option while creating it. It is treated as the master BOM and creates the Budget: every other BOM of the apparel is compared against it as the budget.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PRODUCTION-BOM
+TERM: Production BOM
+DEFINITION: The BOM used to produce an order. Its costs are compared with the Standard BOM, which acts as its budget.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CREATING-A-BOM
+TERM: Creating a BOM
+DEFINITION: A BOM can be made by copying from a template or by copying from an item (an existing BOM).
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MASTER-COST-SHEET
+TERM: Master cost sheet
+DEFINITION: A setting that nominates the master cost sheet of the BOM.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SYSTEM-CODING-SETUP
+TERM: System Coding setup
+DEFINITION: Go to Admin › System Coding and search for Article Code or Article Name. Each has its own definition and both vary by category (for example Textiles/Fabric).
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MRP-EXPLOSION
+TERM: MRP explosion
+DEFINITION: Running MRP for Level 1 (the garment) for the full quantity also generates the indents for the child level (the raw materials of the BOM) in the same run: child quantity = Level 1 quantity × BOM Final Consumption. If the parent changes later, re-running MRP carries the change into the child indent.
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MRP-ADJUSTMENT
+TERM: MRP adjustment
+DEFINITION: Every MRP level (parent and child) can take a negative quantity (for example -500). The level where you enter it is the level that changes. To reduce or cancel a child indent, the negative has to be entered at its parent level: that lowers the parent quantity MRP acts on, so once MRP is re-run the child indent is reduced by the same share (any change in the parent followed by a re-run of MRP impacts the child indent), and taking off the whole parent quantity (-500 of 500) cancels it.
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-NEGATIVE-AT-THE-CHILD-LEVEL
+TERM: Negative at the child level
+DEFINITION: A negative quantity entered at a child level changes only that child level. It does not reach the parent and does not cancel the child indent by itself: cancelling a child indent needs the negative at the parent level.
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SALES-ORDER-STRUCTURE
+TERM: Sales Order structure
+DEFINITION: A Sales Order (Main OC) holds Deliveries (Delivery OCs). Each delivery holds one or more Articles, and each article holds a Colour/Size breakup with selling price. The list shows one row per order and article, with the order number repeated.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SALES-ORDER-SECTIONS
+TERM: Sales Order sections
+DEFINITION: The creation screen is one transaction page with Order Information (Sales Order No, Category, Buyer, Buyer Division/Dept, Order Season), Other Details, Delivery and Items, Instructions, Documents and History. The title reads Add Sales Order when new, Edit Sales Order when revising and Sales Order when only viewing.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-QUICK-FILLS-COPY-ORDER
+TERM: Quick Fills (Copy Order)
+DEFINITION: Fills a new order in one of two ways: copy from the Buyer Default Template (the template of the selected buyer, from Buyer Master › Default tab) or copy from an Existing Sales Order (all details including quantities; search by order number or style; the last 10 orders are listed).
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PRICE-PER
+TERM: Price Per
+DEFINITION: Inherited from the Tech Pack, never typed on the order. It decides at which level the selling price is kept: Article (one price), Color (a price per colour, average shown), Size (a price per size, average shown) or Color/Size (a price per combination, average shown).
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-UPCHARGE-DISCOUNT
+TERM: Upcharge / Discount
+DEFINITION: Driven by Price Per. The base selling price comes from the Tech Pack. A positive value is an upcharge, a negative value is a discount, and the final selling price is read-only: Base Selling Price ± Upcharge/Discount. Only when the setting "Enable Base Price and Upcharge in Summary OC" is ON; when OFF the Tech Pack price goes straight into Selling Price.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BOM-SELECTION-ON-THE-ORDER
+TERM: BOM selection on the order
+DEFINITION: When several approved and accepted BOMs exist, the order picks the selling price of the latest accepted BOM. If the user selects a BOM for the article from the dropdown, the price of that BOM is used.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-EXTRA-PRODUCTION-AND-ADDITIONAL-QUANTITY
+TERM: Extra Production % and Additional Quantity
+DEFINITION: Extra Production % entered at the article header adds a percentage on top of the order quantity and is shown in its own grid under the Quantity Breakup on the Proforma Invoice and Print page. Additional Quantity is added in a separate tab with its own quantity, selling price and a reason from a dropdown. Both can be excluded from MRL generation by a setting, and the planned (PD) quantity must still equal the total OC quantity.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ADD-QTY-BREAKUP
+TERM: Add Qty breakup
+DEFINITION: A tool that adds another, independent quantity grid under the same article, with a count of how many were added. It is enabled only for Solid Color / Assorted Size and Multiple Prepack. The packing type of an added grid is frozen, and each added grid can be deleted.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-INSEAM
+TERM: Inseam
+DEFINITION: A size categorisation by inside leg length (Petite, Missy, Regular, Tall, Long, Short) so the same waist size can come in several length variants. Values are kept in the Size Master and chosen per size in the Color/Size popup.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ADD-DELIVERY
+TERM: Add Delivery
+DEFINITION: Adds a new delivery by the Add Delivery button or the + beside Deliveries in the left panel (the + is for additional deliveries). The popup has Delivery Information and Article Information, all blank and editable, and the line shows Pending until confirmed, then Confirmed.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COPY-DELIVERY
+TERM: Copy Delivery
+DEFINITION: Copies a delivery of the same order from the Action column or the left panel. A new blank delivery opens with the style already filled; delivery number, date and lines must be entered again, and everything stays editable.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DELETE-DELIVERY
+TERM: Delete Delivery
+DEFINITION: Removes one or several ticked deliveries after a confirmation that names them (for example Delivery 001, 002 and 003). A delivery article can be deleted until its GMPO or ASN has been created.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SPLIT-DELIVERY
+TERM: Split Delivery
+DEFINITION: Splits a delivery quantity by Percentage (default) or by Quantity from the sidebar of the edit page. Only the delivery information is shown, and Save replaces Confirm while splitting.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CANCEL-DELIVERY
+TERM: Cancel Delivery
+DEFINITION: Tick one or more deliveries, open the context menu, choose Cancel and enter remarks (required). After "Do you want to Cancel the selected Delivery Order(s)?" and OK the status turns Cancelled (red) and the remarks show on hover and in History.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CLOSE-DELIVERY
+TERM: Close Delivery
+DEFINITION: Same steps as cancel with the Close option. The status turns Closed (orange); the delivery stays in the list and the remarks are kept.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-REOPEN-DELIVERY
+TERM: Reopen Delivery
+DEFINITION: Only a closed delivery can be reopened. Choose Reopen, enter remarks and confirm; the status becomes Open (green) and the delivery is editable again. On a delivery that is not closed the system says "Please Uncheck Confirmed Delivery OC."
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DUPLICATE-DELIVERY-CHECK
+TERM: Duplicate delivery check
+DEFINITION: A delivery is refused when Delivery Buyer Order Ref, Buyer Delivery Date, OC Delivery Date and Mode of Shipment are all the same as an existing one. If any one of them differs the delivery is allowed.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CONFIRMED-STATUS
+TERM: Confirmed * status
+DEFINITION: When a confirmed order has been revised and a delivery is kept in draft, the Delete button is disabled on both the list and the edit page.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-HISTORY-AND-ACTIVITY-TIMELINE
+TERM: History and activity timeline
+DEFINITION: Every action is logged with date, time, user and remarks: status updates, approval trail (approver name, status, comments), comments and notes, and delivery actions such as "Delivery Order Closed (1) 12:22:02 PM 26/12/2026 Nishant Test Case". When an order is sent for approval the approver name shows in the timeline.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-REVISION-LOG
+TERM: Revision Log
+DEFINITION: Grid context-menu tool, enabled only when a confirmed order is revised. It opens the latest version in the Modified tab; versions are chosen from a multi-select header dropdown and load on the All, Modified and Inserted/Deleted tabs. Rows appear only when something changed: Version Change, Revision Authorised By, Reason for Revision, Delivery Name, header changes, Total Qty and UOM, Total Value and Currency, and quantity details (article, colour and size, qty, price, value).
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-REASON-FOR-REVISION-AND-REVISION-AUTHORIZED-BY
+TERM: Reason for revision and Revision Authorized By
+DEFINITION: Both are mandatory text fields shown when the user chooses Revise from the grid context menu.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CANCEL-SALES-ORDER
+TERM: Cancel Sales Order
+DEFINITION: Grid context menu › Cancel opens a warning that all Delivery OCs of the Main OC will be cancelled, then a mandatory remarks popup. On OK the order and all its deliveries are cancelled and the status becomes Cancelled. An order that is Saved, Cancelled or Closed cannot be cancelled: "You cannot cancel a Saved, Cancelled, or Closed Order."
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CLOSE-SALES-ORDER
+TERM: Close Sales Order
+DEFINITION: Grid context menu › Close opens a popup with mandatory remarks; on Close Order the status becomes Closed. A Cancelled or Closed order cannot be closed: "You cannot close a Cancelled or Closed Order."
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SPLIT-SHUFFLE-DOC
+TERM: Split / Shuffle DOC
+DEFINITION: Moves quantity of a delivery to a new delivery or to an existing delivery of the same order. Target Sales Order = New: the target lookup is frozen, a Draft delivery is created on Load with all delivery information, articles, colours and sizes, prices and instructions copied, and the Buyer Order Reference is left blank for the user. Existing: pick one eligible target delivery and the quantities and values of both are recalculated.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SPLIT-SHUFFLE-TARGET-ELIGIBILITY
+TERM: Split / Shuffle target eligibility
+DEFINITION: A target delivery must belong to the same Sales Order, buyer and style/OC, be Draft or editable, not Cancelled and not Closed, and the user must be able to modify it. The source delivery can never be its own target.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SPLIT-BY-QUANTITY-OR-PERCENTAGE
+TERM: Split by quantity or percentage
+DEFINITION: By Quantity the entered quantity is spread proportionately over the selected article colour/size lines and taken off the source. By Percentage each line moves Existing Quantity × Percentage ÷ 100, rounded to the UOM precision. Quantity must be above zero and not above the delivery quantity; percentage above 0 and not above 100.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-OC-NOTES
+TERM: OC Notes
+DEFINITION: A delivery can get Notes from the Notes action. The dropdown lists only active notes from Sales › Codes › OC Notes; each Save is its own "OC Note Added" entry in the activity timeline with note, user and time. Update Notes uploads an Excel to set notes on many orders. A deleted note stays in the timeline but cannot be picked again.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PROFORMA-INVOICE-AND-PRINT
+TERM: Proforma Invoice and Print
+DEFINITION: Proforma Invoice opens a page at delivery level. Print opens a page grouped by Delivery, Market or Destination. Both show a Sub Total column in the sales order currency and an Extra Production % grid under the Quantity Breakup.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-RUN-MRP-FROM-THE-ORDER
+TERM: Run MRP from the order
+DEFINITION: Header context menu › Run MRP opens the level-wise material screen: MRL for a cost sheet order, the Pending MRP List for a BOM order.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-EXPORT
+TERM: Export
+DEFINITION: Exports to Excel only what the list currently shows, respecting filters, sorting and page size.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ASN-GDN-INVOICE-AND-DISPATCH-LINKS
+TERM: ASN, GDN, invoice and dispatch links
+DEFINITION: Under the Order Qty column ASN and GDN hyperlinks open a popup with the ASN and GDN quantities of that delivery. The Sales Invoice number opens Sales Invoice Detail (invoice no, date, qty, value). Dispatch opens the Buyer Dispatch Note: destination first, then dates, then articles, then a dispatch allocation grid and Material Re-Allocation with reserve and free stock.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BOM-INFORMATION-AND-MATERIAL-REQUIREMENT-STATUS
+TERM: BOM Information and Material Requirement Status
+DEFINITION: The context menu opens the BOM of the delivery style in view mode, and the Material Status popup of the style in that delivery.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DELIVERY-UPDATE
+TERM: Delivery Update
+DEFINITION: Edits Buyer Delivery Date, OC Delivery Date, Buyer Order Date, PCD Date, PO Packet Date and GAC Date in a grid without an OC revision. After Save the new dates show on the OC and the related screens.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-EX-FACTORY-CALCULATION
+TERM: Ex-factory calculation
+DEFINITION: A master keeps days against shipment mode, order company, buyer and buyer department. When the Buyer Delivery Date is entered the OC Delivery Date fills automatically that many days earlier. OC Delivery Date otherwise always follows the Buyer Delivery Date.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-APPROVAL-VALUE
+TERM: Approval value
+DEFINITION: Set per approver: 0 means the document never goes for approval, -1 means it always does, and a limit above 0 means it goes for approval only when the order value exceeds the limit (a value equal to the limit does not).
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-SINGLE-LEVEL-APPROVAL
+TERM: Single-level approval
+DEFINITION: The creator names one approver. After Confirm a popup sends the order for approval; the approver finds it under Home › Approval Centre › Sales Order › Pending Approval. Approval makes the status Confirmed; the history keeps approver, status, comments, date and time.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MULTI-LEVEL-APPROVAL
+TERM: Multi-level approval
+DEFINITION: Enabled for the document Sales Order in the Multi-Level Approval Settings (beside Purchase Order From Buyer). Creator → first approver (chosen by the creator) → next approver (chosen by the first, ending with a final approver). The order stays pending after each intermediate approval and becomes Confirmed only after the final one.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MULTIPLE-APPROVAL-PARALLEL
+TERM: Multiple approval (parallel)
+DEFINITION: More than one approver can be assigned so a missing approver does not block the order. One of them is the default shown in the dropdown, the others are selectable.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-AUTO-PRICE-PICKUP-FROM-COST-SHEET
+TERM: Auto price pickup from cost sheet
+DEFINITION: On a new OC the selling price comes from the confirmed cost sheet or BOM for the style and destination. Prices are destination-wise in the Cost Sheet Summary.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DESYNC-PRICE
+TERM: Desync price
+DEFINITION: A mismatch between the OC selling price and the cost sheet/BOM price marks the record Desynced (blue). The Desync tool in the Sales Order List (enabled only on a mismatch) syncs it: status Sync (green) and the OC price is overwritten with the cost sheet/BOM price, which is always the source of truth. A hyperlink opens OC Details with destination, delivery date, colour/size, OC price and cost sheet price. Needs the setting "OC Price Validation with selling price in cost sheet" ON.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-UPDATE-OC-WITH-LATEST-COST-SHEET-PRICE
+TERM: Update OC with latest cost sheet price
+DEFINITION: If the cost sheet price is revised and confirmed (for example 10 to 15), this action fetches the latest confirmed price and updates the OC selling price from 10 to 15.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BACK-ORDER
+TERM: Back Order
+DEFINITION: Confirming an order with Fulfilment Type Back Order shows a New PO (GMPO) option on the OC, also reachable from the GMPO Pending List. From the GMPO the user generates the Material Requirement List (MRL), which creates the material indents from the BOM.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CM-ORDER
+TERM: CM order
+DEFINITION: For Order Type CM the OC Factory field is shown as Supplier (a mandatory dropdown from the Supplier Master, filtered by category). Confirming creates a GMPO per delivery for that supplier, listed in the GMPO Pending List, and the style indent appears in the Pending MRP List. The GMPO price is the Purchase Price (entered per colour or per size next to Selling Price), not the Selling Price. MRP fulfils the purchase demand automatically and the demand is locked.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PURCHASE-ORDER-TYPE
+TERM: Purchase order type
+DEFINITION: Confirming a Purchase fulfilment order creates style indents in Indent Management. A manufacturing order can also be bought finished: after MRP Level 1 is the Style Indent and Level 2 the Material Indents, and the Purchase Demand field at Level 1 holds the style quantity to buy directly. On the next MRP run the material indents are reduced, or removed when the whole quantity is purchase demand, and an RMPO is raised on the style indent.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MAKE-TO-STOCK
+TERM: Make to Stock
+DEFINITION: An MTS order (Order Type Make to Stock, Fulfilment Manufacturing) is produced and received into inventory, and no Sales ASN is created. A customer order with Fulfilment Type Purchase Order then takes that stock in Material Allocation (Sales Order Adjustment): the screen lists source MTS order, item, warehouse, available, allocated and balance quantity; allocation cannot exceed the available stock, and the same stock can serve several orders until it reaches zero.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TRANSFER-PRICE-MAPPING
+TERM: Transfer Price mapping
+DEFINITION: Before TP mapping the Order Company maps the Buyer (end customer) in Company Info and the Execution Company maps the Supplier. The mapping sits in FA › Master Definitions › AR Masters › Transfer Price › Default Transfer Price Mapping. Backward TP uses buyer, order and execution company and division, effective date, end customer and Price Applicable On (Default Margin % on FOB, Default Margin % on Material Cost in Internal Costsheet, Default Margin Rate, Default Selling Price). Forward TP uses based-on transaction, auto transactions, companies and divisions, supplier, fulfilment type and dispatch site.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-FORWARD-TRANSFER-PRICE
+TERM: Forward Transfer Price
+DEFINITION: The order starts in the Order Company: Techpack, OC, approved costing and GMPO there; the system then creates Techpack, OC and an open costing in the Execution Company. After local purchase articles, costing approval, manual BOM, MRL, production, FPO and FPPO, Sales ASN and FG dispatch, the system creates the Sourcing ASN, Inter Purchase Invoice and Sales ASN in the Order Company.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BACKWARD-TRANSFER-PRICE
+TERM: Backward Transfer Price
+DEFINITION: The order starts in the Execution Company: the OC takes the Execution Company default selling price and the system creates a GMPO/OC with the .Auto suffix in the Order Company. After procurement, production and Sales ASN (with execution company and ETD/ETA), the system creates the GMPO GRN, Supplier Invoice and OC Sales ASN in the Order Company; the user creates the Consignment Sales Invoice and does clearing and posting, and the system creates the Sales Invoice in the Execution Company.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TNA-ON-THE-ORDER
+TERM: TNA on the order
+DEFINITION: A TNA template is attached per delivery or, in the list, Main OC wise (a count of articles with an info icon) or Style wise. Once confirmed it cannot be edited directly: Update TNA removes the template and reopens selection (only if one was attached), and Delete Track removes it (alert if none). Copy Below copies a template down. If an article is in several deliveries the earliest delivery date is used. Auto TNA attaches templates from TNA › Codes › Auto TNA Attachment Rules, still to be confirmed by the user.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Under Review
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-EDI-BUYER-PO
+TERM: EDI Buyer PO
+DEFINITION: An electronic buyer PO imported and turned into a Buyer Order by configured mapping. Admin › Integration › Package Configuration (company, entity type, transaction type, package type Import/Export, SSIS package, folder path, active) and Package Mapping (WFX field, package field, mapping resolution type Data, System Data, User Input, Review & Create, Review & Map, Review & Resolve, Review & Select, plus dependency, mandatory, visibility, editable and sort order). On Sales › Purchase Order from Buyer › EDI Buyer PO: choose buyer and package, Import, pick the Excel file, Process Package, fix items in Error Resolution, then Create Transaction.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-EDI-BUYER-PO-TABS
+TERM: EDI Buyer PO tabs
+DEFINITION: New (newly created orders), Revision (existing orders updated by EDI), On Hold (held manually, with Unhold) and Processed (confirmed). Delivery Detail opens the delivery level view and then the colour/size view; Confirm finalises the order and Export downloads the processed data.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-FLEX-FIELDS
+TERM: Flex fields
+DEFINITION: Fields created in Sales › Codes › Tracking Fields sync into the Flex Fields of the Other Details section.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BUYER-BLOCK-BOOKING-ON-THE-ORDER
+TERM: Buyer Block Booking on the order
+DEFINITION: Block booking type is Projection or Reservation. The BOM column lists approved BOMs of the article: with a BOM selected the material popup is filled from it and has no Add to Catalog tool; without one Add from Catalog is available. Generate Indent Requirement creates an Adhoc indent. Entering colour/size quantity is mandatory before Link Buyer Block Booking.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BOM-BILL-OF-MATERIALS
+TERM: BOM (Bill of Materials)
+DEFINITION: The list of every material one garment needs – how much of each (consumption with wastage), in which colour and size, at what price – plus the routing (processes) and the cost sheet. MRP and FPO use its Final Consumption to plan and issue material.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COST-SHEET
+TERM: Cost Sheet
+DEFINITION: The Cost tab of the BOM: material cost by section plus production cost gives Total Cost, compared with the selling price for Profit and Markup.
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PROCESS-RATE
+TERM: Process Rate
+DEFINITION: Cost of one routing process per piece = Cost Of × Production Time from the Operations tab.
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CONVERSION-FACTOR
+TERM: Conversion Factor
+DEFINITION: Number of To-UOM units in one From-UOM unit for a material. N-8: 1 KG_Nis = 1,000 meter.
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CONS-UOM
+TERM: Cons UOM
+DEFINITION: Consumption unit of measure – the unit the BOM consumption is expressed in (KG_Nis for N-8).
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PURCHASE-UOM-2
+TERM: Purchase UOM
+DEFINITION: Unit the supplier sells and invoices in. Price is entered per purchase UOM.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-STORAGE-UOM-2
+TERM: Storage UOM
+DEFINITION: Unit stock is kept in after GRN.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TOTAL-CONS-QTY
+TERM: Total Cons Qty
+DEFINITION: Material quantity that covers "Cons per Item" garments. Cons Qty = Total Cons Qty ÷ Cons per Item.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CONS-PER-ITEM
+TERM: Cons per Item
+DEFINITION: Number of garments the Total Cons Qty is measured for.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-LOSS
+TERM: Loss %
+DEFINITION: Process loss such as dyeing or finishing loss. It is the first step of the chain: the system turns it into a Loss Factor = 1 ÷ (1 − Loss %) and multiplies the Cons Qty by it.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-LOSS-FACTOR
+TERM: Loss factor
+DEFINITION: Loss Factor = 1 ÷ (1 − Loss %). With 5 % loss the factor is 1.052632.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CONS-UOM-PRICE
+TERM: Cons UOM Price
+DEFINITION: Purchase price converted to one consumption unit: Purchase Price × Conversion Factor.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CSV
+TERM: CSV
+DEFINITION: Customer Supplied Value – value of material supplied by the buyer, recorded on the BOM line.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ROUTING
+TERM: Routing
+DEFINITION: Ordered list of production processes (VCutting → Sewing → VPacking) with rates and operations.
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MATERIAL-LINKAGE
+TERM: Material Linkage
+DEFINITION: Link between a BOM material and the routing process that consumes it.
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PROFIT
+TERM: Profit %
+DEFINITION: (Selling price after discount − Total cost) ÷ selling price after discount × 100.
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MARKUP
+TERM: Markup %
+DEFINITION: (Selling price before discount − Total cost) ÷ Total cost × 100.
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DISCOUNT
+TERM: Discount %
+DEFINITION: Percentage taken off the selling price before profit is calculated (10 % of 4,000 = 400).
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-TARGET-PROFIT
+TERM: Target Profit %
+DEFINITION: The margin the costing aims for, shown next to Profit (21 % on Adi TShirt (NIS-59)).
+TRANSACTION: BOM – Costing (bom-costing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-COST-OF
+TERM: Cost Of
+DEFINITION: Default cost rate of a sub-operation per unit of production time on the routing Operations tab.
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DEFAULT-CONVERSION-FACTOR
+TERM: Default conversion factor
+DEFINITION: When no material-wise UOM conversion is maintained, WFX uses factor 1 between purchase UOM and cons UOM.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PRODUCTION-TIME
+TERM: Production Time
+DEFINITION: Time an operation takes; Process Rate = Cost Of × Production Time.
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-STOCK-KEY
+TERM: Stock Key
+DEFINITION: Article | Colour | Size identifier used to hold and find stock (e.g. N-8|372|34S).
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MATERIAL-DEPENDENCY
+TERM: Material Dependency
+DEFINITION: RM techpack setting (e.g. ColorSize) deciding at which level stock and demand are tracked.
+TRANSACTION: Raw Material Techpack (rm-techpack)
+MODULE: Style & BOM
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-BBB-BUYER-BLOCK-BOOKING
+TERM: BBB (Buyer Block Booking)
+DEFINITION: Projection booking used to buy long-lead material before the confirmed order.
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+MODULE: Booking & sourcing
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ADHOC-INDENT
+TERM: Adhoc Indent
+DEFINITION: Manually raised purchase request, here against a block booking.
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+MODULE: Booking & sourcing
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MANUFACTURE-INDENT
+TERM: Manufacture Indent
+DEFINITION: MRP Level 1 indent asking production to make the garment.
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PRODUCTION-INDENT
+TERM: Production Indent
+DEFINITION: MRP Level 2 indent asking purchasing to buy material for production.
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-IN-HOUSE-ADJ
+TERM: In-house Adj.
+DEFINITION: Part of an indent covered by stock already in house (e.g. booking stock).
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ON-ORDER-ADJ
+TERM: On Order Adj.
+DEFINITION: Part of an indent covered by an existing open purchase order.
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-OPEN-QTY
+TERM: Open Qty
+DEFINITION: Quantity not yet covered or received. Meaning depends on the document: indent (not ordered), PO (not shipped), FPPO (not received).
+TRANSACTION:
+MODULE:
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MOQ-MCQ-MSQ
+TERM: MOQ / MCQ / MSQ
+DEFINITION: Minimum order / colour / size quantity rules that can round PO quantity up.
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+MODULE: Booking & sourcing
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-RMPO
+TERM: RMPO
+DEFINITION: Raw Material Purchase Order placed on a supplier.
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+MODULE: Booking & sourcing
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-GMPO
+TERM: GMPO
+DEFINITION: Garment Purchase Order – expected for bought-in garments; WFX currently raises an RMPO instead.
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-GRN
+TERM: GRN
+DEFINITION: Goods Receipt Note – receipt of material against a PO at a site.
+TRANSACTION: GRN – Goods Receipt Note (grn)
+MODULE: Booking & sourcing
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-ACCEPTED-QTY
+TERM: Accepted Qty
+DEFINITION: Received − Rejected. Only accepted qty becomes stock.
+TRANSACTION: GRN – Goods Receipt Note (grn)
+MODULE: Booking & sourcing
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-OC-ORDER-CONFIRMATION
+TERM: OC (Order Confirmation)
+DEFINITION: Confirmed buyer order. A main OC has delivery OCs, each with a colour × size breakup.
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+MODULE: Sales Order
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MRP
+TERM: MRP
+DEFINITION: Material Requirement Planning – explodes confirmed demand level by level into production and purchase requirements.
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MRP-2
+TERM: MRP %
+DEFINITION: Planning multiplier on actual requirement (1 = 100 %).
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-DEMAND-TYPE
+TERM: Demand Type
+DEFINITION: Production (make, next BOM level) or Purchase (buy, creates a PO).
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+MODULE: Planning
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-PRODUCTION-ORDER
+TERM: Production Order
+DEFINITION: Level 1 make order for an OC; decides colour quantities released to the factory.
+TRANSACTION: Production Order (production-order)
+MODULE: Production
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-FPO
+TERM: FPO
+DEFINITION: Factory Production Order – quantity released to a specific factory.
+TRANSACTION: FPO & FPPO (fpo)
+MODULE: Production
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-FPPO
+TERM: FPPO
+DEFINITION: Factory Production Process Order – one per routing process per FPO.
+TRANSACTION: FPO & FPPO (fpo)
+MODULE: Production
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-QTY-INSTRUCTED
+TERM: Qty Instructed
+DEFINITION: Stock reserved for an FPO material line.
+TRANSACTION: FPO & FPPO (fpo)
+MODULE: Production
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-SAMPLE-REF
+TERM: Sample Ref. (article code section)
+DEFINITION: Reference of the sample the article is created from
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-BUYER
+TERM: Buyer (article code section)
+DEFINITION: Buyer of the article
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-COMPANY-NAME
+TERM: Company Name (article code section)
+DEFINITION: Name of the company
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-SUPPLIER-ID
+TERM: Supplier ID (article code section)
+DEFINITION: Identifier of the supplier
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-SUPPLIER
+TERM: Supplier (article code section)
+DEFINITION: Supplier name
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-YEAR-OF-CREATION
+TERM: Year of Creation (article code section)
+DEFINITION: Calendar year in which the article is created
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-TEXT
+TERM: Text (article code section)
+DEFINITION: Fixed text typed in the Value column
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-SEPARATOR
+TERM: Separator (article code section)
+DEFINITION: A separator character (for example / or -) typed in the Value column
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-SPACOR
+TERM: Spacor (article code section)
+DEFINITION: Spacer between parts of the code
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-COUNTER
+TERM: Counter (article code section)
+DEFINITION: Running number; Counter Length sets leading zeros and Group Counter restarts it per group
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-CONSTRUCTION
+TERM: Construction (article code section)
+DEFINITION: Fabric construction
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-FABRIC-CONTENT
+TERM: Fabric Content (article code section)
+DEFINITION: Fibre content of the fabric
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-COUNT
+TERM: Count (article code section)
+DEFINITION: Yarn count
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-MATERIAL-TYPE
+TERM: Material Type (article code section)
+DEFINITION: Material type of the article
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-RM-TEXT
+TERM: RM text (article code section)
+DEFINITION: Raw material text
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-PRODUCT-GROUP
+TERM: Product Group (article code section)
+DEFINITION: Product group of the article
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-SUB-CATEGORY
+TERM: Sub-Category (article code section)
+DEFINITION: Sub-category of the article
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-DIVISION-PREFIX
+TERM: Division Prefix (article code section)
+DEFINITION: Prefix of the division
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-CODE-SECTION-FINANCIAL-YEAR
+TERM: Financial Year (article code section)
+DEFINITION: Financial year in which the article is created
+TRANSACTION: Admin › System Coding › Article Code
+MODULE: Setup rules
+CATEGORY: Article code section
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+TERM ID: TERM-MATERIAL-TYPE-TECHPACK
+TERM: Material Type (techpack)
+DEFINITION: A classification created in setup for a category of articles (here Apparel). It is chosen first on the techpack from a dropdown, and the information shown below it depends on it. It is also one section of the article code (TERM-CODE-SECTION-MATERIAL-TYPE).
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-COST-SHEET-TEMPLATE
+TERM: Cost sheet template
+DEFINITION: A template in which the cost categories (fabric, trims, yarn, miscellaneous and so on) are defined. The sections of a BOM are derived from it (RULE-BOM-SECTIONS-FROM-COST-SHEET-TEMPLATE). The master cost sheet of a BOM is nominated by RULE-SETUP-BOM-MASTER-COST.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+OPEN QUESTION: The screen or menu where cost sheet templates are defined was not stated.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-ROUTING-PROCESS
+TERM: Process (routing)
+DEFINITION: A step of production defined in the BOM routing, for example cutting, stitching, sewing or packing. Each process has an input item, an output item, an After Process that sets the order, and a Process Rate. Each routing process later becomes an FPPO (CASE-BOM-ROUTING-1).
+TRANSACTION: BOM – Routing (bom-routing)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-PRICE-PER-ARTICLE
+TERM: Price Per – Article (article wise)
+DEFINITION: Price Per set to Article: the Sales Order / Purchase Order from Buyer forms its delivery-level grid article-wise.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-PRICE-PER-COLOR
+TERM: Price Per – Color (color wise)
+DEFINITION: Price Per set to Color: the delivery-level grid of the Sales Order / Purchase Order from Buyer is formed colour-wise, and upcharges and discounts are handled vertically.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-PRICE-PER-SIZE
+TERM: Price Per – Size (size wise)
+DEFINITION: Price Per set to Size: like Color, but upcharges, discounts and fields are handled horizontally.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-PRICE-PER-COLOR-SIZE
+TERM: Price Per – Color/Size (color/size wise)
+DEFINITION: Price Per set to Color/Size: the delivery-level grid works like Article, but colour-wise.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+OPEN QUESTION: The layout of sizes in this grid is not stated by the owner; confirm.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+TERM ID: TERM-USER-GROUP-AND-PURCHASE-OFFICER
+TERM: User Group and Purchase Officer (on BOM) – why indents are Inactive
+DEFINITION: If the User Group and Purchase Officer are not set (left blank) on the BOM, the indents created from it come in Inactive status by default. The user must mark them Active manually (User Indent list or Indent list) before MRP or any other action can be done on them.
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: Knowledge Hub v1 glossary (src/app/data/glossary.ts), written from the sources of each term's transaction.
+VERSION: 3
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+================================================================================

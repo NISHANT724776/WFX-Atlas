@@ -1,0 +1,245 @@
+# Data models: Style setup
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+# These are screen-level fields captured from WFX screens or specifications, not the WFX database schema.
+# Field lines: label | type (key, entered, calc, link, copied) | formula | rule | source column | note
+
+================================================================================
+MODEL ID: DM-RM-TECHPACK
+MODEL NAME: Raw Material Techpacks
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Catalogs › Fabric / Trims › Techpack
+SUMMARY: Every material the T-shirt needs is created once as its own techpack: one fabric and three trims. The BOM lines point to these article codes.
+HEADER FIELDS:
+  Libraries | entered
+  Colour card / Size range | copied
+GRIDS:
+  [Materials] (4 captured rows)
+  Article Code | key
+  Article Name | entered
+  Techpack Type | entered
+  Material Type | entered
+  Consumption UOM | entered | note: The unit the BOM consumption is expressed in.
+  Price Per | entered | note: Fabric is priced per colour/size, trims per article.
+  Bypass Material Check on Production GRN | entered
+SCREENSHOTS:
+  /screens/rm-fabric-n8.webp
+  /screens/rm-thread-t1.webp
+  /screens/rm-cufflinks-ns1-1.webp
+  /screens/rm-polybag-pp1.webp
+THEORY: rm-techpack
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-APPAREL
+MODEL NAME: Apparel Techpack
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Catalogs › Apparel › Detail
+SUMMARY: The garment itself. It fixes buyer, colour card, size range and purchase UOM – everything below inherits these.
+HEADER FIELDS:
+  Article | key
+  Buyer | entered
+GRIDS:
+  [Detail] (9 captured rows)
+  Field | key
+  Value | entered
+  How it is set | entered
+SCREENSHOTS: /screens/apparel-nis59.webp
+THEORY: apparel-style
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-BOM-MATERIALS
+MODEL NAME: BOM · Materials
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Apparel › BOM › Materials
+SUMMARY: One line per material: how much one T-shirt consumes, with wastage, and what it costs. Value flows to the Cost tab; each line is linked to a process on the Routing tab.
+HEADER FIELDS:
+  Article | copied | from: apparel.value
+  BOM | entered
+  Version | key
+  Status | entered
+  Currency / Date | entered
+  Order Qty Expected / Actual | entered
+GRIDS:
+  [Materials (4)] (4 captured rows)
+  Line | key
+  Article Code | link | from: rm-techpack.code
+  Article Name | copied | from: rm-techpack.name
+  Purchase UOM | entered
+  Cons UOM | copied | from: rm-techpack.consUom
+  Material Colors | entered | note: Colour dependency (Table): each style colour is mapped to a material colour from the Nis_colors colour card. Click a cell to see the mapping.
+  Material Sizes | entered | note: Size dependency: each style size is mapped to a material size from the ERPSIZE size range. Click a cell to see the mapping.
+  Total Cons Qty | entered
+  Cons per Item | entered
+  Cons Qty | calc | formula: Total Cons Qty ÷ Cons per Item | rule: CALC-BOM-CONS-QTY
+  Loss % | entered | note: Applied first: Cons × 1 ÷ (1 − Loss %).
+  Cons incl Loss | calc | formula: Cons Qty × 1 ÷ (1 − Loss %) | rule: CALC-BOM-CONS-LOSS
+  Wastage % | entered
+  Cons incl Wastage | calc | formula: Cons incl Loss + (Cons incl Loss × Wastage %) | rule: CALC-BOM-CONS-WASTAGE
+  Shrinkage % | entered | note: Applied last: Cons incl Wastage ÷ (1 − Shrinkage %).
+  Final Consumption | calc | formula: Cons incl Wastage ÷ (1 − Shrinkage %)  (the total consumption) | rule: CALC-BOM-FINAL-CONS
+  Supplier | entered
+  Purchase Price | entered
+  Conversion | copied | note: Purchase → Cons UOM factor from UOM Conversion; 1 when none is maintained.
+  Cons UOM Price | calc | formula: Purchase Price × Conversion | rule: CALC-BOM-CONS-UOM-PRICE
+  Value | calc | formula: Final Consumption × Cons UOM Price | rule: CALC-BOM-VALUE
+  [Consumption chain – worked example (Cons 2)] (4 captured rows)
+  Case | key
+  Cons Qty | entered
+  Loss % | entered
+  Wastage % | entered
+  Shrinkage % | entered
+  Loss Factor | calc | formula: 1 ÷ (1 − Loss %) | rule: CALC-BOM-LOSS-FACTOR
+  Cons incl Loss | calc | formula: Cons × Loss Factor | rule: CALC-BOM-CONS-LOSS
+  Cons incl Wastage | calc | formula: Cons incl Loss + Cons incl Loss × Wastage % | rule: CALC-BOM-CONS-WASTAGE
+  Total Consumption | calc | formula: Cons incl Wastage ÷ (1 − Shrinkage %) | rule: CALC-BOM-FINAL-CONS
+SCREENSHOTS:
+  /screens/bom-materials-1.webp
+  /screens/bom-materials-2.webp
+  /screens/bom-materials-price.webp
+  /screens/bom-colour-dependency-n8.webp
+  /screens/bom-size-dependency-n8.webp
+THEORY: bom-materials
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-ROUTING-PROCESSES
+MODEL NAME: BOM · Routing · Processes
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Apparel › BOM › Routing › Processes
+SUMMARY: The processes that make the T-shirt, in order. Each Process Rate comes from its operation (Cost Of × Production Time) and is summed into Production Cost.
+HEADER FIELDS:
+  Article | copied | from: apparel.value
+  BOM | entered
+  Routing | entered
+  Used For | entered
+GRIDS:
+  [Processes (3)] (3 captured rows)
+  Seq | key
+  Production Process | key
+  Process Code | entered
+  Output Item | entered
+  After Process | link | from: routing-processes.process
+  Process Rate | calc | formula: Cost Of × Production Time (Operations tab) | rule: CALC-ROUTING-PROCESS-RATE | from: routing-operations.rate
+SCREENSHOTS: /screens/routing-processes.webp
+THEORY: bom-routing
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-ROUTING-OPERATIONS
+MODEL NAME: BOM · Routing · Operations
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Apparel › BOM › Routing › Operations
+SUMMARY: Operation parameters per process: machine, efficiency, Cost Of and time. Cost Of × Production Time becomes the Process Rate.
+HEADER FIELDS:
+  Article | copied | from: apparel.value
+  BOM | entered
+  Target Production Efficiency | entered
+GRIDS:
+  [Operations (3)] (3 captured rows)
+  Production Process | link | from: routing-processes.process
+  Efficiency % | entered | note: Default 0 % – does not change the rate.
+  Cost Of | entered | note: Default cost rate per unit of production time.
+  Operation / Sub Operation | entered
+  Machine Sub Category | entered
+  Loss % | entered
+  Total Time | entered
+  Production Time | entered
+  Cost Of × Time | calc | formula: Cost Of × Production Time – shown as Process Rate | rule: CALC-ROUTING-PROCESS-RATE
+SCREENSHOTS:
+  /screens/routing-operations-1.webp
+  /screens/routing-operations-2.webp
+THEORY: bom-routing
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-MATERIAL-LINKAGE
+MODEL NAME: BOM · Routing · Material Linkage
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Apparel › BOM › Routing › Material Linkage
+SUMMARY: Each BOM line is mapped to the process that consumes it – the fabric is issued to cutting, thread and cufflinks to sewing, the polybag to packing.
+HEADER FIELDS:
+  Article | copied | from: apparel.value
+  BOM | entered
+GRIDS:
+  [Materials (4)] (4 captured rows)
+  Line | link | from: bom-materials.line
+  Article Code | link | from: rm-techpack.code
+  Cons UOM | copied | from: bom-materials.consUom
+  Wastage % | copied | from: bom-materials.wastage
+  Process | link | from: routing-processes.process | note: Selected here – the only entered value on this tab.
+  Cons Qty | copied | from: bom-materials.consQty
+  Cons incl Wastage & Loss | copied | from: bom-materials.finalCons
+SCREENSHOTS:
+  /screens/routing-linkage-1.webp
+  /screens/routing-linkage-2.webp
+THEORY: bom-routing
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+MODEL ID: DM-BOM-COST
+MODEL NAME: BOM · Cost
+MODEL LEVEL: Captured screen fields (confirmed from WFX screens/specifications; not database schema)
+CHAPTER: Style setup – Adi TShirt (NIS-59) · captured from live WFX screens
+SCREEN: Apparel › BOM › Cost
+SUMMARY: Material value by section plus process rates give the Total Cost per piece, which is compared with the selling price after and before discount.
+HEADER FIELDS:
+  Article | copied | from: apparel.value
+  BOM | entered
+  Version | key
+  Status | entered
+  Currency / Date | entered
+  Order Qty Expected / Actual | entered
+GRIDS:
+  [Materials by section] (2 captured rows)
+  Section | key
+  Lines | copied | from: bom-materials.line
+  Total Cost | calc | formula: Σ Value of the section lines | rule: CALC-COST-SECTION | from: bom-materials.value
+  Budget | entered
+  Additional Cost | entered
+  [Production cost (3)] (3 captured rows)
+  Process | link | from: routing-processes.process
+  Basis | entered
+  Currency | entered
+  Value (CS Curr) | copied | from: routing-processes.rate
+  [Cost summary] (8 captured rows)
+  Item | key
+  Value (INR) | calc
+  How WFX gets it | calc
+SCREENSHOTS:
+  /screens/cost-materials.webp
+  /screens/cost-consumption.webp
+  /screens/cost-colours.webp
+  /screens/cost-price.webp
+  /screens/cost-summary.webp
+THEORY: bom-costing
+SOURCE: Knowledge Hub v1 data model (src/app/data/docs.ts). Adi TShirt (NIS-59) · captured from live WFX screens.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

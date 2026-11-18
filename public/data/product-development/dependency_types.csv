@@ -1,0 +1,7 @@
+﻿id,group_name,name,option_value,definition,where_used,example
+colour-base,Colour dependency,Base Colour,Base Colour,The colours of the apparel are used directly for the material: the material is needed in the same colours as the garment.,BOM Materials › Dependency › Colour,"Garment in 372, 3909 and 475 → the material is also used in 372, 3909 and 475."
+colour-table,Colour dependency,Table,Table,"The user maps each apparel colour to a material colour. It tells the system ""buy the fabric in this colour to achieve the apparel in that colour"". The apparel colour master and the fabric (or any raw material) colour master can differ, so this map bridges them.",BOM Materials › Dependency › Colour (popup),"Fabric N-8: apparel colour 372 → fabric colour 372, 3909 → 3909, 475 → 475."
+colour-none,Colour dependency,None,None,The material has no colour. It is the same for every apparel colour (for example a polybag).,BOM Materials › Dependency › Colour,
+size-base,Size dependency,Base Size,Base Size,The apparel sizes are used directly for the material: the material comes in the same sizes as the garment.,BOM Materials › Dependency › Size,
+size-table,Size dependency,Table,Table,"The user maps each apparel size to a material size (or leaves it unused), when the material is not sized like the garment.",BOM Materials › Dependency › Size (popup),"Fabric N-8: 34S → 34S, 38M → 38M, 42L1 → 42L1; the larger sizes are not mapped."
+size-none,Size dependency,None,None,The material has no size. It is the same for every apparel size.,BOM Materials › Dependency › Size,

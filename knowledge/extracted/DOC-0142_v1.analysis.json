@@ -1,0 +1,37 @@
+{
+  "tables": [],
+  "subject": "OC approval",
+  "keyTerms": [],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 9
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "OC approval",
+      "heading": "",
+      "text": "OC approval. Image stored unchanged. Text and diagrams inside images are not read: that needs a vision model, which is not authorised or configured. Add a written description to make it searchable.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

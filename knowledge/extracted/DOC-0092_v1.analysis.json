@@ -1,0 +1,173 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "S. No",
+        "Created / Revised By",
+        "Created On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "S. No"
+      ],
+      "rows": [
+        [
+          "1.0",
+          "Manish Jain",
+          "15 May 2026",
+          "Initial document created"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "411748 - Cost consumption and FG Calculation screen",
+  "keyTerms": [
+    "based",
+    "quantity",
+    "consumption",
+    "requirement",
+    "section",
+    "value",
+    "output",
+    "order",
+    "material",
+    "cost consumption",
+    "consumption calculation",
+    "business requirement",
+    "target audience",
+    "past month",
+    "based output"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 3
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 2
+    },
+    {
+      "module": "Style & BOM",
+      "score": 2
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "There is a Business Requirement for the new screen for the “Cost Consumption and FG Calculation” with the name of “FG VALUATION” under the “Inventory Financials”.",
+      "locator": "§ SECTION – 1: OVERVIEW › BUSINESS REQUIREMENT:",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "Consumed Quantity and Value should auto come based on the Output Received: FG * (BOM/PD Consumption)",
+      "locator": "§ SECTION – 3: SOLUTION › FUNCTIONAL REQUIREMENT",
+      "module": null
+    },
+    {
+      "kind": "dependency",
+      "text": "Based on the BOM tagged material (CWT Cost), Cogs will be reversed in Kiara Internal books.",
+      "locator": "§ SECTION – 3: SOLUTION › FUNCTIONAL REQUIREMENT",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: S. No, Created / Revised By, Created On, Changes (1 rows; identifiers: S. No)",
+      "locator": "§ REVISION HISTORY, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "411748 - Cost consumption and FG Calculation screen",
+      "heading": "",
+      "text": "Software Requirement\nSpecification\nCOST CONSUMPTION AND FG CALCULATION SCREEN\nDocument # <411748>\nVersion 1.0 ● 15 May 2026",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "SECTION – 1: OVERVIEW 3\nBUSINESS REQUIREMENT: 3\nTYPE: NEW MODULE / FUNCTIONALITY ENHANCEMENT: 3\nROLE / TARGET AUDIENCE: 3\nREQUIRED ACTION POINTS: 3\nDESIGN / IMPLEMENTATION CONSTRAINTS: 3\nSECTION – 2: ASSUMPTIONS 3\nSECTION – 3: SOLUTION 3\nFUNCTIONAL REQUIREMENT 3\nREVISION HISTORY 5",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "BUSINESS REQUIREMENT:",
+      "heading": "SECTION – 1: OVERVIEW › BUSINESS REQUIREMENT:",
+      "text": "There is a Business Requirement for the new screen for the “Cost Consumption and FG Calculation” with the name of “FG VALUATION” under the “Inventory Financials”. Where the past month allocation can be changed based on the FG Output i.e. all process quantity will be replaced with FG quantity and overhead can be regen form this screen for the pas months against the “Order No that are not closed”",
+      "locator": "§ SECTION – 1: OVERVIEW › BUSINESS REQUIREMENT:",
+      "kind": "section"
+    },
+    {
+      "title": "TYPE: NEW MODULE / FUNCTIONALITY ENHANCEMENT:",
+      "heading": "SECTION – 1: OVERVIEW › TYPE: NEW MODULE / FUNCTIONALITY ENHANCEMENT:",
+      "text": "This will be a new functionality",
+      "locator": "§ SECTION – 1: OVERVIEW › TYPE: NEW MODULE / FUNCTIONALITY ENHANCEMENT:",
+      "kind": "section"
+    },
+    {
+      "title": "ROLE / TARGET AUDIENCE:",
+      "heading": "SECTION – 1: OVERVIEW › ROLE / TARGET AUDIENCE:",
+      "text": "The Target Audience will be Finance Team.",
+      "locator": "§ SECTION – 1: OVERVIEW › ROLE / TARGET AUDIENCE:",
+      "kind": "section"
+    },
+    {
+      "title": "DESIGN / IMPLEMENTATION CONSTRAINTS:",
+      "heading": "SECTION – 1: OVERVIEW › DESIGN / IMPLEMENTATION CONSTRAINTS:",
+      "text": "A new menu will be there under Inventory Financials in F/A Module",
+      "locator": "§ SECTION – 1: OVERVIEW › DESIGN / IMPLEMENTATION CONSTRAINTS:",
+      "kind": "section"
+    },
+    {
+      "title": "FUNCTIONAL REQUIREMENT",
+      "heading": "SECTION – 3: SOLUTION › FUNCTIONAL REQUIREMENT",
+      "text": "All the process quantity will be coming from the operations and it will be allocated based on the production output until we receive the FG output (on FG marked WH), Once FG is received then Past Month allocation will be changed based on the FG output, all the process quantity will be replaced with FG quantity and with the help of single button they can regen the overhead allocation for past months. Upon revision, past month FG and COGS will be changed before order closure, these all the activity will be happening before order closure, if Order is closed then system will not change any posting for the closed orders.\nF/A >> Inventory Financial >> Finished Goods Valuation\n** Consumed Quantity Calculation:\nConsumed Quantity and Value should auto come based on the Output Received: FG * (BOM/PD Consumption)\nAlso, there will be Confirm Button for the Material Allocation.\nUpon Confirmation of this screen or GRN creation screen, FG will be valued based on the consumed Value and qty. Then external WH will not have any Qty and Value on closure. (GRN value will be updated based on this consumption)\nBased on the Material Consumption and Value, Internal Posting will also be created. Based on the BOM tagged material (CWT Cost), Cogs will be reversed in Kiara Internal books.",
+      "locator": "§ SECTION – 3: SOLUTION › FUNCTIONAL REQUIREMENT",
+      "kind": "section"
+    },
+    {
+      "title": "FUNCTIONAL REQUIREMENT",
+      "heading": "SECTION – 3: SOLUTION › FUNCTIONAL REQUIREMENT",
+      "text": "Production Input Return: It will only be allowed on the internal WH’s, It will be recorded without Values (From Cutting/Sewing/Packing). In Case, Team wants to utilize the material from these internal WHS it will be allocated with zero Value to the new orders.\nIf Kiara already put the material quantity from External WH to Interal WH and vice versa, then Kiara want to change this transaction, Team need to revalue this stock manually through Stock Revaluation transaction and COGS will be reduced through voucher entries by tagging Customer Order/Style from existing Orders manually.",
+      "locator": "§ SECTION – 3: SOLUTION › FUNCTIONAL REQUIREMENT (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "REVISION HISTORY – Table 1",
+      "heading": "REVISION HISTORY",
+      "text": "Columns: S. No (decimal); Created / Revised By (text); Created On (date); Changes (text)\nS. No | Created / Revised By | Created On | Changes\n1.0 | Manish Jain | 15 May 2026 | Initial document created",
+      "locator": "§ REVISION HISTORY, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "REVISION HISTORY",
+      "text": "S. No: 1.0; Created / Revised By: Manish Jain; Created On: 15 May 2026; Changes: Initial document created",
+      "locator": "§ REVISION HISTORY, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

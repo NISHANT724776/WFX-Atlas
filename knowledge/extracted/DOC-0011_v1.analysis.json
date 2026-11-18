@@ -1,0 +1,413 @@
+{
+  "tables": [],
+  "subject": "Kit pack Costing - NEW BOM addon Final",
+  "keyTerms": [
+    "bom",
+    "kit",
+    "kitpack",
+    "article",
+    "tab",
+    "dropdown",
+    "user",
+    "items",
+    "type",
+    "line",
+    "line items",
+    "manufacturing bom",
+    "style",
+    "fields",
+    "bom dropdown"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 49
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Style Type is displayed based on a system setting.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit/Pack Management:\n1. Style Type is displayed based on a system setting.\n2. It contains two dropdown options:\n3. Single\n4. Kit",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Style Type will be applicable only when the user is working with the Old BOM.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Style Type will be applicable only when the user is working with the Old BOM.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This field will appear only when the user is working with New BOM.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "This field will appear only when the user is working with New BOM.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit/Pack Management:\n1. A new field “Component Type” will be introduced for New BOM.\n2. It will be displayed based on the same configuration setting logic used for Style Type.\n3. This field will appear only when the user is working with New BOM.\n4. Dropdown options:\n5. Single\n6. Multi",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If Single is selected, a “Pack” tab will be enabled on the header.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If Multi is selected, a “Kit” tab will be enabled on the header.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit/Pack Tab:\n1. Kit ID\n2. Kit Name\n3. Ratio Type\n4. Line Items\n5. Total Cost\n6. Status\n7. Active (Green)\n8. Draft (Orange)\n9. Created Date\n10. Last Modified Date\n11. Actions (Context Menu)",
+      "locator": "§ Solution › Kit/Pack Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Details Screen Includes:\n1. Kit Information\n2. Kit Id\n3. Kit Name\n4. Ratio Type\n5. Kit SKU\n6. BOM Line Items\n7. Displays all associated BOM components\n8. Cost Summary\n9. Total Cost\n10. Selling Price\n11. Discount\n12. Profit\n13. Markup",
+      "locator": "§ Solution › Kit Details › Details Screen Includes",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Edit::\n1. Can be performed in two ways:\n2. From the context menu\n3. From inside the Kit Details screen using the Edit button\n4. Allows modification of an existing Draft or Active Kit/Pack",
+      "locator": "§ Solution › Actions › Edit:",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Duplicate:\n1. Triggered from: Context Menu → Duplicate\n2. System shows a confirmation prompt:\n3. “Duplicate BOM: 1”\n4. A Kit line will get added and user can edit the fields.",
+      "locator": "§ Solution › Actions › Duplicate",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Export:\n1. Triggered from: Context Menu → Export: to export the grid details.\n2. System shows a confirmation prompt:\n3. “Export BOM: 1”",
+      "locator": "§ Solution › Actions › Export",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The user must fill the following fields:",
+      "locator": "§ Solution › Configure Kit/Pack › Create Kit/Pack Screen",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Create Kit/Pack Screen:\n1. Packing Kit ID (Editable)\n2. Packing Kit Name (Editable)\n3. Ratio Type (Dropdown)\n4. Color Ratio\n5. Size Ratio\n6. Mixed Ratio\n7. Packing Kit SKU (Editable)\n8. Packing Kit Description (Editable)",
+      "locator": "§ Solution › Configure Kit/Pack › Create Kit/Pack Screen",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Defines how many articles are included in a kit (e.g., 2 T-shirts in one kit)",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Kit Items (Articles) Tab:\n1. Add:\n2. User clicks on “Add Item” (shown in images)\n3. User can add multiple articles Inside kit(if existing will come directly in dropdown if not then we can create new Article) same for BOM.\n4. Each article contains:\n5. Article selection\n6. Color (Multi-select)\n7. Size (Multi-select)\n8. Auto-generated SKU\n9. Quantity\n10. Manufacturing BOM selection\n11. View BOM – Hyperlink Functionality:",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add New Article Functionality (Within Article Dropdown)::\n1. Product Group – Dropdown (Single Select)\n2. Sub-category – Dropdown (Single Select)\n3. Article Name – Editable Field\n4. Buyer Style Reference – Editable Field\n5. Article Code – Editable Field\n6. Color – Dropdown (Multi-select)\n7. Size – Dropdown (Multi-select)",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New Article Functionality (Within Article Dropdown):",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Horizontal scrolling is supported for viewing all fields",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New Article Functionality (Within Article Dropdown):",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the BOM is saved or confirmed, it will be available in the Manufacturing BOM dropdown.",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add New BOM Functionality (Within Manufacturing BOM Dropdown)::\n1. When the user clicks on “New BOM” from the Manufacturing BOM dropdown, the system will open the Article BOM screen.\n2. The user can create and configure a new BOM for the selected article and save it either in:\n3. Saved mode, or\n4. Confirmed mode\n5. Once the BOM is saved or confirmed, it will be available in the Manufacturing BOM dropdown.",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add New BOM Functionality (Within Manufacturing BOM Dropdown)::\n1. If the user selects a Confirmed BOM from the dropdown and confirms:\n2. The BOM will be directly attached to the article.\n3. If the user selects a Saved BOM from the dropdown and confirms the Kit/Pack page:\n4. The selected BOM will be automatically approved (converted to Confirmed)\n5. The BOM will then be attached to the article for further transactions.",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Add New BOM Functionality (Within Manufacturing BOM Dropdown)::\n1. Saved BOM → Gets auto-confirmed on selection + confirmation action\n2. Confirmed BOM → Gets directly attached\n3. Only Saved/Confirmed BOMs appear in the dropdown",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Packaging Materials Tab:\n1. Item Code\n2. Item Name\n3. Description\n4. Quantity\n5. UOM\n6. Cost per Unit\n7. Total Cost\n8. Actions (Delete only)",
+      "locator": "§ Solution › Configure Kit/Pack › Packaging Materials Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Packaging Materials Tab:\n1. All fields are editable\n2. Multiple packaging materials can be added\n3. These will be included as separate line items in the final BOM",
+      "locator": "§ Solution › Configure Kit/Pack › Packaging Materials Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Other Costs Tab:\n1. Charges\n2. Basis (e.g., Per Kit)\n3. Currency\n4. Rate\n5. Value\n6. Value (CS Currency)\n7. Value (Company Currency)\n8. Actions (Delete only)",
+      "locator": "§ Solution › Configure Kit/Pack › Other Costs Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "These costs are included in the final BOM calculation",
+      "locator": "§ Solution › Configure Kit/Pack › Other Costs Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Other Costs Tab:\n1. Represents costs like:\n2. Freight\n3. Courier\n4. Handling\n5. These costs are included in the final BOM calculation",
+      "locator": "§ Solution › Configure Kit/Pack › Other Costs Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Routing Processes Tab:\n1. Define processes such as:\n2. Packing\n3. Cutting\n4. Sewing\n5. Fields:\n6. Process Name\n7. Process Type\n8. Description",
+      "locator": "§ Solution › Configure Kit/Pack › Routing Processes Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Routing Processes Tab:\n1. Line #\n2. Item Type (Kit Item / Material / Packaging Material)\n3. Item Code/Article\n4. Description\n5. Quantity\n6. UOM\n7. Process (Dropdown)",
+      "locator": "§ Solution › Configure Kit/Pack › Routing Processes Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Kit ID\n2. Kit Name\n3. Ratio Type\n4. Kit SKU",
+      "locator": "§ Solution › Configure Kit/Pack › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Kit Items\n2. Packaging Materials\n3. Other Costs",
+      "locator": "§ Solution › Configure Kit/Pack › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Line #\n2. Item Type\n3. Item Code/Article\n4. Description\n5. Quantity\n6. UOM\n7. Unit Cost\n8. Total Cost",
+      "locator": "§ Solution › Configure Kit/Pack › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. The summary view will populate the following details for the selected style(s):\n2. Style Description\n3. Quantity\n4. UOM\n5. Selling Price – Unit Price\n6. Total Cost\n7. On clicking/expanding the style line item:\n8. The system will display the materials used to construct that style (i.e., underlying BOM components such as fabric, trims, etc.).\n9. If Kit is configured:\n10. Multiple styles will be displayed under the Kit Items tab in the summary.\n11. Each style will support the same expand/collapse functionality, showing its respective material breakdown.",
+      "locator": "§ Solution › Configure Kit/Pack › Summary Tab",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Summary Tab:\n1. Total Cost\n2. Selling Price\n3. Discount\n4. Profit\n5. Markup\n6. SMV – This comes on the basis of configuration and setting.\n7. EPM – This comes on the basis of configuration and setting.",
+      "locator": "§ Solution › Configure Kit/Pack › Summary Tab",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Kit/Pack Costing › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2\nKit/Pack Management 2\nKit/Pack Tab 2\nKit Details 2\nDetails Screen Includes 2\nActions 2\n1. Edit: 2\n2. View 2\n3. Duplicate 2\n4. Export 2\n5. Delete 2\nConfigure Kit/Pack 2\nCreate Kit/Pack Screen 2\nHeader-Level Actions (Create Kit/Pack Screen) 2\n1. Kit Items (Articles) Tab 2\n2. Packaging Materials Tab 2\n3. Other Costs Tab 2\n4. Routing Processes Tab 2\n5. Summary Tab 2",
+      "locator": "§ Kit/Pack Costing › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Kit/Pack Management",
+      "heading": "Solution › Kit/Pack Management",
+      "text": "Current Behaviour\n• Style Type is displayed based on a system setting.\n• It contains two dropdown options:\n• Single\n• Kit\nProposed Requirement / Enhancement\n1. Style Type (Old BOM)\n• Style Type will be applicable only when the user is working with the Old BOM.\n• It will function exactly as per the existing behaviour (no change).\n2. Component Type (New BOM)\n• A new field “Component Type” will be introduced for New BOM.\n• It will be displayed based on the same configuration setting logic used for Style Type.\n• This field will appear only when the user is working with New BOM.\n• Dropdown options:\n• Single\n• Multi\nThe Component Type field will be available as a dropdown with the following options:\n• Single\n• Multi\nBased on the user’s selection:\n• If Single is selected, a “Pack” tab will be enabled on the header.\n• If Multi is selected, a “Kit” tab will be enabled on the header.",
+      "locator": "§ Solution › Kit/Pack Management",
+      "kind": "section"
+    },
+    {
+      "title": "Kit/Pack Tab",
+      "heading": "Solution › Kit/Pack Tab",
+      "text": "Once the user navigates to the Kit/Pack tab:\n• The system displays a list of already created Kit/Packs.\n• A “Configure Kit/Pack” button will be available at the header level of the grid\nDisplayed Data in Grid/List\nEach Kit/Pack record will include the following fields:\n• Kit ID\n• Kit Name\n• Ratio Type\n• Line Items\n• Total Cost\n• Status\n• Active (Green)\n• Draft (Orange)\n• Created Date\n• Last Modified Date\n• Actions (Context Menu)",
+      "locator": "§ Solution › Kit/Pack Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Kit Details",
+      "heading": "Solution › Kit Details",
+      "text": "Users can open the Kit/Pack Details screen in two ways:\n• By clicking on Kit ID\n• By selecting View from the context menu",
+      "locator": "§ Solution › Kit Details",
+      "kind": "section"
+    },
+    {
+      "title": "Details Screen Includes",
+      "heading": "Solution › Kit Details › Details Screen Includes",
+      "text": "• Kit Information\n• Kit Id\n• Kit Name\n• Ratio Type\n• Kit SKU\n• BOM Line Items\n• Displays all associated BOM components\n• Cost Summary\n• Total Cost\n• Selling Price\n• Discount\n• Profit\n• Markup",
+      "locator": "§ Solution › Kit Details › Details Screen Includes",
+      "kind": "section"
+    },
+    {
+      "title": "Actions",
+      "heading": "Solution › Actions",
+      "text": "Each Kit/Pack record provides the following actions via the context menu:",
+      "locator": "§ Solution › Actions",
+      "kind": "section"
+    },
+    {
+      "title": "Edit:",
+      "heading": "Solution › Actions › Edit:",
+      "text": "• Can be performed in two ways:\n• From the context menu\n• From inside the Kit Details screen using the Edit button\n• Allows modification of an existing Draft or Active Kit/Pack",
+      "locator": "§ Solution › Actions › Edit:",
+      "kind": "section"
+    },
+    {
+      "title": "View",
+      "heading": "Solution › Actions › View",
+      "text": "• Opens the Kit/Pack Details screen",
+      "locator": "§ Solution › Actions › View",
+      "kind": "section"
+    },
+    {
+      "title": "Duplicate",
+      "heading": "Solution › Actions › Duplicate",
+      "text": "• Triggered from: Context Menu → Duplicate\n• System shows a confirmation prompt:\n• “Duplicate BOM: 1”\n• A Kit line will get added and user can edit the fields.",
+      "locator": "§ Solution › Actions › Duplicate",
+      "kind": "section"
+    },
+    {
+      "title": "Export",
+      "heading": "Solution › Actions › Export",
+      "text": "• Triggered from: Context Menu → Export: to export the grid details.\n• System shows a confirmation prompt:\n• “Export BOM: 1”",
+      "locator": "§ Solution › Actions › Export",
+      "kind": "section"
+    },
+    {
+      "title": "Delete",
+      "heading": "Solution › Actions › Delete",
+      "text": "• Triggered from: Context Menu → Delete\n• Deletes the selected Kit/Pack record",
+      "locator": "§ Solution › Actions › Delete",
+      "kind": "section"
+    },
+    {
+      "title": "Configure Kit/Pack",
+      "heading": "Solution › Configure Kit/Pack",
+      "text": "User had already made Two or more articles for e.g.: Shirt and Trouser with their respective BOM(Manufacturing BOM) , Now when we create a New techpack Name Shirt-Trouser KIT in BOM we are going to select those articles(pant and trouser), Now when we configure a techpack all the articles present in the BOM of kit will be shown in the dropdown & and if user want to create a new techpack he can do that with drop down under article and to create New BOM that can also be done from Manufacturing BOM dropdown.\nClicking on “Configure Kit/Pack” opens the Create Kit/Pack screen.\n• When the user selects “Single” in the Component Type on the Techpack, the style details will be automatically picked up and populated under the Pack Items (Article) tab.\n• When the user selects “Multi”, the designated two or more styles intended to be part of the kit will be automatically picked up and populated under the Kit Items (Article) tab.",
+      "locator": "§ Solution › Configure Kit/Pack",
+      "kind": "section"
+    },
+    {
+      "title": "Create Kit/Pack Screen",
+      "heading": "Solution › Configure Kit/Pack › Create Kit/Pack Screen",
+      "text": "Kit Details Section:\nThe user must fill the following fields:\n• Packing Kit ID (Editable)\n• Packing Kit Name (Editable)\n• Ratio Type (Dropdown)\n• Color Ratio\n• Size Ratio\n• Mixed Ratio\n• Packing Kit SKU (Editable)\n• Packing Kit Description (Editable)\nUnder the Kit Details section, an additional grid is available consisting of multiple tabs and configurations related to Kit Items.",
+      "locator": "§ Solution › Configure Kit/Pack › Create Kit/Pack Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Header-Level Actions (Create Kit/Pack Screen)",
+      "heading": "Solution › Configure Kit/Pack › Header-Level Actions (Create Kit/Pack Screen)",
+      "text": "Available at the top of the screen\n1. Copy From (Secondary Button)\n• Allows copying data from an existing KIT/PACK.\n• Open a pop-up from right side (25% of the screen size as standard)\n2. Confirm (Primary Button)\n• Confirm the Kit/Pack.",
+      "locator": "§ Solution › Configure Kit/Pack › Header-Level Actions (Create Kit/Pack Screen)",
+      "kind": "section"
+    },
+    {
+      "title": "Kit Items (Articles) Tab",
+      "heading": "Solution › Configure Kit/Pack › Kit Items (Articles) Tab",
+      "text": "This tab defines the articles/items included in a Kit/Pack BOM.\nFunctionality\n• Displays Kit Articles & Variations\n• Defines how many articles are included in a kit (e.g., 2 T-shirts in one kit)\nActions\n• Add:\n• User clicks on “Add Item” (shown in images)\n• User can add multiple articles Inside kit(if existing will come directly in dropdown if not then we can create new Article) same for BOM.\n• Each article contains:\n• Article selection\n• Color (Multi-select)\n• Size (Multi-select)\n• Auto-generated SKU\n• Quantity\n• Manufacturing BOM selection\n• View BOM – Hyperlink Functionality:\nA “View & Edit” hyperlink will be provided adjacent to the Manufacturing BOM field.\n• On clicking the “View” hyperlink, the system will open the BOM details screen in view mode and user can also edit it when permissions enabled.\n• The user will be able to review all BOM line items and related details in a read-only format.",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Add New Article Functionality (Within Article Dropdown):",
+      "heading": "Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New Article Functionality (Within Article Dropdown):",
+      "text": "Within the Article column dropdown, an option “Add New Article” will be available.\n• On clicking “Add New Article,” a right-side panel will be opened.\nThe panel will contain the following fields:\n• Product Group – Dropdown (Single Select)\n• Sub-category – Dropdown (Single Select)\n• Article Name – Editable Field\n• Buyer Style Reference – Editable Field\n• Article Code – Editable Field\n• Color – Dropdown (Multi-select)\n• Size – Dropdown (Multi-select)\nAt the bottom of the panel, the following actions will be available:\n• Cancel\n• Save Article\nOn clicking “Save Article”:\n• The article will be saved in the system.\n• The newly created article will be available in the Article dropdown list for selection\nBehaviour\n• Multiple selections of color/size automatically generate combinations (child rows)\n• Horizontal scrolling is supported for viewing all fields",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New Article Functionality (Within Article Dropdown):",
+      "kind": "section"
+    },
+    {
+      "title": "Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "heading": "Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "text": "Manufacturing BOM Selection & Attachment Logic\n• When the user clicks on “New BOM” from the Manufacturing BOM dropdown, the system will open the Article BOM screen.\n• The user can create and configure a new BOM for the selected article and save it either in:\n• Saved mode, or\n• Confirmed mode\n• Once the BOM is saved or confirmed, it will be available in the Manufacturing BOM dropdown.\nSelection & Confirmation Behavior\n• If the user selects a Confirmed BOM from the dropdown and confirms:\n• The BOM will be directly attached to the article.\n• If the user selects a Saved BOM from the dropdown and confirms the Kit/Pack page:\n• The selected BOM will be automatically approved (converted to Confirmed)\n• The BOM will then be attached to the article for further transactions.\nKey Behaviour Summary\n• Saved BOM → Gets auto-confirmed on selection + confirmation action\n• Confirmed BOM → Gets directly attached\n• Only Saved/Confirmed BOMs appear in the dropdown",
+      "locator": "§ Solution › Configure Kit/Pack › Kit Items (Articles) Tab › Add New BOM Functionality (Within Manufacturing BOM Dropdown):",
+      "kind": "section"
+    },
+    {
+      "title": "Packaging Materials Tab",
+      "heading": "Solution › Configure Kit/Pack › Packaging Materials Tab",
+      "text": "This tab captures materials required for packing the kit (shown in images).\nFields\n• Item Code\n• Item Name\n• Description\n• Quantity\n• UOM\n• Cost per Unit\n• Total Cost\n• Actions (Delete only)\nKey Points\n• All fields are editable\n• Multiple packaging materials can be added\n• These will be included as separate line items in the final BOM",
+      "locator": "§ Solution › Configure Kit/Pack › Packaging Materials Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Other Costs Tab",
+      "heading": "Solution › Configure Kit/Pack › Other Costs Tab",
+      "text": "This tab captures additional costs associated with the kit.\nFields\n• Charges\n• Basis (e.g., Per Kit)\n• Currency\n• Rate\n• Value\n• Value (CS Currency)\n• Value (Company Currency)\n• Actions (Delete only)\nKey Points\n• Represents costs like:\n• Freight\n• Courier\n• Handling\n• These costs are included in the final BOM calculation",
+      "locator": "§ Solution › Configure Kit/Pack › Other Costs Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Routing Processes Tab",
+      "heading": "Solution › Configure Kit/Pack › Routing Processes Tab",
+      "text": "This tab defines process flow and mapping (shown in images).\nSub Sections\na. Process\n• Define processes such as:\n• Packing\n• Cutting\n• Sewing\n• Fields:\n• Process Name\n• Process Type\n• Description\nb. Material Linking\n• Links BOM line items to defined processes\nFields\n• Line #\n• Item Type (Kit Item / Material / Packaging Material)\n• Item Code/Article\n• Description\n• Quantity\n• UOM\n• Process (Dropdown)\nBehavior\n• Default process assignment is Packing\n• User can modify process using dropdown",
+      "locator": "§ Solution › Configure Kit/Pack › Routing Processes Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Summary Tab",
+      "heading": "Solution › Configure Kit/Pack › Summary Tab",
+      "text": "This tab provides a complete overview of the Kit/Pack (shown in images).\na. Kit Information\n• Kit ID\n• Kit Name\n• Ratio Type\n• Kit SKU\nb. BOM Line Items\nDisplays combined data from:\n• Kit Items\n• Packaging Materials\n• Other Costs\nFields\n• Line #\n• Item Type\n• Item Code/Article\n• Description\n• Quantity\n• UOM\n• Unit Cost\n• Total Cost\nBOM Line Items – Summary & Expansion Behaviour:\nIn the BOM Line Items (Summary Section):\n• The summary view will populate the following details for the selected style(s):\n• Style Description\n• Quantity\n• UOM\n• Selling Price – Unit Price\n• Total Cost\n• On clicking/expanding the style line item:\n• The system will display the materials used to construct that style (i.e., underlying BOM components such as fabric, trims, etc.).\n• If Kit is configured:\n• Multiple styles will be displayed under the Kit Items tab in the summary.\n• Each style will support the same expand/collapse functionality, showing its respective material breakdown.\nc. Cost Summary\nProvides financial breakdown:\n• Total Cost\n• Selling Price\n• Discount\n• Profit\n• Markup\n• SMV – This comes on the basis of configuration and setting.\n• EPM – This comes on the basis of configuration and setting.",
+      "locator": "§ Solution › Configure Kit/Pack › Summary Tab",
+      "kind": "section"
+    }
+  ]
+}

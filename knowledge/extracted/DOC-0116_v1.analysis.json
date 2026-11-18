@@ -1,0 +1,207 @@
+{
+  "tables": [
+    {
+      "name": "Sheet1",
+      "headers": [
+        "Consumption",
+        "2",
+        "Column 3",
+        "Cons. Including Loss",
+        "2.1052631578947367"
+      ],
+      "types": [
+        "text",
+        "decimal",
+        "empty",
+        "text",
+        "decimal"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Loss %",
+          "0.05",
+          "",
+          "Cons. Including Wastage",
+          "2.2105263157894735"
+        ],
+        [
+          "Wastage %",
+          "0.05",
+          "",
+          "Cons. Including Shrinkage",
+          "2.3268698060941828"
+        ],
+        [
+          "Shrinkage %",
+          "0.05",
+          "",
+          "Total Cons.",
+          "2.3268698060941828"
+        ],
+        [
+          "Loss Factor",
+          "1.0526315789473684",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Consumption",
+          "3",
+          "",
+          "Cons. Including Loss",
+          "3.1578947368421053"
+        ],
+        [
+          "Loss %",
+          "5",
+          "",
+          "Cons. Including Wastage",
+          "3.3157894736842106"
+        ],
+        [
+          "Wastage %",
+          "5",
+          "",
+          "Cons. Including Shrinkage",
+          "3.4903047091412747"
+        ],
+        [
+          "Shrinkage %",
+          "5",
+          "",
+          "Total Cons.",
+          "3.4903047091412747"
+        ],
+        [
+          "Loss Factor",
+          "1.0526315789473684",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Cons. Formulas 2",
+  "keyTerms": [
+    "cons",
+    "cons including",
+    "including",
+    "loss",
+    "pct",
+    "pct cons",
+    "wastage",
+    "shrinkage",
+    "including loss",
+    "loss loss",
+    "loss pct",
+    "including wastage",
+    "wastage wastage",
+    "wastage pct",
+    "including shrinkage"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Sheet1: Consumption, 2, Column 3, Cons. Including Loss, 2.1052631578947367 (9 rows)",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: Sheet1 – Sheet1",
+      "heading": "Sheet: Sheet1",
+      "text": "Columns: Consumption (text); 2 (decimal); Column 3 (empty); Cons. Including Loss (text); 2.1052631578947367 (decimal)\nConsumption | 2 | Column 3 | Cons. Including Loss | 2.1052631578947367\nLoss % | 0.05 |  | Cons. Including Wastage | 2.2105263157894735\nWastage % | 0.05 |  | Cons. Including Shrinkage | 2.3268698060941828\nShrinkage % | 0.05 |  | Total Cons. | 2.3268698060941828\nLoss Factor | 1.0526315789473684 |  |  | \nConsumption | 3 |  | Cons. Including Loss | 3.1578947368421053\nLoss % | 5 |  | Cons. Including Wastage | 3.3157894736842106\nWastage % | 5 |  | Cons. Including Shrinkage | 3.4903047091412747\nShrinkage % | 5 |  | Total Cons. | 3.4903047091412747\nLoss Factor | 1.0526315789473684 |  |  | ",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Sheet1 row 1",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Loss %; 2: 0.05; Cons. Including Loss: Cons. Including Wastage; 2.1052631578947367: 2.2105263157894735",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 2",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Wastage %; 2: 0.05; Cons. Including Loss: Cons. Including Shrinkage; 2.1052631578947367: 2.3268698060941828",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 3",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Shrinkage %; 2: 0.05; Cons. Including Loss: Total Cons.; 2.1052631578947367: 2.3268698060941828",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 4",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Loss Factor; 2: 1.0526315789473684",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 5",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Consumption; 2: 3; Cons. Including Loss: Cons. Including Loss; 2.1052631578947367: 3.1578947368421053",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 6",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Loss %; 2: 5; Cons. Including Loss: Cons. Including Wastage; 2.1052631578947367: 3.3157894736842106",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 7",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Wastage %; 2: 5; Cons. Including Loss: Cons. Including Shrinkage; 2.1052631578947367: 3.4903047091412747",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 8",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Shrinkage %; 2: 5; Cons. Including Loss: Total Cons.; 2.1052631578947367: 3.4903047091412747",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sheet1 row 9",
+      "heading": "Sheet: Sheet1",
+      "text": "Consumption: Loss Factor; 2: 1.0526315789473684",
+      "locator": "sheet \"Sheet1\", § Sheet: Sheet1, table 1, row 9",
+      "kind": "data_row"
+    }
+  ]
+}

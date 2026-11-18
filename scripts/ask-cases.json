@@ -1,0 +1,593 @@
+[
+  {
+    "q": "how to create RMPO for multle Indent together",
+    "title": "one rmpo for multiple indents"
+  },
+  {
+    "q": "I have 5 fabric indents for the same supplier, can I raise just one purchase order for all of them?",
+    "title": "one rmpo for multiple indents"
+  },
+  {
+    "q": "combine indents into single PO",
+    "title": "one rmpo for multiple indents"
+  },
+  {
+    "q": "merge several indents in one rmpo",
+    "title": "one rmpo for multiple indents"
+  },
+  {
+    "q": "my supplier has not approved the PO yet, status shows unconfirmed",
+    "title": "unconfirmed"
+  },
+  {
+    "q": "How can i make a PO directly from indent screen",
+    "title": "create a po from an indent"
+  },
+  {
+    "q": "indent is showing green what does it mean",
+    "title": "shown in green"
+  },
+  {
+    "q": "how do i know if stock is there before buying",
+    "title": "stock is available"
+  },
+  {
+    "q": "how do I use stock I already have for an indent",
+    "title": "stock i already have"
+  },
+  {
+    "q": "exact colour not in stock but similar is there what to do",
+    "title": "exact stock is not available"
+  },
+  {
+    "q": "how to see how much was received against my PO",
+    "title": "po and grn against an indent"
+  },
+  {
+    "q": "what does pending to dispatch mean",
+    "title": "indent fulfillment status"
+  },
+  {
+    "q": "how do i download the indent list in excel",
+    "title": "export the indent list"
+  },
+  {
+    "q": "what reports can I see in sourcing",
+    "title": "sourcing reports"
+  },
+  {
+    "q": "I am getting UOM conversion not defined error while making PO",
+    "title": "uom conversion is not defined"
+  },
+  {
+    "q": "what is the daily checklist for sourcing",
+    "title": "daily sourcing checklist"
+  },
+  {
+    "q": "how do i create adhoc indent for sample",
+    "title": "adhoc indent"
+  },
+  {
+    "q": "how will supplier see my PO in portal",
+    "title": "supplier portal"
+  },
+  {
+    "q": "what is block booking from supplier side",
+    "title": "supplier block booking"
+  },
+  {
+    "q": "where can i see list of garment PO",
+    "title": "options are under my purchase order"
+  },
+  {
+    "q": "how to scan roll to split it",
+    "title": "smart scan"
+  },
+  {
+    "q": "i received fabric rolls how to do qc",
+    "title": "quality check"
+  },
+  {
+    "q": "fabric got rejected what next",
+    "title": "rejected"
+  },
+  {
+    "q": "supplier refuses to replace rejected fabric what do we do in system",
+    "title": "return rejected goods"
+  },
+  {
+    "q": "how to send rejected goods back to supplier",
+    "title": "return rejected goods"
+  },
+  {
+    "q": "how does production ask for material from store",
+    "title": "material issued to production"
+  },
+  {
+    "q": "what settings are needed before using the mobile app for warehouse",
+    "title": "configured before using wms"
+  },
+  {
+    "q": "how to login to quickdocs app",
+    "title": "log in to the wfx mobile application"
+  },
+  {
+    "q": "move roll to another rack using phone",
+    "title": "location of stock"
+  },
+  {
+    "q": "which receipt types can i do on the app",
+    "title": "grn types"
+  },
+  {
+    "q": "how to make GRN against ASN using mobile",
+    "title": "make a grn from the mobile"
+  },
+  {
+    "q": "how to set up time and action calendar",
+    "title": "set up tna"
+  },
+  {
+    "q": "where can the user close a task in TNA",
+    "title": "tna task be closed"
+  },
+  {
+    "q": "how to make tna template for 30 days",
+    "title": "create a tna template"
+  },
+  {
+    "q": "tasks are not coming in my task list",
+    "title": "right person"
+  },
+  {
+    "q": "can we use tna for production order also",
+    "title": "other than sales orders"
+  },
+  {
+    "q": "what is dashboard in TNA",
+    "title": "tna dashboard"
+  },
+  {
+    "q": "what happens to leftover stock when we close OC",
+    "title": "stock when an oc is closed"
+  },
+  {
+    "q": "difference between issued return and issued return plus write off",
+    "title": "wip rules"
+  },
+  {
+    "q": "OC in company A production in company B closure how it works",
+    "title": "cm company rule"
+  },
+  {
+    "q": "which sites appear in write off site dropdown",
+    "title": "write-off site"
+  },
+  {
+    "q": "what are copy and create variant options in sample order",
+    "title": "copy options"
+  },
+  {
+    "q": "customer sends back sample how to receive",
+    "title": "buyer sends back"
+  },
+  {
+    "q": "how to bill courier charges for samples",
+    "title": "invoice for courier"
+  },
+  {
+    "q": "what is returnable sample",
+    "title": "returnable and non-returnable"
+  },
+  {
+    "q": "how do I add dyeing process to fabric BOM",
+    "title": "such as dyeing"
+  },
+  {
+    "q": "what is pick up percentage dyeing",
+    "title": "pickup"
+  },
+  {
+    "q": "how to create recipe for dyeing",
+    "title": "recipe management set up"
+  },
+  {
+    "q": "ai techpack pdf upload size limit",
+    "title": "pdf limits"
+  },
+  {
+    "q": "what operations need to be configured for new bom production",
+    "title": "set up before running production"
+  },
+  {
+    "q": "difference between batch and continuous recipe",
+    "title": "batch and continuous"
+  },
+  {
+    "q": "how to give BOM views to users",
+    "title": "bom views"
+  },
+  {
+    "q": "how to create RMPO for multiple indents and then track GRN",
+    "all": [
+      "one rmpo for multiple indents",
+      "po and grn"
+    ]
+  },
+  {
+    "q": "what is BOM",
+    "title": "bom (bill of materials)"
+  },
+  {
+    "q": "how is total cons calculated",
+    "title": "total consumption"
+  },
+  {
+    "q": "what is split shuffle",
+    "title": "split / shuffle"
+  },
+  {
+    "q": "how does MRP adjustment work",
+    "title": "mrp adjustment"
+  },
+  {
+    "q": "make a workflow from techpack to production order",
+    "kind": "workflow"
+  },
+  {
+    "q": "what is the weather today",
+    "kind": "none"
+  },
+  {
+    "q": "who won the cricket match",
+    "kind": "none"
+  },
+  {
+    "q": "How is Cons incl Wastage calculated?",
+    "title": "cons incl wastage"
+  },
+  {
+    "q": "Where does Final Consumption come from?",
+    "title": "final consumption"
+  },
+  {
+    "q": "What is the value of N-8?",
+    "title": "value"
+  },
+  {
+    "q": "What is Standard BOM?",
+    "title": "standard bom"
+  },
+  {
+    "q": "What is Purchase UOM?",
+    "title": "purchase uom"
+  },
+  {
+    "q": "Why is my indent inactive?",
+    "title": "user group"
+  },
+  {
+    "q": "How is Markup calculated?",
+    "title": "markup"
+  },
+  {
+    "q": "colour dependency types",
+    "title": "colour dependency"
+  },
+  {
+    "q": "What is Table colour dependency?",
+    "title": "table"
+  },
+  {
+    "q": "what is desync price",
+    "title": "desync"
+  },
+  {
+    "q": "how is process rate calculated",
+    "title": "process rate"
+  },
+  {
+    "q": "What is the Sales Order structure?",
+    "title": "sales order structure"
+  },
+  {
+    "q": "what is a loss factor",
+    "title": "loss factor"
+  },
+  {
+    "q": "show the data model of MRP",
+    "title": "open: mrp"
+  },
+  {
+    "q": "I bought 10 rolls of fabric, QC found 2 rolls damaged, supplier says he will send new ones, what do I do in WFX",
+    "title": "rejected"
+  },
+  {
+    "q": "indent problem",
+    "title": "goes wrong in sourcing"
+  },
+  {
+    "q": "what is roll in WFX",
+    "title": "roll functionality"
+  },
+  {
+    "q": "why do we track rolls",
+    "title": "roll functionality"
+  },
+  {
+    "q": "explain roll wise stock",
+    "title": "roll functionality"
+  },
+  {
+    "q": "rolls kaise work karta hai wfx roll functionality",
+    "title": "roll functionality"
+  },
+  {
+    "q": "how does roll management work",
+    "title": "roll functionality"
+  },
+  {
+    "q": "what is production time",
+    "title": "production time"
+  },
+  {
+    "q": "how roll functionality works in wfx and why we are using it ?",
+    "any": [
+      "roll functionality"
+    ]
+  },
+  {
+    "q": "what is the difference between indent and RMPO",
+    "any": [
+      "none",
+      " vs "
+    ]
+  },
+  {
+    "q": "why do we need MRP if we already have BOM",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how does block booking work and when should I use it",
+    "any": [
+      "block booking"
+    ]
+  },
+  {
+    "q": "what happens if I change the BOM after MRP is run",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "can I create a PO without indent",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how is shrinkage applied in consumption",
+    "any": [
+      "shrinkage",
+      "total consumption"
+    ]
+  },
+  {
+    "q": "what is the use of supplier portal",
+    "any": [
+      "supplier portal"
+    ]
+  },
+  {
+    "q": "how to close an OC",
+    "any": [
+      "oc clos",
+      "oc is closed",
+      "none"
+    ]
+  },
+  {
+    "q": "how to handle excess quantity received from supplier",
+    "any": [
+      "quality check",
+      "none"
+    ]
+  },
+  {
+    "q": "what is GRN",
+    "any": [
+      "grn"
+    ]
+  },
+  {
+    "q": "how do I issue fabric to cutting",
+    "any": [
+      "material issued to production",
+      "none"
+    ]
+  },
+  {
+    "q": "explain the complete flow from sales order to production",
+    "any": [
+      "workflow"
+    ]
+  },
+  {
+    "q": "what is the difference between sample order and bulk order",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "why is my indent quantity zero",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "what is lead time in garment sourcing",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how does WFX calculate fabric requirement for a style",
+    "any": [
+      "none",
+      "consumption",
+      "mrp"
+    ]
+  },
+  {
+    "q": "what is a techpack",
+    "any": [
+      "techpack"
+    ]
+  },
+  {
+    "q": "what is the difference between style and article",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how to cancel a purchase order",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how do I approve a sales order",
+    "any": [
+      "approval",
+      "none"
+    ]
+  },
+  {
+    "q": "what is size wise consumption",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how does colour dependency affect indent",
+    "any": [
+      "colour dependency",
+      "none"
+    ]
+  },
+  {
+    "q": "what is an ASN and why do suppliers send it",
+    "any": [
+      "none",
+      "asn"
+    ]
+  },
+  {
+    "q": "how to do stock write off",
+    "any": [
+      "write",
+      "oc closure",
+      "none"
+    ]
+  },
+  {
+    "q": "what is the purpose of QC inspection percentage",
+    "any": [
+      "quality check"
+    ]
+  },
+  {
+    "q": "how does TNA get attached to an order automatically",
+    "any": [
+      "auto tna"
+    ]
+  },
+  {
+    "q": "what is a debit note",
+    "any": [
+      "rejected",
+      "debit"
+    ]
+  },
+  {
+    "q": "how to transfer stock between sites",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "what is shade and lot in fabric",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how is price calculated in sales order",
+    "any": [
+      "none",
+      "bom selection",
+      "selling price",
+      "pricing"
+    ]
+  },
+  {
+    "q": "what is FOB price",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "can one RMPO have multiple suppliers",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "how to split a PO delivery",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "what reports are available for inventory",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "what is the difference between GDI and GDN",
+    "any": [
+      "none",
+      " vs "
+    ]
+  },
+  {
+    "q": "how to reserve stock for an order",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "what is a recipe in dyeing",
+    "any": [
+      "recipe",
+      "dyeing",
+      "none"
+    ]
+  },
+  {
+    "q": "how do I know which material is short for production",
+    "any": [
+      "none"
+    ]
+  },
+  {
+    "q": "what does MRP adjustment mean",
+    "any": [
+      "mrp adjustment"
+    ]
+  }
+]

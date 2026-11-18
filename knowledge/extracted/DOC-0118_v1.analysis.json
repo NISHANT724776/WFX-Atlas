@@ -1,0 +1,231 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Area",
+        "Change Required",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Area"
+      ],
+      "rows": [
+        [
+          "Screen",
+          "Add new Stock Transfer Type",
+          "Introduce a transaction type for SKU-Level Stock Transfer (No Validation)."
+        ],
+        [
+          "Validation Logic",
+          "Modify",
+          "Remove dependency on Product Group, Requirement, and Storage UOM. Add check for Free Stock."
+        ],
+        [
+          "Database",
+          "New Mapping Table",
+          "Store From Article → To Article transfer mapping with SKU details."
+        ],
+        [
+          "Report",
+          "Add / Enhance",
+          "Include new transaction type in Stock Movement Report."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "CRS Stock Transfer Specification",
+  "keyTerms": [
+    "stock",
+    "article",
+    "sku",
+    "product group",
+    "transfer",
+    "transaction",
+    "stock transfer",
+    "product",
+    "articles",
+    "group",
+    "article sku",
+    "validation",
+    "sku level",
+    "requirement",
+    "between articles"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Subject: Stock Transfer Between Articles at SKU Level (Without Product Group Validation)",
+      "locator": "§ Customer Requirement Specification (CRS)",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "In the current WFX ERP design:\n- Article creation is based on the Product Group.\n- Stock movement or adjustment between articles is allowed only if both articles belong to the same Product Group and share the same Storage UOM.\n- This functionality is known as Equivalent Adjustment.\n- Transfers between articles from different Product Groups are restricted.\n- Such adjustments are only allowed when there is an active requirement (indent/order) against the article.",
+      "locator": "§ Customer Requirement Specification (CRS) › Background / Current System Behavior",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The client has requested the ability to transfer complete stock between articles at SKU level, without validation on Product Group or other parameters.",
+      "locator": "§ Customer Requirement Specification (CRS) › Client Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Step 3: Stock Movement Validation",
+      "locator": "§ Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Before processing the transaction, the system will perform the following validations:\n\n• Available Stock Check – Ensure sufficient stock is available for the selected SKU.\n• Free Stock Validation – Stock must be free, i.e., not reserved, allocated, or linked to any indent, FPO, or FPPO.\n• No Product Group Validation – The system should not check or restrict based on Product Group.\n• No Requirement Dependency – Transaction should not require a linked order or indent.",
+      "locator": "§ Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Each transfer must generate a unique transaction number for traceability.",
+      "locator": "§ Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The transaction should capture:\n- Transaction Date\n- From Article / SKU\n- To Article / SKU\n- Quantity & UOM\n- Price\n- Transaction Type: Inter-Article Stock Transfer (No Validation)\n- Performed By (User ID)\n- Remarks (if applicable)",
+      "locator": "§ Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Area, Change Required, Description (4 rows; identifiers: Area)",
+      "locator": "§ Customer Requirement Specification (CRS) › Expected System Changes, table 1",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "- Functionality to be controlled via User Role/Permission, restricting access to authorized users only.\n- The system must ensure complete traceability of all stock transfers.\n- The stock reversal/cancellation process should follow standard stock adjustment reversal flow.\n- Only Free Stock should be eligible for transfer (no reservations or allocations).\n- The functionality must support SKU-wise selection and transfer for accuracy.",
+      "locator": "§ Customer Requirement Specification (CRS) › Additional Notes",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Customer Requirement Specification (CRS)",
+      "heading": "Customer Requirement Specification (CRS)",
+      "text": "Subject: Stock Transfer Between Articles at SKU Level (Without Product Group Validation)\nISSUE ID: 379413",
+      "locator": "§ Customer Requirement Specification (CRS)",
+      "kind": "section"
+    },
+    {
+      "title": "Background / Current System Behavior",
+      "heading": "Customer Requirement Specification (CRS) › Background / Current System Behavior",
+      "text": "In the current WFX ERP design:\n- Article creation is based on the Product Group.\n- Stock movement or adjustment between articles is allowed only if both articles belong to the same Product Group and share the same Storage UOM.\n- This functionality is known as Equivalent Adjustment.\n- Transfers between articles from different Product Groups are restricted.\n- Such adjustments are only allowed when there is an active requirement (indent/order) against the article.",
+      "locator": "§ Customer Requirement Specification (CRS) › Background / Current System Behavior",
+      "kind": "section"
+    },
+    {
+      "title": "Client Business Requirement",
+      "heading": "Customer Requirement Specification (CRS) › Client Business Requirement",
+      "text": "The client has requested the ability to transfer complete stock between articles at SKU level, without validation on Product Group or other parameters.\n\nThey want to perform inter-article stock transfers purely based on SKU selection, even if:\n- Articles belong to different Product Groups, or\n- No requirement exists against the article.\n\nThis feature will support flexible stock reclassification and correction of physical stock, especially in scenarios where similar items are defined under different articles.",
+      "locator": "§ Customer Requirement Specification (CRS) › Client Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Transaction Flow (Expected Process)",
+      "heading": "Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "text": "Step 1: Initiate Stock Transfer\n- User opens the Stock Transfer / Adjustment screen.\n- Select the “To Article” (article that will receive the stock).\n- Enter the Quantity to be transferred.\n- The Storage UOM auto-populates (non-editable).\n- Enter or confirm the Price (manual entry allowed).\nStep 2: Select Source Article\n- Select the “From Article” (article from which stock will be reduced).\n- The system displays available SKUs for that article with stock details.\n- User selects the specific SKU(s) from which stock should be reduced.\nStep 3: Stock Movement Validation\nBefore processing the transaction, the system will perform the following validations:\n\n• Available Stock Check – Ensure sufficient stock is available for the selected SKU.\n• Free Stock Validation – Stock must be free, i.e., not reserved, allocated, or linked to any indent, FPO, or FPPO.\n• No Product Group Validation – The system should not check or restrict based on Product Group.\n• No Requirement Dependency – Transaction should not require a linked order or indent.\n\nUpon confirmation, the system should:\n- Reduce stock from the selected “From Article / SKU.”\n- Increase stock for the selected “To Article / SKU.”\nStep 4: Transaction Recording\nEach transfer must generate a unique transaction number for traceability. The transaction should capture:\n- Transaction Date\n- From Article / SKU\n- To Article / SKU",
+      "locator": "§ Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed Transaction Flow (Expected Process)",
+      "heading": "Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process)",
+      "text": "- Quantity & UOM\n- Price\n- Transaction Type: Inter-Article Stock Transfer (No Validation)\n- Performed By (User ID)\n- Remarks (if applicable)",
+      "locator": "§ Customer Requirement Specification (CRS) › Proposed Transaction Flow (Expected Process) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Reporting Requirements",
+      "heading": "Customer Requirement Specification (CRS) › Reporting Requirements",
+      "text": "Enhance or create a Stock Transfer Report to track all SKU-level transfers. The report should include:\n- Transaction No. & Date\n- From Article / SKU\n- To Article / SKU\n- Quantity & UOM\n- Price\n- Product Group (both articles)\n- User ID\n- Remarks\n- Transaction Type",
+      "locator": "§ Customer Requirement Specification (CRS) › Reporting Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Expected System Changes – Table 1",
+      "heading": "Customer Requirement Specification (CRS) › Expected System Changes",
+      "text": "Columns: Area (text); Change Required (text); Description (text)\nArea | Change Required | Description\nScreen | Add new Stock Transfer Type | Introduce a transaction type for SKU-Level Stock Transfer (No Validation).\nValidation Logic | Modify | Remove dependency on Product Group, Requirement, and Storage UOM. Add check for Free Stock.\nDatabase | New Mapping Table | Store From Article → To Article transfer mapping with SKU details.\nReport | Add / Enhance | Include new transaction type in Stock Movement Report.",
+      "locator": "§ Customer Requirement Specification (CRS) › Expected System Changes, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Customer Requirement Specification (CRS) › Expected System Changes",
+      "text": "Area: Screen; Change Required: Add new Stock Transfer Type; Description: Introduce a transaction type for SKU-Level Stock Transfer (No Validation).",
+      "locator": "§ Customer Requirement Specification (CRS) › Expected System Changes, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Customer Requirement Specification (CRS) › Expected System Changes",
+      "text": "Area: Validation Logic; Change Required: Modify; Description: Remove dependency on Product Group, Requirement, and Storage UOM. Add check for Free Stock.",
+      "locator": "§ Customer Requirement Specification (CRS) › Expected System Changes, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Customer Requirement Specification (CRS) › Expected System Changes",
+      "text": "Area: Database; Change Required: New Mapping Table; Description: Store From Article → To Article transfer mapping with SKU details.",
+      "locator": "§ Customer Requirement Specification (CRS) › Expected System Changes, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Customer Requirement Specification (CRS) › Expected System Changes",
+      "text": "Area: Report; Change Required: Add / Enhance; Description: Include new transaction type in Stock Movement Report.",
+      "locator": "§ Customer Requirement Specification (CRS) › Expected System Changes, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Additional Notes",
+      "heading": "Customer Requirement Specification (CRS) › Additional Notes",
+      "text": "- Functionality to be controlled via User Role/Permission, restricting access to authorized users only.\n- The system must ensure complete traceability of all stock transfers.\n- The stock reversal/cancellation process should follow standard stock adjustment reversal flow.\n- Only Free Stock should be eligible for transfer (no reservations or allocations).\n- The functionality must support SKU-wise selection and transfer for accuracy.",
+      "locator": "§ Customer Requirement Specification (CRS) › Additional Notes",
+      "kind": "section"
+    },
+    {
+      "title": "7. Expected Outcome",
+      "heading": "Customer Requirement Specification (CRS) › 7. Expected Outcome",
+      "text": "After implementation, the system will allow SKU-level stock transfers between any two articles, regardless of Product Group, provided the stock is free and available. This enhancement will improve operational flexibility and warehouse accuracy while maintaining transaction-level auditability.",
+      "locator": "§ Customer Requirement Specification (CRS) › 7. Expected Outcome",
+      "kind": "section"
+    }
+  ]
+}

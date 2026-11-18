@@ -1,0 +1,259 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Created/Revised By",
+        "Created/Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Yudi",
+          "20-Jan-2026",
+          "Initial document created."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "399624 Color Confirmation - Block Booking v1",
+  "keyTerms": [
+    "block booking",
+    "type",
+    "block",
+    "booking",
+    "change",
+    "reservation",
+    "reservation type",
+    "case reservation",
+    "sales order",
+    "case",
+    "section",
+    "style",
+    "linking",
+    "booking type",
+    "change linking"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 18
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 8
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Buyer Block Booking (BBB)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Block Booking – Color Confirmations",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "CR 01 | Change with Block Booking Type 5",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Change 01 | Style Mandatory in case of Reservation Type 5",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "At present, system has two type of Block Booking as “Projection” and “Reservations”.",
+      "locator": "§ Section 3. Functional Requirement Description › CR 01 | Change with Block Booking Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory Style Selection",
+      "locator": "§ Section 3. Functional Requirement Description › CR 01 | Change with Block Booking Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Add “Color” tab on Block Booking Line",
+      "locator": "§ Section 3. Functional Requirement Description › CR 01 | Change with Block Booking Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "CR 01 | Change with Block Booking Type:\n1. Mandatory Style Selection\n2. Add “Color” tab on Block Booking Line\n3. Link Projection\n4. Import and Export Option",
+      "locator": "§ Section 3. Functional Requirement Description › CR 01 | Change with Block Booking Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case user selects “Buyer Block Booking Type” as “Reservation” then Style selection on Block Booking Line will be mandatory.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 01 | Style Mandatory in case of Reservation Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case user selects “Buyer Block Booking Type” as “Reservation” then there will be one new column associated with Style as “Article Color” which will list all colors of selected style.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 02 | Style Color Column in case of Reservation Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "However, selection of color will not be mandatory.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 02 | Style Color Column in case of Reservation Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case user selects “Buyer Block Booking Type” as “Reservation” then there will be an option “Link Projection” where system will provide option to link existing buyer projections to “Reservation” type block booking.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This will show block booking only of type as “Projections”",
+      "locator": "§ Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type › Validations:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "User will be able to link only one block booking line to a “Reservation” Type block booking.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type › Validations:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Linking of Blocking will work with the same logic as it is working on Sales Order.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type › Validations:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Selection of Buyer Block booking in sales order",
+      "locator": "§ Section 3. Functional Requirement Description › Change 04 | Linking Projections to Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case a “Reservation” type block booking exists for a customer, department and season and has leftover quantities (balance to link) then system will make selection of block booking mandatory on sales order.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 04 | Linking Projections to Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Material Linking against Block booking line will have option to link materials from Catalog or Style BOM.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 05 | Linking Projections to Sales Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Created/Revised By, Created/Revised On, Changes (1 rows)",
+      "locator": "§ Section 5. Revision History, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "399624 Color Confirmation - Block Booking v1",
+      "heading": "",
+      "text": "Software Requirements Specification\nBlock Booking – Color Confirmations\nVersion 1.1 ●\n20 JAN 2026\nContents\nSection 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nCR 01 | Change with Block Booking Type 5\nChange 01 | Style Mandatory in case of Reservation Type 5\nChange 02 | Style Color Column in case of Reservation Type 5\nChange 03 | Linking Projections in case of Reservation Type 5\nValidations: 6\nChange 04 | Linking Projections to Sales Order 6\nChange 05 | Linking Projections to Sales Order 7\nSection 4. Glossary 7\nSection 5. Revision History 8",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "CR 01 | Change with Block Booking Type",
+      "heading": "Section 3. Functional Requirement Description › CR 01 | Change with Block Booking Type",
+      "text": "At present, system has two type of Block Booking as “Projection” and “Reservations”.\nType= ”Projection” – No change in existing behavior\nThe behavior of system will remain same as of today in case of “projection”.\nType= ”Reservation” – change in existing behavior\nIn case of “Reservation”, below three changes will be incorporated in existing functionality.\n• Mandatory Style Selection\n• Add “Color” tab on Block Booking Line\n• Link Projection\n• Import and Export Option",
+      "locator": "§ Section 3. Functional Requirement Description › CR 01 | Change with Block Booking Type",
+      "kind": "section"
+    },
+    {
+      "title": "Change 01 | Style Mandatory in case of Reservation Type",
+      "heading": "Section 3. Functional Requirement Description › Change 01 | Style Mandatory in case of Reservation Type",
+      "text": "In case user selects “Buyer Block Booking Type” as “Reservation” then Style selection on Block Booking Line will be mandatory.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 01 | Style Mandatory in case of Reservation Type",
+      "kind": "section"
+    },
+    {
+      "title": "Change 02 | Style Color Column in case of Reservation Type",
+      "heading": "Section 3. Functional Requirement Description › Change 02 | Style Color Column in case of Reservation Type",
+      "text": "In case user selects “Buyer Block Booking Type” as “Reservation” then there will be one new column associated with Style as “Article Color” which will list all colors of selected style. By default., “All” will be listed here. However, selection of color will not be mandatory.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 02 | Style Color Column in case of Reservation Type",
+      "kind": "section"
+    },
+    {
+      "title": "Change 03 | Linking Projections in case of Reservation Type",
+      "heading": "Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type",
+      "text": "In case user selects “Buyer Block Booking Type” as “Reservation” then there will be an option “Link Projection” where system will provide option to link existing buyer projections to “Reservation” type block booking.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type",
+      "kind": "section"
+    },
+    {
+      "title": "Validations:",
+      "heading": "Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type › Validations:",
+      "text": "This linking option will be visible only in case of “Reservation” Type.\nThis will show block booking only of type as “Projections”\nUser will be able to link only one block booking line to a “Reservation” Type block booking.\nLinking of Blocking will work with the same logic as it is working on Sales Order.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 03 | Linking Projections in case of Reservation Type › Validations:",
+      "kind": "section"
+    },
+    {
+      "title": "Change 04 | Linking Projections to Sales Order",
+      "heading": "Section 3. Functional Requirement Description › Change 04 | Linking Projections to Sales Order",
+      "text": "Selection of Buyer Block booking in sales order\nIn case a “Reservation” type block booking exists for a customer, department and season and has leftover quantities (balance to link) then system will make selection of block booking mandatory on sales order.\nThere should be an option to link Reservations against Style color in Sales Order.",
+      "locator": "§ Section 3. Functional Requirement Description › Change 04 | Linking Projections to Sales Order",
+      "kind": "section"
+    },
+    {
+      "title": "Change 05 | Linking Projections to Sales Order",
+      "heading": "Section 3. Functional Requirement Description › Change 05 | Linking Projections to Sales Order",
+      "text": "Material Linking against Block booking line will have option to link materials from Catalog or Style BOM.\nCatalog: Already developed and working against helpdesk ID: 352391",
+      "locator": "§ Section 3. Functional Requirement Description › Change 05 | Linking Projections to Sales Order",
+      "kind": "section"
+    },
+    {
+      "title": "Section 5. Revision History – Table 1",
+      "heading": "Section 5. Revision History",
+      "text": "Columns: Version (decimal); Created/Revised By (text); Created/Revised On (date); Changes (text)\nVersion | Created/Revised By | Created/Revised On | Changes\n1.0 | Yudi | 20-Jan-2026 | Initial document created.",
+      "locator": "§ Section 5. Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Section 5. Revision History",
+      "text": "Version: 1.0; Created/Revised By: Yudi; Created/Revised On: 20-Jan-2026; Changes: Initial document created.",
+      "locator": "§ Section 5. Revision History, table 1, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

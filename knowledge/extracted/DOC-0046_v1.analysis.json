@@ -1,0 +1,153 @@
+{
+  "tables": [],
+  "subject": "17. “ASN without GDN” must be restricted in the absence of an approved cost sheet.",
+  "keyTerms": [
+    "cost sheet",
+    "cost",
+    "sheet",
+    "type",
+    "asn without",
+    "without gdn",
+    "fulfilment type",
+    "asn",
+    "without",
+    "gdn",
+    "none",
+    "fulfilment",
+    "approved",
+    "gdn must",
+    "sale asn"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 7
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "“ASN without GDN” must be restricted in the absence of an approved cost sheet.",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation 4",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system only validates the OC details and does not check the cost sheet or stock for the style, since it is a non-GDN ASN.",
+      "locator": "§ 1. Current Functionality",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Mostly this transaction is done where an OC has FOT type “commission” and the fulfillment type is “None”",
+      "locator": "§ 1. Current Functionality",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "But during review, we observed that in some cases users need to create an ASN without a GDN even when the FOT type is not “commission” and fulfilment type is not “None.” In such scenarios, the system again only validates the OC details, skips checking cost sheet approval, and the data does not flow to model OPR/OCR.",
+      "locator": "§ 1. Current Functionality",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If an OC has the fulfilment type set to anything other than “None” (e.g., Back Order, Purchase, Manufacture) and the user creates a Sale ASN without GDN, the system must validate both the OC details and the cost sheet.",
+      "locator": "§ 2. Functional Requirements",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "If the cost sheet has not been approved at least once, the system should display an alert message.",
+      "locator": "§ 2. Functional Requirements",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The user should be permitted to proceed only if the cost sheet has been approved at least once.",
+      "locator": "§ 2. Functional Requirements",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the fulfilment type is anything other than “None” (e.g., Back Order, Purchase, Manufacture):",
+      "locator": "§ Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system must validate both the OC details and the cost sheet.",
+      "locator": "§ Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The user will be allowed to proceed only if the cost sheet has been approved.",
+      "locator": "§ Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system will not follow the cost sheet validation",
+      "locator": "§ Validation",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Validation:\n1. If the fulfilment type is anything other than “None” (e.g., Back Order, Purchase, Manufacture):\n2. The system must validate both the OC details and the cost sheet.\n3. The user will be allowed to proceed only if the cost sheet has been approved.\n4. If the fulfilment type is “None”:\n5. The system will not follow the cost sheet validation",
+      "locator": "§ Validation",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "17. “ASN without GDN” must be restricted in the absence of an approved cost sheet.",
+      "heading": "",
+      "text": "Software Requirements Specification\n“ASN without GDN” must be restricted in the absence of an approved cost sheet.\nDocument # <414946>\nVersion 1.1 ● 14-04-2026\nContents\n1. Current Functionality 2\n2. Functional Requirements 3\n3. Validation 4",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "1. Current Functionality",
+      "heading": "1. Current Functionality",
+      "text": "Currently, if a user creates a Sale ASN without GDN. The system only validates the OC details and does not check the cost sheet or stock for the style, since it is a non-GDN ASN. Mostly this transaction is done where an OC has FOT type “commission” and the fulfillment type is “None”\nBut during review, we observed that in some cases users need to create an ASN without a GDN even when the FOT type is not “commission” and fulfilment type is not “None.” In such scenarios, the system again only validates the OC details, skips checking cost sheet approval, and the data does not flow to model OPR/OCR. This leads to variances appearing in reports\nFactory Order Type - CMPT FOC / CMPT LC / Commission / Confirmed / FOB\nFulfilment type - back order / none / manufacturing / purchase",
+      "locator": "§ 1. Current Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "2. Functional Requirements",
+      "heading": "2. Functional Requirements",
+      "text": "If an OC has the fulfilment type set to anything other than “None” (e.g., Back Order, Purchase, Manufacture) and the user creates a Sale ASN without GDN, the system must validate both the OC details and the cost sheet. If the cost sheet has not been approved at least once, the system should display an alert message. The user should be permitted to proceed only if the cost sheet has been approved at least once.",
+      "locator": "§ 2. Functional Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Validation",
+      "heading": "Validation",
+      "text": "When creating a Sale ASN without GDN, the system will first check the fulfilment type of the OC.\n• If the fulfilment type is anything other than “None” (e.g., Back Order, Purchase, Manufacture):\n• The system must validate both the OC details and the cost sheet.\n• The user will be allowed to proceed only if the cost sheet has been approved.\n• If the fulfilment type is “None”:\n• The system will not follow the cost sheet validation",
+      "locator": "§ Validation",
+      "kind": "section"
+    }
+  ]
+}

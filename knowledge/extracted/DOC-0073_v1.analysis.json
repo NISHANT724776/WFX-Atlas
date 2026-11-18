@@ -1,0 +1,345 @@
+{
+  "tables": [],
+  "subject": "372826 Material Code Request for BOM IntegrationV01",
+  "keyTerms": [
+    "article",
+    "material",
+    "material code",
+    "code",
+    "request",
+    "data",
+    "bom",
+    "user",
+    "code request",
+    "techpack",
+    "list",
+    "pdf",
+    "sourcing team",
+    "mapping",
+    "based"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 56
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 7
+    },
+    {
+      "module": "Planning",
+      "score": 3
+    },
+    {
+      "module": "Sales Order",
+      "score": 2
+    }
+  ],
+  "transactions": [
+    "BOM – Costing",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "Apparel Style (Techpack)",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this change is to provide a provision to request material codes from sourcing team or using previous code mapping.",
+      "locator": "§ Purpose",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Same process is required in case of automation of BOM here post processing of BOM data, material will either be auto populated based on existing material code mapping, or corresponding BOM line will route to local sourcing team for creation or tagging of existing material.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Same process is required in case of automation of BOM here post processing of BOM data, material will either be auto populated based on existing material code mapping, or corresponding BOM line will route to local sourcing team for creation or tagging of existing material.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "Same process is required in case of automation of BOM here post processing of BOM data, material will either be auto populated based on existing material code mapping, or corresponding BOM line will route to local sourcing team for creation or tagging of existing material.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once data extraction is complete, the Release option becomes active.",
+      "locator": "§ Functional Requirements › … › Step 1: Upload and Data Extraction › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functionality:\n1. File Upload:\n2. User uploads the buyer’s PDF document into the system.\n3. Supported formats: PDF (other formats may be allowed with prior consideration).\n4. Data Extraction:\n5. The system extract data from the PDF according to a predefined mapping.\n6. Extracted data includes:\n7. Tech Pack Details: Article information, fabric details, style code, etc.\n8. BOM Information: Materials, component details, supplier, consumption, and placement.\n9. Activation of Release Option:\n10. Once data extraction is complete, the Release option becomes active.\n11. User can click Release to allow the system to move into the review phase.",
+      "locator": "§ Functional Requirements › … › Step 1: Upload and Data Extraction › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Display the buyer's PDF data on the left side of the screen and the extracted data on the right side, enabling users to compare and validate the information.",
+      "locator": "§ Functional Requirements › … › Step 2: Data Display based on review – Left and Right Screen Data",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functionality:\n1. Left Screen:\n2. Displays the original buyer PDF data.\n3. This view should be scrollable or paginated, showing the raw data as received from the PDF upload.\n4. Right Screen:\n5. Displays the extracted data in structured fields.\n6. The system highlights key data elements like Style Code, Buyer Ref No, Article Code, Materials, etc., extracted from the PDF.\n7. Users can compare both sides and make edits if necessary.",
+      "locator": "§ Functional Requirements › … › Step 2: Data Display based on review – Left and Right Screen Data › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The purpose of the screen to enable user to review & validate the data extracted from the PDF and make any required edits or selections for the transactions.",
+      "locator": "§ Functional Requirements › … › Step 3: Data Validation Screen : This screen data will get it automatically processed for BOM",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Articles are listed in a \"Progress\" state, indicating that they are being reviewed or pending approval.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Functionality:\n1. Tech Pack Review:\n2. The system provides a preview of the WFX article tech pack details.\n3. Articles are listed in a \"Progress\" state, indicating that they are being reviewed or pending approval.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "Instead of leaving the field blank or causing validation issues, the user can assign a suitable generic article, enabling smoother data management.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "A Material Code Request Form must be introduced, allowing users to review and confirm article details extracted from the Techpack before submitting them for approval.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once the article creation request is approved, the system will automatically populate the Article name & Code with the confirmed article name, ensuring the BOM reflects the updated and approved article information.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "We are providing the Material code request form: -",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once all materials are tagged and the request is approved by the sourcing team, the material code will automatically populate in the New BOM.",
+      "locator": "§ Functional Requirements › Material Code Request-List › … › Material Creation Request",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "No options are required in this section (as shown in the attached screenshot).",
+      "locator": "§ Functional Requirements › Material Code Request-List › UI Corrections › Header Section",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "No options are required in this section (as shown in the attached screenshot).",
+      "locator": "§ Functional Requirements › Material Code Request-List › UI Corrections › Header Section",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Cost Sheet Section:\n1. Style Code\n2. Style Name\n3. Buyer Style Reference No.\n4. Buyer\n5. UOM",
+      "locator": "§ Functional Requirements › Material Code Request-List › UI Corrections › Cost Sheet Section",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Details:\n1. Article Description\n2. Category: This is the dropdown list where all the category will come in the dropdown.\n3. Article Code & Name: In this there is a div option where system will open the\n4. New: When user will select this option then system will open the Techpack creation form based on selected category in the line and after user can create article Techpack with entering necessary information.\n5. Existing: System will display existing article and replace it when user will select the exiting one.",
+      "locator": "§ Functional Requirements › Material Code Request-List › Material Details",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Material Details:\n1. Detail grid should have a radio button only.\n2. Supplier reference number column also needed.\n3. We also need to capture the LOG of this in the BOM that who user sends the request to whom.",
+      "locator": "§ Functional Requirements › Material Code Request-List › Material Details",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "The system must not allow MRP generation until for the article which have WFX Generic article codes driven from the package.",
+      "locator": "§ Functional Requirements › Material Code Request-List › MRP Restriction",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "372826 Material Code Request for BOM IntegrationV01",
+      "heading": "",
+      "text": "Software Requirements Specification\nMaterial Code Request for BOM Integration\n#372826#\nVersion 1.0●12 Oct 2025",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Purpose 3\nBusiness Requirement 3\nAssumptions 3\nFunctional Requirements 4\nAuto processing on BOM 4\nMaterial Code Request-Configuration 4\nMaterial Code Request-List 5",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this change is to provide a provision to request material codes from sourcing team or using previous code mapping.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Bill of Material document received from buyer, in general, doesn’t have detailed or proper attributes of Raw materials which is vital for procurement. In these cases, Marketing team requests material code from local sourcing team using existing solution. Sourcing team on receipt of request, either create a new material code or selects the one from existing material codes.\nSame process is required in case of automation of BOM here post processing of BOM data, material will either be auto populated based on existing material code mapping, or corresponding BOM line will route to local sourcing team for creation or tagging of existing material.\nTo route material code request to Souring team, there will be a configuration where admin will be able to mandate material code request based on material categories.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Step 1: Upload and Data Extraction",
+      "heading": "Functional Requirements › … › Step 1: Upload and Data Extraction",
+      "text": "Allow users to upload a buyer’s PDF document containing the article tech pack and BOM data. The system will automatically extract relevant details from the PDF based on predefined mappings.",
+      "locator": "§ Functional Requirements › … › Step 1: Upload and Data Extraction",
+      "kind": "section"
+    },
+    {
+      "title": "Functionality",
+      "heading": "Functional Requirements › … › Step 1: Upload and Data Extraction › Functionality",
+      "text": "• File Upload:\n• User uploads the buyer’s PDF document into the system.\n• Supported formats: PDF (other formats may be allowed with prior consideration).\n• Data Extraction:\n• The system extract data from the PDF according to a predefined mapping.\n• Extracted data includes:\n• Tech Pack Details: Article information, fabric details, style code, etc.\n• BOM Information: Materials, component details, supplier, consumption, and placement.\n• Activation of Release Option:\n• Once data extraction is complete, the Release option becomes active.\n• User can click Release to allow the system to move into the review phase.",
+      "locator": "§ Functional Requirements › … › Step 1: Upload and Data Extraction › Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "User Interface:",
+      "heading": "Functional Requirements › … › Step 1: Upload and Data Extraction › User Interface:",
+      "text": "• File Upload Area: Located at the top of the screen, the user can drag-and-drop or browse to upload the PDF.\n• Progress Indicator: Shows extraction status (e.g., \"Extracting Tech Pack\", \"Extracting BOM\").",
+      "locator": "§ Functional Requirements › … › Step 1: Upload and Data Extraction › User Interface:",
+      "kind": "section"
+    },
+    {
+      "title": "Step 2: Data Display based on review – Left and Right Screen Data",
+      "heading": "Functional Requirements › … › Step 2: Data Display based on review – Left and Right Screen Data",
+      "text": "Display the buyer's PDF data on the left side of the screen and the extracted data on the right side, enabling users to compare and validate the information.",
+      "locator": "§ Functional Requirements › … › Step 2: Data Display based on review – Left and Right Screen Data",
+      "kind": "section"
+    },
+    {
+      "title": "Functionality",
+      "heading": "Functional Requirements › … › Step 2: Data Display based on review – Left and Right Screen Data › Functionality",
+      "text": "• Left Screen:\n• Displays the original buyer PDF data.\n• This view should be scrollable or paginated, showing the raw data as received from the PDF upload.\n• Right Screen:\n• Displays the extracted data in structured fields.\n• The system highlights key data elements like Style Code, Buyer Ref No, Article Code, Materials, etc., extracted from the PDF.\n• Users can compare both sides and make edits if necessary.",
+      "locator": "§ Functional Requirements › … › Step 2: Data Display based on review – Left and Right Screen Data › Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "Step 3: Data Validation Screen : This screen data will get it automatically processed for BOM",
+      "heading": "Functional Requirements › … › Step 3: Data Validation Screen : This screen data will get it automatically processed for BOM",
+      "text": "The purpose of the screen to enable user to review & validate the data extracted from the PDF and make any required edits or selections for the transactions.\nUsers should have the option to choose the transaction type (Techpack & Sales Order)for which they want to review the extracted data .\nBased on the selected transaction type, users can view and verify the data according to its status—such as Completed, In Queue, etc.",
+      "locator": "§ Functional Requirements › … › Step 3: Data Validation Screen : This screen data will get it automatically processed for BOM",
+      "kind": "section"
+    },
+    {
+      "title": "Step 4: WFX Article Tech Pack Review and Master Data Mapping",
+      "heading": "Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping",
+      "text": "Provide users with a detailed review of the tech pack and enable mapping of articles to ensure data is correct and ready for approval.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping",
+      "kind": "section"
+    },
+    {
+      "title": "Functionality",
+      "heading": "Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "text": "• Tech Pack Review:\n• The system provides a preview of the WFX article tech pack details.\n• Articles are listed in a \"Progress\" state, indicating that they are being reviewed or pending approval.\nSubmit Button: Once all data is mapped and confirmed, the user clicks a “Submit” button will create to Style techpack in WFX.\nAs per the business requirement, on confirmation of apparel category Techpack, system will automatically process the BOM data. Data will be added under material tab in save mode.\nWe also need to add the Article description column in the BOM which also should be configurable through the SLC and configurator view.\nIn this process, if the merchant confirms that the article extracted from the source already exists in the master list, the user will have the option that we already have where we can replace the existing article with the new one.\nScreenshot attached for the reference.\nIn the Package, we also need to introduce the following:\n• Rule: This should be configuration in the package (Route through backend process only)\nThis configuration will have two options, and based on the selected option, the system will route the material creation activity.\na. Manual: The user will request material code creation through the BOM only.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "kind": "section"
+    },
+    {
+      "title": "Functionality",
+      "heading": "Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "text": "b. Auto: If rule is configured, the system will automatically route the request to the material code creation list based on the selected user.\n• Purchase Office:\nIn this column, we will define the username, and based on this, the system will send the material code request to the respective list.\nThis should be configured through package configuration.\nAs part of this package configuration, we are introducing an Article column. This will allow the user to select a generic article for any BOM item that either does not have an assigned article or does not exist in the WFX master database.\nThis enhancement ensures that BOM entries can still be processed even when the corresponding article is missing from the master list. Instead of leaving the field blank or causing validation issues, the user can assign a suitable generic article, enabling smoother data management.\nPurchase office should be filter out in this.\nA Material Code Request Form must be introduced, allowing users to review and confirm article details extracted from the Techpack before submitting them for approval.\nWe also need an option to send the material code creation request in the line level and bottom tool (same like cons. & price request) where user can send the request to the user to approver then after it will be reflected in the Material Code request list.",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Functionality",
+      "heading": "Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality",
+      "text": "We also need to introduce the permission in the of Material Code Request where we can set the permission and also can configure the approver user name to send the request.\nAdditionally, a new column named “Article Description” should be added in the BOM. This column will initially carry the data from article description from the API, Article code and article name columns will remain blank. Once the article creation request is approved, the system will automatically populate the Article name & Code with the confirmed article name, ensuring the BOM reflects the updated and approved article information.\nWe are providing the Material code request form: -",
+      "locator": "§ Functional Requirements › … › Step 4: WFX Article Tech Pack Review and Master Data Mapping › Functionality (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Material Code Request-List",
+      "heading": "Functional Requirements › Material Code Request-List",
+      "text": "Upon routing, material lines will be listed under Catalog>>Article Request>>Material Code Request\nIn this screen system will reflect the request from the Techpack creation request from AI.\nUpon click, system will show list of material requests.",
+      "locator": "§ Functional Requirements › Material Code Request-List",
+      "kind": "section"
+    },
+    {
+      "title": "Material Creation Request",
+      "heading": "Functional Requirements › Material Code Request-List › … › Material Creation Request",
+      "text": "This process will function the same way it works in the New BOM.\nOnce all materials are tagged and the request is approved by the sourcing team, the material code will automatically populate in the New BOM.",
+      "locator": "§ Functional Requirements › Material Code Request-List › … › Material Creation Request",
+      "kind": "section"
+    },
+    {
+      "title": "Header Section",
+      "heading": "Functional Requirements › Material Code Request-List › UI Corrections › Header Section",
+      "text": "• No options are required in this section (as shown in the attached screenshot).",
+      "locator": "§ Functional Requirements › Material Code Request-List › UI Corrections › Header Section",
+      "kind": "section"
+    },
+    {
+      "title": "Cost Sheet Section",
+      "heading": "Functional Requirements › Material Code Request-List › UI Corrections › Cost Sheet Section",
+      "text": "• Style Code\n• Style Name\n• Buyer Style Reference No.\n• Buyer\n• UOM",
+      "locator": "§ Functional Requirements › Material Code Request-List › UI Corrections › Cost Sheet Section",
+      "kind": "section"
+    },
+    {
+      "title": "Material Details",
+      "heading": "Functional Requirements › Material Code Request-List › Material Details",
+      "text": "Only the following columns should be shown:\n• Article Description\n• Category: This is the dropdown list where all the category will come in the dropdown.\n• Article Code & Name: In this there is a div option where system will open the\n• New: When user will select this option then system will open the Techpack creation form based on selected category in the line and after user can create article Techpack with entering necessary information.\n• Existing: System will display existing article and replace it when user will select the exiting one.\nScreenshot attached for reference.\nUI Correction: For the below given screenshot.\nIn the header, we need three tools:\n• OK: This will be used when the user wants to select and replace the article with an existing one.\n• New: This should open the Techpack creation form based on the category selected in the line. The user can then create the article Techpack by entering the necessary information and also need an field option where user can select the catalog folder path of that particular article.\n• Close: To close the pop-up.\n• Detail grid should have a radio button only.\n• Supplier reference number column also needed.\n• We also need to capture the LOG of this in the BOM that who user sends the request to whom.",
+      "locator": "§ Functional Requirements › Material Code Request-List › Material Details",
+      "kind": "section"
+    },
+    {
+      "title": "Approval Logic",
+      "heading": "Functional Requirements › Material Code Request-List › Approval Logic",
+      "text": "• Users can approve the BOM/Costing even with the WFX generic article codes driven from the package configuration.\n• Once the approver confirms the article through the material code mapping, the system will automatically replace it with generic article code and article name and display the article code and name in the BOM/Costing.",
+      "locator": "§ Functional Requirements › Material Code Request-List › Approval Logic",
+      "kind": "section"
+    },
+    {
+      "title": "MRP Restriction",
+      "heading": "Functional Requirements › Material Code Request-List › MRP Restriction",
+      "text": "• The system must not allow MRP generation until for the article which have WFX Generic article codes driven from the package.\n• In case user wants to run the MRP for the partially article for the BOM then they want to mark other as hold.",
+      "locator": "§ Functional Requirements › Material Code Request-List › MRP Restriction",
+      "kind": "section"
+    },
+    {
+      "title": "Mapping List",
+      "heading": "Functional Requirements › Material Code Request-List › MRP Restriction › Mapping List",
+      "text": "All mapping defined by sourcing team, will be list under material code mapping list which can be edited by permitted users if required.\nIn case of subsequent, BOM data processing if material mapping exists in this list then system should auto-populate mapped material code but that listing also need approval from sourcing team as explained in above workflow.\nNote : This should be work in the New BOM and Costsheet 4.0 version as well.",
+      "locator": "§ Functional Requirements › Material Code Request-List › MRP Restriction › Mapping List",
+      "kind": "section"
+    }
+  ]
+}

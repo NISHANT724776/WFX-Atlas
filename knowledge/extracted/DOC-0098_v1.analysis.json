@@ -1,0 +1,154 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Changes",
+        "Page no.",
+        "Date",
+        "Color"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "empty",
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Initial Draft",
+          "",
+          "02th August 2026",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "414922,Option to add part and placement details in the variants",
+  "keyTerms": [
+    "bom line",
+    "bom",
+    "body type",
+    "line",
+    "body",
+    "type",
+    "variant",
+    "line variant",
+    "line variants",
+    "different",
+    "different body",
+    "variant bom",
+    "original bom",
+    "variants",
+    "original"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 19
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Changes, Page no., Date, Color (1 rows)",
+      "locator": "§ Version Control, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "When a BOM line variant is added to the BOM, the Body column is editable, allowing users to assign a different Body Type for the variant without affecting the original BOM line.",
+      "locator": "§ Solution › Acceptance Criteria",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "414922,Option to add part and placement details in the variants",
+      "heading": "",
+      "text": "Need Option to add Body type details in the Bom line variants\nDevelopment ID: 414922\nNeed Option to add Body type details in the Bom line variants\nDevelopment ID: 414922",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Version Control 2\n1. Purpose 2\n2. Business Requirement 2\n3. Scope 2\n4. Solution 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Version Control – Table 1",
+      "heading": "Version Control",
+      "text": "Columns: Version (decimal); Changes (text); Page no. (empty); Date (text); Color (empty)\nVersion | Changes | Page no. | Date | Color\n1.0 | Initial Draft |  | 02th August 2026 | ",
+      "locator": "§ Version Control, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Version Control",
+      "text": "Version: 1.0; Changes: Initial Draft; Date: 02th August 2026",
+      "locator": "§ Version Control, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "To allow users to set different Body Types for BOM line variants. This helps maintain correct BOM details for different configurations.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The system should allow users to define and edit Body Type independently for each BOM Line Variant. Currently, when a BOM line variant is created, it inherits the Body Type from the original BOM line and the field becomes non-editable, forcing both the original and variant BOM lines to use the same Body Type. The enhancement should enable separate Body Type assignment for each variant to support different vehicle configurations and improve BOM flexibility and accuracy.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "Enable the Body Type field to be editable for BOM line variants. Users can assign a different Body Type to each variant without affecting the original BOM line.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "Solution",
+      "text": "Modify the BOM line variant functionality to make the Body Type field editable. When a user adds a BOM line variant into the BOM, the Body column for the variant line should be editable so the user can specify a different Body Type for the variant BOM line without affecting the original BOM line.",
+      "locator": "§ Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria",
+      "heading": "Solution › Acceptance Criteria",
+      "text": "When a BOM line variant is added to the BOM, the Body column is editable, allowing users to assign a different Body Type for the variant without affecting the original BOM line.",
+      "locator": "§ Solution › Acceptance Criteria",
+      "kind": "section"
+    }
+  ]
+}

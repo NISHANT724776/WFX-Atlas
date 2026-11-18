@@ -1,0 +1,793 @@
+# Business rules: setup (dependency types, UOM, BOM concepts, article coding)
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: RULE-SETUP-COLOUR-BASE
+RULE NAME: Colour dependency – Base Colour
+MODULE: Setup rules
+SUBMODULE: Colour dependency
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The colours of the apparel are used directly for the material: the material is needed in the same colours as the garment.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Garment in 372, 3909 and 475 → the material is also used in 372, 3909 and 475.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials › Dependency › Colour
+OPTIONS: Base Colour
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-COLOUR-TABLE
+RULE NAME: Colour dependency – Table
+MODULE: Setup rules
+SUBMODULE: Colour dependency
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The user maps each apparel colour to a material colour. It tells the system "buy the fabric in this colour to achieve the apparel in that colour". The apparel colour master and the fabric (or any raw material) colour master can differ, so this map bridges them.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Fabric N-8: apparel colour 372 → fabric colour 372, 3909 → 3909, 475 → 475.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials › Dependency › Colour (popup)
+OPTIONS: Table
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-COLOUR-NONE
+RULE NAME: Colour dependency – None
+MODULE: Setup rules
+SUBMODULE: Colour dependency
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The material has no colour. It is the same for every apparel colour (for example a polybag).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials › Dependency › Colour
+OPTIONS: None
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-SIZE-BASE
+RULE NAME: Size dependency – Base Size
+MODULE: Setup rules
+SUBMODULE: Size dependency
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The apparel sizes are used directly for the material: the material comes in the same sizes as the garment.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials › Dependency › Size
+OPTIONS: Base Size
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-SIZE-TABLE
+RULE NAME: Size dependency – Table
+MODULE: Setup rules
+SUBMODULE: Size dependency
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The user maps each apparel size to a material size (or leaves it unused), when the material is not sized like the garment.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Fabric N-8: 34S → 34S, 38M → 38M, 42L1 → 42L1; the larger sizes are not mapped.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials › Dependency › Size (popup)
+OPTIONS: Table
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-SIZE-NONE
+RULE NAME: Size dependency – None
+MODULE: Setup rules
+SUBMODULE: Size dependency
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The material has no size. It is the same for every apparel size.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials › Dependency › Size
+OPTIONS: None
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-UOM-STORAGE
+RULE NAME: Storage UOM
+MODULE: Setup rules
+SUBMODULE: UOM
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The unit in which the material is kept and counted in stock (warehouse, GRN, issue). Stock balances are held in this unit.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Fabric stored in KG_Nis.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Raw material techpack
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-UOM-CONSUMPTION
+RULE NAME: Consumption UOM
+MODULE: Setup rules
+SUBMODULE: UOM
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The unit in which the BOM states how much of the material one garment uses (Cons Qty, Final Consumption).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Fabric consumed in meter per garment.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-UOM-PURCHASE
+RULE NAME: Purchase UOM
+MODULE: Setup rules
+SUBMODULE: UOM
+TRANSACTION:
+RULE CATEGORY: Definition
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The unit in which the material is bought from the supplier (RMPO, price). When it differs from the Consumption UOM a conversion factor turns the purchase price into the Cons UOM Price.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Fabric bought in KG_Nis, consumed in meter: Cons UOM Price = Purchase Price × Conversion Factor.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Raw material techpack, RMPO
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-BOM-SECTION
+RULE NAME: BOM · Materials section
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Captures the raw materials needed to make one apparel, how much of each (consumption), at what cost, and the price at which the apparel is to be sold.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM › Materials
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-BOM-VERSION
+RULE NAME: BOM version
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A BOM is maintained version-wise. Each version carries its own cost sheet with a currency and a date and time, so older versions and their costs stay available.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM header
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-BOM-STANDARD
+RULE NAME: Standard BOM
+MODULE: Setup rules
+SUBMODULE: BOM type
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The BOM marked as standard, either by selecting the star or by choosing the Standard BOM option while creating it. It is treated as the master BOM and creates the Budget: every other BOM of the apparel is compared against it as the budget.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM header
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-BOM-PRODUCTION
+RULE NAME: Production BOM
+MODULE: Setup rules
+SUBMODULE: BOM type
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The BOM used to produce an order. Its costs are compared with the Standard BOM, which acts as its budget.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM header
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-BOM-CREATE
+RULE NAME: Creating a BOM
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A BOM can be made by copying from a template or by copying from an item (an existing BOM).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM header
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-BOM-MASTER-COST
+RULE NAME: Master cost sheet
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A setting that nominates the master cost sheet of the BOM.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM › Costing
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-ARTICLE-CODE-MODES
+RULE NAME: Article Code and Article Name generation
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: The article code and article name of a techpack are generated in one of two ways: Automatically or Manually. Manually, the user types the code or name. Automatically, the system builds it from the rules set up in Admin › System Coding.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Techpack header
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-ARTICLE-CODE-SETUP
+RULE NAME: System Coding setup
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: Go to Admin › System Coding and search for Article Code or Article Name. Each has its own definition and both vary by category (for example Textiles/Fabric).
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Admin › System Coding
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-SETUP-ARTICLE-CODE-RULE
+RULE NAME: Article Code Definition
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: A definition has a Category and a Logic (Manual or Automatic). For automatic logic each rule picks a Material Type, Product Group and Sub Category (or "ALL Other"), then lists code sections in Sort order (10, 20, 30…). The code is the sections joined in that order.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE: Rule 5: Material Type / Product Group / Sub-Category / Counter, for example VCotton/VFabric/V Woven Fabric/100.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: Admin › System Coding › Article Code
+OPTIONS:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-ARTICLE-CODE-1
+RULE NAME: Article code rule 1
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION: Admin › System Coding › Article Code
+RULE CATEGORY: Configuration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS: Material Type: FABRIC,NIKITAMATERIALTYPE; Product Group: ALL Other; Sub Category: ALL Other
+INPUT FIELDS:
+FORMULA / LOGIC:
+  Article code = code sections joined in Sort order:
+  10: Company Name
+  20: Separator = "/"
+  30: Counter = "01"
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-ARTICLE-CODE-2
+RULE NAME: Article code rule 2
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION: Admin › System Coding › Article Code
+RULE CATEGORY: Configuration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS: Material Type: cottonlinen; Product Group: leninfab; Sub Category: linefabric
+INPUT FIELDS:
+FORMULA / LOGIC:
+  Article code = code sections joined in Sort order:
+  10: Text = "sys"
+  20: Separator = "-"
+  30: Counter = "01"
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-ARTICLE-CODE-3
+RULE NAME: Article code rule 3
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION: Admin › System Coding › Article Code
+RULE CATEGORY: Configuration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS: Material Type: Woven,NIKITA_FABRIC; Product Group: ALL Other; Sub Category: ALL Other
+INPUT FIELDS:
+FORMULA / LOGIC:
+  Article code = code sections joined in Sort order:
+  10: Text = "Code"
+  20: Separator = "/"
+  30: Counter = "01"
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-ARTICLE-CODE-4
+RULE NAME: Article code rule 4
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION: Admin › System Coding › Article Code
+RULE CATEGORY: Configuration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS: Material Type: cottonfabricpremsir; Product Group: cottonfabrickk; Sub Category: organiccotton
+INPUT FIELDS:
+FORMULA / LOGIC:
+  Article code = code sections joined in Sort order:
+  10: Text = "asda"
+  20: Separator = "-"
+  30: Counter = "01"
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-ARTICLE-CODE-5
+RULE NAME: Article code rule 5
+MODULE: Setup rules
+SUBMODULE: Article coding
+TRANSACTION: Admin › System Coding › Article Code
+RULE CATEGORY: Configuration
+BUSINESS PURPOSE:
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS: Material Type: VCotton; Product Group: VFabric; Sub Category: V Woven Fabric, V Knitted Fabric
+INPUT FIELDS:
+FORMULA / LOGIC:
+  Article code = code sections joined in Sort order:
+  10: Material Type
+  20: Separator = "/"
+  30: Product Group
+  40: Separator = "/"
+  50: Sub-Category
+  60: Separator = "/"
+  70: Counter = "100"
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: RULE-APPAREL-MATERIAL-TYPE-DRIVES-FIELDS
+RULE NAME: Material Type decides the techpack information
+MODULE: Style & BOM
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: The techpack of an apparel article starts from its material type.
+FORMULA / LOGIC: The user selects the Material Type (created for the Apparel category) from the dropdown of the techpack; the information that appears below it depends on that choice.
+OPEN QUESTION: Which fields appear or change for each material type was not described; only that the information below depends on it.
+SCREEN / LOCATION: Techpack header
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+RULE ID: RULE-APPAREL-BUYER-DEPARTMENT-FILTER
+RULE NAME: Buyer Department is filtered by the buyer
+MODULE: Style & BOM
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: A department is only chosen from the departments of the buyer.
+FORMULA / LOGIC: The user selects the Buyer first. The Buyer Department list is then filtered to the departments of that buyer, and the user selects one of them.
+SCREEN / LOCATION: Techpack header
+INPUT FIELDS:
+  Buyer
+  Buyer Department
+OUTPUT: Buyer Department
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+RULE ID: RULE-APPAREL-BUYER-DIVISION-AUTO
+RULE NAME: Division is filled from the buyer
+MODULE: Style & BOM
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: Division is never typed or chosen separately on the techpack.
+FORMULA / LOGIC: When the Buyer is selected the system fills in the Division by itself.
+SCREEN / LOCATION: Techpack header
+INPUT FIELDS: Buyer
+OUTPUT: Division
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+RULE ID: RULE-BOM-SECTIONS-FROM-COST-SHEET-TEMPLATE
+RULE NAME: BOM sections come from the cost sheet template
+MODULE: Style & BOM
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: The BOM is organised in the sections of the cost sheet template.
+FORMULA / LOGIC: The sections of a BOM are derived from the cost sheet template. In the template the categories are defined, such as fabric, trims, yarn and miscellaneous. For each material line the Purchase UOM and the Cons UOM are defined; the colours and sizes that are needed are added and mapped according to the dependency selected.
+RELATED RULES: RULE-SETUP-BOM-MASTER-COST, RULE-SETUP-UOM-PURCHASE
+SCREEN / LOCATION: BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+RULE ID: RULE-BOM-ROUTING-PROCESS-SETUP
+RULE NAME: Routing: how a process is defined
+MODULE: Style & BOM
+TRANSACTION: BOM – Routing (bom-routing)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: The routing lists the processes that produce the garment, in order and costed.
+FORMULA / LOGIC: On the Routing page of the BOM the user defines the processes that produce the apparel (for example cutting, stitching, sewing, packing). For each process the user defines the input item and the output item, the After Process (the process that comes before it: the process with none is the first), and a Process Rate.
+RELATED RULES: CALC-ROUTING-AFTER-VALID, CALC-ROUTING-PROCESS-RATE
+SCREEN / LOCATION: BOM › Routing
+OPEN QUESTION: The owner listed both "stitching" and "sewing". The Adi TShirt (NIS-59) routing shows VCutting, Sewing and VPacking; confirm whether stitching and sewing are the same process.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+RULE ID: RULE-BOM-ROUTING-NORMAL-MATERIAL-FLOW
+RULE NAME: Routing: a normal material flow – which materials go to cutting, sewing and packing
+MODULE: Style & BOM
+TRANSACTION: BOM – Routing (bom-routing)
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: The routing maps raw materials to the processes that use them.
+FORMULA / LOGIC: In a normal flow: the fabric goes through cutting; then the fabric, thread and the other items go to sewing; and the final garment with the polybag goes to packing. The owner gave this as the example that runs a normal flow without hindrance.
+RELATED RULES: CALC-ROUTING-LINKAGE
+SCREEN / LOCATION: BOM › Routing (material linkage)
+EXAMPLE: Cutting: fabric · Sewing: fabric, thread, other items · Packing: final garment with polybag.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+RULE ID: RULE-SETUP-BOM-INDENT-OWNER
+RULE NAME: Indents are Inactive when the BOM has no User Group and Purchase Officer
+MODULE: Setup rules
+SUBMODULE: BOM
+TRANSACTION:
+RULE CATEGORY: Business Rule
+BUSINESS PURPOSE: Every indent needs an owner (User Group, Purchase Officer); the BOM supplies it, and without it the indent is held Inactive until a user takes it over.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+FORMULA / LOGIC: If the User Group and Purchase Officer are not set (left blank) on the BOM, the indents created from it come in Inactive status by default. The user must mark them Active manually (User Indent list or Indent list) before MRP or any other action can be done on them.
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT:
+VALIDATIONS:
+EXAMPLE:
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+SCREEN / LOCATION: BOM Materials
+OPTIONS:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: Explained by the WFX functional owner (product owner) in chat, 2026-11-11 to 2026-11-12. Transcribed in Knowledge Hub v1 (src/app/data/concepts.ts).
+VERSION: 4
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+================================================================================

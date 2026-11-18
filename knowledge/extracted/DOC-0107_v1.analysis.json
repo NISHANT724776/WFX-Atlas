@@ -1,0 +1,123 @@
+{
+  "tables": [],
+  "subject": "450654 Required FG Site Allocation section in Sales ASN when ASN Type is without GDN.",
+  "keyTerms": [
+    "asn",
+    "site",
+    "sales asn",
+    "without gdn",
+    "allocation section",
+    "sales",
+    "allocation",
+    "without",
+    "gdn",
+    "user",
+    "quantity",
+    "required site",
+    "site allocation",
+    "section",
+    "section sales"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "This requirement is raised by the CFAI team because, in actual operations, one truck can be loaded with FG cartons from different sites.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The system should allow users to record how much quantity is loaded from each site.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to provide an FG Site Allocation option where users can select one or multiple sites and enter the quantity being loaded from each site.",
+      "locator": "§ Purpose & Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If the quantities are loaded from multiple sites, the user can click Split and add multiple sites with their respective quantities.",
+      "locator": "§ Solution",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Total site-wise quantity should not be more than the total ship Qty.",
+      "locator": "§ Acceptance Criteria:",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria::\n1. FG Allocation section should be available for ASN Types without GDN.\n2. The functionality should be applicable for ASN Against Order, Factory Packing List, and Pre-Shipment Export Invoice.\n3. User should be able to select one or multiple sites.\n4. Split option should allow the user to divide the Dispatch Qty between sites.\n5. User should be able to enter Dispatch Qty against each site.\n6. Total site-wise quantity should not be more than the total ship Qty.\n7. Total allocated quantity should be equal to the total ship Qty before saving/submitting.\n8. Site-wise FG quantity should be visible in the Sales ASN.",
+      "locator": "§ Acceptance Criteria:",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "450654 Required FG Site Allocation section in Sales ASN when ASN Type is without GDN.",
+      "heading": "",
+      "text": "Required FG Site Allocation section in Sales ASN when ASN Type is without GDN.\nDevelopment ID: 450654\nRequired FG Site Allocation section in Sales ASN when ASN Type is without GDN.\nDevelopment ID: 450654",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "1. Business Requirement 2\n2. Purpose & Scope 2\n3. Solution 2\n4. Revision History 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "We need to add an FG Allocation section in the Sales ASN when the user selects an ASN Type without GDN.\nThis requirement is raised by the CFAI team because, in actual operations, one truck can be loaded with FG cartons from different sites. The system should allow users to record how much quantity is loaded from each site.\nThis requirement will be applicable when the user selects ASN Against Order, Factory Packing List, or Pre-Shipment Export Invoice.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose & Scope",
+      "heading": "Purpose & Scope",
+      "text": "Currently, when creating a Sales ASN without GDN, there is no option to capture the quantity allocated from which site.\nThe purpose of this enhancement is to provide an FG Site Allocation option where users can select one or multiple sites and enter the quantity being loaded from each site.\nThis will provide clear visibility of FG quantity allocated from each site against the Sales ASN.",
+      "locator": "§ Purpose & Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "Solution",
+      "text": "An FG Allocation section should be available in Sales ASN for ASN Types without GDN.\nThe user can select the required site and enter the Dispatch Qty.\nIf the quantities are loaded from multiple sites, the user can click Split and add multiple sites with their respective quantities.",
+      "locator": "§ Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "Acceptance Criteria:",
+      "text": "• FG Allocation section should be available for ASN Types without GDN.\n• The functionality should be applicable for ASN Against Order, Factory Packing List, and Pre-Shipment Export Invoice.\n• User should be able to select one or multiple sites.\n• Split option should allow the user to divide the Dispatch Qty between sites.\n• User should be able to enter Dispatch Qty against each site.\n• Total site-wise quantity should not be more than the total ship Qty.\n• Total allocated quantity should be equal to the total ship Qty before saving/submitting.\n• Site-wise FG quantity should be visible in the Sales ASN.",
+      "locator": "§ Acceptance Criteria:",
+      "kind": "section"
+    }
+  ]
+}

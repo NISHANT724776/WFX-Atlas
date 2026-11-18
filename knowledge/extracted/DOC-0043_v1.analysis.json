@@ -1,0 +1,107 @@
+{
+  "tables": [],
+  "subject": "405992 - Restriction of selecting packing kit while creation sales order through program",
+  "keyTerms": [
+    "program",
+    "kit",
+    "order",
+    "selecting",
+    "packing kit",
+    "selecting packing",
+    "selecting program",
+    "packing",
+    "section",
+    "restriction selecting",
+    "kit while",
+    "while creation",
+    "creation sales",
+    "sales",
+    "sales order"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 15
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "Restriction of selecting packing kit while creation sales order through program",
+      "locator": "start",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "# Need to Make Program Field Mandatory for Only if the Order is For Kit Pack.",
+      "locator": "§ Functional Requirements",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Program Must be Mandatory.",
+      "locator": "§ Functional Requirements",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "405992 - Restriction of selecting packing kit while creation sales order through program",
+      "heading": "",
+      "text": "Software Requirements Specification\nVersion 1.0●30-Dec-2025\nRestriction of selecting packing kit while creation sales order through program\nIssue ID: 405992",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Purpose 2\nBusiness Requirement 3\nAssumptions 3\nFunctional Requirements 3\n1. - 3",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "Business Requirement",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 3.\nBuisness Requirement:-",
+      "heading": "Section 3.\nBuisness Requirement:-",
+      "text": "users are able to create Kit Orders in two ways:\n\n1)By selecting the Program and then creating the OC for the Kit Order.\n2)By directly selecting the Packing Kit and placing the order without selecting any Program.\n\nDue to the second flow, the Kit Order does not get mapped to any Program, because of which the subsequent linkage and mappings configured in the system do not function properly.\n\nAll the mappings, linkages, and process flows configured and delivered to the customer are based on the Program structure. However,\nwhen users create Kit Orders directly through the Packing Kit without selecting a Program, these Program-based linkages are bypassed.\n\n\nSection 4.",
+      "locator": "§ Section 3.\nBuisness Requirement:-",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirements",
+      "heading": "Functional Requirements",
+      "text": "Path: Home > Sales > Purchase Order From Buyer > New\nCurrent Screen:\n# Need to Make Program Field Mandatory for Only if the Order is For Kit Pack. Program Must be Mandatory.\nAfter Screen:",
+      "locator": "§ Functional Requirements",
+      "kind": "section"
+    }
+  ]
+}

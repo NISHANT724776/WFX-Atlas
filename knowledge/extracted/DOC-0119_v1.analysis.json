@@ -1,0 +1,37 @@
+{
+  "tables": [],
+  "subject": "Delivery OC print",
+  "keyTerms": [],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 9
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "Delivery OC print",
+      "heading": "",
+      "text": "Delivery OC print. No text layer found: the PDF looks scanned (images only). Text in images needs OCR or a vision model.",
+      "locator": "file",
+      "kind": "section"
+    }
+  ]
+}

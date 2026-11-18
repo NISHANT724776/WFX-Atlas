@@ -1,0 +1,190 @@
+{
+  "tables": [],
+  "subject": "WMS Workflow 1",
+  "keyTerms": [
+    "location",
+    "mobile application",
+    "mobile",
+    "application",
+    "site",
+    "select",
+    "grn",
+    "roll",
+    "click",
+    "scan",
+    "asn",
+    "stock",
+    "gdi",
+    "smart scan",
+    "number"
+  ],
+  "module": "Inventory, QC & WMS",
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 20
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 14
+    },
+    {
+      "module": "Production",
+      "score": 2
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note",
+    "RMPO – Raw Material Purchase Order"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Once this master are enable we need to define QR Code/ Barcode master setup.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. We need to enable some master from report rights.\n2. QR/Barcode Master setup.\n3. Stationary master.\n4. Scan option required for GRN/GDI(Permission).\n5. Duplicate print (permission).\n6. Enable Roll ASN Against Movement Article(Inventory setting >>company Setup)\n7. Site location(Report Right(To generate QR for Sites))\n8. Once this master are enable we need to define QR Code/ Barcode master setup.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Once all the major configuration is done we can start using the WMS",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. GRN.\n2. Dispatch(GDI pick list creation, GDN).\n3. GON.\n4. GIN.\n5. Location management (If you want to change the location of your stock).\n6. Smart scan(Shows full details of the roll , Also help in splitting the roll if required).",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. Production Process order input return\n2. ASN from supplier- Against ASN\n3. Buyer order return.\n4. Process order input return -against PO\n5. Returnable transfer out of system.\n6. Transfer from site- External.\n7. Transfer from site internal",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "User name (same as which you are using in the desktop)",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Password (same as which you are using in the desktop)",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Company ID(same as which you are using in the desktop)",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "URL (same as which you are using in the desktop)",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. User name (same as which you are using in the desktop)\n2. Password (same as which you are using in the desktop)\n3. Company ID(same as which you are using in the desktop)\n4. URL (same as which you are using in the desktop)",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Once all the details are fill click on next button",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. Click on GRN.\n2. Select receipt type.\n3. Select site.\n4. Select supplier\n5. Asn number/FPPO number/GIN number/PRPO number/GDN number( As per GRN receipt type)",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Location tab is used for change of location if you have received your stock at Location A in Site XYZ but you need to move the stock to next location then you can you this module to change the location.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. Step 1 click on location tab.\n2. Select the site.\n3. Select the roll by scanning the QR.\n4. Select the Location by Scanning the QR(path >> Inventory >> Codes >> Site-Location)\n5. Click on Confirm.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Dispatch tab is used for creating GDI pick list and Dispatch.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Once dispatch is created with mobile application one auto transaction will be created in the web under dispatch screen.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. Step 1 click on dispatch icon.\n2. Select the site.\n3. Select GDI number.\n4. Click on article\n5. Scan the roll from GRN or QC(If QC is done)\n6. Click on ok.\n7. Click on confirm Picklist has been created.\n8. Once GDI has been created click on GDN.\n9. Select the site.\n10. Select GDI\n11. Fill the details\n12. Confirm the GDN",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "definition",
+      "text": "Smart scan tab is used to make transaction for roll split also you can see the detail of roll like:",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "WMS Workflow 1:\n1. Select Smart Scan\n2. Scan the roll.\n3. Split the qty.\n4. Confirm.",
+      "locator": "start",
+      "module": "Inventory, QC & WMS"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "WMS Workflow 1",
+      "heading": "",
+      "text": "WMS Workflow\nFirst we need to do some basic configuration:\n• We need to enable some master from report rights.\n• QR/Barcode Master setup.\n• Stationary master.\n• Scan option required for GRN/GDI(Permission).\n• Duplicate print (permission).\n• Enable Roll ASN Against Movement Article(Inventory setting >>company Setup)\n• Site location(Report Right(To generate QR for Sites))\n• Once this master are enable we need to define QR Code/ Barcode master setup.\nIn the bellow mention setup we need to define for what transaction we need to generate the QR Code.\n• Need to enable Quick Docs from Translation configurator.\nNeed to enable quick docs for all the transaction we want to do on mobile application.\nAs shown bellow:\nOnce all the major configuration is done we can start using the WMS\n(Note: Build 2025_01 should be deployed on server and to download mobile app use this link: WFXQuickDocs_0407_01.apk)\nThings which you can perform using WMS open on mobile application.\n• GRN.\n• Dispatch(GDI pick list creation, GDN).\n• GON.\n• GIN.\n• Location management (If you want to change the location of your stock).\n• Smart scan(Shows full details of the roll , Also help in splitting the roll if required).\nBellow mention GRN type can be done by Application\n• Production Process order input return\n• ASN from supplier- Against ASN\n• Buyer order return.\n• Process order input return -against PO",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "WMS Workflow 1",
+      "heading": "",
+      "text": "• Returnable transfer out of system.\n• Transfer from site- External.\n• Transfer from site internal\nTo make the GRN from mobile application for RMPO you need to either use supplier portal or create a supplier ASN against the RMPO so that QR code can be generated.\nOnce QR code will be generated you can scan that QR in mobile application to do the GRN.\n• Enable Roll ASN Against Movement Article(Inventory setting >>company Setup)\nAbove mention setting should be enable to generate QR on ASN as roll movement will be enable in the ASN\nMobile Application.\nAfter downloading the application bellow interface will be open where you need to fill some details like:\n• User name (same as which you are using in the desktop)\n• Password (same as which you are using in the desktop)\n• Company ID(same as which you are using in the desktop)\n• URL (same as which you are using in the desktop)\nOnce all the details are fill click on next button\nIF you want to do grn for receipt type asn from supplier against PO in App then you need to create ASN if not then do the grn directly on UI your QR code will get generated which you can print and attach on the rolls after that you can use that QR while doing production.\nThen you get option to make pin or use biometric for login next time as shown bellow.\nCreation of GRN>>\n• Click on GRN.\n• Select receipt type.\n• Select site.\n• Select supplier",
+      "locator": "start (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "WMS Workflow 1",
+      "heading": "",
+      "text": "• Asn number/FPPO number/GIN number/PRPO number/GDN number( As per GRN receipt type)\nScan the QR from source then do the grn.\nLocation>>\nPath: Inventory > Stock Management > Update Shade / Location\nExisting Functionality: Currently WFX is supporting to change material location by manually entering the data in application.\nWith the help of mobile application user will be able to change location of stock via. Mobile App.\nLocation tab is used for change of location if you have received your stock at Location A in Site XYZ but you need to move the stock to next location then you can you this module to change the location.\nOnce you change the location using Mobile application one auto transaction will be created in system In Site location management.(Path>> Inventory >> Site location Management.)\n• Step 1 click on location tab.\n• Select the site.\n• Select the roll by scanning the QR.\n• Select the Location by Scanning the QR(path >> Inventory >> Codes >> Site-Location)\n• Click on Confirm.\nOnce you click on site location you need to select site then select any particular location for which you want to generate QR then click on generate QR which you can print and paste in your location for future use.\nDispatch>>\nExisting Functionality: Currently WFX is supporting to create GDI pick list and GDN from Web application Only.",
+      "locator": "start (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "WMS Workflow 1",
+      "heading": "",
+      "text": "With the help of mobile application user will be able to create GDI pick list and make GDN directly from Mobile App.\nDispatch tab is used for creating GDI pick list and Dispatch.\nOnce dispatch is created with mobile application one auto transaction will be created in the web under dispatch screen.\n• Step 1 click on dispatch icon.\n• Select the site.\n• Select GDI number.\n• Click on article\n• Scan the roll from GRN or QC(If QC is done)\n• Click on ok.\n• Click on confirm Picklist has been created.\n• Once GDI has been created click on GDN.\n• Select the site.\n• Select GDI\n• Fill the details\n• Confirm the GDN\nGDI WORKFLOW>>\nGDN> Workflow\nSmart Scan>>\nExisting Functionality: Currently WFX is supporting to split the from stock movement split.\nWith the help of mobile application user will be able Split the roll on mobile app also he we be able to see the full details of roll.\nSmart scan tab is used to make transaction for roll split also you can see the detail of roll like:\nLocation.\nWfx Stock movement Number.\nStock Movement Number.\nArticle Name(Article Code)\nColour/ Size\nLot/ Shade\nQty\nBuyer\nStyle\nAnd if we click on stock movement number we can see other additional details.\nThe transaction which you made in Smart scan will be created in Inventory>> WFX Stock Movement list.\nSteps to use Smart Scan:\n• Select Smart Scan\n• Scan the roll.\n• Split the qty.\n• Confirm.\nCreated by Rohit Singh",
+      "locator": "start (part 4)",
+      "kind": "section"
+    }
+  ]
+}

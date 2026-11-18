@@ -1,0 +1,3 @@
+﻿delivery,value,currency,rate_to_order_currency,sub_total,order_currency
+Delivery 1,800,USD,84,67200,INR
+Delivery 2,600,VDN,0.0033333333333333335,2,INR

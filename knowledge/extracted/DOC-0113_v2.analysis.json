@@ -1,0 +1,1126 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Document Title",
+        "Business Requirements Document – Auto MRP with % Wise Procurement"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {
+        "Business Requirements Document – Auto MRP with % Wise Procurement": "%"
+      },
+      "identifiers": [
+        "Document Title"
+      ],
+      "rows": [
+        [
+          "Module",
+          "WFX – Material Requirement Planning (MRP)"
+        ],
+        [
+          "Prepared For",
+          "Shahi Exports Pvt. Ltd."
+        ],
+        [
+          "Version",
+          "1.0"
+        ],
+        [
+          "Status",
+          "Draft"
+        ],
+        [
+          "Date",
+          "22 June 2026"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Business Problem: Merchandising teams currently have no controlled mechanism to release material indents in partial percentages across multiple MRP runs. This leads to either over-procurement risk or manual workarounds outside the system. The proposed solution introduces a configurable Release % field that governs how much of the open requirement is released at each MRP run cycle."
+      ],
+      "types": [
+        "empty"
+      ],
+      "units": {
+        "Business Problem: Merchandising teams currently have no controlled mechanism to release material indents in partial percentages across multiple MRP runs. This leads to either over-procurement risk or manual workarounds outside the system. The proposed solution introduces a configurable Release % field that governs how much of the open requirement is released at each MRP run cycle.": "%"
+      },
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Stakeholder",
+        "Role",
+        "Responsibility"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Stakeholder"
+      ],
+      "rows": [
+        [
+          "Merchandising",
+          "Primary User",
+          "Define Release %, run MRP, create indents"
+        ],
+        [
+          "Planning / Merchandising",
+          "Supporting User",
+          "Trigger Auto MRL, manage style-level OC consolidation"
+        ],
+        [
+          "IT / WFX Admin",
+          "System Owner",
+          "Configure Buyer-wise Auto MRP setup, manage user access"
+        ],
+        [
+          "Shahi Exports Management",
+          "Approver",
+          "Sign off on BRD and UAT acceptance"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "S.No",
+        "Field Name",
+        "Description"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Required Qty",
+          "Current Required Quantity as per BOM Consumption × Order Quantity. Represents the total material needed for the order."
+        ],
+        [
+          "2",
+          "Open to Release Qty",
+          "Pending quantity yet to be released from the total Required Qty. Calculated as: Required Qty − Previous Released Qty."
+        ],
+        [
+          "3",
+          "Previous Released Qty",
+          "Total quantity already released in prior MRP runs. Reflects cumulative indent quantities already created."
+        ],
+        [
+          "4",
+          "Release %",
+          "User-defined procurement percentage input. Determines what portion of Open to Release Qty will be converted to an indent in this run."
+        ],
+        [
+          "5",
+          "Released Qty",
+          "Quantity to be released in current run = Open to Release Qty × Release %. This feeds directly into Indent creation."
+        ],
+        [
+          "6",
+          "Indent Qty",
+          "Cumulative total indent quantity = Previous Released Qty + Released Qty."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Run",
+        "Required Qty",
+        "Open to Release Qty",
+        "Previous Release Qty",
+        "Release %",
+        "Released Qty",
+        "Indent Qty"
+      ],
+      "types": [
+        "text",
+        "integer",
+        "integer",
+        "integer",
+        "percent",
+        "integer",
+        "integer"
+      ],
+      "units": {
+        "Required Qty": "quantity (unit of the row)",
+        "Open to Release Qty": "quantity (unit of the row)",
+        "Previous Release Qty": "quantity (unit of the row)",
+        "Release %": "%",
+        "Released Qty": "quantity (unit of the row)",
+        "Indent Qty": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "First MRP",
+          "1,000",
+          "1,000",
+          "0",
+          "80%",
+          "800",
+          "800"
+        ],
+        [
+          "Second MRP",
+          "1,000",
+          "200",
+          "800",
+          "80%",
+          "160",
+          "960"
+        ],
+        [
+          "Third MRP",
+          "1,000",
+          "40",
+          "960",
+          "100%",
+          "40",
+          "1,000"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Interpretation:\nRun 1: 80% of 1,000 = 800 units released. Indent raised for 800 units.\nRun 2: Open balance = 200. 80% of 200 = 160 units. Cumulative indent = 960.\nRun 3: Open balance = 40. 100% released to fully cover the requirement. Cumulative indent = 1,000."
+      ],
+      "types": [
+        "empty"
+      ],
+      "units": {
+        "Interpretation:\nRun 1: 80% of 1,000 = 800 units released. Indent raised for 800 units.\nRun 2: Open balance = 200. 80% of 200 = 160 units. Cumulative indent = 960.\nRun 3: Open balance = 40. 100% released to fully cover the requirement. Cumulative indent = 1,000.": "%"
+      },
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "#",
+        "Validation / Business Rule"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Release % must be a numeric value only. Non-numeric input must be rejected with a user-friendly error message."
+        ],
+        [
+          "2",
+          "Release % field must be user-editable at the MRP line item level."
+        ],
+        [
+          "3",
+          "System must auto-populate Release % from Buyer-wise Auto MRP Setup configuration, if defined."
+        ],
+        [
+          "4",
+          "User must have the option to define % at header level on MRP Level 2, with a 'Copy Below' or 'Copy to All' option to apply the value to all line items."
+        ],
+        [
+          "5",
+          "Released Qty must not exceed Open to Release Qty. System should validate and prevent over-release."
+        ],
+        [
+          "6",
+          "Production Order generation must always be based on 100% of order quantity, unaffected by Release % logic."
+        ],
+        [
+          "7",
+          "MRP should only appear in the Pending MRP list if Indent creation is still pending (i.e., Indent Qty < Required Qty)."
+        ],
+        [
+          "8",
+          "User must be able to consolidate multiple Summary OCs for the same Style in a single MRP run."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "Configuration Parameter",
+        "Type",
+        "Behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Configuration Parameter"
+      ],
+      "rows": [
+        [
+          "Buyer Code / Name",
+          "Lookup / Dropdown",
+          "Select the buyer for whom the default % is being set"
+        ],
+        [
+          "Default Release %",
+          "Numeric (0–100)",
+          "Auto-populated at MRP run time when buyer matches"
+        ],
+        [
+          "Override Allowed",
+          "Yes / No toggle",
+          "If Yes, user can edit the pre-filled % at runtime"
+        ],
+        [
+          "Effective From Date",
+          "Date",
+          "Date from which the setup takes effect"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "Attribute",
+        "Requirement"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attribute"
+      ],
+      "rows": [
+        [
+          "Performance",
+          "MRP Pending List must load within 3 seconds for up to 500 pending styles"
+        ],
+        [
+          "Data Integrity",
+          "Previous Released Qty must be locked / read-only; only Release % is user-editable"
+        ],
+        [
+          "Auditability",
+          "All Release % changes and indent generations must be logged with user ID and timestamp"
+        ],
+        [
+          "Concurrency",
+          "Concurrent MRP runs for the same style by different users must be handled with locking"
+        ],
+        [
+          "Backward Compatibility",
+          "Production Order generation must not be impacted by this change under any scenario"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "Term",
+        "Definition"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Term"
+      ],
+      "rows": [
+        [
+          "MRP",
+          "Material Requirement Planning – process of calculating material needs based on orders and BOM"
+        ],
+        [
+          "MRL",
+          "Material Requirement List – auto-generated list of material requirements for active styles"
+        ],
+        [
+          "BOM",
+          "Bill of Materials – list of raw materials and components required per unit of a style"
+        ],
+        [
+          "Indent",
+          "Purchase Indent – an internal procurement request raised against a material requirement"
+        ],
+        [
+          "OC",
+          "Order Confirmation – confirmed buyer order in WFX"
+        ],
+        [
+          "Release %",
+          "User-defined percentage determining what portion of open requirement is released as indent"
+        ],
+        [
+          "WFX",
+          "The ERP / PLM platform used by Shahi Exports for order and procurement management"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "Name",
+        "Role",
+        "Signature",
+        "Date"
+      ],
+      "types": [
+        "empty",
+        "text",
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "Business Owner",
+          "",
+          ""
+        ],
+        [
+          "",
+          "IT / WFX Lead",
+          "",
+          ""
+        ],
+        [
+          "",
+          "Procurement Head",
+          "",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 12",
+      "headers": [
+        "This document is a draft and subject to review and approval by the stakeholders listed above before development commences."
+      ],
+      "types": [
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    }
+  ],
+  "subject": "BRD Auto MRP Shahi Exports",
+  "keyTerms": [
+    "mrp",
+    "pct",
+    "release",
+    "release pct",
+    "qty",
+    "indent",
+    "user",
+    "released",
+    "must",
+    "released qty",
+    "auto",
+    "run",
+    "auto mrp",
+    "level",
+    "list"
+  ],
+  "module": "Planning",
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 48
+    },
+    {
+      "module": "Production",
+      "score": 9
+    },
+    {
+      "module": "Style & BOM",
+      "score": 6
+    },
+    {
+      "module": "Sales Order",
+      "score": 4
+    }
+  ],
+  "transactions": [
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)",
+    "Production Order"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Document Title, Business Requirements Document – Auto MRP with % Wise Procurement (5 rows; identifiers: Document Title)",
+      "locator": "starttable 1",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Business Problem: Merchandising teams currently have no controlled mechanism to release material indents in partial percentages across multiple MRP runs. This leads to either over-procurement risk or manual workarounds outside the system. The proposed solution introduces a configurable Release % field that governs how much of the open requirement is released at each MRP run cycle. (0 rows)",
+      "locator": "§ 1. Executive Summary, table 2",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "2.1 In Scope:\n1. Auto MRL (Material Requirement List) generation in WFX at Material article/Color/Size level\n2. MRP Pending List screen showing styles with generated MRP but pending indent creation\n3. Percentage-wise procurement release logic at MRP run level\n4. User-configurable Release % at line level and header level (with copy-down option)\n5. Buyer-wise Auto MRP setup for default Release % population\n6. Multi-OC consolidation for the same style in a single MRP run\n7. Indent generation based on Release % with cumulative Indent Qty tracking",
+      "locator": "§ 2. Scope › 2.1 In Scope",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Stakeholder, Role, Responsibility (4 rows; identifiers: Stakeholder)",
+      "locator": "§ 3. Stakeholders, table 3",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Auto MRP must run at the style/article/Color/Size line level",
+      "locator": "§ 4. Functional Requirements › 4.1 Auto MRP Generation",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "MRL generation must consider BOM consumption rates and confirmed order quantities",
+      "locator": "§ 4. Functional Requirements › 4.1 Auto MRP Generation",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "Generated MRL must be visible in the MRP Pending List",
+      "locator": "§ 4. Functional Requirements › 4.1 Auto MRP Generation",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4.1 Auto MRP Generation:\n1. Auto MRP must run at the style/article/Color/Size line level\n2. MRL generation must consider BOM consumption rates and confirmed order quantities\n3. Generated MRL must be visible in the MRP Pending List",
+      "locator": "§ 4. Functional Requirements › 4.1 Auto MRP Generation",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "A dedicated MRP Pending List screen must be available in WFX with the following behaviour:",
+      "locator": "§ 4. Functional Requirements › 4.2 MRP Pending List Screen",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "A style is removed from the list once Indent Qty equals Required Qty (i.e., fully released)",
+      "locator": "§ 4. Functional Requirements › 4.2 MRP Pending List Screen",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "4.2 MRP Pending List Screen:\n1. Display all styles for which MRP has been generated but Indent creation is still pending\n2. A style is removed from the list once Indent Qty equals Required Qty (i.e., fully released)\n3. User can search / filter by style, buyer, season, or OC number\n4. User can select one or multiple Summary OCs for the same style to consolidate into one MRP run",
+      "locator": "§ 4. Functional Requirements › 4.2 MRP Pending List Screen",
+      "module": "Planning"
+    },
+    {
+      "kind": "definition",
+      "text": "This is the core enhancement.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "At the MRP screen (Level 2), the following new columns and interaction model must be supported:",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: S.No, Field Name, Description (6 rows)",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Run, Required Qty, Open to Release Qty, Previous Release Qty, Release %, Released Qty, Indent Qty (3 rows)",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 5",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Interpretation:\nRun 1: 80% of 1,000 = 800 units released. Indent raised for 800 units.\nRun 2: Open balance = 200. 80% of 200 = 160 units. Cumulative indent = 960.\nRun 3: Open balance = 40. 100% released to fully cover the requirement. Cumulative indent = 1,000. (0 rows)",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 6",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: #, Validation / Business Rule (8 rows)",
+      "locator": "§ 6. Validations & Business Rules, table 7",
+      "module": "Planning"
+    },
+    {
+      "kind": "validation",
+      "text": "A configuration screen must be available (typically under Admin / Setup) to define default Release % values at the Buyer level.",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: Configuration Parameter, Type, Behaviour (4 rows; identifiers: Configuration Parameter)",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup, table 8",
+      "module": "Planning"
+    },
+    {
+      "kind": "dependency",
+      "text": "System runs Auto MRL for all styles with active orders based on BOM consumption.",
+      "locator": "§ 8. End-to-End User Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "System calculates Released Qty = Open to Release Qty × Release %.",
+      "locator": "§ 8. End-to-End User Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "formula",
+      "text": "Style remains in Pending List until Indent Qty = Required Qty; then it drops off.",
+      "locator": "§ 8. End-to-End User Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "8. End-to-End User Flow:\n1. System runs Auto MRL for all styles with active orders based on BOM consumption.\n2. Styles with pending indent creation appear in the MRP Pending List screen.\n3. Merchandising user opens the Pending List and searches for the desired style.\n4. User selects one or more Summary OCs for the same style (multi-select for consolidation).\n5. User clicks 'Run MRP for Indent Generation' to open the MRP Level 2 screen.\n6. System auto-populates Release % from Buyer-wise setup (if configured).\n7. User reviews and optionally edits Release % at header level or line level (with Copy to All option).\n8. System calculates Released Qty = Open to Release Qty × Release %.\n9. User reviews Released Qty and Indent Qty columns and confirms.\n10. System creates the Indent for the Released Qty and updates Previous Released Qty for next run.\n11. Style remains in Pending List until Indent Qty = Required Qty; then it drops off.",
+      "locator": "§ 8. End-to-End User Flow",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: Attribute, Requirement (5 rows; identifiers: Attribute)",
+      "locator": "§ 9. Non-Functional Requirements, table 9",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: Term, Definition (7 rows; identifiers: Term)",
+      "locator": "§ 10. Glossary, table 10",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: Name, Role, Signature, Date (3 rows)",
+      "locator": "§ 11. Document Approval, table 11",
+      "module": "Planning"
+    },
+    {
+      "kind": "table",
+      "text": "Table 12: This document is a draft and subject to review and approval by the stakeholders listed above before development commences. (0 rows)",
+      "locator": "§ 11. Document Approval, table 12",
+      "module": "Planning"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "BRD Auto MRP Shahi Exports",
+      "heading": "",
+      "text": "BUSINESS REQUIREMENTS DOCUMENT\nAuto MRP with % Wise Procurement Setup\nWFX System | Shahi Exports Pvt. Ltd.",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "BRD Auto MRP Shahi Exports – Table 1",
+      "heading": "",
+      "text": "Columns: Document Title (text); Business Requirements Document – Auto MRP with % Wise Procurement (text, %)\nDocument Title | Business Requirements Document – Auto MRP with % Wise Procurement\nModule | WFX – Material Requirement Planning (MRP)\nPrepared For | Shahi Exports Pvt. Ltd.\nVersion | 1.0\nStatus | Draft\nDate | 22 June 2026",
+      "locator": "starttable 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "",
+      "text": "Document Title: Module; Business Requirements Document – Auto MRP with % Wise Procurement: WFX – Material Requirement Planning (MRP)",
+      "locator": "starttable 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "",
+      "text": "Document Title: Prepared For; Business Requirements Document – Auto MRP with % Wise Procurement: Shahi Exports Pvt. Ltd.",
+      "locator": "starttable 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "",
+      "text": "Document Title: Version; Business Requirements Document – Auto MRP with % Wise Procurement: 1.0",
+      "locator": "starttable 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "",
+      "text": "Document Title: Status; Business Requirements Document – Auto MRP with % Wise Procurement: Draft",
+      "locator": "starttable 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "",
+      "text": "Document Title: Date; Business Requirements Document – Auto MRP with % Wise Procurement: 22 June 2026",
+      "locator": "starttable 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "1. Executive Summary",
+      "heading": "1. Executive Summary",
+      "text": "This Business Requirements Document (BRD) defines the functional requirements for the Auto MRP (Material Requirement Planning) feature to be implemented in WFX for Shahi Exports Pvt. Ltd. The key enhancement involves introducing a percentage-based procurement release mechanism at the article color and size line level, enabling merchandising teams to release material indents.",
+      "locator": "§ 1. Executive Summary",
+      "kind": "section"
+    },
+    {
+      "title": "1. Executive Summary – Table 2",
+      "heading": "1. Executive Summary",
+      "text": "Columns: Business Problem: Merchandising teams currently have no controlled mechanism to release material indents in partial percentages across multiple MRP runs. This leads to either over-procurement risk or manual workarounds outside the system. The proposed solution introduces a configurable Release % field that governs how much of the open requirement is released at each MRP run cycle. (empty, %)\nBusiness Problem: Merchandising teams currently have no controlled mechanism to release material indents in partial percentages across multiple MRP runs. This leads to either over-procurement risk or manual workarounds outside the system. The proposed solution introduces a configurable Release % field that governs how much of the open requirement is released at each MRP run cycle.",
+      "locator": "§ 1. Executive Summary, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "2.1 In Scope",
+      "heading": "2. Scope › 2.1 In Scope",
+      "text": "• Auto MRL (Material Requirement List) generation in WFX at Material article/Color/Size level\n• MRP Pending List screen showing styles with generated MRP but pending indent creation\n• Percentage-wise procurement release logic at MRP run level\n• User-configurable Release % at line level and header level (with copy-down option)\n• Buyer-wise Auto MRP setup for default Release % population\n• Multi-OC consolidation for the same style in a single MRP run\n• Indent generation based on Release % with cumulative Indent Qty tracking",
+      "locator": "§ 2. Scope › 2.1 In Scope",
+      "kind": "section"
+    },
+    {
+      "title": "2.2 Out of Scope",
+      "heading": "2. Scope › 2.2 Out of Scope",
+      "text": "• Production Order quantity — remains 100% of Order Qty; unaffected by Release %",
+      "locator": "§ 2. Scope › 2.2 Out of Scope",
+      "kind": "section"
+    },
+    {
+      "title": "3. Stakeholders – Table 3",
+      "heading": "3. Stakeholders",
+      "text": "Columns: Stakeholder (text); Role (text); Responsibility (text)\nStakeholder | Role | Responsibility\nMerchandising | Primary User | Define Release %, run MRP, create indents\nPlanning / Merchandising | Supporting User | Trigger Auto MRL, manage style-level OC consolidation\nIT / WFX Admin | System Owner | Configure Buyer-wise Auto MRP setup, manage user access\nShahi Exports Management | Approver | Sign off on BRD and UAT acceptance",
+      "locator": "§ 3. Stakeholders, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "3. Stakeholders",
+      "text": "Stakeholder: Merchandising; Role: Primary User; Responsibility: Define Release %, run MRP, create indents",
+      "locator": "§ 3. Stakeholders, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "3. Stakeholders",
+      "text": "Stakeholder: Planning / Merchandising; Role: Supporting User; Responsibility: Trigger Auto MRL, manage style-level OC consolidation",
+      "locator": "§ 3. Stakeholders, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "3. Stakeholders",
+      "text": "Stakeholder: IT / WFX Admin; Role: System Owner; Responsibility: Configure Buyer-wise Auto MRP setup, manage user access",
+      "locator": "§ 3. Stakeholders, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "3. Stakeholders",
+      "text": "Stakeholder: Shahi Exports Management; Role: Approver; Responsibility: Sign off on BRD and UAT acceptance",
+      "locator": "§ 3. Stakeholders, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "4.1 Auto MRP Generation",
+      "heading": "4. Functional Requirements › 4.1 Auto MRP Generation",
+      "text": "The system shall automatically generate a Material Requirement List (MRL) in WFX at defined trigger points (e.g., order confirmation, planning milestone). The MRL acts as the source for MRP runs.\n• Auto MRP must run at the style/article/Color/Size line level\n• MRL generation must consider BOM consumption rates and confirmed order quantities\n• Generated MRL must be visible in the MRP Pending List",
+      "locator": "§ 4. Functional Requirements › 4.1 Auto MRP Generation",
+      "kind": "section"
+    },
+    {
+      "title": "4.2 MRP Pending List Screen",
+      "heading": "4. Functional Requirements › 4.2 MRP Pending List Screen",
+      "text": "A dedicated MRP Pending List screen must be available in WFX with the following behaviour:\n• Display all styles for which MRP has been generated but Indent creation is still pending\n• A style is removed from the list once Indent Qty equals Required Qty (i.e., fully released)\n• User can search / filter by style, buyer, season, or OC number\n• User can select one or multiple Summary OCs for the same style to consolidate into one MRP run",
+      "locator": "§ 4. Functional Requirements › 4.2 MRP Pending List Screen",
+      "kind": "section"
+    },
+    {
+      "title": "4.3 MRP Screen – % Wise Procurement Release",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release",
+      "text": "This is the core enhancement. At the MRP screen (Level 2), the following new columns and interaction model must be supported:",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release",
+      "kind": "section"
+    },
+    {
+      "title": "4.3.1 MRP Screen Column Definitions – Table 4",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "Columns: S.No (integer); Field Name (text); Description (text)\nS.No | Field Name | Description\n1 | Required Qty | Current Required Quantity as per BOM Consumption × Order Quantity. Represents the total material needed for the order.\n2 | Open to Release Qty | Pending quantity yet to be released from the total Required Qty. Calculated as: Required Qty − Previous Released Qty.\n3 | Previous Released Qty | Total quantity already released in prior MRP runs. Reflects cumulative indent quantities already created.\n4 | Release % | User-defined procurement percentage input. Determines what portion of Open to Release Qty will be converted to an indent in this run.\n5 | Released Qty | Quantity to be released in current run = Open to Release Qty × Release %. This feeds directly into Indent creation.\n6 | Indent Qty | Cumulative total indent quantity = Previous Released Qty + Released Qty.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "S.No: 1; Field Name: Required Qty; Description: Current Required Quantity as per BOM Consumption × Order Quantity. Represents the total material needed for the order.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "S.No: 2; Field Name: Open to Release Qty; Description: Pending quantity yet to be released from the total Required Qty. Calculated as: Required Qty − Previous Released Qty.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "S.No: 3; Field Name: Previous Released Qty; Description: Total quantity already released in prior MRP runs. Reflects cumulative indent quantities already created.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "S.No: 4; Field Name: Release %; Description: User-defined procurement percentage input. Determines what portion of Open to Release Qty will be converted to an indent in this run.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "S.No: 5; Field Name: Released Qty; Description: Quantity to be released in current run = Open to Release Qty × Release %. This feeds directly into Indent creation.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions",
+      "text": "S.No: 6; Field Name: Indent Qty; Description: Cumulative total indent quantity = Previous Released Qty + Released Qty.",
+      "locator": "§ 4. Functional Requirements › 4.3 MRP Screen – % Wise Procurement Release › 4.3.1 MRP Screen Column Definitions, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "heading": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "text": "The table below illustrates how a procurement team would release 1,000 units of a material across three MRP runs using the Release % mechanism. The buyer setup defaults to 80%, with a final top-up run at 100%.",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "kind": "section"
+    },
+    {
+      "title": "5. Worked Example – Phased Procurement Over 3 MRP Runs – Table 5",
+      "heading": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "text": "Columns: Run (text); Required Qty (integer, quantity (unit of the row)); Open to Release Qty (integer, quantity (unit of the row)); Previous Release Qty (integer, quantity (unit of the row)); Release % (percent, %); Released Qty (integer, quantity (unit of the row)); Indent Qty (integer, quantity (unit of the row))\nRun | Required Qty | Open to Release Qty | Previous Release Qty | Release % | Released Qty | Indent Qty\nFirst MRP | 1,000 | 1,000 | 0 | 80% | 800 | 800\nSecond MRP | 1,000 | 200 | 800 | 80% | 160 | 960\nThird MRP | 1,000 | 40 | 960 | 100% | 40 | 1,000",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "text": "Run: First MRP; Required Qty: 1,000; Open to Release Qty: 1,000; Previous Release Qty: 0; Release %: 80%; Released Qty: 800; Indent Qty: 800",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "text": "Run: Second MRP; Required Qty: 1,000; Open to Release Qty: 200; Previous Release Qty: 800; Release %: 80%; Released Qty: 160; Indent Qty: 960",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "text": "Run: Third MRP; Required Qty: 1,000; Open to Release Qty: 40; Previous Release Qty: 960; Release %: 100%; Released Qty: 40; Indent Qty: 1,000",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "5. Worked Example – Phased Procurement Over 3 MRP Runs – Table 6",
+      "heading": "5. Worked Example – Phased Procurement Over 3 MRP Runs",
+      "text": "Columns: Interpretation:\nRun 1: 80% of 1,000 = 800 units released. Indent raised for 800 units.\nRun 2: Open balance = 200. 80% of 200 = 160 units. Cumulative indent = 960.\nRun 3: Open balance = 40. 100% released to fully cover the requirement. Cumulative indent = 1,000. (empty, %)\nInterpretation:\nRun 1: 80% of 1,000 = 800 units released. Indent raised for 800 units.\nRun 2: Open balance = 200. 80% of 200 = 160 units. Cumulative indent = 960.\nRun 3: Open balance = 40. 100% released to fully cover the requirement. Cumulative indent = 1,000.",
+      "locator": "§ 5. Worked Example – Phased Procurement Over 3 MRP Runs, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "6. Validations & Business Rules – Table 7",
+      "heading": "6. Validations & Business Rules",
+      "text": "Columns: # (integer); Validation / Business Rule (text)\n# | Validation / Business Rule\n1 | Release % must be a numeric value only. Non-numeric input must be rejected with a user-friendly error message.\n2 | Release % field must be user-editable at the MRP line item level.\n3 | System must auto-populate Release % from Buyer-wise Auto MRP Setup configuration, if defined.\n4 | User must have the option to define % at header level on MRP Level 2, with a 'Copy Below' or 'Copy to All' option to apply the value to all line items.\n5 | Released Qty must not exceed Open to Release Qty. System should validate and prevent over-release.\n6 | Production Order generation must always be based on 100% of order quantity, unaffected by Release % logic.\n7 | MRP should only appear in the Pending MRP list if Indent creation is still pending (i.e., Indent Qty < Required Qty).\n8 | User must be able to consolidate multiple Summary OCs for the same Style in a single MRP run.",
+      "locator": "§ 6. Validations & Business Rules, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 1; Validation / Business Rule: Release % must be a numeric value only. Non-numeric input must be rejected with a user-friendly error message.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 2; Validation / Business Rule: Release % field must be user-editable at the MRP line item level.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 3; Validation / Business Rule: System must auto-populate Release % from Buyer-wise Auto MRP Setup configuration, if defined.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 4; Validation / Business Rule: User must have the option to define % at header level on MRP Level 2, with a 'Copy Below' or 'Copy to All' option to apply the value to all line items.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 5; Validation / Business Rule: Released Qty must not exceed Open to Release Qty. System should validate and prevent over-release.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 6; Validation / Business Rule: Production Order generation must always be based on 100% of order quantity, unaffected by Release % logic.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 7",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 7; Validation / Business Rule: MRP should only appear in the Pending MRP list if Indent creation is still pending (i.e., Indent Qty < Required Qty).",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 8",
+      "heading": "6. Validations & Business Rules",
+      "text": "#: 8; Validation / Business Rule: User must be able to consolidate multiple Summary OCs for the same Style in a single MRP run.",
+      "locator": "§ 6. Validations & Business Rules, table 7, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "7. Buyer-Wise Auto MRP Setup",
+      "heading": "7. Buyer-Wise Auto MRP Setup",
+      "text": "A configuration screen must be available (typically under Admin / Setup) to define default Release % values at the Buyer level. This setup drives automatic population of the Release % field when the user runs MRP for styles belonging to that buyer.",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup",
+      "kind": "section"
+    },
+    {
+      "title": "7. Buyer-Wise Auto MRP Setup – Table 8",
+      "heading": "7. Buyer-Wise Auto MRP Setup",
+      "text": "Columns: Configuration Parameter (text); Type (text); Behaviour (text)\nConfiguration Parameter | Type | Behaviour\nBuyer Code / Name | Lookup / Dropdown | Select the buyer for whom the default % is being set\nDefault Release % | Numeric (0–100) | Auto-populated at MRP run time when buyer matches\nOverride Allowed | Yes / No toggle | If Yes, user can edit the pre-filled % at runtime\nEffective From Date | Date | Date from which the setup takes effect",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "7. Buyer-Wise Auto MRP Setup",
+      "text": "Configuration Parameter: Buyer Code / Name; Type: Lookup / Dropdown; Behaviour: Select the buyer for whom the default % is being set",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "7. Buyer-Wise Auto MRP Setup",
+      "text": "Configuration Parameter: Default Release %; Type: Numeric (0–100); Behaviour: Auto-populated at MRP run time when buyer matches",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "7. Buyer-Wise Auto MRP Setup",
+      "text": "Configuration Parameter: Override Allowed; Type: Yes / No toggle; Behaviour: If Yes, user can edit the pre-filled % at runtime",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "7. Buyer-Wise Auto MRP Setup",
+      "text": "Configuration Parameter: Effective From Date; Type: Date; Behaviour: Date from which the setup takes effect",
+      "locator": "§ 7. Buyer-Wise Auto MRP Setup, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "8. End-to-End User Flow",
+      "heading": "8. End-to-End User Flow",
+      "text": "• System runs Auto MRL for all styles with active orders based on BOM consumption.\n• Styles with pending indent creation appear in the MRP Pending List screen.\n• Merchandising user opens the Pending List and searches for the desired style.\n• User selects one or more Summary OCs for the same style (multi-select for consolidation).\n• User clicks 'Run MRP for Indent Generation' to open the MRP Level 2 screen.\n• System auto-populates Release % from Buyer-wise setup (if configured).\n• User reviews and optionally edits Release % at header level or line level (with Copy to All option).\n• System calculates Released Qty = Open to Release Qty × Release %.\n• User reviews Released Qty and Indent Qty columns and confirms.\n• System creates the Indent for the Released Qty and updates Previous Released Qty for next run.\n• Style remains in Pending List until Indent Qty = Required Qty; then it drops off.",
+      "locator": "§ 8. End-to-End User Flow",
+      "kind": "section"
+    },
+    {
+      "title": "9. Non-Functional Requirements – Table 9",
+      "heading": "9. Non-Functional Requirements",
+      "text": "Columns: Attribute (text); Requirement (text)\nAttribute | Requirement\nPerformance | MRP Pending List must load within 3 seconds for up to 500 pending styles\nData Integrity | Previous Released Qty must be locked / read-only; only Release % is user-editable\nAuditability | All Release % changes and indent generations must be logged with user ID and timestamp\nConcurrency | Concurrent MRP runs for the same style by different users must be handled with locking\nBackward Compatibility | Production Order generation must not be impacted by this change under any scenario",
+      "locator": "§ 9. Non-Functional Requirements, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "9. Non-Functional Requirements",
+      "text": "Attribute: Performance; Requirement: MRP Pending List must load within 3 seconds for up to 500 pending styles",
+      "locator": "§ 9. Non-Functional Requirements, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "9. Non-Functional Requirements",
+      "text": "Attribute: Data Integrity; Requirement: Previous Released Qty must be locked / read-only; only Release % is user-editable",
+      "locator": "§ 9. Non-Functional Requirements, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "9. Non-Functional Requirements",
+      "text": "Attribute: Auditability; Requirement: All Release % changes and indent generations must be logged with user ID and timestamp",
+      "locator": "§ 9. Non-Functional Requirements, table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 4",
+      "heading": "9. Non-Functional Requirements",
+      "text": "Attribute: Concurrency; Requirement: Concurrent MRP runs for the same style by different users must be handled with locking",
+      "locator": "§ 9. Non-Functional Requirements, table 9, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 5",
+      "heading": "9. Non-Functional Requirements",
+      "text": "Attribute: Backward Compatibility; Requirement: Production Order generation must not be impacted by this change under any scenario",
+      "locator": "§ 9. Non-Functional Requirements, table 9, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "10. Glossary – Table 10",
+      "heading": "10. Glossary",
+      "text": "Columns: Term (text); Definition (text)\nTerm | Definition\nMRP | Material Requirement Planning – process of calculating material needs based on orders and BOM\nMRL | Material Requirement List – auto-generated list of material requirements for active styles\nBOM | Bill of Materials – list of raw materials and components required per unit of a style\nIndent | Purchase Indent – an internal procurement request raised against a material requirement\nOC | Order Confirmation – confirmed buyer order in WFX\nRelease % | User-defined percentage determining what portion of open requirement is released as indent\nWFX | The ERP / PLM platform used by Shahi Exports for order and procurement management",
+      "locator": "§ 10. Glossary, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "10. Glossary",
+      "text": "Term: MRP; Definition: Material Requirement Planning – process of calculating material needs based on orders and BOM",
+      "locator": "§ 10. Glossary, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "10. Glossary",
+      "text": "Term: MRL; Definition: Material Requirement List – auto-generated list of material requirements for active styles",
+      "locator": "§ 10. Glossary, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "10. Glossary",
+      "text": "Term: BOM; Definition: Bill of Materials – list of raw materials and components required per unit of a style",
+      "locator": "§ 10. Glossary, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "10. Glossary",
+      "text": "Term: Indent; Definition: Purchase Indent – an internal procurement request raised against a material requirement",
+      "locator": "§ 10. Glossary, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "10. Glossary",
+      "text": "Term: OC; Definition: Order Confirmation – confirmed buyer order in WFX",
+      "locator": "§ 10. Glossary, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 6",
+      "heading": "10. Glossary",
+      "text": "Term: Release %; Definition: User-defined percentage determining what portion of open requirement is released as indent",
+      "locator": "§ 10. Glossary, table 10, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 7",
+      "heading": "10. Glossary",
+      "text": "Term: WFX; Definition: The ERP / PLM platform used by Shahi Exports for order and procurement management",
+      "locator": "§ 10. Glossary, table 10, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "11. Document Approval – Table 11",
+      "heading": "11. Document Approval",
+      "text": "Columns: Name (empty); Role (text); Signature (empty); Date (empty)\nName | Role | Signature | Date\n | Business Owner |  | \n | IT / WFX Lead |  | \n | Procurement Head |  | ",
+      "locator": "§ 11. Document Approval, table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "11. Document Approval",
+      "text": "Role: Business Owner",
+      "locator": "§ 11. Document Approval, table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "11. Document Approval",
+      "text": "Role: IT / WFX Lead",
+      "locator": "§ 11. Document Approval, table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "11. Document Approval",
+      "text": "Role: Procurement Head",
+      "locator": "§ 11. Document Approval, table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "11. Document Approval – Table 12",
+      "heading": "11. Document Approval",
+      "text": "Columns: This document is a draft and subject to review and approval by the stakeholders listed above before development commences. (empty)\nThis document is a draft and subject to review and approval by the stakeholders listed above before development commences.",
+      "locator": "§ 11. Document Approval, table 12",
+      "kind": "table"
+    }
+  ]
+}

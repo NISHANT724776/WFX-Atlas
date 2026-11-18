@@ -1,0 +1,360 @@
+# Calculation rules: Booking & sourcing
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+RULE ID: CALC-BBB-MATERIAL-VALUE
+RULE NAME: Material Line Value
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: Buyer Block Booking (BBB)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Booked material value per colour/size line.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Units
+  Rate
+FORMULA / LOGIC: Value = Units × Rate
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Value
+VALIDATIONS:
+EXAMPLE: 100 × 5 = 500 per line; 6 lines = 3,000.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  units | Units | quantity | required
+  rate | Rate | money | required
+EXPRESSION: value = units * rate
+CALC OUTPUT: value
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-BBB-BALANCE
+RULE NAME: Balance to Indent
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: Buyer Block Booking (BBB)
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: How much of the booking is still to be indented. 0 means the booking is fully indented.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Units
+  Indented Qty
+FORMULA / LOGIC: Balance to Indent = Units − Indented Qty
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Balance to Indent
+VALIDATIONS:
+EXAMPLE: 100 − 100 = 0 on all 6 lines.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  units | Units | quantity | required
+  indented_qty | Indented Qty | quantity | default 0
+EXPRESSION: balance_to_indent = units - indented_qty
+CALC OUTPUT: balance_to_indent
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-INDENT-BALANCE
+RULE NAME: Balance Units
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: BBB Adhoc Indent
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Caps how much can still be indented against the booking line.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Booked Units
+  Previous Indent Qty
+FORMULA / LOGIC: Balance Units = Booked Units − Previous Indent Qty
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Balance Units
+VALIDATIONS:
+EXAMPLE: 100 − 0 = 100.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  booked_units | Booked Units | quantity | required
+  previous_indent_qty | Previous Indent Qty | quantity | default 0
+EXPRESSION: balance_units = booked_units - previous_indent_qty
+CALC OUTPUT: balance_units
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-INDENT-OPEN
+RULE NAME: Open Qty & Status
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: BBB Adhoc Indent
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Open qty is the part of the indent not yet covered by a PO or by stock.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Indent Qty
+  Ordered Qty
+  In-house Adj.
+  On Order Adj.
+FORMULA / LOGIC: Open Qty = Indent Qty − Ordered Qty − In-house Adj. − On Order Adj.; Status = Completed when Open Qty = 0
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Open Qty
+VALIDATIONS:
+EXAMPLE: 100 − 100 − 0 − 0 = 0 → Completed.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  indent_qty | Indent Qty | quantity | required
+  ordered_qty | Ordered Qty | quantity | default 0
+  in_house_adj | In-house Adj. | quantity | default 0
+  on_order_adj | On Order Adj. | quantity | default 0
+EXPRESSION: open_qty = indent_qty - ordered_qty - in_house_adj - on_order_adj
+CALC OUTPUT: open_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-RMPO-VALUE
+RULE NAME: PO Line Value
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: RMPO – Raw Material Purchase Order
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Value is computed on the PO price, not the indent rate.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Ordered Qty
+  Price per Unit
+  Surcharge Value
+FORMULA / LOGIC: Total Value = Ordered Qty × Price per Unit; Total Net Value = Total Value + Surcharge Value
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Total Value
+VALIDATIONS:
+EXAMPLE: 100 × 10 = 1,000 per line; 6 lines = 6,000 (WFX shows 6,000).
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  ordered_qty | Ordered Qty | quantity | required
+  price_per_unit | Price per Unit | money | required
+  surcharge_value | Surcharge Value | money | default 0
+EXPRESSION:
+  total_value = ordered_qty * price_per_unit
+  total_net_value = total_value + surcharge_value
+CALC OUTPUT: total_net_value
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-RMPO-OPEN
+RULE NAME: Open Qty
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: RMPO – Raw Material Purchase Order
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Shipped Qty is updated back from GRN.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Ordered Qty
+  Additional Qty
+  Shipped (GRN accepted) Qty
+FORMULA / LOGIC: Open Qty = Ordered Qty + Additional Qty − Shipped (GRN accepted) Qty
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Open Qty
+VALIDATIONS:
+EXAMPLE: RMPO 1229: 100 − 100 = 0. RMPO 1230: 50 − 0 = 50.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  ordered_qty | Ordered Qty | quantity | required
+  additional_qty | Additional Qty | quantity | default 0
+  shipped_qty | Shipped (GRN accepted) Qty | quantity | default 0
+EXPRESSION: open_qty = ordered_qty + additional_qty - shipped_qty
+CALC OUTPUT: open_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-RMPO-STORING-QTY
+RULE NAME: Qty in Storing UOM
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: RMPO – Raw Material Purchase Order
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Converts PO qty to the UOM stock is kept in.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Ordered Qty
+  PO-to-Storing UOM Conversion
+FORMULA / LOGIC: Qty (Storing UOM) = Ordered Qty × PO-to-Storing UOM Conversion
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Qty (Storing UOM)
+VALIDATIONS:
+EXAMPLE: 100 × 1 = 100 KG_Nis.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  ordered_qty | Ordered Qty | quantity | required
+  po_to_storing_conversion | PO-to-Storing UOM Conversion | number | default 1
+EXPRESSION: qty_storing_uom = ordered_qty * po_to_storing_conversion
+CALC OUTPUT: qty_storing_uom
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-GRN-BALANCE
+RULE NAME: Balance Qty
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: GRN – Goods Receipt Note
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: What can still be received against the PO line.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Ordered Qty
+  Previously Received Qty
+  Returned Qty
+FORMULA / LOGIC: Balance Qty = Ordered Qty − Previously Received Qty + Returned Qty
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Balance Qty
+VALIDATIONS:
+EXAMPLE: 100 − 0 + 0 = 100.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  ordered_qty | Ordered Qty | quantity | required
+  previously_received_qty | Previously Received Qty | quantity | default 0
+  returned_qty | Returned Qty | quantity | default 0
+EXPRESSION: balance_qty = ordered_qty - previously_received_qty + returned_qty
+CALC OUTPUT: balance_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-GRN-ACCEPTED
+RULE NAME: Accepted Qty & Value
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: GRN – Goods Receipt Note
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Only accepted qty enters stock and updates RMPO Shipped Qty.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Received Qty
+  Rejected Qty
+  Rate
+FORMULA / LOGIC: Accepted Qty = Received Qty − Rejected Qty; Value = Accepted Qty × Rate
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Accepted Qty
+VALIDATIONS:
+EXAMPLE: 100 − 0 = 100; 100 × 10 = 1,000 per line, 6,000 total.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  received_qty | Received Qty | quantity | required
+  rejected_qty | Rejected Qty | quantity | default 0
+  rate | Rate | money | default 0
+EXPRESSION:
+  accepted_qty = received_qty - rejected_qty
+  value = accepted_qty * rate
+CALC OUTPUT: accepted_qty
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+RULE ID: CALC-GRN-EXCESS
+RULE NAME: Excess / Short
+MODULE: Booking & sourcing
+SUBMODULE:
+TRANSACTION: GRN – Goods Receipt Note
+RULE CATEGORY: Calculation
+BUSINESS PURPOSE: Positive = over-receipt (checked against shipment tolerance %), negative = short receipt.
+TRIGGER CONDITION:
+APPLICABLE CONDITIONS:
+INPUT FIELDS:
+  Received Qty
+  Balance Qty
+FORMULA / LOGIC: Excess/Short = Received Qty − Balance Qty
+UNIT OF MEASUREMENT:
+ROUNDING RULE:
+OUTPUT: Excess/Short
+VALIDATIONS:
+EXAMPLE: 100 − 100 = 0.
+EXPECTED RESULT:
+EXCEPTION CONDITIONS:
+RELATED TRANSACTIONS:
+RELATED RULES:
+CALC INPUTS:
+  received_qty | Received Qty | quantity | required
+  balance_qty | Balance Qty | quantity | required
+EXPRESSION: excess_short = received_qty - balance_qty
+CALC OUTPUT: excess_short
+V1 STATUS: verified (matches a WFX screen value)
+SOURCE: NIS-58 workbook (Downloads\WFX_Data_Model_Flow_NIS-58_v4.xlsx) and WFX screen captures of Adi TShirt (NIS-59). Knowledge Hub v1 (src/app/data/calculations.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

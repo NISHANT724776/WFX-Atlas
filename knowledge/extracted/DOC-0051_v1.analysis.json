@@ -1,0 +1,313 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Created By",
+        "Revised On",
+        "Changes"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Ajay Chaudhary",
+          "15th Jun 2023",
+          "Initial document created."
+        ],
+        [
+          "2.0",
+          "Ankit Nautiyal",
+          "6Th Feb 2026",
+          "Document revised"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "261472- Return To Supplier Different OC Allocated MAterial1",
+  "keyTerms": [
+    "return supplier",
+    "gdi",
+    "common gdi",
+    "return",
+    "supplier",
+    "gdi return",
+    "common",
+    "soc",
+    "allocated",
+    "indent",
+    "must",
+    "allocated soc",
+    "stock",
+    "type",
+    "material"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 10
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 5
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 3
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "This enhancement is required to reduce operational delays caused by SOC re-allocation and re-QC rejection scenarios.",
+      "locator": "§ … › Section 1: Overview › Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "This enhancement is required to reduce operational delays caused by SOC re-allocation and re-QC rejection scenarios.",
+      "locator": "§ … › Section 1: Overview › Business Requirement",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Another SOC delivery/PCD is prioritized, or",
+      "locator": "§ … › Section 1: Overview › Business Scenario",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "As per the current system behavior, such allocated material does not appear in Common GDI – Return to Supplier, and cannot be returned unless the material is first freed from the SOC — which is time-consuming and causes rework.",
+      "locator": "§ … › Section 1: Overview › Business Scenario",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory remarks to be captured and logged for GDI, GDN, and GRN transactions in all scenarios.",
+      "locator": "§ … › Section 1: Overview › Required Action Points (Common GDI Only)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Required Action Points (Common GDI Only):\n1. Allow RM return through Common GDI – Return to Supplier even if the material is allocated to another SOC.\n2. Display stock allocated to other SOCs against the same source GRN on the Common GDI – Return to Supplier screen.\n3. Enable both Returnable and Non-Returnable flows from the Common GDI screen.\n4. Mandatory remarks to be captured and logged for GDI, GDN, and GRN transactions in all scenarios.",
+      "locator": "§ … › Section 1: Overview › Required Action Points (Common GDI Only)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Stock allocated to any SOC other than the source GRN SOC must be visible and selectable on the Common GDI – Return to Supplier screen.",
+      "locator": "§ … › Section 2: Solution Design › Visibility Rule (New)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Selected quantity must be automatically unreserved from the allocated SOC / MRL.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If Pick List is canceled and GDI is canceled:",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Indent status must be updated accordingly after unreservation.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Stock must be unreserved from the allocated indent.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "A. Non-Returnable Type:\n1. Unreservation Logic\n2. Selected quantity must be automatically unreserved from the allocated SOC / MRL.\n3. No manual SOC freeing should be required.\n4. Indent Log Maintenance\n5. Stock correction will have the GDI information.\n“Due to GDI: <GDI Number>”\n6. Pick List / GDI Cancellation Handling\n7. If Pick List is canceled and GDI is canceled:\n8. Quantity will be available as free stock and will not be auto allocated in prev indent/oc.\n9. Indent Status Update\n10. Indent status must be updated accordingly after unreservation.\n11. Stock must be unreserved from the allocated indent.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Indent must be moved back to Active status.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › B. Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Material must be unreserved from the indent automatically.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › B. Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Indent log entry must be create a stock correction and that stock correction will have the GDI information.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › B. Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "B. Returnable Type:\n1. Indent Handling\n2. Indent must be moved back to Active status.\n3. Material must be unreserved from the indent automatically.\n4. Indent Log Maintenance\n5. Indent log entry must be create a stock correction and that stock correction will have the GDI information.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › B. Returnable Type",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory remarks to be captured at:",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › Logging & Audit Requirements (Common GDI Only)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "All unreservation and status changes must be traceable through system logs.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › Logging & Audit Requirements (Common GDI Only)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Logging & Audit Requirements (Common GDI Only):\n1. Mandatory remarks to be captured at:\n2. GDI creation\n3. GDN generation\n4. GRN reversal / return\n5. All unreservation and status changes must be traceable through system logs.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › Logging & Audit Requirements (Common GDI Only)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Created By, Revised On, Changes (2 rows)",
+      "locator": "§ Revision History, table 1",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "261472- Return To Supplier Different OC Allocated MAterial1",
+      "heading": "",
+      "text": "Software Requirements Specification\nSoftware Requirements Specification\nDevelopment ID: 261472\nDevelopment ID: 261472\nRM Need To Return To Supplier\nRM Need To Return To Supplier\nContents\nSection 1: Overview 2\nBusiness Requirement: 2\nType : New Development 2\nRole / Target Audience: 3\nRequired Action Points: 3\nSection 2. Solution 3\nSection 4. Revision History 7",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Screen Name",
+      "heading": "… › Section 1: Overview › Screen Name",
+      "text": "Common GDI – Return to Supplier (New Screen)",
+      "locator": "§ … › Section 1: Overview › Screen Name",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Section 1: Overview › Business Requirement",
+      "text": "To allow Raw Material (RM) Return to Supplier through Common GDI even when the RM is allocated to another SOC, without requiring manual de-allocation from the SOC beforehand.\nThis enhancement is required to reduce operational delays caused by SOC re-allocation and re-QC rejection scenarios.",
+      "locator": "§ … › Section 1: Overview › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Business Scenario",
+      "heading": "… › Section 1: Overview › Business Scenario",
+      "text": "Currently, RM received from a supplier is allocated to an SOC. In cases where:\n• Another SOC delivery/PCD is prioritized, or\n• Material fails re-QC after allocation\nthe RM gets allocated to a different SOC.\nAs per the current system behavior, such allocated material does not appear in Common GDI – Return to Supplier, and cannot be returned unless the material is first freed from the SOC — which is time-consuming and causes rework.",
+      "locator": "§ … › Section 1: Overview › Business Scenario",
+      "kind": "section"
+    },
+    {
+      "title": "Type",
+      "heading": "… › Section 1: Overview › Type",
+      "text": "New Development (Common GDI – Return to Supplier screen only)",
+      "locator": "§ … › Section 1: Overview › Type",
+      "kind": "section"
+    },
+    {
+      "title": "Target Audience",
+      "heading": "… › Section 1: Overview › Target Audience",
+      "text": "Warehouse Users",
+      "locator": "§ … › Section 1: Overview › Target Audience",
+      "kind": "section"
+    },
+    {
+      "title": "Required Action Points (Common GDI Only)",
+      "heading": "… › Section 1: Overview › Required Action Points (Common GDI Only)",
+      "text": "• Allow RM return through Common GDI – Return to Supplier even if the material is allocated to another SOC.\n• Display stock allocated to other SOCs against the same source GRN on the Common GDI – Return to Supplier screen.\n• Enable both Returnable and Non-Returnable flows from the Common GDI screen.\n• Mandatory remarks to be captured and logged for GDI, GDN, and GRN transactions in all scenarios.",
+      "locator": "§ … › Section 1: Overview › Required Action Points (Common GDI Only)",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Section 2: Solution Design › Navigation",
+      "text": "Inventory → Dispatch Instruction → Common GDI – Return to Supplier",
+      "locator": "§ … › Section 2: Solution Design › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Visibility Rule (New)",
+      "heading": "… › Section 2: Solution Design › Visibility Rule (New)",
+      "text": "• Stock allocated to any SOC other than the source GRN SOC must be visible and selectable on the Common GDI – Return to Supplier screen.\n• Visibility should be based on Source GRN, irrespective of current SOC allocation.",
+      "locator": "§ … › Section 2: Solution Design › Visibility Rule (New)",
+      "kind": "section"
+    },
+    {
+      "title": "A. Non-Returnable Type",
+      "heading": "… › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "text": "When returning RM via Common GDI – Return to Supplier for Non-Returnable type:\n• Unreservation Logic\n• Selected quantity must be automatically unreserved from the allocated SOC / MRL.\n• No manual SOC freeing should be required.\n• Indent Log Maintenance\n• Stock correction will have the GDI information.\n“Due to GDI: <GDI Number>”\n• Pick List / GDI Cancellation Handling\n• If Pick List is canceled and GDI is canceled:\n• Quantity will be available as free stock and will not be auto allocated in prev indent/oc.\n• Indent Status Update\n• Indent status must be updated accordingly after unreservation.\n• Stock must be unreserved from the allocated indent.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › A. Non-Returnable Type",
+      "kind": "section"
+    },
+    {
+      "title": "B. Returnable Type",
+      "heading": "… › Functional Behavior – Common GDI Return to Supplier › B. Returnable Type",
+      "text": "When returning RM via Common GDI – Return to Supplier for Returnable type:\n• Indent Handling\n• Indent must be moved back to Active status.\n• Material must be unreserved from the indent automatically.\n• Indent Log Maintenance\n• Indent log entry must be create a stock correction and that stock correction will have the GDI information.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › B. Returnable Type",
+      "kind": "section"
+    },
+    {
+      "title": "Logging & Audit Requirements (Common GDI Only)",
+      "heading": "… › Functional Behavior – Common GDI Return to Supplier › Logging & Audit Requirements (Common GDI Only)",
+      "text": "• Mandatory remarks to be captured at:\n• GDI creation\n• GDN generation\n• GRN reversal / return\n• All unreservation and status changes must be traceable through system logs.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › Logging & Audit Requirements (Common GDI Only)",
+      "kind": "section"
+    },
+    {
+      "title": "Out of Scope",
+      "heading": "… › Functional Behavior – Common GDI Return to Supplier › Out of Scope",
+      "text": "• No changes to the existing Return to Supplier screen behavior.\n• No manual SOC de-allocation process required from users.",
+      "locator": "§ … › Functional Behavior – Common GDI Return to Supplier › Out of Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Revision History – Table 1",
+      "heading": "Revision History",
+      "text": "Columns: Version (decimal); Created By (text); Revised On (text); Changes (text)\nVersion | Created By | Revised On | Changes\n1.0 | Ajay Chaudhary | 15th Jun 2023 | Initial document created.\n2.0 | Ankit Nautiyal | 6Th Feb 2026 | Document revised",
+      "locator": "§ Revision History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Revision History",
+      "text": "Version: 1.0; Created By: Ajay Chaudhary; Revised On: 15th Jun 2023; Changes: Initial document created.",
+      "locator": "§ Revision History, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Revision History",
+      "text": "Version: 2.0; Created By: Ankit Nautiyal; Revised On: 6Th Feb 2026; Changes: Document revised",
+      "locator": "§ Revision History, table 1, row 2",
+      "kind": "data_row"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "tables": [],
+  "subject": "BRD 419750 If color size wise price is mentioned in price list, average price should be taken in BOM",
+  "keyTerms": [
+    "price",
+    "material",
+    "color",
+    "color size",
+    "price list",
+    "size",
+    "material color",
+    "list",
+    "prices",
+    "supplier price",
+    "bom",
+    "based",
+    "line",
+    "bom line",
+    "average price"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 16
+    },
+    {
+      "module": "Sales Order",
+      "score": 2
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "In such cases, user should have an option to define material price based on Material Color/ Wise used on BOM line.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 1. Purpose of Document",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "As of now, system provides option to define material color/size based price only if material lines are created as variant.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 2. Business Background",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "dependency",
+      "text": "The ERP system shall provide functionality to:\n1. provide a BOM line level grid to define material prices based on material colors and sizes.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 6. Proposed Solution & Functional Requirements",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "User should not be allowed on change price if populated from supplier price list unless otherwise controlled or facilitated by existing supplier price list functionality.\n3.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 6. Proposed Solution & Functional Requirements",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Change Request Details",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › Change Request Details",
+      "text": "Project Name: Shahi Exports Pvt. Ltd.\nModule Name: BOM / Material Management\nWFX Helpdesk ID: 419750\nChange Request Title: If color size wise price is mentioned in price list, average price should be taken in BOM\nPrepared By: Project Manager\nPrepared Date: 5-Jun-2026\nVersion: 1.0\nStatus: Draft",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › Change Request Details",
+      "kind": "section"
+    },
+    {
+      "title": "1. Purpose of Document",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › 1. Purpose of Document",
+      "text": "This document describes the business requirement for handling situations where the required Material Color and width/size have multiple prices. In such cases, user should have an option to define material price based on Material Color/ Wise used on BOM line.\nIn case, supplier price list is enabled then also system should auto populate price based on prices define for material color and size.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 1. Purpose of Document",
+      "kind": "section"
+    },
+    {
+      "title": "2. Business Background",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › 2. Business Background",
+      "text": "In garment manufacturing, there are cases where a material can have different prices based on color and size. In simple example, same color of fabric can have multiple prices based on width.\nExample:\n- Fabir color – Red\n- Fabric Width 48 Inch can have price INR 320\n- fabric width 54 can have price INR 360\nAs of now, system provides option to define material color/size based price only if material lines are created as variant. In case of Supplier price list, system takes higher price in case of same material have different price on the basis of color or sizes.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 2. Business Background",
+      "kind": "section"
+    },
+    {
+      "title": "3. Business Requirement",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › 3. Business Requirement",
+      "text": "The system shall allow users to update Material Color and Size based price against single BOM line.\nIn case of price list system should auto populate prices based on material color & size combination for same material line.\nSince in this case, material can have multiple prices so material line outside the expected grid should show average price.",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 3. Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "6. Proposed Solution & Functional Requirements",
+      "heading": "BUSINESS REQUIREMENT DOCUMENT (BRD) › 6. Proposed Solution & Functional Requirements",
+      "text": "The ERP system shall provide functionality to:\n1. provide a BOM line level grid to define material prices based on material colors and sizes. This grid should show material color and sizes as per color/size dependency define for that line.\n2. Auto-populate prices from supplier price list if supplier price list is enabled. User should not be allowed on change price if populated from supplier price list unless otherwise controlled or facilitated by existing supplier price list functionality.\n3. To auto populate average price on bom line outside the grid.\n4. Refer color size specific price to calculate prices of that material with respect to sales order color, size dependencies mapped for that BOM Line to generate indents, controls cost, generate color/size view and generate “Master Cost Sheet” used in Shahi\nMaterial color/size grid",
+      "locator": "§ BUSINESS REQUIREMENT DOCUMENT (BRD) › 6. Proposed Solution & Functional Requirements",
+      "kind": "section"
+    }
+  ]
+}

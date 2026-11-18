@@ -1,0 +1,200 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Shipment Plan Field",
+        "ASN Field"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Shipment Plan Field"
+      ],
+      "rows": [
+        [
+          "Gr. Wt(Kgs)",
+          "Total Gross Weight"
+        ],
+        [
+          "Nt. Wt(Kgs)",
+          "Total Net Weight"
+        ],
+        [
+          "No. Pkgs",
+          "No Of Cartons/Rolls"
+        ],
+        [
+          "Cbm",
+          "Add this field in ASN Shipping Info- Packing Section"
+        ],
+        [
+          "Rate Term",
+          "Delivery Terms"
+        ],
+        [
+          "Nt. Nt. Wt(kgs)",
+          "Total Net Net Weight"
+        ],
+        [
+          "Volume Wt.",
+          "Total Volume"
+        ],
+        [
+          "Freight Terms",
+          "Freight Terms"
+        ],
+        [
+          "Ship Type",
+          "Add this field in ASN Shipping Info- Commercial Terms"
+        ],
+        [
+          "Consignor Address",
+          "Consignor Address"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "449020",
+  "keyTerms": [
+    "asn",
+    "field",
+    "asn shipping",
+    "field asn",
+    "kgs total",
+    "net",
+    "total",
+    "terms",
+    "shipment plan",
+    "add",
+    "shipping",
+    "kgs",
+    "weight",
+    "total net",
+    "net weight"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "But these are not flowing automatically in Sales ASN.",
+      "locator": "§ … › Logistics Info Tab in Shipment Plan:-",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Shipment Plan Field, ASN Field (10 rows; identifiers: Shipment Plan Field)",
+      "locator": "§ … › Field Mapping:-, table 1",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Logistics Info Tab in Shipment Plan:-",
+      "heading": "… › Logistics Info Tab in Shipment Plan:-",
+      "text": "We add these highlighted details in Logistics Info like Gr wt, net wt. But these are not flowing automatically in Sales ASN.",
+      "locator": "§ … › Logistics Info Tab in Shipment Plan:-",
+      "kind": "section"
+    },
+    {
+      "title": "Field Mapping:- – Table 1",
+      "heading": "… › Field Mapping:-",
+      "text": "Columns: Shipment Plan Field (text); ASN Field (text)\nShipment Plan Field | ASN Field\nGr. Wt(Kgs) | Total Gross Weight\nNt. Wt(Kgs) | Total Net Weight\nNo. Pkgs | No Of Cartons/Rolls\nCbm | Add this field in ASN Shipping Info- Packing Section\nRate Term | Delivery Terms\nNt. Nt. Wt(kgs) | Total Net Net Weight\nVolume Wt. | Total Volume\nFreight Terms | Freight Terms\nShip Type | Add this field in ASN Shipping Info- Commercial Terms\nConsignor Address | Consignor Address",
+      "locator": "§ … › Field Mapping:-, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Gr. Wt(Kgs); ASN Field: Total Gross Weight",
+      "locator": "§ … › Field Mapping:-, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Nt. Wt(Kgs); ASN Field: Total Net Weight",
+      "locator": "§ … › Field Mapping:-, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: No. Pkgs; ASN Field: No Of Cartons/Rolls",
+      "locator": "§ … › Field Mapping:-, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Cbm; ASN Field: Add this field in ASN Shipping Info- Packing Section",
+      "locator": "§ … › Field Mapping:-, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 5",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Rate Term; ASN Field: Delivery Terms",
+      "locator": "§ … › Field Mapping:-, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 6",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Nt. Nt. Wt(kgs); ASN Field: Total Net Net Weight",
+      "locator": "§ … › Field Mapping:-, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 7",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Volume Wt.; ASN Field: Total Volume",
+      "locator": "§ … › Field Mapping:-, table 1, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 8",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Freight Terms; ASN Field: Freight Terms",
+      "locator": "§ … › Field Mapping:-, table 1, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 9",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Ship Type; ASN Field: Add this field in ASN Shipping Info- Commercial Terms",
+      "locator": "§ … › Field Mapping:-, table 1, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 10",
+      "heading": "… › Field Mapping:-",
+      "text": "Shipment Plan Field: Consignor Address; ASN Field: Consignor Address",
+      "locator": "§ … › Field Mapping:-, table 1, row 10",
+      "kind": "data_row"
+    }
+  ]
+}

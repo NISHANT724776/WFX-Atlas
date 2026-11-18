@@ -1,0 +1,2695 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "ASN For / Buyer / Destination / Shipment Plan NO. (System Coding) / Location(Drop-down) / Site(Drop-Down) / Shipment plan Date / Order No. / Sales contract no / Market / Del. Order Ref / Del. Date / Article / Color / Size / Shipping Qty",
+        "Column 2",
+        "Column 3",
+        "Column 4",
+        "Column 5",
+        "Column 6",
+        "Column 7",
+        "Column 8",
+        "Column 9",
+        "Column 10"
+      ],
+      "types": [
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "units": {
+        "ASN For / Buyer / Destination / Shipment Plan NO. (System Coding) / Location(Drop-down) / Site(Drop-Down) / Shipment plan Date / Order No. / Sales contract no / Market / Del. Order Ref / Del. Date / Article / Color / Size / Shipping Qty": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field name",
+        "Type",
+        "Master navigation"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field name"
+      ],
+      "rows": [
+        [
+          "Gr. Wt(Kgs)",
+          "Editable",
+          "None"
+        ],
+        [
+          "Nt. Wt(Kgs)",
+          "Editable",
+          "None"
+        ],
+        [
+          "No. Pkgs",
+          "Editable",
+          "None"
+        ],
+        [
+          "Cbm",
+          "Editable",
+          "None"
+        ],
+        [
+          "Rate Term",
+          "Dropdown",
+          ""
+        ],
+        [
+          "Payment Term",
+          "Dropdown",
+          "Payment term master from sourcing and FA. Master is same, can pick anyone."
+        ],
+        [
+          "Nt. Nt. Wt(kgs)",
+          "Editable",
+          "None"
+        ],
+        [
+          "Volume Wt.",
+          "Editable",
+          "None"
+        ],
+        [
+          "Freight Terms",
+          "hardcoded",
+          "None"
+        ],
+        [
+          "Consignor Address",
+          "Drop down",
+          "Buyer master"
+        ],
+        [
+          "Ship Type",
+          "hardcoded",
+          "None"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "List Columns",
+        "Required"
+      ],
+      "types": [
+        "text",
+        "boolean"
+      ],
+      "units": {},
+      "identifiers": [
+        "List Columns"
+      ],
+      "rows": [
+        [
+          "STATUS",
+          "Yes"
+        ],
+        [
+          "PROGRESS COLUMN",
+          "Yes"
+        ],
+        [
+          "SHIPMENT PLAN NO",
+          "Yes"
+        ],
+        [
+          "Shipment plan date",
+          "Yes"
+        ],
+        [
+          "BUYER COMPANY",
+          "Yes"
+        ],
+        [
+          "BUYER ORDER REF.",
+          "Yes"
+        ],
+        [
+          "Sales contract no",
+          "Yes"
+        ],
+        [
+          "LAST CREATED/REVISED BY",
+          "Yes"
+        ],
+        [
+          "SHIPPED Planned QTY",
+          "Yes"
+        ],
+        [
+          "DELIVERY BUYER ORDER REF",
+          "Yes"
+        ],
+        [
+          "STYLE",
+          "Yes"
+        ],
+        [
+          "SITE",
+          "Yes"
+        ],
+        [
+          "LOCATION",
+          "Yes"
+        ],
+        [
+          "LAST CREATED/REVISED ON",
+          "Yes"
+        ],
+        [
+          "Shipment for(article/kit pack)",
+          "Yes"
+        ],
+        [
+          "CI number",
+          "Yes"
+        ],
+        [
+          "CI Date",
+          "Yes"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Pop up fields",
+        "Required"
+      ],
+      "types": [
+        "text",
+        "boolean"
+      ],
+      "units": {},
+      "identifiers": [
+        "Pop up fields"
+      ],
+      "rows": [
+        [
+          "Gr.WT (KGS)",
+          "Yes"
+        ],
+        [
+          "NT.WT (KGS)",
+          "Yes"
+        ],
+        [
+          "NO.PKGS",
+          "Yes"
+        ],
+        [
+          "CBM",
+          "Yes"
+        ],
+        [
+          "Volume WT.",
+          "Yes"
+        ],
+        [
+          "Rate term",
+          "Yes"
+        ],
+        [
+          "Payment term",
+          "Yes"
+        ],
+        [
+          "Freight term",
+          "Yes"
+        ],
+        [
+          "Ship type",
+          "Yes"
+        ],
+        [
+          "Consignee address",
+          "Yes"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "List Columns",
+        "Required"
+      ],
+      "types": [
+        "text",
+        "boolean"
+      ],
+      "units": {},
+      "identifiers": [
+        "List Columns"
+      ],
+      "rows": [
+        [
+          "STATUS",
+          "Yes"
+        ],
+        [
+          "PROGRESS COLUMN",
+          "Yes"
+        ],
+        [
+          "SHIPMENT PLAN NO",
+          "Yes"
+        ],
+        [
+          "Shipment plan date",
+          "Yes"
+        ],
+        [
+          "BUYER COMPANY",
+          "Yes"
+        ],
+        [
+          "BUYER ORDER REF.",
+          "Yes"
+        ],
+        [
+          "Sales contract no",
+          "Yes"
+        ],
+        [
+          "LAST CREATED/REVISED BY",
+          "Yes"
+        ],
+        [
+          "SHIPPED Planned QTY",
+          "Yes"
+        ],
+        [
+          "DELIVERY BUYER ORDER REF",
+          "Yes"
+        ],
+        [
+          "STYLE",
+          "Yes"
+        ],
+        [
+          "SITE",
+          "Yes"
+        ],
+        [
+          "LOCATION",
+          "Yes"
+        ],
+        [
+          "LAST CREATED/REVISED ON",
+          "Yes"
+        ],
+        [
+          "Shipment for(article/kit pack)",
+          "Yes"
+        ],
+        [
+          "CI number",
+          "Yes"
+        ],
+        [
+          "CI Date",
+          "Yes"
+        ],
+        [
+          "Attachment",
+          "Yes"
+        ],
+        [
+          "Logistic info",
+          "Yes"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Shipping Bill no.",
+          "It should be a alphanumeric user input field with minimum character limit of 50 alphabets"
+        ],
+        [
+          "Shipping Bill Date",
+          "It should be date input field. It should get enabled from SB no. is filled"
+        ],
+        [
+          "Gross Wt (kg)",
+          "It will populated from its selected ASN at the invoice detail. Aggregated value"
+        ],
+        [
+          "Net Wt (kg)",
+          "It will be auto populated based form the selected below ASN. Aggregated value"
+        ],
+        [
+          "Exchange Rate",
+          "It will populated from the finance exchange rate master based on the shipping bill date"
+        ],
+        [
+          "Currency",
+          "It will populated from its selected ASN at the invoice detail"
+        ],
+        [
+          "Total Pkg",
+          "It will populated from its selected ASN at the invoice detail. Aggregated value"
+        ],
+        [
+          "Location",
+          "It will the My billing address"
+        ],
+        [
+          "Total CBM",
+          "It will be auto populated based form the selected below ASN, Aggregated value"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Invoice No.",
+          ""
+        ],
+        [
+          "Gross Weight",
+          ""
+        ],
+        [
+          "Net Weight",
+          ""
+        ],
+        [
+          "PKG",
+          ""
+        ],
+        [
+          "LC No.",
+          ""
+        ],
+        [
+          "Currency",
+          ""
+        ],
+        [
+          "Port of Discharge",
+          ""
+        ],
+        [
+          "Port of Loading",
+          ""
+        ],
+        [
+          "Invoice Qty",
+          ""
+        ],
+        [
+          "Invoice Amount",
+          ""
+        ],
+        [
+          "Exchange rate",
+          ""
+        ],
+        [
+          "Total FOB",
+          ""
+        ],
+        [
+          "Discount/Other charges",
+          ""
+        ],
+        [
+          "Net FOB",
+          ""
+        ],
+        [
+          "Net FOB Comp curr.",
+          ""
+        ],
+        [
+          "Duty Drawback",
+          "Provisional and Declared both"
+        ],
+        [
+          "ROSCTL",
+          "Provisional and Declared both"
+        ],
+        [
+          "RODTEP",
+          "Provisional and Declared both"
+        ],
+        [
+          "IGST",
+          "Provisional and Declared both"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Invoice No",
+          ""
+        ],
+        [
+          "HS Code",
+          ""
+        ],
+        [
+          "Article",
+          ""
+        ],
+        [
+          "DBK Serial No",
+          ""
+        ],
+        [
+          "ROSCTL SR No",
+          ""
+        ],
+        [
+          "Color",
+          ""
+        ],
+        [
+          "Size",
+          ""
+        ],
+        [
+          "Qty",
+          ""
+        ],
+        [
+          "Price",
+          ""
+        ],
+        [
+          "Value",
+          ""
+        ],
+        [
+          "Value In Com Currency",
+          ""
+        ],
+        [
+          "Duty Drawback",
+          "Provisional and declared"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "ROSCTL",
+        "Provisional and declared"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "RODTEP",
+          "Provisional and declared"
+        ],
+        [
+          "IGST",
+          "Provisional and declared"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "Attributes",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Attributes"
+      ],
+      "rows": [
+        [
+          "Status",
+          "Draft\nWaiting\nConfirmed\nCancelled\nSubmitted to Accounts (No attributes could be edited)"
+        ],
+        [
+          "Customer",
+          ""
+        ],
+        [
+          "Shipping Bill no.",
+          ""
+        ],
+        [
+          "Shipping Bill date",
+          ""
+        ],
+        [
+          "Shipment Mode",
+          ""
+        ],
+        [
+          "AWB/HAWB No",
+          ""
+        ],
+        [
+          "AWB Date",
+          ""
+        ],
+        [
+          "Shipping Bill Amount",
+          "Total Shipping bill amount"
+        ],
+        [
+          "Shipping Bill submission date",
+          "Editable ; Date input field (it should be editable as soon as Custom filing status updated as Filed."
+        ],
+        [
+          "Shipping Bill creation date",
+          "Date of shipping bill creation"
+        ],
+        [
+          "Duty Drawback",
+          "Declared incentive values"
+        ],
+        [
+          "ROSCTL",
+          "Declared incentive values"
+        ],
+        [
+          "RODTEP",
+          "Declared incentive values"
+        ],
+        [
+          "IGST",
+          "Declared incentive values"
+        ],
+        [
+          "Created By",
+          ""
+        ],
+        [
+          "Created On",
+          ""
+        ],
+        [
+          "Approved By",
+          ""
+        ],
+        [
+          "Approved On",
+          ""
+        ],
+        [
+          "Flex Field update",
+          "Editable ; Date input field"
+        ],
+        [
+          "Location",
+          "Billing address"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "1",
+        "ASN",
+        "No entry",
+        "Column 4",
+        "Column 5"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "2",
+          "Shipping Bill",
+          "ROSCTL (Recoverable)",
+          "Dr",
+          "100"
+        ],
+        [
+          "",
+          "",
+          "ROSCTL",
+          "Cr",
+          "100"
+        ],
+        [
+          "3",
+          "Licence Sale",
+          "Advance License Sale",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Party",
+          "Dr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "Sale of Licence",
+          "Cr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "Reversal of Income",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "ROSCTL",
+          "Dr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "Loss on Sale of Duty Script\\",
+          "Dr",
+          "50"
+        ],
+        [
+          "",
+          "",
+          "ROSCTL (Recoverable)",
+          "Cr",
+          "100"
+        ],
+        [
+          "4",
+          "Posting of Sales",
+          "Customer Account",
+          "Dr",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Sale of Readymade Garment Exports",
+          "Cr",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Shipment Planning, Export Logistics & Government Incentive Handling",
+  "keyTerms": [
+    "shipment",
+    "shipment plan",
+    "plan",
+    "asn",
+    "shipping bill",
+    "master",
+    "date",
+    "incentive",
+    "shipping",
+    "sales",
+    "invoice",
+    "bill",
+    "rosctl",
+    "row",
+    "column"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Planning",
+      "score": 11
+    },
+    {
+      "module": "Sales Order",
+      "score": 9
+    },
+    {
+      "module": "Style & BOM",
+      "score": 6
+    },
+    {
+      "module": "Production",
+      "score": 1
+    }
+  ],
+  "transactions": [
+    "Masters – Colour, Size, UOM",
+    "Apparel Style (Techpack)",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Section 1: Overview › Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to enhance the below screens:-",
+      "locator": "§ Section 1: Overview › Scope",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Sales invoice\n2. Export Incentive\n3. Duty Script movement",
+      "locator": "§ Section 1: Overview › Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Incentive Master is divided into two sections:",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Section 1: Configuration of Government Based Incentive:\n1. DBK Master\n2. RoSCTL Master\n3. rodTEP Master",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Begin date will be validated at the time of ASN or Shipping Bill.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "in a particular serial no, change of date will be mandatory.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "In Case if there is any Updation recorded against serial number by govt , then user should have option to add New line in DBK and Rosctl master and exiting line should be marked as non-editable with One day prior date as end date to New Begin date.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A Log button is available in both the DBK Master and RoSCTL Master screens.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "An Import and Domestic button is provided in both the DBK Master and RoSCTL Master screens.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "This feature is useful for bulk data updates and saves time compared to manual entry.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Begin Date and Expiry Date will be validated at the time of ASN or Shipping Bill, and based on the applicable date, RodTEP values will be calculated.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Only the fields marked as Active in the masters are displayed in the dropdowns.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "These options are directly linked to the visibility and selection of DBK and RoSCTL.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "But system should validate that RoSCTL have same value which we have selected in DBK Master",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "User will see only those record which are not having any expiry date for DBK and RoSCTL list.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive › Change of DBK and RoSCTL on techpack.",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "In case of update of existing Serial Number where techpack is having old record “Begin Date”, system will show old record information on hover.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive › Change of DBK and RoSCTL on techpack.",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "There is a change in Style Detail tab where system will show DBK and RoSTCL Serial no on Style, Color & Size (SKU) Level.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive › Change of DBK and RoSCTL on techpack.",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Type: Dropdown (Mandatory) – Article/ kitpack",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Type: Dropdown (Mandatory)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If destination is selected before selection of orders, then orders will be filtered based on selected destination.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If destination is not selected, then all the outstanding orders will appear for the selected customer.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header Section:\n1. Shipment Plan For\n2. Type: Dropdown (Mandatory) – Article/ kitpack\n3. Values: Configurable (same as ASN screen)\n4. Buyer\n5. Type: Dropdown (Mandatory)\n6. Source: Buyer master data\n7. Destination\n8. Type: Dropdown\n9. Source: Predefined destination list / country master\n10. If destination is selected before selection of orders, then orders will be filtered based on selected destination.\n11. If destination is not selected, then all the outstanding orders will appear for the selected customer. This would be an optional field and can be selected after selection of orders.\n12. Shipment Plan No.: System Generated (We need a company name/company division/financial year /location and site code fields in system coding)\n13. Location: This will be a dropdown field fetched from the master data (Division addresses).\n14. Site: This will be a dropdown field fetched from the master data. It will be filtered based on selected locations.\n15. Shipment Plan Date: Manual",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Action Buttons:\n1. Import\n2. First User export the excel to get desired Excel format, add on the necessary details.\n3. Then click on import and add that excel file.\n4. Now the data filled in excel gets auto-populated and in editable mode.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: ASN For / Buyer / Destination / Shipment Plan NO. (System Coding) / Location(Drop-down) / Site(Drop-Down) / Shipment plan Date / Order No. / Sales contract no / Market / Del. Order Ref / Del. Date / Article / Color / Size / Shipping Qty, Column 2, Column 3, Column 4, Column 5, Column 6, Column 7, Column 8, Column 9, Column 10 (0 rows)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 1",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Action Buttons:\n1. Export\n2. User will export all the fields mentioned above in the desired format.\n3. Add\n4. Add functionality will open a pop-up of Select Order list for that selected Buyer, destination(optional).",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field name, Type, Master navigation (11 rows; identifiers: Field name)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Buyer Tolerance Logic should be worked on grid level as it is working in ASN currently.The tolerance logic should be fetched from the tolerance set on the buyer master.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Action Buttons:\n1. Delete\n2. Deletes selected row(s) from grid\n3. Multi-select supported",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory: Yes (should allow 0 value also)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Cannot be empty",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Shipping qty should not exceed order quantities + applicable tolerance.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Eg- If order quantity is 100 pcs and buyer tolerance is 5%, then maximum allowed shipment planning is 105 pcs.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Now suppose already shipment plans are created for 70 pcs.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Then while creating/revising another shipment plan, user should not be allowed to enter more than 35 pcs.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "Formula: Already Planned Qty + Current Input Shipment Qty ≤ Order Qty + Applicable Tolerance Qty or Current Input Shipment Qty ≤ Balance Qty including Tolerance",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Editable Fields:\n1. Type: Numeric Input\n2. Mandatory: Yes (should allow 0 value also)\n3. Validation:\n4. Cannot be empty\n5. Shipping qty should not exceed order quantities + applicable tolerance.\n6. For any order / OC line, system should check already planned quantity + current entered planned quantity against available balance quantity including buyer tolerance. Eg- If order quantity is 100 pcs and buyer tolerance is 5%, then maximum allowed shipment planning is 105 pcs. Now suppose already shipment plans are created for 70 pcs. Then while creating/revising another shipment plan, user should not be allowed to enter more than 35 pcs.\nFormula: Already Planned Qty + Current Input Shipment Qty ≤ Order Qty + Applicable Tolerance Qty or Current Input Shipment Qty ≤ Balance Qty including Tolerance",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header Level Features:\n1. A search bar will be provided to allow users to search shipment plans using Shipment Plan Number.\n2. A master checkbox will be available on the header.\n3. When selected → all grid-level checkboxes will automatically be selected.\n4. When unselected → all grid-level checkboxes will be deselected.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: List Columns, Required (17 rows; identifiers: List Columns)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Pop up fields, Required (10 rows; identifiers: Pop up fields)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Grid Level Features::\n1. A row-level checkbox for individual selection.\n2. A context menu with the following options:\n3. Activity Timeline\n4. Revise",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Grid Level Features:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Actions here are specific to the selected row only.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Grid Level Features:",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Grid Level Features::\n1. Actions here are specific to the selected row only.\n2. “Revise” will follow business rules (e.g. Before tax invoice).\n3. Create PSN – Create PSN and Progress Column Updated as PSN Created.\n4. Create ASN – Creates ASN and Progress Column updated as ASN Created.\n5. Create tax invoice- Create tax invoice and progress column updated as tax invoice created.\n6. Create E-Invoice- Create E-Invoice and progress column updated as per E-Invoice Created.\n7. Sales Invoice – Progress column updated as Sent to FA.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Grid Level Features:",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Column-Level Filters (Inline Filters):\n1. Each column header will have:\n2. Input field / dropdown filter\n3. Filter icon for advanced filtering\n4. Users can filter data column-wise independently (e.g., Buyer, Status, GDN No., etc.)\n5. Filters will work in combination (multi-column filtering supported).",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Column-Level Filters (Inline Filters)",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: List Columns, Required (19 rows; identifiers: List Columns)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sidebar Filter (Advanced Filter Panel):\n1. Allows advanced filtering with multiple fields at once\n2. Works in sync with:\n3. Column filters\n4. Search bar",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The statuses are defined as follows:",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Status:\n1. Saved: Indicates that the shipment plan is in draft state and has been saved but not yet confirmed.\n2. Confirmed: Indicates that the shipment plan has been finalized and the transaction is confirmed.\n3. Closed: Indicates that the ASN (Advanced Shipment Notice) has been successfully created against the shipment plan.\n4. Booked: Indicates that the PSN Invoice has been generated for the shipment plan, confirming booking completion.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "In case PSN (Confirmed) and ASN (Saved) are created and user revises the shipment plan then these documents will start appearing in day-sync status (with red color) and these document statuses will have tool sync with shipment plan.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If these documents are not in sync, then system will not allow user to confirm the sales ASN.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If PSN and ASN are created against shipment plan then qty information will be coming from shipment plan with non-editable mode.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Pop-up Fields- If PSN is created against shipment plan, then below fields will be available in pop-up (only confirmed shipment plans will be available).",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › PSN:",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "ASN Type = With GDN/ without GDN",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › ASN:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "ASN is created for Article/Kit",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › ASN:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of the Shipment Sequence Configurator is to define and control the sequence flow of shipment-related transactions within the system.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The configurator ensures that transactions are created in the correct sequence as per business requirements and prevents users from skipping mandatory transaction stages.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The configurator ensures that transactions are created in the correct sequence as per business requirements and prevents users from skipping mandatory transaction stages.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is Shipment plan then ASN and PSN will appear in row 3 dropdown.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is ASN then Buyer order dispatch and tax invoice will appear in row 3 dropdown.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is PSN then ASN and Buyer order dispatch will appear in row 3 dropdown.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is Buyer order dispatch then row 3 and row 4 will be unselectable and the flow will directly jump to row 5.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is Shipment plan and row 3 selection is ASN then PSN and buyer order dispatch will appear in row 4 dropdown.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is Shipment plan and row 3 selection is PSN then buyer order dispatch and tax invoice will appear in row 4 dropdown.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If row 2 selection is ASN, PSN or buyer order dispact and row 3 selection is any of the available options then row 4 will be disabled.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "In case LUT master is defined then shipment type will be auto selected on Sales ASN based on the LUT master.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Division / Location / Site- If exemption is division-specific",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - New:\n1. We need new and a comprehensive detailed screen in order to create shipping bill, keeping the record chain for all the events happening from filing the shipping bill.\n2. It should be made available in the screen layout configurator\n3. It should be supported by Flex-field configuration\n4. Utility Tools :\n5. Upload Shipping bill : to allow user to upload the shipping bill copy\n6. Confirm : to confirm the SB and generate a transaction no. at backend\n7. Confirm & New : to confirm and refresh the screen for new SB creation.\n8. This screen would be divided into multiple segment as detailed below :-\n9. General shipment information",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Attributes, Description (9 rows; identifiers: Attributes)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Attributes, Description (19 rows; identifiers: Attributes)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "One invoice = one line",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - New:\n1. This will be replicating the all the attributes from the ASN details. One invoice = one line\n2. It should be available in SLC to remove and increase columns as per requirement.\n3. These values could only viewed and not editable\n4. Utility Tools :\n5. Add : it will provide a pop-up to add the confirmed Export ASN against which shipping has not been generated at the moment. Post E-invoice generation\n6. Delete : To delete the added lines\n7. Article wise Tab\n8. It will provide a detailed invoice/OC/style/HSN level detailed view for all the selected ASNs in the ASN details tab",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: Attributes, Description (12 rows; identifiers: Attributes)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: ROSCTL, Provisional and declared (2 rows)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 9",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - New:\n1. Summary Details : It will provide the summarize comparative view of incentive wise breakup.\n2. This detail will be further divided as Provisional and Declared(Shipping bill).\n3. Provisional row details for each column header will be auto fetched from the incentive master\n4. Declared(Shipping bill) row details for each column header will be synced from the uploaded shipping bill\n5. Difference : this row will display incentive value level difference between both provisional and declared incentive details.\n6. Conditional approval will be required on the confirmation of shipping bill incase if user is trying to confirm the shipping bill with difference value in either of the incentives.\n7. Attachment and Remarks : It will be generic UI attachment and remarks fields\n8. Flex Field: It will be generic UI Flex fields master supported",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Action/Utility Tools (Visibility control under program permission is required) :-",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "It cannot executed wherein the SB forwarded to accounts team",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - List:\n1. Need a comprehensive screen which will provide list level detailing for each shipping bill created\n2. Action/Utility Tools (Visibility control under program permission is required) :-\n3. New : to navigate to SB creation screen\n4. Revise : it will be available at each line level. It cannot executed wherein the SB forwarded to accounts team\n5. Cancel : iit will be available at both header and line level. It will effective only on confirmed transaction\n6. Submit to Accounts: it will work both at line and header level and after this sales invoice will get auto created and no revision will be allowed.\n7. Activity and Change Log: it will show the details over changes.\n8. This screen will provide below attributes by default, however will be flex filed supported in order to increase and columns for required information recording. It should be become part of export format",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: Attributes, Description (20 rows; identifiers: Attributes)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - List:\n1. Financial impact on Shipping bill status update to “Submit to Accounts”\n2. Incentive entry will get accounted\n3. DBK/RoSCTL/RoDTEP received (Recoverable) Dr.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "As soon as incentive posting is done that particular sales invoice will start appearing",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 02 | Shipping Bill - List:\n1. There will not be any incentive booking while sales invoice posting in such case.\n2. Incentive details will get auto populated on the sales invoice screen based on the sanctioned incentive details attached above and will not be editable.\n3. As soon as incentive posting is done that particular sales invoice will start appearing",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: 1, ASN, No entry, Column 4, Column 5 (11 rows)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 04 | Export Incentive:\n1. As soon as the Shipping bill with DBK details have been successfully posted then that particular SB will start appearing on the export incentive outstanding screen for receipt processing\n2. it will be of full amount, no adjustment allowed.\n3. No other change in the functionality",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 04 | Export Incentive",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 05 | Duty Script Movement Screen:\n1. Status >> license in hand\n2. License no.\n3. License value in comp currency",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "a new status Is required in the status drop-down ii.e. “Ready for Utilization”",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "a new column is required to attach the division name from the organization to the transaction with status “ Ready for utilization”",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Screen 05 | Duty Script Movement Screen:\n1. a new status Is required in the status drop-down ii.e. “Ready for Utilization”\n2. a new column is required to attach the division name from the organization to the transaction with status “ Ready for utilization”\n3. “Division name” column will get enable only the transaction with Status Ready for Utilization\n4. After attached of this scroll at the import supplier PI the status for the same will be updated to utilized.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "https://stitch.withgoogle.com/preview/10500034027548083751?node-id=8675dd8eaea344abaf8ecbb4e7edbec5",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "If any changes are made to the shipment plan, the system will trigger an email alert to the respective authorized personnel, which will act as an approval mechanism for revising either the shipment plan, PSN or the ASN.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shahi Business Requirements",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Shipment Planning, Export Logistics & Government Incentive Handling",
+      "heading": "",
+      "text": "Software Requirements Specification\nShipment Planning, Export Logistics & Government Incentive Handling\nVersion 1.0 ● 279362\n30 Jan 2025",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "Section 1: Overview 5\nPurpose 5\nBusiness Requirement 5\nScope 5\nSection 2. Assumptions 6\nSection 3. Prerequisite Master Configuration – Government Based Incentive 7\nSection 1: Configuration of Government Based Incentive 7\nSection 2: Selection of Government Based Incentive 11\nChange of DBK and RoSCTL on techpack. 13\nSection 4. Functional Requirement Description – Export Logistics Management 14\nShipment Plan New 14\nHeader Section 14\nAction Buttons 15\nEditable Fields 18\nSLC Configuration: 19\nGrid and Pop up field incase of kitpack 19\nHeader Level Features 20\nGrid Level Features: 22\nColumn-Level Filters (Inline Filters) 23\nSidebar Filter (Advanced Filter Panel) 23\nStatus 25\nPSN: 26\nPSN list 26\nASN: 26\nASN list 27\nShipment Sequence Configurator: 27\nLUT Master Screen: 32\nScreen 02 | Shipping Bill - New 34\nScreen 02 | Shipping Bill - List 40\nScreen 03 | Non Stock Sales and Voucher posting 44\nScreen 04 | Export Incentive 45\nScreen 05 | Duty Script Movement Screen 46\nMeeting Points: 48\nSolution=> Shipment Plan 48\nShahi Business Requirements 48",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Section 1: Overview › Purpose",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Section 1: Overview › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Section 1: Overview › Business Requirement",
+      "text": "Certainly, in order to make the UI more interactive and efficient with regards to Advance Export Incentive handling.",
+      "locator": "§ Section 1: Overview › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Section 1: Overview › Scope",
+      "text": "The Scope of these specs is to enhance the below screens:-\n• Sales invoice\n• Export Incentive\n• Duty Script movement",
+      "locator": "§ Section 1: Overview › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "Section 1: Configuration of Government Based Incentive",
+      "heading": "Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "text": "WFX provides a feature to configure government-based export incentives such as DBK (Duty Drawback) and RoSCTL (Rebate of State and Central Taxes and Levies) within the Incentive Master module.\nNavigating the Incentive Master : Catalog >> Codes >> Incentive Master\nIncentive Master is divided into two sections:\n• DBK Master\n• RoSCTL Master\n• rodTEP Master\nDBK Master\nUpon selecting the DBK from Incentive master, a configuration screen will open where DBK related Incentives can be set up.\nUI Correction:\nSegment field will be a text field.\nBegin date will be validated at the time of ASN or Shipping Bill. Based on applicable date drawback or RoSCTL values will be calculated.\nIn case of revision:\nImport\nIn case of update of existing serial number using import or manual entry, system will take new record from new Begin date and close existing record after entering expired on date as “Begin Date -1”\nFor Example:\nIf user updates, above record with new version having “Begin Date” as 1-Feb-26 then system will close this existing record entry by updating expired date as 31st-Jan-26 and will create a new record using same or modified values with “Begin Date” as 1-Feb-26.\nExisting line will be revised as per below.\nNew Line will be created as per below:",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "kind": "section"
+    },
+    {
+      "title": "Section 1: Configuration of Government Based Incentive",
+      "heading": "Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive",
+      "text": "in a particular serial no, change of date will be mandatory. The previous record will be saved as expired version which might be used to calculate BDK or RoSCTL values in existing Sales ASNs or Shipping Bill calculations.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Attributes Change",
+      "heading": "Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "text": "Revision of other attributes can be done using manual or import data, but it will be possible only with change of date.\nSystem will not allow same date in “Begin Date” and “Expiry On” date.\nSame validations will be applicable in RoSCTL\nNOTE: Only those DBK entries marked as Active in the DBK Master will be available for selection during Article Master configuration.\nIn Case if there is any Updation recorded against serial number by govt , then user should have option to add New line in DBK and Rosctl master and exiting line should be marked as non-editable with One day prior date as end date to New Begin date.\nRoSCTL Master\nUpon selecting the RoSCTL from Incentive master, a configuration screen will open where RoSCTL related Incentives can be set up.\nNOTE: Only Active RoSCTL entries in the RoSCTL Master will come while configuring the Article Master.\nSignificance of Log Button:\nA Log button is available in both the DBK Master and RoSCTL Master screens. This button allows users to view the history of all changes made in the respective masters, including what was changed, who made the changes, and when they were made. It helps in tracking updates and maintaining transparency in the system.\nSignificance of Import/Export Button:",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "kind": "section"
+    },
+    {
+      "title": "Attributes Change",
+      "heading": "Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change",
+      "text": "An Import and Domestic button is provided in both the DBK Master and RoSCTL Master screens. The Export button allows users to download the existing data in Excel format, make necessary changes offline, and use the Import button to upload the updated file back into the system. This feature is useful for bulk data updates and saves time compared to manual entry.\nrodTEP Master\nUpon selecting the RodTEP from Incentive Master, a configuration screen will open where RodTEP related incentive values can be set up. User can maintain RodTEP No., Begin Date, Expiry Date, Central Rate %, Central Cap, State Rate % and State Cap. Begin Date and Expiry Date will be validated at the time of ASN or Shipping Bill, and based on the applicable date, RodTEP values will be calculated.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 1: Configuration of Government Based Incentive › … › Attributes Change (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2: Selection of Government Based Incentive",
+      "heading": "Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive",
+      "text": "In this screen, DBK have dropdown and RoSCTL will come according to the DBK and it Is non editable, and the data in these dropdowns comes from the respective master forms discussed earlier. Only the fields marked as Active in the masters are displayed in the dropdowns.\nSignificance of Scheme Field:\nThe Scheme field contains only two options: Import and Domestic. These options are directly linked to the visibility and selection of DBK and RoSCTL.\nIn this screen, only those DBK and RoSCTL entries are visible which have Domestic selected in the Fabric Type field.\nBut system should validate that RoSCTL have same value which we have selected in DBK Master\nNOTE: In DBK and RoSCTL Field Serial No. and Description will come together.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive",
+      "kind": "section"
+    },
+    {
+      "title": "Change of DBK and RoSCTL on techpack.",
+      "heading": "Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive › Change of DBK and RoSCTL on techpack.",
+      "text": "User will see only those record which are not having any expiry date for DBK and RoSCTL list.\nOnce selected by user, system will keep local copy of DBK and RoSCTL Serial no.\nIn case of update of existing Serial Number where techpack is having old record “Begin Date”, system will show old record information on hover.\nSales ASN\nIn case of sales ASN, DBK & RoSCTL will be visible in tab Style details where system will auto populate DBK and RoSCTL number based on value selected in Style Master.\nThere is a change in Style Detail tab where system will show DBK and RoSTCL Serial no on Style, Color & Size (SKU) Level. If needed, user will be able to change this data.\nSelection of DBK & RoSCTL will be used to calculation provisional incentive.",
+      "locator": "§ Section 3. Prerequisite Master Configuration – Government Based Incentive › Section 2: Selection of Government Based Incentive › Change of DBK and RoSCTL on techpack.",
+      "kind": "section"
+    },
+    {
+      "title": "Section 4. Functional Requirement Description – Export Logistics Management",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management",
+      "text": "Screen 02– Shipment Plan",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Plan New",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New",
+      "text": "Navigation- Sales>>ASN>>Shipment plan>>New",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New",
+      "kind": "section"
+    },
+    {
+      "title": "Header Section",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "text": "Fields (Dropdowns)\nThe following dropdown fields will be available:\n• Shipment Plan For\n• Type: Dropdown (Mandatory) – Article/ kitpack\n• Values: Configurable (same as ASN screen)\n• Buyer\n• Type: Dropdown (Mandatory)\n• Source: Buyer master data\n• Destination\n• Type: Dropdown\n• Source: Predefined destination list / country master\n• If destination is selected before selection of orders, then orders will be filtered based on selected destination.\n• If destination is not selected, then all the outstanding orders will appear for the selected customer. This would be an optional field and can be selected after selection of orders.\n• Shipment Plan No.: System Generated (We need a company name/company division/financial year /location and site code fields in system coding)\n• Location: This will be a dropdown field fetched from the master data (Division addresses).\n• Site: This will be a dropdown field fetched from the master data. It will be filtered based on selected locations.\n• Shipment Plan Date: Manual",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Header Section",
+      "kind": "section"
+    },
+    {
+      "title": "Action Buttons",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "The following actions will be available on the screen:\n• Import\n• First User export the excel to get desired Excel format, add on the necessary details.\n• Then click on import and add that excel file.\n• Now the data filled in excel gets auto-populated and in editable mode.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "kind": "section"
+    },
+    {
+      "title": "Action Buttons – Table 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Columns: ASN For / Buyer / Destination / Shipment Plan NO. (System Coding) / Location(Drop-down) / Site(Drop-Down) / Shipment plan Date / Order No. / Sales contract no / Market / Del. Order Ref / Del. Date / Article / Color / Size / Shipping Qty (empty, quantity (unit of the row)); Column 2 (empty); Column 3 (empty); Column 4 (empty); Column 5 (empty); Column 6 (empty); Column 7 (empty); Column 8 (empty); Column 9 (empty); Column 10 (empty)\nASN For / Buyer / Destination / Shipment Plan NO. (System Coding) / Location(Drop-down) / Site(Drop-Down) / Shipment plan Date / Order No. / Sales contract no / Market / Del. Order Ref / Del. Date / Article / Color / Size / Shipping Qty | Column 2 | Column 3 | Column 4 | Column 5 | Column 6 | Column 7 | Column 8 | Column 9 | Column 10",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Action Buttons",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "NOTE: We need Same Columns on both IMPORT and EXPORT\n• Export\n• User will export all the fields mentioned above in the desired format.\n• Add\n• Add functionality will open a pop-up of Select Order list for that selected Buyer, destination(optional).\nLogistic Info Tab: To be used as the Image Provided.\nAttachment Tab: From this user can Attach any document and can put remarks as well.\nFields of logistic info tab",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "kind": "section"
+    },
+    {
+      "title": "Action Buttons – Table 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Columns: Field name (text); Type (text); Master navigation (text)\nField name | Type | Master navigation\nGr. Wt(Kgs) | Editable | None\nNt. Wt(Kgs) | Editable | None\nNo. Pkgs | Editable | None\nCbm | Editable | None\nRate Term | Dropdown | \nPayment Term | Dropdown | Payment term master from sourcing and FA. Master is same, can pick anyone.\nNt. Nt. Wt(kgs) | Editable | None\nVolume Wt. | Editable | None\nFreight Terms | hardcoded | None\nConsignor Address | Drop down | Buyer master\nShip Type | hardcoded | None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Gr. Wt(Kgs); Type: Editable; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Nt. Wt(Kgs); Type: Editable; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: No. Pkgs; Type: Editable; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Cbm; Type: Editable; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Rate Term; Type: Dropdown",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Payment Term; Type: Dropdown; Master navigation: Payment term master from sourcing and FA. Master is same, can pick anyone.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Nt. Nt. Wt(kgs); Type: Editable; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Volume Wt.; Type: Editable; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Freight Terms; Type: hardcoded; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Consignor Address; Type: Drop down; Master navigation: Buyer master",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Field name: Ship Type; Type: hardcoded; Master navigation: None",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons, table 2, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Action Buttons",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "text": "Buyer Tolerance Logic should be worked on grid level as it is working in ASN currently.The tolerance logic should be fetched from the tolerance set on the buyer master.\n• Delete\n• Deletes selected row(s) from grid\n• Multi-select supported",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Action Buttons",
+      "kind": "section"
+    },
+    {
+      "title": "Editable Fields",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "text": "Shipment Qty\n• Type: Numeric Input\n• Mandatory: Yes (should allow 0 value also)\n• Validation:\n• Cannot be empty\n• Shipping qty should not exceed order quantities + applicable tolerance.\n• For any order / OC line, system should check already planned quantity + current entered planned quantity against available balance quantity including buyer tolerance. Eg- If order quantity is 100 pcs and buyer tolerance is 5%, then maximum allowed shipment planning is 105 pcs. Now suppose already shipment plans are created for 70 pcs. Then while creating/revising another shipment plan, user should not be allowed to enter more than 35 pcs.\nFormula: Already Planned Qty + Current Input Shipment Qty ≤ Order Qty + Applicable Tolerance Qty or Current Input Shipment Qty ≤ Balance Qty including Tolerance",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Plan New › Editable Fields",
+      "kind": "section"
+    },
+    {
+      "title": "SLC Configuration:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › SLC Configuration:",
+      "text": "• Logic info tab will be configured via screen layout configurator.\n• Logistic info tab should be flexible to add extra fields/ flexi fields (from existing flexi field masters available under FA module). Will have to add transaction type on the shipment plan.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › SLC Configuration:",
+      "kind": "section"
+    },
+    {
+      "title": "Grid and Pop up field incase of kitpack",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack",
+      "text": "Grid fields:\nPacking kit name\nPacking kit ID\nPack-kit reference\nDelivery PO\nSales contract no\nArticle\nColor\nSize\nShipping qty\nPop up fields:\nPacking kit name\nPacking kit ID\nPack-kit reference\nDelivery PO\nSales contract no\nArticle",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack",
+      "kind": "section"
+    },
+    {
+      "title": "Header Level Features",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "At the header level, the following functionalities will be available:\n• A search bar will be provided to allow users to search shipment plans using Shipment Plan Number.\n• A master checkbox will be available on the header.\n• When selected → all grid-level checkboxes will automatically be selected.\n• When unselected → all grid-level checkboxes will be deselected.\nShipment Plan List Header level Headings:",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "kind": "section"
+    },
+    {
+      "title": "Header Level Features – Table 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "Columns: List Columns (text); Required (boolean)\nList Columns | Required\nSTATUS | Yes\nPROGRESS COLUMN | Yes\nSHIPMENT PLAN NO | Yes\nShipment plan date | Yes\nBUYER COMPANY | Yes\nBUYER ORDER REF. | Yes\nSales contract no | Yes\nLAST CREATED/REVISED BY | Yes\nSHIPPED Planned QTY | Yes\nDELIVERY BUYER ORDER REF | Yes\nSTYLE | Yes\nSITE | Yes\nLOCATION | Yes\nLAST CREATED/REVISED ON | Yes\nShipment for(article/kit pack) | Yes\nCI number | Yes\nCI Date | Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: STATUS; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: PROGRESS COLUMN; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: SHIPMENT PLAN NO; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: Shipment plan date; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: BUYER COMPANY; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: BUYER ORDER REF.; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: Sales contract no; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: LAST CREATED/REVISED BY; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: SHIPPED Planned QTY; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: DELIVERY BUYER ORDER REF; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: STYLE; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 12",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: SITE; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 13",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: LOCATION; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 14",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: LAST CREATED/REVISED ON; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 15",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: Shipment for(article/kit pack); Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 16",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: CI number; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 17",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "List Columns: CI Date; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features, table 3, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Header Level Features",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "text": "Only these headers should be present in the shipment plan list screen and by default in side filters as well.\nAll these fields in the list will be configured via screen layout configurator including sequencing of orders.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Header Level Features",
+      "kind": "section"
+    },
+    {
+      "title": "Update Delivery",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Once the user clicks on Update delivery, a pop up will open with options to update the package details such as gross wt, net wt, no of pkgs, volume etc as shown in the image below:",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "kind": "section"
+    },
+    {
+      "title": "Update Delivery – Table 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Columns: Pop up fields (text); Required (boolean)\nPop up fields | Required\nGr.WT (KGS) | Yes\nNT.WT (KGS) | Yes\nNO.PKGS | Yes\nCBM | Yes\nVolume WT. | Yes\nRate term | Yes\nPayment term | Yes\nFreight term | Yes\nShip type | Yes\nConsignee address | Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Gr.WT (KGS); Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: NT.WT (KGS); Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: NO.PKGS; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: CBM; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Volume WT.; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Rate term; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Payment term; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Freight term; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Ship type; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery",
+      "text": "Pop up fields: Consignee address; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Update Delivery, table 4, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Grid Level Features:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Grid Level Features:",
+      "text": "Each row in the Shipment Plan grid will have:\n• A row-level checkbox for individual selection.\n• A context menu with the following options:\n• Activity Timeline\n• Revise\nBehaviour:\n• Actions here are specific to the selected row only.\n• “Revise” will follow business rules (e.g. Before tax invoice).\n• Create PSN – Create PSN and Progress Column Updated as PSN Created.\n• Create ASN – Creates ASN and Progress Column updated as ASN Created.\n• Create tax invoice- Create tax invoice and progress column updated as tax invoice created.\n• Create E-Invoice- Create E-Invoice and progress column updated as per E-Invoice Created.\n• Sales Invoice – Progress column updated as Sent to FA.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Grid Level Features:",
+      "kind": "section"
+    },
+    {
+      "title": "Column-Level Filters (Inline Filters)",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Column-Level Filters (Inline Filters)",
+      "text": "• Each column header will have:\n• Input field / dropdown filter\n• Filter icon for advanced filtering\n• Users can filter data column-wise independently (e.g., Buyer, Status, GDN No., etc.)\n• Filters will work in combination (multi-column filtering supported).",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Column-Level Filters (Inline Filters)",
+      "kind": "section"
+    },
+    {
+      "title": "Sidebar Filter (Advanced Filter Panel)",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "• A right-side collapsible filter panel will be available.\n• This panel will include all grid fields as filter options:",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "kind": "section"
+    },
+    {
+      "title": "Sidebar Filter (Advanced Filter Panel) – Table 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "Columns: List Columns (text); Required (boolean)\nList Columns | Required\nSTATUS | Yes\nPROGRESS COLUMN | Yes\nSHIPMENT PLAN NO | Yes\nShipment plan date | Yes\nBUYER COMPANY | Yes\nBUYER ORDER REF. | Yes\nSales contract no | Yes\nLAST CREATED/REVISED BY | Yes\nSHIPPED Planned QTY | Yes\nDELIVERY BUYER ORDER REF | Yes\nSTYLE | Yes\nSITE | Yes\nLOCATION | Yes\nLAST CREATED/REVISED ON | Yes\nShipment for(article/kit pack) | Yes\nCI number | Yes\nCI Date | Yes\nAttachment | Yes\nLogistic info | Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: STATUS; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: PROGRESS COLUMN; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: SHIPMENT PLAN NO; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: Shipment plan date; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: BUYER COMPANY; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: BUYER ORDER REF.; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: Sales contract no; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: LAST CREATED/REVISED BY; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: SHIPPED Planned QTY; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: DELIVERY BUYER ORDER REF; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: STYLE; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 12",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: SITE; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 13",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: LOCATION; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 14",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: LAST CREATED/REVISED ON; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 15",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: Shipment for(article/kit pack); Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 16",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: CI number; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 17",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: CI Date; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 18",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: Attachment; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 19",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "List Columns: Logistic info; Required: Yes",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel), table 5, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Sidebar Filter (Advanced Filter Panel)",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "text": "• Allows advanced filtering with multiple fields at once\n• Works in sync with:\n• Column filters\n• Search bar",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Sidebar Filter (Advanced Filter Panel)",
+      "kind": "section"
+    },
+    {
+      "title": "Status",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "text": "The Status column in the Shipment Plan List will represent the current stage of the shipment plan based on system transactions and document creation. The statuses are defined as follows:\n• Saved: Indicates that the shipment plan is in draft state and has been saved but not yet confirmed.\n• Confirmed: Indicates that the shipment plan has been finalized and the transaction is confirmed.\n• Closed: Indicates that the ASN (Advanced Shipment Notice) has been successfully created against the shipment plan.\n• Booked: Indicates that the PSN Invoice has been generated for the shipment plan, confirming booking completion.\nShipment plan can only be revised before the confirmation of sales ASN. In case PSN (Confirmed) and ASN (Saved) are created and user revises the shipment plan then these documents will start appearing in day-sync status (with red color) and these document statuses will have tool sync with shipment plan. If these documents are not in sync, then system will not allow user to confirm the sales ASN. If PSN and ASN are created against shipment plan then qty information will be coming from shipment plan with non-editable mode.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Grid and Pop up field incase of kitpack › Status",
+      "kind": "section"
+    },
+    {
+      "title": "PSN:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › PSN:",
+      "text": "• PSN will have one more option of “PSN against” (configured from screen layout). It will have only one option “Shipment plan”. All the header and grid information will auto-populate date from shipment plan (Fields available in shipment plan).\n• Pop-up Fields- If PSN is created against shipment plan, then below fields will be available in pop-up (only confirmed shipment plans will be available).\nShipment plan no\nDate\nSales contract no\nBuyer",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › PSN:",
+      "kind": "section"
+    },
+    {
+      "title": "PSN list",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › PSN list",
+      "text": "PSN list will have one more column “Shipment plan no”. This will also be configurable from system. It will have one more tool to sync shipment planned qty.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › PSN list",
+      "kind": "section"
+    },
+    {
+      "title": "ASN:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › ASN:",
+      "text": "A new option “Shipment Plan” will be added in the “ASN Against” dropdown on the ASN creation screen.\nThis option will be applicable when:\n• ASN Type = With GDN/ without GDN\n• ASN is created for Article/Kit\nWhen the user selects:\n• ASN Type → With GDN/ without GDN\n• ASN Against → Shipment Plan\nThe ASN will be created based on the selected Shipment Plan No.\nPop-up fields\nShipment plan no\nDate\nSales contract no\nBuyer\nScreenshot For your Reference Only will not impact Current screen of sales ASN.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › ASN:",
+      "kind": "section"
+    },
+    {
+      "title": "ASN list",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › ASN list",
+      "text": "ASN list will have one more column “Shipment plan no”. This will also be configurable from system. It will have one more tool to sync shipment planned qty.\nIt will have Two more extra tools to generate and regenerate tax invoice number. Generate tool will only work for confirmed sales ASN. If user clicks on regenerate tax invoice tool then system will cancel the existing sales ASN and create a new ASN in draft mode automatically with same information as previous.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › ASN list",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Sequence Configurator:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "text": "Path\nFA → Master Definition → Account Receivables → Shipment Sequence Configurator\nPurpose\nThe purpose of the Shipment Sequence Configurator is to define and control the sequence flow of shipment-related transactions within the system. This configuration helps users understand and manage how shipment transactions progress from Sales Order creation until Sales Invoice generation.\nThe configurator ensures that transactions are created in the correct sequence as per business requirements and prevents users from skipping mandatory transaction stages.\nDifferent flows can be configured under the Flow setup configurator.\nUnder configure, user can define the flow of the transactions as per the flow rules mentioned below:\nRow 1:\nValue: Sales Order Only\nType: Static (non-editable)\nRow 2:\nDropdown Options:\nShipment Plan\nASN\nPSN\nBuyer Order Dispatch\nRow 3 (Depends on Row 2):\nIf row 2 selection is Shipment plan then ASN and PSN will appear in row 3 dropdown.\nIf row 2 selection is ASN then Buyer order dispatch and tax invoice will appear in row 3 dropdown.\nIf row 2 selection is PSN then ASN and Buyer order dispatch will appear in row 3 dropdown.\nIf row 2 selection is Buyer order dispatch then row 3 and row 4 will be unselectable and the flow will directly jump to row 5.\nRow 4 (Depends on Row 3):",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Sequence Configurator:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "text": "If row 2 selection is Shipment plan and row 3 selection is ASN then PSN and buyer order dispatch will appear in row 4 dropdown.\nIf row 2 selection is Shipment plan and row 3 selection is PSN then buyer order dispatch and tax invoice will appear in row 4 dropdown.\nIf row 2 selection is ASN, PSN or buyer order dispact and row 3 selection is any of the available options then row 4 will be disabled.\nRow 5\nWill show the option to select tax invoice or buyer order dispatch.\nRow 6\nWill show the option to select tax invoice or E-Invoice.\nRow 7\nWill show the option to select sales invoice.\nInformation (i) Button Functionality\nThe system shall provide an Information (i) button in the Shipment Sequence Configurator screen as shown in Image.\nOn Clicking the Information (i) Button:\n• The system shall display the transaction flow for all configured cases.\n• The flow visualization shall help users understand the sequence of transactions for each shipment flow case.\nThese cases will not be hard coded, there should be some flexibility to define these cases on the UI.\nLUT Master Screen:\nPath (in which it is going to be introduced)\nFA -> Master Definitions -> AR -> Shipment Master\nQuick Search: Filter based on search code\nAdd: Add new line and user can update manually\nSave:\nDelete:\nDiscard:\nGrid level Context menu – Activity timeline\nState code – Comes from Tax Region",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Sequence Configurator:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator:",
+      "text": "Mode(Drop – down) : LUT & IGST\nIn case LUT master is defined then shipment type will be auto selected on Sales ASN based on the LUT master.\nNew Fields need to be added in the LUT master:\nBuyer- Name of the buyer\nDivision / Location / Site- If exemption is division-specific\nExempted- Yes/No\nEffective From / To- If any validity is there\nShipping Bill",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: (part 3)",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Path (to be) : FA >> AR >> Shipping Bill >> New\n• We need new and a comprehensive detailed screen in order to create shipping bill, keeping the record chain for all the events happening from filing the shipping bill.\n• It should be made available in the screen layout configurator\n• It should be supported by Flex-field configuration\n• Utility Tools :\n• Upload Shipping bill : to allow user to upload the shipping bill copy\n• Confirm : to confirm the SB and generate a transaction no. at backend\n• Confirm & New : to confirm and refresh the screen for new SB creation.\n• This screen would be divided into multiple segment as detailed below :-\n• General shipment information",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nShipping Bill no. | It should be a alphanumeric user input field with minimum character limit of 50 alphabets\nShipping Bill Date | It should be date input field. It should get enabled from SB no. is filled\nGross Wt (kg) | It will populated from its selected ASN at the invoice detail. Aggregated value\nNet Wt (kg) | It will be auto populated based form the selected below ASN. Aggregated value\nExchange Rate | It will populated from the finance exchange rate master based on the shipping bill date\nCurrency | It will populated from its selected ASN at the invoice detail\nTotal Pkg | It will populated from its selected ASN at the invoice detail. Aggregated value\nLocation | It will the My billing address\nTotal CBM | It will be auto populated based form the selected below ASN, Aggregated value",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Shipping Bill no.; Description: It should be a alphanumeric user input field with minimum character limit of 50 alphabets",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Shipping Bill Date; Description: It should be date input field. It should get enabled from SB no. is filled",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Gross Wt (kg); Description: It will populated from its selected ASN at the invoice detail. Aggregated value",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Net Wt (kg); Description: It will be auto populated based form the selected below ASN. Aggregated value",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Exchange Rate; Description: It will populated from the finance exchange rate master based on the shipping bill date",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Currency; Description: It will populated from its selected ASN at the invoice detail",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Total Pkg; Description: It will populated from its selected ASN at the invoice detail. Aggregated value",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Location; Description: It will the My billing address",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Total CBM; Description: It will be auto populated based form the selected below ASN, Aggregated value",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 6, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "• All attributes should be available in SLC to remove and increase columns as per requirement. Except shipping bill no. and date\n• ASN / Invoice Details Tab",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nInvoice No. | \nGross Weight | \nNet Weight | \nPKG | \nLC No. | \nCurrency | \nPort of Discharge | \nPort of Loading | \nInvoice Qty | \nInvoice Amount | \nExchange rate | \nTotal FOB | \nDiscount/Other charges | \nNet FOB | \nNet FOB Comp curr. | \nDuty Drawback | Provisional and Declared both\nROSCTL | Provisional and Declared both\nRODTEP | Provisional and Declared both\nIGST | Provisional and Declared both",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice No.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Gross Weight",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Net Weight",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: PKG",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: LC No.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Currency",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Port of Discharge",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Port of Loading",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice Qty",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice Amount",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Exchange rate",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 12",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Total FOB",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 13",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Discount/Other charges",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 14",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Net FOB",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 15",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Net FOB Comp curr.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 16",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Duty Drawback; Description: Provisional and Declared both",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 17",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: ROSCTL; Description: Provisional and Declared both",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 18",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: RODTEP; Description: Provisional and Declared both",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 19",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: IGST; Description: Provisional and Declared both",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 7, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "• This will be replicating the all the attributes from the ASN details. One invoice = one line\n• It should be available in SLC to remove and increase columns as per requirement.\n• These values could only viewed and not editable\n• Utility Tools :\n• Add : it will provide a pop-up to add the confirmed Export ASN against which shipping has not been generated at the moment. Post E-invoice generation\n• Delete : To delete the added lines\n• Article wise Tab\n• It will provide a detailed invoice/OC/style/HSN level detailed view for all the selected ASNs in the ASN details tab",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nInvoice No | \nHS Code | \nArticle | \nDBK Serial No | \nROSCTL SR No | \nColor | \nSize | \nQty | \nPrice | \nValue | \nValue In Com Currency | \nDuty Drawback | Provisional and declared",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Invoice No",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: HS Code",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Article",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: DBK Serial No",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: ROSCTL SR No",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Color",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Size",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Qty",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Price",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Value",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Value In Com Currency",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 12",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Attributes: Duty Drawback; Description: Provisional and declared",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 8, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New – Table 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "Columns: ROSCTL (text); Provisional and declared (text)\nROSCTL | Provisional and declared\nRODTEP | Provisional and declared\nIGST | Provisional and declared",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "ROSCTL: RODTEP; Provisional and declared: Provisional and declared",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "ROSCTL: IGST; Provisional and declared: Provisional and declared",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - New",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "text": "• Summary Details : It will provide the summarize comparative view of incentive wise breakup.\n• This detail will be further divided as Provisional and Declared(Shipping bill).\n• Provisional row details for each column header will be auto fetched from the incentive master\n• Declared(Shipping bill) row details for each column header will be synced from the uploaded shipping bill\n• Difference : this row will display incentive value level difference between both provisional and declared incentive details.\n• Conditional approval will be required on the confirmation of shipping bill incase if user is trying to confirm the shipping bill with difference value in either of the incentives.\n• Attachment and Remarks : It will be generic UI attachment and remarks fields\n• Flex Field: It will be generic UI Flex fields master supported",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - New",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - List",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Path (to be) : FA >> AR >> Shipping Bill >> List\n• Need a comprehensive screen which will provide list level detailing for each shipping bill created\n• Action/Utility Tools (Visibility control under program permission is required) :-\n• New : to navigate to SB creation screen\n• Revise : it will be available at each line level. It cannot executed wherein the SB forwarded to accounts team\n• Cancel : iit will be available at both header and line level. It will effective only on confirmed transaction\n• Submit to Accounts: it will work both at line and header level and after this sales invoice will get auto created and no revision will be allowed.\n• Activity and Change Log: it will show the details over changes.\n• This screen will provide below attributes by default, however will be flex filed supported in order to increase and columns for required information recording. It should be become part of export format",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - List – Table 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Columns: Attributes (text); Description (text)\nAttributes | Description\nStatus | Draft\nWaiting\nConfirmed\nCancelled\nSubmitted to Accounts (No attributes could be edited)\nCustomer | \nShipping Bill no. | \nShipping Bill date | \nShipment Mode | \nAWB/HAWB No | \nAWB Date | \nShipping Bill Amount | Total Shipping bill amount\nShipping Bill submission date | Editable ; Date input field (it should be editable as soon as Custom filing status updated as Filed.\nShipping Bill creation date | Date of shipping bill creation\nDuty Drawback | Declared incentive values\nROSCTL | Declared incentive values\nRODTEP | Declared incentive values\nIGST | Declared incentive values\nCreated By | \nCreated On | \nApproved By | \nApproved On | \nFlex Field update | Editable ; Date input field\nLocation | Billing address",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Status; Description: Draft\nWaiting\nConfirmed\nCancelled\nSubmitted to Accounts (No attributes could be edited)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Customer",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill no.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill date",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipment Mode",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: AWB/HAWB No",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: AWB Date",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill Amount; Description: Total Shipping bill amount",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill submission date; Description: Editable ; Date input field (it should be editable as soon as Custom filing status updated as Filed.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Shipping Bill creation date; Description: Date of shipping bill creation",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Duty Drawback; Description: Declared incentive values",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 12",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: ROSCTL; Description: Declared incentive values",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 13",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: RODTEP; Description: Declared incentive values",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 14",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: IGST; Description: Declared incentive values",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 15",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Created By",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 16",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Created On",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 17",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Approved By",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 18",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Approved On",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 19",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Flex Field update; Description: Editable ; Date input field",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 20",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "Attributes: Location; Description: Billing address",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List, table 10, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 02 | Shipping Bill - List",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "text": "• Financial impact on Shipping bill status update to “Submit to Accounts”\n• Incentive entry will get accounted\n• DBK/RoSCTL/RoDTEP received (Recoverable) Dr.\nTO DBK/RoSCTL/RoDTEP received Cr.\n• There will not be any incentive booking while sales invoice posting in such case.\n• Incentive details will get auto populated on the sales invoice screen based on the sanctioned incentive details attached above and will not be editable.\n• As soon as incentive posting is done that particular sales invoice will start appearing\nin the Duty Script movement screen for RoSCTL/RoDTEP at shipping bill level.\n• There will be FA setting at company level “Incentive receipts at Shipping Bill level:”\n• When this setting will be enabled, the details at the above screen will grouped at shipping bill and displayed.\nAnd on Export Incentive outstanding screen for Duty Drawback,",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 02 | Shipping Bill - List",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "PATH : FA >> AR >> Non-stock Sales >> License sales\nRequired Changes :-\n\nAt the time of license sale invoice posting, system should check that the linked AR invoice have posted in finance or not and should trigger an Auto-Income Reversal entry from a liablity ledger to the incentive(RoSCTL/RoDTEP) income ledger, as below :-",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 03 | Non Stock Sales and Voucher posting – Table 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "Columns: 1 (integer); ASN (text); No entry (text); Column 4 (text); Column 5 (integer)\n1 | ASN | No entry | Column 4 | Column 5\n2 | Shipping Bill | ROSCTL (Recoverable) | Dr | 100\n |  | ROSCTL | Cr | 100\n3 | Licence Sale | Advance License Sale |  | \n |  | Party | Dr | 50\n |  | Sale of Licence | Cr | 50\n |  | Reversal of Income |  | \n |  | ROSCTL | Dr | 50\n |  | Loss on Sale of Duty Script\\ | Dr | 50\n |  | ROSCTL (Recoverable) | Cr | 100\n4 | Posting of Sales | Customer Account | Dr | \n |  | Sale of Readymade Garment Exports | Cr | ",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "1: 2; ASN: Shipping Bill; No entry: ROSCTL (Recoverable); Column 4: Dr; Column 5: 100",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: ROSCTL; Column 4: Cr; Column 5: 100",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "1: 3; ASN: Licence Sale; No entry: Advance License Sale",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 4",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Party; Column 4: Dr; Column 5: 50",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 5",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Sale of Licence; Column 4: Cr; Column 5: 50",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 6",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Reversal of Income",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 7",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: ROSCTL; Column 4: Dr; Column 5: 50",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 8",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Loss on Sale of Duty Script\\; Column 4: Dr; Column 5: 50",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 9",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: ROSCTL (Recoverable); Column 4: Cr; Column 5: 100",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 10",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "1: 4; ASN: Posting of Sales; No entry: Customer Account; Column 4: Dr",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 11",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting",
+      "text": "No entry: Sale of Readymade Garment Exports; Column 4: Cr",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 03 | Non Stock Sales and Voucher posting, table 11, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen 04 | Export Incentive",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 04 | Export Incentive",
+      "text": "FA >> AR >> Export Incentive >> New\nRequired Changes :-\n• As soon as the Shipping bill with DBK details have been successfully posted then that particular SB will start appearing on the export incentive outstanding screen for receipt processing\n• it will be of full amount, no adjustment allowed.\n• No other change in the functionality",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 04 | Export Incentive",
+      "kind": "section"
+    },
+    {
+      "title": "Screen 05 | Duty Script Movement Screen",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "text": "Path: FA >> AR >> Duty Script Movement\nNeed a provision to disable the above highlighted tabs through Screen layout Configurator.\n• Applied\n• Utilized\nAs soon as these tabs get disabled then there corresponding columns & validations will also be disabled.\nFrom the incentive pending list the user should be directly able to directly update the :-\n• Status >> license in hand\n• License no.\n• License value in comp currency\nFrom the License in hand tab the transaction should directly able sent to Sold, considering its sales. Utilization details not required at Status, Utilized date, Utilized value in Company terms\n**Incentive receivable value in company currency should automatically be populated in the Applied/License/Utilized/Sold Value in Company currency.\nAdditionally,\n• a new status Is required in the status drop-down ii.e. “Ready for Utilization”\n• a new column is required to attach the division name from the organization to the transaction with status “ Ready for utilization”\n• “Division name” column will get enable only the transaction with Status Ready for Utilization\n• After attached of this scroll at the import supplier PI the status for the same will be updated to utilized.\nUI For Reference:\nhttps://stitch.withgoogle.com/preview/10500034027548083751?node-id=8675dd8eaea344abaf8ecbb4e7edbec5\nUser Story:",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shipment Sequence Configurator: › Screen 05 | Duty Script Movement Screen",
+      "kind": "section"
+    },
+    {
+      "title": "Meeting Points:",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Meeting Points:",
+      "text": "Buyer orders will be created in WFX\nShipment Plan will be created in WFX consisting of Sales Order Lines where shipment is due/ planned.\nShipment plan will be created on Customer PO (WFX delivery OC) level\nMultiple OCs can be clubbed under one shipment plan\nPre-Shipment Sales Invoice (PSN) will be created based on shipment Plan created in previous stage.\nShipment plan list screen will have multiple status update will be provided (PSN created, ASN Created, Sent to FA, etc.)",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Meeting Points:",
+      "kind": "section"
+    },
+    {
+      "title": "Solution=> Shipment Plan",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Solution=> Shipment Plan",
+      "text": "Shipment plan will be created by selecting multiple delivery OCs as per user requirement:",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Solution=> Shipment Plan",
+      "kind": "section"
+    },
+    {
+      "title": "Shahi Business Requirements",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shahi Business Requirements",
+      "text": "The sales/ Production team will create a shipment plan that can include multiple deliveries and multiple destinations, grouped under a primary destination which will auto-populate in the Pre-Shipment Export Invoice/ Sales ASN but can be modified by the logistics team during ASN creation, where only a single destination will be selected. Multiple ASNs can be created under a single shipment plan. The shipment plan remains editable by the factory until the ASN is in the creation stage; however, once the Pre-Booking is done and ASN is completed, the shipment plan becomes locked. If any changes are made to the shipment plan, the system will trigger an email alert to the respective authorized personnel, which will act as an approval mechanism for revising either the shipment plan, PSN or the ASN. Upon such changes, the PSN/ ASN quantity will be updated based on the shipment plan (for example, reducing order quantity from 100 to 80). In the Sales ASN confirmed mode, a checkbox labeled “Applied for Booking” will be introduced; once selected, neither the shipment plan, PSN or ASN can be revised. This checkbox can only be unchecked by an authorized user based on existing permission controls, after which revisions to both ASN and shipment plan will be allowed. Additionally, once the shipment is confirmed and an e-way bill is generated, the ASN can be recreated only by cancelling the tax invoice and generating a new ASN with the existing data but a new ASN number, specifically in cases where shipment execution fails or requires correction. The shipment plan will also include a shipment tolerance percentage driven from the Buyer Master, which can vary across different Shahi divisions.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shahi Business Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Shahi Business Requirements",
+      "heading": "Section 4. Functional Requirement Description – Export Logistics Management › Shahi Business Requirements",
+      "text": "**During plan user can take multiple destinations but will have one destination as group. Same will be auto populate in Sales ASN However it can be changed as per requirement.",
+      "locator": "§ Section 4. Functional Requirement Description – Export Logistics Management › Shahi Business Requirements (part 2)",
+      "kind": "section"
+    }
+  ]
+}

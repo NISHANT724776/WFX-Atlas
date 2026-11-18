@@ -1,0 +1,342 @@
+# Module: Sales Order
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-SALES
+MODULE NAME: Sales Order
+DESCRIPTION: Orders, deliveries, approval, price, packing
+SUBMODULES:
+TRANSACTIONS: Purchase Order from Buyer (OC) (buyer-po)
+DATA MODEL DOCUMENTS: oc, so-structure, so-actions, so-approval, so-pricing, so-types, so-packing, so-other
+WORKFLOW STEPS: style, oc, link, mrp
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-PURPOSE
+TITLE: What happens to the stock when an OC is closed?
+TOPIC: OC closure purpose
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: When an OC is closed the system automatically returns and transfers out of system the material or OC stock of that closed OC. With the write-off configuration, the leftover stock is transferred to the write-off site instead.
+STEPS:
+WHERE IN WFX: Admin > Configurator > Configuration Rules > OC Closure Setup
+NOTES: The backend must enable the new consumption marking. Once the OC Closure Setup is done you do not need the miscellaneous setting Enable Write off for Site.
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-SETUP-PREREQUISITES
+TITLE: What must be done before using the OC Closure Setup?
+TOPIC: OC closure setup prerequisites
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: Create a write-off site in the site master (mark the site as a write-off site) so that material can be transferred to the write-off site directly. Then open the new submenu OC Closure Setup under Admin > Configurator > Configuration Rules.
+STEPS:
+  1. Ask the backend team to enable the new consumption marking.
+  2. In the site master create the write-off site (Is write off site).
+  3. Open Admin > Configurator > Configuration Rules > OC Closure Setup.
+  4. Select company, site, write-off site, category, stock rule, transaction type and execution type.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-CONFIGURE-HOW-TO
+TITLE: How do I configure the OC Closure Setup?
+TOPIC: OC closure configure how-to
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: Open Admin > Configurator > Configuration Rules > OC Closure Setup and add a row per company: choose the inventory site, the write-off site, the category, the stock rule, the transaction type (for example FPPO) and the execution type (Factory or Outsourced), then the WIP rule, and switch the Enable toggle on. After this, when an OC is closed the leftover stock goes to the write-off site or out of system, as the rule says.
+STEPS:
+  1. Have the backend team enable the new consumption marking.
+  2. Create the write-off site in the site master.
+  3. Open Admin > Configurator > Configuration Rules > OC Closure Setup and click Add.
+  4. Select the member company, inventory site, write-off site and category.
+  5. Select the stock rule (OC Stock write off + Un-Reserve, or OC Stock Transfer out of system).
+  6. Select the transaction type and the execution type; add more categories, transaction types or execution types with the Add buttons if needed.
+  7. Select the WIP rule if needed, and for write-off the cost centre and inventory reason.
+  8. Switch on the Enable toggle.
+WHERE IN WFX: Admin > Configurator > Configuration Rules > OC Closure Setup
+NOTES: One WIP site is mandatory in the member company and duplicate rows are not allowed.
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-WRITE-OFF-SITE
+TITLE: How do I create or choose the write-off site?
+TOPIC: Write-off site
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: Create the write-off site in the site master and mark it with the option Is write off site. In the OC Closure Setup the Write Off Site list then shows only those sites, for the selected member company, and you pick the write-off site there.
+STEPS:
+WHERE IN WFX: Site master; Admin > Configurator > Configuration Rules > OC Closure Setup
+NOTES:
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-SETUP-SCREEN
+TITLE: What fields are on the OC Closure Setup screen?
+TOPIC: OC closure setup screen
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: Member Company, Inventory Site, Write Off Site, Category, Stock Rule, Transaction Type, Execution Type, Enable toggle, WIP Rule, Inventory Reason (TOS), CM Company Rule toggle, Cost Center and Inventory Reason (CM Transfer to Site). Toolbar: Add, Add Category, Add Transaction Type, Add Execution Type, Delete and Activity Timeline.
+STEPS:
+WHERE IN WFX:
+NOTES: Member Company is a single-selection list. Inventory Site comes from the Site Master for the selected member company. Write Off Site lists only sites marked Is write off site, for the selected member company. Category comes from the Category master. Transaction Type is single-selection (for example FPPO). Execution Type is Factory (own factory and other factory) or Outsourced. The Activity Timeline shows an Activity Log (changes captured) and a Change Log (history of changes).
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-STOCK-RULE
+TITLE: What are the stock rules of the OC Closure Setup?
+TOPIC: OC closure stock rule
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: There are two stock rules. OC Stock write off + Un-Reserve: after OC closure the OC stock is first transferred to the write-off site and the stock is unreserved from that site. OC Stock Transfer out of system: after OC closure the stock of the closed OC is transferred out of system automatically.
+STEPS:
+WHERE IN WFX:
+NOTES: If a stock rule is selected, the WIP rule is not mandatory. If OC stock write off + Un-Reserve is selected, the CM Company Rule is frozen and Write Off Site, Cost Centre and Inventory Reason (CM Transfer To Site) become mandatory.
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-WIP-RULE
+TITLE: What are the WIP rules of the OC Closure Setup?
+TOPIC: OC closure WIP rule
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: Issued Return + Transfer Out of system: the material first returns to the site, then is transferred out of system. Issued Return: the material returns to the site. Issued Return + write off: the material first returns to the site, then is transferred to the write-off site.
+STEPS:
+WHERE IN WFX:
+NOTES: Example: 100 MTR was issued to the floor and 90 MTR consumed; when the OC is closed 10 MTR returns to the site and is transferred out of system. A blank option is provided so a user who picked the WIP rule by mistake can clear it.
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-CM-COMPANY-RULE
+TITLE: How does the CM Company Rule work when the OC is in one company and production in another?
+TOPIC: OC closure CM company rule
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: When the CM Company Rule toggle is on, the rule is applied to the CM company. Example: the OC is created in Company A and production happens in Company B. When the user closes the OC from Company A, the material returns from the production floor site to the Company B site, and the system creates an automatic GDI, GDN and GRN in Company B (receipt type Transfer to site). It then returns from the Company B site to the Company A site with an automatic GDI, GDN and GRN (receipt type Transfer to site). In Company A the action of the selected WIP or stock rule is taken.
+STEPS:
+WHERE IN WFX:
+NOTES: The CM reason can only be entered when the CM toggle is on.
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-REASONS-AND-COST-CENTRE
+TITLE: Where do the inventory reason and cost centre of OC closure come from?
+TOPIC: OC closure reasons and cost centre
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: Inventory Reason (TOS) and Inventory Reason (CM Transfer to Site) come from the Reason for Correction master (Inventory > Codes > Reason for Corrections), showing only reasons whose transaction type is Transfer Out of System or All. Cost Center comes from the Cost Center master (FA > Master definition > General Master > Cost Center category).
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-OC-CLOSURE-VALIDATIONS
+TITLE: What validations does the OC Closure Setup have?
+TOPIC: OC closure validations
+MODULE: Sales Order
+SOURCE DOCUMENT: OC Closure Setup (new Angular page) and stock write-off configuration
+CONTENT: One WIP site must be selected for the member company, and duplicate rows are not allowed. Version 1.0 of the specification was created by Sumit Sharma on 28 January 2025.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "OC Closure Setup (new Angular page) and stock write-off configuration" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-ORDER-OVERVIEW
+TITLE: How does the sample order process work?
+TOPIC: Sample order overview
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: The sample order covers creating a sample order, the sample BOM, the sample supplier PO, and sample receipt and dispatch. The flow is: new sample order, confirm, create the BOM, view and release requirements (indents), receive the sample, then dispatch it by courier or forwarder.
+STEPS:
+WHERE IN WFX: Sales > Sample Order > New Sample Order
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-ORDER-COPY-OPTIONS
+TITLE: What are the copy options of a sample order?
+TOPIC: Sample order copy options
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: Copy and create new style: copies the style information and creates a new techpack after confirmation. Copy and create variant: same, and keeps a link between the parent style and the copied styles. Copy Style: copies the style information without creating a new techpack. Copy sample order: copies the sample information without creating a new techpack.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-ORDER-FIELDS
+TITLE: What fields are filled on a new sample order?
+TOPIC: Sample order fields
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: Sample Order No. (system generated), Created On, Article Code, Buyer, Buyer Department, Season, Supplier Name, Buyer Contact, Supplier Contact, Worksheet Received On, Buyer Delivery Date. Style details: Material Type, Fabric/Main Material, Product Group/Sub Category, Gender, Article Description, Buyer Target Price, Buyer Quoted Price, Supplier Quoted Price, UOM, Internal Reference, Wash Type, Product Finishing, Iron Type, Embroidery Type, Print Type and Master Style.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-ORDER-DETAILS
+TITLE: How do I add the sizes of a sample order?
+TOPIC: Sample order details
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: Under Sample Order Details first select the required sizes, then click Add. The related details appear to be filled; fields in red are mandatory. Click Confirm at the top of the page. The details then appear on the Sample Order View screen, where the Bill of Material is created.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-BOM
+TITLE: How do I create the BOM of a sample order?
+TOPIC: Sample BOM
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: From the Sample Order View open Bill of Material and choose one of three options: create a new BOM using a layout, copy from an article (another article sampling BOM), or copy from this article’s production Bill of Material (when the sample style is copied from an existing style). The categories shown (for example Fabric and Trims) depend on the layout chosen.
+STEPS:
+  1. Choose the BOM option and click OK.
+  2. Click Add and fill article, body type, colour, size, UOM, consumption quantity, wastage, product quantity and the other details.
+  3. Click View Requirement and check the details.
+  4. Click Release Requirements so that indents are generated.
+  5. Find the indents in Sourcing > Indent Management > User Indent List and fulfil them.
+WHERE IN WFX: Sourcing > Indent Management > User Indent List
+NOTES: For indent fulfilment and receiving material see the Indent Management and Inventory manual.
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-RECEIPT
+TITLE: How do I receive a sample from the sample room?
+TOPIC: Sample receipt
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: When the sample is ready in the sample room it is received with a Sample Receipt before it is dispatched to the buyer.
+STEPS:
+  1. Open Sales > Sample Order > Sample Receipt.
+  2. Fill the supplier, the supplier document reference number and the site where you want to receive the sample.
+  3. Click Add and select the sample orders (several can be selected).
+  4. Click Confirm.
+  5. Find the receipt in Sales > Sample Order > Sample Receipt List.
+WHERE IN WFX: Sales > Sample Order > Sample Receipt
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-SAMPLE-DISPATCH
+TITLE: How do I dispatch a sample to the buyer?
+TOPIC: Sample dispatch
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: There are two dispatch options: Sample Courier Dispatch (through a courier) and Sample Forwarder Dispatch (through a forwarder). Fill the details, select the order and Confirm.
+STEPS:
+WHERE IN WFX: Sales > Sample Order > Sample Courier Dispatch or Sample Forwarder Dispatch
+NOTES: The dispatch orders can be seen in Sales > Sample Order > Sample Dispatch List.
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-BUYER-RETURNED-SAMPLE
+TITLE: How do I receive a sample that the buyer sends back?
+TOPIC: Buyer returned sample
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: The sample must have been dispatched as Returnable. Then do one more transaction, the Buyer Returned Sample Receipt. It then appears in the Buyer Returned Sample Receipt List.
+STEPS:
+  1. Dispatch the sample with Type = Returnable (a Non-Returnable sample cannot be received back).
+  2. Open Sales > Sample Order > Buyer Returned Sample Receipt and create the receipt.
+  3. Find it in Sales > Sample Order > Buyer Returned Sample Receipt List.
+WHERE IN WFX: Sales > Sample Order > Buyer Returned Sample Receipt
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-RETURNABLE-AND-NON-RETURNABLE-SAMPLES
+TITLE: What is the difference between returnable and non-returnable samples?
+TOPIC: Returnable and non-returnable samples
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: On the dispatch screen the Type is Returnable or Non-Returnable. With Non-Returnable you cannot receive any sample the buyer sends back. With Returnable you can, with one more transaction: the Buyer Returned Sample Receipt.
+STEPS:
+WHERE IN WFX: Sales > Sample Order > Buyer Returned Sample Receipt (list: Buyer Returned Sample Receipt List)
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-SALES-COURIER-INVOICE
+TITLE: How do I create an invoice for courier dispatches?
+TOPIC: Courier invoice
+MODULE: Sales Order
+SOURCE DOCUMENT: Sample Order Manual (Classic Fashion)
+CONTENT: Create a Courier Invoice. It can consolidate several dispatches into one courier invoice: select the dispatches, click OK and confirm.
+STEPS:
+WHERE IN WFX: Sales > Sample Order > Courier Invoice
+NOTES:
+SOURCE: User manual "Sample Order Manual (Classic Fashion)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================

@@ -1,0 +1,2129 @@
+# Field definitions (screen fields per transaction)
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+FIELD ID: FLD-MASTERS-COLOR-CODE
+FIELD NAME: Color Code
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: Colour Master
+FIELD TYPE: Key (identifies the record)
+DEFINITION: Unique code of the colour within its colour card.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-COLOR-NAME
+FIELD NAME: Color Name
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: Colour Master
+FIELD TYPE: Entered by the user
+DEFINITION: Display name shown with the code everywhere, e.g. "BALSAM TREE (372)".
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-COLOR-CARD
+FIELD NAME: Color Card
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: Colour Master
+FIELD TYPE: Entered by the user
+DEFINITION: The palette the colour belongs to. A style or material can only use colours of its own colour card.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-SIZE-CODE
+FIELD NAME: Size Code
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: Size Master
+FIELD TYPE: Key (identifies the record)
+DEFINITION: Unique size code in the size range.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-SIZE-NAME
+FIELD NAME: Size Name
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: Size Master
+FIELD TYPE: Entered by the user
+DEFINITION: Readable size name.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-DISPLAY-NAME
+FIELD NAME: Display Name
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: Size Master
+FIELD TYPE: Calculated
+DEFINITION: Size Name + (Size Code), e.g. "Small S (34S)".
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-FROM-UOM-TO-UOM
+FIELD NAME: From UOM / To UOM
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: UOM Conversion
+FIELD TYPE: Entered by the user
+DEFINITION: Units being converted. Both must exist in the UOM master.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MASTERS-FACTOR
+FIELD NAME: Factor
+TRANSACTION: Masters – Colour, Size, UOM (masters)
+FIELD GROUP: UOM Conversion
+FIELD TYPE: Entered by the user
+DEFINITION: How many To-UOM units make one From-UOM unit. 1 KG_Nis = 1,000 meter for N-8.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-COLOR-CARD
+FIELD NAME: Color Card
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Nis_colors – limits which colours the style may use.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-SIZE-WIDTH-RANGE
+FIELD NAME: Size/Width Range
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: ERPSIZE – limits which sizes the style may use.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-PURCHASE-UOM
+FIELD NAME: Purchase UOM
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: PCS. The UOM the garment is ordered and planned in.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-COLOR-DEFINITION
+FIELD NAME: Color Definition
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Single Colors – each garment colour is one solid colour.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-COLOR-CODE
+FIELD NAME: Color Code
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Base Colour List
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Colour offered on the style.
+SOURCE TRANSACTION: Masters – Colour, Size, UOM (masters)
+SOURCE FIELD: Colour Master
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-SORT-ORDER-IN-ACTIVE
+FIELD NAME: Sort Order / In-Active
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Base Colour List
+FIELD TYPE: Entered by the user
+DEFINITION: Display order and whether the colour is blocked for new orders.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-ARTICLE-CODE
+FIELD NAME: Article Code
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: BOM Header
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Style the BOM belongs to.
+SOURCE TRANSACTION: Apparel Style (Techpack) (apparel-style)
+SOURCE FIELD: Article Code
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-BOM-NAME-TYPE-VERSION
+FIELD NAME: BOM Name / Type / Version
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: BOM Header
+FIELD TYPE: Entered by the user
+DEFINITION: #1 DP, Production BOM, V1. Together with article they form the BOM ID.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-ORDER-QTY-EXPECTED
+FIELD NAME: Order Qty – Expected
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: BOM Header
+FIELD TYPE: Entered by the user
+DEFINITION: Planning quantity (34,000 PCS) used for costing estimates; does not drive MRP.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-ARTICLE-CODE-2
+FIELD NAME: Article Code
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Raw material used (N-8 Finished_FABRIC).
+SOURCE TRANSACTION: Raw Material Techpack (rm-techpack)
+SOURCE FIELD: Article Code
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-PURCHASE-UOM-CONS-UOM
+FIELD NAME: Purchase UOM / Cons UOM
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: meter / KG_Nis. Bought per meter, consumed per KG_Nis.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-COLOR-DEPENDENCY-SIZE-DEPENDENCY
+FIELD NAME: Color Dependency / Size Dependency
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: "Table": each style colour/size is mapped individually to a material colour/size.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-TOTAL-CONS-QTY
+FIELD NAME: Total Cons Qty
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: Material needed for "Cons per Item" garments (3 KG_Nis).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONS-PER-ITEM
+FIELD NAME: Cons per Item
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: Number of garments Total Cons Qty covers (2).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONS-QTY
+FIELD NAME: Cons Qty
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Calculated
+DEFINITION: Net consumption for one garment.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-CONS-QTY
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-WASTAGE
+FIELD NAME: Wastage %
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: Planned cutting/marker wastage.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-LOSS
+FIELD NAME: Loss %
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: Process loss (dyeing, finishing, handling). Applied first, as 1 ÷ (1 − Loss %).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-SHRINKAGE
+FIELD NAME: Shrinkage %
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Entered by the user
+DEFINITION: Expected shrinkage after wash/finishing. Applied last, as a division by (1 − Shrinkage %).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONS-INCL-LOSS
+FIELD NAME: Cons incl Loss
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Calculated
+DEFINITION: Cons Qty × 1 ÷ (1 − Loss %).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-CONS-LOSS
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONS-INCL-WASTAGE
+FIELD NAME: Cons incl Wastage
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Calculated
+DEFINITION: Cons incl Loss plus Wastage % of it.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-CONS-WASTAGE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONS-INCL-SHRINKAGE
+FIELD NAME: Cons incl Shrinkage
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Calculated
+DEFINITION: Cons incl Wastage ÷ (1 − Shrinkage %).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-CONS-SHRINKAGE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-FINAL-CONSUMPTION
+FIELD NAME: Final Consumption
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – quantity
+FIELD TYPE: Calculated
+DEFINITION: The total consumption per garment, the last figure of the chain, used by MRP and FPO.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-FINAL-CONS
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CSV
+FIELD NAME: CSV
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – price
+FIELD TYPE: Entered by the user
+DEFINITION: Customer Supplied Value – value of material the buyer supplies free of charge.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-SUPPLIER-CURRENCY-DELIVERY-TERMS
+FIELD NAME: Supplier / Currency / Delivery Terms
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – price
+FIELD TYPE: Entered by the user
+DEFINITION: GAP Kids_Nis, INR, C & F.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-PURCHASE-PRICE
+FIELD NAME: Purchase Price
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – price
+FIELD TYPE: Entered by the user
+DEFINITION: Price per Purchase UOM (15 INR per meter).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONVERSION-FACTOR
+FIELD NAME: Conversion Factor
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – price
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Purchase-to-Cons UOM factor (1,000).
+SOURCE TRANSACTION: Masters – Colour, Size, UOM (masters)
+SOURCE FIELD: UOM Conversion
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-CONS-UOM-PRICE
+FIELD NAME: Cons UOM Price
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – price
+FIELD TYPE: Calculated
+DEFINITION: Price per Cons UOM.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-CONS-UOM-PRICE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-MATERIALS-VALUE-VALUE-CS-CURR
+FIELD NAME: Value / Value (CS Curr)
+TRANSACTION: BOM – Materials & Dependency (bom-materials)
+FIELD GROUP: Material line – price
+FIELD TYPE: Calculated
+DEFINITION: Cost of the line per garment.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BOM-VALUE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-SEQ-PRODUCTION-PROCESS
+FIELD NAME: Seq / Production Process
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Entered by the user
+DEFINITION: Order and name of the process.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-AFTER-PROCESS
+FIELD NAME: After Process
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Entered by the user
+DEFINITION: Process that must finish first.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-AFTER-PROCESS-VALID
+FIELD NAME: After Process Valid?
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Calculated
+DEFINITION: Checks the predecessor exists earlier in the routing.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-ROUTING-AFTER-VALID
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-PROCESS-RATE
+FIELD NAME: Process Rate
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Calculated
+DEFINITION: Cost per piece for the process = Cost Of × Production Time from the Operations tab; summed into Production Cost.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-ROUTING-PROCESS-RATE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-EFFICIENCY
+FIELD NAME: Efficiency %
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Operations
+FIELD TYPE: Entered by the user
+DEFINITION: Operation efficiency, left at its default (0 %); it does not change the process rate. Target Production Efficiency % is 100 % on the routing.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-COST-OF
+FIELD NAME: Cost Of
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Operations
+FIELD TYPE: Entered by the user
+DEFINITION: Default cost rate of the sub-operation per unit of production time (3.00 for VCutting).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-OPERATION-SUB-OPERATION
+FIELD NAME: Operation / Sub Operation
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Operations
+FIELD TYPE: Entered by the user
+DEFINITION: From the operation library (VCutting, Sewing, VPacking).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-MACHINE-SUB-CATEGORY
+FIELD NAME: Machine Sub Category
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Operations
+FIELD TYPE: Entered by the user
+DEFINITION: Machine used (MD Electronics-Laptops, Mobile-Vivo).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-LOSS-COST-PER-QTY
+FIELD NAME: Loss % / Cost per Qty
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Operations
+FIELD TYPE: Entered by the user
+DEFINITION: Operation loss and fixed cost per qty (0 on Adi TShirt (NIS-59)).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-TOTAL-TIME-PRODUCTION-TIME
+FIELD NAME: Total Time / Production Time
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Operations
+FIELD TYPE: Entered by the user
+DEFINITION: Time of the operation (100 for VCutting, 5 for Sewing and VPacking).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-LINKED-PROCESS
+FIELD NAME: Linked Process
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Material Linkage
+FIELD TYPE: Entered by the user
+DEFINITION: Process that consumes the BOM material.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-COLORS-USED-SIZES-USED
+FIELD NAME: Colors Used / Sizes Used
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Material Linkage
+FIELD TYPE: Calculated
+DEFINITION: Count of "Used" rows in the BOM dependency (3 / 3).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-MATERIAL-COST
+FIELD NAME: Material Cost
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Calculated
+DEFINITION: Sum of section totals.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-COST-MATERIAL
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-PRODUCTION-COST
+FIELD NAME: Production Cost
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Calculated
+DEFINITION: Sum of process rates.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-COST-PRODUCTION
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-RECIPE-INDIRECT-CM-COSTS
+FIELD NAME: Recipe / Indirect / CM Costs
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Entered by the user
+DEFINITION: Other cost buckets added to the total.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-TOTAL-COST
+FIELD NAME: Total Cost
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Calculated
+DEFINITION: Full cost per piece.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-COST-TOTAL
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-SELLING-PRICE-DISCOUNT
+FIELD NAME: Selling Price / Discount %
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Entered by the user
+DEFINITION: Price the apparel is actually sold at (NIS-59: 4,000, locked) and the discount as a % of it (10 % = 400).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-NET-SELLING-PRICE
+FIELD NAME: Net Selling Price
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Calculated
+DEFINITION: Selling price after discount.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-COST-NET-SELLING
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-PROFIT-PROFIT-MARKUP
+FIELD NAME: Profit / Profit % / Markup %
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Calculated
+DEFINITION: Margin results.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-COST-PROFIT
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BOM-COSTING-TARGET-PROFIT
+FIELD NAME: Target Profit %
+TRANSACTION: BOM – Costing (bom-costing)
+FIELD GROUP: Cost Summary (per piece)
+FIELD TYPE: Entered by the user
+DEFINITION: Target margin shown next to Profit (21 %).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-ARTICLE-CODE-NAME
+FIELD NAME: Article Code / Name
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Key (identifies the record)
+DEFINITION: N-8 Finished_FABRIC.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-PRODUCT-GROUP-SUB-CATEGORY
+FIELD NAME: Product Group / Sub-Category
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Knitted Fabric / Rib Fabric.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-CONSUMPTION-UOM
+FIELD NAME: Consumption UOM
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: KG_Nis – UOM used in BOM consumption.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-PURCHASE-UOM-STORAGE-UOM
+FIELD NAME: Purchase UOM / Storage UOM
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: KG_Nis / KG_Nis.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-SECONDARY-UOM-CONVERSION
+FIELD NAME: Secondary UOM Conversion
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: 0 – not maintained (see case).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-MATERIAL-DEPENDENCY
+FIELD NAME: Material Dependency
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: ColorSize – demand and stock tracked per colour and size.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-BUYING-PRICE
+FIELD NAME: Buying Price
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: 15.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-MOQ-ROUNDING-OPTION
+FIELD NAME: MOQ/Rounding Option
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Color – MOQ rounding is applied per colour.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RM-TECHPACK-SEASON
+FIELD NAME: Season
+TRANSACTION: Raw Material Techpack (rm-techpack)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Fall 2024.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-BUYER-BLOCK-BOOKING-TYPE
+FIELD NAME: Buyer Block Booking Type
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Header
+FIELD TYPE: Entered by the user
+DEFINITION: Projection.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-SEASON-CURRENCY
+FIELD NAME: Season / Currency
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Header
+FIELD TYPE: Entered by the user
+DEFINITION: AW26 / INR.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-TOTAL-MATERIAL-QTY-VALUE
+FIELD NAME: Total Material Qty / Value
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Header
+FIELD TYPE: Calculated
+DEFINITION: Sum of material units (600) and value (3,000).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-TOTAL-MATERIAL-INDENTED-BALANCE
+FIELD NAME: Total Material Indented / Balance
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Header
+FIELD TYPE: Calculated
+DEFINITION: Units indented (600) and still to indent (0).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-UNITS
+FIELD NAME: Units
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Material Details
+FIELD TYPE: Entered by the user
+DEFINITION: Quantity booked per colour/size in material UOM.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-RATE
+FIELD NAME: Rate
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Material Details
+FIELD TYPE: Entered by the user
+DEFINITION: Booking rate (5).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-VALUE
+FIELD NAME: Value
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Material Details
+FIELD TYPE: Calculated
+DEFINITION: Units × Rate.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BBB-MATERIAL-VALUE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-INDENTED-QTY
+FIELD NAME: Indented Qty
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Material Details
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Pulled back from the adhoc indent.
+SOURCE TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+SOURCE FIELD: Indent Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-BLOCK-BOOKING-BALANCE-TO-INDENT
+FIELD NAME: Balance to Indent
+TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+FIELD GROUP: Material Details
+FIELD TYPE: Calculated
+DEFINITION: Units − Indented Qty.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-BBB-BALANCE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-BOOKED-UNITS
+FIELD NAME: Booked Units
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Quantity booked on the matching booking material line.
+SOURCE TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+SOURCE FIELD: Units
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-PREV-INDENT-QTY
+FIELD NAME: Prev. Indent Qty
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Calculated
+DEFINITION: Already indented against the same booking line.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-BALANCE-UNITS
+FIELD NAME: Balance Units
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Calculated
+DEFINITION: Booked − previously indented.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-INDENT-BALANCE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-INDENT-QTY
+FIELD NAME: Indent Qty
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Entered by the user
+DEFINITION: Quantity requested now.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-RATE
+FIELD NAME: Rate
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Booking rate (5).
+SOURCE TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+SOURCE FIELD: Rate
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-ORDERED-QTY
+FIELD NAME: Ordered Qty
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Quantity placed on POs.
+SOURCE TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+SOURCE FIELD: Ordered Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-ADHOC-INDENT-OPEN-QTY-LINE-STATUS
+FIELD NAME: Open Qty / Line Status
+TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+FIELD GROUP: Indent lines
+FIELD TYPE: Calculated
+DEFINITION: Uncovered quantity and status.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-INDENT-OPEN
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-INDENT-QTY-INDENT-RATE
+FIELD NAME: Indent Qty / Indent Rate
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: What the indent requested.
+SOURCE TRANSACTION: BBB Adhoc Indent (adhoc-indent)
+SOURCE FIELD: Indent Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-ORDERED-QTY
+FIELD NAME: Ordered Qty
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Entered by the user
+DEFINITION: Qty placed on the supplier.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-ADDITIONAL-QTY
+FIELD NAME: Additional Qty
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Entered by the user
+DEFINITION: Extra over indent (e.g. MOQ rounding).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-PRICE-PER-UNIT
+FIELD NAME: Price per Unit
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Entered by the user
+DEFINITION: PO price (10).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-TOTAL-VALUE-TOTAL-NET-VALUE
+FIELD NAME: Total Value / Total Net Value
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Calculated
+DEFINITION: Qty × price (+ surcharge).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-RMPO-VALUE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-SHIPPED-QTY
+FIELD NAME: Shipped Qty
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Received against the line.
+SOURCE TRANSACTION: GRN – Goods Receipt Note (grn)
+SOURCE FIELD: Accepted Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-OPEN-QTY
+FIELD NAME: Open Qty
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Calculated
+DEFINITION: Ordered − shipped.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-RMPO-OPEN
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-QTY-STORING-UOM
+FIELD NAME: Qty (Storing UOM)
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Calculated
+DEFINITION: Qty in stock UOM.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-RMPO-STORING-QTY
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-RMPO-STOCK-KEY-BOOKING-NO
+FIELD NAME: Stock Key / Booking No
+TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+FIELD GROUP: Article detail
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: N-8|colour|size and PPJ179 – the stock lands tagged with the booking.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-GRN-ORDERED-QTY
+FIELD NAME: Ordered Qty
+TRANSACTION: GRN – Goods Receipt Note (grn)
+FIELD GROUP: GRN Qty
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: PO line qty.
+SOURCE TRANSACTION: RMPO – Raw Material Purchase Order (rmpo)
+SOURCE FIELD: Ordered Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-GRN-PREV-RECD-RETURNED-QTY
+FIELD NAME: Prev. Recd. / Returned Qty
+TRANSACTION: GRN – Goods Receipt Note (grn)
+FIELD GROUP: GRN Qty
+FIELD TYPE: Entered by the user
+DEFINITION: Earlier receipts and returns.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-GRN-BALANCE-QTY
+FIELD NAME: Balance Qty
+TRANSACTION: GRN – Goods Receipt Note (grn)
+FIELD GROUP: GRN Qty
+FIELD TYPE: Calculated
+DEFINITION: Receivable now.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-GRN-BALANCE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-GRN-RECEIVED-REJECTED-QTY
+FIELD NAME: Received / Rejected Qty
+TRANSACTION: GRN – Goods Receipt Note (grn)
+FIELD GROUP: GRN Qty
+FIELD TYPE: Entered by the user
+DEFINITION: Physical receipt and QC rejection.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-GRN-ACCEPTED-QTY-VALUE
+FIELD NAME: Accepted Qty / Value
+TRANSACTION: GRN – Goods Receipt Note (grn)
+FIELD GROUP: GRN Qty
+FIELD TYPE: Calculated
+DEFINITION: Stock-in qty and value.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-GRN-ACCEPTED
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-GRN-EXCESS-SHORT-VS-BALANCE
+FIELD NAME: Excess/Short vs Balance
+TRANSACTION: GRN – Goods Receipt Note (grn)
+FIELD GROUP: GRN Qty
+FIELD TYPE: Calculated
+DEFINITION: Over/under receipt.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-GRN-EXCESS
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-ORDER-TYPE
+FIELD NAME: Order Type
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Delivery OC
+FIELD TYPE: Entered by the user
+DEFINITION: Confirmed – only confirmed orders drive MRP.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-BOM
+FIELD NAME: BOM
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Delivery OC
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: #1 DP – the BOM MRP explodes.
+SOURCE TRANSACTION: BOM – Materials & Dependency (bom-materials)
+SOURCE FIELD: BOM Name
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-SELLING-PRICE-CM-PRICE
+FIELD NAME: Selling Price / CM Price
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Delivery OC
+FIELD TYPE: Entered by the user
+DEFINITION: 33.3333 USD / 0.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-FULFILLMENT-TYPE-SUBTYPE
+FIELD NAME: Fulfillment Type / SubType
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Delivery OC
+FIELD TYPE: Entered by the user
+DEFINITION: Manufacture / Job Work.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-BLOCK-BOOKING-NO
+FIELD NAME: Block Booking No
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Delivery OC
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Booking the OC consumes.
+SOURCE TRANSACTION: Buyer Block Booking (BBB) (buyer-block-booking)
+SOURCE FIELD: Block Booking No.
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-QTY
+FIELD NAME: Qty
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Quantity breakup
+FIELD TYPE: Entered by the user
+DEFINITION: Pieces per colour × size.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-TOTAL-VALUE
+FIELD NAME: Total Value
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Quantity breakup
+FIELD TYPE: Calculated
+DEFINITION: Qty × (Selling + CM).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-OC-VALUE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-BUYER-PO-COLOR-SIZE-USED-IN-BOM
+FIELD NAME: Color/Size used in BOM?
+TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+FIELD GROUP: Quantity breakup
+FIELD TYPE: Calculated
+DEFINITION: Check against BOM dependency – an unmapped colour would create no fabric demand.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-ACTUAL-REQUIREMENT
+FIELD NAME: Actual Requirement
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 1 – Garment
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: OC qty for the colour/size.
+SOURCE TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+SOURCE FIELD: Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-MRP-LOSS
+FIELD NAME: MRP % / Loss %
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 1 – Garment
+FIELD TYPE: Entered by the user
+DEFINITION: Planning multiplier (1 = 100 %) and loss allowance.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-REQ-QTY
+FIELD NAME: Req Qty
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 1 – Garment
+FIELD TYPE: Calculated
+DEFINITION: Planned requirement.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-MRP-L1-REQ
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-DEMAND-TYPE-PRODUCTION-QTY-PURCHASE-QTY
+FIELD NAME: Demand Type / Production Qty / Purchase Qty
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 1 – Garment
+FIELD TYPE: Calculated
+DEFINITION: Split of requirement into make vs buy.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-MRP-DEMAND
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-GARMENT-REQ-QTY
+FIELD NAME: Garment Req Qty
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 2 – Fabric
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Parent requirement.
+SOURCE TRANSACTION: MRP – Material Requirement Planning (mrp)
+SOURCE FIELD: Level 1 Req Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-FINAL-CONSUMPTION
+FIELD NAME: Final Consumption
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 2 – Fabric
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: 1.5 KG_Nis per piece.
+SOURCE TRANSACTION: BOM – Materials & Dependency (bom-materials)
+SOURCE FIELD: Final Consumption
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-ACTUAL-REQUIREMENT-REQ-QTY
+FIELD NAME: Actual Requirement / Req Qty
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 2 – Fabric
+FIELD TYPE: Calculated
+DEFINITION: Fabric needed.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-MRP-L2-REQ
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-MRP-PURCHASE-QTY
+FIELD NAME: Purchase Qty
+TRANSACTION: MRP – Material Requirement Planning (mrp)
+FIELD GROUP: Level 2 – Fabric
+FIELD TYPE: Calculated
+DEFINITION: Fabric to buy.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-MRP-DEMAND
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-INDENTS-INDENT-QTY
+FIELD NAME: Indent Qty
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+FIELD GROUP: Level 2 indent lines
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Fabric requirement in Cons UOM.
+SOURCE TRANSACTION: MRP – Material Requirement Planning (mrp)
+SOURCE FIELD: Level 2 Req Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-INDENTS-PURCHASE-UOM-INDENT-QTY
+FIELD NAME: Purchase UOM Indent Qty
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+FIELD GROUP: Level 2 indent lines
+FIELD TYPE: Calculated
+DEFINITION: Requirement in purchase UOM.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-PI-PURCHASE-UOM
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-INDENTS-BBB-STOCK-AVAILABLE
+FIELD NAME: BBB Stock Available
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+FIELD GROUP: Level 2 indent lines
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Booking stock with the same stock key.
+SOURCE TRANSACTION: GRN – Goods Receipt Note (grn)
+SOURCE FIELD: Accepted Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-INDENTS-IN-HOUSE-ADJ
+FIELD NAME: In-house Adj.
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+FIELD GROUP: Level 2 indent lines
+FIELD TYPE: Calculated
+DEFINITION: Stock reserved for this indent.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-PI-INHOUSE-ADJ
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-INDENTS-ORDERED-QTY
+FIELD NAME: Ordered Qty
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+FIELD GROUP: Level 2 indent lines
+FIELD TYPE: Calculated
+DEFINITION: Qty sent to RMPO.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-PI-ORDERED
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-INDENTS-PRICE
+FIELD NAME: Price
+TRANSACTION: Sales Order Indents (MRP) (production-indents)
+FIELD GROUP: Level 2 indent lines
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: 15,000 per KG_Nis.
+SOURCE TRANSACTION: BOM – Materials & Dependency (bom-materials)
+SOURCE FIELD: Cons UOM Price
+CALCULATION: CALC-PI-PRICE
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-ORDER-QTY
+FIELD NAME: Qty
+TRANSACTION: Production Order (production-order)
+FIELD GROUP: Add Style Quantities – Colour
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: OC qty for the colour (sum of sizes).
+SOURCE TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+SOURCE FIELD: Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-ORDER-QTY-2
+FIELD NAME: Qty %
+TRANSACTION: Production Order (production-order)
+FIELD GROUP: Add Style Quantities – Colour
+FIELD TYPE: Entered by the user
+DEFINITION: Share of the qty released to FPO.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-PRODUCTION-ORDER-ALLOCATED-TO-FPO
+FIELD NAME: Allocated to FPO
+TRANSACTION: Production Order (production-order)
+FIELD GROUP: Add Style Quantities – Colour
+FIELD TYPE: Calculated
+DEFINITION: Qty × Qty %.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-PO-ALLOCATED
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-ALLOCATED-QTY
+FIELD NAME: Allocated Qty
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPO Qty – Colour/Size
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Qty released per colour/size.
+SOURCE TRANSACTION: Production Order (production-order)
+SOURCE FIELD: Allocated to FPO
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-REDUCED-AT-FPO
+FIELD NAME: Reduced at FPO
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPO Qty – Colour/Size
+FIELD TYPE: Entered by the user
+DEFINITION: Manual reduction.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-FPO-QTY
+FIELD NAME: FPO Qty
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPO Qty – Colour/Size
+FIELD TYPE: Calculated
+DEFINITION: Qty in production.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-FPO-QTY
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-FABRIC-QTY-REQD
+FIELD NAME: Fabric Qty Reqd
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPO Qty – Colour/Size
+FIELD TYPE: Calculated
+DEFINITION: FPO qty × final consumption.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-FPO-FABRIC
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-QTY-REQD
+FIELD NAME: Qty. Reqd.
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: Stock FPO Material Allocation
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Fabric needed.
+SOURCE TRANSACTION: FPO & FPPO (fpo)
+SOURCE FIELD: Fabric Qty Reqd
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-QTY-INSTRUCTED-NET-QTY-INSTRUCTED
+FIELD NAME: Qty. Instructed / Net Qty. Instructed
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: Stock FPO Material Allocation
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Stock already reserved.
+SOURCE TRANSACTION: Sales Order Indents (MRP) (production-indents)
+SOURCE FIELD: In-house Adj.
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-OPEN-QTY
+FIELD NAME: Open Qty.
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: Stock FPO Material Allocation
+FIELD TYPE: Calculated
+DEFINITION: Still to arrive.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-FPO-ALLOC-OPEN
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-REQUIRED-QTY
+FIELD NAME: Required Qty
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPPO
+FIELD TYPE: Linked (copied from another transaction)
+DEFINITION: Per process, per colour/size.
+SOURCE TRANSACTION: FPO & FPPO (fpo)
+SOURCE FIELD: FPO Qty
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-ORDERED-RECEIVED-REALLOCATION-QTY
+FIELD NAME: Ordered / Received / Reallocation Qty
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPPO
+FIELD TYPE: Entered by the user
+DEFINITION: Progress against the process.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-FPO-OPEN-QTY-2
+FIELD NAME: Open Qty
+TRANSACTION: FPO & FPPO (fpo)
+FIELD GROUP: FPPO
+FIELD TYPE: Calculated
+DEFINITION: Remaining.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION: CALC-FPPO-OPEN
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-PRICE-PER
+FIELD NAME: Price Per
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Color/Size – price can differ by colour and size. One of four: Article, Color, Size or Color/Size (RULE-SO-PRICE-PER). It decides how the delivery-level grid of the Sales Order / Purchase Order from Buyer is formed and where upcharges and discounts are handled.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts). · WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-ARTICLE-CODE
+FIELD NAME: Article Code
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Key (identifies the record)
+DEFINITION: Style code. Flannel Shirt Adi (NIS-58). Generated automatically by the system through System Coding (the code and the name can each be automatic or manual: RULE-SETUP-ARTICLE-CODE-MODES). Read-only on the screen (visual observation: greyed). Adi TShirt (NIS-59): NIS-59.
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts). · WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-ARTICLE-NAME
+FIELD NAME: Article Name
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: Flannel Shirt Adi. Typed manually in this set-up (RULE-SETUP-ARTICLE-CODE-MODES allows automatic or manual). Adi TShirt (NIS-59): "Adi TShirt".
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts). · WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-BUYER-BUYER-DEPARTMENT
+FIELD NAME: Buyer / Buyer Department
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Entered by the user
+DEFINITION: GAP Kids / Kids-Tops-Knits. Copied to booking and OC. The buyer is selected first; the Buyer Department list then shows only the departments of that buyer and the user picks one (RULE-APPAREL-BUYER-DEPARTMENT-FILTER). Division fills in by itself from the buyer (RULE-APPAREL-BUYER-DIVISION-AUTO).
+SOURCE TRANSACTION:
+SOURCE FIELD:
+CALCULATION:
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: NIS-58 workbook and WFX screen captures. Knowledge Hub v1 (src/app/data/transactions.ts). · WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-MATERIAL-TYPE
+FIELD NAME: Material Type
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Selected from a list
+DEFINITION: The material type created for the category (here Apparel), chosen from the dropdown at the top of the techpack. The information shown below it on the screen depends on it (RULE-APPAREL-MATERIAL-TYPE-DRIVES-FIELDS).
+SCREEN OBSERVATION: Visual observation, not confirmed behaviour: the dropdown showed "Knitted_FAB_N" on the Adi TShirt (NIS-59) screen.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-DIVISION
+FIELD NAME: Division
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Filled by the system
+DEFINITION: Filled in automatically when the buyer is selected (RULE-APPAREL-BUYER-DIVISION-AUTO); it is not chosen separately.
+SCREEN OBSERVATION: Visual observation: "Gurgaon-24175COM-ADI" was shown for buyer GAP Kids.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-PRODUCT-GROUP
+FIELD NAME: Product Group
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Selected from a list
+DEFINITION: The product group of the style, selected by the user after the buyer details. It is paired with the Sub-Category.
+SCREEN OBSERVATION: Visual observation: "KNITTED!" was shown on the Adi TShirt (NIS-59) screen.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-SUB-CATEGORY
+FIELD NAME: Sub-Category
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Selected from a list
+DEFINITION: The sub-category of the style, selected by the user together with the Product Group.
+SCREEN OBSERVATION: Visual observation: "Knitted_FAB_N" was shown, with a red mark that suggests it is mandatory (not confirmed).
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+FIELD ID: FLD-APPAREL-STYLE-SIZE-RANGE
+FIELD NAME: Size/Width Range
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+FIELD GROUP: Detail
+FIELD TYPE: Selected from the master
+DEFINITION: The size range for the style, selected from the size ranges made in the masters (as the colour card is selected from the colour cards made in the masters).
+SCREEN OBSERVATION: Visual observation: "ERPSIZE" was shown on the screen.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-INPUT-ITEM
+FIELD NAME: Input item
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Entered by the user
+DEFINITION: The item that goes into a process (for example fabric into cutting). Defined for each process of the routing.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================
+FIELD ID: FLD-BOM-ROUTING-OUTPUT-ITEM
+FIELD NAME: Output item
+TRANSACTION: BOM – Routing (bom-routing)
+FIELD GROUP: Processes
+FIELD TYPE: Entered by the user
+DEFINITION: The item that comes out of a process (for example the cut parts from cutting). Defined for each process of the routing.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 2
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================

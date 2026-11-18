@@ -1,0 +1,2661 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "#",
+        "Screen",
+        "Route",
+        "Purpose"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "S-1",
+          "Business Process Engine List",
+          "/process/engines",
+          "Search, filter and manage all chains; entry point of the feature. /process redirects here."
+        ],
+        [
+          "S-2",
+          "Detail — New",
+          "/process/engines/new",
+          "Create a chain. The record is inserted automatically once the Name (seed field) is filled (auto-save; no Save button)."
+        ],
+        [
+          "S-3",
+          "Detail — Edit",
+          "/process/engines/{id}",
+          "View and edit a chain: header fields + the inline-editable steps grid; manual Activate action."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Convention",
+        "Definition"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Convention"
+      ],
+      "rows": [
+        [
+          "Enforcement",
+          "The server enforces every rule; client validation is a convenience, not the enforcement."
+        ],
+        [
+          "Seed fields",
+          "Name. A new process engine is created once Name is valid."
+        ],
+        [
+          "Text fields",
+          "Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum."
+        ],
+        [
+          "Company scope",
+          "A BPE is company/tenant-scoped: the list is filtered to the current company and name-uniqueness is enforced within it (V-1)."
+        ],
+        [
+          "Date display",
+          "All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Column",
+        "Content & combined cells",
+        "Filter",
+        "Format / behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column"
+      ],
+      "rows": [
+        [
+          "(selection)",
+          "Row checkbox + header checkbox",
+          "—",
+          "Multi-row selection; header checkbox selects the filtered set only."
+        ],
+        [
+          "Status",
+          "wfx-badge chip, never plain text",
+          "Set filter (Draft, Active, Inactive; fixed order)",
+          "Severity: Draft = secondary (grey), Active = success (green), Inactive = warning (amber)."
+        ],
+        [
+          "Process Engine",
+          "Combined cell — Name (link, opens detail) over Description (secondary line)",
+          "Text filter",
+          "Link via data-action=\"open-bpe\" + onCellClicked; autoHeight on. Blank cell renders “—”."
+        ],
+        [
+          "Applicability",
+          "Combined cell — dimension label (primary) over the chosen value names (secondary)",
+          "Set filter (by dimension)",
+          "autoHeight on. A blank rule renders “All”; a dimension with no values renders “(no values)”. Read-only here (set on the detail)."
+        ],
+        [
+          "Steps",
+          "Step count (StepCount)",
+          "Number filter",
+          "Right-aligned; formatted “N step(s)”; zero renders “—”. See F-1 (incomplete steps still counted)."
+        ],
+        [
+          "Created By",
+          "Name of the user who created the chain (CreatedBy)",
+          "Set filter",
+          "Avatar chip + name via WfxUserGroupCellRendererComponent; autoHeight on; blank renders “—”. Mock stamps a fixed current user (no login); real takes it from the session (D-5)."
+        ],
+        [
+          "Created On",
+          "Creation date",
+          "Date (equals / before / after / from–to)",
+          "App-wide date format via WfxDateFormatService (default dd MMM yyyy). Calendar picker; filtering by a day matches any time on that day."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Action",
+        "Shown when",
+        "Behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Action"
+      ],
+      "rows": [
+        [
+          "Edit",
+          "Always",
+          "Opens the detail screen for the row."
+        ],
+        [
+          "Activate",
+          "Status ≠ Active",
+          "Guard: needs ≥ 2 steps (else warning M-4). Confirmation dialog, then Status = Active."
+        ],
+        [
+          "Set Inactive",
+          "Status = Active",
+          "Opens the Set Inactive dialog; reason is mandatory (stored in Comments in the mock — D-11)."
+        ],
+        [
+          "Delete",
+          "Status = Draft or Inactive",
+          "Confirmation dialog, then hard delete. Active rows are not deletable (M-13)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Validation",
+        "Default",
+        "Source / DDL"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Name",
+          "Text input",
+          "Yes (seed)",
+          "V-1 (max 120, not blank, unique within company)",
+          "empty",
+          "Free text"
+        ],
+        [
+          "Description",
+          "Textarea (2 rows)",
+          "No",
+          "V-2 (max 500)",
+          "empty",
+          "Free text"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "Field",
+        "Type",
+        "Required",
+        "Options",
+        "Default",
+        "Source / DDL"
+      ],
+      "types": [
+        "text",
+        "text",
+        "boolean",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Applies To (dimension)",
+          "Single-select (clearable)",
+          "No",
+          "Company, Buyer Type, Buyer, Category",
+          "none (= All)",
+          "Fixed dimension list"
+        ],
+        [
+          "Values",
+          "Multi-select (chips)",
+          "No",
+          "Depend on the chosen dimension (Company: WFX India/Bangladesh/Vietnam; Buyer Type: Direct/Agent/Buying House/Licensee; Buyer: buyer master; Category: product-category master)",
+          "none",
+          "Per-dimension master/DDL (D-12, Q-1)"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "Column",
+        "Editor",
+        "Validation",
+        "Behaviour"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Sequence",
+          "Number cell editor (min 1, 0 decimals)",
+          "V-3",
+          "Right-aligned; dashed-border editable cell. On add, auto-fills as max(existing)+1."
+        ],
+        [
+          "Document Type (Transaction)",
+          "Single-select cell editor",
+          "V-4, V-5",
+          "Stores the transaction code, displays the label. Options from the transaction-type DDL (mock: 9 static values — D-4, Q-1)."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "#",
+        "Trigger",
+        "Kind",
+        "Title",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "M-1",
+          "List failed to load",
+          "Error toast",
+          "Load Failed",
+          "Could not load process engines from the mock store. (real: “Could not load process engines.”)"
+        ],
+        [
+          "M-2",
+          "Activate from list",
+          "Confirm dialog",
+          "Activate Process Engine",
+          "Activate {BPEName}? It becomes available to run as a chain."
+        ],
+        [
+          "M-3",
+          "Activate succeeded",
+          "Success toast",
+          "Activated",
+          "{BPEName} is now active."
+        ],
+        [
+          "M-4",
+          "Activate from list, < 2 steps",
+          "Warning toast",
+          "Cannot Activate",
+          "{BPEName} needs at least 2 steps before it can be activated."
+        ],
+        [
+          "M-5",
+          "Activate failed",
+          "Error toast",
+          "Activate Failed",
+          "Could not activate the process engine."
+        ],
+        [
+          "M-6",
+          "Activate (detail) with invalid form",
+          "Warning toast",
+          "Validation",
+          "Please fix the highlighted fields before activating."
+        ],
+        [
+          "M-7",
+          "Activate (detail), < 2 steps",
+          "Warning toast",
+          "Not Enough Steps",
+          "A process engine needs at least 2 steps before it can be activated."
+        ],
+        [
+          "M-8",
+          "Activate (detail), a step lacks a Document Type",
+          "Warning toast",
+          "Incomplete Step",
+          "Every step must have a Document Type before activating."
+        ],
+        [
+          "M-9",
+          "Activate (detail) confirm",
+          "Confirm dialog",
+          "Activate Process Engine",
+          "Activate {BPEName}? It becomes available to run as a chain (it can be set Inactive later, with a reason, from the list)."
+        ],
+        [
+          "M-10",
+          "Re-activate (detail) confirm",
+          "Confirm dialog",
+          "Re-activate Process Engine",
+          "Save and re-activate the current changes to {BPEName}?"
+        ],
+        [
+          "M-11",
+          "Set Inactive, blank reason",
+          "Warning toast",
+          "Validation",
+          "Reason is mandatory."
+        ],
+        [
+          "M-12",
+          "Set Inactive succeeded",
+          "Success toast",
+          "Set Inactive",
+          "{BPEName} was set inactive."
+        ],
+        [
+          "M-13",
+          "Delete on an Active chain",
+          "Warning toast",
+          "Not Allowed",
+          "{BPEName} is Active and cannot be deleted. Set it Inactive (with a reason) first."
+        ],
+        [
+          "M-14",
+          "Add Step before the chain is saved",
+          "Warning toast",
+          "Enter a Name first",
+          "Give the process engine a name before adding steps."
+        ],
+        [
+          "M-15",
+          "Inline: invalid sequence",
+          "Warning toast",
+          "Not Allowed",
+          "Sequence must be a whole number of 1 or more."
+        ],
+        [
+          "M-16",
+          "Inline: duplicate sequence",
+          "Warning toast",
+          "Not Allowed",
+          "Sequence {n} is already used by another step."
+        ],
+        [
+          "M-17",
+          "Inline: duplicate transaction",
+          "Warning toast",
+          "Not Allowed",
+          "That transaction is already in this chain."
+        ],
+        [
+          "M-18",
+          "Delete confirm",
+          "Confirm dialog",
+          "Confirm Delete",
+          "Delete {BPEName}? This cannot be undone."
+        ],
+        [
+          "M-19",
+          "Delete succeeded",
+          "Success toast",
+          "Deleted",
+          "{BPEName} was deleted."
+        ],
+        [
+          "M-20",
+          "Bulk delete with blocked (Active) rows",
+          "Warning toast",
+          "Not Allowed",
+          "{n} of the selected chain(s) are Active and cannot be deleted ({names}). Deselect them and try again."
+        ],
+        [
+          "M-21",
+          "Detail: unknown id",
+          "Error toast",
+          "Not Found",
+          "That process engine does not exist."
+        ],
+        [
+          "M-22",
+          "Auto-save failed",
+          "Error toast",
+          "Save Failed",
+          "Could not save the process engine."
+        ],
+        [
+          "M-23",
+          "Duplicate name (inline field error)",
+          "Inline error",
+          "—",
+          "A process engine with this name already exists"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "Status",
+        "Badge severity",
+        "Meaning"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Draft",
+          "Secondary (grey)",
+          "Auto-saved draft; fully editable; deletable; not yet usable as a chain."
+        ],
+        [
+          "Active",
+          "Success (green)",
+          "Published and available to run as a chain; not deletable; stays editable (edits keep it Active — Q-3)."
+        ],
+        [
+          "Inactive",
+          "Warning (amber)",
+          "Retired with a mandatory reason; editable; deletable; can be re-activated."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "#",
+        "Transition",
+        "Trigger",
+        "Who / where"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "T-1",
+          "(new) → Draft",
+          "Automatic: Name filled → record inserted",
+          "Auto-save engine, detail screen"
+        ],
+        [
+          "T-2",
+          "Draft → Active",
+          "Manual Activate + confirm (M-9); gate: ≥ 2 steps, all steps complete, form valid",
+          "Detail toolbar; list context menu"
+        ],
+        [
+          "T-3",
+          "Active → Active (edited)",
+          "Edit then Re-activate (M-10). Per product decision, editing an Active chain keeps it Active (no versioning)",
+          "Detail screen. Real: re-validate on save — F-5, Q-3"
+        ],
+        [
+          "T-4",
+          "Active → Inactive",
+          "Manual Set Inactive + mandatory reason",
+          "List context menu"
+        ],
+        [
+          "T-5",
+          "Inactive → Active",
+          "Manual Activate (same gate as T-2)",
+          "List context menu / detail"
+        ],
+        [
+          "T-6",
+          "Draft / Inactive → (deleted)",
+          "Manual Delete + confirm (M-18)",
+          "List context menu / bulk bar"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "#",
+        "Rule (testable statement)",
+        "Where enforced",
+        "Message"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "V-1",
+          "Name — required (seed); trimmed, not blank; &le; 120 chars (input hard-stops at 120); unique within the company (case-insensitive, trimmed).",
+          "Detail form + server",
+          "Name is required / cannot be blank / A process engine with this name already exists"
+        ],
+        [
+          "V-2",
+          "Description — &le; 500 chars.",
+          "Detail form + server",
+          "—"
+        ],
+        [
+          "V-3",
+          "Step Sequence — whole number &ge; 1; unique within the chain (no two steps share a number); gaps allowed (Q-5).",
+          "Steps grid + server",
+          "Sequence must be a whole number of 1 or more. / Sequence {n} is already used by another step."
+        ],
+        [
+          "V-4",
+          "Each step must have a Document Type before the chain can be Activated.",
+          "Detail (activate gate) + server",
+          "Every step must have a Document Type before activating."
+        ],
+        [
+          "V-5",
+          "A Document Type may appear at most once per chain (no transaction twice).",
+          "Steps grid + server",
+          "That transaction is already in this chain."
+        ],
+        [
+          "V-6",
+          "A chain needs at least 2 steps to be Activated.",
+          "Detail + list + server",
+          "A process engine needs at least 2 steps before it can be activated."
+        ],
+        [
+          "V-7",
+          "Activate is blocked while the form is invalid.",
+          "Detail",
+          "Please fix the highlighted fields before activating."
+        ],
+        [
+          "V-8",
+          "Delete is allowed only when Status is Draft or Inactive.",
+          "List + server",
+          "{BPEName} is Active and cannot be deleted. Set it Inactive (with a reason) first."
+        ],
+        [
+          "V-9",
+          "Set Inactive requires a non-blank reason.",
+          "List dialog + server",
+          "Reason is mandatory."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 12",
+      "headers": [
+        "#",
+        "Mock shortcut",
+        "Real behaviour required"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "D-1",
+          "Steps are embedded as a Steps array on the engine record; the whole record is saved as one unit.",
+          "Split into header (xtBPEMain) + lines (xtBPEStep) tables with a BPEID foreign key; steps get their own create/update/delete endpoints."
+        ],
+        [
+          "D-2",
+          "No company/tenant field; a single flat list.",
+          "A BPE is company/tenant-scoped: add CompanyCode/TenantID (from session), filter the list to the current company, and enforce name-uniqueness within the company (V-1). Q-2."
+        ],
+        [
+          "D-3",
+          "Client-side grid over the full list.",
+          "Server-side row model with server paging, sorting and filtering from day one."
+        ],
+        [
+          "D-4",
+          "Document Type list is 9 static values in code.",
+          "Source the transaction-type list from the DDL/master API; the authoritative set and labels are Q-1."
+        ],
+        [
+          "D-5",
+          "CreatedOn is tracked, and Created By is shown in the list (CreatedBy) — but the mock stamps a fixed user name since there is no login.",
+          "Take Created By from the authenticated session/JWT; add ModifiedBy / ModifiedOn (and store an id, not just a display name). Q-7."
+        ],
+        [
+          "D-10",
+          "Every change PUTs the whole record.",
+          "PATCH only the dirty header fields; persist step changes through the step endpoints (D-1)."
+        ],
+        [
+          "D-11",
+          "The Set Inactive reason is stored in the free-text Comments field.",
+          "Store the reason in a dedicated field with an audit entry (who/when); do not overload a general Comments field. Q-7."
+        ],
+        [
+          "D-6",
+          "The screen only defines chains.",
+          "Actually running/enforcing a chain at transaction time is a separate feature and is out of scope here. Confirm where enforcement lives — Q-8."
+        ],
+        [
+          "D-12",
+          "The Applicability value lists (companies, buyer types, buyers, categories) are static in the mock.",
+          "Source each dimension’s values from its master/DDL (company master, buyer-type DDL, buyer master, product-category master). Q-1."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 13",
+      "headers": [
+        "#",
+        "Finding",
+        "Corrected rule for the real build"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "F-1",
+          "An incomplete step (added but no Document Type picked) is auto-saved and counted in StepCount, so the list can show “3 steps” where one is blank.",
+          "Do not persist an incomplete step (or exclude it from StepCount); a chain shows only its complete steps. Activate already blocks incomplete steps (V-4)."
+        ],
+        [
+          "F-2",
+          "List row actions are reachable only by right-click (no visible actions column).",
+          "Add a pinned-right kebab actions column with the same items; right-click stays as a shortcut (grid standard)."
+        ],
+        [
+          "F-3",
+          "“Remove step” deletes the row immediately with no confirmation (every other destructive action confirms).",
+          "Confirm step removal before deleting."
+        ],
+        [
+          "F-4 — FIXED in the mock",
+          "The list Created On column used a text filter, which matched the raw ISO value instead of the shown date. It now declares cellDataType: 'dateString' + filter: 'agDateColumnFilter'.",
+          "Use a date filter for the date column (grid standard) — equals / before / after / from–to on a calendar picker. Build the real screen this way."
+        ],
+        [
+          "F-5",
+          "Editing an Active chain is not re-validated — a user can remove steps below 2, or leave a step incomplete, while the chain stays Active.",
+          "Re-validate an Active chain on every save; if an edit makes it invalid, block the save (or drop it to Draft) with a clear message. Exact behaviour Q-3."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 14",
+      "headers": [
+        "#",
+        "Question",
+        "Proposed default",
+        "Owner"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "#"
+      ],
+      "rows": [
+        [
+          "Q-1",
+          "What is the authoritative Document Type / transaction list and which DDL/master feeds it? (mock uses 9 representative values)",
+          "Source from the transaction-type DDL; treat the mock 9 as representative until confirmed.",
+          "Product owner"
+        ],
+        [
+          "Q-2",
+          "Company/tenant scoping: is the company taken from the logged-in session, and is name-uniqueness per company? Field name?",
+          "Company from session; name unique within company; field CompanyCode.",
+          "Product owner"
+        ],
+        [
+          "Q-3",
+          "Editing an Active chain: it stays Active (decided) — but when an edit makes it invalid (< 2 steps / incomplete step), block the save, or drop to Draft?",
+          "Block the save with a message; keep it Active.",
+          "Product owner"
+        ],
+        [
+          "Q-4",
+          "Max lengths: Name 120, Description 500 — match the real DB column sizes?",
+          "Keep 120 / 500 unless the DB differs.",
+          "Product owner"
+        ],
+        [
+          "Q-5",
+          "Sequence gaps allowed (1, 3, 5), or force contiguous and auto-renumber on removal?",
+          "Allow gaps; any unique positive whole number.",
+          "Product owner"
+        ],
+        [
+          "Q-6",
+          "Is there a maximum number of steps per chain?",
+          "No hard maximum.",
+          "Product owner"
+        ],
+        [
+          "Q-7",
+          "Audit & the Inactive reason: track CreatedBy/ModifiedBy/ModifiedOn, and store the Inactive reason in its own field?",
+          "Yes to both.",
+          "Product owner"
+        ],
+        [
+          "Q-8",
+          "Where is a chain actually enforced/executed at transaction time (this screen is config-only)?",
+          "Separate feature; out of scope for this spec.",
+          "Product owner"
+        ],
+        [
+          "Q-9",
+          "Can a chain move directly Inactive → Active, and does Draft ever need a reason to change?",
+          "Inactive → Active allowed (same gate); Draft transitions need no reason.",
+          "Product owner"
+        ],
+        [
+          "Q-10",
+          "Should two different chains be allowed to contain the same transaction? (uniqueness is per-chain only)",
+          "Yes — uniqueness is only within a single chain.",
+          "Product owner"
+        ],
+        [
+          "Q-11",
+          "List default sort, page size, and preserved back-navigation state?",
+          "Created On descending; page 20; restore filters/sort/page on back.",
+          "Product owner"
+        ],
+        [
+          "Q-12",
+          "Empty-state message + call to action for the list?",
+          "“No process engines found” + Add New Engine.",
+          "Product owner"
+        ],
+        [
+          "Q-13",
+          "Applicability: one rule per chain for now (one dimension + values). Will this grow to several rules / combined dimensions (e.g. Buyer AND Category), and should a chosen dimension require at least one value?",
+          "One rule for now; may extend later; values optional (blank dimension = All).",
+          "Product owner"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 15",
+      "headers": [
+        "Field",
+        "Type",
+        "Example",
+        "Read by",
+        "Written by"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "id",
+          "string (UUID)",
+          "c46de729-…",
+          "Both screens (row id, routing)",
+          "Server on insert (mock: client UUID)"
+        ],
+        [
+          "BPEID",
+          "number (header PK)",
+          "1001",
+          "— (carried for the real API)",
+          "Server"
+        ],
+        [
+          "BPEName",
+          "string (≤120)",
+          "Order to Ship",
+          "List (Process Engine column), Detail (title), messages",
+          "Detail (seed field)"
+        ],
+        [
+          "Description",
+          "string (≤500)",
+          "Full flow from order to shipment",
+          "List (secondary line), Detail",
+          "Detail"
+        ],
+        [
+          "Status",
+          "enum: Draft | Active | Inactive",
+          "Active",
+          "List (badge, filter), Detail (badge, Activate logic)",
+          "Lifecycle actions only — never a free edit"
+        ],
+        [
+          "ApplicabilityDimension",
+          "string (Company | BuyerType | Buyer | Category | '')",
+          "Buyer",
+          "List (Applicability), Detail (Applies To)",
+          "Detail (blank = All)"
+        ],
+        [
+          "ApplicabilityDimensionName",
+          "string",
+          "Buyer",
+          "List (Applicability primary)",
+          "Derived from the dimension on save"
+        ],
+        [
+          "ApplicabilityValues",
+          "array<{ Code, Name }>",
+          "[{Code:'BUY001',Name:'Acme Retail Group'}]",
+          "List (Applicability secondary), Detail (Values)",
+          "Detail (multi-select). Real: values from the per-dimension master (D-12)"
+        ],
+        [
+          "Steps",
+          "array<Step> (embedded in the mock)",
+          "see below",
+          "Detail (grid), List (StepCount)",
+          "Detail (steps grid). Real: own table (D-1)"
+        ],
+        [
+          "StepCount",
+          "number",
+          "3",
+          "List (Steps column)",
+          "Derived on save. Real: count only complete steps (F-1)"
+        ],
+        [
+          "Comments",
+          "string",
+          "retired — superseded",
+          "—",
+          "Set Inactive reason (mock reuses this field — D-11)"
+        ],
+        [
+          "CreatedOn",
+          "ISO 8601 datetime",
+          "2026-07-13T08:53:34Z",
+          "List (Created On)",
+          "Server on insert"
+        ],
+        [
+          "CreatedBy",
+          "string",
+          "Varun Kumar",
+          "List (Created By)",
+          "Server from the session on insert (mock: fixed current user). D-5"
+        ],
+        [
+          "CompanyCode / TenantID (NEW)",
+          "string / number",
+          "—",
+          "Scope & uniqueness (V-1)",
+          "Server (from session) — D-2, Q-2"
+        ],
+        [
+          "ModifiedBy / ModifiedOn (NEW)",
+          "string / datetime",
+          "—",
+          "Audit / display",
+          "Server — D-5, Q-7"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 16",
+      "headers": [
+        "Field",
+        "Type",
+        "Example",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "StepID",
+          "number",
+          "2",
+          "Row identity within the chain (mock). Real: BPEStepID PK + BPEID FK (D-1, D-9)"
+        ],
+        [
+          "Sequence",
+          "integer (≥ 1)",
+          "2",
+          "Unique within the chain (V-3). Gaps allowed (Q-5)"
+        ],
+        [
+          "DocumentTypeCode",
+          "string",
+          "PACK",
+          "Transaction code; from the transaction-type DDL (D-4, Q-1)"
+        ],
+        [
+          "DocumentTypeName",
+          "string",
+          "Packing List",
+          "Display label; kept in sync with the code on edit"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 17",
+      "headers": [
+        "Method (mock today)",
+        "Real endpoint (to define)",
+        "Notes"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Method (mock today)": "mock today",
+        "Real endpoint (to define)": "to define"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "fetchEngines(): Observable<IWfxBusinessProcessEngine[]>",
+          "GET /business-process-engines (server paging/sort/filter)",
+          "One call per grid block; no N+1."
+        ],
+        [
+          "getEngine(id)",
+          "GET /business-process-engines/{id}",
+          "404 → M-21 flow. Real: returns header + steps."
+        ],
+        [
+          "saveEngine(engine)",
+          "POST (insert on Name) / PATCH /{id} (header) + step create/update/delete",
+          "Mock PUTs the whole record incl. embedded steps (D-1, D-10)."
+        ],
+        [
+          "deleteEngine(id)",
+          "DELETE /business-process-engines/{id}",
+          "Server re-validates the delete rule."
+        ],
+        [
+          "— (new)",
+          "POST /{id}/activate",
+          "Server re-validates the activate gate (≥ 2 steps, all complete)."
+        ],
+        [
+          "— (new)",
+          "POST /{id}/inactivate { reason }",
+          "Server enforces the mandatory reason."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 18",
+      "headers": [
+        "Version",
+        "Owner",
+        "Git user",
+        "Date",
+        "Summary"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "date",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "V1",
+          "Varun Kumar (VP - Technology)",
+          "Varun Kumar",
+          "20 Jul 2026",
+          "Tag #-code tables (screen inventory, validations) so S-1/V-1 codes stay on one line"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "wfx-erp-product-admin-spec",
+  "keyTerms": [
+    "list",
+    "process",
+    "chain",
+    "activate",
+    "process engine",
+    "steps",
+    "engine",
+    "active",
+    "name",
+    "inactive",
+    "step",
+    "mock",
+    "real",
+    "process engines",
+    "reason"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 5
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 2
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The mock is intentionally lenient; this specification is not — it is the contract the development team builds from, and it goes to QA and then to live sproduction.",
+      "locator": "§ Business Process Engine",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Items marked ASSUMED are pending product-team sign-off (Section 8).",
+      "locator": "§ Business Process Engine",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A Business Process Engine (BPE) is a named chain that ties several ERP transactions together in a fixed order — for example a chain named “Order to Ship” whose steps are Sales Order → Packing List → Shipment.",
+      "locator": "§ Business Process Engine › Overview › Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Each step is one Document Type (transaction) plus its Sequence position.",
+      "locator": "§ Business Process Engine › Overview › Purpose",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A BPE is company/tenant-scoped: each chain belongs to a company and its name is unique within that company (D-2, V-1, Q-2).",
+      "locator": "§ Business Process Engine › Overview › Where it sits in the ERP",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Actually running or enforcing a chain at transaction time is NOT part of this feature (config-only — Q-8).",
+      "locator": "§ Business Process Engine › Overview › Where it sits in the ERP",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: #, Screen, Route, Purpose (3 rows)",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow, table 1",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The real screen must restore search, filters, sort and page exactly as the user left it (QA checklist §5) — Q-11.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Navigation rules:\n1. List → Detail (edit): click the name link in the Process Engine column, or right-click a row and choose Edit. Both open /process/engines/{id}.\n2. List → Detail (new): the “+ Add New Engine” button opens /process/engines/new.\n3. Detail → List: the back arrow returns to /process/engines. Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.\n4. Unknown id: error toast “That process engine does not exist.” and the user is returned to the list.\n5. Browser/page titles: “Business Process Engines” (list), “New Business Process Engine” (new), “Business Process Engine” (edit).\n6. Back-navigation state: the mock does not preserve list state (filters, page). The real screen must restore search, filters, sort and page exactly as the user left it (QA checklist §5) — Q-11.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow › Navigation rules",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Convention, Definition (5 rows; identifiers: Convention)",
+      "locator": "§ Business Process Engine › Conventions, table 2",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Floating selection bar appears when rows are selected, with the count, a Clear action and a Delete action.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Layout",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Layout:\n1. Page header: breadcrumb “Process”, title “Business Process Engines”, subtitle, and a primary “+ Add New Engine” button.\n2. Content toolbar: quick-search input (“Search by name or description”) and a clearable, searchable Status dropdown.\n3. Grid inside a surface card; floating filter row pinned under the headers; pagination footer always visible.\n4. Floating selection bar appears when rows are selected, with the count, a Clear action and a Delete action.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Layout",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Toolbar behaviours:\n1. Quick search matches Name (BPEName) OR Description, case-insensitive substring, trimmed. Real build: debounce 300 ms.\n2. Status dropdown filters to exactly one status; clearable (shows all). Values: Draft, Active, Inactive.\n3. Toolbar filter and in-grid column filters combine (logical AND).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Toolbar behaviours",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Column, Content & combined cells, Filter, Format / behaviour (7 rows; identifiers: Column)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The real list must use the server-side row model with server paging/sort/filter (D-3).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "The real screen must additionally provide a pinned-right actions (kebab) column with the same items — right-click alone is not discoverable (F-2).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Grid specification:\n1. Default column config: resizable, sortable, floating filter row on, min width 90.\n2. Pagination: page sizes 20 / 50 / 100, default 20. Default sort: Created On descending (ASSUMED — Q-11).\n3. Row model: the mock grid is client-side. The real list must use the server-side row model with server paging/sort/filter (D-3).\n4. Actions: the mock exposes row actions only through the right-click context menu. The real screen must additionally provide a pinned-right actions (kebab) column with the same items — right-click alone is not discoverable (F-2).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Action, Shown when, Behaviour (4 rows; identifiers: Action)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu), table 4",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Bulk delete first validates every selected row against the delete rule; if any row is Active the whole action is blocked with a warning naming the blocked chains — nothing is partially deleted.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Bulk actions",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "After a successful bulk delete the selection is cleared and the list reloads.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Bulk actions",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Bulk actions:\n1. Selecting rows shows the floating selection bar with the count and a Delete button.\n2. Bulk delete first validates every selected row against the delete rule; if any row is Active the whole action is blocked with a warning naming the blocked chains — nothing is partially deleted.\n3. After a successful bulk delete the selection is cleared and the list reloads.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Bulk actions",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "OK with a blank/whitespace reason shows warning “Reason is mandatory.” and keeps the dialog open.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Set Inactive dialog",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "OK with a reason sets Status = Inactive and stores the reason.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Set Inactive dialog",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Real build: store it in a dedicated field with an audit entry (who/when); it must not double as free-text Comments (D-11, Q-7).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Set Inactive dialog",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Set Inactive dialog:\n1. Modal, header “Set Process Engine Inactive”, helper text “Enter a reason to set this process engine inactive.”, one required Reason textarea (4 rows), buttons OK (primary) / Close.\n2. OK with a blank/whitespace reason shows warning “Reason is mandatory.” and keeps the dialog open.\n3. OK with a reason sets Status = Inactive and stores the reason. Real build: store it in a dedicated field with an audit entry (who/when); it must not double as free-text Comments (D-11, Q-7).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Set Inactive dialog",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "There is NO Save button — the screen auto-saves (see Auto-save behaviour).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Activate is the only manual action.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3)",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Field, Type, Required, Validation, Default, Source / DDL (2 rows)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details, table 5",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "It is one dimension (single-select) plus its values (multi-select).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: Field, Type, Required, Options, Default, Source / DDL (2 rows)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule, table 6",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Values control is disabled until a dimension is chosen.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Applicability rule:\n1. Changing the dimension clears any previously-picked values.\n2. The Values control is disabled until a dimension is chosen.\n3. Editable on both the New and Edit form; auto-saves like the rest of the screen.\n4. Stored as ApplicabilityDimension (code) + ApplicabilityDimensionName (label) + ApplicabilityValues (array of {Code, Name}).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: Column, Editor, Validation, Behaviour (2 rows)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable), table 7",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Editing is single-click; the select overlay is body-appended so it is never clipped.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Chain Steps grid (inline-editable):\n1. “+ Add Step” (panel header) appends a new row with the next sequence; disabled until the record exists (Name saved). New-record guard message M-14.\n2. Editing is single-click; the select overlay is body-appended so it is never clipped. Each edit auto-saves the chain (the whole Steps array — D-1, D-10).\n3. On an invalid inline edit the cell reverts to its previous value and a warning toast explains why (M-15/M-16/M-17).\n4. Remove a step via right-click → “Remove step”. Real build: add a confirmation before removal (F-3).\n5. Documented transactions (mock list): Sales Order (OC), Purchase Order, Fabric/Trims Store-In (GRN), Cutting, Sewing / Production, Finishing, Packing List, Shipment (ASN/GDN), Sales Invoice.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Seed field (must be filled before the record is created): Name.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Seed field (must be filled before the record is created): Name.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Description and steps are not seed fields.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "New chain: the record is inserted automatically the moment Name is valid; Status = Draft.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Loaded values never count as dirty — opening a chain must not trigger a save.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto-save behaviour:\n1. Seed field (must be filled before the record is created): Name. Description and steps are not seed fields.\n2. New chain: the record is inserted automatically the moment Name is valid; Status = Draft. Only then does Add Step enable.\n3. Existing chain: every change (header fields OR steps) is debounce-saved automatically. The mock PUTs the whole record; the real screen PATCHes header fields and does per-step CRUD (D-10).\n4. The save-status indicator shows idle → saving → saved / error. A failed save shows toast “Save Failed — Could not save the process engine.” and stays in error until a later save succeeds.\n5. Loaded values never count as dirty — opening a chain must not trigger a save.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Activate is visible for any existing (already auto-saved) chain — including one already Active (re-activate after an edit; per the product decision an edited Active chain stays Active — T-3, Q-3).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Activate action",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "On success: Status = Active, success toast “{BPEName} is now active.”, header badge refreshes, list reflects the change on return.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Activate action",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Activate action:\n1. Activate is visible for any existing (already auto-saved) chain — including one already Active (re-activate after an edit; per the product decision an edited Active chain stays Active — T-3, Q-3).\n2. Activate gate: form valid, ≥ 2 steps (V-6), and every step has a Document Type (V-4). Failures show M-6 / M-7 / M-8.\n3. First activate dialog: title “Activate Process Engine”, text “Activate {BPEName}? It becomes available to run as a chain (it can be set Inactive later, with a reason, from the list).” Yes/No.\n4. Re-activate dialog: title “Re-activate Process Engine”, text “Save and re-activate the current changes to {BPEName}?”.\n5. On success: Status = Active, success toast “{BPEName} is now active.”, header badge refreshes, list reflects the change on return.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Activate action",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: #, Trigger, Kind, Title, Message (23 rows; identifiers: #)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: Status, Badge severity, Meaning (3 rows)",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle, table 9",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: #, Transition, Trigger, Who / where (6 rows; identifiers: #)",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Server is the source of truth: it must re-validate every transition (never trust the client).",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Server is the source of truth: it must re-validate every transition (never trust the client).",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Allowed transitions:\n1. An Active chain may never be hard-deleted — set it Inactive (with a reason) first.\n2. Irreversible actions (Delete) always use a confirmation dialog that spells out the impact.\n3. Server is the source of truth: it must re-validate every transition (never trust the client).",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Every rule is testable as written; inline messages show at the field, toasts per Section 3.",
+      "locator": "§ Business Process Engine › Validations master list",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: #, Rule (testable statement), Where enforced, Message (9 rows; identifiers: #)",
+      "locator": "§ Business Process Engine › Validations master list, table 11",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 12: #, Mock shortcut, Real behaviour required (9 rows; identifiers: #)",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 13: #, Finding, Corrected rule for the real build (5 rows; identifiers: #)",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 14: #, Question, Proposed default, Owner (13 rows; identifiers: #)",
+      "locator": "§ Business Process Engine › Open questions, table 14",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Field names are PascalCase DTO names.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 15: Field, Type, Example, Read by, Written by (15 rows; identifiers: Field)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 16: Field, Type, Example, Notes (4 rows; identifiers: Field)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record, table 16",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 17: Method (mock today), Real endpoint (to define), Notes (6 rows)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 18: Version, Owner, Git user, Date, Summary (1 rows)",
+      "locator": "§ Business Process Engine › Version History, table 18",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Business Process Engine",
+      "heading": "Business Process Engine",
+      "text": "Feature: wfx-erp-product-process · Owner: Varun Kumar (VP - Technology)\nFunctional Specification for the development team, generated from the finished, product-team-approved Product Mock Studio screens (feature library wfx-erp-product-process). The mock is intentionally lenient; this specification is not — it is the contract the development team builds from, and it goes to QA and then to live sproduction. Items marked ASSUMED are pending product-team sign-off (Section 8).",
+      "locator": "§ Business Process Engine",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Business Process Engine › Overview › Purpose",
+      "text": "A Business Process Engine (BPE) is a named chain that ties several ERP transactions together in a fixed order — for example a chain named “Order to Ship” whose steps are Sales Order → Packing List → Shipment. This feature lets a business administrator define, name, sequence, activate and retire these chains. Each step is one Document Type (transaction) plus its Sequence position.",
+      "locator": "§ Business Process Engine › Overview › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Who uses it",
+      "heading": "Business Process Engine › Overview › Who uses it",
+      "text": "• Business administrators / process owners — create and maintain chains, sequence the transactions, activate and retire them.\n• Downstream modules — read the active chain definitions to know which transaction follows which (enforcement/execution is out of scope here; see Section 7 and Q-8).",
+      "locator": "§ Business Process Engine › Overview › Who uses it",
+      "kind": "section"
+    },
+    {
+      "title": "Where it sits in the ERP",
+      "heading": "Business Process Engine › Overview › Where it sits in the ERP",
+      "text": "The feature lives in a new Process module (real target: libs/angular/features/wfx-erp/wfx-erp-process, route /process; the mock library wfx-erp-product-process drops its -product segment on promotion). A BPE is company/tenant-scoped: each chain belongs to a company and its name is unique within that company (D-2, V-1, Q-2).\nScope of this spec: the Business Process Engine LIST screen and the DETAIL (create/edit) screen, including their shared workflow, data contract, and validations. Actually running or enforcing a chain at transaction time is NOT part of this feature (config-only — Q-8).",
+      "locator": "§ Business Process Engine › Overview › Where it sits in the ERP",
+      "kind": "section"
+    },
+    {
+      "title": "Screen inventory & navigation flow – Table 1",
+      "heading": "Business Process Engine › Screen inventory & navigation flow",
+      "text": "Columns: # (text); Screen (text); Route (text); Purpose (text)\n# | Screen | Route | Purpose\nS-1 | Business Process Engine List | /process/engines | Search, filter and manage all chains; entry point of the feature. /process redirects here.\nS-2 | Detail — New | /process/engines/new | Create a chain. The record is inserted automatically once the Name (seed field) is filled (auto-save; no Save button).\nS-3 | Detail — Edit | /process/engines/{id} | View and edit a chain: header fields + the inline-editable steps grid; manual Activate action.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Business Process Engine › Screen inventory & navigation flow",
+      "text": "#: S-1; Screen: Business Process Engine List; Route: /process/engines; Purpose: Search, filter and manage all chains; entry point of the feature. /process redirects here.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Business Process Engine › Screen inventory & navigation flow",
+      "text": "#: S-2; Screen: Detail — New; Route: /process/engines/new; Purpose: Create a chain. The record is inserted automatically once the Name (seed field) is filled (auto-save; no Save button).",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Business Process Engine › Screen inventory & navigation flow",
+      "text": "#: S-3; Screen: Detail — Edit; Route: /process/engines/{id}; Purpose: View and edit a chain: header fields + the inline-editable steps grid; manual Activate action.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Navigation rules",
+      "heading": "Business Process Engine › Screen inventory & navigation flow › Navigation rules",
+      "text": "• List → Detail (edit): click the name link in the Process Engine column, or right-click a row and choose Edit. Both open /process/engines/{id}.\n• List → Detail (new): the “+ Add New Engine” button opens /process/engines/new.\n• Detail → List: the back arrow returns to /process/engines. Any pending auto-save is flushed before navigating away — a navigation must never silently drop an unsaved change.\n• Unknown id: error toast “That process engine does not exist.” and the user is returned to the list.\n• Browser/page titles: “Business Process Engines” (list), “New Business Process Engine” (new), “Business Process Engine” (edit).\n• Back-navigation state: the mock does not preserve list state (filters, page). The real screen must restore search, filters, sort and page exactly as the user left it (QA checklist §5) — Q-11.",
+      "locator": "§ Business Process Engine › Screen inventory & navigation flow › Navigation rules",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Rules referenced throughout the field tables and the Validations master list are defined once here, so no field restates them.",
+      "locator": "§ Business Process Engine › Conventions",
+      "kind": "section"
+    },
+    {
+      "title": "Conventions – Table 2",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Columns: Convention (text); Definition (text)\nConvention | Definition\nEnforcement | The server enforces every rule; client validation is a convenience, not the enforcement.\nSeed fields | Name. A new process engine is created once Name is valid.\nText fields | Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum.\nCompany scope | A BPE is company/tenant-scoped: the list is filtered to the current company and name-uniqueness is enforced within it (V-1).\nDate display | All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale.",
+      "locator": "§ Business Process Engine › Conventions, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Convention: Enforcement; Definition: The server enforces every rule; client validation is a convenience, not the enforcement.",
+      "locator": "§ Business Process Engine › Conventions, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Convention: Seed fields; Definition: Name. A new process engine is created once Name is valid.",
+      "locator": "§ Business Process Engine › Conventions, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Convention: Text fields; Definition: Trimmed; a mandatory text field must contain at least one non-whitespace character; length hard-stops at the stated maximum.",
+      "locator": "§ Business Process Engine › Conventions, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Convention: Company scope; Definition: A BPE is company/tenant-scoped: the list is filtered to the current company and name-uniqueness is enforced within it (V-1).",
+      "locator": "§ Business Process Engine › Conventions, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Business Process Engine › Conventions",
+      "text": "Convention: Date display; Definition: All dates display via the app-wide WfxDateFormatService (user preference, default dd MMM yyyy) — never a hardcoded locale.",
+      "locator": "§ Business Process Engine › Conventions, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Business Process Engine List (S-1)",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1)",
+      "text": "Purpose: single working list of all chains with search, a status filter, bulk selection, row actions and navigation into the detail screen.\nBusiness Process Engine List — light mode, Team Data",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1)",
+      "kind": "section"
+    },
+    {
+      "title": "Layout",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Layout",
+      "text": "• Page header: breadcrumb “Process”, title “Business Process Engines”, subtitle, and a primary “+ Add New Engine” button.\n• Content toolbar: quick-search input (“Search by name or description”) and a clearable, searchable Status dropdown.\n• Grid inside a surface card; floating filter row pinned under the headers; pagination footer always visible.\n• Floating selection bar appears when rows are selected, with the count, a Clear action and a Delete action.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Layout",
+      "kind": "section"
+    },
+    {
+      "title": "Toolbar behaviours",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Toolbar behaviours",
+      "text": "• Quick search matches Name (BPEName) OR Description, case-insensitive substring, trimmed. Real build: debounce 300 ms.\n• Status dropdown filters to exactly one status; clearable (shows all). Values: Draft, Active, Inactive.\n• Toolbar filter and in-grid column filters combine (logical AND).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Toolbar behaviours",
+      "kind": "section"
+    },
+    {
+      "title": "Grid specification – Table 3",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Columns: Column (text); Content & combined cells (text); Filter (text); Format / behaviour (text)\nColumn | Content & combined cells | Filter | Format / behaviour\n(selection) | Row checkbox + header checkbox | — | Multi-row selection; header checkbox selects the filtered set only.\nStatus | wfx-badge chip, never plain text | Set filter (Draft, Active, Inactive; fixed order) | Severity: Draft = secondary (grey), Active = success (green), Inactive = warning (amber).\nProcess Engine | Combined cell — Name (link, opens detail) over Description (secondary line) | Text filter | Link via data-action=\"open-bpe\" + onCellClicked; autoHeight on. Blank cell renders “—”.\nApplicability | Combined cell — dimension label (primary) over the chosen value names (secondary) | Set filter (by dimension) | autoHeight on. A blank rule renders “All”; a dimension with no values renders “(no values)”. Read-only here (set on the detail).\nSteps | Step count (StepCount) | Number filter | Right-aligned; formatted “N step(s)”; zero renders “—”. See F-1 (incomplete steps still counted).\nCreated By | Name of the user who created the chain (CreatedBy) | Set filter | Avatar chip + name via WfxUserGroupCellRendererComponent; autoHeight on; blank renders “—”. Mock stamps a fixed current user (no login); real takes it from the session (D-5).\nCreated On | Creation date | Date (equals / before / after / from–to) | App-wide date format via WfxDateFormatService (default dd MMM yyyy). Calendar picker; filtering by a day matches any time on that day.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: (selection); Content & combined cells: Row checkbox + header checkbox; Filter: —; Format / behaviour: Multi-row selection; header checkbox selects the filtered set only.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: Status; Content & combined cells: wfx-badge chip, never plain text; Filter: Set filter (Draft, Active, Inactive; fixed order); Format / behaviour: Severity: Draft = secondary (grey), Active = success (green), Inactive = warning (amber).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: Process Engine; Content & combined cells: Combined cell — Name (link, opens detail) over Description (secondary line); Filter: Text filter; Format / behaviour: Link via data-action=\"open-bpe\" + onCellClicked; autoHeight on. Blank cell renders “—”.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: Applicability; Content & combined cells: Combined cell — dimension label (primary) over the chosen value names (secondary); Filter: Set filter (by dimension); Format / behaviour: autoHeight on. A blank rule renders “All”; a dimension with no values renders “(no values)”. Read-only here (set on the detail).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: Steps; Content & combined cells: Step count (StepCount); Filter: Number filter; Format / behaviour: Right-aligned; formatted “N step(s)”; zero renders “—”. See F-1 (incomplete steps still counted).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: Created By; Content & combined cells: Name of the user who created the chain (CreatedBy); Filter: Set filter; Format / behaviour: Avatar chip + name via WfxUserGroupCellRendererComponent; autoHeight on; blank renders “—”. Mock stamps a fixed current user (no login); real takes it from the session (D-5).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "Column: Created On; Content & combined cells: Creation date; Filter: Date (equals / before / after / from–to); Format / behaviour: App-wide date format via WfxDateFormatService (default dd MMM yyyy). Calendar picker; filtering by a day matches any time on that day.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Grid specification",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "text": "• Default column config: resizable, sortable, floating filter row on, min width 90.\n• Pagination: page sizes 20 / 50 / 100, default 20. Default sort: Created On descending (ASSUMED — Q-11).\n• Row model: the mock grid is client-side. The real list must use the server-side row model with server paging/sort/filter (D-3).\n• Actions: the mock exposes row actions only through the right-click context menu. The real screen must additionally provide a pinned-right actions (kebab) column with the same items — right-click alone is not discoverable (F-2).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Grid specification",
+      "kind": "section"
+    },
+    {
+      "title": "Row actions (context menu)",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "text": "Row context menu on a Draft chain (Team Data)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "kind": "section"
+    },
+    {
+      "title": "Row actions (context menu) – Table 4",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "text": "Columns: Action (text); Shown when (text); Behaviour (text)\nAction | Shown when | Behaviour\nEdit | Always | Opens the detail screen for the row.\nActivate | Status ≠ Active | Guard: needs ≥ 2 steps (else warning M-4). Confirmation dialog, then Status = Active.\nSet Inactive | Status = Active | Opens the Set Inactive dialog; reason is mandatory (stored in Comments in the mock — D-11).\nDelete | Status = Draft or Inactive | Confirmation dialog, then hard delete. Active rows are not deletable (M-13).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu), table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "text": "Action: Edit; Shown when: Always; Behaviour: Opens the detail screen for the row.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu), table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "text": "Action: Activate; Shown when: Status ≠ Active; Behaviour: Guard: needs ≥ 2 steps (else warning M-4). Confirmation dialog, then Status = Active.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu), table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "text": "Action: Set Inactive; Shown when: Status = Active; Behaviour: Opens the Set Inactive dialog; reason is mandatory (stored in Comments in the mock — D-11).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu), table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu)",
+      "text": "Action: Delete; Shown when: Status = Draft or Inactive; Behaviour: Confirmation dialog, then hard delete. Active rows are not deletable (M-13).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Row actions (context menu), table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Bulk actions",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Bulk actions",
+      "text": "• Selecting rows shows the floating selection bar with the count and a Delete button.\n• Bulk delete first validates every selected row against the delete rule; if any row is Active the whole action is blocked with a warning naming the blocked chains — nothing is partially deleted.\n• After a successful bulk delete the selection is cleared and the list reloads.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Bulk actions",
+      "kind": "section"
+    },
+    {
+      "title": "Set Inactive dialog",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Set Inactive dialog",
+      "text": "• Modal, header “Set Process Engine Inactive”, helper text “Enter a reason to set this process engine inactive.”, one required Reason textarea (4 rows), buttons OK (primary) / Close.\n• OK with a blank/whitespace reason shows warning “Reason is mandatory.” and keeps the dialog open.\n• OK with a reason sets Status = Inactive and stores the reason. Real build: store it in a dedicated field with an audit entry (who/when); it must not double as free-text Comments (D-11, Q-7).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Set Inactive dialog",
+      "kind": "section"
+    },
+    {
+      "title": "Empty, loading and error states",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Empty, loading and error states",
+      "text": "• Empty list: grid shows its no-rows overlay. Real build: message “No process engines found” with an Add New Engine call to action (ASSUMED — Q-12).\n• Load failure: error toast “Load Failed — Could not load process engines.”; the grid stays empty, never silently blank.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine List (S-1) › Empty, loading and error states",
+      "kind": "section"
+    },
+    {
+      "title": "Business Process Engine Detail (S-2 / S-3)",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3)",
+      "text": "Purpose: create and edit a chain. There is NO Save button — the screen auto-saves (see Auto-save behaviour). Activate is the only manual action.\nDetail — existing chain (Team Data): Engine Details + editable Chain Steps grid\nDetail — new chain (Add Step disabled until the Name is saved)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3)",
+      "kind": "section"
+    },
+    {
+      "title": "Layout",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Layout",
+      "text": "• Page header: breadcrumbs “Process › Business Process Engines”, back arrow, title “Add Process Engine” (new) or “Process Engine — {BPEName}” (existing), save-status indicator, a Status badge (once the record exists), and the Activate button.\n• Two panels: Engine Details (Name, Description) and Chain Steps (the editable grid + “+ Add Step”).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Layout",
+      "kind": "section"
+    },
+    {
+      "title": "Field table — Engine Details – Table 5",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details",
+      "text": "Columns: Field (text); Type (text); Required (text); Validation (text); Default (text); Source / DDL (text)\nField | Type | Required | Validation | Default | Source / DDL\nName | Text input | Yes (seed) | V-1 (max 120, not blank, unique within company) | empty | Free text\nDescription | Textarea (2 rows) | No | V-2 (max 500) | empty | Free text",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details",
+      "text": "Field: Name; Type: Text input; Required: Yes (seed); Validation: V-1 (max 120, not blank, unique within company); Default: empty; Source / DDL: Free text",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details",
+      "text": "Field: Description; Type: Textarea (2 rows); Required: No; Validation: V-2 (max 500); Default: empty; Source / DDL: Free text",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Field table — Engine Details, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Applicability rule",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "text": "An optional rule that scopes WHICH entities the chain applies to. It is one dimension (single-select) plus its values (multi-select). Leave it blank to apply to everything (the list shows “All”). One rule per chain for now (Q-13).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "kind": "section"
+    },
+    {
+      "title": "Applicability rule – Table 6",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "text": "Columns: Field (text); Type (text); Required (boolean); Options (text); Default (text); Source / DDL (text)\nField | Type | Required | Options | Default | Source / DDL\nApplies To (dimension) | Single-select (clearable) | No | Company, Buyer Type, Buyer, Category | none (= All) | Fixed dimension list\nValues | Multi-select (chips) | No | Depend on the chosen dimension (Company: WFX India/Bangladesh/Vietnam; Buyer Type: Direct/Agent/Buying House/Licensee; Buyer: buyer master; Category: product-category master) | none | Per-dimension master/DDL (D-12, Q-1)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "text": "Field: Applies To (dimension); Type: Single-select (clearable); Required: No; Options: Company, Buyer Type, Buyer, Category; Default: none (= All); Source / DDL: Fixed dimension list",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "text": "Field: Values; Type: Multi-select (chips); Required: No; Options: Depend on the chosen dimension (Company: WFX India/Bangladesh/Vietnam; Buyer Type: Direct/Agent/Buying House/Licensee; Buyer: buyer master; Category: product-category master); Default: none; Source / DDL: Per-dimension master/DDL (D-12, Q-1)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Applicability rule",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "text": "• Changing the dimension clears any previously-picked values.\n• The Values control is disabled until a dimension is chosen.\n• Editable on both the New and Edit form; auto-saves like the rest of the screen.\n• Stored as ApplicabilityDimension (code) + ApplicabilityDimensionName (label) + ApplicabilityValues (array of {Code, Name}).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Applicability rule",
+      "kind": "section"
+    },
+    {
+      "title": "Chain Steps grid (inline-editable)",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "text": "Chain Steps — inline Document Type dropdown (single-click to edit)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "kind": "section"
+    },
+    {
+      "title": "Chain Steps grid (inline-editable) – Table 7",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "text": "Columns: Column (text); Editor (text); Validation (text); Behaviour (text)\nColumn | Editor | Validation | Behaviour\nSequence | Number cell editor (min 1, 0 decimals) | V-3 | Right-aligned; dashed-border editable cell. On add, auto-fills as max(existing)+1.\nDocument Type (Transaction) | Single-select cell editor | V-4, V-5 | Stores the transaction code, displays the label. Options from the transaction-type DDL (mock: 9 static values — D-4, Q-1).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable), table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "text": "Column: Sequence; Editor: Number cell editor (min 1, 0 decimals); Validation: V-3; Behaviour: Right-aligned; dashed-border editable cell. On add, auto-fills as max(existing)+1.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable), table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "text": "Column: Document Type (Transaction); Editor: Single-select cell editor; Validation: V-4, V-5; Behaviour: Stores the transaction code, displays the label. Options from the transaction-type DDL (mock: 9 static values — D-4, Q-1).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable), table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Chain Steps grid (inline-editable)",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "text": "• “+ Add Step” (panel header) appends a new row with the next sequence; disabled until the record exists (Name saved). New-record guard message M-14.\n• Editing is single-click; the select overlay is body-appended so it is never clipped. Each edit auto-saves the chain (the whole Steps array — D-1, D-10).\n• On an invalid inline edit the cell reverts to its previous value and a warning toast explains why (M-15/M-16/M-17).\n• Remove a step via right-click → “Remove step”. Real build: add a confirmation before removal (F-3).\n• Documented transactions (mock list): Sales Order (OC), Purchase Order, Fabric/Trims Store-In (GRN), Cutting, Sewing / Production, Finishing, Packing List, Shipment (ASN/GDN), Sales Invoice.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Chain Steps grid (inline-editable)",
+      "kind": "section"
+    },
+    {
+      "title": "Auto-save behaviour",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "text": "• Seed field (must be filled before the record is created): Name. Description and steps are not seed fields.\n• New chain: the record is inserted automatically the moment Name is valid; Status = Draft. Only then does Add Step enable.\n• Existing chain: every change (header fields OR steps) is debounce-saved automatically. The mock PUTs the whole record; the real screen PATCHes header fields and does per-step CRUD (D-10).\n• The save-status indicator shows idle → saving → saved / error. A failed save shows toast “Save Failed — Could not save the process engine.” and stays in error until a later save succeeds.\n• Loaded values never count as dirty — opening a chain must not trigger a save.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Auto-save behaviour",
+      "kind": "section"
+    },
+    {
+      "title": "Activate action",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Activate action",
+      "text": "Activate confirmation dialog\n• Activate is visible for any existing (already auto-saved) chain — including one already Active (re-activate after an edit; per the product decision an edited Active chain stays Active — T-3, Q-3).\n• Activate gate: form valid, ≥ 2 steps (V-6), and every step has a Document Type (V-4). Failures show M-6 / M-7 / M-8.\n• First activate dialog: title “Activate Process Engine”, text “Activate {BPEName}? It becomes available to run as a chain (it can be set Inactive later, with a reason, from the list).” Yes/No.\n• Re-activate dialog: title “Re-activate Process Engine”, text “Save and re-activate the current changes to {BPEName}?”.\n• On success: Status = Active, success toast “{BPEName} is now active.”, header badge refreshes, list reflects the change on return.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Activate action",
+      "kind": "section"
+    },
+    {
+      "title": "Alerts & messages (exact wording) – Table 8",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "Columns: # (text); Trigger (text); Kind (text); Title (text); Message (text)\n# | Trigger | Kind | Title | Message\nM-1 | List failed to load | Error toast | Load Failed | Could not load process engines from the mock store. (real: “Could not load process engines.”)\nM-2 | Activate from list | Confirm dialog | Activate Process Engine | Activate {BPEName}? It becomes available to run as a chain.\nM-3 | Activate succeeded | Success toast | Activated | {BPEName} is now active.\nM-4 | Activate from list, < 2 steps | Warning toast | Cannot Activate | {BPEName} needs at least 2 steps before it can be activated.\nM-5 | Activate failed | Error toast | Activate Failed | Could not activate the process engine.\nM-6 | Activate (detail) with invalid form | Warning toast | Validation | Please fix the highlighted fields before activating.\nM-7 | Activate (detail), < 2 steps | Warning toast | Not Enough Steps | A process engine needs at least 2 steps before it can be activated.\nM-8 | Activate (detail), a step lacks a Document Type | Warning toast | Incomplete Step | Every step must have a Document Type before activating.\nM-9 | Activate (detail) confirm | Confirm dialog | Activate Process Engine | Activate {BPEName}? It becomes available to run as a chain (it can be set Inactive later, with a reason, from the list).\nM-10 | Re-activate (detail) confirm | Confirm dialog | Re-activate Process Engine | Save and re-activate the current changes to {BPEName}?\nM-11 | Set Inactive, blank reason | Warning toast | Validation | Reason is mandatory.\nM-12 | Set Inactive succeeded | Success toast | Set Inactive | {BPEName} was set inactive.\nM-13 | Delete on an Active chain | Warning toast | Not Allowed | {BPEName} is Active and cannot be deleted. Set it Inactive (with a reason) first.\nM-14 | Add Step before the chain is saved | Warning toast | Enter a Name first | Give the process engine a name before adding steps.\nM-15 | Inline: invalid sequence | Warning toast | Not Allowed | Sequence must be a whole number of 1 or more.\nM-16 | Inline: duplicate sequence | Warning toast | Not Allowed | Sequence {n} is already used by another step.\nM-17 | Inline: duplicate transaction | Warning toast | Not Allowed | That transaction is already in this chain.\nM-18 | Delete confirm | Confirm dialog | Confirm Delete | Delete {BPEName}? This cannot be undone.\nM-19 | Delete succeeded | Success toast | Deleted | {BPEName} was deleted.\nM-20 | Bulk delete with blocked (Active) rows | Warning toast | Not Allowed | {n} of the selected chain(s) are Active and cannot be deleted ({names}). Deselect them and try again.\n… 3 more rows",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-1; Trigger: List failed to load; Kind: Error toast; Title: Load Failed; Message: Could not load process engines from the mock store. (real: “Could not load process engines.”)",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-2; Trigger: Activate from list; Kind: Confirm dialog; Title: Activate Process Engine; Message: Activate {BPEName}? It becomes available to run as a chain.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-3; Trigger: Activate succeeded; Kind: Success toast; Title: Activated; Message: {BPEName} is now active.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-4; Trigger: Activate from list, < 2 steps; Kind: Warning toast; Title: Cannot Activate; Message: {BPEName} needs at least 2 steps before it can be activated.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 5",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-5; Trigger: Activate failed; Kind: Error toast; Title: Activate Failed; Message: Could not activate the process engine.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 6",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-6; Trigger: Activate (detail) with invalid form; Kind: Warning toast; Title: Validation; Message: Please fix the highlighted fields before activating.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 7",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-7; Trigger: Activate (detail), < 2 steps; Kind: Warning toast; Title: Not Enough Steps; Message: A process engine needs at least 2 steps before it can be activated.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 8",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-8; Trigger: Activate (detail), a step lacks a Document Type; Kind: Warning toast; Title: Incomplete Step; Message: Every step must have a Document Type before activating.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 9",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-9; Trigger: Activate (detail) confirm; Kind: Confirm dialog; Title: Activate Process Engine; Message: Activate {BPEName}? It becomes available to run as a chain (it can be set Inactive later, with a reason, from the list).",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 10",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-10; Trigger: Re-activate (detail) confirm; Kind: Confirm dialog; Title: Re-activate Process Engine; Message: Save and re-activate the current changes to {BPEName}?",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 11",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-11; Trigger: Set Inactive, blank reason; Kind: Warning toast; Title: Validation; Message: Reason is mandatory.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 12",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-12; Trigger: Set Inactive succeeded; Kind: Success toast; Title: Set Inactive; Message: {BPEName} was set inactive.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 13",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-13; Trigger: Delete on an Active chain; Kind: Warning toast; Title: Not Allowed; Message: {BPEName} is Active and cannot be deleted. Set it Inactive (with a reason) first.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 14",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-14; Trigger: Add Step before the chain is saved; Kind: Warning toast; Title: Enter a Name first; Message: Give the process engine a name before adding steps.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 15",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-15; Trigger: Inline: invalid sequence; Kind: Warning toast; Title: Not Allowed; Message: Sequence must be a whole number of 1 or more.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 16",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-16; Trigger: Inline: duplicate sequence; Kind: Warning toast; Title: Not Allowed; Message: Sequence {n} is already used by another step.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 17",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-17; Trigger: Inline: duplicate transaction; Kind: Warning toast; Title: Not Allowed; Message: That transaction is already in this chain.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 18",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-18; Trigger: Delete confirm; Kind: Confirm dialog; Title: Confirm Delete; Message: Delete {BPEName}? This cannot be undone.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 19",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-19; Trigger: Delete succeeded; Kind: Success toast; Title: Deleted; Message: {BPEName} was deleted.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 20",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-20; Trigger: Bulk delete with blocked (Active) rows; Kind: Warning toast; Title: Not Allowed; Message: {n} of the selected chain(s) are Active and cannot be deleted ({names}). Deselect them and try again.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 21",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-21; Trigger: Detail: unknown id; Kind: Error toast; Title: Not Found; Message: That process engine does not exist.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 22",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-22; Trigger: Auto-save failed; Kind: Error toast; Title: Save Failed; Message: Could not save the process engine.",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 23",
+      "heading": "Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording)",
+      "text": "#: M-23; Trigger: Duplicate name (inline field error); Kind: Inline error; Title: —; Message: A process engine with this name already exists",
+      "locator": "§ Business Process Engine › Screen specifications › Business Process Engine Detail (S-2 / S-3) › Alerts & messages (exact wording), table 8, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Workflow & status lifecycle – Table 9",
+      "heading": "Business Process Engine › Workflow & status lifecycle",
+      "text": "Columns: Status (text); Badge severity (text); Meaning (text)\nStatus | Badge severity | Meaning\nDraft | Secondary (grey) | Auto-saved draft; fully editable; deletable; not yet usable as a chain.\nActive | Success (green) | Published and available to run as a chain; not deletable; stays editable (edits keep it Active — Q-3).\nInactive | Warning (amber) | Retired with a mandatory reason; editable; deletable; can be re-activated.",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Business Process Engine › Workflow & status lifecycle",
+      "text": "Status: Draft; Badge severity: Secondary (grey); Meaning: Auto-saved draft; fully editable; deletable; not yet usable as a chain.",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "Business Process Engine › Workflow & status lifecycle",
+      "text": "Status: Active; Badge severity: Success (green); Meaning: Published and available to run as a chain; not deletable; stays editable (edits keep it Active — Q-3).",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "Business Process Engine › Workflow & status lifecycle",
+      "text": "Status: Inactive; Badge severity: Warning (amber); Meaning: Retired with a mandatory reason; editable; deletable; can be re-activated.",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle, table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Allowed transitions – Table 10",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "Columns: # (text); Transition (text); Trigger (text); Who / where (text)\n# | Transition | Trigger | Who / where\nT-1 | (new) → Draft | Automatic: Name filled → record inserted | Auto-save engine, detail screen\nT-2 | Draft → Active | Manual Activate + confirm (M-9); gate: ≥ 2 steps, all steps complete, form valid | Detail toolbar; list context menu\nT-3 | Active → Active (edited) | Edit then Re-activate (M-10). Per product decision, editing an Active chain keeps it Active (no versioning) | Detail screen. Real: re-validate on save — F-5, Q-3\nT-4 | Active → Inactive | Manual Set Inactive + mandatory reason | List context menu\nT-5 | Inactive → Active | Manual Activate (same gate as T-2) | List context menu / detail\nT-6 | Draft / Inactive → (deleted) | Manual Delete + confirm (M-18) | List context menu / bulk bar",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-1; Transition: (new) → Draft; Trigger: Automatic: Name filled → record inserted; Who / where: Auto-save engine, detail screen",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-2; Transition: Draft → Active; Trigger: Manual Activate + confirm (M-9); gate: ≥ 2 steps, all steps complete, form valid; Who / where: Detail toolbar; list context menu",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-3; Transition: Active → Active (edited); Trigger: Edit then Re-activate (M-10). Per product decision, editing an Active chain keeps it Active (no versioning); Who / where: Detail screen. Real: re-validate on save — F-5, Q-3",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-4; Transition: Active → Inactive; Trigger: Manual Set Inactive + mandatory reason; Who / where: List context menu",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-5; Transition: Inactive → Active; Trigger: Manual Activate (same gate as T-2); Who / where: List context menu / detail",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 6",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "#: T-6; Transition: Draft / Inactive → (deleted); Trigger: Manual Delete + confirm (M-18); Who / where: List context menu / bulk bar",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions, table 10, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Allowed transitions",
+      "heading": "Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "text": "• An Active chain may never be hard-deleted — set it Inactive (with a reason) first.\n• Irreversible actions (Delete) always use a confirmation dialog that spells out the impact.\n• Server is the source of truth: it must re-validate every transition (never trust the client).",
+      "locator": "§ Business Process Engine › Workflow & status lifecycle › Allowed transitions",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "One line per field — its checks combined; shared rules are defined once under Conventions. Every rule is testable as written; inline messages show at the field, toasts per Section 3.",
+      "locator": "§ Business Process Engine › Validations master list",
+      "kind": "section"
+    },
+    {
+      "title": "Validations master list – Table 11",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "Columns: # (text); Rule (testable statement) (text); Where enforced (text); Message (text)\n# | Rule (testable statement) | Where enforced | Message\nV-1 | Name — required (seed); trimmed, not blank; &le; 120 chars (input hard-stops at 120); unique within the company (case-insensitive, trimmed). | Detail form + server | Name is required / cannot be blank / A process engine with this name already exists\nV-2 | Description — &le; 500 chars. | Detail form + server | —\nV-3 | Step Sequence — whole number &ge; 1; unique within the chain (no two steps share a number); gaps allowed (Q-5). | Steps grid + server | Sequence must be a whole number of 1 or more. / Sequence {n} is already used by another step.\nV-4 | Each step must have a Document Type before the chain can be Activated. | Detail (activate gate) + server | Every step must have a Document Type before activating.\nV-5 | A Document Type may appear at most once per chain (no transaction twice). | Steps grid + server | That transaction is already in this chain.\nV-6 | A chain needs at least 2 steps to be Activated. | Detail + list + server | A process engine needs at least 2 steps before it can be activated.\nV-7 | Activate is blocked while the form is invalid. | Detail | Please fix the highlighted fields before activating.\nV-8 | Delete is allowed only when Status is Draft or Inactive. | List + server | {BPEName} is Active and cannot be deleted. Set it Inactive (with a reason) first.\nV-9 | Set Inactive requires a non-blank reason. | List dialog + server | Reason is mandatory.",
+      "locator": "§ Business Process Engine › Validations master list, table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-1; Rule (testable statement): Name — required (seed); trimmed, not blank; &le; 120 chars (input hard-stops at 120); unique within the company (case-insensitive, trimmed).; Where enforced: Detail form + server; Message: Name is required / cannot be blank / A process engine with this name already exists",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-2; Rule (testable statement): Description — &le; 500 chars.; Where enforced: Detail form + server; Message: —",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-3; Rule (testable statement): Step Sequence — whole number &ge; 1; unique within the chain (no two steps share a number); gaps allowed (Q-5).; Where enforced: Steps grid + server; Message: Sequence must be a whole number of 1 or more. / Sequence {n} is already used by another step.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 4",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-4; Rule (testable statement): Each step must have a Document Type before the chain can be Activated.; Where enforced: Detail (activate gate) + server; Message: Every step must have a Document Type before activating.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 5",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-5; Rule (testable statement): A Document Type may appear at most once per chain (no transaction twice).; Where enforced: Steps grid + server; Message: That transaction is already in this chain.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 6",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-6; Rule (testable statement): A chain needs at least 2 steps to be Activated.; Where enforced: Detail + list + server; Message: A process engine needs at least 2 steps before it can be activated.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 7",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-7; Rule (testable statement): Activate is blocked while the form is invalid.; Where enforced: Detail; Message: Please fix the highlighted fields before activating.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 8",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-8; Rule (testable statement): Delete is allowed only when Status is Draft or Inactive.; Where enforced: List + server; Message: {BPEName} is Active and cannot be deleted. Set it Inactive (with a reason) first.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 9",
+      "heading": "Business Process Engine › Validations master list",
+      "text": "#: V-9; Rule (testable statement): Set Inactive requires a non-blank reason.; Where enforced: List dialog + server; Message: Reason is mandatory.",
+      "locator": "§ Business Process Engine › Validations master list, table 11, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Mock shortcuts (real behaviour the dev team must implement) – Table 12",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "Columns: # (text); Mock shortcut (text); Real behaviour required (text)\n# | Mock shortcut | Real behaviour required\nD-1 | Steps are embedded as a Steps array on the engine record; the whole record is saved as one unit. | Split into header (xtBPEMain) + lines (xtBPEStep) tables with a BPEID foreign key; steps get their own create/update/delete endpoints.\nD-2 | No company/tenant field; a single flat list. | A BPE is company/tenant-scoped: add CompanyCode/TenantID (from session), filter the list to the current company, and enforce name-uniqueness within the company (V-1). Q-2.\nD-3 | Client-side grid over the full list. | Server-side row model with server paging, sorting and filtering from day one.\nD-4 | Document Type list is 9 static values in code. | Source the transaction-type list from the DDL/master API; the authoritative set and labels are Q-1.\nD-5 | CreatedOn is tracked, and Created By is shown in the list (CreatedBy) — but the mock stamps a fixed user name since there is no login. | Take Created By from the authenticated session/JWT; add ModifiedBy / ModifiedOn (and store an id, not just a display name). Q-7.\nD-10 | Every change PUTs the whole record. | PATCH only the dirty header fields; persist step changes through the step endpoints (D-1).\nD-11 | The Set Inactive reason is stored in the free-text Comments field. | Store the reason in a dedicated field with an audit entry (who/when); do not overload a general Comments field. Q-7.\nD-6 | The screen only defines chains. | Actually running/enforcing a chain at transaction time is a separate feature and is out of scope here. Confirm where enforcement lives — Q-8.\nD-12 | The Applicability value lists (companies, buyer types, buyers, categories) are static in the mock. | Source each dimension’s values from its master/DDL (company master, buyer-type DDL, buyer master, product-category master). Q-1.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12",
+      "kind": "table"
+    },
+    {
+      "title": "Table 12 row 1",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-1; Mock shortcut: Steps are embedded as a Steps array on the engine record; the whole record is saved as one unit.; Real behaviour required: Split into header (xtBPEMain) + lines (xtBPEStep) tables with a BPEID foreign key; steps get their own create/update/delete endpoints.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 2",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-2; Mock shortcut: No company/tenant field; a single flat list.; Real behaviour required: A BPE is company/tenant-scoped: add CompanyCode/TenantID (from session), filter the list to the current company, and enforce name-uniqueness within the company (V-1). Q-2.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 3",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-3; Mock shortcut: Client-side grid over the full list.; Real behaviour required: Server-side row model with server paging, sorting and filtering from day one.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 4",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-4; Mock shortcut: Document Type list is 9 static values in code.; Real behaviour required: Source the transaction-type list from the DDL/master API; the authoritative set and labels are Q-1.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 5",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-5; Mock shortcut: CreatedOn is tracked, and Created By is shown in the list (CreatedBy) — but the mock stamps a fixed user name since there is no login.; Real behaviour required: Take Created By from the authenticated session/JWT; add ModifiedBy / ModifiedOn (and store an id, not just a display name). Q-7.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 6",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-10; Mock shortcut: Every change PUTs the whole record.; Real behaviour required: PATCH only the dirty header fields; persist step changes through the step endpoints (D-1).",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 7",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-11; Mock shortcut: The Set Inactive reason is stored in the free-text Comments field.; Real behaviour required: Store the reason in a dedicated field with an audit entry (who/when); do not overload a general Comments field. Q-7.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 8",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-6; Mock shortcut: The screen only defines chains.; Real behaviour required: Actually running/enforcing a chain at transaction time is a separate feature and is out of scope here. Confirm where enforcement lives — Q-8.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 9",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement)",
+      "text": "#: D-12; Mock shortcut: The Applicability value lists (companies, buyer types, buyers, categories) are static in the mock.; Real behaviour required: Source each dimension’s values from its master/DDL (company master, buyer-type DDL, buyer master, product-category master). Q-1.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Mock shortcuts (real behaviour the dev team must implement), table 12, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Findings (fix in the real build) – Table 13",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "Columns: # (text); Finding (text); Corrected rule for the real build (text)\n# | Finding | Corrected rule for the real build\nF-1 | An incomplete step (added but no Document Type picked) is auto-saved and counted in StepCount, so the list can show “3 steps” where one is blank. | Do not persist an incomplete step (or exclude it from StepCount); a chain shows only its complete steps. Activate already blocks incomplete steps (V-4).\nF-2 | List row actions are reachable only by right-click (no visible actions column). | Add a pinned-right kebab actions column with the same items; right-click stays as a shortcut (grid standard).\nF-3 | “Remove step” deletes the row immediately with no confirmation (every other destructive action confirms). | Confirm step removal before deleting.\nF-4 — FIXED in the mock | The list Created On column used a text filter, which matched the raw ISO value instead of the shown date. It now declares cellDataType: 'dateString' + filter: 'agDateColumnFilter'. | Use a date filter for the date column (grid standard) — equals / before / after / from–to on a calendar picker. Build the real screen this way.\nF-5 | Editing an Active chain is not re-validated — a user can remove steps below 2, or leave a step incomplete, while the chain stays Active. | Re-validate an Active chain on every save; if an edit makes it invalid, block the save (or drop it to Draft) with a clear message. Exact behaviour Q-3.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13",
+      "kind": "table"
+    },
+    {
+      "title": "Table 13 row 1",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-1; Finding: An incomplete step (added but no Document Type picked) is auto-saved and counted in StepCount, so the list can show “3 steps” where one is blank.; Corrected rule for the real build: Do not persist an incomplete step (or exclude it from StepCount); a chain shows only its complete steps. Activate already blocks incomplete steps (V-4).",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 2",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-2; Finding: List row actions are reachable only by right-click (no visible actions column).; Corrected rule for the real build: Add a pinned-right kebab actions column with the same items; right-click stays as a shortcut (grid standard).",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 3",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-3; Finding: “Remove step” deletes the row immediately with no confirmation (every other destructive action confirms).; Corrected rule for the real build: Confirm step removal before deleting.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 4",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-4 — FIXED in the mock; Finding: The list Created On column used a text filter, which matched the raw ISO value instead of the shown date. It now declares cellDataType: 'dateString' + filter: 'agDateColumnFilter'.; Corrected rule for the real build: Use a date filter for the date column (grid standard) — equals / before / after / from–to on a calendar picker. Build the real screen this way.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 5",
+      "heading": "Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build)",
+      "text": "#: F-5; Finding: Editing an Active chain is not re-validated — a user can remove steps below 2, or leave a step incomplete, while the chain stays Active.; Corrected rule for the real build: Re-validate an Active chain on every save; if an edit makes it invalid, block the save (or drop it to Draft) with a clear message. Exact behaviour Q-3.",
+      "locator": "§ Business Process Engine › Out-of-scope & deltas › Findings (fix in the real build), table 13, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Open questions – Table 14",
+      "heading": "Business Process Engine › Open questions",
+      "text": "Columns: # (text); Question (text); Proposed default (text); Owner (text)\n# | Question | Proposed default | Owner\nQ-1 | What is the authoritative Document Type / transaction list and which DDL/master feeds it? (mock uses 9 representative values) | Source from the transaction-type DDL; treat the mock 9 as representative until confirmed. | Product owner\nQ-2 | Company/tenant scoping: is the company taken from the logged-in session, and is name-uniqueness per company? Field name? | Company from session; name unique within company; field CompanyCode. | Product owner\nQ-3 | Editing an Active chain: it stays Active (decided) — but when an edit makes it invalid (< 2 steps / incomplete step), block the save, or drop to Draft? | Block the save with a message; keep it Active. | Product owner\nQ-4 | Max lengths: Name 120, Description 500 — match the real DB column sizes? | Keep 120 / 500 unless the DB differs. | Product owner\nQ-5 | Sequence gaps allowed (1, 3, 5), or force contiguous and auto-renumber on removal? | Allow gaps; any unique positive whole number. | Product owner\nQ-6 | Is there a maximum number of steps per chain? | No hard maximum. | Product owner\nQ-7 | Audit & the Inactive reason: track CreatedBy/ModifiedBy/ModifiedOn, and store the Inactive reason in its own field? | Yes to both. | Product owner\nQ-8 | Where is a chain actually enforced/executed at transaction time (this screen is config-only)? | Separate feature; out of scope for this spec. | Product owner\nQ-9 | Can a chain move directly Inactive → Active, and does Draft ever need a reason to change? | Inactive → Active allowed (same gate); Draft transitions need no reason. | Product owner\nQ-10 | Should two different chains be allowed to contain the same transaction? (uniqueness is per-chain only) | Yes — uniqueness is only within a single chain. | Product owner\nQ-11 | List default sort, page size, and preserved back-navigation state? | Created On descending; page 20; restore filters/sort/page on back. | Product owner\nQ-12 | Empty-state message + call to action for the list? | “No process engines found” + Add New Engine. | Product owner\nQ-13 | Applicability: one rule per chain for now (one dimension + values). Will this grow to several rules / combined dimensions (e.g. Buyer AND Category), and should a chosen dimension require at least one value? | One rule for now; may extend later; values optional (blank dimension = All). | Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14",
+      "kind": "table"
+    },
+    {
+      "title": "Table 14 row 1",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-1; Question: What is the authoritative Document Type / transaction list and which DDL/master feeds it? (mock uses 9 representative values); Proposed default: Source from the transaction-type DDL; treat the mock 9 as representative until confirmed.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 2",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-2; Question: Company/tenant scoping: is the company taken from the logged-in session, and is name-uniqueness per company? Field name?; Proposed default: Company from session; name unique within company; field CompanyCode.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 3",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-3; Question: Editing an Active chain: it stays Active (decided) — but when an edit makes it invalid (< 2 steps / incomplete step), block the save, or drop to Draft?; Proposed default: Block the save with a message; keep it Active.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 4",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-4; Question: Max lengths: Name 120, Description 500 — match the real DB column sizes?; Proposed default: Keep 120 / 500 unless the DB differs.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 5",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-5; Question: Sequence gaps allowed (1, 3, 5), or force contiguous and auto-renumber on removal?; Proposed default: Allow gaps; any unique positive whole number.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 6",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-6; Question: Is there a maximum number of steps per chain?; Proposed default: No hard maximum.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 7",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-7; Question: Audit & the Inactive reason: track CreatedBy/ModifiedBy/ModifiedOn, and store the Inactive reason in its own field?; Proposed default: Yes to both.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 8",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-8; Question: Where is a chain actually enforced/executed at transaction time (this screen is config-only)?; Proposed default: Separate feature; out of scope for this spec.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 9",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-9; Question: Can a chain move directly Inactive → Active, and does Draft ever need a reason to change?; Proposed default: Inactive → Active allowed (same gate); Draft transitions need no reason.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 10",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-10; Question: Should two different chains be allowed to contain the same transaction? (uniqueness is per-chain only); Proposed default: Yes — uniqueness is only within a single chain.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 11",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-11; Question: List default sort, page size, and preserved back-navigation state?; Proposed default: Created On descending; page 20; restore filters/sort/page on back.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 12",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-12; Question: Empty-state message + call to action for the list?; Proposed default: “No process engines found” + Add New Engine.; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 14 row 13",
+      "heading": "Business Process Engine › Open questions",
+      "text": "#: Q-13; Question: Applicability: one rule per chain for now (one dimension + values). Will this grow to several rules / combined dimensions (e.g. Buyer AND Category), and should a chosen dimension require at least one value?; Proposed default: One rule for now; may extend later; values optional (blank dimension = All).; Owner: Product owner",
+      "locator": "§ Business Process Engine › Open questions, table 14, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Technical appendix — Data & API contract provisional",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional",
+      "text": "The committed mock JSON (mock-data/wfx-erp-product-business-process-engines.mock.json) is the draft API contract. Field names are PascalCase DTO names. A real backend would split the header from the lines into two tables (see D-1) and add company-scope + audit columns (D-2, D-5); reconcile field-by-field during promotion.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional",
+      "kind": "section"
+    },
+    {
+      "title": "Engine (header) record – Table 15",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Columns: Field (text); Type (text); Example (text); Read by (text); Written by (text)\nField | Type | Example | Read by | Written by\nid | string (UUID) | c46de729-… | Both screens (row id, routing) | Server on insert (mock: client UUID)\nBPEID | number (header PK) | 1001 | — (carried for the real API) | Server\nBPEName | string (≤120) | Order to Ship | List (Process Engine column), Detail (title), messages | Detail (seed field)\nDescription | string (≤500) | Full flow from order to shipment | List (secondary line), Detail | Detail\nStatus | enum: Draft | Active | Inactive | Active | List (badge, filter), Detail (badge, Activate logic) | Lifecycle actions only — never a free edit\nApplicabilityDimension | string (Company | BuyerType | Buyer | Category | '') | Buyer | List (Applicability), Detail (Applies To) | Detail (blank = All)\nApplicabilityDimensionName | string | Buyer | List (Applicability primary) | Derived from the dimension on save\nApplicabilityValues | array<{ Code, Name }> | [{Code:'BUY001',Name:'Acme Retail Group'}] | List (Applicability secondary), Detail (Values) | Detail (multi-select). Real: values from the per-dimension master (D-12)\nSteps | array<Step> (embedded in the mock) | see below | Detail (grid), List (StepCount) | Detail (steps grid). Real: own table (D-1)\nStepCount | number | 3 | List (Steps column) | Derived on save. Real: count only complete steps (F-1)\nComments | string | retired — superseded | — | Set Inactive reason (mock reuses this field — D-11)\nCreatedOn | ISO 8601 datetime | 2026-07-13T08:53:34Z | List (Created On) | Server on insert\nCreatedBy | string | Varun Kumar | List (Created By) | Server from the session on insert (mock: fixed current user). D-5\nCompanyCode / TenantID (NEW) | string / number | — | Scope & uniqueness (V-1) | Server (from session) — D-2, Q-2\nModifiedBy / ModifiedOn (NEW) | string / datetime | — | Audit / display | Server — D-5, Q-7",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15",
+      "kind": "table"
+    },
+    {
+      "title": "Table 15 row 1",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: id; Type: string (UUID); Example: c46de729-…; Read by: Both screens (row id, routing); Written by: Server on insert (mock: client UUID)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 2",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: BPEID; Type: number (header PK); Example: 1001; Read by: — (carried for the real API); Written by: Server",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 3",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: BPEName; Type: string (≤120); Example: Order to Ship; Read by: List (Process Engine column), Detail (title), messages; Written by: Detail (seed field)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 4",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: Description; Type: string (≤500); Example: Full flow from order to shipment; Read by: List (secondary line), Detail; Written by: Detail",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 5",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: Status; Type: enum: Draft | Active | Inactive; Example: Active; Read by: List (badge, filter), Detail (badge, Activate logic); Written by: Lifecycle actions only — never a free edit",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 6",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: ApplicabilityDimension; Type: string (Company | BuyerType | Buyer | Category | ''); Example: Buyer; Read by: List (Applicability), Detail (Applies To); Written by: Detail (blank = All)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 7",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: ApplicabilityDimensionName; Type: string; Example: Buyer; Read by: List (Applicability primary); Written by: Derived from the dimension on save",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 8",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: ApplicabilityValues; Type: array<{ Code, Name }>; Example: [{Code:'BUY001',Name:'Acme Retail Group'}]; Read by: List (Applicability secondary), Detail (Values); Written by: Detail (multi-select). Real: values from the per-dimension master (D-12)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 9",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: Steps; Type: array<Step> (embedded in the mock); Example: see below; Read by: Detail (grid), List (StepCount); Written by: Detail (steps grid). Real: own table (D-1)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 10",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: StepCount; Type: number; Example: 3; Read by: List (Steps column); Written by: Derived on save. Real: count only complete steps (F-1)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 11",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: Comments; Type: string; Example: retired — superseded; Read by: —; Written by: Set Inactive reason (mock reuses this field — D-11)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 12",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: CreatedOn; Type: ISO 8601 datetime; Example: 2026-07-13T08:53:34Z; Read by: List (Created On); Written by: Server on insert",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 13",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: CreatedBy; Type: string; Example: Varun Kumar; Read by: List (Created By); Written by: Server from the session on insert (mock: fixed current user). D-5",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 14",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: CompanyCode / TenantID (NEW); Type: string / number; Example: —; Read by: Scope & uniqueness (V-1); Written by: Server (from session) — D-2, Q-2",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 15",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record",
+      "text": "Field: ModifiedBy / ModifiedOn (NEW); Type: string / datetime; Example: —; Read by: Audit / display; Written by: Server — D-5, Q-7",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Engine (header) record, table 15, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Step (line) record – Table 16",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record",
+      "text": "Columns: Field (text); Type (text); Example (text); Notes (text)\nField | Type | Example | Notes\nStepID | number | 2 | Row identity within the chain (mock). Real: BPEStepID PK + BPEID FK (D-1, D-9)\nSequence | integer (≥ 1) | 2 | Unique within the chain (V-3). Gaps allowed (Q-5)\nDocumentTypeCode | string | PACK | Transaction code; from the transaction-type DDL (D-4, Q-1)\nDocumentTypeName | string | Packing List | Display label; kept in sync with the code on edit",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record, table 16",
+      "kind": "table"
+    },
+    {
+      "title": "Table 16 row 1",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record",
+      "text": "Field: StepID; Type: number; Example: 2; Notes: Row identity within the chain (mock). Real: BPEStepID PK + BPEID FK (D-1, D-9)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record, table 16, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 2",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record",
+      "text": "Field: Sequence; Type: integer (≥ 1); Example: 2; Notes: Unique within the chain (V-3). Gaps allowed (Q-5)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record, table 16, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 3",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record",
+      "text": "Field: DocumentTypeCode; Type: string; Example: PACK; Notes: Transaction code; from the transaction-type DDL (D-4, Q-1)",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record, table 16, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 16 row 4",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record",
+      "text": "Field: DocumentTypeName; Type: string; Example: Packing List; Notes: Display label; kept in sync with the code on edit",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Step (line) record, table 16, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Service surface (real WfxBusinessProcessEngineApiService) – Table 17",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Columns: Method (mock today) (text, mock today); Real endpoint (to define) (text, to define); Notes (text)\nMethod (mock today) | Real endpoint (to define) | Notes\nfetchEngines(): Observable<IWfxBusinessProcessEngine[]> | GET /business-process-engines (server paging/sort/filter) | One call per grid block; no N+1.\ngetEngine(id) | GET /business-process-engines/{id} | 404 → M-21 flow. Real: returns header + steps.\nsaveEngine(engine) | POST (insert on Name) / PATCH /{id} (header) + step create/update/delete | Mock PUTs the whole record incl. embedded steps (D-1, D-10).\ndeleteEngine(id) | DELETE /business-process-engines/{id} | Server re-validates the delete rule.\n— (new) | POST /{id}/activate | Server re-validates the activate gate (≥ 2 steps, all complete).\n— (new) | POST /{id}/inactivate { reason } | Server enforces the mandatory reason.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17",
+      "kind": "table"
+    },
+    {
+      "title": "Table 17 row 1",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Method (mock today): fetchEngines(): Observable<IWfxBusinessProcessEngine[]>; Real endpoint (to define): GET /business-process-engines (server paging/sort/filter); Notes: One call per grid block; no N+1.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 2",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Method (mock today): getEngine(id); Real endpoint (to define): GET /business-process-engines/{id}; Notes: 404 → M-21 flow. Real: returns header + steps.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 3",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Method (mock today): saveEngine(engine); Real endpoint (to define): POST (insert on Name) / PATCH /{id} (header) + step create/update/delete; Notes: Mock PUTs the whole record incl. embedded steps (D-1, D-10).",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 4",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Method (mock today): deleteEngine(id); Real endpoint (to define): DELETE /business-process-engines/{id}; Notes: Server re-validates the delete rule.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 5",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Method (mock today): — (new); Real endpoint (to define): POST /{id}/activate; Notes: Server re-validates the activate gate (≥ 2 steps, all complete).",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 17 row 6",
+      "heading": "Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService)",
+      "text": "Method (mock today): — (new); Real endpoint (to define): POST /{id}/inactivate { reason }; Notes: Server enforces the mandatory reason.",
+      "locator": "§ Business Process Engine › Technical appendix — Data & API contract provisional › Service surface (real WfxBusinessProcessEngineApiService), table 17, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Version History – Table 18",
+      "heading": "Business Process Engine › Version History",
+      "text": "Columns: Version (text); Owner (text); Git user (text); Date (date); Summary (text)\nVersion | Owner | Git user | Date | Summary\nV1 | Varun Kumar (VP - Technology) | Varun Kumar | 20 Jul 2026 | Tag #-code tables (screen inventory, validations) so S-1/V-1 codes stay on one line",
+      "locator": "§ Business Process Engine › Version History, table 18",
+      "kind": "table"
+    },
+    {
+      "title": "Table 18 row 1",
+      "heading": "Business Process Engine › Version History",
+      "text": "Version: V1; Owner: Varun Kumar (VP - Technology); Git user: Varun Kumar; Date: 20 Jul 2026; Summary: Tag #-code tables (screen inventory, validations) so S-1/V-1 codes stay on one line",
+      "locator": "§ Business Process Engine › Version History, table 18, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

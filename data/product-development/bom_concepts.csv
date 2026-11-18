@@ -1,0 +1,8 @@
+﻿id,group_name,name,option_value,definition,where_used,example
+bom-section,BOM,BOM · Materials section,,"Captures the raw materials needed to make one apparel, how much of each (consumption), at what cost, and the price at which the apparel is to be sold.",BOM › Materials,
+bom-version,BOM,BOM version,,"A BOM is maintained version-wise. Each version carries its own cost sheet with a currency and a date and time, so older versions and their costs stay available.",BOM header,
+bom-standard,BOM type,Standard BOM,,"The BOM marked as standard, either by selecting the star or by choosing the Standard BOM option while creating it. It is treated as the master BOM and creates the Budget: every other BOM of the apparel is compared against it as the budget.",BOM header,
+bom-production,BOM type,Production BOM,,"The BOM used to produce an order. Its costs are compared with the Standard BOM, which acts as its budget.",BOM header,
+bom-create,BOM,Creating a BOM,,A BOM can be made by copying from a template or by copying from an item (an existing BOM).,BOM header,
+bom-master-cost,BOM,Master cost sheet,,A setting that nominates the master cost sheet of the BOM.,BOM › Costing,
+bom-indent-owner,BOM,User Group and Purchase Officer,,"The BOM carries a User Group and a Purchase Officer. If they are not filled, the indent generated after MRP comes in Inactive status. It must be activated from the User Indent list or the Indent list before MRP and the other adjustments can be done on it.",BOM Materials,

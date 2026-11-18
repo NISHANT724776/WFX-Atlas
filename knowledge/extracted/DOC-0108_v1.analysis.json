@@ -1,0 +1,153 @@
+{
+  "tables": [],
+  "subject": "Afflatus GDN",
+  "keyTerms": [
+    "sales invoice",
+    "sales",
+    "invoice",
+    "buyer order",
+    "order dispatch",
+    "gdn",
+    "buyer",
+    "order",
+    "invoice created",
+    "dispatch",
+    "created",
+    "cancellation",
+    "created against",
+    "invoice exists",
+    "cancelled"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "System is allowing to cancel Buyer Order GDN after Sales Invoice is created",
+      "locator": "start",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "We need to implement a restriction so that once a Sales Invoice has been created, the Buyer Order Dispatch transaction cannot be cancelled.",
+      "locator": "§ Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Once a Sales Invoice has been created against a Buyer Order Dispatch (GDN), the system should not allow cancellation of the Buyer Order Dispatch, If the Sales Invoice has been confirmed or Posted status, Else Cancel status can be Allowed.",
+      "locator": "§ Functional Requirements:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Additionally, when the user attempts to cancel the GDN, the system should display an alert message listing the respective Sales Invoice(s) created against that transaction.",
+      "locator": "§ Functional Requirements:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Trigger Point:",
+      "locator": "§ Functional Requirements: › … › Proposed System Restriction Logic:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Validation Condition:",
+      "locator": "§ Functional Requirements: › … › Proposed System Restriction Logic:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Restriction Rule:",
+      "locator": "§ Functional Requirements: › … › Proposed System Restriction Logic:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "If Sales Invoice exists (even if cancelled) → Block cancellation",
+      "locator": "§ Functional Requirements: › … › Proposed System Restriction Logic:",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Proposed System Restriction Logic::\n1. Validation Trigger Point:\n2. At the time of Buyer Order Dispatch (GDN) Cancellation\n3. Validation Condition:\n4. Check if any Sales Invoice exists against the selected GDN\n5. Restriction Rule:\n6. If Sales Invoice exists (even if cancelled) → Block cancellation\n7. If no Sales Invoice exists → Allow cancellation",
+      "locator": "§ Functional Requirements: › … › Proposed System Restriction Logic:",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "\"Cancellation not allowed: Sales Invoice(Invoice Number) has already been created against this Buyer Order Dispatch.",
+      "locator": "§ Functional Requirements: › … › Error Message (User-Friendly):",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Error Message (User-Friendly)::\n1. Stock Overview Report\n2. GDI\n3. GDN\n4. Sales ASN\n5. Sales Invoice\n6. Sales Invoice : After the cancelled GDN also visible.",
+      "locator": "§ Functional Requirements: › … › Error Message (User-Friendly):",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Afflatus GDN",
+      "heading": "",
+      "text": "Software Requirements Specification\nSystem is allowing to cancel Buyer Order GDN after Sales Invoice is created\nDocument # 362567\nVersion 1.0 ●30 Apr 2026\nContents\nSection 1: Overview 3\nPurpose. 3\nBusiness Requirement 3\nScope 3\nSection2. Solution 4\nFunctional Requirements 4",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "The user has cancelled the Buyer Order Dispatch transaction after creating the Sales Invoice, due to which the stock is showing incorrectly in the system. We need to implement a restriction so that once a Sales Invoice has been created, the Buyer Order Dispatch transaction cannot be cancelled.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "Section2. Solution",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Functional Requirements:",
+      "heading": "Functional Requirements:",
+      "text": "Once a Sales Invoice has been created against a Buyer Order Dispatch (GDN), the system should not allow cancellation of the Buyer Order Dispatch, If the Sales Invoice has been confirmed or Posted status, Else Cancel status can be Allowed.\nAdditionally, when the user attempts to cancel the GDN, the system should display an alert message listing the respective Sales Invoice(s) created against that transaction.",
+      "locator": "§ Functional Requirements:",
+      "kind": "section"
+    },
+    {
+      "title": "Proposed System Restriction Logic:",
+      "heading": "Functional Requirements: › … › Proposed System Restriction Logic:",
+      "text": "• Validation Trigger Point:\n• At the time of Buyer Order Dispatch (GDN) Cancellation\n• Validation Condition:\n• Check if any Sales Invoice exists against the selected GDN\n• Restriction Rule:\n• If Sales Invoice exists (even if cancelled) → Block cancellation\n• If no Sales Invoice exists → Allow cancellation",
+      "locator": "§ Functional Requirements: › … › Proposed System Restriction Logic:",
+      "kind": "section"
+    },
+    {
+      "title": "Error Message (User-Friendly):",
+      "heading": "Functional Requirements: › … › Error Message (User-Friendly):",
+      "text": "\"Cancellation not allowed: Sales Invoice(Invoice Number) has already been created against this Buyer Order Dispatch.\nAttached Screen Shot with the Problem:\n• Stock Overview Report\n• GDI\n• GDN\n• Sales ASN\n• Sales Invoice\n• Sales Invoice : After the cancelled GDN also visible.",
+      "locator": "§ Functional Requirements: › … › Error Message (User-Friendly):",
+      "kind": "section"
+    }
+  ]
+}

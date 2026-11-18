@@ -1,0 +1,365 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Size Ratio Exact Share"
+      ],
+      "types": [
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Size Ratio Exact Share"
+      ],
+      "rows": [
+        [
+          "S 1 22.222"
+        ],
+        [
+          "M 2 44.444"
+        ],
+        [
+          "L 2 44.444"
+        ],
+        [
+          "XL 3 66.667"
+        ],
+        [
+          "XXL 1 22.222"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Color",
+        "Color grouped qty",
+        "S (2)",
+        "M (1)",
+        "L (3)"
+      ],
+      "types": [
+        "text",
+        "integer",
+        "integer",
+        "integer",
+        "integer"
+      ],
+      "units": {
+        "Color grouped qty": "quantity (unit of the row)",
+        "S (2)": "2",
+        "M (1)": "1",
+        "L (3)": "3"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Red",
+          "2000",
+          "667",
+          "333",
+          "1000"
+        ],
+        [
+          "Blue",
+          "2500",
+          "834",
+          "416",
+          "1250"
+        ],
+        [
+          "Black",
+          "3000",
+          "1000",
+          "500",
+          "1500"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Color",
+        "Color grouped qty",
+        "S (2)",
+        "M (1)",
+        "L (3)"
+      ],
+      "types": [
+        "text",
+        "integer",
+        "integer",
+        "integer",
+        "integer"
+      ],
+      "units": {
+        "Color grouped qty": "quantity (unit of the row)",
+        "S (2)": "2",
+        "M (1)": "1",
+        "L (3)": "3"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Red",
+          "2000",
+          "700",
+          "335",
+          "965"
+        ],
+        [
+          "Blue",
+          "2500",
+          "834",
+          "416",
+          "1250"
+        ],
+        [
+          "Black",
+          "3000",
+          "1000",
+          "500",
+          "1500"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sales Order Size Group",
+  "keyTerms": [
+    "size",
+    "size group",
+    "group",
+    "qty",
+    "sales order",
+    "order",
+    "color",
+    "ratio",
+    "sales",
+    "based",
+    "user",
+    "select",
+    "size groups",
+    "color size",
+    "edi"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 31
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Size Group will be listed based on size groups selected in style techpack.\n2. If user, selects Size group then sizes will be populated based on sizes selected under size group.\n3. For multiple size groups in a style user will select multiple ‘Size group’, if user try to add ‘Add article quantity’ system will show same ‘Size group’ and user will not able to change it.\n4. Size group will be a dropdown, multi-select per row & Only show Active Size Groups.",
+      "locator": "§ Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Size Ratio Exact Share (5 rows; identifiers: Size Ratio Exact Share)",
+      "locator": "§ Solution, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Remainder to distribute = 200 − 198 = 2",
+      "locator": "§ Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "It should need to work in case of price per is ‘Article’, ‘Color’, ‘Size’, ‘Color/Size’.",
+      "locator": "§ Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Similar type of behavior is required for ‘New sale order screen’.",
+      "locator": "§ Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Similar type of behavior is required for ‘New sale order screen’.",
+      "locator": "§ Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Floor every value: 22, 44, 44, 66, 22 → sums to 198\n2. Remainder to distribute = 200 − 198 = 2\n3. Based on proportionate method system will allocate the rest of qty.\n4. It should need to work in case of price per is ‘Article’, ‘Color’, ‘Size’, ‘Color/Size’.\n5. Size group in sales order not able to change after partial shipment done against that delivery OC from UI/EDI.\n6. In case of ‘Add additional qty’ system will not show ‘Size Group’ field it will be applicable only in case of ‘Add article qty’.\n7. Similar type of behavior is required for ‘New sale order screen’.",
+      "locator": "§ Solution",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto populate Size Ratio (Ratio Allocation):\n1. Based on Size Group (current default behavior), Pulls from the Auto Size Ratio Configurator per the Buyer/Department/Subcategory/Size Group precedence logic already discussed.\n2. Past One Year, derived from actual sell-through or order-history data for this Buyer + Department + Product Group + Subcategory, Past one year will be calculated from ‘Order Sent on Date’.\n3. Past Half Yearly, Same mechanics as above but a 6-month lookback.\n4. Based on Season, all seasons of particular buyer (which we show at the time of Main OC creation) will visible here and ratio will applicable based on the same.",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "‘Size group’ column visibility will be handled by EDI sales order package mapping screen (Visibility, Editable, Mandatory).",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "In case of ‘Size Group’ & ‘Ratio Allocation’, a copy below option is required to copy below & copy to all.",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Auto populate Size Ratio (Ratio Allocation):\n1. At the time of sales order creation through EDI system will allow the user to select the ‘Size Group’ at delivery level.\n2. Size group will be a dropdown, multi-select per row & Only show Active Size Groups.\n3. ‘Size group’ column visibility will be handled by EDI sales order package mapping screen (Visibility, Editable, Mandatory).\n4. Size group & Ratio Allocation functionality will be enabled based on ‘Package Mapping’ and as agreed with implementation team we will enable it for those packages where Size come as ‘TBA’ & always size group/Ratio will replace the actual qty (color/size wise) coming in Excel/XML/Json file.\n5. In case of ‘Size Group’ & ‘Ratio Allocation’, a copy below option is required to copy below & copy to all.\n6. Each detail needs to be tracked under ‘OC creation/OC revision’ transactions screens, if user select the ‘Ratio allocation’ at the time of ‘Confirm’ system will pick the logic, if someone try to revise the oc by UI/EDI system will not change the ratio.\n7. If after that sales order package (‘TBA’ qty package) buyer shared the correct Color/size wise qty details in that case or that ‘EDI package’ system will simply revise/Split the same size wise qty with actual buyer qty.\n8. Split will be handled based on ‘Color grouped qty’ if at the time of sales order revision split qt is greater than the previous added size qty system will apply the proportionate logic.",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Color, Color grouped qty, S (2), M (1), L (3) (3 rows)",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Color, Color grouped qty, S (2), M (1), L (3) (3 rows)",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 3",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Sales Order Size Group › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2\nSolution 2",
+      "locator": "§ Sales Order Size Group › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "Solution",
+      "text": "While creating sales order user will be able to select Size group using both manual or automation mode.\n• Size Group will be listed based on size groups selected in style techpack.\n• If user, selects Size group then sizes will be populated based on sizes selected under size group.\n• For multiple size groups in a style user will select multiple ‘Size group’, if user try to add ‘Add article quantity’ system will show same ‘Size group’ and user will not able to change it.\n• Size group will be a dropdown, multi-select per row & Only show Active Size Groups.",
+      "locator": "§ Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Solution – Table 1",
+      "heading": "Solution",
+      "text": "Columns: Size Ratio Exact Share (text)\nSize Ratio Exact Share\nS 1 22.222\nM 2 44.444\nL 2 44.444\nXL 3 66.667\nXXL 1 22.222",
+      "locator": "§ Solution, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Solution",
+      "heading": "Solution",
+      "text": "• Floor every value: 22, 44, 44, 66, 22 → sums to 198\n• Remainder to distribute = 200 − 198 = 2\n• Based on proportionate method system will allocate the rest of qty.\n• It should need to work in case of price per is ‘Article’, ‘Color’, ‘Size’, ‘Color/Size’.\n• Size group in sales order not able to change after partial shipment done against that delivery OC from UI/EDI.\n• In case of ‘Add additional qty’ system will not show ‘Size Group’ field it will be applicable only in case of ‘Add article qty’.\n• Similar type of behavior is required for ‘New sale order screen’.",
+      "locator": "§ Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Auto populate Size Ratio (Ratio Allocation)",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "• Based on Size Group (current default behavior), Pulls from the Auto Size Ratio Configurator per the Buyer/Department/Subcategory/Size Group precedence logic already discussed.\n• Past One Year, derived from actual sell-through or order-history data for this Buyer + Department + Product Group + Subcategory, Past one year will be calculated from ‘Order Sent on Date’.\n• Past Half Yearly, Same mechanics as above but a 6-month lookback.\n• Based on Season, all seasons of particular buyer (which we show at the time of Main OC creation) will visible here and ratio will applicable based on the same.\nSize Group Handling by EDI Sales Order:\n• At the time of sales order creation through EDI system will allow the user to select the ‘Size Group’ at delivery level.\n• Size group will be a dropdown, multi-select per row & Only show Active Size Groups.\n• ‘Size group’ column visibility will be handled by EDI sales order package mapping screen (Visibility, Editable, Mandatory).\n• Size group & Ratio Allocation functionality will be enabled based on ‘Package Mapping’ and as agreed with implementation team we will enable it for those packages where Size come as ‘TBA’ & always size group/Ratio will replace the actual qty (color/size wise) coming in Excel/XML/Json file.\n• In case of ‘Size Group’ & ‘Ratio Allocation’, a copy below option is required to copy below & copy to all.",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "kind": "section"
+    },
+    {
+      "title": "Auto populate Size Ratio (Ratio Allocation)",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "• Each detail needs to be tracked under ‘OC creation/OC revision’ transactions screens, if user select the ‘Ratio allocation’ at the time of ‘Confirm’ system will pick the logic, if someone try to revise the oc by UI/EDI system will not change the ratio.\n• If after that sales order package (‘TBA’ qty package) buyer shared the correct Color/size wise qty details in that case or that ‘EDI package’ system will simply revise/Split the same size wise qty with actual buyer qty.\n• Split will be handled based on ‘Color grouped qty’ if at the time of sales order revision split qt is greater than the previous added size qty system will apply the proportionate logic.",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation) (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Auto populate Size Ratio (Ratio Allocation) – Table 2",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Columns: Color (text); Color grouped qty (integer, quantity (unit of the row)); S (2) (integer, 2); M (1) (integer, 1); L (3) (integer, 3)\nColor | Color grouped qty | S (2) | M (1) | L (3)\nRed | 2000 | 667 | 333 | 1000\nBlue | 2500 | 834 | 416 | 1250\nBlack | 3000 | 1000 | 500 | 1500",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Color: Red; Color grouped qty: 2000; S (2): 667; M (1): 333; L (3): 1000",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Color: Blue; Color grouped qty: 2500; S (2): 834; M (1): 416; L (3): 1250",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Color: Black; Color grouped qty: 3000; S (2): 1000; M (1): 500; L (3): 1500",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Auto populate Size Ratio (Ratio Allocation)",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "At the time of revision for S (Actual qty: - 700), M (335), L (965)",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "kind": "section"
+    },
+    {
+      "title": "Auto populate Size Ratio (Ratio Allocation) – Table 3",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Columns: Color (text); Color grouped qty (integer, quantity (unit of the row)); S (2) (integer, 2); M (1) (integer, 1); L (3) (integer, 3)\nColor | Color grouped qty | S (2) | M (1) | L (3)\nRed | 2000 | 700 | 335 | 965\nBlue | 2500 | 834 | 416 | 1250\nBlack | 3000 | 1000 | 500 | 1500",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Color: Red; Color grouped qty: 2000; S (2): 700; M (1): 335; L (3): 965",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Color: Blue; Color grouped qty: 2500; S (2): 834; M (1): 416; L (3): 1250",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "Color: Black; Color grouped qty: 3000; S (2): 1000; M (1): 500; L (3): 1500",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation), table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Auto populate Size Ratio (Ratio Allocation)",
+      "heading": "Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "text": "So, system will check at ‘Color grouped qty’ and allow to split because total qty for that color is not exceeding.",
+      "locator": "§ Solution › … › … › … › Auto populate Size Ratio (Ratio Allocation)",
+      "kind": "section"
+    }
+  ]
+}

@@ -1,0 +1,800 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Document",
+        "Sourcing Module – User Manual"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Purpose",
+          "Guide end users through sourcing, RMPO creation, indent fulfillment, stock adjustment and reporting."
+        ],
+        [
+          "Audience",
+          "Sourcing, buying, procurement and relevant operations users."
+        ],
+        [
+          "Version",
+          "1.0"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field",
+        "Meaning"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Field"
+      ],
+      "rows": [
+        [
+          "Open Qty.",
+          "Quantity still open against the requirement."
+        ],
+        [
+          "Order Qty.",
+          "Quantity covered by purchase orders."
+        ],
+        [
+          "PO GRN Receipt Qty.",
+          "Quantity received through GRN against the PO."
+        ],
+        [
+          "In-House Stock Adjusted",
+          "Quantity fulfilled through in-house stock adjustment."
+        ],
+        [
+          "Unreserve Qty.",
+          "Quantity involved in unreserve transactions."
+        ],
+        [
+          "Dispatched Qty.",
+          "Quantity already dispatched."
+        ],
+        [
+          "Pending To Dispatch",
+          "Quantity pending dispatch."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Situation",
+        "User Action"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Situation"
+      ],
+      "rows": [
+        [
+          "UOM conversion alert",
+          "Verify that the required conversion between indent UOM and PO UOM is configured."
+        ],
+        [
+          "No stock available",
+          "In-house adjustment cannot be performed until applicable stock is available."
+        ],
+        [
+          "In-house option not visible",
+          "Check user permissions and applicable system configuration."
+        ],
+        [
+          "Indent revised",
+          "Use Last Revised On to identify the latest revision date."
+        ],
+        [
+          "Need focused results",
+          "Apply filters before reviewing or exporting data."
+        ],
+        [
+          "Need to trace receipt",
+          "Open the PO/GRN quantity to review GRN and received quantity."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Sourcing Module User Manual Enhanced",
+  "keyTerms": [
+    "indent",
+    "supplier",
+    "quantity",
+    "stock",
+    "order",
+    "purchase order",
+    "sourcing",
+    "material",
+    "available",
+    "purchase",
+    "required",
+    "rmpo",
+    "inhouse",
+    "user",
+    "article"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 87
+    },
+    {
+      "module": "Style & BOM",
+      "score": 8
+    },
+    {
+      "module": "Sales Order",
+      "score": 7
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 3
+    }
+  ],
+  "transactions": [
+    "RMPO – Raw Material Purchase Order",
+    "GRN – Goods Receipt Note",
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing",
+    "Purchase Order from Buyer (OC)",
+    "BBB Adhoc Indent",
+    "MRP – Material Requirement Planning"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Document, Sourcing Module – User Manual (3 rows)",
+      "locator": "§ Document Control, table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Supplier block booking",
+      "locator": "§ Search, Filter, Sort and Export",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Search, Filter, Sort and Export:\n1. Sourcing ASN\n2. Supplier portal\n3. Supplier block booking",
+      "locator": "§ Search, Filter, Sort and Export",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Ensure the article is included in the relevant BOM with the required consumption, wastage, price and supplier details.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Generate MRP after the sales order is available; review the resulting indent in the User Indent List.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "Generate MRP after the sales order is available; review the resulting indent in the User Indent List.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If suitable stock is available, use the applicable in-house or equivalent-stock process.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Complete all mandatory RMPO fields and verify quantity, price, supplier, dates, currency and UOM conversion.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "Step 4: After the sales order is created, the merchandising team runs Material Requirements Planning (MRP).",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Quick Start: Standard Sourcing Flow:\n1. Step 1: The sourcing or merchandising team creates the required article in WFX Catalog.\n2. Step 2: Add the applicable colors and sizes to the article.\n3. While making bom (bill of material ) for Apparel /Style Merchant team add the same article in the bom and define color/size dependency along with consumption wastage price supplier who will be the purchase officer so that material can be procured for the required style as per the requirement .\n4. Step 4: After the sales order is created, the merchandising team runs Material Requirements Planning (MRP). The system generates the required indent(s).\n5. Step 5: The sourcing team reviews the generated indents. They can procure material from a supplier by creating an RMPO, or fulfill the requirement using available in-house or eligible equivalent stock.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If the indent type is OC, select the relevant OC number before creating the indent.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If suitable material is already available, use In-House Adjustment where permitted.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Complete the mandatory fields on the RMPO screen and enter or verify the material details before creating the order.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Fields highlighted in red are mandatory.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If the supplier is configured with a login and the Supplier Portal feature is enabled, the RMPO is sent to the supplier portal for approval.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "When the Supplier Portal is enabled, a newly created RMPO may remain in an Unconfirmed status until the supplier responds.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "WFX also provides a Supplier Block Booking option.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Supplier Block Booking",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Create a supplier block booking based on the supplier's confirmation for quantities expected to be received by month, season or year.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Supplier Block Booking",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The Sourcing Module is used to manage raw-material procurement and fulfillment activities.",
+      "locator": "§ Sourcing Module Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sourcing Module Overview:\n1. Supplier – view and use supplier master data across sourcing categories.\n2. My Purchase Order – create and manage Raw Material Purchase Orders (RMPOs).\n3. Indent Management / Indent List – review, activate, assign and work with indents.\n4. Indent Fulfillment Status – monitor open, ordered, received, adjusted and dispatched quantities.\n5. Reporting & Analysis – review indent and purchase-order reporting.",
+      "locator": "§ Sourcing Module Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Pending GMPO list (In case team is sourcing the main style directly from some supplier )they can create the GMPO againt the Style order.",
+      "locator": "§ Sourcing Module Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sourcing Module Overview:\n1. Search of Raw material purchase order.\n2. List of raw material Purchase order (all the purchase order created by the user will be displayed in the list)\n3. New Raw material Purchase order.\n4. New Garment PO\n5. Search Garment PO\n6. List Garment PO\n7. Pending GMPO list (In case team is sourcing the main style directly from some supplier )they can create the GMPO againt the Style order.",
+      "locator": "§ Sourcing Module Overview",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Supplier Management:\n1. Open Sourcing → Supplier.\n2. Search or select the required supplier.\n3. Review the supplier information and use the supplier during RMPO creation.",
+      "locator": "§ Supplier Management",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Complete all other mandatory header fields.",
+      "locator": "§ Creating a Raw Material Purchase Order (RMPO) › Complete Header Information",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Complete Header Information:\n1. Select the required Category (for example, Textiles/Fabric).\n2. Select the Supplier.\n3. Enter the required delivery and in-house dates.\n4. Select the applicable Currency.\n5. Complete all other mandatory header fields.",
+      "locator": "§ Creating a Raw Material Purchase Order (RMPO) › Complete Header Information",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "After the header is completed, enter or review the article/material details.",
+      "locator": "§ Article Details and UOM Validation",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If the selected PO UOM differs from the indent UOM, the required UOM conversion must be defined in the system.",
+      "locator": "§ Article Details and UOM Validation › UOM",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Important: If the required conversion is not defined, the system displays an alert such as “UOM conversion is not defined” and the transaction cannot proceed as expected.",
+      "locator": "§ Article Details and UOM Validation › UOM",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Indent Fulfillment Status is the primary monitoring screen for understanding how indent requirements are being fulfilled.",
+      "locator": "§ Indent Fulfillment Status",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field, Meaning (7 rows; identifiers: Field)",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "When material is received, GRN information is available against the PO.",
+      "locator": "§ Tracking PO and GRN › GRN Tracking",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If suitable stock is already available in-house, the indent may be fulfilled through an In-House Adjustment, subject to user permissions and system configuration.",
+      "locator": "§ In-House Stock Adjustment",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If stock is already available system will show indent number in green color as highlighted bellow.",
+      "locator": "§ In-House Stock Adjustment",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Different adjustment option are available by which user can allocate the stock on indent.",
+      "locator": "§ In-House Stock Adjustment › Check Stock Availability",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Make an In-House Adjustment:\n1. Open/select the required indent.\n2. Confirm that relevant stock is available.\n3. Open In-House Adjustment.\n4. Click Search to retrieve matching stock.\n5. Review the source details, including GRN and site where displayed.\n6. Select the required stock and quantity.\n7. Complete the adjustment/reservation.",
+      "locator": "§ In-House Stock Adjustment › Make an In-House Adjustment",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "When the exact stock is not available, an equivalent-stock option may be available where permitted.",
+      "locator": "§ In-House Equivalent Stock",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "In-House Equivalent Stock:\n1. Open In-House Equivalent.\n2. Enter the required transaction details.\n3. Review available cartons/stock.\n4. Select the applicable stock and quantity.\n5. Complete the adjustment according to the configured process.",
+      "locator": "§ In-House Equivalent Stock",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If suitable stock is available, perform the applicable in-house adjustment.",
+      "locator": "§ End-to-End Sourcing Process",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If stock is not available, create an RMPO.",
+      "locator": "§ End-to-End Sourcing Process",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Select category, supplier, dates, currency and other mandatory details.",
+      "locator": "§ End-to-End Sourcing Process",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "End-to-End Sourcing Process:\n1. Review indent requirement.\n2. Check existing stock availability.\n3. If suitable stock is available, perform the applicable in-house adjustment.\n4. If stock is not available, create an RMPO.\n5. Select category, supplier, dates, currency and other mandatory details.\n6. Enter quantity and verify UOM/conversion.\n7. Create/confirm the purchase order.\n8. Track PO and GRN receipt quantities.\n9. Monitor in-house adjustments, unreserved quantities and dispatch.\n10. Use reports/export for operational analysis.",
+      "locator": "§ End-to-End Sourcing Process",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Situation, User Action (6 rows; identifiers: Situation)",
+      "locator": "§ Key Controls and Troubleshooting, table 3",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Quick Reference – Daily Sourcing Checklist:\n1. Review assigned/open indents.\n2. Check required quantity, UOM and material attributes.\n3. Check stock availability.\n4. Use in-house adjustment when applicable.\n5. Otherwise create/complete RMPO.\n6. Verify supplier, dates, currency and quantity.\n7. Confirm UOM conversion where required.\n8. Track PO and GRN quantities.\n9. Monitor dispatch and pending-to-dispatch quantities.\n10. Export filtered data or use reports when required.",
+      "locator": "§ Quick Reference – Daily Sourcing Checklist",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sourcing Module User Manual Enhanced",
+      "heading": "",
+      "text": "SOURCING MODULE",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "User Manual",
+      "heading": "… › User Manual",
+      "text": "Raw Material Procurement • Indent Fulfillment • Stock Adjustment",
+      "locator": "§ … › User Manual",
+      "kind": "section"
+    },
+    {
+      "title": "Document Control – Table 1",
+      "heading": "Document Control",
+      "text": "Columns: Document (text); Sourcing Module – User Manual (text)\nDocument | Sourcing Module – User Manual\nPurpose | Guide end users through sourcing, RMPO creation, indent fulfillment, stock adjustment and reporting.\nAudience | Sourcing, buying, procurement and relevant operations users.\nVersion | 1.0",
+      "locator": "§ Document Control, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Document Control",
+      "text": "Document: Purpose; Sourcing Module – User Manual: Guide end users through sourcing, RMPO creation, indent fulfillment, stock adjustment and reporting.",
+      "locator": "§ Document Control, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Document Control",
+      "text": "Document: Audience; Sourcing Module – User Manual: Sourcing, buying, procurement and relevant operations users.",
+      "locator": "§ Document Control, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Document Control",
+      "text": "Document: Version; Sourcing Module – User Manual: 1.0",
+      "locator": "§ Document Control, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Search, Filter, Sort and Export",
+      "heading": "Search, Filter, Sort and Export",
+      "text": "• Sourcing ASN\n• Supplier portal\n• Supplier block booking",
+      "locator": "§ Search, Filter, Sort and Export",
+      "kind": "section"
+    },
+    {
+      "title": "Reporting & Analysis",
+      "heading": "Reporting & Analysis",
+      "text": "• End-to-End Process",
+      "locator": "§ Reporting & Analysis",
+      "kind": "section"
+    },
+    {
+      "title": "Quick Start: Standard Sourcing Flow",
+      "heading": "Quick Start: Standard Sourcing Flow",
+      "text": "Create or verify the material article in Catalog, including required colors and sizes.\nEnsure the article is included in the relevant BOM with the required consumption, wastage, price and supplier details.\nGenerate MRP after the sales order is available; review the resulting indent in the User Indent List.\nOpen the indent and check the required quantity, material attributes and available stock.\nIf suitable stock is available, use the applicable in-house or equivalent-stock process. Otherwise, create an RMPO.\nComplete all mandatory RMPO fields and verify quantity, price, supplier, dates, currency and UOM conversion.\nFollow the RMPO status and track PO, GRN, receipt and dispatch quantities through the relevant screens.\nBefore you begin: Confirm that the article, supplier, user permissions and relevant configuration are available. Screen fields and options can vary by role and system setup.\nThe sourcing process in WFX starts in the Catalog, where the required material article is created. Once set up, the article can be used for inventory management and procurement.\nThe Catalog supports different material categories, such as Trims, Textiles/Fabric, general items and yarns.\n• Step 1: The sourcing or merchandising team creates the required article in WFX Catalog.\n• Step 2: Add the applicable colors and sizes to the article.",
+      "locator": "§ Quick Start: Standard Sourcing Flow",
+      "kind": "section"
+    },
+    {
+      "title": "Quick Start: Standard Sourcing Flow",
+      "heading": "Quick Start: Standard Sourcing Flow",
+      "text": "• While making bom (bill of material ) for Apparel /Style Merchant team add the same article in the bom and define color/size dependency along with consumption wastage price supplier who will be the purchase officer so that material can be procured for the required style as per the requirement .\n• Step 4: After the sales order is created, the merchandising team runs Material Requirements Planning (MRP). The system generates the required indent(s).\n• Step 5: The sourcing team reviews the generated indents. They can procure material from a supplier by creating an RMPO, or fulfill the requirement using available in-house or eligible equivalent stock.\nThe User Indent List displays the indents assigned or available to the logged-in user.\nIndents displayed in this list may be user-specific and may not be visible to other users.\nWFX also supports adhoc purchasing. The sourcing team can create an adhoc indent for reasons such as:\nMaterial procurement against an order.\nSample order.\nNone (general sourcing).\nTo create an adhoc indent, select the indent type first. Then enter the material, quantity, price, supplier and other required details. The indent can then be used to create a purchase order.\nIf the indent type is OC, select the relevant OC number before creating the indent.\nIn the Article section, select the material category and then the article to be procured.",
+      "locator": "§ Quick Start: Standard Sourcing Flow (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Indent Overview",
+      "heading": "Quick Start: Standard Sourcing Flow › Indent Overview",
+      "text": "Select an indent number to open its overview. The overview may display the following information:\nIndent number\nStyle details\nArticle details\nOC number\nSupplier and buyer name\nPrice assigned on bom\nBom line number\nColor and size specification\nRequired quantity, ordered quantity, in-house quantity, on-order quantity and open quantity.\nFor roll allocation, the requested roll quantity.\nFrom the indent overview, select Create New PO to create an RMPO. If suitable material is already available, use In-House Adjustment where permitted. A green indicator may identify a requirement for which stock is available.\nSelect Create New PO. WFX opens the RMPO screen, where you can enter the purchase-order details.\nComplete the mandatory fields on the RMPO screen and enter or verify the material details before creating the order.\nCreating a purchase order from the User Indent List\nThe User Indent List may allow multiple indents of the same category to be combined into one RMPO.\nFields highlighted in red are mandatory. Complete them before saving or submitting the RMPO.\nSupplier portal\nWFX supports a Supplier Portal. If the supplier is configured with a login and the Supplier Portal feature is enabled, the RMPO is sent to the supplier portal for approval.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Indent Overview",
+      "heading": "Quick Start: Standard Sourcing Flow › Indent Overview",
+      "text": "The supplier may also create a Sourcing Advance Shipping Notice (ASN) against the RMPO. The inventory team can use the ASN as a reference when receiving the material in WFX.\nWhen the Supplier Portal is enabled, a newly created RMPO may remain in an Unconfirmed status until the supplier responds.\nTo access the Supplier Portal, open the applicable server URL and sign in with the supplier's user ID and password. Check the supplier master for the configured login details.\nUse the company ID and username configured for that supplier.\nAfter the supplier approves the RMPO in the portal, its status is updated automatically in the WFX My Purchase Order list.\nThe supplier can also create a Sourcing ASN directly in WFX, where this option is enabled.\nThe inventory team can use the ASN details to create the corresponding receipt in WFX.",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Indent Overview (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Supplier Block Booking",
+      "heading": "Quick Start: Standard Sourcing Flow › Supplier Block Booking",
+      "text": "WFX also provides a Supplier Block Booking option.\nCreate a supplier block booking based on the supplier's confirmation for quantities expected to be received by month, season or year.\nThe booking can later be linked to RMPOs. This helps the team compare the booked quantity with the quantity actually ordered or received from the supplier.\nv",
+      "locator": "§ Quick Start: Standard Sourcing Flow › Supplier Block Booking",
+      "kind": "section"
+    },
+    {
+      "title": "Sourcing Module Overview",
+      "heading": "Sourcing Module Overview",
+      "text": "The Sourcing Module is used to manage raw-material procurement and fulfillment activities. From a user perspective, the module supports supplier selection, purchase-order creation, indent monitoring, stock utilization, receipt tracking and sourcing reports.\nMain working areas include:\n• Supplier – view and use supplier master data across sourcing categories.\n• My Purchase Order – create and manage Raw Material Purchase Orders (RMPOs).\n• Indent Management / Indent List – review, activate, assign and work with indents.\n• Indent Fulfillment Status – monitor open, ordered, received, adjusted and dispatched quantities.\n• Reporting & Analysis – review indent and purchase-order reporting.\nUnder my purchase order we have multiple option like :\n• Search of Raw material purchase order.\n• List of raw material Purchase order (all the purchase order created by the user will be displayed in the list)\n• New Raw material Purchase order.\n• New Garment PO\n• Search Garment PO\n• List Garment PO\n• Pending GMPO list (In case team is sourcing the main style directly from some supplier )they can create the GMPO againt the Style order.",
+      "locator": "§ Sourcing Module Overview",
+      "kind": "section"
+    },
+    {
+      "title": "Supplier Management",
+      "heading": "Supplier Management",
+      "text": "The Supplier area contains suppliers used for sourcing transactions across categories such as Textiles/Fabric, Apparel and Trims.\nTypical workflow:\n• Open Sourcing → Supplier.\n• Search or select the required supplier.\n• Review the supplier information and use the supplier during RMPO creation.",
+      "locator": "§ Supplier Management",
+      "kind": "section"
+    },
+    {
+      "title": "Open New Raw Material Purchase Order",
+      "heading": "Creating a Raw Material Purchase Order (RMPO) › Open New Raw Material Purchase Order",
+      "text": "Go to Sourcing → My Purchase Order and select New Raw Material Purchase Order. The RMPO screen contains Header, Article Detail and Additional Charges sections.",
+      "locator": "§ Creating a Raw Material Purchase Order (RMPO) › Open New Raw Material Purchase Order",
+      "kind": "section"
+    },
+    {
+      "title": "Complete Header Information",
+      "heading": "Creating a Raw Material Purchase Order (RMPO) › Complete Header Information",
+      "text": "• Select the required Category (for example, Textiles/Fabric).\n• Select the Supplier.\n• Enter the required delivery and in-house dates.\n• Select the applicable Currency.\n• Complete all other mandatory header fields.\nFigure 1. RMPO Article Detail screen showing quantity, UOM and price fields.",
+      "locator": "§ Creating a Raw Material Purchase Order (RMPO) › Complete Header Information",
+      "kind": "section"
+    },
+    {
+      "title": "Article Details and UOM Validation",
+      "heading": "Article Details and UOM Validation",
+      "text": "After the header is completed, enter or review the article/material details. The Article Detail screen can include article, color, size, shipped quantity, open quantity, net open quantity, original UOM, ordered quantity, PO UOM, price and total value.",
+      "locator": "§ Article Details and UOM Validation",
+      "kind": "section"
+    },
+    {
+      "title": "Quantity",
+      "heading": "Article Details and UOM Validation › Quantity",
+      "text": "Enter the quantity to be procured. Verify the quantity against the indent requirement before confirming the RMPO.",
+      "locator": "§ Article Details and UOM Validation › Quantity",
+      "kind": "section"
+    },
+    {
+      "title": "UOM",
+      "heading": "Article Details and UOM Validation › UOM",
+      "text": "The PO UOM can be changed where permitted. If the selected PO UOM differs from the indent UOM, the required UOM conversion must be defined in the system.\nImportant: If the required conversion is not defined, the system displays an alert such as “UOM conversion is not defined” and the transaction cannot proceed as expected.",
+      "locator": "§ Article Details and UOM Validation › UOM",
+      "kind": "section"
+    },
+    {
+      "title": "Additional Charges",
+      "heading": "Article Details and UOM Validation › Additional Charges",
+      "text": "Use the Additional Charges section when applicable to the transaction and complete the fields required by your organization's commercial process.",
+      "locator": "§ Article Details and UOM Validation › Additional Charges",
+      "kind": "section"
+    },
+    {
+      "title": "Indent Fulfillment Status",
+      "heading": "Indent Fulfillment Status",
+      "text": "Indent Fulfillment Status is the primary monitoring screen for understanding how indent requirements are being fulfilled. It provides a consolidated view of order, receipt, stock adjustment, reservation and dispatch quantities.\nFigure 2. Indent Fulfillment Status screen.",
+      "locator": "§ Indent Fulfillment Status",
+      "kind": "section"
+    },
+    {
+      "title": "Search",
+      "heading": "Indent Fulfillment Status › Search",
+      "text": "Select the Buyer and, where available, Buyer Department and Season. Click Search to refresh the results.",
+      "locator": "§ Indent Fulfillment Status › Search",
+      "kind": "section"
+    },
+    {
+      "title": "Key Fulfillment Quantities – Table 2",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Columns: Field (text); Meaning (text)\nField | Meaning\nOpen Qty. | Quantity still open against the requirement.\nOrder Qty. | Quantity covered by purchase orders.\nPO GRN Receipt Qty. | Quantity received through GRN against the PO.\nIn-House Stock Adjusted | Quantity fulfilled through in-house stock adjustment.\nUnreserve Qty. | Quantity involved in unreserve transactions.\nDispatched Qty. | Quantity already dispatched.\nPending To Dispatch | Quantity pending dispatch.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: Open Qty.; Meaning: Quantity still open against the requirement.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: Order Qty.; Meaning: Quantity covered by purchase orders.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: PO GRN Receipt Qty.; Meaning: Quantity received through GRN against the PO.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: In-House Stock Adjusted; Meaning: Quantity fulfilled through in-house stock adjustment.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: Unreserve Qty.; Meaning: Quantity involved in unreserve transactions.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: Dispatched Qty.; Meaning: Quantity already dispatched.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Indent Fulfillment Status › Key Fulfillment Quantities",
+      "text": "Field: Pending To Dispatch; Meaning: Quantity pending dispatch.",
+      "locator": "§ Indent Fulfillment Status › Key Fulfillment Quantities, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Open Indent Details",
+      "heading": "Indent Fulfillment Status › Open Indent Details",
+      "text": "Click the Indent Number to open the related indent details. The indent view provides visibility into the requirement and associated sourcing activity.",
+      "locator": "§ Indent Fulfillment Status › Open Indent Details",
+      "kind": "section"
+    },
+    {
+      "title": "Create PO from an Indent",
+      "heading": "Indent Fulfillment Status › Create PO from an Indent",
+      "text": "Where enabled, select the required indent and use Create New PO to start an RMPO directly from the indent context.",
+      "locator": "§ Indent Fulfillment Status › Create PO from an Indent",
+      "kind": "section"
+    },
+    {
+      "title": "Purchase Order Tracking",
+      "heading": "Tracking PO and GRN › Purchase Order Tracking",
+      "text": "When an order exists against an indent, the Order Quantity is shown in the fulfillment view. Selecting the order quantity opens the associated PO information, such as PO Number, PO Created On, Supplier Name, UOM and PO Quantity.",
+      "locator": "§ Tracking PO and GRN › Purchase Order Tracking",
+      "kind": "section"
+    },
+    {
+      "title": "GRN Tracking",
+      "heading": "Tracking PO and GRN › GRN Tracking",
+      "text": "When material is received, GRN information is available against the PO. Selecting the relevant receipt quantity allows the user to review GRN Number, creation date, PO reference and received quantity.",
+      "locator": "§ Tracking PO and GRN › GRN Tracking",
+      "kind": "section"
+    },
+    {
+      "title": "In-House Stock Adjustment",
+      "heading": "In-House Stock Adjustment",
+      "text": "If suitable stock is already available in-house, the indent may be fulfilled through an In-House Adjustment, subject to user permissions and system configuration.\nIf stock is already available system will show indent number in green color as highlighted bellow.",
+      "locator": "§ In-House Stock Adjustment",
+      "kind": "section"
+    },
+    {
+      "title": "Check Stock Availability",
+      "heading": "In-House Stock Adjustment › Check Stock Availability",
+      "text": "Use Show Stock Availability from the indent list/indent context to identify available stock. The availability indicator helps users distinguish requirements for which stock can potentially be used.\nDifferent adjustment option are available by which user can allocate the stock on indent.",
+      "locator": "§ In-House Stock Adjustment › Check Stock Availability",
+      "kind": "section"
+    },
+    {
+      "title": "Make an In-House Adjustment",
+      "heading": "In-House Stock Adjustment › Make an In-House Adjustment",
+      "text": "• Open/select the required indent.\n• Confirm that relevant stock is available.\n• Open In-House Adjustment.\n• Click Search to retrieve matching stock.\n• Review the source details, including GRN and site where displayed.\n• Select the required stock and quantity.\n• Complete the adjustment/reservation.\nFigure 3. Indent List with Show Stock Availability and related actions.",
+      "locator": "§ In-House Stock Adjustment › Make an In-House Adjustment",
+      "kind": "section"
+    },
+    {
+      "title": "In-House Equivalent Stock",
+      "heading": "In-House Equivalent Stock",
+      "text": "When the exact stock is not available, an equivalent-stock option may be available where permitted. For example, the walkthrough demonstrates using equivalent stock when the exact material/color is not available.\n• Open In-House Equivalent.\n• Enter the required transaction details.\n• Review available cartons/stock.\n• Select the applicable stock and quantity.\n• Complete the adjustment according to the configured process.",
+      "locator": "§ In-House Equivalent Stock",
+      "kind": "section"
+    },
+    {
+      "title": "Filter",
+      "heading": "Search, Filter, Sort and Export › Filter",
+      "text": "Use the filter/search controls in the fulfillment or indent list to narrow results by criteria such as Article, Style, Material Type, Program, Division, PBSD Date, Buyer, Category and other available fields.",
+      "locator": "§ Search, Filter, Sort and Export › Filter",
+      "kind": "section"
+    },
+    {
+      "title": "Column Selection and Order",
+      "heading": "Search, Filter, Sort and Export › Column Selection and Order",
+      "text": "Use the column customization controls to show or hide fields. Columns can be moved so that the most useful information appears first.",
+      "locator": "§ Search, Filter, Sort and Export › Column Selection and Order",
+      "kind": "section"
+    },
+    {
+      "title": "Export",
+      "heading": "Search, Filter, Sort and Export › Export",
+      "text": "After applying the required filters, use the grid Export option to download the displayed information. The walkthrough demonstrates export to CSV/Excel for further analysis.\nFigure 4. Indent List with filtering, column controls and export actions.",
+      "locator": "§ Search, Filter, Sort and Export › Export",
+      "kind": "section"
+    },
+    {
+      "title": "Reporting & Analysis",
+      "heading": "Reporting & Analysis",
+      "text": "The Sourcing Module provides reporting and analysis options for sourcing transactions. The walkthrough specifically demonstrates:\n• Indent Report – review indents created in the system.\n• Purchase Order / System Order Report – review purchase orders created in the system.",
+      "locator": "§ Reporting & Analysis",
+      "kind": "section"
+    },
+    {
+      "title": "End-to-End Sourcing Process",
+      "heading": "End-to-End Sourcing Process",
+      "text": "• Review indent requirement.\n• Check existing stock availability.\n• If suitable stock is available, perform the applicable in-house adjustment.\n• If stock is not available, create an RMPO.\n• Select category, supplier, dates, currency and other mandatory details.\n• Enter quantity and verify UOM/conversion.\n• Create/confirm the purchase order.\n• Track PO and GRN receipt quantities.\n• Monitor in-house adjustments, unreserved quantities and dispatch.\n• Use reports/export for operational analysis.",
+      "locator": "§ End-to-End Sourcing Process",
+      "kind": "section"
+    },
+    {
+      "title": "Key Controls and Troubleshooting – Table 3",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Columns: Situation (text); User Action (text)\nSituation | User Action\nUOM conversion alert | Verify that the required conversion between indent UOM and PO UOM is configured.\nNo stock available | In-house adjustment cannot be performed until applicable stock is available.\nIn-house option not visible | Check user permissions and applicable system configuration.\nIndent revised | Use Last Revised On to identify the latest revision date.\nNeed focused results | Apply filters before reviewing or exporting data.\nNeed to trace receipt | Open the PO/GRN quantity to review GRN and received quantity.",
+      "locator": "§ Key Controls and Troubleshooting, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Situation: UOM conversion alert; User Action: Verify that the required conversion between indent UOM and PO UOM is configured.",
+      "locator": "§ Key Controls and Troubleshooting, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Situation: No stock available; User Action: In-house adjustment cannot be performed until applicable stock is available.",
+      "locator": "§ Key Controls and Troubleshooting, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Situation: In-house option not visible; User Action: Check user permissions and applicable system configuration.",
+      "locator": "§ Key Controls and Troubleshooting, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Situation: Indent revised; User Action: Use Last Revised On to identify the latest revision date.",
+      "locator": "§ Key Controls and Troubleshooting, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Situation: Need focused results; User Action: Apply filters before reviewing or exporting data.",
+      "locator": "§ Key Controls and Troubleshooting, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Situation: Need to trace receipt; User Action: Open the PO/GRN quantity to review GRN and received quantity.",
+      "locator": "§ Key Controls and Troubleshooting, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Key Controls and Troubleshooting",
+      "heading": "Key Controls and Troubleshooting",
+      "text": "Note: Screen names, available actions and fields may vary by user role, configuration and module version. Use the options available to your account.",
+      "locator": "§ Key Controls and Troubleshooting",
+      "kind": "section"
+    },
+    {
+      "title": "Quick Reference – Daily Sourcing Checklist",
+      "heading": "Quick Reference – Daily Sourcing Checklist",
+      "text": "• Review assigned/open indents.\n• Check required quantity, UOM and material attributes.\n• Check stock availability.\n• Use in-house adjustment when applicable.\n• Otherwise create/complete RMPO.\n• Verify supplier, dates, currency and quantity.\n• Confirm UOM conversion where required.\n• Track PO and GRN quantities.\n• Monitor dispatch and pending-to-dispatch quantities.\n• Export filtered data or use reports when required.",
+      "locator": "§ Quick Reference – Daily Sourcing Checklist",
+      "kind": "section"
+    }
+  ]
+}

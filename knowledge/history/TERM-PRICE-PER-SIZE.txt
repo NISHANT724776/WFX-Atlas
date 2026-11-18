@@ -1,0 +1,18 @@
+# History of TERM-PRICE-PER-SIZE. Append-only: every superseded or replaced version.
+
+# 2026-11-18T06:22:53.528Z · superseded by v2
+================================================================================
+TERM ID: TERM-PRICE-PER-SIZE
+TERM: Price Per – Size
+DEFINITION: Price Per set to Size: like Color, but upcharges, discounts and fields are handled horizontally.
+TRANSACTION: Apparel Style (Techpack) (apparel-style)
+MODULE: Style & BOM
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Superseded
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+SUPERSEDED BY: v2 on 2026-11-18 (owner-explanation)
+================================================================================
+

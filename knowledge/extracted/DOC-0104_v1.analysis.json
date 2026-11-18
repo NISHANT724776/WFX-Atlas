@@ -1,0 +1,151 @@
+{
+  "tables": [],
+  "subject": "441574 - Airway Bill Update and DBK Posting",
+  "keyTerms": [
+    "bill",
+    "shipping bill",
+    "shipping",
+    "sales asn",
+    "changes",
+    "asn changes",
+    "changes august",
+    "sales",
+    "change",
+    "shipment",
+    "shipment plan",
+    "asn",
+    "multiple",
+    "selected",
+    "august"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 4
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "First is received as initial shipping bill, which is read by BOT and extracts the required from shipping bill.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Extracted data is stored in a table for future use.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "After that final shipping bill is received from ICEGATE which is uploaded to post shipment entry screen.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Shipping Bills are uploaded with reference to Airway Bill.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once data is extracted from the shipping bill, corresponding Invoices in the shipping bill will be validated with Invoices recorded in system.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Once data is extracted from the shipping bill, corresponding Invoices in the shipping bill will be validated with Invoices recorded in system.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Once all invoices are tagged with respective shipping bill, system will validate DBK values between Sales ASN, Initial Shipping Bill (extracted from BOT) and Final Shipping Bill uploaded from above screen.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Once all invoices are tagged with respective shipping bill, system will validate DBK values between Sales ASN, Initial Shipping Bill (extracted from BOT) and Final Shipping Bill uploaded from above screen.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "While confirm, system will validate buyer against uploaded shipping bills.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "This batch is used to prepare bank document.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "While posting, system will validate buyer, currency & Payment term against uploaded shipping bills.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Both of these fields will be Mandatory.",
+      "locator": "§ Sales ASN Changes – 24 August 2026 › Changes 6.1:: Bill to & Ship to on Shipment plan",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "In case of deliveries having multiple Bill to addresses, system will not populate Bill to address and will show error message that multiple Bill to addresses selected in shipment plan.",
+      "locator": "§ Sales ASN Changes – 24 August 2026 › Changes 6.1:: Bill to & Ship to on Shipment plan",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Sales ASN Changes – 11-August 2026 1\nChange 1=>Invoice Type 1\nChange 2=>Logistic Lead 2\nChange 3=>Shipment Type 3\nChange 4=>Forwarder and Clearing House Agent 3\nChange 5: Change in Shipping Info Tab 4\nSales ASN Changes – 12-August 2026 5\nChange 2.1=>Scheme Type 5\nChange 2.2=>Hanger Cost on shipment for Duty drawback calculation 5\nSales ASN Changes – 17 August 2026 6\nChange 3.1=>Changes in Tracking Console 6\nChange 3.2=>Shipment Templates 8\nSales ASN Changes – 18 August 2026 10\nChanges 4.1=> Forward to Custom 10\nSales ASN Changes – 21 August 2026 12",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Changes 5.1::Airway Bill Update and DBK Posting",
+      "heading": "Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "text": "In Shahi, Shipping bill received in two stages.\nFirst is received as initial shipping bill, which is read by BOT and extracts the required from shipping bill. Extracted data is stored in a table for future use.\nAfter that final shipping bill is received from ICEGATE which is uploaded to post shipment entry screen. User can upload multiple shipping bill here.\nShipping Bills are uploaded with reference to Airway Bill. To facilitate the same, there will be a new grid in existing shipping bill functionality as show below. User will enter AWB details in this grid under shipping bills have been received.\nAs mentioned above, Final Shipping Bill will be uploaded from this screen where system will extract required information and group that under the AWB.\nOnce data is extracted from the shipping bill, corresponding Invoices in the shipping bill will be validated with Invoices recorded in system. Selected invoices will be auto selected in SB invoice section as per existing functionality.\nIn case of Invoice extracted from Shipping Bill doesn’t match with existing invoices in WFX. System will through a message as “Invoice XXXX does not exist’.\nOnce all invoices are tagged with respective shipping bill, system will validate DBK values between Sales ASN, Initial Shipping Bill (extracted from BOT) and Final Shipping Bill uploaded from above screen.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "kind": "section"
+    },
+    {
+      "title": "Changes 5.1::Airway Bill Update and DBK Posting",
+      "heading": "Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting",
+      "text": "In case of any difference in DBK amount between three stages, system will highlight the difference in RED as shown below.\nIn case of difference, AWB entry will route for approval based on below user setting where Admin will defined the value. Up to this values system will send trigger approval.\nFor example, if admin has defined difference value as 50 then system will not send this transaction for approval if DBK difference is less than equal to 50.\nOnce approval Shipping Bill entry will be confirmed.\nValidation:\nWhile confirm, system will validate buyer against uploaded shipping bills.\nUpon confirmation, user will be able to do ‘Forward to Post’ using below link “Submit to Account’\nAWB Posting with Multiple Shipping Bill\nUser should be able to post multiple AWB in Finance by selecting multiple AWB from Shipping Bill list. Once posted, system will update a Batch no which will be a sequential number.\nThis batch is used to prepare bank document.\nBatch can also be merged with multiple different batches.\nBatch can also be dismantled.\nValidation:\nWhile posting, system will validate buyer, currency & Payment term against uploaded shipping bills.",
+      "locator": "§ Sales ASN Changes – 21 August 2026 › Changes 5.1::Airway Bill Update and DBK Posting (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Changes 6.1:: Bill to & Ship to on Shipment plan",
+      "heading": "Sales ASN Changes – 24 August 2026 › Changes 6.1:: Bill to & Ship to on Shipment plan",
+      "text": "Need to add Bill to and Ship to in Shipment Plan header. Need to remove destination column. Both of these fields will be Mandatory.\nBill to:\nValues in ‘Bill to’ drop down will be populated based on ‘Bill to’ address selected in Sales Order selected in the Shipment plan. Value in this field will auto populate based on Bill to address selected in the shipment plan deliveries.\nIn case of deliveries having multiple Bill to addresses, system will not populate Bill to address and will show error message that multiple Bill to addresses selected in shipment plan.\nShip to:\nValues in ‘Ship to’ drop down will be populated based on ‘Ship to’ address selected in Sales Order deliveries selected in the Shipment plan.\nSystem will allow multiple values in Ship to drop down and user will select applicable Ship To address. This will be single selection.",
+      "locator": "§ Sales ASN Changes – 24 August 2026 › Changes 6.1:: Bill to & Ship to on Shipment plan",
+      "kind": "section"
+    }
+  ]
+}

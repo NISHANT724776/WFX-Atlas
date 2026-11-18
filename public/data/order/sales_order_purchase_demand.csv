@@ -1,0 +1,4 @@
+﻿level1_qty,purchase_demand,manufacture_qty,final_consumption,material_indent_qty,result
+1000,0,1000,1.5,1500,All manufactured: full material indents
+1000,400,600,1.5,900,"Material indents reduced, style indent for RMPO"
+1000,1000,0,1.5,0,All bought: no material indents

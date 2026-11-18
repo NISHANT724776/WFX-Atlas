@@ -1,0 +1,183 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Description",
+        "Last changed on",
+        "Last Changed By"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Initial Document",
+          "01st March 2026",
+          "Ankit Bajpay"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "365986 - Multiple Supplier Payment Request Voucher",
+  "keyTerms": [
+    "payment request",
+    "payment",
+    "request",
+    "invoices",
+    "multiple",
+    "multiple supplier",
+    "supplier",
+    "request number",
+    "selected invoices",
+    "number",
+    "supplier payment",
+    "single payment",
+    "payment requests",
+    "finance team",
+    "create"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Description, Last changed on, Last Changed By (1 rows)",
+      "locator": "§ … › History, table 1",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Currently, payment requests must be created individually per supplier, which increases manual effort and processing time.",
+      "locator": "§ … › Business Requirement",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this feature is to streamline the payment request process by allowing users to select invoices from multiple suppliers and generate one consolidated payment request number that can be forwarded to the Finance team for payment processing.",
+      "locator": "§ … › Purpose",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Users will be able to select multiple supplier invoices from the invoice list.\n2. Selected invoices may belong to different suppliers.\n3. The system will generate one Payment Request Number covering all selected invoices.\n4. The payment request will then be shared with the Finance team for payment release and tracking",
+      "locator": "§ … › Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Above image is the reference how to consolidate the multiple invoices belongs to various supplier into one payment request.",
+      "locator": "§ … › Solution",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Solution:\n1. Single Payment Request Number based on System Coding.\n2. Reference Number for Payment request\n3. Payment Request date.\n4. Import & Export functionality to create the Payment Request Via Excel import using a template.",
+      "locator": "§ … › Solution",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Selected invoices are linked to the created payment request.",
+      "locator": "§ … › Acceptance Criteria:",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Acceptance Criteria::\n1. Users can select multiple invoices across different suppliers.\n2. System generates a single Payment Request Number for the selected invoices.\n3. Selected invoices are linked to the created payment request.\n4. Finance team can view and process payment requests from the system.\n5. The system prevents duplicate payment requests for the same invoice.\n6. Payment request status can be tracked until payment completion.",
+      "locator": "§ … › Acceptance Criteria:",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "365986 - Multiple Supplier Payment Request Voucher",
+      "heading": "",
+      "text": "Payment Request Management – Allow to create the multiple supplier Payment request\nDevelopment ID: 365986\nPayment Request Management – Allow to create the multiple supplier Payment request\nDevelopment ID: 365986",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "History 2\nBusiness Requirement 2\nPurpose 2\nScope 2\nSolution 2\nCommon Tools & Actions (Across all the platform) 2\nInvoice List – Common Columns 3\nAcceptance Criteria: 6",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "History – Table 1",
+      "heading": "… › History",
+      "text": "Columns: Version (decimal); Description (text); Last changed on (text); Last Changed By (text)\nVersion | Description | Last changed on | Last Changed By\n1.0 | Initial Document | 01st March 2026 | Ankit Bajpay",
+      "locator": "§ … › History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "… › History",
+      "text": "Version: 1.0; Description: Initial Document; Last changed on: 01st March 2026; Last Changed By: Ankit Bajpay",
+      "locator": "§ … › History, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Business Requirement",
+      "text": "The Finance and Merchandising teams require the ability to create a single payment request for multiple suppliers by selecting outstanding invoices from the system. Currently, payment requests must be created individually per supplier, which increases manual effort and processing time.",
+      "locator": "§ … › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "… › Purpose",
+      "text": "The purpose of this feature is to streamline the payment request process by allowing users to select invoices from multiple suppliers and generate one consolidated payment request number that can be forwarded to the Finance team for payment processing.",
+      "locator": "§ … › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "… › Scope",
+      "text": "• Users will be able to select multiple supplier invoices from the invoice list.\n• Selected invoices may belong to different suppliers.\n• The system will generate one Payment Request Number covering all selected invoices.\n• The payment request will then be shared with the Finance team for payment release and tracking",
+      "locator": "§ … › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Solution",
+      "heading": "… › Solution",
+      "text": "The system will introduce a Payment Request Creation option in the invoice management screen with the following functionality:\nAbove image is the reference how to consolidate the multiple invoices belongs to various supplier into one payment request.\n• Single Payment Request Number based on System Coding.\n• Reference Number for Payment request\n• Payment Request date.\n• Import & Export functionality to create the Payment Request Via Excel import using a template.",
+      "locator": "§ … › Solution",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "… › Acceptance Criteria:",
+      "text": "• Users can select multiple invoices across different suppliers.\n• System generates a single Payment Request Number for the selected invoices.\n• Selected invoices are linked to the created payment request.\n• Finance team can view and process payment requests from the system.\n• The system prevents duplicate payment requests for the same invoice.\n• Payment request status can be tracked until payment completion.",
+      "locator": "§ … › Acceptance Criteria:",
+      "kind": "section"
+    }
+  ]
+}

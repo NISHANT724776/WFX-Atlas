@@ -1,0 +1,169 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Bedsheet + Pillow Cover",
+        "SKU 1"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Bedsheet",
+          "SKU 2"
+        ],
+        [
+          "Pillow Cover",
+          "SKU 3"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Bedsheet + Pillow Cover",
+        "SKU 1"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Bedsheet",
+          "SKU 2"
+        ],
+        [
+          "Pillow Cover",
+          "SKU 3"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Program",
+  "keyTerms": [
+    "pillow cover",
+    "cover sku",
+    "sku",
+    "kit",
+    "program",
+    "bedsheet",
+    "pillow",
+    "cover",
+    "kit added",
+    "added",
+    "style",
+    "style kit",
+    "bedsheet pillow",
+    "sku bedsheet",
+    "bedsheet sku"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Bedsheet + Pillow Cover, SKU 1 (2 rows)",
+      "locator": "§ … › Program, table 1",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Bedsheet + Pillow Cover, SKU 1 (2 rows)",
+      "locator": "§ … › Program, table 2",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Program",
+      "heading": "… › Program",
+      "text": "Navigation:\nSales -> Codes -> Program Master\n• When no kit details are added\nThen while creating an OC with Selected Program name then user can itself add on the style details.\n• When Kit details are added:\neven I the Style if not of kit type even then when added in kit details then is makes the packing KIT of that style.",
+      "locator": "§ … › Program",
+      "kind": "section"
+    },
+    {
+      "title": "Program – Table 1",
+      "heading": "… › Program",
+      "text": "Columns: Bedsheet + Pillow Cover (text); SKU 1 (text)\nBedsheet + Pillow Cover | SKU 1\nBedsheet | SKU 2\nPillow Cover | SKU 3",
+      "locator": "§ … › Program, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "… › Program",
+      "text": "Bedsheet + Pillow Cover: Bedsheet; SKU 1: SKU 2",
+      "locator": "§ … › Program, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "… › Program",
+      "text": "Bedsheet + Pillow Cover: Pillow Cover; SKU 1: SKU 3",
+      "locator": "§ … › Program, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Program",
+      "heading": "… › Program",
+      "text": "Kit/Pack",
+      "locator": "§ … › Program",
+      "kind": "section"
+    },
+    {
+      "title": "Program – Table 2",
+      "heading": "… › Program",
+      "text": "Columns: Bedsheet + Pillow Cover (text); SKU 1 (text)\nBedsheet + Pillow Cover | SKU 1\nBedsheet | SKU 2\nPillow Cover | SKU 3",
+      "locator": "§ … › Program, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "… › Program",
+      "text": "Bedsheet + Pillow Cover: Bedsheet; SKU 1: SKU 2",
+      "locator": "§ … › Program, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "… › Program",
+      "text": "Bedsheet + Pillow Cover: Pillow Cover; SKU 1: SKU 3",
+      "locator": "§ … › Program, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Program",
+      "heading": "… › Program",
+      "text": "When user Selects articles then on costsheet the Materials used in these Styles will gets auto – populated from the approved BOM’s of these styles.",
+      "locator": "§ … › Program",
+      "kind": "section"
+    }
+  ]
+}

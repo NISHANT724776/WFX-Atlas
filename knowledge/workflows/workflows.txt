@@ -1,0 +1,425 @@
+# Workflows
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+# STEPS lines: step id | phase | actor (user/system) | title | transaction | screen. PREREQUISITES: step ← required steps.
+
+================================================================================
+WORKFLOW ID: WF-E2E-MATERIAL-FLOW
+WORKFLOW NAME: End-to-end flow: masters to process orders (Flannel Shirt Adi (NIS-58), Adi TShirt (NIS-59))
+DESCRIPTION: Every step the v1 hub documents, in order, across style setup, buyer block booking, procurement, sales order, MRP, adjustment and production.
+PHASES:
+  A Style & BOM setup (A) – example values from Adi TShirt (NIS-59) · live WFX
+  B Buyer Block Booking & material requirement (B) – example values from Flannel Shirt Adi (NIS-58) · Excel trial
+  C Adhoc Indent & procurement (C) – example values from Flannel Shirt Adi (NIS-58) · Excel trial
+  D Sales Order & MRP (D) – example values from Flannel Shirt Adi (NIS-58) · Excel trial
+  E Automatic adjustment (E) – example values from Flannel Shirt Adi (NIS-58) · Excel trial
+  F Buy the gap & produce (F) – example values from Flannel Shirt Adi (NIS-58) · Excel trial
+STEPS:
+  masters | A | user | Masters ready | transaction: masters | screen: Colour card · Size range · UOM
+  rm | A | user | Create material techpacks | transaction: rm-techpack | screen: Fabric N-8 + trims T-1, NS1-1, PP-1
+  style | A | user | Create apparel techpack | transaction: apparel-style | screen: Apparel Adi TShirt (NIS-59)
+  bom | A | user | BOM – Materials | transaction: bom-materials | screen: Production BOM #1 DP · V1
+  routing | A | user | Routing – Processes | transaction: bom-routing | screen: Routing #1 · Approved
+  operations | A | user | Routing – Operations | transaction: bom-routing | screen: Operations tab
+  linkage | A | user | Routing – Material linkage | transaction: bom-routing | screen: Material Linkage tab
+  costing | A | system | BOM – Cost | transaction: bom-costing | screen: Cost tab
+  approve | A | user | Approve the BOM | transaction: bom-materials | screen: BOM status Open → Approved
+  bbb-create | B | user | Create Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  bbb-details | B | user | Add booking details | transaction: buyer-block-booking | screen: Booking line PPJ179.1
+  bbb-article | B | user | Select article | transaction: buyer-block-booking | screen: Booking line › Article
+  bbb-bom | B | user | Select approved BOM | transaction: buyer-block-booking | screen: BOM #1 DP
+  bbb-populate | B | system | Auto-populate materials | transaction: buyer-block-booking | screen: Material Details
+  bbb-materials | B | system | Material requirement | transaction: buyer-block-booking | screen: Material Details
+  bbb-save | B | user | Save Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  gen-indent | C | user | Generate indent requirement | transaction: adhoc-indent | screen: BBB › Generate Indent Requirement
+  adhoc | C | system | System creates Adhoc Indent | transaction: adhoc-indent | screen: Adhoc Indent PPM-000735-001
+  po | C | user | Raise PO | transaction: rmpo | screen: RMPO 1229
+  asn | C | user | Supplier ASN | transaction: grn | screen: ASN against RMPO 1229
+  grn | C | user | GRN – receive | transaction: grn | screen: GRN against RMPO 1229
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  mfg-indent | D | system | Manufacture Indent | transaction: production-indents | screen: PPM-000737-001 · Level 1
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+PREREQUISITES:
+  bom ← style
+  routing ← bom
+  operations ← routing
+  linkage ← operations
+  costing ← bom
+  approve ← costing
+  bbb-details ← bbb-create
+  bbb-article ← bbb-details
+  bbb-bom ← bbb-article
+  bbb-populate ← bbb-bom
+  bbb-materials ← bbb-populate
+  bbb-save ← bbb-create
+  gen-indent ← bbb-save
+  adhoc ← gen-indent
+  po ← adhoc
+  asn ← po
+  grn ← asn
+  oc ← style
+  link ← oc
+  mrp ← oc
+  mfg-indent ← mrp
+  so-indent ← mrp
+  adjust ← so-indent
+  so-updated ← adjust
+  rmpo-gap ← so-indent
+  prod-order ← so-indent
+  fpo ← prod-order
+  fppo ← fpo
+STEP GROUPS:
+  A Masters & techpacks: masters, rm, style
+  A BOM, routing & cost: bom, routing, operations, linkage, costing, approve
+  B Buyer Block Booking: bbb-create, bbb-details, bbb-article, bbb-bom, bbb-populate, bbb-materials, bbb-save
+  C Adhoc indent: gen-indent, adhoc
+  C Purchase & receipt: po, asn, grn
+  D Sales Order: oc, link
+  D MRP & indents: mrp, mfg-indent, so-indent
+  E Adjustment: adjust, so-updated
+  F Buy the gap: rmpo-gap
+  F Production: prod-order, fpo, fppo
+STEP DETAILS:
+  masters: Colours, sizes and units that every techpack and BOM line must use.
+  rm: One techpack per raw material: fabric N-8 and three trims – sewing thread, cufflinks and polybag.
+  style: The Adi TShirt (NIS-59) for GAP Kids, using colour card Nis_colors and size range ERPSIZE.
+  bom: 4 lines: fabric N-8 1.65 KG, thread 2.04 m, cufflinks 2.04, polybag 1 per T-shirt.
+  routing: VCutting → Sewing → VPacking, used for every colour and size.
+  operations: Each operation has a machine, a Cost Of and a production time; together they give the process rate.
+  linkage: Each BOM line is mapped to the process that consumes it.
+  costing: Total cost 25,115.72 against selling price 4,000 less 10 % discount.
+  approve: Adi TShirt (NIS-59) #1 DP moved from Open to Approved; only approved BOMs appear in the block-booking BOM dropdown. Key point: Only approved BOMs are shown in the BBB BOM dropdown.
+  bbb-create: A projection for GAP Kids, season AW26 – before any confirmed order.
+  bbb-details: Booking line PPJ179.1 with 100 per colour/size, delivery date and product group.
+  bbb-article: The article the booking is for. The BOM list is filtered by it.
+  bbb-bom: Pick an approved BOM; "Add From Catalog" is hidden once a BOM is selected. Key point: Add From Catalog is hidden when a BOM is selected.
+  bbb-populate: WFX copies every material of the BOM into the booking. Key point: Units column editability depends on Auto MRP configuration.
+  bbb-materials: Requirement per colour/size = 100 × 1 = 100 KG; total 600 KG. Key point: Requirement % is calculated automatically.
+  bbb-save: Saved: 600 KG of fabric, value 3,000.
+  gen-indent: The user clicks "Generate Indent Requirement" on the booking.
+  adhoc: Adhoc Indent with every BOM material, requirement 600 KG and the BBB reference.
+  po: PO to the supplier for 600 KG at 10 = 6,000. (only after the booking indent reaches PO)
+  asn: Supplier ships 600 KG (advance shipping notice). (only after the booking indent reaches ASN)
+  grn: 600 KG accepted into ACHIEVER CUT STORE, tagged PPJ179. (only after the booking indent reaches GRN)
+  oc: 1,000 pcs by colour × size with BOM #1 DP selected.
+  link: PPJ179/1 is linked while creating the sales order and the order is confirmed.
+  mrp: Level 1: 1,000 pcs to make. Level 2: 1,000 × 1.5 = 1,500 KG to buy.
+  mfg-indent: Asks production to make 1,000 pcs.
+  so-indent: Asks purchasing for 1,500 KG of fabric – before adjustment.
+  adjust: In-House Adjustment of 400 KG at SKU level.
+  so-updated: 1,500 KG − 400 KG adjusted = 1,100 KG still to buy.
+  rmpo-gap: Purchase order only for the 1,100 KG not covered by the booking.
+  prod-order: Decides how much of each colour is released to the factory (Qty %).
+  fpo: 1,000 pcs released; fabric 1,500 KG: 400 KG ready, 1,100 KG open.
+  fppo: Each routing process gets 1,000 pcs to produce.
+DIAGRAM FILES: workflows/end_to_end_flow.mmd (Mermaid), workflows/end_to_end_flow.json (nodes and edges)
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-SCENARIO-DIRECT
+WORKFLOW NAME: Scenario: Order without booking
+DESCRIPTION: Techpack → sales order → MRP → indent → production
+STEPS:
+  style | A | user | Create apparel techpack | transaction: apparel-style | screen: Apparel Adi TShirt (NIS-59)
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+BOOKING STATUS:
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-SCENARIO-DIRECT-BUY
+WORKFLOW NAME: Scenario: Buy everything for the order
+DESCRIPTION: No booking: PO for the full need, then production
+STEPS:
+  style | A | user | Create apparel techpack | transaction: apparel-style | screen: Apparel Adi TShirt (NIS-59)
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+BOOKING STATUS: none
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-SCENARIO-BOOKED-PO
+WORKFLOW NAME: Scenario: Booked, PO raised
+DESCRIPTION: PO exists, nothing shipped or received yet: on-order adjustment
+STEPS:
+  bbb-create | B | user | Create Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  bbb-details | B | user | Add booking details | transaction: buyer-block-booking | screen: Booking line PPJ179.1
+  bbb-article | B | user | Select article | transaction: buyer-block-booking | screen: Booking line › Article
+  bbb-bom | B | user | Select approved BOM | transaction: buyer-block-booking | screen: BOM #1 DP
+  bbb-populate | B | system | Auto-populate materials | transaction: buyer-block-booking | screen: Material Details
+  bbb-materials | B | system | Material requirement | transaction: buyer-block-booking | screen: Material Details
+  bbb-save | B | user | Save Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  gen-indent | C | user | Generate indent requirement | transaction: adhoc-indent | screen: BBB › Generate Indent Requirement
+  adhoc | C | system | System creates Adhoc Indent | transaction: adhoc-indent | screen: Adhoc Indent PPM-000735-001
+  po | C | user | Raise PO | transaction: rmpo | screen: RMPO 1229
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+BOOKING STATUS: po
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-SCENARIO-BOOKED-ASN
+WORKFLOW NAME: Scenario: Booked, supplier shipped (ASN)
+DESCRIPTION: ASN done, no GRN: on-order adjustment from the ASN
+STEPS:
+  bbb-create | B | user | Create Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  bbb-details | B | user | Add booking details | transaction: buyer-block-booking | screen: Booking line PPJ179.1
+  bbb-article | B | user | Select article | transaction: buyer-block-booking | screen: Booking line › Article
+  bbb-bom | B | user | Select approved BOM | transaction: buyer-block-booking | screen: BOM #1 DP
+  bbb-populate | B | system | Auto-populate materials | transaction: buyer-block-booking | screen: Material Details
+  bbb-materials | B | system | Material requirement | transaction: buyer-block-booking | screen: Material Details
+  bbb-save | B | user | Save Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  gen-indent | C | user | Generate indent requirement | transaction: adhoc-indent | screen: BBB › Generate Indent Requirement
+  adhoc | C | system | System creates Adhoc Indent | transaction: adhoc-indent | screen: Adhoc Indent PPM-000735-001
+  po | C | user | Raise PO | transaction: rmpo | screen: RMPO 1229
+  asn | C | user | Supplier ASN | transaction: grn | screen: ASN against RMPO 1229
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+BOOKING STATUS: asn
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-SCENARIO-BOOKED-GRN
+WORKFLOW NAME: Scenario: Booked, fabric received (GRN)
+DESCRIPTION: Stock is in house: in-house adjustment
+STEPS:
+  bbb-create | B | user | Create Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  bbb-details | B | user | Add booking details | transaction: buyer-block-booking | screen: Booking line PPJ179.1
+  bbb-article | B | user | Select article | transaction: buyer-block-booking | screen: Booking line › Article
+  bbb-bom | B | user | Select approved BOM | transaction: buyer-block-booking | screen: BOM #1 DP
+  bbb-populate | B | system | Auto-populate materials | transaction: buyer-block-booking | screen: Material Details
+  bbb-materials | B | system | Material requirement | transaction: buyer-block-booking | screen: Material Details
+  bbb-save | B | user | Save Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  gen-indent | C | user | Generate indent requirement | transaction: adhoc-indent | screen: BBB › Generate Indent Requirement
+  adhoc | C | system | System creates Adhoc Indent | transaction: adhoc-indent | screen: Adhoc Indent PPM-000735-001
+  po | C | user | Raise PO | transaction: rmpo | screen: RMPO 1229
+  asn | C | user | Supplier ASN | transaction: grn | screen: ASN against RMPO 1229
+  grn | C | user | GRN – receive | transaction: grn | screen: GRN against RMPO 1229
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+BOOKING STATUS: grn
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-SCENARIO-STYLE
+WORKFLOW NAME: Scenario: Style setup only
+DESCRIPTION: Techpacks, BOM, routing, cost and approval
+STEPS:
+  masters | A | user | Masters ready | transaction: masters | screen: Colour card · Size range · UOM
+  rm | A | user | Create material techpacks | transaction: rm-techpack | screen: Fabric N-8 + trims T-1, NS1-1, PP-1
+  style | A | user | Create apparel techpack | transaction: apparel-style | screen: Apparel Adi TShirt (NIS-59)
+  bom | A | user | BOM – Materials | transaction: bom-materials | screen: Production BOM #1 DP · V1
+  routing | A | user | Routing – Processes | transaction: bom-routing | screen: Routing #1 · Approved
+  operations | A | user | Routing – Operations | transaction: bom-routing | screen: Operations tab
+  linkage | A | user | Routing – Material linkage | transaction: bom-routing | screen: Material Linkage tab
+  costing | A | system | BOM – Cost | transaction: bom-costing | screen: Cost tab
+  approve | A | user | Approve the BOM | transaction: bom-materials | screen: BOM status Open → Approved
+BOOKING STATUS:
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 workflow (src/app/data/journey.ts), built from the NIS-58 workbook and the owner's explanations.
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-READY-BLOCK-BOOKING
+WORKFLOW NAME: Ready-made: Buyer Block Booking
+DESCRIPTION: Book fabric early, adjust it to the sales order. Buyer Block Booking with BOM → material requirement → system Adhoc Indent → PO / ASN / GRN → link to sales order → automatic On Order or In-House adjustment.
+STEPS:
+  bbb-create | B | user | Create Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  bbb-details | B | user | Add booking details | transaction: buyer-block-booking | screen: Booking line PPJ179.1
+  bbb-article | B | user | Select article | transaction: buyer-block-booking | screen: Booking line › Article
+  bbb-bom | B | user | Select approved BOM | transaction: buyer-block-booking | screen: BOM #1 DP
+  bbb-populate | B | system | Auto-populate materials | transaction: buyer-block-booking | screen: Material Details
+  bbb-materials | B | system | Material requirement | transaction: buyer-block-booking | screen: Material Details
+  bbb-save | B | user | Save Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  gen-indent | C | user | Generate indent requirement | transaction: adhoc-indent | screen: BBB › Generate Indent Requirement
+  adhoc | C | system | System creates Adhoc Indent | transaction: adhoc-indent | screen: Adhoc Indent PPM-000735-001
+  po | C | user | Raise PO | transaction: rmpo | screen: RMPO 1229
+  asn | C | user | Supplier ASN | transaction: grn | screen: ASN against RMPO 1229
+  grn | C | user | GRN – receive | transaction: grn | screen: GRN against RMPO 1229
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  mfg-indent | D | system | Manufacture Indent | transaction: production-indents | screen: PPM-000737-001 · Level 1
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 ready-made workflow (src/app/data/catalog.ts FLOW_INDEX).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-READY-SALES-ORDER
+WORKFLOW NAME: Ready-made: Sales Order to factory
+DESCRIPTION: From buyer order to the factory floor. Sales order → MRP → Manufacture and Sales Order Indents → adjustment from booking stock → PO for the gap → Production Order → FPO and process orders.
+STEPS:
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  mfg-indent | D | system | Manufacture Indent | transaction: production-indents | screen: PPM-000737-001 · Level 1
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 ready-made workflow (src/app/data/catalog.ts FLOW_INDEX).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-READY-STYLE-SETUP
+WORKFLOW NAME: Ready-made: Style setup
+DESCRIPTION: Define the garment once. Masters, fabric and trim techpacks, apparel techpack, BOM materials, routing operations, material linkage, costing and approval – captured live for Adi TShirt (NIS-59).
+STEPS:
+  masters | A | user | Masters ready | transaction: masters | screen: Colour card · Size range · UOM
+  rm | A | user | Create material techpacks | transaction: rm-techpack | screen: Fabric N-8 + trims T-1, NS1-1, PP-1
+  style | A | user | Create apparel techpack | transaction: apparel-style | screen: Apparel Adi TShirt (NIS-59)
+  bom | A | user | BOM – Materials | transaction: bom-materials | screen: Production BOM #1 DP · V1
+  routing | A | user | Routing – Processes | transaction: bom-routing | screen: Routing #1 · Approved
+  operations | A | user | Routing – Operations | transaction: bom-routing | screen: Operations tab
+  linkage | A | user | Routing – Material linkage | transaction: bom-routing | screen: Material Linkage tab
+  costing | A | system | BOM – Cost | transaction: bom-costing | screen: Cost tab
+  approve | A | user | Approve the BOM | transaction: bom-materials | screen: BOM status Open → Approved
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 ready-made workflow (src/app/data/catalog.ts FLOW_INDEX).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-READY-END-TO-END
+WORKFLOW NAME: Ready-made: End to end
+DESCRIPTION: Every step, masters to process orders. The complete Flannel Shirt Adi (NIS-58) journey across style setup, buyer block booking, sales order, adjustment and production.
+STEPS:
+  masters | A | user | Masters ready | transaction: masters | screen: Colour card · Size range · UOM
+  rm | A | user | Create material techpacks | transaction: rm-techpack | screen: Fabric N-8 + trims T-1, NS1-1, PP-1
+  style | A | user | Create apparel techpack | transaction: apparel-style | screen: Apparel Adi TShirt (NIS-59)
+  bom | A | user | BOM – Materials | transaction: bom-materials | screen: Production BOM #1 DP · V1
+  routing | A | user | Routing – Processes | transaction: bom-routing | screen: Routing #1 · Approved
+  operations | A | user | Routing – Operations | transaction: bom-routing | screen: Operations tab
+  linkage | A | user | Routing – Material linkage | transaction: bom-routing | screen: Material Linkage tab
+  costing | A | system | BOM – Cost | transaction: bom-costing | screen: Cost tab
+  approve | A | user | Approve the BOM | transaction: bom-materials | screen: BOM status Open → Approved
+  bbb-create | B | user | Create Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  bbb-details | B | user | Add booking details | transaction: buyer-block-booking | screen: Booking line PPJ179.1
+  bbb-article | B | user | Select article | transaction: buyer-block-booking | screen: Booking line › Article
+  bbb-bom | B | user | Select approved BOM | transaction: buyer-block-booking | screen: BOM #1 DP
+  bbb-populate | B | system | Auto-populate materials | transaction: buyer-block-booking | screen: Material Details
+  bbb-materials | B | system | Material requirement | transaction: buyer-block-booking | screen: Material Details
+  bbb-save | B | user | Save Buyer Block Booking | transaction: buyer-block-booking | screen: BBB PPJ179
+  gen-indent | C | user | Generate indent requirement | transaction: adhoc-indent | screen: BBB › Generate Indent Requirement
+  adhoc | C | system | System creates Adhoc Indent | transaction: adhoc-indent | screen: Adhoc Indent PPM-000735-001
+  po | C | user | Raise PO | transaction: rmpo | screen: RMPO 1229
+  asn | C | user | Supplier ASN | transaction: grn | screen: ASN against RMPO 1229
+  grn | C | user | GRN – receive | transaction: grn | screen: GRN against RMPO 1229
+  oc | D | user | Create Sales Order (OC) | transaction: buyer-po | screen: OC GAPS.NEWOC -249.1
+  link | D | user | Link Buyer Block Booking | transaction: buyer-po | screen: OC › Block Booking No
+  mrp | D | system | MRP runs on confirmation | transaction: mrp | screen: MRP – Style-wise
+  mfg-indent | D | system | Manufacture Indent | transaction: production-indents | screen: PPM-000737-001 · Level 1
+  so-indent | D | system | Sales Order Indent | transaction: production-indents | screen: PPM-000738-001 · Level 2
+  adjust | E | system | Automatic adjustment | transaction: production-indents | screen: Sales Order Indent
+  so-updated | E | system | Sales Order Indent updated | transaction: production-indents | screen: PPM-000738-001
+  rmpo-gap | F | user | PO for the gap | transaction: rmpo | screen: RMPO 1230
+  prod-order | F | user | Production Order | transaction: production-order | screen: PPS12SO/11325
+  fpo | F | user | Factory Production Order | transaction: fpo | screen: PPS12FP0158
+  fppo | F | system | Process orders (FPPO) | transaction: fpo | screen: VCutting · Sewing · VPacking
+PARENT WORKFLOW: WF-E2E-MATERIAL-FLOW
+SOURCE: Knowledge Hub v1 ready-made workflow (src/app/data/catalog.ts FLOW_INDEX).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================
+WORKFLOW ID: WF-TRANSACTION-ORDER
+WORKFLOW NAME: Transaction order (the 15 documented transactions)
+DESCRIPTION: The order in which the v1 hub documents the transactions.
+STEPS:
+  1. Masters – Colour, Size, UOM (masters) – Masters
+  2. Apparel Style (Techpack) (apparel-style) – Product Development
+  3. BOM – Materials & Dependency (bom-materials) – Product Development
+  4. BOM – Routing (bom-routing) – Product Development
+  5. BOM – Costing (bom-costing) – Product Development
+  6. Raw Material Techpack (rm-techpack) – Product Development
+  7. Buyer Block Booking (BBB) (buyer-block-booking) – Pre-booking & Sourcing
+  8. BBB Adhoc Indent (adhoc-indent) – Pre-booking & Sourcing
+  9. RMPO – Raw Material Purchase Order (rmpo) – Pre-booking & Sourcing
+  10. GRN – Goods Receipt Note (grn) – Pre-booking & Sourcing
+  11. Purchase Order from Buyer (OC) (buyer-po) – Order
+  12. MRP – Material Requirement Planning (mrp) – Planning
+  13. Sales Order Indents (MRP) (production-indents) – Planning
+  14. Production Order (production-order) – Production
+  15. FPO & FPPO (fpo) – Production
+SOURCE: Knowledge Hub v1 transaction index (src/app/data/catalog.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-11
+LAST UPDATED: 2026-11-16
+================================================================================

@@ -1,0 +1,328 @@
+# Module: Style & BOM
+# Format: see documentation/ARCHITECTURE.md §4. Generated from the v1 Knowledge Hub on 2026-11-16; edit freely, every change is versioned.
+
+================================================================================
+MODULE ID: MOD-STYLE
+MODULE NAME: Style & BOM
+DESCRIPTION: Techpacks, BOM, routing and cost
+SUBMODULES:
+TRANSACTIONS:
+  Masters – Colour, Size, UOM (masters)
+  Raw Material Techpack (rm-techpack)
+  Apparel Style (Techpack) (apparel-style)
+  BOM – Materials & Dependency (bom-materials)
+  BOM – Routing (bom-routing)
+  BOM – Costing (bom-costing)
+DATA MODEL DOCUMENTS: rm-techpack, apparel, bom-materials, routing-processes, routing-operations, material-linkage, bom-cost, bom-58
+WORKFLOW STEPS: masters, rm, style, bom, routing, operations, linkage, costing, approve
+SOURCE: Knowledge Hub v1 module organisation (src/app/data/modules.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-NEW-BOM-SETUP
+TITLE: What do I set up before running production from the new BOM?
+TOPIC: New BOM setup
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Four things are defined first: the Operation Library, the Operation Time Component, the Operation Cost Template and the Operation Parameter. Together they say which production processes exist, how long they take, what they cost and how efficient they are.
+STEPS:
+  1. Operation Library: add the production processes, then define operations and sub-operations (and machine sub-categories if required).
+  2. Operation Time Component: add time components such as production time, queue time and preparation time.
+  3. Operation Cost Template: add operation costs such as production charges, overhead and dyeing charges, with their cost components.
+  4. Operation Parameter: define efficiency and loss % against the production process, operation and sub-operation.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-OPERATION-LIBRARY
+TITLE: What is the Operation Library?
+TOPIC: Operation library
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: The Operation Library holds the production processes with their operations and sub-operations and, if required, machine sub-categories. Development is under way so that production can later be tracked sub-operation wise.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-OPERATION-TIME-COMPONENT
+TITLE: What is the Operation Time Component?
+TOPIC: Operation time component
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: It lets you add time components to an operation: production time, queue time and preparation time.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-OPERATION-COST-TEMPLATE
+TITLE: What is the Operation Cost Template?
+TOPIC: Operation cost template
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: It lets you add operation costs such as production charges, overhead and dyeing charges, each with its cost components.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-OPERATION-PARAMETER
+TITLE: What is the Operation Parameter?
+TOPIC: Operation parameter
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Against a production process, operation and sub-operation you define efficiency and loss %. You can also define the total quantity produced with respect to the total time, including production time, queue time and others where applicable.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-RECIPE-MANAGEMENT
+TITLE: How is recipe management set up?
+TOPIC: Recipe management
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Recipes describe a dyeing or wet process. You create a recipe group, a recipe category, optionally a light master, and then the recipe itself.
+STEPS:
+  1. Recipe Group: create it for the categories and product group sub-categories (Production > Recipe > Recipe Group).
+  2. Recipe Category: create it so that recipes can be created (Production > Recipe > Recipe Category).
+  3. Light Master (optional): shows which type of light is used in the process (Production > Recipe > Light Master).
+  4. Recipe: create it by adding the total water consumption and the liquid consumption.
+WHERE IN WFX: Production > Recipe
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-RECIPE-TYPE
+TITLE: What are the recipe types Batch and Continuous?
+TOPIC: Recipe type
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Batch is used to send the fabric in one bunch. Continuous is used to send the fabric one by one.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-PICKUP-PERCENT
+TITLE: What is Pickup % in a recipe?
+TOPIC: Pickup percent
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: In the dyeing process, pickup is the percentage of dye that is absorbed by the fabric.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-BOM-VIEWS
+TITLE: What are BOM views and how are they given to users?
+TOPIC: BOM views
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: The new BOM can have several views per user group. In a view you can make fields visible or editable, pin them to the left or right and widen them. The View Configuration screen creates the view templates and assigns permissions.
+STEPS:
+WHERE IN WFX:
+NOTES: Views are given to users from Program Permission. A user can be given several views.
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-NEW-BOM-FROM-TEMPLATE
+TITLE: How do I create a new BOM?
+TOPIC: New BOM from template
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Create the new BOM using a template and define all the fabric and trim articles in it.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-MANUFACTURING-BOM
+TITLE: How do I make a fabric that is produced by a process such as dyeing?
+TOPIC: Manufacturing BOM
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Mark the fabric as Manufacturing and attach a Manufacturing BOM to it. After the total BOM cost is approved, the cost of the processed fabric updates automatically in the Style BOM once the fabric BOM is attached to it.
+STEPS:
+  1. Mark the fabric article as Manufacturing.
+  2. Add a new BOM under the fabric article.
+  3. Define the articles that are to be processed to produce the main fabric article.
+  4. Add a recipe if one is required.
+  5. Approve the total BOM cost; the fabric cost then flows into the Style BOM.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-MRP-WITH-THE-NEW-BOM
+TITLE: How do I run MRP with the new BOM and a manufacturing fabric?
+TOPIC: MRP with the new BOM
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Link the buyer order with the actual order quantity and attach the orders, run MRP, and mark the order quantity as Mark for Purchase or Mark for Production. A second level of MRP generates the recipe articles when a recipe is attached at the second level.
+STEPS:
+  1. Link the buyer order with the actual order quantity and attach the orders.
+  2. Run MRP and mark the order quantity as Mark for Purchase or Mark for Production.
+  3. Run the second level of MRP to generate the recipe articles, if a recipe is attached at the second level.
+  4. Two production orders are created because the fabric has a manufacturing BOM: one against the style and one against the fabric article.
+  5. A PD is also created at material requirement planning, because processes are defined in Material Linkage in both the fabric BOM and the style BOM.
+  6. Define the FPO and FPPOs for both the manufacturing BOM (process order) and the production orders and proceed.
+WHERE IN WFX:
+NOTES: If the required quantity does not come against the recipe article, check that a conversion is defined between the Sample Weight UOM and the article UOM on the recipe.
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-RECIPE-AT-FPPO
+TITLE: Can I add a recipe when creating the FPPO?
+TOPIC: Recipe at FPPO
+MODULE: Style & BOM
+SOURCE DOCUMENT: New BOM, Recipe Management and MRP SOP
+CONTENT: Yes. The recipe can be added at the time of FPPO creation. The articles in the recipe are added to the FPPO, appear in the dispatch instruction list, and an indent is added in the adhoc indent details on the FPPO page.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "New BOM, Recipe Management and MRP SOP" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-AI-TECH-PACK-MAPPING
+TITLE: How do I start AI tech pack mapping for the Classic team?
+TOPIC: AI tech pack mapping
+MODULE: Style & BOM
+SOURCE DOCUMENT: AI Tech Pack Configuration (Classic)
+CONTENT: AI tech pack mapping needs a package per buyer, a package mapping, a one-time mapping on the AI screen and then the PDF upload.
+STEPS:
+  1. Ask the tech team to create a new package per buyer; the tech team creates four packages.
+  2. Do the package configuration on the package configuration screen.
+  3. Do the package mapping for all the packages.
+  4. Do the one-time mapping (OTM) on the AI screen with the uploaded PDF and confirm the setup.
+  5. Upload the tech pack PDF.
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "AI Tech Pack Configuration (Classic)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-AI-TECH-PACK-PACKAGE-CONFIGURATION
+TITLE: What is configured in the AI tech pack package?
+TOPIC: AI tech pack package configuration
+MODULE: Style & BOM
+SOURCE DOCUMENT: AI Tech Pack Configuration (Classic)
+CONTENT: In the package configuration you can give a generic article, which is added in the Auto BOM when the BOM is created. The generic fabric and trim articles must be created before the package configuration so that they can be tagged to the package. Article and purchase officer configuration helps add the article in the BOM, and the article request is assigned to the user who is responsible for confirming the material.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "AI Tech Pack Configuration (Classic)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-AI-TECH-PACK-PACKAGE-MAPPING
+TITLE: What does the package mapping do and can I correct what AI picks?
+TOPIC: AI tech pack package mapping
+MODULE: Style & BOM
+SOURCE DOCUMENT: AI Tech Pack Configuration (Classic)
+CONTENT: The user does the package mapping for all the packages. The mapping has an Editable option, so the user can fill the data manually if the AI does not pick it correctly.
+STEPS:
+WHERE IN WFX:
+NOTES:
+SOURCE: User manual "AI Tech Pack Configuration (Classic)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-AI-TECH-PACK-ONE-TIME-MAPPING
+TITLE: What is the one-time mapping (OTM) for an AI tech pack and what are the PDF limits?
+TOPIC: AI tech pack one-time mapping
+MODULE: Style & BOM
+SOURCE DOCUMENT: AI Tech Pack Configuration (Classic)
+CONTENT: On the AI screen the user selects the tech pack and does the OTM with the uploaded PDF, then confirms the setup.
+STEPS:
+WHERE IN WFX:
+NOTES: The PDF can be at most 10 MB and at most 50 pages, as per the current structure. The upload status is shown on a line on the screen and takes about 3 to 4 minutes depending on the PDF size.
+SOURCE: User manual "AI Tech Pack Configuration (Classic)" supplied by the owner (Downloads), transcribed in Knowledge Hub v1 (src/app/data/manuals.ts).
+VERSION: 1
+STATUS: Active
+CREATED DATE: 2026-11-12
+LAST UPDATED: 2026-11-16
+================================================================================
+PROCEDURE ID: PROC-STYLE-BOM-CREATE-APPAREL-TECHPACK-BOM-ROUTING
+TITLE: How do I create an apparel techpack with its BOM and routing?
+TOPIC: Apparel techpack, BOM and routing
+MODULE: Style & BOM
+SOURCE DOCUMENT: Owner's explanation (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+CONTENT: The owner creates an apparel techpack, then its BOM, then its routing. This is the normal flow, to run without hindrance.
+STEPS:
+  1. Create the Material Type for the Apparel category in setup (done once), then select it from the dropdown of the techpack: the information below it depends on it.
+  2. The Article Code is generated automatically by the system through System Coding. Type the Article Name (manual in this set-up).
+  3. Select the Buyer. The Buyer Department list is filtered to that buyer: select the department. The Division fills in by itself.
+  4. Select the Product Group and the Sub-Category.
+  5. The Purchase UOM is PCS.
+  6. Select the Colour Card and the Size Range that were made in the masters.
+  7. Choose Price Per: Article, Color, Size or Color/Size. It decides how the delivery-level grid of the Sales Order / Purchase Order from Buyer is formed.
+  8. In the BOM the sections come from the cost sheet template (categories such as fabric, trims, yarn, miscellaneous). Define the Purchase UOM and the Cons UOM of each material, add the colours and sizes needed and map them according to the dependency selected.
+  9. On the Routing page of the BOM define the processes (for example cutting, stitching, sewing, packing). For each process define the input item and the output item, the After Process (the first process has none) and the Process Rate.
+  10. Map the raw materials to the processes: the fabric goes through cutting, then the fabric, thread and other items go to sewing, and the final garment with the polybag goes to packing.
+WHERE IN WFX: Product Development › Apparel Techpack, then BOM › Materials and BOM › Routing
+NOTES: Open points: which fields change with each Material Type; where cost sheet templates are defined; whether "stitching" and "sewing" are one process; the size layout of the Color/Size grid. The Process Rate formula is still under review (CALC-ROUTING-PROCESS-RATE). The screen also shows (visual observation, not confirmed behaviour): tabs Techpack, Approvals, Variant, Log, History, BOM, Operation Bulletin and Supplier Costing; buttons Supplier Material Reference, Movement UOM, Buyer Sample Approval, Import BOM, Print QR Code, Save, More and Inventory Setup; and the fields Theme, Fabric/Material, Our Contact, Bypass Material Check On Production GRN, Fabric Article, Minimum and Maximum Qty, Minimum Order Quantity, Buying Price, Season, Buyer Style Ref., Supplier and Supplier Ref., whose behaviour was not described.
+APPROVED BY: owner-explanation on 2026-11-18
+SOURCE: WFX functional owner's explanation in chat on 2026-11-18 (DOC-0181) and the Apparel techpack screen of Adi TShirt (NIS-59) (DOC-0182)
+VERSION: 1
+STATUS: Active
+LAST UPDATED: 2026-11-18
+CREATED DATE: 2026-11-18
+================================================================================

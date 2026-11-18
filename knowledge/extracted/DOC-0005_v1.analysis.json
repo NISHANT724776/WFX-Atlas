@@ -1,0 +1,297 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Activity",
+        "Qty",
+        "Details"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {
+        "Qty": "quantity (unit of the row)"
+      },
+      "identifiers": [
+        "Activity"
+      ],
+      "rows": [
+        [
+          "RMPO Created",
+          "400 Qty",
+          "RMPO generated for 400 units"
+        ],
+        [
+          "GRN Completed",
+          "200 Qty",
+          "Auto Unreserve and then Auto adjust as In House"
+        ],
+        [
+          "In-House Adjustment",
+          "100 Qty (of 200)",
+          "Auto unreserve and Auto adjust as In-House Adjustment"
+        ],
+        [
+          "On-Order Adjustment",
+          "150 Qty (of 250)",
+          "On-order stock Manually adjusted from previous adhoc indent RMPO"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Previous Transaction",
+        "Auto Adjustment in Confirmed Sales Order"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Previous Transaction"
+      ],
+      "rows": [
+        [
+          "RMPO created (200 Qty)",
+          "Auto adjust as On Order"
+        ],
+        [
+          "GRN against RMPO (150 Qty)",
+          "Auto Unreserve and then Auto adjust as In House (currently working)"
+        ],
+        [
+          "In-House Adjustment (150 Qty)",
+          "Auto unreserve and Auto adjust as In-House Adjustment (currently working)"
+        ],
+        [
+          "On-Order Adjustment (200 Qty)",
+          "Auto adjust as On-Order Adjustment"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "BBB New Enhancement (Proj-Reservation-Confirmed)",
+  "keyTerms": [
+    "order",
+    "adjustment",
+    "buyer block",
+    "block booking",
+    "qty",
+    "inhouse",
+    "order adjustment",
+    "rmpo",
+    "auto",
+    "booking",
+    "created",
+    "inhouse adjustment",
+    "buyer",
+    "block",
+    "confirmed"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 64
+    },
+    {
+      "module": "Sales Order",
+      "score": 8
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Buyer Block Booking (BBB)",
+    "RMPO – Raw Material Purchase Order",
+    "GRN – Goods Receipt Note",
+    "BBB Adhoc Indent"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT 1",
+      "locator": "§ BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT › … › … › … › … › Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Created a Buyer Block Booking of Projection type, entered the required booking details, linked the materials associated with the article, and confirmed the Buyer Block Booking",
+      "locator": "§ Solution › Projection Order BBB",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Created an Adhoc Indent against Buyer Block Booking of Projection type to generate the material requirement for procurement.",
+      "locator": "§ Solution › Projection Order BBB",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Step 1: Projection Buyer Block Booking",
+      "locator": "§ Solution › Projection Order BBB",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "formula",
+      "text": "The user creates a Buyer Block Booking (BBB) with Type = Projection for a quantity of 1000.",
+      "locator": "§ Solution › Projection Order BBB",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "An Adhoc Indent of 1000 is generated, and the following transactions are performed:",
+      "locator": "§ Solution › Projection Order BBB",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Projection Order BBB:\n1. RMPO created for 400 Qty\n2. GRN completed against RMPO for 200 Qty\n3. In-House Adjustment done for 100 Qty (out of 200)\n4. On-Order Adjustment done for 150 Qty (out of 250)",
+      "locator": "§ Solution › Projection Order BBB",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Created and confirmed the order by linking the Projection Buyer Block Booking.",
+      "locator": "§ Solution › Confirmed Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The user creates a Confirmed Sales Order for 1000 Qty by linking the Projection Buyer Block Booking.",
+      "locator": "§ Solution › Confirmed Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Activity, Qty, Details (4 rows; identifiers: Activity)",
+      "locator": "§ Solution › Confirmed Order, table 1",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The user creates a Confirmed Sales Order for 1000 Qty by linking the Reservation Buyer Block Booking.",
+      "locator": "§ Solution › Confirmed Order",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Previous Transaction, Auto Adjustment in Confirmed Sales Order (4 rows; identifiers: Previous Transaction)",
+      "locator": "§ Solution › Confirmed Order, table 2",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT › … › … › … › … › Contents",
+      "text": "BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT 1\nScope 3\nPurpose 3\nSolution 3\nProjection Order BBB 3\nConfirmed Order 3",
+      "locator": "§ BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Projection Order BBB",
+      "heading": "Solution › Projection Order BBB",
+      "text": "Created a Buyer Block Booking of Projection type, entered the required booking details, linked the materials associated with the article, and confirmed the Buyer Block Booking\nAdhoc indent\nCreated an Adhoc Indent against Buyer Block Booking of Projection type to generate the material requirement for procurement.\nRMPO\nCreated an RMPO for a quantity of 400 units through the Indent to fulfill the material requirement.\nGRN\nCreated a Goods Receipt Note (GRN) against the RMPO and recorded the receipt of 200 units.\nIn House Adjustment\nAdded 200 units to In House stock through stock correction and allocated 100 units to the Indent through In House Adjustment.\nAdhoc RMPO\nCreated an Adhoc RMPO for 250 units to fulfill the material requirement.\nOn order Adjustment\nAdded 250 units to On Order stock and allocated 150 units to the Indent through On Order Adjustment.\nCurrent Functionality\nStep 1: Projection Buyer Block Booking\nThe user creates a Buyer Block Booking (BBB) with Type = Projection for a quantity of 1000.\nAn Adhoc Indent of 1000 is generated, and the following transactions are performed:\n• RMPO created for 400 Qty\n• GRN completed against RMPO for 200 Qty\n• In-House Adjustment done for 100 Qty (out of 200)\n• On-Order Adjustment done for 150 Qty (out of 250)",
+      "locator": "§ Solution › Projection Order BBB",
+      "kind": "section"
+    },
+    {
+      "title": "Confirmed Order",
+      "heading": "Solution › Confirmed Order",
+      "text": "Created and confirmed the order by linking the Projection Buyer Block Booking.\nAfter confirming the order and generating the MRL, the indent is created, and the remaining quantities from the previously created adhoc indent—100 (in-house) and 200 (GRN)—are adjusted as in-house.\nCurrent Functionality\nThe user creates a Confirmed Sales Order for 1000 Qty by linking the Projection Buyer Block Booking.\nBut no auto adjustments were made except in-house, so we done them manually like this",
+      "locator": "§ Solution › Confirmed Order",
+      "kind": "section"
+    },
+    {
+      "title": "Confirmed Order – Table 1",
+      "heading": "Solution › Confirmed Order",
+      "text": "Columns: Activity (text); Qty (text, quantity (unit of the row)); Details (text)\nActivity | Qty | Details\nRMPO Created | 400 Qty | RMPO generated for 400 units\nGRN Completed | 200 Qty | Auto Unreserve and then Auto adjust as In House\nIn-House Adjustment | 100 Qty (of 200) | Auto unreserve and Auto adjust as In-House Adjustment\nOn-Order Adjustment | 150 Qty (of 250) | On-order stock Manually adjusted from previous adhoc indent RMPO",
+      "locator": "§ Solution › Confirmed Order, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Solution › Confirmed Order",
+      "text": "Activity: RMPO Created; Qty: 400 Qty; Details: RMPO generated for 400 units",
+      "locator": "§ Solution › Confirmed Order, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Solution › Confirmed Order",
+      "text": "Activity: GRN Completed; Qty: 200 Qty; Details: Auto Unreserve and then Auto adjust as In House",
+      "locator": "§ Solution › Confirmed Order, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "Solution › Confirmed Order",
+      "text": "Activity: In-House Adjustment; Qty: 100 Qty (of 200); Details: Auto unreserve and Auto adjust as In-House Adjustment",
+      "locator": "§ Solution › Confirmed Order, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "Solution › Confirmed Order",
+      "text": "Activity: On-Order Adjustment; Qty: 150 Qty (of 250); Details: On-order stock Manually adjusted from previous adhoc indent RMPO",
+      "locator": "§ Solution › Confirmed Order, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Confirmed Order",
+      "heading": "Solution › Confirmed Order",
+      "text": "To-Be Process\nThe user creates a Confirmed Sales Order for 1000 Qty by linking the Reservation Buyer Block Booking.\nThe system shall automatically carry forward the same adjustments to the Confirmed Sales Order as follows:",
+      "locator": "§ Solution › Confirmed Order",
+      "kind": "section"
+    },
+    {
+      "title": "Confirmed Order – Table 2",
+      "heading": "Solution › Confirmed Order",
+      "text": "Columns: Previous Transaction (text); Auto Adjustment in Confirmed Sales Order (text)\nPrevious Transaction | Auto Adjustment in Confirmed Sales Order\nRMPO created (200 Qty) | Auto adjust as On Order\nGRN against RMPO (150 Qty) | Auto Unreserve and then Auto adjust as In House (currently working)\nIn-House Adjustment (150 Qty) | Auto unreserve and Auto adjust as In-House Adjustment (currently working)\nOn-Order Adjustment (200 Qty) | Auto adjust as On-Order Adjustment",
+      "locator": "§ Solution › Confirmed Order, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › Confirmed Order",
+      "text": "Previous Transaction: RMPO created (200 Qty); Auto Adjustment in Confirmed Sales Order: Auto adjust as On Order",
+      "locator": "§ Solution › Confirmed Order, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › Confirmed Order",
+      "text": "Previous Transaction: GRN against RMPO (150 Qty); Auto Adjustment in Confirmed Sales Order: Auto Unreserve and then Auto adjust as In House (currently working)",
+      "locator": "§ Solution › Confirmed Order, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › Confirmed Order",
+      "text": "Previous Transaction: In-House Adjustment (150 Qty); Auto Adjustment in Confirmed Sales Order: Auto unreserve and Auto adjust as In-House Adjustment (currently working)",
+      "locator": "§ Solution › Confirmed Order, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Solution › Confirmed Order",
+      "text": "Previous Transaction: On-Order Adjustment (200 Qty); Auto Adjustment in Confirmed Sales Order: Auto adjust as On-Order Adjustment",
+      "locator": "§ Solution › Confirmed Order, table 2, row 4",
+      "kind": "data_row"
+    }
+  ]
+}

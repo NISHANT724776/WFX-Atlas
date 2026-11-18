@@ -1,0 +1,171 @@
+{
+  "tables": [],
+  "subject": "392551 MSL Functionality and Auto Indent Generation",
+  "keyTerms": [
+    "stock",
+    "qty",
+    "auto",
+    "indent",
+    "minimum stock",
+    "category",
+    "site",
+    "multi",
+    "stock qty",
+    "defined",
+    "auto indent",
+    "minimum",
+    "selected",
+    "reorder qty",
+    "section"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 10
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BBB Adhoc Indent"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "Client requirement is that for General item, they maintain a minimum stock qty for each item.",
+      "locator": "§ Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Which will show the purchase UOM and the UOM where conversion is defined from Purchase UOM.",
+      "locator": "§ MSL Functionality and Auto Indent Generation.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MSL Functionality and Auto Indent Generation.:\n1. In Admin Configurator. We required a menu as “Minimum Stock Level (MSL)”.\n2. When user will open this menu, he will see below option to define the stock level.\n3. Site: - Multi Dropdown. It will show all the sites of the company. It will also have a search in the dropdown and option to select “All Other”\n4. Category: - This will show the category of the articles like: - Apparel, Textiles / Fabric, Trims, Etc. Also, an All-Other option will also be given here.\n5. Product Group: - It will show product groups defined in the system for the selected category. It will have multi section, search and all other option.\n6. Sub Category: - It will show Sub Category defined in the system for the selected category Product Group. It will have multi section, search and all other option.\n7. Article: - It will show Articles Name defined in the system for the selected category Product Group Sub category. It will have multi section, search and all other option.\n8. Colour: - It will show Articles Name defined in the system for the selected category Product Group Sub category Article It will have multi section, search and all other option.\n9. Size: - It will show Articles Name defined in the system for the selected category Product Group Sub category Article It will have multi section, search and all other option.\n10. Minimum Stock Qty: - This will be a numeric value where user will enter the minimum stock value. Should allow decimals as well. The UOM will be auto as the storage UOM defined for that article.\n11. Reorder Qty: - This will be a numeric value where user will enter the Reorder Qty.\n12. Reorder Qty UOM: - This will be dropdown UOM. Which will show the purchase UOM and the UOM where conversion is defined from Purchase UOM.\n13. Now, for above defined matrix, whenever for that article in that particular site, if the stock reaches below that Minimum Stock Qty then system will auto create a Adhoc Indent for that Reorder Qty in Reorder Qty UOM.\n14. For all these adhoc indent the remarks will be: - Auto Indent Generated as Stock Reached below Minimum Qty “[Minimum Stock Qty Defined of the article]’ for Site [Site Name]",
+      "locator": "§ MSL Functionality and Auto Indent Generation.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If Multi Sites are selected in the matrix for an article, then system check the stocks for each site and will create an adhoc indent for each site.",
+      "locator": "§ MSL Functionality and Auto Indent Generation. › Case1: - If Multi Sites are selected in the matrix.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Case1: - If Multi Sites are selected in the matrix.:\n1. If Multi Sites are selected in the matrix for an article, then system check the stocks for each site and will create an adhoc indent for each site.\n2. For Ex: - The matrix is as follows: -\n3. Sites: - General Store A, General Store B\n4. Minimum Stock Qty: - 300\n5. Reorder Qty: - 400\n6. Current Stock in Site A: - 299\n7. Current Stock in Site B: - 301\n8. So, in this case the system will create an adhoc indent for Site A of 400 Qty. and on the next day if the stock qty in site b also goes below 300 then system will again create an adhoc Indent for Site B.",
+      "locator": "§ MSL Functionality and Auto Indent Generation. › Case1: - If Multi Sites are selected in the matrix.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If Multi Articles are selected in the matrix, then system will check the Reorder and Minimum Stock Qty of each indent.",
+      "locator": "§ MSL Functionality and Auto Indent Generation. › Case2: - If Multi Articles are selected in the matrix",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Once when MR is confirmed, system will auto allocate the stock from central warehouse to that MR.",
+      "locator": "§ Auto Stock Adjustment on Store MR Confirmation.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The auto allocation will only work if stock is present in Central warehouse.",
+      "locator": "§ Auto Stock Adjustment on Store MR Confirmation.",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If multi warehouse are marked as Central warehouse and stock is present in Both Warehouse.",
+      "locator": "§ Auto Stock Adjustment on Store MR Confirmation.",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "392551 MSL Functionality and Auto Indent Generation",
+      "heading": "",
+      "text": "Software Requirements Specification\nMSL Functionality and Auto Indent Generation.\n# Issue ID: 392551\nVersion 1.0●05 Jan 2026",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Purpose 3\nBusiness Requirement 3\nAssumptions 3\nFunctional Requirements 4\n1. Delegate Option for Approvals- 4",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "MSL Functionality and Auto Indent Generation.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "Client requirement is that for General item, they maintain a minimum stock qty for each item. Whenever the stock goes below that qty then they expect that system to generate an auto indent for that qty as currently it is done manually.",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Assumptions",
+      "heading": "Assumptions",
+      "text": "• This change will not impact existing functionalities.",
+      "locator": "§ Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "MSL Functionality and Auto Indent Generation.",
+      "heading": "MSL Functionality and Auto Indent Generation.",
+      "text": "• In Admin Configurator. We required a menu as “Minimum Stock Level (MSL)”.\n• When user will open this menu, he will see below option to define the stock level.\n• Site: - Multi Dropdown. It will show all the sites of the company. It will also have a search in the dropdown and option to select “All Other”\n• Category: - This will show the category of the articles like: - Apparel, Textiles / Fabric, Trims, Etc. Also, an All-Other option will also be given here.\n• Product Group: - It will show product groups defined in the system for the selected category. It will have multi section, search and all other option.\n• Sub Category: - It will show Sub Category defined in the system for the selected category Product Group. It will have multi section, search and all other option.\n• Article: - It will show Articles Name defined in the system for the selected category Product Group Sub category. It will have multi section, search and all other option.\n• Colour: - It will show Articles Name defined in the system for the selected category Product Group Sub category Article It will have multi section, search and all other option.\n• Size: - It will show Articles Name defined in the system for the selected category Product Group Sub category Article It will have multi section, search and all other option.",
+      "locator": "§ MSL Functionality and Auto Indent Generation.",
+      "kind": "section"
+    },
+    {
+      "title": "MSL Functionality and Auto Indent Generation.",
+      "heading": "MSL Functionality and Auto Indent Generation.",
+      "text": "• Minimum Stock Qty: - This will be a numeric value where user will enter the minimum stock value. Should allow decimals as well. The UOM will be auto as the storage UOM defined for that article.\n• Reorder Qty: - This will be a numeric value where user will enter the Reorder Qty.\n• Reorder Qty UOM: - This will be dropdown UOM. Which will show the purchase UOM and the UOM where conversion is defined from Purchase UOM.\n• Now, for above defined matrix, whenever for that article in that particular site, if the stock reaches below that Minimum Stock Qty then system will auto create a Adhoc Indent for that Reorder Qty in Reorder Qty UOM.\n• For all these adhoc indent the remarks will be: - Auto Indent Generated as Stock Reached below Minimum Qty “[Minimum Stock Qty Defined of the article]’ for Site [Site Name]",
+      "locator": "§ MSL Functionality and Auto Indent Generation. (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Case1: - If Multi Sites are selected in the matrix.",
+      "heading": "MSL Functionality and Auto Indent Generation. › Case1: - If Multi Sites are selected in the matrix.",
+      "text": "• If Multi Sites are selected in the matrix for an article, then system check the stocks for each site and will create an adhoc indent for each site.\n• For Ex: - The matrix is as follows: -\n• Sites: - General Store A, General Store B\n• Minimum Stock Qty: - 300\n• Reorder Qty: - 400\n• Current Stock in Site A: - 299\n• Current Stock in Site B: - 301\n• So, in this case the system will create an adhoc indent for Site A of 400 Qty. and on the next day if the stock qty in site b also goes below 300 then system will again create an adhoc Indent for Site B.",
+      "locator": "§ MSL Functionality and Auto Indent Generation. › Case1: - If Multi Sites are selected in the matrix.",
+      "kind": "section"
+    },
+    {
+      "title": "Case2: - If Multi Articles are selected in the matrix",
+      "heading": "MSL Functionality and Auto Indent Generation. › Case2: - If Multi Articles are selected in the matrix",
+      "text": "• If Multi Articles are selected in the matrix, then system will check the Reorder and Minimum Stock Qty of each indent.\nNote: - In this screen, we require the Import and export Option as Well Which will contains all options as defined above.\nThe detail log will be maintained for all revisions and addition.",
+      "locator": "§ MSL Functionality and Auto Indent Generation. › Case2: - If Multi Articles are selected in the matrix",
+      "kind": "section"
+    },
+    {
+      "title": "Auto Stock Adjustment on Store MR Confirmation.",
+      "heading": "Auto Stock Adjustment on Store MR Confirmation.",
+      "text": "• Once when MR is confirmed, system will auto allocate the stock from central warehouse to that MR. The auto allocation will only work if stock is present in Central warehouse.\n• If multi warehouse are marked as Central warehouse and stock is present in Both Warehouse. Then system will pick the stock from FIFO bases and will select first warehouse first for auto allocation.",
+      "locator": "§ Auto Stock Adjustment on Store MR Confirmation.",
+      "kind": "section"
+    }
+  ]
+}

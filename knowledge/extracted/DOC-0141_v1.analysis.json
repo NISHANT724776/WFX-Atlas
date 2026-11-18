@@ -1,0 +1,215 @@
+{
+  "tables": [],
+  "subject": "New Approval Center",
+  "keyTerms": [
+    "approval center",
+    "approval",
+    "center",
+    "old approval",
+    "old",
+    "missing",
+    "center approval",
+    "sales order",
+    "document",
+    "order",
+    "missing approval",
+    "columns missing",
+    "multi selection",
+    "selection tiles",
+    "sales"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 14
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 3
+    },
+    {
+      "module": "Style & BOM",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "RMPO – Raw Material Purchase Order",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [],
+  "chunks": [
+    {
+      "title": "Center with the New Approval Center for Sales",
+      "heading": "… › Center with the New Approval Center for Sales",
+      "text": "Order, RMPO, and Cost Sheet approvals . It\nhighlights the improvements in UI/UX, navigation,\napproval efficiency, and user experience\nintroduced in the new system to simplify and\nstreamline the approval process .",
+      "locator": "p. 3, § … › Center with the New Approval Center for Sales",
+      "kind": "section"
+    },
+    {
+      "title": "PPJ Gurgaon công ty ppj trst",
+      "heading": "… › PPJ Gurgaon công ty ppj trst",
+      "text": "Doc ID OC No.levi0305.NEWOC - 6",
+      "locator": "p. 5, § … › PPJ Gurgaon công ty ppj trst",
+      "kind": "section"
+    },
+    {
+      "title": "AbhishekPPJ (Abhishek Banerjee)",
+      "heading": "… › AbhishekPPJ (Abhishek Banerjee)",
+      "text": "Date/Time 10 - 10 - 2025 12:44 Date 10 - 10 - 2025 12:44",
+      "locator": "p. 5, § … › AbhishekPPJ (Abhishek Banerjee)",
+      "kind": "section"
+    },
+    {
+      "title": "Buyer/Supplier",
+      "heading": "… › Buyer/Supplier",
+      "text": "levi0305",
+      "locator": "p. 5, § … › Buyer/Supplier",
+      "kind": "section"
+    },
+    {
+      "title": "Document Reference",
+      "heading": "… › Document Reference",
+      "text": "OC No.levi0305.NEWOC - 6",
+      "locator": "p. 5, § … › Document Reference",
+      "kind": "section"
+    },
+    {
+      "title": "Log Shows Log Approval History",
+      "heading": "… › Log Shows Log Approval History",
+      "text": "5",
+      "locator": "p. 5, § … › Log Shows Log Approval History",
+      "kind": "section"
+    },
+    {
+      "title": "Individual filters are",
+      "heading": "… › Individual filters are",
+      "text": "missing in the New\nApproval Center.\n.",
+      "locator": "p. 15, § … › Individual filters are",
+      "kind": "section"
+    },
+    {
+      "title": "The search option is",
+      "heading": "… › The search option is",
+      "text": "not working\nproperly.",
+      "locator": "p. 15, § … › The search option is",
+      "kind": "section"
+    },
+    {
+      "title": "Example: The",
+      "heading": "… › Example: The",
+      "text": "document type is\n“Purchase Orders\nfrom Buyers,” but\nwhen searching for\nit, it appears under\n“Sales Order”\ninstead.",
+      "locator": "p. 15, § … › Example: The",
+      "kind": "section"
+    },
+    {
+      "title": "Missing",
+      "heading": "… › Missing",
+      "text": "Company, Division,\nand Remarks\ncolumns are missing\nin the New Approval\nCenter.",
+      "locator": "p. 15, § … › Missing",
+      "kind": "section"
+    },
+    {
+      "title": "Multi selection",
+      "heading": "… › Multi selection",
+      "text": "on tiles",
+      "locator": "p. 15, § … › Multi selection",
+      "kind": "section"
+    },
+    {
+      "title": "Multi selection on",
+      "heading": "… › Multi selection on",
+      "text": "tiles is missing",
+      "locator": "p. 15, § … › Multi selection on",
+      "kind": "section"
+    },
+    {
+      "title": "The total number of",
+      "heading": "… › The total number of",
+      "text": "transactions in the",
+      "locator": "p. 15, § … › The total number of",
+      "kind": "section"
+    },
+    {
+      "title": "Old Approval Center",
+      "heading": "… › Old Approval Center",
+      "text": "is 100, whereas in\nthe New Approval",
+      "locator": "p. 15, § … › Old Approval Center",
+      "kind": "section"
+    },
+    {
+      "title": "Center it is 55",
+      "heading": "… › Center it is 55",
+      "text": "15",
+      "locator": "p. 15, § … › Center it is 55",
+      "kind": "section"
+    },
+    {
+      "title": "Individual filters are",
+      "heading": "… › Individual filters are",
+      "text": "missing in the New\nApproval Center.\n.",
+      "locator": "p. 16, § … › Individual filters are",
+      "kind": "section"
+    },
+    {
+      "title": "The search option is",
+      "heading": "… › The search option is",
+      "text": "not working\nproperly.",
+      "locator": "p. 16, § … › The search option is",
+      "kind": "section"
+    },
+    {
+      "title": "Example: The",
+      "heading": "… › Example: The",
+      "text": "document type is\n“Purchase Orders\nfrom Buyers,” but\nwhen searching for\nit, it appears under\n“Sales Order”\ninstead.",
+      "locator": "p. 16, § … › Example: The",
+      "kind": "section"
+    },
+    {
+      "title": "Missing",
+      "heading": "… › Missing",
+      "text": "Company, Division,\nand Remarks\ncolumns are missing\nin the New Approval\nCenter.",
+      "locator": "p. 16, § … › Missing",
+      "kind": "section"
+    },
+    {
+      "title": "Multi selection",
+      "heading": "… › Multi selection",
+      "text": "on tiles",
+      "locator": "p. 16, § … › Multi selection",
+      "kind": "section"
+    },
+    {
+      "title": "Multi selection on",
+      "heading": "… › Multi selection on",
+      "text": "tiles is missing",
+      "locator": "p. 16, § … › Multi selection on",
+      "kind": "section"
+    },
+    {
+      "title": "The total number of",
+      "heading": "… › The total number of",
+      "text": "transactions in the",
+      "locator": "p. 16, § … › The total number of",
+      "kind": "section"
+    },
+    {
+      "title": "Old Approval Center",
+      "heading": "… › Old Approval Center",
+      "text": "is 100, whereas in\nthe New Approval",
+      "locator": "p. 16, § … › Old Approval Center",
+      "kind": "section"
+    },
+    {
+      "title": "Center it is 55",
+      "heading": "… › Center it is 55",
+      "text": "16",
+      "locator": "p. 16, § … › Center it is 55",
+      "kind": "section"
+    }
+  ]
+}

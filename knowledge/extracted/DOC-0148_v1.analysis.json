@@ -1,0 +1,27 @@
+{
+  "tables": [],
+  "subject": "rptStockOverviewNew 15d897c1-4e06-4588-9e8d-52ce7426fd48",
+  "keyTerms": [],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    },
+    {
+      "module": "Sales Order",
+      "score": 0
+    }
+  ],
+  "transactions": [],
+  "candidates": [],
+  "chunks": []
+}

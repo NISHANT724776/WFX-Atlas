@@ -1,0 +1,225 @@
+{
+  "tables": [],
+  "subject": "BBB To Confiremd Order On Order adjustement Dev",
+  "keyTerms": [
+    "indent",
+    "adhoc indent",
+    "order",
+    "adhoc",
+    "rmpo",
+    "buyer block",
+    "block booking",
+    "order adjustment",
+    "confirmed",
+    "confirmed indent",
+    "adjustment",
+    "user",
+    "adjusted",
+    "buyer",
+    "block"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 101
+    },
+    {
+      "module": "Sales Order",
+      "score": 17
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Buyer Block Booking (BBB)",
+    "RMPO – Raw Material Purchase Order",
+    "BBB Adhoc Indent",
+    "Purchase Order from Buyer (OC)",
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "validation",
+      "text": "BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT 1",
+      "locator": "§ BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT › … › … › … › … › Contents",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "This enhancement covers the automatic transfer of On Order Adjustment from the Adhoc Indent created against a Projection Buyer Block Booking (BBB) to the corresponding Confirmed Order (OC) Indent when the same Buyer Block Booking is linked to the Confirmed Order.",
+      "locator": "§ Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "This enhancement covers the automatic transfer of On Order Adjustment from the Adhoc Indent created against a Projection Buyer Block Booking (BBB) to the corresponding Confirmed Order (OC) Indent when the same Buyer Block Booking is linked to the Confirmed Order.",
+      "locator": "§ Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "The purpose of this enhancement is to eliminate the manual On Order Adjustment process when a Projection Buyer Block Booking is converted into a Confirmed Order.",
+      "locator": "§ Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The purpose of this enhancement is to eliminate the manual On Order Adjustment process when a Projection Buyer Block Booking is converted into a Confirmed Order.",
+      "locator": "§ Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The system will automatically carry forward the existing RMPO and Sourcing ASN adjustments from the Adhoc Indent to the Confirmed OC Indent, prevent duplicate or excess procurement by updating the Adhoc Indent's open quantity, and ensure accurate traceability between the Buyer Block Booking, Adhoc Indent, RMPO, Sourcing ASN, and Confirmed OC Indent.",
+      "locator": "§ Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "User creates a Buyer Block Booking (Projection Type).",
+      "locator": "§ Solution › Currently Working As-is",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "User generates an Adhoc Indent from the Buyer Block Booking.",
+      "locator": "§ Solution › Currently Working As-is",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "The RMPO remains linked to the Adhoc Indent.",
+      "locator": "§ Solution › Currently Working As-is",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Later, the user creates a Confirmed Order (OC) and links the same Buyer Block Booking.",
+      "locator": "§ Solution › Currently Working As-is",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Currently Working As-is:\n1. User creates a Buyer Block Booking (Projection Type).\n2. User generates an Adhoc Indent from the Buyer Block Booking.\n3. User creates an RMPO against the Adhoc Indent.\n4. The RMPO remains linked to the Adhoc Indent.\n5. User performs On Order Adjustment manually on the Adhoc Indent using the created RMPO.\n6. Later, the user creates a Confirmed Order (OC) and links the same Buyer Block Booking.\n7. User generates the corresponding OC Indent.\n8. The system does not automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.\n9. The user has to perform On Order Adjustment manually on the Confirmed OC Indent.\n10. If the user creates a Sourcing ASN (e.g., 50 Qty) against the RMPO created for the Adhoc Indent, the ASN is not automatically or manually adjusted against the Confirmed OC Indent.",
+      "locator": "§ Solution › Currently Working As-is",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "User creates a Buyer Block Booking (Projection Type) and generates an Adhoc Indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "When the same Buyer Block Booking is linked to a Confirmed Order (OC) and the corresponding OC Indent is generated, the system shall automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "When the same Buyer Block Booking is linked to a Confirmed Order (OC) and the corresponding OC Indent is generated, the system shall automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "dependency",
+      "text": "When the same Buyer Block Booking is linked to a Confirmed Order (OC) and the corresponding OC Indent is generated, the system shall automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Even if Sourcing ASN is created against the RMPO it will get automatically on order adjusted from PO against the confirmed OC indent without requiring any manual action.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The adjusted RMPO and ASN quantities shall not be available for adjustment against any other indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall maintain proper traceability between the Buyer Block Booking, Adhoc Indent, RMPO, Sourcing ASN, and Confirmed OC Indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "To-be:\n1. User creates a Buyer Block Booking (Projection Type) and generates an Adhoc Indent.\n2. User creates an RMPO (e.g., 1,000 Qty) against the Adhoc Indent.\n3. User performs On Order Adjustment on the Adhoc Indent.\n4. When the same Buyer Block Booking is linked to a Confirmed Order (OC) and the corresponding OC Indent is generated, the system shall automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.\n5. The system shall automatically identify the RMPO already adjusted against the Adhoc Indent.\n6. The system shall automatically adjust the available RMPO quantity against the Confirmed OC Indent.\n7. The adjusted quantity shall be reflected under the On Order Adjustment details of the Confirmed OC Indent.\n8. Even if Sourcing ASN is created against the RMPO it will get automatically on order adjusted from PO against the confirmed OC indent without requiring any manual action.\n9. The Open Quantity of the corresponding Adhoc Indent shall be updated to 0 for the adjusted quantity to prevent over-procurement.\n10. The adjusted RMPO and ASN quantities shall not be available for adjustment against any other indent.\n11. The system shall maintain proper traceability between the Buyer Block Booking, Adhoc Indent, RMPO, Sourcing ASN, and Confirmed OC Indent.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Once auto-allocation is completed, the corresponding log entries should also be updated in the indent Log at On order adjustment.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Consider the scenario where an RMPO is created for 500 units, a GRN is completed for 400 units, and the RMPO is then manually marked as Closed that 400 qty (GRN has been done) will be adjusted as in house, but 100 Qty will not be adjusted as RMPO is cancelled.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Once the user short close or close the RMPO then it cannot be auto adjusted & manual adjusted.",
+      "locator": "§ Solution › To-be",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT › … › … › … › … › Contents",
+      "text": "BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT 1\nScope 3\nPurpose 3\nSolution 3\nCurrently Working As-is 3\nTo-be 3",
+      "locator": "§ BUYER BLOCK BOOKING – ON ORDER ADJUSTMENT › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This enhancement covers the automatic transfer of On Order Adjustment from the Adhoc Indent created against a Projection Buyer Block Booking (BBB) to the corresponding Confirmed Order (OC) Indent when the same Buyer Block Booking is linked to the Confirmed Order. The enhancement also includes the automatic adjustment of the associated RMPO and Sourcing ASN quantities, updating the Adhoc Indent's open quantity, and maintaining end-to-end traceability across the procurement documents.",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The purpose of this enhancement is to eliminate the manual On Order Adjustment process when a Projection Buyer Block Booking is converted into a Confirmed Order. The system will automatically carry forward the existing RMPO and Sourcing ASN adjustments from the Adhoc Indent to the Confirmed OC Indent, prevent duplicate or excess procurement by updating the Adhoc Indent's open quantity, and ensure accurate traceability between the Buyer Block Booking, Adhoc Indent, RMPO, Sourcing ASN, and Confirmed OC Indent.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Currently Working As-is",
+      "heading": "Solution › Currently Working As-is",
+      "text": "• User creates a Buyer Block Booking (Projection Type).\n• User generates an Adhoc Indent from the Buyer Block Booking.\n• User creates an RMPO against the Adhoc Indent.\n• The RMPO remains linked to the Adhoc Indent.\n• User performs On Order Adjustment manually on the Adhoc Indent using the created RMPO.\n• Later, the user creates a Confirmed Order (OC) and links the same Buyer Block Booking.\n• User generates the corresponding OC Indent.\n• The system does not automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.\n• The user has to perform On Order Adjustment manually on the Confirmed OC Indent.\n• If the user creates a Sourcing ASN (e.g., 50 Qty) against the RMPO created for the Adhoc Indent, the ASN is not automatically or manually adjusted against the Confirmed OC Indent.",
+      "locator": "§ Solution › Currently Working As-is",
+      "kind": "section"
+    },
+    {
+      "title": "To-be",
+      "heading": "Solution › To-be",
+      "text": "• User creates a Buyer Block Booking (Projection Type) and generates an Adhoc Indent.\n• User creates an RMPO (e.g., 1,000 Qty) against the Adhoc Indent.\n• User performs On Order Adjustment on the Adhoc Indent.\n• When the same Buyer Block Booking is linked to a Confirmed Order (OC) and the corresponding OC Indent is generated, the system shall automatically transfer the existing On Order Adjustment from the Adhoc Indent to the Confirmed OC Indent.\n• The system shall automatically identify the RMPO already adjusted against the Adhoc Indent.\n• The system shall automatically adjust the available RMPO quantity against the Confirmed OC Indent.\n• The adjusted quantity shall be reflected under the On Order Adjustment details of the Confirmed OC Indent.\n• Even if Sourcing ASN is created against the RMPO it will get automatically on order adjusted from PO against the confirmed OC indent without requiring any manual action.\n• The Open Quantity of the corresponding Adhoc Indent shall be updated to 0 for the adjusted quantity to prevent over-procurement.\n• The adjusted RMPO and ASN quantities shall not be available for adjustment against any other indent.\n• The system shall maintain proper traceability between the Buyer Block Booking, Adhoc Indent, RMPO, Sourcing ASN, and Confirmed OC Indent.\nValidations To be-",
+      "locator": "§ Solution › To-be",
+      "kind": "section"
+    },
+    {
+      "title": "To-be",
+      "heading": "Solution › To-be",
+      "text": "1. After auto-allocation, if the user cancels the RMPO, the automatically adjusted quantity be removed from the indent as well.\n2. Once auto-allocation is completed, the corresponding log entries should also be updated in the indent Log at On order adjustment.\n3. Consider the scenario where an RMPO is created for 500 units, a GRN is completed for 400 units, and the RMPO is then manually marked as Closed that 400 qty (GRN has been done) will be adjusted as in house, but 100 Qty will not be adjusted as RMPO is cancelled.\n4. Once the user short close or close the RMPO then it cannot be auto adjusted & manual adjusted.\n5. created Indent-1 (1000 MTR) and RMPO-1 (1000 MTR). Subsequently, Indent-2 (400 MTR) and Indent-3 (400 MTR) were adjusted through On Order Adjustment, and a GRN of 1000 MTR was created. In the GRN Delivery tab, only Indent-1 be displayed.\nBBB - Projection\nAdhoc Indent of BBB Projection Type\nAnd this indent open Qty should remain as zero. So, to avoid over procurement.\nConfirmed Order\nConfirmed OC indent\nShould get On-order adjusted here. On this indent of Confirmed OC.",
+      "locator": "§ Solution › To-be (part 2)",
+      "kind": "section"
+    }
+  ]
+}

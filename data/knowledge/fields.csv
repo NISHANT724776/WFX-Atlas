@@ -1,0 +1,137 @@
+﻿transaction,field_group,field,type,definition,source_transaction,source_field,calculation_id
+masters,Colour Master,Color Code,key,Unique code of the colour within its colour card.,,,
+masters,Colour Master,Color Name,entered,"Display name shown with the code everywhere, e.g. ""BALSAM TREE (372)"".",,,
+masters,Colour Master,Color Card,entered,The palette the colour belongs to. A style or material can only use colours of its own colour card.,,,
+masters,Size Master,Size Code,key,Unique size code in the size range.,,,
+masters,Size Master,Size Name,entered,Readable size name.,,,
+masters,Size Master,Display Name,calculated,"Size Name + (Size Code), e.g. ""Small S (34S)"".",,,
+masters,UOM Conversion,From UOM / To UOM,entered,Units being converted. Both must exist in the UOM master.,,,
+masters,UOM Conversion,Factor,entered,"How many To-UOM units make one From-UOM unit. 1 KG_Nis = 1,000 meter for N-8.",,,
+apparel-style,Detail,Article Code,key,Style code. Flannel Shirt Adi (NIS-58).,,,
+apparel-style,Detail,Article Name,entered,Flannel Shirt Adi.,,,
+apparel-style,Detail,Buyer / Buyer Department,entered,GAP Kids / Kids-Tops-Knits. Copied to booking and OC.,,,
+apparel-style,Detail,Color Card,entered,Nis_colors – limits which colours the style may use.,,,
+apparel-style,Detail,Size/Width Range,entered,ERPSIZE – limits which sizes the style may use.,,,
+apparel-style,Detail,Purchase UOM,entered,PCS. The UOM the garment is ordered and planned in.,,,
+apparel-style,Detail,Price Per,entered,Color/Size – price can differ by colour and size.,,,
+apparel-style,Detail,Color Definition,entered,Single Colors – each garment colour is one solid colour.,,,
+apparel-style,Base Colour List,Color Code,linked,Colour offered on the style.,masters,Colour Master,
+apparel-style,Base Colour List,Sort Order / In-Active,entered,Display order and whether the colour is blocked for new orders.,,,
+bom-materials,BOM Header,Article Code,linked,Style the BOM belongs to.,apparel-style,Article Code,
+bom-materials,BOM Header,BOM Name / Type / Version,entered,"#1 DP, Production BOM, V1. Together with article they form the BOM ID.",,,
+bom-materials,BOM Header,Order Qty – Expected,entered,"Planning quantity (34,000 PCS) used for costing estimates; does not drive MRP.",,,
+bom-materials,Material line – quantity,Article Code,linked,Raw material used (N-8 Finished_FABRIC).,rm-techpack,Article Code,
+bom-materials,Material line – quantity,Purchase UOM / Cons UOM,entered,"meter / KG_Nis. Bought per meter, consumed per KG_Nis.",,,
+bom-materials,Material line – quantity,Color Dependency / Size Dependency,entered,"""Table"": each style colour/size is mapped individually to a material colour/size.",,,
+bom-materials,Material line – quantity,Total Cons Qty,entered,"Material needed for ""Cons per Item"" garments (3 KG_Nis).",,,
+bom-materials,Material line – quantity,Cons per Item,entered,Number of garments Total Cons Qty covers (2).,,,
+bom-materials,Material line – quantity,Cons Qty,calculated,Net consumption for one garment.,,,bom-cons-qty
+bom-materials,Material line – quantity,Wastage %,entered,Planned cutting/marker wastage.,,,
+bom-materials,Material line – quantity,Loss %,entered,"Process loss (dyeing, finishing, handling). Applied first, as 1 ÷ (1 − Loss %).",,,
+bom-materials,Material line – quantity,Shrinkage %,entered,"Expected shrinkage after wash/finishing. Applied last, as a division by (1 − Shrinkage %).",,,
+bom-materials,Material line – quantity,Cons incl Loss,calculated,Cons Qty × 1 ÷ (1 − Loss %).,,,bom-cons-loss
+bom-materials,Material line – quantity,Cons incl Wastage,calculated,Cons incl Loss plus Wastage % of it.,,,bom-cons-wastage
+bom-materials,Material line – quantity,Cons incl Shrinkage,calculated,Cons incl Wastage ÷ (1 − Shrinkage %).,,,bom-cons-shrinkage
+bom-materials,Material line – quantity,Final Consumption,calculated,"The total consumption per garment, the last figure of the chain, used by MRP and FPO.",,,bom-final-cons
+bom-materials,Material line – price,CSV,entered,Customer Supplied Value – value of material the buyer supplies free of charge.,,,
+bom-materials,Material line – price,Supplier / Currency / Delivery Terms,entered,"GAP Kids_Nis, INR, C & F.",,,
+bom-materials,Material line – price,Purchase Price,entered,Price per Purchase UOM (15 INR per meter).,,,
+bom-materials,Material line – price,Conversion Factor,linked,"Purchase-to-Cons UOM factor (1,000).",masters,UOM Conversion,
+bom-materials,Material line – price,Cons UOM Price,calculated,Price per Cons UOM.,,,bom-cons-uom-price
+bom-materials,Material line – price,Value / Value (CS Curr),calculated,Cost of the line per garment.,,,bom-value
+bom-routing,Processes,Seq / Production Process,entered,Order and name of the process.,,,
+bom-routing,Processes,Output Item,entered,"Semi-finished output (Cut PCS, Sew PCS).",,,
+bom-routing,Processes,After Process,entered,Process that must finish first.,,,
+bom-routing,Processes,After Process Valid?,calculated,Checks the predecessor exists earlier in the routing.,,,routing-after-valid
+bom-routing,Processes,Process Rate,calculated,Cost per piece for the process = Cost Of × Production Time from the Operations tab; summed into Production Cost.,,,routing-process-rate
+bom-routing,Operations,Efficiency %,entered,"Operation efficiency, left at its default (0 %); it does not change the process rate. Target Production Efficiency % is 100 % on the routing.",,,
+bom-routing,Operations,Cost Of,entered,Default cost rate of the sub-operation per unit of production time (3.00 for VCutting).,,,
+bom-routing,Operations,Operation / Sub Operation,entered,"From the operation library (VCutting, Sewing, VPacking).",,,
+bom-routing,Operations,Machine Sub Category,entered,"Machine used (MD Electronics-Laptops, Mobile-Vivo).",,,
+bom-routing,Operations,Loss % / Cost per Qty,entered,Operation loss and fixed cost per qty (0 on Adi TShirt (NIS-59)).,,,
+bom-routing,Operations,Total Time / Production Time,entered,"Time of the operation (100 for VCutting, 5 for Sewing and VPacking).",,,
+bom-routing,Material Linkage,Linked Process,entered,Process that consumes the BOM material.,,,
+bom-routing,Material Linkage,Colors Used / Sizes Used,calculated,"Count of ""Used"" rows in the BOM dependency (3 / 3).",,,
+bom-costing,Cost Summary (per piece),Material Cost,calculated,Sum of section totals.,,,cost-material
+bom-costing,Cost Summary (per piece),Production Cost,calculated,Sum of process rates.,,,cost-production
+bom-costing,Cost Summary (per piece),Recipe / Indirect / CM Costs,entered,Other cost buckets added to the total.,,,
+bom-costing,Cost Summary (per piece),Total Cost,calculated,Full cost per piece.,,,cost-total
+bom-costing,Cost Summary (per piece),Selling Price / Discount %,entered,"Price the apparel is actually sold at (NIS-59: 4,000, locked) and the discount as a % of it (10 % = 400).",,,
+bom-costing,Cost Summary (per piece),Net Selling Price,calculated,Selling price after discount.,,,cost-net-selling
+bom-costing,Cost Summary (per piece),Profit / Profit % / Markup %,calculated,Margin results.,,,cost-profit
+bom-costing,Cost Summary (per piece),Target Profit %,entered,Target margin shown next to Profit (21 %).,,,
+rm-techpack,Detail,Article Code / Name,key,N-8 Finished_FABRIC.,,,
+rm-techpack,Detail,Product Group / Sub-Category,entered,Knitted Fabric / Rib Fabric.,,,
+rm-techpack,Detail,Consumption UOM,entered,KG_Nis – UOM used in BOM consumption.,,,
+rm-techpack,Detail,Purchase UOM / Storage UOM,entered,KG_Nis / KG_Nis.,,,
+rm-techpack,Detail,Secondary UOM Conversion,entered,0 – not maintained (see case).,,,
+rm-techpack,Detail,Material Dependency,entered,ColorSize – demand and stock tracked per colour and size.,,,
+rm-techpack,Detail,Buying Price,entered,15.,,,
+rm-techpack,Detail,MOQ/Rounding Option,entered,Color – MOQ rounding is applied per colour.,,,
+rm-techpack,Detail,Season,entered,Fall 2024.,,,
+buyer-block-booking,Header,Buyer Block Booking Type,entered,Projection.,,,
+buyer-block-booking,Header,Season / Currency,entered,AW26 / INR.,,,
+buyer-block-booking,Header,Total Material Qty / Value,calculated,"Sum of material units (600) and value (3,000).",,,
+buyer-block-booking,Header,Total Material Indented / Balance,calculated,Units indented (600) and still to indent (0).,,,
+buyer-block-booking,Material Details,Units,entered,Quantity booked per colour/size in material UOM.,,,
+buyer-block-booking,Material Details,Rate,entered,Booking rate (5).,,,
+buyer-block-booking,Material Details,Value,calculated,Units × Rate.,,,bbb-material-value
+buyer-block-booking,Material Details,Indented Qty,linked,Pulled back from the adhoc indent.,adhoc-indent,Indent Qty,
+buyer-block-booking,Material Details,Balance to Indent,calculated,Units − Indented Qty.,,,bbb-balance
+adhoc-indent,Indent lines,Booked Units,linked,Quantity booked on the matching booking material line.,buyer-block-booking,Units,
+adhoc-indent,Indent lines,Prev. Indent Qty,calculated,Already indented against the same booking line.,,,
+adhoc-indent,Indent lines,Balance Units,calculated,Booked − previously indented.,,,indent-balance
+adhoc-indent,Indent lines,Indent Qty,entered,Quantity requested now.,,,
+adhoc-indent,Indent lines,Rate,linked,Booking rate (5).,buyer-block-booking,Rate,
+adhoc-indent,Indent lines,Ordered Qty,linked,Quantity placed on POs.,rmpo,Ordered Qty,
+adhoc-indent,Indent lines,Open Qty / Line Status,calculated,Uncovered quantity and status.,,,indent-open
+rmpo,Article detail,Indent Qty / Indent Rate,linked,What the indent requested.,adhoc-indent,Indent Qty,
+rmpo,Article detail,Ordered Qty,entered,Qty placed on the supplier.,,,
+rmpo,Article detail,Additional Qty,entered,Extra over indent (e.g. MOQ rounding).,,,
+rmpo,Article detail,Price per Unit,entered,PO price (10).,,,
+rmpo,Article detail,Total Value / Total Net Value,calculated,Qty × price (+ surcharge).,,,rmpo-value
+rmpo,Article detail,Shipped Qty,linked,Received against the line.,grn,Accepted Qty,
+rmpo,Article detail,Open Qty,calculated,Ordered − shipped.,,,rmpo-open
+rmpo,Article detail,Qty (Storing UOM),calculated,Qty in stock UOM.,,,rmpo-storing-qty
+rmpo,Article detail,Stock Key / Booking No,linked,N-8|colour|size and PPJ179 – the stock lands tagged with the booking.,,,
+grn,GRN Qty,Ordered Qty,linked,PO line qty.,rmpo,Ordered Qty,
+grn,GRN Qty,Prev. Recd. / Returned Qty,entered,Earlier receipts and returns.,,,
+grn,GRN Qty,Balance Qty,calculated,Receivable now.,,,grn-balance
+grn,GRN Qty,Received / Rejected Qty,entered,Physical receipt and QC rejection.,,,
+grn,GRN Qty,Accepted Qty / Value,calculated,Stock-in qty and value.,,,grn-accepted
+grn,GRN Qty,Excess/Short vs Balance,calculated,Over/under receipt.,,,grn-excess
+buyer-po,Delivery OC,Order Type,entered,Confirmed – only confirmed orders drive MRP.,,,
+buyer-po,Delivery OC,BOM,linked,#1 DP – the BOM MRP explodes.,bom-materials,BOM Name,
+buyer-po,Delivery OC,Selling Price / CM Price,entered,33.3333 USD / 0.,,,
+buyer-po,Delivery OC,Fulfillment Type / SubType,entered,Manufacture / Job Work.,,,
+buyer-po,Delivery OC,Block Booking No,linked,Booking the OC consumes.,buyer-block-booking,Block Booking No.,
+buyer-po,Quantity breakup,Qty,entered,Pieces per colour × size.,,,
+buyer-po,Quantity breakup,Total Value,calculated,Qty × (Selling + CM).,,,oc-value
+buyer-po,Quantity breakup,Color/Size used in BOM?,calculated,Check against BOM dependency – an unmapped colour would create no fabric demand.,,,
+mrp,Level 1 – Garment,Actual Requirement,linked,OC qty for the colour/size.,buyer-po,Qty,
+mrp,Level 1 – Garment,MRP % / Loss %,entered,Planning multiplier (1 = 100 %) and loss allowance.,,,
+mrp,Level 1 – Garment,Req Qty,calculated,Planned requirement.,,,mrp-l1-req
+mrp,Level 1 – Garment,Demand Type / Production Qty / Purchase Qty,calculated,Split of requirement into make vs buy.,,,mrp-demand
+mrp,Level 2 – Fabric,Garment Req Qty,linked,Parent requirement.,mrp,Level 1 Req Qty,
+mrp,Level 2 – Fabric,Final Consumption,linked,1.5 KG_Nis per piece.,bom-materials,Final Consumption,
+mrp,Level 2 – Fabric,Actual Requirement / Req Qty,calculated,Fabric needed.,,,mrp-l2-req
+mrp,Level 2 – Fabric,Purchase Qty,calculated,Fabric to buy.,,,mrp-demand
+production-indents,Level 2 indent lines,Indent Qty,linked,Fabric requirement in Cons UOM.,mrp,Level 2 Req Qty,
+production-indents,Level 2 indent lines,Purchase UOM Indent Qty,calculated,Requirement in purchase UOM.,,,pi-purchase-uom
+production-indents,Level 2 indent lines,BBB Stock Available,linked,Booking stock with the same stock key.,grn,Accepted Qty,
+production-indents,Level 2 indent lines,In-house Adj.,calculated,Stock reserved for this indent.,,,pi-inhouse-adj
+production-indents,Level 2 indent lines,Ordered Qty,calculated,Qty sent to RMPO.,,,pi-ordered
+production-indents,Level 2 indent lines,Price,linked,"15,000 per KG_Nis.",bom-materials,Cons UOM Price,pi-price
+production-order,Add Style Quantities – Colour,Qty,linked,OC qty for the colour (sum of sizes).,buyer-po,Qty,
+production-order,Add Style Quantities – Colour,Qty %,entered,Share of the qty released to FPO.,,,
+production-order,Add Style Quantities – Colour,Allocated to FPO,calculated,Qty × Qty %.,,,po-allocated
+fpo,FPO Qty – Colour/Size,Allocated Qty,linked,Qty released per colour/size.,production-order,Allocated to FPO,
+fpo,FPO Qty – Colour/Size,Reduced at FPO,entered,Manual reduction.,,,
+fpo,FPO Qty – Colour/Size,FPO Qty,calculated,Qty in production.,,,fpo-qty
+fpo,FPO Qty – Colour/Size,Fabric Qty Reqd,calculated,FPO qty × final consumption.,,,fpo-fabric
+fpo,Stock FPO Material Allocation,Qty. Reqd.,linked,Fabric needed.,fpo,Fabric Qty Reqd,
+fpo,Stock FPO Material Allocation,Qty. Instructed / Net Qty. Instructed,linked,Stock already reserved.,production-indents,In-house Adj.,
+fpo,Stock FPO Material Allocation,Open Qty.,calculated,Still to arrive.,,,fpo-alloc-open
+fpo,FPPO,Required Qty,linked,"Per process, per colour/size.",fpo,FPO Qty,
+fpo,FPPO,Ordered / Received / Reallocation Qty,entered,Progress against the process.,,,
+fpo,FPPO,Open Qty,calculated,Remaining.,,,fppo-open

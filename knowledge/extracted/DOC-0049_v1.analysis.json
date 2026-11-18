@@ -1,0 +1,282 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Document Attribute",
+        "Information"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Document Attribute"
+      ],
+      "rows": [
+        [
+          "Helpdesk ID:",
+          "255855"
+        ],
+        [
+          "Client:",
+          "Classic Fashion"
+        ],
+        [
+          "Requirement Owner:",
+          "Classic Fashion"
+        ],
+        [
+          "Area & Module",
+          "WFX-Base-Sales>>Purchase order from buyer>>List"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Change No.",
+        "Business Requirement"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.",
+          "In system if we have defined Buyer shipment tolerance as 105% for a Buyer and against the buyer an OC is created. Some of the quantities of OC are shipped then system show OC status as Shipped as it getting status of an OC according to below :\n\nTotal Shipped Qty = Shipped Qty + (Total Qty * Tolerance * 0.01)\n\nIf (Total Ordered Qty – Total Shipped Qty ) > 0 then status of OC will be Part Ship else Shipped."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Change #",
+        "Business Team",
+        "Expected Change",
+        "Impacted Output"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.",
+          "As a Sales user",
+          "if Buyer shipment tolerance is defined for a Buyer and against the buyer an OC is created. Only some of the quantities of OC are shipped then status of OC should be Part shipped only.",
+          "OC status should be shipped if all quantities are shipped and part shipped if partial quantities are shipped"
+        ],
+        [
+          "",
+          "As a Sales user",
+          "Sales>>Purchase order from buyer>>List",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Change#",
+        "Scenario #",
+        "Scenario Details",
+        "Expected Result"
+      ],
+      "types": [
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.",
+          "OC status on OC list",
+          "OC status should be shipped if all quantities are shipped and part shipped if partial quantities are shipped even if buyer shipment tolerance is defined on buyer.",
+          "The order confirmation (OC) status should be marked as \"shipped\" when all quantities have been shipped. Conversely, it should be categorized as \"part shipped\" if only partial quantities are shipped, regardless of any buyer-defined shipment tolerance."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "255855",
+  "keyTerms": [
+    "shipped",
+    "quantities shipped",
+    "buyer",
+    "quantities",
+    "status",
+    "shipment tolerance",
+    "shipped status",
+    "part shipped",
+    "business",
+    "tolerance",
+    "qty",
+    "part",
+    "business requirement",
+    "defined buyer",
+    "buyer shipment"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 17
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Document Attribute, Information (4 rows; identifiers: Document Attribute)",
+      "locator": "§ … › Document Information, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Change No., Business Requirement (1 rows)",
+      "locator": "§ … › Business Requirement, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Change #, Business Team, Expected Change, Impacted Output (2 rows)",
+      "locator": "§ … › User Story, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Change#, Scenario #, Scenario Details, Expected Result (1 rows)",
+      "locator": "§ … › Business Scenario, table 4",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "255855",
+      "heading": "",
+      "text": "Business Requirement Document",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Document Information – Table 1",
+      "heading": "… › Document Information",
+      "text": "Columns: Document Attribute (text); Information (text)\nDocument Attribute | Information\nHelpdesk ID: | 255855\nClient: | Classic Fashion\nRequirement Owner: | Classic Fashion\nArea & Module | WFX-Base-Sales>>Purchase order from buyer>>List",
+      "locator": "§ … › Document Information, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "… › Document Information",
+      "text": "Document Attribute: Helpdesk ID:; Information: 255855",
+      "locator": "§ … › Document Information, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "… › Document Information",
+      "text": "Document Attribute: Client:; Information: Classic Fashion",
+      "locator": "§ … › Document Information, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 3",
+      "heading": "… › Document Information",
+      "text": "Document Attribute: Requirement Owner:; Information: Classic Fashion",
+      "locator": "§ … › Document Information, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 4",
+      "heading": "… › Document Information",
+      "text": "Document Attribute: Area & Module; Information: WFX-Base-Sales>>Purchase order from buyer>>List",
+      "locator": "§ … › Document Information, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Business Requirement – Table 2",
+      "heading": "… › Business Requirement",
+      "text": "Columns: Change No. (text); Business Requirement (text)\nChange No. | Business Requirement\n1. | In system if we have defined Buyer shipment tolerance as 105% for a Buyer and against the buyer an OC is created. Some of the quantities of OC are shipped then system show OC status as Shipped as it getting status of an OC according to below :\n\nTotal Shipped Qty = Shipped Qty + (Total Qty * Tolerance * 0.01)\n\nIf (Total Ordered Qty – Total Shipped Qty ) > 0 then status of OC will be Part Ship else Shipped.",
+      "locator": "§ … › Business Requirement, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "… › Business Requirement",
+      "text": "Change No.: 1.; Business Requirement: In system if we have defined Buyer shipment tolerance as 105% for a Buyer and against the buyer an OC is created. Some of the quantities of OC are shipped then system show OC status as Shipped as it getting status of an OC according to below :\n\nTotal Shipped Qty = Shipped Qty + (Total Qty * Tolerance * 0.01)\n\nIf (Total Ordered Qty – Total Shipped Qty ) > 0 then status of OC will be Part Ship else Shipped.",
+      "locator": "§ … › Business Requirement, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "User Story – Table 3",
+      "heading": "… › User Story",
+      "text": "Columns: Change # (text); Business Team (text); Expected Change (text); Impacted Output (text)\nChange # | Business Team | Expected Change | Impacted Output\n1. | As a Sales user | if Buyer shipment tolerance is defined for a Buyer and against the buyer an OC is created. Only some of the quantities of OC are shipped then status of OC should be Part shipped only. | OC status should be shipped if all quantities are shipped and part shipped if partial quantities are shipped\n | As a Sales user | Sales>>Purchase order from buyer>>List | ",
+      "locator": "§ … › User Story, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "… › User Story",
+      "text": "Change #: 1.; Business Team: As a Sales user; Expected Change: if Buyer shipment tolerance is defined for a Buyer and against the buyer an OC is created. Only some of the quantities of OC are shipped then status of OC should be Part shipped only.; Impacted Output: OC status should be shipped if all quantities are shipped and part shipped if partial quantities are shipped",
+      "locator": "§ … › User Story, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "… › User Story",
+      "text": "Business Team: As a Sales user; Expected Change: Sales>>Purchase order from buyer>>List",
+      "locator": "§ … › User Story, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Business Scenario – Table 4",
+      "heading": "… › Business Scenario",
+      "text": "Columns: Change# (text); Scenario # (text); Scenario Details (text); Expected Result (text)\nChange# | Scenario # | Scenario Details | Expected Result\n1. | OC status on OC list | OC status should be shipped if all quantities are shipped and part shipped if partial quantities are shipped even if buyer shipment tolerance is defined on buyer. | The order confirmation (OC) status should be marked as \"shipped\" when all quantities have been shipped. Conversely, it should be categorized as \"part shipped\" if only partial quantities are shipped, regardless of any buyer-defined shipment tolerance.",
+      "locator": "§ … › Business Scenario, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "… › Business Scenario",
+      "text": "Change#: 1.; Scenario #: OC status on OC list; Scenario Details: OC status should be shipped if all quantities are shipped and part shipped if partial quantities are shipped even if buyer shipment tolerance is defined on buyer.; Expected Result: The order confirmation (OC) status should be marked as \"shipped\" when all quantities have been shipped. Conversely, it should be categorized as \"part shipped\" if only partial quantities are shipped, regardless of any buyer-defined shipment tolerance.",
+      "locator": "§ … › Business Scenario, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Assumption (If Any)",
+      "heading": "… › Assumption (If Any)",
+      "text": "Effected DM’s / SP’s",
+      "locator": "§ … › Assumption (If Any)",
+      "kind": "section"
+    }
+  ]
+}

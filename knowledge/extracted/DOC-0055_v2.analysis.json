@@ -1,0 +1,539 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Column 1",
+        "Buyer_vi",
+        "Style_vi",
+        "OC No./Buyer Order Ref._vi",
+        "Contract No._vi",
+        "Contract",
+        "Contract",
+        "Market_vi"
+      ],
+      "types": [
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "text",
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "Amount_vi",
+          "Balance Amount_vi",
+          ""
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Destination_vi",
+        "Delivery Order",
+        "Delivery",
+        "Delivery Term",
+        "Ship To",
+        "OC Qty._vi",
+        "Prev.",
+        "Current"
+      ],
+      "types": [
+        "empty",
+        "text",
+        "text",
+        "text",
+        "text",
+        "empty",
+        "text",
+        "text"
+      ],
+      "units": {
+        "OC Qty._vi": "quantity (unit of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "Ref_vi",
+          "Date_vi",
+          "Type_vi",
+          "Address_vi",
+          "",
+          "Shipped Qty_vi",
+          "Ship Qty_vi"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Currency_vi",
+        "Del OC",
+        "OC Value_vi"
+      ],
+      "types": [
+        "empty",
+        "text",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "Currency_vi",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "279362-Advance Incentive Handling",
+  "keyTerms": [
+    "shipment plan",
+    "shipment",
+    "plan",
+    "asn",
+    "created",
+    "level",
+    "grid",
+    "column",
+    "sales",
+    "user",
+    "confirmed",
+    "plan list",
+    "list",
+    "filter",
+    "sales asn"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 7
+    },
+    {
+      "module": "Production",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "definition",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Section 1: Overview › Purpose",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The Scope of these specs is to enhance the below screens:-",
+      "locator": "§ Section 1: Overview › Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Sales invoice\n2. Export Incentive\n3. Duty Script movement",
+      "locator": "§ Section 1: Overview › Scope",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If any changes are made to the shipment plan, the system will trigger an email alert to the respective authorized personnel, which will act as an approval mechanism for revising either the shipment plan, PSN or the ASN.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shahi Business Requirements",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Type: Dropdown (Mandatory) - Article",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Header Section",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Type: Dropdown (Mandatory)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Header Section",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header Section:\n1. Shipment Plan For\n2. Type: Dropdown (Mandatory) - Article\n3. Values: Configurable (same as ASN screen)\n4. Buyer\n5. Type: Dropdown (Mandatory)\n6. Source: Buyer master data\n7. Destination\n8. Type: Dropdown (Mandatory)\n9. Source: Predefined destination list / country master",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Header Section",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Action Buttons:\n1. Import\n2. First User export the excel to get desired Excel format, add on the necessary details.\n3. Then click on import and add that excel file.\n4. Now the data filled in excel gets auto-populated and in editable mode.\n5. Export\n6. User Import the format from the Shipment Plan screen consisting of all the text fields present on the screen.\n7. And will contains every single data in a excel format.\n8. Add\n9. Add functionality will open a pop-up of Select Order list with same functionality as currently in Sales ASN.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Column 1, Buyer_vi, Style_vi, OC No./Buyer Order Ref._vi, Contract No._vi, Contract, Contract, Market_vi (1 rows)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Destination_vi, Delivery Order, Delivery, Delivery Term, Ship To, OC Qty._vi, Prev., Current (1 rows)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Currency_vi, Del OC, OC Value_vi (1 rows)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 3",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Action Buttons:\n1. Delete\n2. Deletes selected row(s) from grid\n3. Multi-select supported",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Order Details Grid:\n1. Displays shipment line items\n2. Supports:\n3. Row selection\n4. Inline editing\n5. Bulk actions (Delete)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Order Details Grid",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Mandatory: Yes",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Cannot be empty",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Must be greater than 0",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Cannot exceed Ordered Qty (if applicable) – it should consider the shipment tolerance.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Editable Fields:\n1. Type: Numeric Input\n2. Mandatory: Yes\n3. Validation:\n4. Cannot be empty\n5. Must be greater than 0\n6. Cannot exceed Ordered Qty (if applicable) – it should consider the shipment tolerance.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Header Level Features:\n1. A search bar will be provided to allow users to search shipment plans using Shipment Plan Number.\n2. A master checkbox will be available on the header.\n3. When selected → all grid-level checkboxes will automatically be selected.\n4. When unselected → all grid-level checkboxes will be deselected.\n5. A header-level context menu will be available with the following options:\n6. Cancel\n7. Update Price\n8. Update Sustainability\n9. These actions will apply to all selected shipment plans (based on checkbox selection).",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Header Level Features",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Grid Level Features::\n1. A row-level checkbox for individual selection.\n2. A context menu with the following options:\n3. Log\n4. Revise\n5. Revision Log",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Grid Level Features:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Actions here are specific to the selected row only.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Grid Level Features:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "“Revise” will follow business rules (e.g., not allowed if locked / booking applied).",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Grid Level Features:",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Column-Level Filters (Inline Filters):\n1. Each column header will have:\n2. Input field / dropdown filter\n3. Filter icon for advanced filtering\n4. Users can filter data column-wise independently (e.g., Buyer, Status, GDN No., etc.)\n5. Filters will work in combination (multi-column filtering supported).",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Column-Level Filters (Inline Filters)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Sidebar Filter (Advanced Filter Panel):\n1. A right-side collapsible filter panel will be available.\n2. This panel will include all grid fields as filter options:\n3. Status\n4. Shipment Plan No.\n5. Buyer Company\n6. End Customer\n7. GDN No.\n8. Contract No.\n9. Invoice No.\n10. Allows advanced filtering with multiple fields at once\n11. Works in sync with:\n12. Column filters\n13. Search bar",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Sidebar Filter (Advanced Filter Panel)",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The statuses are defined as follows:",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Status",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Status:\n1. Saved: Indicates that the shipment plan is in draft state and has been saved but not yet confirmed.\n2. Confirmed: Indicates that the shipment plan has been finalized and the transaction is confirmed.\n3. Closed: Indicates that the ASN (Advanced Shipment Notice) has been successfully created against the shipment plan.\n4. Booked: Indicates that the PSN Invoice has been generated for the shipment plan, confirming booking completion.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Status",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Progress Column:\n1. PSN Created\nIndicates that the PSN (Packing Slip Note) / Invoice has been generated for the shipment plan.\n2. ASN Created\nIndicates that the ASN (Advanced Shipment Notice) has been created against the shipment plan.\n3. Sent to Finance\nIndicates that the shipment details/documents have been sent to Factory/Finance Authority (FA) for further processing.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Progress Column",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "Revision of Shipment will be blocked if ASN is created in confirmed mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Progress Column",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "Revision of Shipment will be blocked if ASN is created in confirmed mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Progress Column",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "In case ASN is in Saved mode, then user will be able to revise Shipment Plan.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Progress Column",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "279362-Advance Incentive Handling",
+      "heading": "",
+      "text": "Software Requirements Specification\nADVANCE INCENTIVE HANDELLING\nVersion 1.0 ● 279362\n30 Jan 2025",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "Section 1: Overview 3\nPurpose 3\nBusiness Requirement 3\nScope 3\nSection 2. Assumptions 4\nSection 3. Functional Requirement Description 5\nEXPORT LOGISTICS MANAGEMENT 5\nMeeting Points: 5\nSolution=> Shipment Plan 5\nShahi Business Requirements 5\nShipment Plan Screen: 5\nNavigation 5\nHeader Section 5\nAction Buttons 5\nOrder Details Grid 5\nEditable Fields 5\nShipment Plan List 5\nHeader Level Features 5\nGrid Level Features: 5\nColumn-Level Filters (Inline Filters) 5\nSidebar Filter (Advanced Filter Panel) 5\nStatus 5",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Section 1: Overview › Purpose",
+      "text": "The purpose of this document is to bring reliability in the UI specifically with Advance Export incentive handling.",
+      "locator": "§ Section 1: Overview › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Section 1: Overview › Business Requirement",
+      "text": "Certainly, in order to make the UI more interactive and efficient with regards to Advance Export Incentive handling.",
+      "locator": "§ Section 1: Overview › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Section 1: Overview › Scope",
+      "text": "The Scope of these specs is to enhance the below screens:-\n• Sales invoice\n• Export Incentive\n• Duty Script movement",
+      "locator": "§ Section 1: Overview › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Section 2. Assumptions",
+      "heading": "Section 2. Assumptions",
+      "text": "• No Assumptions",
+      "locator": "§ Section 2. Assumptions",
+      "kind": "section"
+    },
+    {
+      "title": "EXPORT LOGISTICS MANAGEMENT",
+      "heading": "EXPORT LOGISTICS MANAGEMENT",
+      "text": "Screen 02– Shipment Plan",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT",
+      "kind": "section"
+    },
+    {
+      "title": "Meeting Points:",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Meeting Points:",
+      "text": "Buyer orders will be created in WFX\nShipment Plan will be created in WFX consisting of Sales Order Lines where shipment is due/ planned.\nShipment plan will be created on Customer PO (WFX delivery OC) level\nMultiple OCs can be clubbed under one shipment plan\nPre-Shipment Sales Invoice (PSN) will be created based on shipment Plan created in previous stage.\nShipment plan list screen will have multiple status update will be provided (PSN created, ASN Created , Sent to FA, etc.)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Meeting Points:",
+      "kind": "section"
+    },
+    {
+      "title": "Solution=> Shipment Plan",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Solution=> Shipment Plan",
+      "text": "Shipment plan will be created by selecting multiple delivery OCs as per user requirement:",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Solution=> Shipment Plan",
+      "kind": "section"
+    },
+    {
+      "title": "Shahi Business Requirements",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shahi Business Requirements",
+      "text": "The sales/ Production team will create a shipment plan that can include multiple deliveries and multiple destinations, grouped under a primary destination which will auto-populate in the Pre-Shipment Export Invoice/ Sales ASN but can be modified by the logistics team during ASN creation, where only a single destination will be selected. Multiple ASNs can be created under a single shipment plan. The shipment plan remains editable by the factory until the ASN is in the creation stage; however, once the Pre-Booking is done and ASN is completed, the shipment plan becomes locked. If any changes are made to the shipment plan, the system will trigger an email alert to the respective authorized personnel, which will act as an approval mechanism for revising either the shipment plan, PSN or the ASN. Upon such changes, the PSN/ ASN quantity will be updated based on the shipment plan (for example, reducing order quantity from 100 to 80). In the Sales ASN confirmed mode, a checkbox labeled “Applied for Booking” will be introduced; once selected, neither the shipment plan, PSN or ASN can be revised. This checkbox can only be unchecked by an authorized user based on existing permission controls, after which revisions to both ASN and shipment plan will be allowed. Additionally, once the shipment is confirmed and an e-way bill is generated, the ASN can be recreated only by cancelling the tax invoice and generating a new ASN with the existing data but a new ASN number, specifically in cases where shipment execution fails or requires correction. The shipment plan will also include a shipment tolerance percentage driven from the Buyer Master, which can vary across different Shahi divisions.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shahi Business Requirements",
+      "kind": "section"
+    },
+    {
+      "title": "Shahi Business Requirements",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shahi Business Requirements",
+      "text": "**During plan user can take multiple destinations but will have one destination as group. Same will be auto populate in Sales ASN However it can be changed as per requirement.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shahi Business Requirements (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Plan Screen:",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen:",
+      "text": "Permissions will be introduced for both Creation and List screens to control access and actions based on user roles.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen:",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Navigation",
+      "text": "• User clicks “+ New” button on Shipment Plan List\n• System opens Shipment Plan Creation Screen",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Header Section",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Header Section",
+      "text": "Fields (Dropdowns)\nThe following dropdown fields will be available:\n• Shipment Plan For\n• Type: Dropdown (Mandatory) - Article\n• Values: Configurable (same as ASN screen)\n• Buyer\n• Type: Dropdown (Mandatory)\n• Source: Buyer master data\n• Destination\n• Type: Dropdown (Mandatory)\n• Source: Predefined destination list / country master",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Header Section",
+      "kind": "section"
+    },
+    {
+      "title": "Action Buttons",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "The following actions will be available on the screen:\n• Import\n• First User export the excel to get desired Excel format, add on the necessary details.\n• Then click on import and add that excel file.\n• Now the data filled in excel gets auto-populated and in editable mode.\n• Export\n• User Import the format from the Shipment Plan screen consisting of all the text fields present on the screen.\n• And will contains every single data in a excel format.\n• Add\n• Add functionality will open a pop-up of Select Order list with same functionality as currently in Sales ASN.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "kind": "section"
+    },
+    {
+      "title": "Action Buttons – Table 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "Columns: Column 1 (empty); Buyer_vi (empty); Style_vi (empty); OC No./Buyer Order Ref._vi (empty); Contract No._vi (empty); Contract (text); Contract (text); Market_vi (empty)\nColumn 1 | Buyer_vi | Style_vi | OC No./Buyer Order Ref._vi | Contract No._vi | Contract | Contract | Market_vi\n |  |  |  |  | Amount_vi | Balance Amount_vi | ",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "Contract: Amount_vi; Contract: Balance Amount_vi",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Action Buttons – Table 2",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "Columns: Destination_vi (empty); Delivery Order (text); Delivery (text); Delivery Term (text); Ship To (text); OC Qty._vi (empty, quantity (unit of the row)); Prev. (text); Current (text)\nDestination_vi | Delivery Order | Delivery | Delivery Term | Ship To | OC Qty._vi | Prev. | Current\n | Ref_vi | Date_vi | Type_vi | Address_vi |  | Shipped Qty_vi | Ship Qty_vi",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "Delivery Order: Ref_vi; Delivery: Date_vi; Delivery Term: Type_vi; Ship To: Address_vi; Prev.: Shipped Qty_vi; Current: Ship Qty_vi",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Action Buttons – Table 3",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "Columns: Currency_vi (empty); Del OC (text); OC Value_vi (empty)\nCurrency_vi | Del OC | OC Value_vi\n | Currency_vi | ",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "Del OC: Currency_vi",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Action Buttons",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "text": "• Delete\n• Deletes selected row(s) from grid\n• Multi-select supported",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Action Buttons",
+      "kind": "section"
+    },
+    {
+      "title": "Order Details Grid",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Order Details Grid",
+      "text": "Grid Behavior\n• Displays shipment line items\n• Supports:\n• Row selection\n• Inline editing\n• Bulk actions (Delete)",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Order Details Grid",
+      "kind": "section"
+    },
+    {
+      "title": "Editable Fields",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "text": "Shipment Qty\n• Type: Numeric Input\n• Mandatory: Yes\n• Validation:\n• Cannot be empty\n• Must be greater than 0\n• Cannot exceed Ordered Qty (if applicable) – it should consider the shipment tolerance.\nFunction and controls should work as stated in business requirements above.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan Screen: › Editable Fields",
+      "kind": "section"
+    },
+    {
+      "title": "Header Level Features",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Header Level Features",
+      "text": "At the header level, the following functionalities will be available:\n• A search bar will be provided to allow users to search shipment plans using Shipment Plan Number.\n• A master checkbox will be available on the header.\n• When selected → all grid-level checkboxes will automatically be selected.\n• When unselected → all grid-level checkboxes will be deselected.\n• A header-level context menu will be available with the following options:\n• Cancel\n• Update Price\n• Update Sustainability\n• These actions will apply to all selected shipment plans (based on checkbox selection).",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Header Level Features",
+      "kind": "section"
+    },
+    {
+      "title": "Grid Level Features:",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Grid Level Features:",
+      "text": "Each row in the Shipment Plan grid will have:\n• A row-level checkbox for individual selection.\n• A context menu with the following options:\n• Log\n• Revise\n• Revision Log\nBehaviour:\n• Actions here are specific to the selected row only.\n• “Revise” will follow business rules (e.g., not allowed if locked / booking applied).",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Grid Level Features:",
+      "kind": "section"
+    },
+    {
+      "title": "Column-Level Filters (Inline Filters)",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Column-Level Filters (Inline Filters)",
+      "text": "• Each column header will have:\n• Input field / dropdown filter\n• Filter icon for advanced filtering\n• Users can filter data column-wise independently (e.g., Buyer, Status, GDN No., etc.)\n• Filters will work in combination (multi-column filtering supported).",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Column-Level Filters (Inline Filters)",
+      "kind": "section"
+    },
+    {
+      "title": "Sidebar Filter (Advanced Filter Panel)",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Sidebar Filter (Advanced Filter Panel)",
+      "text": "• A right-side collapsible filter panel will be available.\n• This panel will include all grid fields as filter options:\n• Status\n• Shipment Plan No.\n• Buyer Company\n• End Customer\n• GDN No.\n• Contract No.\n• Invoice No.\n• Allows advanced filtering with multiple fields at once\n• Works in sync with:\n• Column filters\n• Search bar",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Sidebar Filter (Advanced Filter Panel)",
+      "kind": "section"
+    },
+    {
+      "title": "Status",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Status",
+      "text": "The Status column in the Shipment Plan List will represent the current stage of the shipment plan based on system transactions and document creation. The statuses are defined as follows:\n• Saved: Indicates that the shipment plan is in draft state and has been saved but not yet confirmed.\n• Confirmed: Indicates that the shipment plan has been finalized and the transaction is confirmed.\n• Closed: Indicates that the ASN (Advanced Shipment Notice) has been successfully created against the shipment plan.\n• Booked: Indicates that the PSN Invoice has been generated for the shipment plan, confirming booking completion.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Status",
+      "kind": "section"
+    },
+    {
+      "title": "Progress Column",
+      "heading": "EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Progress Column",
+      "text": "The Progress column will display the following stages:\n• PSN Created\nIndicates that the PSN (Packing Slip Note) / Invoice has been generated for the shipment plan.\n• ASN Created\nIndicates that the ASN (Advanced Shipment Notice) has been created against the shipment plan.\n• Sent to Finance\nIndicates that the shipment details/documents have been sent to Factory/Finance Authority (FA) for further processing.\nShipment Plan list will have limited columns compared to Sales ASN.\nShipment plan will have 2 status “Confirmed” or “Closed”. Confirmed will be based on shipment plan created. Status will turn to “Closed” if ASN is created against “Shipment Plan” in Confirmed mode.\nRevision of Shipment will be blocked if ASN is created in confirmed mode.\nIn case ASN is in Saved mode, then user will be able to revise Shipment Plan. However, while confirming ASN post revision system will show alert that Shipment plan has been revised.\nIn case user wants to revise a shipment plan where confirmed Sales ASN has already been created then user has to cancel the ASN or revise to keep in Saved mode.",
+      "locator": "§ EXPORT LOGISTICS MANAGEMENT › Shipment Plan List › Progress Column",
+      "kind": "section"
+    }
+  ]
+}

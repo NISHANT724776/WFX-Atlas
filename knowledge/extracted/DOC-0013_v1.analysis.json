@@ -1,0 +1,399 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Field",
+        "Value"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {
+        "Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Order Type",
+          "Make to Stock"
+        ],
+        [
+          "Fulfillment Type",
+          "Manufacturing"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Field",
+        "Value"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {
+        "Value": "amount (currency of the row)"
+      },
+      "identifiers": [],
+      "rows": [
+        [
+          "Fulfillment Type",
+          "Purchase Order"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Rule ID",
+        "Business Rule"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Rule ID"
+      ],
+      "rows": [
+        [
+          "BR-01",
+          "Only completed Production Orders shall create inventory."
+        ],
+        [
+          "BR-02",
+          "Finished goods from Make to Stock Sales Orders shall be stored in inventory."
+        ],
+        [
+          "BR-03",
+          "Sales ASN shall not be generated for Make to Stock Sales Orders."
+        ],
+        [
+          "BR-04",
+          "Material Allocation shall display only available inventory."
+        ],
+        [
+          "BR-05",
+          "Allocated quantity cannot exceed the available stock quantity."
+        ],
+        [
+          "BR-06",
+          "The same Make to Stock inventory can be allocated to multiple Sales Orders until the available quantity becomes zero."
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Back, purchase, MTS Orders",
+  "keyTerms": [
+    "order",
+    "sales order",
+    "sales",
+    "make stock",
+    "stock",
+    "available",
+    "purchase",
+    "inventory",
+    "material",
+    "style",
+    "make",
+    "stock sales",
+    "indent",
+    "user",
+    "type"
+  ],
+  "module": "Sales Order",
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 52
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 17
+    },
+    {
+      "module": "Production",
+      "score": 13
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 7
+    }
+  ],
+  "transactions": [
+    "RMPO – Raw Material Purchase Order",
+    "MRP – Material Requirement Planning",
+    "Sales Order Indents (MRP)",
+    "Production Order",
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "dependency",
+      "text": "Upon successful MRL generation, the system shall automatically create Material Indents for the required material types based on the BOM and material requirements.",
+      "locator": "§ Solution › Back Order",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "dependency",
+      "text": "During the subsequent MRP run, the system shall reduce or eliminate the generation of Material Indents based on the Purchase Demand quantity.",
+      "locator": "§ Solution › Purchase",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "If the entire Style Indent quantity is marked as Purchase Demand, no Material Indents shall be generated for that quantity, as the style will be sourced directly from the vendor instead of being manufactured.",
+      "locator": "§ Solution › Purchase",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "When a customer Sales Order is received, the available inventory is allocated to that Sales Order through the Material Allocation screen.",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 1: Field, Value (2 rows)",
+      "locator": "§ Solution › MTS, table 1",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "No Sales ASN is generated for the Make to Stock Sales Order.",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Field, Value (1 rows)",
+      "locator": "§ Solution › MTS, table 2",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "(Order Type = Make to Stock,",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "Fulfillment Type = Manufacturing)",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "(Fulfillment Type = Purchase Order)",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "definition",
+      "text": "The produced inventory shall remain available until it is allocated to another Sales Order.",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "validation",
+      "text": "The system shall not generate a Sales ASN for a Make to Stock Sales Order.",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "formula",
+      "text": "The system shall allow users to create another Sales Order with Fulfillment Type = Purchase Order.",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MTS:\n1. Source MTS Sales Order\n2. Item\n3. Warehouse\n4. Available Quantity\n5. Allocated Quantity\n6. Balance Quantity",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "MTS:\n1. Available inventory shall be reduced.\n2. Allocation records shall be updated.\n3. Remaining inventory shall continue to be available for future allocations.",
+      "locator": "§ Solution › MTS",
+      "module": "Sales Order"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Rule ID, Business Rule (6 rows; identifiers: Rule ID)",
+      "locator": "§ Solution › MTS, table 3",
+      "module": "Sales Order"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Contents",
+      "heading": "Sales Order Re-Write Developments – Sprint-3 › … › … › … › … › Contents",
+      "text": "Scope 2\nPurpose 2",
+      "locator": "§ Sales Order Re-Write Developments – Sprint-3 › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Back Order",
+      "heading": "Solution › Back Order",
+      "text": "When the user creates a Sales Order with the Fulfilment Type set to Back Order and confirms the order, the system shall display a New PO (GMPO) option against the respective Order Confirmation (OC).\nThe generated GMPO can be accessed through either:\n• The New PO (GMPO) option available on the Order Confirmation, or\n• The GMPO Pending List screen.\nThe system shall allow the user to generate the Material Requirement List (MRL) from the GMPO. Upon successful MRL generation, the system shall automatically create Material Indents for the required material types based on the BOM and material requirements.\nBack Order – To Be\nWhen the user creates a Sales Order with the Order Type set to CM, the field OC Factory shall be displayed as Supplier. The user shall select the Supplier, add the required article(s), and confirm the order.\nUpon confirmation of the Sales Order, the system shall automatically create a GMPO for the ordered style. The generated GMPO shall be available in the GMPO Pending List within the Sourcing module, from where the user can proceed with the standard purchase order generation process.\nAdditionally, the corresponding Style Indent shall be available in the Pending MRP List, enabling the user to generate and process the Style Indent, if required, through the existing Indent Management workflow.",
+      "locator": "§ Solution › Back Order",
+      "kind": "section"
+    },
+    {
+      "title": "Back Order",
+      "heading": "Solution › Back Order",
+      "text": "This enhancement enables CM orders to be fulfilled through direct procurement from the selected supplier while retaining the flexibility to process the associated Style Indent via the MRP and Indent Management modules.",
+      "locator": "§ Solution › Back Order (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Purchase",
+      "heading": "Solution › Purchase",
+      "text": "Purchase Order - As is\nWhen the user creates a Sales Order with the Fulfilment Type set to Purchase and confirms the order, the system shall automatically generate Style Indents for the ordered styles.\nThe generated Style Indents shall be available in the respective Indent Management module, where the user can perform all supported indent-related operations such as review, approval, modification, purchase order generation, and further procurement activities as per the existing workflow.\nPurchase Order – To Be\nWhen a user creates a Manufacturing Sales Order, but intends to procure the finished style instead of manufacturing it, the system shall provide an option to fulfil the requirement through direct purchase.\nAfter running MRP, the system shall display:\n• Level 1: Style Indent\n• Level 2: Material Indents\nA new field, Purchase Demand, shall be available at Level 1 (Style Indent). The user can specify the quantity of the style to be procured directly (for example, entering 1,000 as the Purchase Demand for a Sales Order quantity of 1,000).",
+      "locator": "§ Solution › Purchase",
+      "kind": "section"
+    },
+    {
+      "title": "Purchase",
+      "heading": "Solution › Purchase",
+      "text": "During the subsequent MRP run, the system shall reduce or eliminate the generation of Material Indents based on the Purchase Demand quantity. If the entire Style Indent quantity is marked as Purchase Demand, no Material Indents shall be generated for that quantity, as the style will be sourced directly from the vendor instead of being manufactured.\nThe Style Indent with the Purchase Demand quantity shall be available in the Indent Management module, from where the user can generate an RMPO (Raw Material Purchase Order) for the Style Indent. Once the RMPO is created",
+      "locator": "§ Solution › Purchase (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "MTS",
+      "heading": "Solution › MTS",
+      "text": "1. Business Scenario\nIn the Make to Stock (MTS) process, products are manufactured in advance and stored in inventory. When a customer Sales Order is received, the available inventory is allocated to that Sales Order through the Material Allocation screen.\nThis functionality enables businesses to fulfill customer demand from existing stock without creating a Sales ASN for the Make to Stock Sales Order.\n2. Current Process\nStep 1\nCreate a Sales Order with the following details:",
+      "locator": "§ Solution › MTS",
+      "kind": "section"
+    },
+    {
+      "title": "MTS – Table 1",
+      "heading": "Solution › MTS",
+      "text": "Columns: Field (text); Value (text, amount (currency of the row))\nField | Value\nOrder Type | Make to Stock\nFulfillment Type | Manufacturing",
+      "locator": "§ Solution › MTS, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Solution › MTS",
+      "text": "Field: Order Type; Value: Make to Stock",
+      "locator": "§ Solution › MTS, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 1 row 2",
+      "heading": "Solution › MTS",
+      "text": "Field: Fulfillment Type; Value: Manufacturing",
+      "locator": "§ Solution › MTS, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "MTS",
+      "heading": "Solution › MTS",
+      "text": "↓\nStep 2\nCreate the Production Order.\n↓\nStep 3\nComplete the Production Order.\n↓\nStep 4\nReceive the finished goods into Inventory.\n↓\nStep 5\nNo Sales ASN is generated for the Make to Stock Sales Order.\n↓\nStep 6\nCreate another Sales Order with the following details:",
+      "locator": "§ Solution › MTS",
+      "kind": "section"
+    },
+    {
+      "title": "MTS – Table 2",
+      "heading": "Solution › MTS",
+      "text": "Columns: Field (text); Value (text, amount (currency of the row))\nField | Value\nFulfillment Type | Purchase Order",
+      "locator": "§ Solution › MTS, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › MTS",
+      "text": "Field: Fulfillment Type; Value: Purchase Order",
+      "locator": "§ Solution › MTS, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "MTS",
+      "heading": "Solution › MTS",
+      "text": "↓\nStep 7\nOpen the Material Allocation screen.\n↓\nStep 8\nPerform Sales Order Adjustment.\n↓\nStep 9\nThe system displays the available inventory generated from the Make to Stock Sales Order.\n↓\nStep 10\nAllocate the required inventory to the customer Sales Order.\n3. Process Flow\nSales Order\n(Order Type = Make to Stock,\nFulfillment Type = Manufacturing)\n│\n▼\nProduction Order\n│\n▼\nProduction Completed\n│\n▼\nFinished Goods Added to Inventory\n│\n▼\nNo Sales ASN Created\n│\n▼\nCreate Customer Sales Order\n(Fulfillment Type = Purchase Order)\n│\n▼\nMaterial Allocation\n│\n▼\nSales Order Adjustment\n│\n▼\nSystem Displays Available MTS Stock\n│\n▼\nAllocate Stock\n4. Functional Requirements\nFR-01 – Make to Stock Sales Order\nThe system shall allow users to create a Sales Order with:\n• Order Type = Make to Stock\n• Fulfillment Type = Manufacturing\nFR-02 – Production\nThe system shall allow production to be completed against the Make to Stock Sales Order. Upon completion, the finished goods shall be added to inventory.\nFR-03 – Inventory\nThe produced inventory shall remain available until it is allocated to another Sales Order.\nFR-04 – Sales ASN\nThe system shall not generate a Sales ASN for a Make to Stock Sales Order.\nFR-05 – Customer Sales Order\nThe system shall allow users to create another Sales Order with Fulfillment Type = Purchase Order.\nFR-06 – Material Allocation",
+      "locator": "§ Solution › MTS",
+      "kind": "section"
+    },
+    {
+      "title": "MTS",
+      "heading": "Solution › MTS",
+      "text": "During Sales Order Adjustment, the Material Allocation screen shall display the available inventory generated from Make to Stock Sales Orders.\nThe screen shall display:\n• Source MTS Sales Order\n• Item\n• Warehouse\n• Available Quantity\n• Allocated Quantity\n• Balance Quantity\nFR-07 – Stock Allocation\nThe user shall be able to allocate available MTS inventory to the selected Sales Order.\nAfter allocation:\n• Available inventory shall be reduced.\n• Allocation records shall be updated.\n• Remaining inventory shall continue to be available for future allocations.\n5. Business Rules",
+      "locator": "§ Solution › MTS (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "MTS – Table 3",
+      "heading": "Solution › MTS",
+      "text": "Columns: Rule ID (text); Business Rule (text)\nRule ID | Business Rule\nBR-01 | Only completed Production Orders shall create inventory.\nBR-02 | Finished goods from Make to Stock Sales Orders shall be stored in inventory.\nBR-03 | Sales ASN shall not be generated for Make to Stock Sales Orders.\nBR-04 | Material Allocation shall display only available inventory.\nBR-05 | Allocated quantity cannot exceed the available stock quantity.\nBR-06 | The same Make to Stock inventory can be allocated to multiple Sales Orders until the available quantity becomes zero.",
+      "locator": "§ Solution › MTS, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › MTS",
+      "text": "Rule ID: BR-01; Business Rule: Only completed Production Orders shall create inventory.",
+      "locator": "§ Solution › MTS, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › MTS",
+      "text": "Rule ID: BR-02; Business Rule: Finished goods from Make to Stock Sales Orders shall be stored in inventory.",
+      "locator": "§ Solution › MTS, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Solution › MTS",
+      "text": "Rule ID: BR-03; Business Rule: Sales ASN shall not be generated for Make to Stock Sales Orders.",
+      "locator": "§ Solution › MTS, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Solution › MTS",
+      "text": "Rule ID: BR-04; Business Rule: Material Allocation shall display only available inventory.",
+      "locator": "§ Solution › MTS, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Solution › MTS",
+      "text": "Rule ID: BR-05; Business Rule: Allocated quantity cannot exceed the available stock quantity.",
+      "locator": "§ Solution › MTS, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Solution › MTS",
+      "text": "Rule ID: BR-06; Business Rule: The same Make to Stock inventory can be allocated to multiple Sales Orders until the available quantity becomes zero.",
+      "locator": "§ Solution › MTS, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Permissions",
+      "heading": "Solution › Permissions",
+      "text": "Permissions_Handling.xlsx",
+      "locator": "§ Solution › Permissions",
+      "kind": "section"
+    },
+    {
+      "title": "Settings",
+      "heading": "Solution › Settings",
+      "text": "Settings_Handling.xlsx",
+      "locator": "§ Solution › Settings",
+      "kind": "section"
+    }
+  ]
+}

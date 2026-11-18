@@ -1,0 +1,2278 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "PRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations.",
+        "Column 2"
+      ],
+      "types": [
+        "empty",
+        "empty"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Header tab",
+        "Content"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "ASN Details",
+          "ASN Information section with the Summary Total, followed by six detail tabs"
+        ],
+        [
+          "Shipment Details",
+          "Shipment Details section and Commercial Invoice & Commercial Terms section"
+        ],
+        [
+          "Attachments & Other Details",
+          "Attachments, Flex Field and Other Fields"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Button",
+        "Behaviour"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Save",
+          "Saves the ASN. Processing is not part of this document."
+        ],
+        [
+          "Confirm",
+          "Confirms the ASN. Processing is not part of this document."
+        ],
+        [
+          "Exit",
+          "Closes the ASN screen."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "S. No.",
+        "Row",
+        "Display and Logic"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Total Quantity",
+          "One value, not split by currency, right-aligned under the Doc Currency column.\nProposed logic: total Shipping Qty of the Shipment Details grid. To be discussed and finalized."
+        ],
+        [
+          "2",
+          "Value",
+          "Company Currency | Doc Currency.\nProposed logic: total value of the Shipment Details grid in document currency; company currency = document currency value x Exchange Rate. To be discussed and finalized."
+        ],
+        [
+          "3",
+          "Additional Charge Value",
+          "Company Currency | Doc Currency.\nProposed logic: total Amount of the Additional Charges grid, converted with the Exchange Rate. To be discussed and finalized."
+        ],
+        [
+          "4",
+          "Net Value",
+          "Company Currency | Doc Currency. Last row, shown highlighted.\nProposed logic: Value + Additional Charge Value. To be discussed and finalized."
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 5",
+      "headers": [
+        "Detail tab",
+        "Sections on the tab"
+      ],
+      "types": [
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Detail tab"
+      ],
+      "rows": [
+        [
+          "Order Details",
+          "Order Details grid"
+        ],
+        [
+          "Shipment Details",
+          "Shipment Details grid"
+        ],
+        [
+          "FG Allocation",
+          "FG Allocation Detail Grid"
+        ],
+        [
+          "Additional Charge",
+          "Additional Charges grid\nArticle Wise Additional Charges grid"
+        ],
+        [
+          "Style Details",
+          "Style Details grid"
+        ],
+        [
+          "Advance License & EPCG License",
+          "Advance License\nEPCG License"
+        ],
+        [
+          "Packing List",
+          "Packing List (number and date)\nPacking List grid\nPacking Information"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 6",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Control"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Packing List No.",
+          "Text"
+        ],
+        [
+          "2",
+          "Packing List Date",
+          "Date picker"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 7",
+      "headers": [
+        "S. No.",
+        "Action"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Update Shipping Qty"
+        ],
+        [
+          "2",
+          "Copy From Factory Packing List"
+        ],
+        [
+          "3",
+          "Download Import Format"
+        ],
+        [
+          "4",
+          "Export"
+        ],
+        [
+          "5",
+          "Import"
+        ],
+        [
+          "6",
+          "Add"
+        ],
+        [
+          "7",
+          "Split"
+        ],
+        [
+          "8",
+          "Delete"
+        ],
+        [
+          "9",
+          "Validate And Sort"
+        ],
+        [
+          "10",
+          "Regenerate Sequence"
+        ],
+        [
+          "11",
+          "Download Horizontal Sizes Import Format"
+        ],
+        [
+          "12",
+          "Import Using Horizontal Sizes Format"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 8",
+      "headers": [
+        "S. No.",
+        "Column",
+        "Control"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "S. No.",
+          "Auto"
+        ],
+        [
+          "2",
+          "Carton From",
+          "Number"
+        ],
+        [
+          "3",
+          "Carton To",
+          "Number"
+        ],
+        [
+          "4",
+          "Total Cartons",
+          "Read-only"
+        ],
+        [
+          "5",
+          "Carton Dimension",
+          "Text"
+        ],
+        [
+          "6",
+          "Packing Type",
+          "Dropdown"
+        ],
+        [
+          "7",
+          "No of Pack Per Carton",
+          "Number"
+        ],
+        [
+          "8",
+          "OC No. (Delivery OC Details)",
+          "Dropdown"
+        ],
+        [
+          "9",
+          "Packing Method",
+          "Dropdown"
+        ],
+        [
+          "10",
+          "Market",
+          "Text"
+        ],
+        [
+          "11",
+          "Destination",
+          "Text"
+        ],
+        [
+          "12",
+          "Delivery Order Ref.",
+          "Text"
+        ],
+        [
+          "13",
+          "Delivery Date",
+          "Date picker"
+        ],
+        [
+          "14",
+          "Store",
+          "Text"
+        ],
+        [
+          "15",
+          "Buyer Order Ref.",
+          "Text"
+        ],
+        [
+          "16",
+          "Style Name",
+          "Dropdown"
+        ],
+        [
+          "17",
+          "Buyer Style Ref",
+          "Text"
+        ],
+        [
+          "18",
+          "Color",
+          "Text"
+        ],
+        [
+          "19",
+          "Per Carton Qty",
+          "Number"
+        ],
+        [
+          "20",
+          "Total Qty",
+          "Read-only"
+        ],
+        [
+          "21",
+          "Media Card ID",
+          "Text"
+        ],
+        [
+          "22",
+          "Gross Wt.",
+          "Number"
+        ],
+        [
+          "23",
+          "Gross Wt. UOM",
+          "Dropdown"
+        ],
+        [
+          "24",
+          "Net Wt.",
+          "Number"
+        ],
+        [
+          "25",
+          "Net Wt. UOM",
+          "Dropdown"
+        ],
+        [
+          "26",
+          "Net Net Wt.",
+          "Number"
+        ],
+        [
+          "27",
+          "Net Net Wt. UOM",
+          "Dropdown"
+        ],
+        [
+          "28",
+          "Volume",
+          "Number"
+        ],
+        [
+          "29",
+          "Volume UOM",
+          "Dropdown"
+        ],
+        [
+          "30",
+          "Cbm",
+          "Number"
+        ],
+        [
+          "31",
+          "CBM UOM",
+          "Dropdown"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 9",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Control"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "No Of Cartons/Rolls",
+          "Number"
+        ],
+        [
+          "2",
+          "Total Gross Weight",
+          "Number"
+        ],
+        [
+          "3",
+          "Total Net Weight",
+          "Number"
+        ],
+        [
+          "4",
+          "Total Volume",
+          "Number"
+        ],
+        [
+          "5",
+          "Total Net Net Weight",
+          "Number"
+        ],
+        [
+          "6",
+          "Weight Per Piece",
+          "Number"
+        ],
+        [
+          "7",
+          "Net Weight Per Carton/Roll",
+          "Number"
+        ],
+        [
+          "8",
+          "Gross Weight Per Carton/Roll",
+          "Number"
+        ],
+        [
+          "9",
+          "Container No",
+          "Text"
+        ],
+        [
+          "10",
+          "Container Size",
+          "Multi-line text"
+        ],
+        [
+          "11",
+          "Standard Carton Qty",
+          "Number"
+        ],
+        [
+          "12",
+          "Pre-Ticketing",
+          "Checkbox"
+        ],
+        [
+          "13",
+          "Seal No",
+          "Text"
+        ],
+        [
+          "14",
+          "Remitter Address",
+          "Dropdown"
+        ],
+        [
+          "15",
+          "GG",
+          "Multi-line text"
+        ],
+        [
+          "16",
+          "No. of Plies",
+          "Rich text"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 10",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Control"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Place Of Receipt By Pre-Carrier",
+          "Text"
+        ],
+        [
+          "2",
+          "Shipping Bill No",
+          "Text"
+        ],
+        [
+          "3",
+          "Shipping Bill Date",
+          "Date picker"
+        ],
+        [
+          "",
+          "Other Details (sub-heading)",
+          ""
+        ],
+        [
+          "4",
+          "Country of Origin",
+          "Dropdown"
+        ],
+        [
+          "5",
+          "Final Destination",
+          "Text"
+        ],
+        [
+          "6",
+          "Shipment Authorization No.",
+          "Text"
+        ],
+        [
+          "7",
+          "Ship Date",
+          "Date picker"
+        ],
+        [
+          "8",
+          "Next Shipment Date",
+          "Date picker"
+        ],
+        [
+          "9",
+          "FCR Date",
+          "Date picker"
+        ],
+        [
+          "10",
+          "Country of Destination",
+          "Dropdown"
+        ],
+        [
+          "11",
+          "Forwarder",
+          "Dropdown"
+        ],
+        [
+          "12",
+          "Clearing House Agent",
+          "Dropdown"
+        ],
+        [
+          "13",
+          "Port of Clearance",
+          "Dropdown"
+        ],
+        [
+          "14",
+          "Discharge Country",
+          "Dropdown"
+        ],
+        [
+          "15",
+          "Place",
+          "Dropdown"
+        ],
+        [
+          "16",
+          "PPRQ",
+          "Checkbox"
+        ],
+        [
+          "17",
+          "Buyer Defaults",
+          "Dropdown"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 11",
+      "headers": [
+        "S. No.",
+        "Field Name",
+        "Control"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "",
+          "Commercial Invoice (sub-heading)",
+          ""
+        ],
+        [
+          "1",
+          "LC No",
+          "Text"
+        ],
+        [
+          "2",
+          "LC Date",
+          "Date picker"
+        ],
+        [
+          "3",
+          "Packing List No",
+          "Text"
+        ],
+        [
+          "4",
+          "LC Issued By",
+          "Text"
+        ],
+        [
+          "5",
+          "Commission",
+          "Number"
+        ],
+        [
+          "",
+          "Commercial Terms (sub-heading)",
+          ""
+        ],
+        [
+          "6",
+          "Consignee Address",
+          "Dropdown"
+        ],
+        [
+          "7",
+          "Consignor Address",
+          "Dropdown"
+        ],
+        [
+          "8",
+          "Bill To",
+          "Dropdown"
+        ],
+        [
+          "9",
+          "Ship To",
+          "Dropdown"
+        ],
+        [
+          "10",
+          "Delivery Terms",
+          "Dropdown"
+        ],
+        [
+          "11",
+          "Factory",
+          "Dropdown"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 12",
+      "headers": [
+        "S. No.",
+        "Element"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Drop area"
+        ],
+        [
+          "2",
+          "Delete"
+        ],
+        [
+          "3",
+          "Row select"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 13",
+      "headers": [
+        "S. No.",
+        "Grid column"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "User File Name"
+        ],
+        [
+          "2",
+          "Comments"
+        ],
+        [
+          "3",
+          "Uploaded On"
+        ],
+        [
+          "4",
+          "Uploaded By"
+        ],
+        [
+          "5",
+          "Download/View"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 14",
+      "headers": [
+        "S. No.",
+        "Field Name"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Custom Declaration Bill of Entry No"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 15",
+      "headers": [
+        "S. No.",
+        "Field Name"
+      ],
+      "types": [
+        "integer",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Remarks"
+        ],
+        [
+          "2",
+          "Additional Info"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 16",
+      "headers": [
+        "Version",
+        "Prepared By",
+        "Date"
+      ],
+      "types": [
+        "decimal",
+        "text",
+        "date"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "Nishant",
+          "28-Oct-2026"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "ASN Screen Changes Spec Corrected",
+  "keyTerms": [
+    "tab",
+    "total",
+    "packing list",
+    "grid",
+    "packing",
+    "asn",
+    "shipment",
+    "currency",
+    "text",
+    "list",
+    "row",
+    "date",
+    "dropdown",
+    "number",
+    "value"
+  ],
+  "module": null,
+  "moduleScores": [
+    {
+      "module": "Sales Order",
+      "score": 3
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: PRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations., Column 2 (0 rows)",
+      "locator": "starttable 1",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "3.5 Validation Messages 16",
+      "locator": "§ … › … › … › … › … › Contents",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "On-screen calculations and validation messages for Advance License, EPCG License and Packing List",
+      "locator": "§ Scope",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Layout of the ASN screen: page header, toolbar and the three header tabs (ASN Details, Shipment Details, Attachments & Other Details)\n2. ASN Information section and the Summary Total, with company-currency and document-currency columns\n3. Detail tabs on ASN Details: Order Details, Shipment Details, Additional Charge, Style Details, Advance License & EPCG License and Packing List\n4. Shipment Details and Commercial Invoice & Commercial Terms sections on the Shipment Details header tab\n5. New Attachments & Other Details header tab, holding Attachments, Flex Field and Other Fields (moved from the Packing List tab)\n6. On-screen calculations and validation messages for Advance License, EPCG License and Packing List",
+      "locator": "§ Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Master data and the option values of dropdowns that are not listed in this document",
+      "locator": "§ Scope",
+      "module": null
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Processing behind Save, Confirm and Exit; the prototype shows the buttons only\n2. Master data and the option values of dropdowns that are not listed in this document\n3. Import and export file formats of the Packing List (Copy From Factory Packing List, import and download formats are placeholders in the prototype)\n4. Sample values shown in the prototype (for example buyer names, licence numbers, quantities); they are for illustration only",
+      "locator": "§ Scope",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Only one header tab is shown at a time.",
+      "locator": "§ Solution › Screen Layout",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The ASN Details tab is open when the screen loads.",
+      "locator": "§ Solution › Screen Layout",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Header tab, Content (3 rows)",
+      "locator": "§ Solution › Screen Layout › Header Tabs, table 2",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Button, Behaviour (3 rows)",
+      "locator": "§ Solution › Screen Layout › Page Toolbar, table 3",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Invoice no. and Invoice Date fields are picked here from Commercial invoice section that earlier comes in shipping info section.",
+      "locator": "§ Solution › ASN Details Tab",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Fields marked Yes under Mandatory carry a red marker on the left of the field.",
+      "locator": "§ Solution › ASN Details Tab › ASN Information",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The first column is the company currency and the second column is the document currency.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "All amounts are 0.00 when the screen opens.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: S. No., Row, Display and Logic (4 rows)",
+      "locator": "§ Solution › ASN Details Tab › Summary Total, table 4",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Order Details tab is open by default.",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 5: Detail tab, Sections on the tab (7 rows; identifiers: Detail tab)",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "Captions in the grid tables below are listed without the \"(en)\" language suffix.",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The Shipping Qty total is updated by the Update Shipping Qty action of the Packing List tab (see 3.2.9).",
+      "locator": "§ Solution › ASN Details Tab › Shipment Details (Detail Tab)",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The tab has two sections one is for Additional charge article wise & second is footer charges.",
+      "locator": "§ Solution › ASN Details Tab › Additional Charge",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "Toolbar: Add adds a row with UOM MTR; Delete is enabled only when at least one row is ticked and removes the ticked rows.",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License › Advance License",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "SNo is renumbered after every add or delete.",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License › Advance License",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "A row that breaks a rule is highlighted in red and the message is shown below the grid (see 3.5).",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License › Advance License",
+      "module": null
+    },
+    {
+      "kind": "formula",
+      "text": "Unallocated = Shipment Value - Total Allocated.",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License › EPCG License",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 6: S. No., Field Name, Control (2 rows)",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List number and date, table 6",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 7: S. No., Action (12 rows)",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "The first row of the grid is a Total row.",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 8: S. No., Column, Control (31 rows)",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 9: S. No., Field Name, Control (16 rows)",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 10: S. No., Field Name, Control (18 rows)",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 11: S. No., Field Name, Control (13 rows)",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 12: S. No., Element (3 rows)",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 12",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 13: S. No., Grid column (5 rows)",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 14: S. No., Field Name (1 rows)",
+      "locator": "§ Solution › Attachments & Other Details Tab › Flex Field, table 14",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 15: S. No., Field Name (2 rows)",
+      "locator": "§ Solution › Attachments & Other Details Tab › Other Fields, table 15",
+      "module": null
+    },
+    {
+      "kind": "definition",
+      "text": "SLC is required for New ASN.",
+      "locator": "§ Solution › Configurator › Screen Layout Configurator",
+      "module": null
+    },
+    {
+      "kind": "validation",
+      "text": "SLC is required for New ASN.",
+      "locator": "§ Solution › Configurator › Screen Layout Configurator",
+      "module": null
+    },
+    {
+      "kind": "table",
+      "text": "Table 16: Version, Prepared By, Date (1 rows)",
+      "locator": "§ Solution › Configurator › View Configurator › Version History, table 16",
+      "module": null
+    }
+  ],
+  "chunks": [
+    {
+      "title": "ASN Screen Changes Spec Corrected – Table 1",
+      "heading": "",
+      "text": "Columns: PRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations. (empty); Column 2 (empty)\nPRODUCT SPECIFICATION\nWorld Fashion\nExchange (WFX)\nSpecification Document\nDefining the solution to meet business needs, improve efficiency and enable seamless fashion operations. | Column 2",
+      "locator": "starttable 1",
+      "kind": "table"
+    },
+    {
+      "title": "ASN Screen Changes Spec Corrected",
+      "heading": "",
+      "text": "ASN SCREEN CHANGES",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Contents",
+      "heading": "… › … › … › … › … › Contents",
+      "text": "1. Scope 2\n2. Purpose 2\n3. Solution 2\n3.1 Screen Layout 2\n3.2 ASN Details Tab 3\n3.3 Shipment Details Tab 13\n3.4 Attachments & Other Details Tab 15\n3.5 Validation Messages 16",
+      "locator": "§ … › … › … › … › … › Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "In scope\n• Layout of the ASN screen: page header, toolbar and the three header tabs (ASN Details, Shipment Details, Attachments & Other Details)\n• ASN Information section and the Summary Total, with company-currency and document-currency columns\n• Detail tabs on ASN Details: Order Details, Shipment Details, Additional Charge, Style Details, Advance License & EPCG License and Packing List\n• Shipment Details and Commercial Invoice & Commercial Terms sections on the Shipment Details header tab\n• New Attachments & Other Details header tab, holding Attachments, Flex Field and Other Fields (moved from the Packing List tab)\n• On-screen calculations and validation messages for Advance License, EPCG License and Packing List\nOut of scope\n• Processing behind Save, Confirm and Exit; the prototype shows the buttons only\n• Master data and the option values of dropdowns that are not listed in this document\n• Import and export file formats of the Packing List (Copy From Factory Packing List, import and download formats are placeholders in the prototype)\n• Sample values shown in the prototype (for example buyer names, licence numbers, quantities); they are for illustration only",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "The ASN screen carries a large number of sections on one page. This change groups them into three header tabs so that ASN-level data, shipment and commercial data, and attachments and other fields each have their own place. The Summary Total stays visible at the top of the ASN Details tab and shows each value in the company currency and the document currency side by side.",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Screen Layout",
+      "heading": "Solution › Screen Layout",
+      "text": "The screen has a page title, a toolbar (Save, Confirm, Exit) and a row of three header tabs. Only one header tab is shown at a time. The ASN Details tab is open when the screen loads.",
+      "locator": "§ Solution › Screen Layout",
+      "kind": "section"
+    },
+    {
+      "title": "Header Tabs – Table 2",
+      "heading": "Solution › Screen Layout › Header Tabs",
+      "text": "Columns: Header tab (text); Content (text)\nHeader tab | Content\nASN Details | ASN Information section with the Summary Total, followed by six detail tabs\nShipment Details | Shipment Details section and Commercial Invoice & Commercial Terms section\nAttachments & Other Details | Attachments, Flex Field and Other Fields",
+      "locator": "§ Solution › Screen Layout › Header Tabs, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Solution › Screen Layout › Header Tabs",
+      "text": "Header tab: ASN Details; Content: ASN Information section with the Summary Total, followed by six detail tabs",
+      "locator": "§ Solution › Screen Layout › Header Tabs, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Solution › Screen Layout › Header Tabs",
+      "text": "Header tab: Shipment Details; Content: Shipment Details section and Commercial Invoice & Commercial Terms section",
+      "locator": "§ Solution › Screen Layout › Header Tabs, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Solution › Screen Layout › Header Tabs",
+      "text": "Header tab: Attachments & Other Details; Content: Attachments, Flex Field and Other Fields",
+      "locator": "§ Solution › Screen Layout › Header Tabs, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Page Toolbar – Table 3",
+      "heading": "Solution › Screen Layout › Page Toolbar",
+      "text": "Columns: Button (text); Behaviour (text)\nButton | Behaviour\nSave | Saves the ASN. Processing is not part of this document.\nConfirm | Confirms the ASN. Processing is not part of this document.\nExit | Closes the ASN screen.",
+      "locator": "§ Solution › Screen Layout › Page Toolbar, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Solution › Screen Layout › Page Toolbar",
+      "text": "Button: Save; Behaviour: Saves the ASN. Processing is not part of this document.",
+      "locator": "§ Solution › Screen Layout › Page Toolbar, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Solution › Screen Layout › Page Toolbar",
+      "text": "Button: Confirm; Behaviour: Confirms the ASN. Processing is not part of this document.",
+      "locator": "§ Solution › Screen Layout › Page Toolbar, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Solution › Screen Layout › Page Toolbar",
+      "text": "Button: Exit; Behaviour: Closes the ASN screen.",
+      "locator": "§ Solution › Screen Layout › Page Toolbar, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Page Toolbar",
+      "heading": "Solution › Screen Layout › Page Toolbar",
+      "text": "Note: Tools will work as it is.",
+      "locator": "§ Solution › Screen Layout › Page Toolbar",
+      "kind": "section"
+    },
+    {
+      "title": "ASN Details Tab",
+      "heading": "Solution › ASN Details Tab",
+      "text": "The tab has the ASN Information section at the top and the detail tabs below it. Invoice no. and Invoice Date fields are picked here from Commercial invoice section that earlier comes in shipping info section.\nASN Details tab (Order Details tab open)\nNote: screen shown here is the HTML prototype, for reference.",
+      "locator": "§ Solution › ASN Details Tab",
+      "kind": "section"
+    },
+    {
+      "title": "ASN Information",
+      "heading": "Solution › ASN Details Tab › ASN Information",
+      "text": "The section opens expanded. Clicking the chevron or the section title collapses it to a title bar and expands it again. The Summary Total sits at the right of the section (see 3.2.2). Fields marked Yes under Mandatory carry a red marker on the left of the field.",
+      "locator": "§ Solution › ASN Details Tab › ASN Information",
+      "kind": "section"
+    },
+    {
+      "title": "Summary Total",
+      "heading": "Solution › ASN Details Tab › Summary Total",
+      "text": "The Summary Total shows four rows. Value, Additional Charge Value and Net Value are shown in two columns. The first column is the company currency and the second column is the document currency. Each column has a heading (\"Company Currency\", \"Doc Currency\"), and each amount is followed by its currency symbol and shows two decimals (the prototype uses Rs for the company currency and $ for the document currency). All amounts are 0.00 when the screen opens.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total",
+      "kind": "section"
+    },
+    {
+      "title": "Summary Total – Table 4",
+      "heading": "Solution › ASN Details Tab › Summary Total",
+      "text": "Columns: S. No. (integer); Row (text); Display and Logic (text)\nS. No. | Row | Display and Logic\n1 | Total Quantity | One value, not split by currency, right-aligned under the Doc Currency column.\nProposed logic: total Shipping Qty of the Shipment Details grid. To be discussed and finalized.\n2 | Value | Company Currency | Doc Currency.\nProposed logic: total value of the Shipment Details grid in document currency; company currency = document currency value x Exchange Rate. To be discussed and finalized.\n3 | Additional Charge Value | Company Currency | Doc Currency.\nProposed logic: total Amount of the Additional Charges grid, converted with the Exchange Rate. To be discussed and finalized.\n4 | Net Value | Company Currency | Doc Currency. Last row, shown highlighted.\nProposed logic: Value + Additional Charge Value. To be discussed and finalized.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Solution › ASN Details Tab › Summary Total",
+      "text": "S. No.: 1; Row: Total Quantity; Display and Logic: One value, not split by currency, right-aligned under the Doc Currency column.\nProposed logic: total Shipping Qty of the Shipment Details grid. To be discussed and finalized.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Solution › ASN Details Tab › Summary Total",
+      "text": "S. No.: 2; Row: Value; Display and Logic: Company Currency | Doc Currency.\nProposed logic: total value of the Shipment Details grid in document currency; company currency = document currency value x Exchange Rate. To be discussed and finalized.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Solution › ASN Details Tab › Summary Total",
+      "text": "S. No.: 3; Row: Additional Charge Value; Display and Logic: Company Currency | Doc Currency.\nProposed logic: total Amount of the Additional Charges grid, converted with the Exchange Rate. To be discussed and finalized.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 4",
+      "heading": "Solution › ASN Details Tab › Summary Total",
+      "text": "S. No.: 4; Row: Net Value; Display and Logic: Company Currency | Doc Currency. Last row, shown highlighted.\nProposed logic: Value + Additional Charge Value. To be discussed and finalized.",
+      "locator": "§ Solution › ASN Details Tab › Summary Total, table 4, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Detail Tabs",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Six detail tabs sit below the ASN Information section. The Order Details tab is open by default. Clicking a tab shows its content and hides the others; the active tab is shown in white and raised above the others.",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs",
+      "kind": "section"
+    },
+    {
+      "title": "Detail Tabs – Table 5",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Columns: Detail tab (text); Sections on the tab (text)\nDetail tab | Sections on the tab\nOrder Details | Order Details grid\nShipment Details | Shipment Details grid\nFG Allocation | FG Allocation Detail Grid\nAdditional Charge | Additional Charges grid\nArticle Wise Additional Charges grid\nStyle Details | Style Details grid\nAdvance License & EPCG License | Advance License\nEPCG License\nPacking List | Packing List (number and date)\nPacking List grid\nPacking Information",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5",
+      "kind": "table"
+    },
+    {
+      "title": "Table 5 row 1",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: Order Details; Sections on the tab: Order Details grid",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 2",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: Shipment Details; Sections on the tab: Shipment Details grid",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 3",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: FG Allocation; Sections on the tab: FG Allocation Detail Grid",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 4",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: Additional Charge; Sections on the tab: Additional Charges grid\nArticle Wise Additional Charges grid",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 5",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: Style Details; Sections on the tab: Style Details grid",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 6",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: Advance License & EPCG License; Sections on the tab: Advance License\nEPCG License",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 5 row 7",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Detail tab: Packing List; Sections on the tab: Packing List (number and date)\nPacking List grid\nPacking Information",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs, table 5, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Detail Tabs",
+      "heading": "Solution › ASN Details Tab › Detail Tabs",
+      "text": "Captions in the grid tables below are listed without the \"(en)\" language suffix. Captions that appear cut off in the prototype grid header (ending in \"...\") are listed in full form and are to be confirmed against the label master.",
+      "locator": "§ Solution › ASN Details Tab › Detail Tabs",
+      "kind": "section"
+    },
+    {
+      "title": "Order Details",
+      "heading": "Solution › ASN Details Tab › Order Details",
+      "text": "Grid with the toolbar actions Add and Delete. A checkbox at the start of each row selects the row; the header checkbox selects all rows. The last row of the grid shows totals for Ordered Qty and Total Shipping.",
+      "locator": "§ Solution › ASN Details Tab › Order Details",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Details (Detail Tab)",
+      "heading": "Solution › ASN Details Tab › Shipment Details (Detail Tab)",
+      "text": "Grid with a horizontal scroll bar. Toolbar: Allocate GST Charges (link), Export, Import. The last row shows totals for Ordered Qty, Shipped Qty, Shipping Qty and the Total amount, with the label Total under the Size column. The Shipping Qty total is updated by the Update Shipping Qty action of the Packing List tab (see 3.2.9).",
+      "locator": "§ Solution › ASN Details Tab › Shipment Details (Detail Tab)",
+      "kind": "section"
+    },
+    {
+      "title": "FG Allocation",
+      "heading": "Solution › ASN Details Tab › FG Allocation",
+      "text": "Note: screen will be in 4.0 this is just for reference.",
+      "locator": "§ Solution › ASN Details Tab › FG Allocation",
+      "kind": "section"
+    },
+    {
+      "title": "Additional Charge",
+      "heading": "Solution › ASN Details Tab › Additional Charge",
+      "text": "The tab has two sections one is for Additional charge article wise & second is footer charges. The Allocate GST Charges link sits at the right of the Additional Charges title bar.\nAdditional Charge tab",
+      "locator": "§ Solution › ASN Details Tab › Additional Charge",
+      "kind": "section"
+    },
+    {
+      "title": "Additional Charges grid",
+      "heading": "Solution › ASN Details Tab › Additional Charge › Additional Charges grid",
+      "text": "The last row shows the total of the Amount column.",
+      "locator": "§ Solution › ASN Details Tab › Additional Charge › Additional Charges grid",
+      "kind": "section"
+    },
+    {
+      "title": "Article Wise Additional Charges grid",
+      "heading": "Solution › ASN Details Tab › Additional Charge › Article Wise Additional Charges grid",
+      "text": "Grid with a horizontal scroll bar and a two-level header. The DISCOUNT and IGST groups each hold six columns. The last row shows totals for Amount (Tr Curr), the Amt columns of both groups and the two Total",
+      "locator": "§ Solution › ASN Details Tab › Additional Charge › Article Wise Additional Charges grid",
+      "kind": "section"
+    },
+    {
+      "title": "Style Details",
+      "heading": "Solution › ASN Details Tab › Style Details",
+      "text": "Grid shown as read-only text, with a horizontal scroll bar.",
+      "locator": "§ Solution › ASN Details Tab › Style Details",
+      "kind": "section"
+    },
+    {
+      "title": "Advance License & EPCG License",
+      "heading": "Solution › ASN Details Tab › Advance License & EPCG License",
+      "text": "The tab has two sections one below the other: Advance License and EPCG License.\nAdvance License & EPCG License tab",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License",
+      "kind": "section"
+    },
+    {
+      "title": "Advance License",
+      "heading": "Solution › ASN Details Tab › Advance License & EPCG License › Advance License",
+      "text": "Toolbar: Add adds a row with UOM MTR; Delete is enabled only when at least one row is ticked and removes the ticked rows. SNo is renumbered after every add or delete. An information strip above the grid shows StyleName/Code/BSR, OC Num and Shipment Qty.\nThe footer row shows totals of Total Consumption (Actual), Total Allocated Qty and Balance Qty. A row that breaks a rule is highlighted in red and the message is shown below the grid (see 3.5).",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License › Advance License",
+      "kind": "section"
+    },
+    {
+      "title": "EPCG License",
+      "heading": "Solution › ASN Details Tab › Advance License & EPCG License › EPCG License",
+      "text": "Toolbar: Add adds an empty row; Delete works as in Advance License. An information strip above the grid shows Shipment Date, Shipment Value, Total Allocated and Unallocated. Unallocated = Shipment Value - Total Allocated.\nThe footer row shows totals of Duty Saved, Export Obligation Value, EO Fulfilled Value, Balance EO Value, Allocate Value and Balance After Allocation. A row that breaks a rule is highlighted in red and the message is shown below the grid (see 3.5).",
+      "locator": "§ Solution › ASN Details Tab › Advance License & EPCG License › EPCG License",
+      "kind": "section"
+    },
+    {
+      "title": "Packing List",
+      "heading": "Solution › ASN Details Tab › Packing List",
+      "text": "The tab holds three sections: Packing List (number and date), the Packing List grid with its toolbar, and Packing Information.\nPacking List tab",
+      "locator": "§ Solution › ASN Details Tab › Packing List",
+      "kind": "section"
+    },
+    {
+      "title": "Packing List number and date – Table 6",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List number and date",
+      "text": "Columns: S. No. (integer); Field Name (text); Control (text)\nS. No. | Field Name | Control\n1 | Packing List No. | Text\n2 | Packing List Date | Date picker",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List number and date, table 6",
+      "kind": "table"
+    },
+    {
+      "title": "Table 6 row 1",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List number and date",
+      "text": "S. No.: 1; Field Name: Packing List No.; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List number and date, table 6, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 6 row 2",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List number and date",
+      "text": "S. No.: 2; Field Name: Packing List Date; Control: Date picker",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List number and date, table 6, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Toolbar actions – Table 7",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "Columns: S. No. (integer); Action (text)\nS. No. | Action\n1 | Update Shipping Qty\n2 | Copy From Factory Packing List\n3 | Download Import Format\n4 | Export\n5 | Import\n6 | Add\n7 | Split\n8 | Delete\n9 | Validate And Sort\n10 | Regenerate Sequence\n11 | Download Horizontal Sizes Import Format\n12 | Import Using Horizontal Sizes Format",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7",
+      "kind": "table"
+    },
+    {
+      "title": "Table 7 row 1",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 1; Action: Update Shipping Qty",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 2",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 2; Action: Copy From Factory Packing List",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 3",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 3; Action: Download Import Format",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 4",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 4; Action: Export",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 5",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 5; Action: Import",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 6",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 6; Action: Add",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 7",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 7; Action: Split",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 8",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 8; Action: Delete",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 9",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 9; Action: Validate And Sort",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 10",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 10; Action: Regenerate Sequence",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 11",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 11; Action: Download Horizontal Sizes Import Format",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 7 row 12",
+      "heading": "Solution › ASN Details Tab › Packing List › Toolbar actions",
+      "text": "S. No.: 12; Action: Import Using Horizontal Sizes Format",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Toolbar actions, table 7, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Packing List grid",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "Grid with a horizontal scroll bar. The first row of the grid is a Total row.",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid",
+      "kind": "section"
+    },
+    {
+      "title": "Packing List grid – Table 8",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "Columns: S. No. (integer); Column (text); Control (text)\nS. No. | Column | Control\n1 | S. No. | Auto\n2 | Carton From | Number\n3 | Carton To | Number\n4 | Total Cartons | Read-only\n5 | Carton Dimension | Text\n6 | Packing Type | Dropdown\n7 | No of Pack Per Carton | Number\n8 | OC No. (Delivery OC Details) | Dropdown\n9 | Packing Method | Dropdown\n10 | Market | Text\n11 | Destination | Text\n12 | Delivery Order Ref. | Text\n13 | Delivery Date | Date picker\n14 | Store | Text\n15 | Buyer Order Ref. | Text\n16 | Style Name | Dropdown\n17 | Buyer Style Ref | Text\n18 | Color | Text\n19 | Per Carton Qty | Number\n20 | Total Qty | Read-only\n… 11 more rows",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8",
+      "kind": "table"
+    },
+    {
+      "title": "Table 8 row 1",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 1; Column: S. No.; Control: Auto",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 2",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 2; Column: Carton From; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 3",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 3; Column: Carton To; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 4",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 4; Column: Total Cartons; Control: Read-only",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 5",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 5; Column: Carton Dimension; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 6",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 6; Column: Packing Type; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 7",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 7; Column: No of Pack Per Carton; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 8",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 8; Column: OC No. (Delivery OC Details); Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 9",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 9; Column: Packing Method; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 10",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 10; Column: Market; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 11",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 11; Column: Destination; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 12",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 12; Column: Delivery Order Ref.; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 13",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 13; Column: Delivery Date; Control: Date picker",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 14",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 14; Column: Store; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 15",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 15; Column: Buyer Order Ref.; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 16",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 16; Column: Style Name; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 17",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 17; Column: Buyer Style Ref; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 18",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 18; Column: Color; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 19",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 19; Column: Per Carton Qty; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 19",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 20",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 20; Column: Total Qty; Control: Read-only",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 20",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 21",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 21; Column: Media Card ID; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 21",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 22",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 22; Column: Gross Wt.; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 22",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 23",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 23; Column: Gross Wt. UOM; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 23",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 24",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 24; Column: Net Wt.; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 24",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 25",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 25; Column: Net Wt. UOM; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 25",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 26",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 26; Column: Net Net Wt.; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 26",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 27",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 27; Column: Net Net Wt. UOM; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 27",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 28",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 28; Column: Volume; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 28",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 29",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 29; Column: Volume UOM; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 29",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 30",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 30; Column: Cbm; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 30",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 8 row 31",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "S. No.: 31; Column: CBM UOM; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid, table 8, row 31",
+      "kind": "data_row"
+    },
+    {
+      "title": "Packing List grid",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing List grid",
+      "text": "The Total row shows the totals of Total Cartons, Total Qty, Net Wt., Net Net Wt., Volume and Cbm (weights, volume and Cbm with two decimals). Totals update as the user types. A message line below the grid shows the result of the last action.",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing List grid",
+      "kind": "section"
+    },
+    {
+      "title": "Packing Information – Table 9",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "Columns: S. No. (integer); Field Name (text); Control (text)\nS. No. | Field Name | Control\n1 | No Of Cartons/Rolls | Number\n2 | Total Gross Weight | Number\n3 | Total Net Weight | Number\n4 | Total Volume | Number\n5 | Total Net Net Weight | Number\n6 | Weight Per Piece | Number\n7 | Net Weight Per Carton/Roll | Number\n8 | Gross Weight Per Carton/Roll | Number\n9 | Container No | Text\n10 | Container Size | Multi-line text\n11 | Standard Carton Qty | Number\n12 | Pre-Ticketing | Checkbox\n13 | Seal No | Text\n14 | Remitter Address | Dropdown\n15 | GG | Multi-line text\n16 | No. of Plies | Rich text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9",
+      "kind": "table"
+    },
+    {
+      "title": "Table 9 row 1",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 1; Field Name: No Of Cartons/Rolls; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 2",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 2; Field Name: Total Gross Weight; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 3",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 3; Field Name: Total Net Weight; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 4",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 4; Field Name: Total Volume; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 5",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 5; Field Name: Total Net Net Weight; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 6",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 6; Field Name: Weight Per Piece; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 7",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 7; Field Name: Net Weight Per Carton/Roll; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 8",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 8; Field Name: Gross Weight Per Carton/Roll; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 9",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 9; Field Name: Container No; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 10",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 10; Field Name: Container Size; Control: Multi-line text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 11",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 11; Field Name: Standard Carton Qty; Control: Number",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 12",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 12; Field Name: Pre-Ticketing; Control: Checkbox",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 13",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 13; Field Name: Seal No; Control: Text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 14",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 14; Field Name: Remitter Address; Control: Dropdown",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 15",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 15; Field Name: GG; Control: Multi-line text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 9 row 16",
+      "heading": "Solution › ASN Details Tab › Packing List › Packing Information",
+      "text": "S. No.: 16; Field Name: No. of Plies; Control: Rich text",
+      "locator": "§ Solution › ASN Details Tab › Packing List › Packing Information, table 9, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Shipment Details Tab",
+      "heading": "Solution › Shipment Details Tab",
+      "text": "The Shipment Details header tab has two sections, each with a chevron to collapse and expand it. Both open expanded.\nShipment Details header tab",
+      "locator": "§ Solution › Shipment Details Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment Details Section – Table 10",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "Columns: S. No. (integer); Field Name (text); Control (text)\nS. No. | Field Name | Control\n1 | Place Of Receipt By Pre-Carrier | Text\n2 | Shipping Bill No | Text\n3 | Shipping Bill Date | Date picker\n | Other Details (sub-heading) | \n4 | Country of Origin | Dropdown\n5 | Final Destination | Text\n6 | Shipment Authorization No. | Text\n7 | Ship Date | Date picker\n8 | Next Shipment Date | Date picker\n9 | FCR Date | Date picker\n10 | Country of Destination | Dropdown\n11 | Forwarder | Dropdown\n12 | Clearing House Agent | Dropdown\n13 | Port of Clearance | Dropdown\n14 | Discharge Country | Dropdown\n15 | Place | Dropdown\n16 | PPRQ | Checkbox\n17 | Buyer Defaults | Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10",
+      "kind": "table"
+    },
+    {
+      "title": "Table 10 row 1",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 1; Field Name: Place Of Receipt By Pre-Carrier; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 2",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 2; Field Name: Shipping Bill No; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 3",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 3; Field Name: Shipping Bill Date; Control: Date picker",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 4",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "Field Name: Other Details (sub-heading)",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 5",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 4; Field Name: Country of Origin; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 6",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 5; Field Name: Final Destination; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 7",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 6; Field Name: Shipment Authorization No.; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 8",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 7; Field Name: Ship Date; Control: Date picker",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 9",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 8; Field Name: Next Shipment Date; Control: Date picker",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 10",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 9; Field Name: FCR Date; Control: Date picker",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 11",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 10; Field Name: Country of Destination; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 12",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 11; Field Name: Forwarder; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 13",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 12; Field Name: Clearing House Agent; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 14",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 13; Field Name: Port of Clearance; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 14",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 15",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 14; Field Name: Discharge Country; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 15",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 16",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 15; Field Name: Place; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 16",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 17",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 16; Field Name: PPRQ; Control: Checkbox",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 17",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 10 row 18",
+      "heading": "Solution › Shipment Details Tab › Shipment Details Section",
+      "text": "S. No.: 17; Field Name: Buyer Defaults; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Shipment Details Section, table 10, row 18",
+      "kind": "data_row"
+    },
+    {
+      "title": "Commercial Invoice & Commercial Terms Section – Table 11",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "Columns: S. No. (integer); Field Name (text); Control (text)\nS. No. | Field Name | Control\n | Commercial Invoice (sub-heading) | \n1 | LC No | Text\n2 | LC Date | Date picker\n3 | Packing List No | Text\n4 | LC Issued By | Text\n5 | Commission | Number\n | Commercial Terms (sub-heading) | \n6 | Consignee Address | Dropdown\n7 | Consignor Address | Dropdown\n8 | Bill To | Dropdown\n9 | Ship To | Dropdown\n10 | Delivery Terms | Dropdown\n11 | Factory | Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11",
+      "kind": "table"
+    },
+    {
+      "title": "Table 11 row 1",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "Field Name: Commercial Invoice (sub-heading)",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 2",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 1; Field Name: LC No; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 3",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 2; Field Name: LC Date; Control: Date picker",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 4",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 3; Field Name: Packing List No; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 5",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 4; Field Name: LC Issued By; Control: Text",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 6",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 5; Field Name: Commission; Control: Number",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 7",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "Field Name: Commercial Terms (sub-heading)",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 8",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 6; Field Name: Consignee Address; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 8",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 9",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 7; Field Name: Consignor Address; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 9",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 10",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 8; Field Name: Bill To; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 10",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 11",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 9; Field Name: Ship To; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 11",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 12",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 10; Field Name: Delivery Terms; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 12",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 11 row 13",
+      "heading": "Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section",
+      "text": "S. No.: 11; Field Name: Factory; Control: Dropdown",
+      "locator": "§ Solution › Shipment Details Tab › Commercial Invoice & Commercial Terms Section, table 11, row 13",
+      "kind": "data_row"
+    },
+    {
+      "title": "Attachments & Other Details Tab",
+      "heading": "Solution › Attachments & Other Details Tab",
+      "text": "New header tab, placed after Shipment Details. It holds three sections, one below the other, that were earlier at the bottom of the Packing List tab. Fields, controls and behaviour are the same as before the move.\nAttachments & Other Details tab",
+      "locator": "§ Solution › Attachments & Other Details Tab",
+      "kind": "section"
+    },
+    {
+      "title": "Attachments",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "The section has a Delete action, a drop area and a grid.",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments",
+      "kind": "section"
+    },
+    {
+      "title": "Attachments – Table 12",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "Columns: S. No. (integer); Element (text)\nS. No. | Element\n1 | Drop area\n2 | Delete\n3 | Row select",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 12",
+      "kind": "table"
+    },
+    {
+      "title": "Table 12 row 1",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 1; Element: Drop area",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 12, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 2",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 2; Element: Delete",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 12, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 12 row 3",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 3; Element: Row select",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 12, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Attachments – Table 13",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "Columns: S. No. (integer); Grid column (text)\nS. No. | Grid column\n1 | User File Name\n2 | Comments\n3 | Uploaded On\n4 | Uploaded By\n5 | Download/View",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13",
+      "kind": "table"
+    },
+    {
+      "title": "Table 13 row 1",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 1; Grid column: User File Name",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 2",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 2; Grid column: Comments",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 3",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 3; Grid column: Uploaded On",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 4",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 4; Grid column: Uploaded By",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 13 row 5",
+      "heading": "Solution › Attachments & Other Details Tab › Attachments",
+      "text": "S. No.: 5; Grid column: Download/View",
+      "locator": "§ Solution › Attachments & Other Details Tab › Attachments, table 13, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Flex Field – Table 14",
+      "heading": "Solution › Attachments & Other Details Tab › Flex Field",
+      "text": "Columns: S. No. (integer); Field Name (text)\nS. No. | Field Name\n1 | Custom Declaration Bill of Entry No",
+      "locator": "§ Solution › Attachments & Other Details Tab › Flex Field, table 14",
+      "kind": "table"
+    },
+    {
+      "title": "Table 14 row 1",
+      "heading": "Solution › Attachments & Other Details Tab › Flex Field",
+      "text": "S. No.: 1; Field Name: Custom Declaration Bill of Entry No",
+      "locator": "§ Solution › Attachments & Other Details Tab › Flex Field, table 14, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Other Fields – Table 15",
+      "heading": "Solution › Attachments & Other Details Tab › Other Fields",
+      "text": "Columns: S. No. (integer); Field Name (text)\nS. No. | Field Name\n1 | Remarks\n2 | Additional Info",
+      "locator": "§ Solution › Attachments & Other Details Tab › Other Fields, table 15",
+      "kind": "table"
+    },
+    {
+      "title": "Table 15 row 1",
+      "heading": "Solution › Attachments & Other Details Tab › Other Fields",
+      "text": "S. No.: 1; Field Name: Remarks",
+      "locator": "§ Solution › Attachments & Other Details Tab › Other Fields, table 15, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 15 row 2",
+      "heading": "Solution › Attachments & Other Details Tab › Other Fields",
+      "text": "S. No.: 2; Field Name: Additional Info",
+      "locator": "§ Solution › Attachments & Other Details Tab › Other Fields, table 15, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Screen Layout Configurator",
+      "heading": "Solution › Configurator › Screen Layout Configurator",
+      "text": "SLC is required for New ASN.\nNote: this is reference image of SLC(old view) need to give SLC as per new sections divided tab wise in this Specs.",
+      "locator": "§ Solution › Configurator › Screen Layout Configurator",
+      "kind": "section"
+    },
+    {
+      "title": "View Configurator",
+      "heading": "Solution › Configurator › View Configurator",
+      "text": "Note: this is reference image for view config, need view configurator for both Sales ASN list and Sales ASN new, and do not give the pin tool on view config.",
+      "locator": "§ Solution › Configurator › View Configurator",
+      "kind": "section"
+    },
+    {
+      "title": "Version History – Table 16",
+      "heading": "Solution › Configurator › View Configurator › Version History",
+      "text": "Columns: Version (decimal); Prepared By (text); Date (date)\nVersion | Prepared By | Date\n1.0 | Nishant | 28-Oct-2026",
+      "locator": "§ Solution › Configurator › View Configurator › Version History, table 16",
+      "kind": "table"
+    },
+    {
+      "title": "Table 16 row 1",
+      "heading": "Solution › Configurator › View Configurator › Version History",
+      "text": "Version: 1.0; Prepared By: Nishant; Date: 28-Oct-2026",
+      "locator": "§ Solution › Configurator › View Configurator › Version History, table 16, row 1",
+      "kind": "data_row"
+    }
+  ]
+}

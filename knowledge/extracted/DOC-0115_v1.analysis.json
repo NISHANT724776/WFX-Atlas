@@ -1,0 +1,1418 @@
+{
+  "tables": [],
+  "subject": "CFAI Make To Stock 9 May 2026 2",
+  "keyTerms": [
+    "order",
+    "user",
+    "after",
+    "navigation",
+    "production",
+    "summary",
+    "stock",
+    "material",
+    "create",
+    "made",
+    "user create",
+    "production order",
+    "delivery",
+    "asn",
+    "gdi"
+  ],
+  "module": "Production",
+  "moduleScores": [
+    {
+      "module": "Production",
+      "score": 36
+    },
+    {
+      "module": "Sales Order",
+      "score": 23
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 23
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 14
+    }
+  ],
+  "transactions": [
+    "Purchase Order from Buyer (OC)",
+    "BOM – Routing",
+    "BOM – Materials & Dependency",
+    "BOM – Costing",
+    "GRN – Goods Receipt Note",
+    "Production Order",
+    "MRP – Material Requirement Planning",
+    "RMPO – Raw Material Purchase Order"
+  ],
+  "candidates": [
+    {
+      "kind": "formula",
+      "text": "quantities can be updated in separate summary OCs (one delivery = one summary OC).",
+      "locator": "p. 5, § … › OC",
+      "module": "Production"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "1\nof\n41",
+      "locator": "p. 1, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "May",
+      "heading": "… › May",
+      "text": "9,\n20 26",
+      "locator": "p. 1, § … › May",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "2\nof\n41",
+      "locator": "p. 2, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 2, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "First",
+      "heading": "… › First",
+      "text": "the\nstyle\nwill\nbe\ncreated\nin\nthe\nsystem .",
+      "locator": "p. 2, § … › First",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 2, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Catalogs",
+      "heading": "… › Catalogs",
+      "text": "click on BOM tab",
+      "locator": "p. 2, § … › Catalogs",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "the\nstyle\ncreation,\nthe",
+      "locator": "p. 2, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "BOM",
+      "heading": "… › BOM",
+      "text": "for\nthat\nstyle\ncan\nbe\nmade.",
+      "locator": "p. 2, § … › BOM",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "3\nof\n41",
+      "locator": "p. 3, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 3, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "the\nuser\ncreates\nthe\nBOM ,\nit\ngoes\nto\napproval\nto\nthe\napprover\nand\nshows\nin\nthe",
+      "locator": "p. 3, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "Document",
+      "heading": "… › Document",
+      "text": "Approval Center of that approver.\nNote: In BOM there are 3 section (Material, Routing, Cost) all can be route for approval .",
+      "locator": "p. 3, § … › Document",
+      "kind": "section"
+    },
+    {
+      "title": "From",
+      "heading": "… › From",
+      "text": "here\nthe\napprover\ncan\nview\nthe",
+      "locator": "p. 3, § … › From",
+      "kind": "section"
+    },
+    {
+      "title": "BOM",
+      "heading": "… › BOM",
+      "text": "and\nthen\neither\napprove\nor\nreject\nthe\nBOM .",
+      "locator": "p. 3, § … › BOM",
+      "kind": "section"
+    },
+    {
+      "title": "Confirmation",
+      "heading": "… › Confirmation",
+      "text": "(OC)",
+      "locator": "p. 3, § … › Confirmation",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 3, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Order",
+      "heading": "… › Order",
+      "text": "from",
+      "locator": "p. 3, § … › Order",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "a\nstyle\nhas\nbeen\nmade\nin\nthe\nsystem,\nuser\ncan\ncreate\na\nsales\norder\nagainst\nit.",
+      "locator": "p. 3, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "In",
+      "heading": "… › In",
+      "text": "make\nto\nstock\nflow, delivery wise orders will be added in the same summary OC under the main OC.",
+      "locator": "p. 3, § … › In",
+      "kind": "section"
+    },
+    {
+      "title": "There",
+      "heading": "… › There",
+      "text": "are\n3\ntypes\nof\norders\nin\nmake\nto\nstock\n–\nImplantation,",
+      "locator": "p. 3, § … › There",
+      "kind": "section"
+    },
+    {
+      "title": "Replenishment",
+      "heading": "… › Replenishment",
+      "text": "and\nProd.",
+      "locator": "p. 3, § … › Replenishment",
+      "kind": "section"
+    },
+    {
+      "title": "Implantation",
+      "heading": "… › Implantation",
+      "text": "-",
+      "locator": "p. 3, § … › Implantation",
+      "kind": "section"
+    },
+    {
+      "title": "In",
+      "heading": "… › In",
+      "text": "this\norder\ntype,\nstyle,\ncolor\nand\norder\nquantity\nare\nknown but\nthe\nsize\nwise\nbreakup is not available.\nSo,\nthe\nuser\nwill\ninitially\ncreate\na\nsummary",
+      "locator": "p. 3, § … › In",
+      "kind": "section"
+    },
+    {
+      "title": "OC",
+      "heading": "… › OC",
+      "text": "with\nquantity\nadded\nin\nthe",
+      "locator": "p. 3, § … › OC",
+      "kind": "section"
+    },
+    {
+      "title": "TBA",
+      "heading": "… › TBA",
+      "text": "size\ncolumn.",
+      "locator": "p. 3, § … › TBA",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "4\nof\n41",
+      "locator": "p. 4, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Then",
+      "heading": "… › Then",
+      "text": "that\nquantity\nwill\nbe\nsplit\nin\nmultiple\ndelivery\ndates\n(with\nthe\nquantity\nstill\ngetting\nadded\nin\nthe\nTBA size column).",
+      "locator": "p. 4, § … › Then",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "5\nof\n41",
+      "locator": "p. 5, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Later",
+      "heading": "… › Later",
+      "text": "on,\nafter\ngetting\nthe\nsize\nwise\nbreakup,\nthe",
+      "locator": "p. 5, § … › Later",
+      "kind": "section"
+    },
+    {
+      "title": "OC",
+      "heading": "… › OC",
+      "text": "will\nbe\nrevised\nand\nthe quantities\nwill\nbe\nmoved\nfrom the TBA column to the actual size columns.",
+      "locator": "p. 5, § … › OC",
+      "kind": "section"
+    },
+    {
+      "title": "And",
+      "heading": "… › And",
+      "text": "the\ndelivery\nwise\nsplits\nwill\nbe\nchanged\nto\nseparate\nsummary",
+      "locator": "p. 5, § … › And",
+      "kind": "section"
+    },
+    {
+      "title": "OCs",
+      "heading": "… › OCs",
+      "text": "(one\ndelivery\n=\none\nsummary\nOC).",
+      "locator": "p. 5, § … › OCs",
+      "kind": "section"
+    },
+    {
+      "title": "Replenishment",
+      "heading": "… › Replenishment",
+      "text": "–",
+      "locator": "p. 5, § … › Replenishment",
+      "kind": "section"
+    },
+    {
+      "title": "In",
+      "heading": "… › In",
+      "text": "this\norder type, the\nsizes\nare also known. So while creating the delivery\nwise\nsummary",
+      "locator": "p. 5, § … › In",
+      "kind": "section"
+    },
+    {
+      "title": "OC, quantity",
+      "heading": "… › OC, quantity",
+      "text": "will\nbe added in the\nsize\nwise\ncolumns instead\nof in",
+      "locator": "p. 5, § … › OC, quantity",
+      "kind": "section"
+    },
+    {
+      "title": "TBA column as shown",
+      "heading": "… › TBA column as shown",
+      "text": "above\nfor\nimplantation.",
+      "locator": "p. 5, § … › TBA column as shown",
+      "kind": "section"
+    },
+    {
+      "title": "Later",
+      "heading": "… › Later",
+      "text": "on,\nwhen\nconfirmed",
+      "locator": "p. 5, § … › Later",
+      "kind": "section"
+    },
+    {
+      "title": "CPOs",
+      "heading": "… › CPOs",
+      "text": "are\ngiven,\nthe",
+      "locator": "p. 5, § … › CPOs",
+      "kind": "section"
+    },
+    {
+      "title": "OC",
+      "heading": "… › OC",
+      "text": "can\nbe\nrevised\nand\nthe\nquantities can be updated in separate summary OCs (one delivery = one summary OC).",
+      "locator": "p. 5, § … › OC",
+      "kind": "section"
+    },
+    {
+      "title": "Prod –",
+      "heading": "… › Prod –",
+      "text": "In this case, the buyer gives the confirmed order after production has started. So the user\nfirst\nmakes\nthe\ndelivery\nwise\nsummary",
+      "locator": "p. 5, § … › Prod –",
+      "kind": "section"
+    },
+    {
+      "title": "OC",
+      "heading": "… › OC",
+      "text": "and\nthen\nrevises\nit\nwhen\nthe\nconfirmed\norder\nis\nreceived\n(1 summary OC can have multiple delivery dates).",
+      "locator": "p. 5, § … › OC",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "6\nof\n41",
+      "locator": "p. 6, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Planning",
+      "heading": "… › Planning",
+      "text": "(MR P )",
+      "locator": "p. 6, § … › Planning",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 6, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "the",
+      "locator": "p. 6, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "OC",
+      "heading": "… › OC",
+      "text": "has\nbeen\nmade\nand\nthe",
+      "locator": "p. 6, § … › OC",
+      "kind": "section"
+    },
+    {
+      "title": "BOM",
+      "heading": "… › BOM",
+      "text": "is\napproved,",
+      "locator": "p. 6, § … › BOM",
+      "kind": "section"
+    },
+    {
+      "title": "MR P",
+      "heading": "… › MR P",
+      "text": "can\nbe\ngenerated\nagainst the",
+      "locator": "p. 6, § … › MR P",
+      "kind": "section"
+    },
+    {
+      "title": "OC (all",
+      "heading": "… › OC (all",
+      "text": "the summary OCs will be clubbed together in a single MR P ).",
+      "locator": "p. 6, § … › OC (all",
+      "kind": "section"
+    },
+    {
+      "title": "Similar",
+      "heading": "… › Similar",
+      "text": "to\nBOM ,\nthis\nwill\ngo\nfor\napproval\nand\nafter\nits\napproved,\nindents\nwill\nbe\ngenerated.",
+      "locator": "p. 6, § … › Similar",
+      "kind": "section"
+    },
+    {
+      "title": "As",
+      "heading": "… › As",
+      "text": "in\ncase\nof\nmake\nto\nstock,\nthe\nbuyer\norder\nconfirmation\ncomes at\na\nlater\nstage,\nwhen\nthe OC\nis\nrevised for updating the order information, the MR P\nhas to be re generated to update the\nrequirements.",
+      "locator": "p. 6, § … › As",
+      "kind": "section"
+    },
+    {
+      "title": "Indent",
+      "heading": "… › Indent",
+      "text": "/",
+      "locator": "p. 6, § … › Indent",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 6, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "From",
+      "heading": "… › From",
+      "text": "MR P ,\nthe\nuser\ncan\ngenerate\nthe\nindents\nfor\nthe\norder.",
+      "locator": "p. 6, § … › From",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "7\nof\n41\nThese Indents will be visible in Material Requirement Planning, user can take action (Stock\nadjustment\n/",
+      "locator": "p. 7, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Order",
+      "heading": "… › Order",
+      "text": "/",
+      "locator": "p. 7, § … › Order",
+      "kind": "section"
+    },
+    {
+      "title": "Order) on",
+      "heading": "… › Order) on",
+      "text": "these",
+      "locator": "p. 7, § … › Order) on",
+      "kind": "section"
+    },
+    {
+      "title": "Indents",
+      "heading": "… › Indents",
+      "text": "from",
+      "locator": "p. 7, § … › Indents",
+      "kind": "section"
+    },
+    {
+      "title": "Indent",
+      "heading": "… › Indent",
+      "text": "List .",
+      "locator": "p. 7, § … › Indent",
+      "kind": "section"
+    },
+    {
+      "title": "RMPO",
+      "heading": "… › RMPO",
+      "text": "(Raw",
+      "locator": "p. 7, § … › RMPO",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 7, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "New",
+      "heading": "… › New",
+      "text": "-",
+      "locator": "p. 7, § … › New",
+      "kind": "section"
+    },
+    {
+      "title": "Against",
+      "heading": "… › Against",
+      "text": "the\nindent,\nuser\ncan\ncreate\nthe",
+      "locator": "p. 7, § … › Against",
+      "kind": "section"
+    },
+    {
+      "title": "Order",
+      "heading": "… › Order",
+      "text": "in\nthe\nsystem\n(multiple\nindents\nof\nthe\nsame\ncategory can be combined).",
+      "locator": "p. 7, § … › Order",
+      "kind": "section"
+    },
+    {
+      "title": "In",
+      "heading": "… › In",
+      "text": "case\nof",
+      "locator": "p. 7, § … › In",
+      "kind": "section"
+    },
+    {
+      "title": "Implantation",
+      "heading": "… › Implantation",
+      "text": "and\nReplenishment,\nas\nthe\nconfirmed\norder\nfrom\nthe\nbuyer\ncomes\nafter\nthe\nPO has been raised, the initial PO requirement changes. Thus,\nuser will have to revise the PO and\nclick\non\n“Update\nwith\nnew",
+      "locator": "p. 7, § … › Implantation",
+      "kind": "section"
+    },
+    {
+      "title": "Indents”",
+      "heading": "… › Indents”",
+      "text": "to\nupdate\nthe\nPO.",
+      "locator": "p. 7, § … › Indents”",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "8\nof\n41",
+      "locator": "p. 8, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Schedule",
+      "heading": "… › Schedule",
+      "text": "Also,\nduring\nthe",
+      "locator": "p. 8, § … › Schedule",
+      "kind": "section"
+    },
+    {
+      "title": "PO",
+      "heading": "… › PO",
+      "text": "creation,\nuser\ncan\ndefine\nthe\ndelivery schedule\nbased\non\nthe",
+      "locator": "p. 8, § … › PO",
+      "kind": "section"
+    },
+    {
+      "title": "Date",
+      "heading": "… › Date",
+      "text": "of\neach\nsummary OC.",
+      "locator": "p. 8, § … › Date",
+      "kind": "section"
+    },
+    {
+      "title": "Confirming",
+      "heading": "… › Confirming",
+      "text": "the",
+      "locator": "p. 8, § … › Confirming",
+      "kind": "section"
+    },
+    {
+      "title": "PO",
+      "heading": "… › PO",
+      "text": "(ETD/ETA)",
+      "locator": "p. 8, § … › PO",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 8, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "the",
+      "locator": "p. 8, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "PO",
+      "heading": "… › PO",
+      "text": "is\ncreated,\nit\nis\nsaved\nin\nthe\nsystem in",
+      "locator": "p. 8, § … › PO",
+      "kind": "section"
+    },
+    {
+      "title": "Unconfirmed",
+      "heading": "… › Unconfirmed",
+      "text": "status.",
+      "locator": "p. 8, § … › Unconfirmed",
+      "kind": "section"
+    },
+    {
+      "title": "The",
+      "heading": "… › The",
+      "text": "authorized\nuser\ncan\nthen\nconfirm the PO based on the updated ETD/ETA dates provided by the supplier.",
+      "locator": "p. 8, § … › The",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "9\nof\n41",
+      "locator": "p. 9, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "House",
+      "heading": "… › House",
+      "text": "adjustment\n(Free",
+      "locator": "p. 9, § … › House",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 9, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "In",
+      "heading": "… › In",
+      "text": "case\nmaterials\nare\nalready\navailable\nin\nthe\nwarehouse,\ninstead\nof\ncreating\na\nPO,\nuser\ncan\nsimply\ndo\nin house adjustment of that material.",
+      "locator": "p. 9, § … › In",
+      "kind": "section"
+    },
+    {
+      "title": "In",
+      "heading": "… › In",
+      "text": "case after\nthe indent has\nbeen updated\n(when\nthe",
+      "locator": "p. 9, § … › In",
+      "kind": "section"
+    },
+    {
+      "title": "OC is revised after confirmed buyer",
+      "heading": "… › OC is revised after confirmed buyer",
+      "text": "order\nand",
+      "locator": "p. 9, § … › OC is revised after confirmed buyer",
+      "kind": "section"
+    },
+    {
+      "title": "MR P",
+      "heading": "… › MR P",
+      "text": "is\nre\ngenerated),\nthe\nindent\nqty\nis\nless\nthan\nthe\nin\nhouse\nadjusted\nqty,\nthe\nuser\ncan\ndo",
+      "locator": "p. 9, § … › MR P",
+      "kind": "section"
+    },
+    {
+      "title": "Material",
+      "heading": "… › Material",
+      "text": "Re - Allocation to allocate the extra material somewhere else.",
+      "locator": "p. 9, § … › Material",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 9, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "10\nof\n41",
+      "locator": "p. 10, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "PO",
+      "heading": "… › PO",
+      "text": "has\nmade,\nsourcing",
+      "locator": "p. 10, § … › PO",
+      "kind": "section"
+    },
+    {
+      "title": "ASN",
+      "heading": "… › ASN",
+      "text": "can\nbe\ndone\nfor\nthe\nmaterials\nin\nthe\nsystem.",
+      "locator": "p. 10, § … › ASN",
+      "kind": "section"
+    },
+    {
+      "title": "Note",
+      "heading": "… › Note",
+      "text": "(GRN)",
+      "locator": "p. 10, § … › Note",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 10, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "11\nof\n41",
+      "locator": "p. 11, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "gate\nentry,",
+      "locator": "p. 11, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "GRN",
+      "heading": "… › GRN",
+      "text": "can\nmade\nin\nthe\nsystem\nwhere\nthe\nuser\nwill\nenter\nthe\nreceived\nqtys\nof\nthe\nraw\nmaterials.",
+      "locator": "p. 11, § … › GRN",
+      "kind": "section"
+    },
+    {
+      "title": "Control",
+      "heading": "… › Control",
+      "text": "(QC)",
+      "locator": "p. 11, § … › Control",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 11, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "If",
+      "heading": "… › If",
+      "text": "the\nmaterial\nis\nmarked\nfor",
+      "locator": "p. 11, § … › If",
+      "kind": "section"
+    },
+    {
+      "title": "QC",
+      "heading": "… › QC",
+      "text": "in\nthe\nGRN,\nthen\nthe\nnext\nstep\nwould\nbe\nto do\nthe",
+      "locator": "p. 11, § … › QC",
+      "kind": "section"
+    },
+    {
+      "title": "QC",
+      "heading": "… › QC",
+      "text": "of\nthe\nreceived materials.",
+      "locator": "p. 11, § … › QC",
+      "kind": "section"
+    },
+    {
+      "title": "The",
+      "heading": "… › The",
+      "text": "user\ncan\nselect\nthe",
+      "locator": "p. 11, § … › The",
+      "kind": "section"
+    },
+    {
+      "title": "QC",
+      "heading": "… › QC",
+      "text": "type\nfrom the\n“QC\nDefinition”,\ndo\nroll\nsplit\nis required\nfrom the\n“Roll\nDetails” and the QC from the “Details” link.",
+      "locator": "p. 11, § … › QC",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "12\nof\n41",
+      "locator": "p. 12, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "entering\nthe\ninspection\ndata,\nthe",
+      "locator": "p. 12, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "QC",
+      "heading": "… › QC",
+      "text": "status\nwill\nchange\nto",
+      "locator": "p. 12, § … › QC",
+      "kind": "section"
+    },
+    {
+      "title": "Then",
+      "heading": "… › Then",
+      "text": "the",
+      "locator": "p. 12, § … › Then",
+      "kind": "section"
+    },
+    {
+      "title": "QC",
+      "heading": "… › QC",
+      "text": "approver\ncan\nclick\non\nthe",
+      "locator": "p. 12, § … › QC",
+      "kind": "section"
+    },
+    {
+      "title": "Approval",
+      "heading": "… › Approval",
+      "text": "link\nto\nconfirm\nthe\nQC.",
+      "locator": "p. 12, § … › Approval",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "13\nof\n41",
+      "locator": "p. 13, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Here",
+      "heading": "… › Here",
+      "text": "the\napprover\ncan\nclick\non\nthe",
+      "locator": "p. 13, § … › Here",
+      "kind": "section"
+    },
+    {
+      "title": "Movement",
+      "heading": "… › Movement",
+      "text": "to\nchange\nany\ndetails\nif\nrequired\nand\nthen\nclick\non Confirm.",
+      "locator": "p. 13, § … › Movement",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 13, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "the",
+      "locator": "p. 13, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "MR P",
+      "heading": "… › MR P",
+      "text": "is\ngenerated,",
+      "locator": "p. 13, § … › MR P",
+      "kind": "section"
+    },
+    {
+      "title": "Production",
+      "heading": "… › Production",
+      "text": "is\nauto\ngenerated\nin\nthe\nsystem.",
+      "locator": "p. 13, § … › Production",
+      "kind": "section"
+    },
+    {
+      "title": "Order",
+      "heading": "… › Order",
+      "text": "(FPO)",
+      "locator": "p. 13, § … › Order",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 13, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "From",
+      "heading": "… › From",
+      "text": "the\nproduction\norder\nlist, Factory\nproduction\norder\ncan\nbe\nmade\nin\nthe\nsystem by\nclicking\non\nthe Factory Production Order link.",
+      "locator": "p. 13, § … › From",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "14\nof\n41",
+      "locator": "p. 14, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 14, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "FPO",
+      "heading": "… › FPO",
+      "text": "is\nmade,\nuser\nwill go to the below screen where FPPO (Factory Prod uction Process Order )\nand it will be release to Pro duction .\nNow the user will click on the Order Qty H yper link and will create GDI and GDN for the production .",
+      "locator": "p. 14, § … › FPO",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "15\nof\n41\nFrom the above screen the user will create the GDI and then allocate the stock o n the GDI in case of",
+      "locator": "p. 15, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "From",
+      "heading": "… › From",
+      "text": "here\nthe\nuser\ncan\nclick\non\n“Update",
+      "locator": "p. 15, § … › From",
+      "kind": "section"
+    },
+    {
+      "title": "Movement”",
+      "heading": "… › Movement”",
+      "text": "to\nassign\nthe\nrolls\nagainst\nthe",
+      "locator": "p. 15, § … › Movement”",
+      "kind": "section"
+    },
+    {
+      "title": "Pick",
+      "heading": "… › Pick",
+      "text": "List.",
+      "locator": "p. 15, § … › Pick",
+      "kind": "section"
+    },
+    {
+      "title": "A nd",
+      "heading": "… › A nd",
+      "text": "then can\ndispatch\nthe good to the production\nfloor .",
+      "locator": "p. 15, § … › A nd",
+      "kind": "section"
+    },
+    {
+      "title": "Then",
+      "heading": "… › Then",
+      "text": "the",
+      "locator": "p. 15, § … › Then",
+      "kind": "section"
+    },
+    {
+      "title": "GDN",
+      "heading": "… › GDN",
+      "text": "c a n\nbe done .",
+      "locator": "p. 15, § … › GDN",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "this",
+      "locator": "p. 15, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "GRN",
+      "heading": "… › GRN",
+      "text": "for\nthe\noutput\nprocess\nwill\nbe\ncreated\n(cut\npcs) -\n(Navigation:",
+      "locator": "p. 15, § … › GRN",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "16\nof\n41",
+      "locator": "p. 16, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "The",
+      "heading": "… › The",
+      "text": "next\nstep\nwill\nbe\nto\ncreate\nthe",
+      "locator": "p. 16, § … › The",
+      "kind": "section"
+    },
+    {
+      "title": "Sewing",
+      "heading": "… › Sewing",
+      "text": "process",
+      "locator": "p. 16, § … › Sewing",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "17\nof\n41",
+      "locator": "p. 17, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "GDI",
+      "heading": "… › GDI",
+      "text": "and",
+      "locator": "p. 17, § … › GDI",
+      "kind": "section"
+    },
+    {
+      "title": "List",
+      "heading": "… › List",
+      "text": "will\nbe\nmade\nfrom\nit\nas\nshown\nbelow.\na)",
+      "locator": "p. 17, § … › List",
+      "kind": "section"
+    },
+    {
+      "title": "List",
+      "heading": "… › List",
+      "text": "b)",
+      "locator": "p. 17, § … › List",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "18\nof\n41",
+      "locator": "p. 18, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "We",
+      "heading": "… › We",
+      "text": "can\ndo\nthe\n“Update",
+      "locator": "p. 18, § … › We",
+      "kind": "section"
+    },
+    {
+      "title": "Movement”",
+      "heading": "… › Movement”",
+      "text": "if\nrequired.",
+      "locator": "p. 18, § … › Movement”",
+      "kind": "section"
+    },
+    {
+      "title": "Then",
+      "heading": "… › Then",
+      "text": "the\nnext\nstep\nwill\nbe\nto create\nthe",
+      "locator": "p. 18, § … › Then",
+      "kind": "section"
+    },
+    {
+      "title": "GDN",
+      "heading": "… › GDN",
+      "text": "for\nthe\nsewing\ntrims\nand\nthe\ncut\npcs.",
+      "locator": "p. 18, § … › GDN",
+      "kind": "section"
+    },
+    {
+      "title": "GDN",
+      "heading": "… › GDN",
+      "text": "for",
+      "locator": "p. 18, § … › GDN",
+      "kind": "section"
+    },
+    {
+      "title": "GDN",
+      "heading": "… › GDN",
+      "text": "for",
+      "locator": "p. 18, § … › GDN",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "19\nof\n41",
+      "locator": "p. 19, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Receiving",
+      "heading": "… › Receiving",
+      "text": "for\nthe",
+      "locator": "p. 19, § … › Receiving",
+      "kind": "section"
+    },
+    {
+      "title": "Process needs",
+      "heading": "… › Process needs",
+      "text": "to be filter here to take the Output GRN",
+      "locator": "p. 19, § … › Process needs",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "20\nof\n41\nSimilarly,\nyou\ncan\nmake\nthe",
+      "locator": "p. 20, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "GDI/GDN",
+      "heading": "… › GDI/GDN",
+      "text": "and",
+      "locator": "p. 20, § … › GDI/GDN",
+      "kind": "section"
+    },
+    {
+      "title": "GRN",
+      "heading": "… › GRN",
+      "text": "for\nthe\nsewing\ntrims\nand\nthe\ncut\npcs\nof\nthe\nother\nFPOs.",
+      "locator": "p. 20, § … › GRN",
+      "kind": "section"
+    },
+    {
+      "title": "Next",
+      "heading": "… › Next",
+      "text": "step\nwill\nbe\nto\ncreate\nthe",
+      "locator": "p. 20, § … › Next",
+      "kind": "section"
+    },
+    {
+      "title": "GDI",
+      "heading": "… › GDI",
+      "text": "for\nthe\npacking\ntrims.",
+      "locator": "p. 20, § … › GDI",
+      "kind": "section"
+    },
+    {
+      "title": "GDI",
+      "heading": "… › GDI",
+      "text": "and",
+      "locator": "p. 20, § … › GDI",
+      "kind": "section"
+    },
+    {
+      "title": "List",
+      "heading": "… › List",
+      "text": "will\nbe\nauto\ncreated\nfor\nthe\npacking\ntrims\nand\nthe",
+      "locator": "p. 20, § … › List",
+      "kind": "section"
+    },
+    {
+      "title": "Pcs",
+      "heading": "… › Pcs",
+      "text": "a)",
+      "locator": "p. 20, § … › Pcs",
+      "kind": "section"
+    },
+    {
+      "title": "Packing",
+      "heading": "… › Packing",
+      "text": "trims",
+      "locator": "p. 20, § … › Packing",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "21\nof\n41\nb)",
+      "locator": "p. 21, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Then",
+      "heading": "… › Then",
+      "text": "the\nuser\nwill\ncreate\nthe",
+      "locator": "p. 21, § … › Then",
+      "kind": "section"
+    },
+    {
+      "title": "GDN",
+      "heading": "… › GDN",
+      "text": "for\nthe\npacking\ntrims\nand\nthe",
+      "locator": "p. 21, § … › GDN",
+      "kind": "section"
+    },
+    {
+      "title": "Sew",
+      "heading": "… › Sew",
+      "text": "Pcs.",
+      "locator": "p. 21, § … › Sew",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "22\nof\n41",
+      "locator": "p. 22, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "23\nof\n41",
+      "locator": "p. 23, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "And",
+      "heading": "… › And",
+      "text": "from\nhere,",
+      "locator": "p. 23, § … › And",
+      "kind": "section"
+    },
+    {
+      "title": "GRN",
+      "heading": "… › GRN",
+      "text": "can\nbe\nmade\nfor\nthe\nlast\nprocess\nwhich\nupdate\nthe",
+      "locator": "p. 23, § … › GRN",
+      "kind": "section"
+    },
+    {
+      "title": "FG",
+      "heading": "… › FG",
+      "text": "in\nstocks.",
+      "locator": "p. 23, § … › FG",
+      "kind": "section"
+    },
+    {
+      "title": "Material Re Allocation of FG",
+      "heading": "… › Material Re Allocation of FG",
+      "text": "In case the user receive a PO form the buyer then can have a provision on the Material Re Allocation\nwhere we can transfer the GF stock form one OC to the other,\nso below is the process to follow .",
+      "locator": "p. 23, § … › Material Re Allocation of FG",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "24\nof\n41\nIn the above provision the system allow user to transfer the FG from one OC to another",
+      "locator": "p. 24, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "OC where the",
+      "heading": "… › OC where the",
+      "text": "fulfilment type is “Purchase”\nThen without actual production the “Build to Stock” can be transfer to another OC where Fulfilment\ntype is “Purchase”",
+      "locator": "p. 24, § … › OC where the",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "25\nof\n41",
+      "locator": "p. 25, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Notice",
+      "heading": "… › Notice",
+      "text": "(ASN)",
+      "locator": "p. 25, § … › Notice",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 25, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "ASN New",
+      "heading": "… › ASN New",
+      "text": "Finally,\nthe\nuser\ncan\ncreate\nthe shipment\nof\nthe\nFG.",
+      "locator": "p. 25, § … › ASN New",
+      "kind": "section"
+    },
+    {
+      "title": "ASN",
+      "heading": "… › ASN",
+      "text": "can\nbe\ncreated\nbased\non\nthe\ndelivery\ndates\nof the summary OC or can be combined together in a single ASN.",
+      "locator": "p. 25, § … › ASN",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "26\nof\n41\nSimilarly,\nall\nthe",
+      "locator": "p. 26, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "ASN",
+      "heading": "… › ASN",
+      "text": "for\nthe",
+      "locator": "p. 26, § … › ASN",
+      "kind": "section"
+    },
+    {
+      "title": "OCs",
+      "heading": "… › OCs",
+      "text": "can\nbe\nmade\nthe\nsame\nway.",
+      "locator": "p. 26, § … › OCs",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "creating\nthe\ndispatch,",
+      "locator": "p. 26, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "GDI",
+      "heading": "… › GDI",
+      "text": "and\npick\nwill\nbe\nauto\ncreated",
+      "locator": "p. 26, § … › GDI",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "27\nof\n41",
+      "locator": "p. 27, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "User",
+      "heading": "… › User",
+      "text": "can\nthen\ncreate\nthe",
+      "locator": "p. 27, § … › User",
+      "kind": "section"
+    },
+    {
+      "title": "GDN",
+      "heading": "… › GDN",
+      "text": "for\nthe",
+      "locator": "p. 27, § … › GDN",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "28\nof\n41\nSimilarly,\nthe\nuser\ncan\ncreate\nthe\ndispatch\nfor\nall\nother\nsummary",
+      "locator": "p. 28, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 28, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "Shipment",
+      "heading": "… › Shipment",
+      "text": "is\ndone,\nadditional\nshipping\ninformation\ncan\nbe\nadded\nin\nthe",
+      "locator": "p. 28, § … › Shipment",
+      "kind": "section"
+    },
+    {
+      "title": "Tracking",
+      "heading": "… › Tracking",
+      "text": "Console.",
+      "locator": "p. 28, § … › Tracking",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "29\nof\n41",
+      "locator": "p. 29, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Page",
+      "heading": "… › Page",
+      "text": "30\nof\n41",
+      "locator": "p. 30, § … › Page",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 30, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "the",
+      "locator": "p. 30, § … › After",
+      "kind": "section"
+    },
+    {
+      "title": "ASN",
+      "heading": "… › ASN",
+      "text": "has\nbeen\nmade,",
+      "locator": "p. 30, § … › ASN",
+      "kind": "section"
+    },
+    {
+      "title": "Invoice",
+      "heading": "… › Invoice",
+      "text": "for\nthe\nbuyer\ncan\nbe\nmade.",
+      "locator": "p. 30, § … › Invoice",
+      "kind": "section"
+    },
+    {
+      "title": "Navigation",
+      "heading": "… › Navigation",
+      "text": "–",
+      "locator": "p. 30, § … › Navigation",
+      "kind": "section"
+    },
+    {
+      "title": "After",
+      "heading": "… › After",
+      "text": "receiving\nthe\npayment\nfrom\nthe\nbuyer,\nuser\ncan\ncreate\nthe\nbuyer\nreceipt.",
+      "locator": "p. 30, § … › After",
+      "kind": "section"
+    }
+  ]
+}

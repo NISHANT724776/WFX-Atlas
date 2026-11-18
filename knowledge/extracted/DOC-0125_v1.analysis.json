@@ -1,0 +1,564 @@
+{
+  "tables": [
+    {
+      "name": "Table 1",
+      "headers": [
+        "Version",
+        "Date",
+        "Author",
+        "Description"
+      ],
+      "types": [
+        "decimal",
+        "date",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1.0",
+          "20-07-26",
+          "Ajay Chaudhary",
+          "Initial document preparation"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 2",
+      "headers": [
+        "Step",
+        "Description",
+        "Calculation",
+        "Result"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Digit positions (11-digit code)",
+          "8-8-7-5-1-2-5-3-8-0-4 (positions 1–11)",
+          "—"
+        ],
+        [
+          "2",
+          "Sum of ODD position digits (1,3,5,7,9,11)",
+          "8 + 7 + 1 + 5 + 8 + 4",
+          "33"
+        ],
+        [
+          "3",
+          "Multiply odd sum by 3",
+          "33 × 3",
+          "99"
+        ],
+        [
+          "4",
+          "Sum of EVEN position digits (2,4,6,8,10)",
+          "8 + 5 + 2 + 3 + 0",
+          "18"
+        ],
+        [
+          "5",
+          "Add Step 3 + Step 4",
+          "99 + 18",
+          "117"
+        ],
+        [
+          "6",
+          "Take last digit of total",
+          "Last digit of 117",
+          "7"
+        ],
+        [
+          "7",
+          "Subtract from 10 to get check digit",
+          "10 − 7",
+          "3"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 3",
+      "headers": [
+        "Step",
+        "Description",
+        "Calculation",
+        "Result"
+      ],
+      "types": [
+        "integer",
+        "text",
+        "text",
+        "integer"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "1",
+          "Digit positions (13-digit code)",
+          "2-0-8-8-7-5-1-2-5-3-8-0-4 (positions 1–13)",
+          "—"
+        ],
+        [
+          "2",
+          "Sum of ODD position digits (1,3,5,7,9,11,13)",
+          "2 + 8 + 7 + 1 + 5 + 8 + 4",
+          "35"
+        ],
+        [
+          "3",
+          "Multiply odd sum by 3",
+          "35 × 3",
+          "105"
+        ],
+        [
+          "4",
+          "Sum of EVEN position digits (2,4,6,8,10,12)",
+          "0 + 8 + 5 + 2 + 3 + 0",
+          "18"
+        ],
+        [
+          "5",
+          "Add Step 3 + Step 4",
+          "105 + 18",
+          "123"
+        ],
+        [
+          "6",
+          "Take last digit of total",
+          "Last digit of 123",
+          "3"
+        ],
+        [
+          "7",
+          "Subtract from 10 to get check digit",
+          "10 − 3",
+          "7"
+        ]
+      ],
+      "truncated": false
+    },
+    {
+      "name": "Table 4",
+      "headers": [
+        "Parameter",
+        "Type",
+        "Required",
+        "Description"
+      ],
+      "types": [
+        "text",
+        "text",
+        "boolean",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [],
+      "rows": [
+        [
+          "Buyer",
+          "string",
+          "Yes",
+          "Buyer/customer name (e.g., \"WALMART\")"
+        ],
+        [
+          "Created From",
+          "Date (DD-MM-YYYY)",
+          "Yes",
+          "Start of style creation date range"
+        ],
+        [
+          "Created To",
+          "Date (DD-MM-YYYY)",
+          "Yes",
+          "End of style creation date range"
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Generate UPC GTIN-419765",
+  "keyTerms": [
+    "upc",
+    "gtin",
+    "upc gtin",
+    "techpack",
+    "digit",
+    "generate",
+    "form",
+    "generate upc",
+    "code",
+    "size",
+    "assortment upc",
+    "last digit",
+    "style",
+    "techpack form",
+    "number"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 16
+    },
+    {
+      "module": "Booking & sourcing",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "Apparel Style (Techpack)"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Table 1: Version, Date, Author, Description (1 rows)",
+      "locator": "§ Version History, table 1",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "validation",
+      "text": "To support Walmart's compliance requirements, Shahi must ensure that valid and unique UPC/GTIN numbers are generated and associated with each applicable SKU.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "These identifiers are used across various trims that are physically procured and applied to garments, including wash care labels, generic tags, size strips, RFID hangtags, and UPC stickers.",
+      "locator": "§ Business Requirement",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Introduction of new menu UPC & GTIN Master\n2. Visibility of UPC & GTIN Master on style Techpack.\n3. Integration between WFX & Movex (M3) system for maintain unique",
+      "locator": "§ Scope",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "If a Techpack Form is marked as Default in the Techpack Form Setting, the system shall automatically add that form when a new Techpack is created.",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Once a Color/Size cell's checkbox is used to generate a UPC, that checkbox becomes disabled (greyed out, unchecked).",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "This confirms Store/Online are tracked as independent completion flags per row, not a single \"GTIN generated\" flag.",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "First six character of UPC number are vendor code provided from Walmart to Shahi and it is fixed ‘887512’.",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Next five numbers are running sequence which started from 1 and now reached at 59000 in M3(Shahi Current System).",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "definition",
+      "text": "Last digit calculations are mentioned below",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Introduction of new menu as UPC & GTIN Configurator as Form Type:\n1. Form Type UPC & GTIN Configurator not able to delete from the Techpack master if there is any ‘Generated UPC’ or ‘Generated Assortment UPC’ record exist.\n2. UPC Number (Generate UPC & Generate Assortment UPC) Generation Logic\n3. First six character of UPC number are vendor code provided from Walmart to Shahi and it is fixed ‘887512’.\n4. Next five numbers are running sequence which started from 1 and now reached at 59000 in M3(Shahi Current System).\n5. Last digit calculations are mentioned below",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 2: Step, Description, Calculation, Result (7 rows)",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Introduction of new menu as UPC & GTIN Configurator as Form Type:\n1. GTIN Number Generation Logic\n2. UPC Number: 887512538043\n3. Online Prefix (20): 2088751253804\n4. Last digit calculations are mentioned below",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 3: Step, Description, Calculation, Result (7 rows)",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3",
+      "module": "Style & BOM"
+    },
+    {
+      "kind": "table",
+      "text": "Table 4: Parameter, Type, Required, Description (3 rows)",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX, table 4",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Generate UPC GTIN-419765",
+      "heading": "",
+      "text": "Generate UPC & GTIN\nDevelopment ID: 419765\nGenerate UPC & GTIN\nDevelopment ID: 419765",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Version History 2\nBusiness Requirement 2\nPurpose 2\nScope 2\nIntroduction of new menu as UPC & GTIN Configurator as Form Type 2\nIntegration of UPC & GTIN in between Movex (M3) & WFX 6\nAcceptance Criteria: 7",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Version History – Table 1",
+      "heading": "Version History",
+      "text": "Columns: Version (decimal); Date (date); Author (text); Description (text)\nVersion | Date | Author | Description\n1.0 | 20-07-26 | Ajay Chaudhary | Initial document preparation",
+      "locator": "§ Version History, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Table 1 row 1",
+      "heading": "Version History",
+      "text": "Version: 1.0; Date: 20-07-26; Author: Ajay Chaudhary; Description: Initial document preparation",
+      "locator": "§ Version History, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "Business Requirement",
+      "text": "We require an automated and standardized process to generate UPC (Universal Product Code) and GTIN (Global Trade Item Number) values for Walmart orders.\nTo support Walmart's compliance requirements, Shahi must ensure that valid and unique UPC/GTIN numbers are generated and associated with each applicable SKU.\nThese identifiers are used across various trims that are physically procured and applied to garments, including wash care labels, generic tags, size strips, RFID hangtags, and UPC stickers. Depending on the sourcing model, these trims are procured from approved vendors such as AD and RPAC,",
+      "locator": "§ Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "Purpose",
+      "text": "This enhancement will:\n• Auto Generation of unique UPC & GTIN",
+      "locator": "§ Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "Scope",
+      "text": "This enhancement applies:\n• Introduction of new menu UPC & GTIN Master\n• Visibility of UPC & GTIN Master on style Techpack.\n• Integration between WFX & Movex (M3) system for maintain unique",
+      "locator": "§ Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Company Setup >> Techpack Setting >> Techpack Form\nAfter we enable this Form type same need to enable on Techpack master.\n• The Techpack Forms displayed in any Techpack shall be managed through the Techpack Form Setting. This applies to both newly created Techpacks and existing Techpacks.\n• If a Techpack Form is marked as Default in the Techpack Form Setting, the system shall automatically add that form when a new Techpack is created. Additionally, the Default Name configured for the form shall be displayed in the Techpack instead of the original Techpack Form name.\nIf user click on ‘UPC & GTIN Configurator’ on Techpack below screen need to visible: -\n• Button-level permissions (Generate UPC / Generate Assortment UPC / Generate GTIN)\n• Checkbox freeze after UPC generation\nOnce a Color/Size cell's checkbox is used to generate a UPC, that checkbox becomes disabled (greyed out, unchecked).\n• Generate Assortment UPC popup logic\nUser enters a count N (e.g. 10) → system creates N synthetic \"colors\" named AS1...AS10, each carrying the full-size range as comma-separated values (S, M, L, XL, XXL).\n• GTIN generation from generated UPC records",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "After UPC or Assortment UPC records exist in the \"Generated UPC & GTIN Details\" grid, user picks a Prefix (Store 30 / Online 20), selects rows via the row checkboxes, then clicks Generate GTIN — which populates the respective GTIN Store (30) or GTIN Online (20) column.\n• GTIN freeze per prefix\nIf a row already has a GTIN Store (30) value, that row's checkbox becomes unselect able for further Store (30) generation — but presumably remains selectable for Online (20) if that column is still blank, and vice versa. This confirms Store/Online are tracked as independent completion flags per row, not a single \"GTIN generated\" flag.\n• Form Type UPC & GTIN Configurator not able to delete from the Techpack master if there is any ‘Generated UPC’ or ‘Generated Assortment UPC’ record exist.\n• UPC Number (Generate UPC & Generate Assortment UPC) Generation Logic\n• First six character of UPC number are vendor code provided from Walmart to Shahi and it is fixed ‘887512’.\n• Next five numbers are running sequence which started from 1 and now reached at 59000 in M3(Shahi Current System).\n• Last digit calculations are mentioned below",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction of new menu as UPC & GTIN Configurator as Form Type – Table 2",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Columns: Step (integer); Description (text); Calculation (text); Result (integer)\nStep | Description | Calculation | Result\n1 | Digit positions (11-digit code) | 8-8-7-5-1-2-5-3-8-0-4 (positions 1–11) | —\n2 | Sum of ODD position digits (1,3,5,7,9,11) | 8 + 7 + 1 + 5 + 8 + 4 | 33\n3 | Multiply odd sum by 3 | 33 × 3 | 99\n4 | Sum of EVEN position digits (2,4,6,8,10) | 8 + 5 + 2 + 3 + 0 | 18\n5 | Add Step 3 + Step 4 | 99 + 18 | 117\n6 | Take last digit of total | Last digit of 117 | 7\n7 | Subtract from 10 to get check digit | 10 − 7 | 3",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2",
+      "kind": "table"
+    },
+    {
+      "title": "Table 2 row 1",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 1; Description: Digit positions (11-digit code); Calculation: 8-8-7-5-1-2-5-3-8-0-4 (positions 1–11); Result: —",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 2",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 2; Description: Sum of ODD position digits (1,3,5,7,9,11); Calculation: 8 + 7 + 1 + 5 + 8 + 4; Result: 33",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 3",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 3; Description: Multiply odd sum by 3; Calculation: 33 × 3; Result: 99",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 4",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 4; Description: Sum of EVEN position digits (2,4,6,8,10); Calculation: 8 + 5 + 2 + 3 + 0; Result: 18",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 5",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 5; Description: Add Step 3 + Step 4; Calculation: 99 + 18; Result: 117",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 6",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 6; Description: Take last digit of total; Calculation: Last digit of 117; Result: 7",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 2 row 7",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 7; Description: Subtract from 10 to get check digit; Calculation: 10 − 7; Result: 3",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 2, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Final UPC Number: 887512538043 (original 11 digits + check digit 3)\n• GTIN Number Generation Logic\n• UPC Number: 887512538043\n• Online Prefix (20): 2088751253804\n• Last digit calculations are mentioned below",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction of new menu as UPC & GTIN Configurator as Form Type – Table 3",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Columns: Step (integer); Description (text); Calculation (text); Result (integer)\nStep | Description | Calculation | Result\n1 | Digit positions (13-digit code) | 2-0-8-8-7-5-1-2-5-3-8-0-4 (positions 1–13) | —\n2 | Sum of ODD position digits (1,3,5,7,9,11,13) | 2 + 8 + 7 + 1 + 5 + 8 + 4 | 35\n3 | Multiply odd sum by 3 | 35 × 3 | 105\n4 | Sum of EVEN position digits (2,4,6,8,10,12) | 0 + 8 + 5 + 2 + 3 + 0 | 18\n5 | Add Step 3 + Step 4 | 105 + 18 | 123\n6 | Take last digit of total | Last digit of 123 | 3\n7 | Subtract from 10 to get check digit | 10 − 3 | 7",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3",
+      "kind": "table"
+    },
+    {
+      "title": "Table 3 row 1",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 1; Description: Digit positions (13-digit code); Calculation: 2-0-8-8-7-5-1-2-5-3-8-0-4 (positions 1–13); Result: —",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 2",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 2; Description: Sum of ODD position digits (1,3,5,7,9,11,13); Calculation: 2 + 8 + 7 + 1 + 5 + 8 + 4; Result: 35",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 3",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 3; Description: Multiply odd sum by 3; Calculation: 35 × 3; Result: 105",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 4",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 4; Description: Sum of EVEN position digits (2,4,6,8,10,12); Calculation: 0 + 8 + 5 + 2 + 3 + 0; Result: 18",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 5",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 5; Description: Add Step 3 + Step 4; Calculation: 105 + 18; Result: 123",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 6",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 6; Description: Take last digit of total; Calculation: Last digit of 123; Result: 3",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 3 row 7",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Step: 7; Description: Subtract from 10 to get check digit; Calculation: 10 − 3; Result: 7",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type, table 3, row 7",
+      "kind": "data_row"
+    },
+    {
+      "title": "Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "heading": "Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "text": "Final GTIN Number: 20887512538047 (original 13 digits + check digit 7)",
+      "locator": "§ Scope › Introduction of new menu as UPC & GTIN Configurator as Form Type",
+      "kind": "section"
+    },
+    {
+      "title": "Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "heading": "Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "text": "• New style/article created in WFX.\n• WFX → M3: outbound GET API call pulls/pushes the new style data to Movex (M3) — style code, color, size, article details\nParameters: -",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "kind": "section"
+    },
+    {
+      "title": "Integration of UPC & GTIN in between Movex (M3) & WFX – Table 4",
+      "heading": "Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "text": "Columns: Parameter (text); Type (text); Required (boolean); Description (text)\nParameter | Type | Required | Description\nBuyer | string | Yes | Buyer/customer name (e.g., \"WALMART\")\nCreated From | Date (DD-MM-YYYY) | Yes | Start of style creation date range\nCreated To | Date (DD-MM-YYYY) | Yes | End of style creation date range",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX, table 4",
+      "kind": "table"
+    },
+    {
+      "title": "Table 4 row 1",
+      "heading": "Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "text": "Parameter: Buyer; Type: string; Required: Yes; Description: Buyer/customer name (e.g., \"WALMART\")",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX, table 4, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 2",
+      "heading": "Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "text": "Parameter: Created From; Type: Date (DD-MM-YYYY); Required: Yes; Description: Start of style creation date range",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX, table 4, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Table 4 row 3",
+      "heading": "Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "text": "Parameter: Created To; Type: Date (DD-MM-YYYY); Required: Yes; Description: End of style creation date range",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX, table 4, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "heading": "Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "text": "API Response: -\n[\n{\n\"styleCode\": \"SFC-001\",\n\"styleName\": \"Slim Fit Chino\",\n\"variants\": [\n{\n\"colorCode\": \"RD01\",\n\"colorName\": \"Red\",\n\"sizeCode\": \"S\",\n\"sizeName\": \"Small\",\n\"upcNumber\": \"887512538043\",\n\"gtinDetails\": [\n{\n\"prefix\": \"30\",\n\"prefixLabel\": \"Store\",\n\"gtinNumber\": \"008881253804A\"\n},\n{\n\"prefix\": \"20\",\n\"prefixLabel\": \"Online\",\n\"gtinNumber\": \"009981253804B\"\n}\n]\n},\n{\n\"colorCode\": \"BL02\",\n\"colorName\": \"Blue\",\n\"sizeCode\": \"M\",\n\"sizeName\": \"Medium\",\n\"upcNumber\": \"887512538050\",\n\"gtinDetails\": [\n{\n\"prefix\": \"30\",\n\"prefixLabel\": \"Store\",\n\"gtinNumber\": \"008881253805C\"\n},\n{\n\"prefix\": \"20\",\n\"prefixLabel\": \"Online\",\n\"gtinNumber\": \"009981253805D\"\n}\n]\n}\n]\n}\n]\n• M3 generates the UPC & GTIN.\n• M3 → WFX: M3 responds back via POST API, pushing the generated UPC/GTIN numbers into WFX against the corresponding style/color/size record.\nNote: - In case of Assortment UPC in M3 system they pass any color code, color name, size code, size name and that can also possible that color code, color name, size code, size name not exist against that particular style so WFX system need to accept that record from M3 system.",
+      "locator": "§ Scope › Integration of UPC & GTIN in between Movex (M3) & WFX",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "Acceptance Criteria:",
+      "text": "• UPC & GTIN generation logics need to work as per the above-mentioned points.",
+      "locator": "§ Acceptance Criteria:",
+      "kind": "section"
+    }
+  ]
+}

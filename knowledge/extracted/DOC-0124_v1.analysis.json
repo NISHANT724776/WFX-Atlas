@@ -1,0 +1,203 @@
+{
+  "tables": [
+    {
+      "name": "Formatted Sheet",
+      "headers": [
+        "Column 1",
+        "Costsheet Cons",
+        "Column 3",
+        "Auto PD Cons (Current System)",
+        "Column 5",
+        "Auto PD Cons (Customer Expectation)",
+        "Column 7"
+      ],
+      "types": [
+        "text",
+        "text",
+        "empty",
+        "text",
+        "text",
+        "text",
+        "text"
+      ],
+      "units": {},
+      "identifiers": [
+        "Column 1"
+      ],
+      "rows": [
+        [
+          "Initial",
+          "4",
+          "",
+          "4 (gets autopopulated)",
+          "",
+          "None",
+          ""
+        ],
+        [
+          "Case 1",
+          "Revised 5",
+          "",
+          "5 (auto-populated as per BOM)",
+          "MRL rerun",
+          "5",
+          ""
+        ],
+        [
+          "Case 2",
+          "4",
+          "",
+          "4 (auto-populated as per BOM)",
+          "MRL rerun",
+          "5 changed by user (should remain 4, as pd cannot exceed costsheet cons)",
+          "Case 2 if Cost Sheet is 4 users can't change to 5 on PD consumption... Auto PD will show 4 can reduce but can't increase"
+        ],
+        [
+          "Case 3",
+          "4",
+          "",
+          "4 (auto-populated as per BOM)",
+          "MRL rerun",
+          "3 changed by user (should remain 3)",
+          ""
+        ],
+        [
+          "",
+          "5",
+          "",
+          "5 (auto-populated as per BOM)",
+          "MRL rerun",
+          "3",
+          ""
+        ],
+        [
+          "Case 4",
+          "4",
+          "",
+          "4 (auto-populated as per BOM)",
+          "MRL rerun",
+          "4",
+          ""
+        ],
+        [
+          "",
+          "User revised BOM to 3",
+          "",
+          "3 (auto-populated as per BOM)",
+          "MRL rerun",
+          "3",
+          ""
+        ]
+      ],
+      "truncated": false
+    }
+  ],
+  "subject": "Formatted Consumption Sheet",
+  "keyTerms": [
+    "auto",
+    "auto populated",
+    "populated per",
+    "per bom",
+    "bom mrl",
+    "mrl rerun",
+    "bom",
+    "populated",
+    "per",
+    "mrl",
+    "rerun",
+    "case",
+    "case auto",
+    "sheet",
+    "column"
+  ],
+  "module": "Style & BOM",
+  "moduleScores": [
+    {
+      "module": "Style & BOM",
+      "score": 7
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    },
+    {
+      "module": "Production",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "BOM – Materials & Dependency",
+    "BOM – Routing",
+    "BOM – Costing"
+  ],
+  "candidates": [
+    {
+      "kind": "table",
+      "text": "Formatted Sheet: Column 1, Costsheet Cons, Column 3, Auto PD Cons (Current System), Column 5, Auto PD Cons (Customer Expectation), Column 7 (7 rows; identifiers: Column 1)",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1",
+      "module": "Style & BOM"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "Sheet: Formatted Sheet – Formatted Sheet",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Columns: Column 1 (text); Costsheet Cons (text); Column 3 (empty); Auto PD Cons (Current System) (text); Column 5 (text); Auto PD Cons (Customer Expectation) (text); Column 7 (text)\nColumn 1 | Costsheet Cons | Column 3 | Auto PD Cons (Current System) | Column 5 | Auto PD Cons (Customer Expectation) | Column 7\nInitial | 4 |  | 4 (gets autopopulated) |  | None | \nCase 1 | Revised 5 |  | 5 (auto-populated as per BOM) | MRL rerun | 5 | \nCase 2 | 4 |  | 4 (auto-populated as per BOM) | MRL rerun | 5 changed by user (should remain 4, as pd cannot exceed costsheet cons) | Case 2 if Cost Sheet is 4 users can't change to 5 on PD consumption... Auto PD will show 4 can reduce but can't increase\nCase 3 | 4 |  | 4 (auto-populated as per BOM) | MRL rerun | 3 changed by user (should remain 3) | \n | 5 |  | 5 (auto-populated as per BOM) | MRL rerun | 3 | \nCase 4 | 4 |  | 4 (auto-populated as per BOM) | MRL rerun | 4 | \n | User revised BOM to 3 |  | 3 (auto-populated as per BOM) | MRL rerun | 3 | ",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1",
+      "kind": "table"
+    },
+    {
+      "title": "Formatted Sheet row 1",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Column 1: Initial; Costsheet Cons: 4; Auto PD Cons (Current System): 4 (gets autopopulated); Auto PD Cons (Customer Expectation): None",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 1",
+      "kind": "data_row"
+    },
+    {
+      "title": "Formatted Sheet row 2",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Column 1: Case 1; Costsheet Cons: Revised 5; Auto PD Cons (Current System): 5 (auto-populated as per BOM); Column 5: MRL rerun; Auto PD Cons (Customer Expectation): 5",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 2",
+      "kind": "data_row"
+    },
+    {
+      "title": "Formatted Sheet row 3",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Column 1: Case 2; Costsheet Cons: 4; Auto PD Cons (Current System): 4 (auto-populated as per BOM); Column 5: MRL rerun; Auto PD Cons (Customer Expectation): 5 changed by user (should remain 4, as pd cannot exceed costsheet cons); Column 7: Case 2 if Cost Sheet is 4 users can't change to 5 on PD consumption... Auto PD will show 4 can reduce but can't increase",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 3",
+      "kind": "data_row"
+    },
+    {
+      "title": "Formatted Sheet row 4",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Column 1: Case 3; Costsheet Cons: 4; Auto PD Cons (Current System): 4 (auto-populated as per BOM); Column 5: MRL rerun; Auto PD Cons (Customer Expectation): 3 changed by user (should remain 3)",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 4",
+      "kind": "data_row"
+    },
+    {
+      "title": "Formatted Sheet row 5",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Costsheet Cons: 5; Auto PD Cons (Current System): 5 (auto-populated as per BOM); Column 5: MRL rerun; Auto PD Cons (Customer Expectation): 3",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 5",
+      "kind": "data_row"
+    },
+    {
+      "title": "Formatted Sheet row 6",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Column 1: Case 4; Costsheet Cons: 4; Auto PD Cons (Current System): 4 (auto-populated as per BOM); Column 5: MRL rerun; Auto PD Cons (Customer Expectation): 4",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 6",
+      "kind": "data_row"
+    },
+    {
+      "title": "Formatted Sheet row 7",
+      "heading": "Sheet: Formatted Sheet",
+      "text": "Costsheet Cons: User revised BOM to 3; Auto PD Cons (Current System): 3 (auto-populated as per BOM); Column 5: MRL rerun; Auto PD Cons (Customer Expectation): 3",
+      "locator": "sheet \"Formatted Sheet\", § Sheet: Formatted Sheet, table 1, row 7",
+      "kind": "data_row"
+    }
+  ]
+}

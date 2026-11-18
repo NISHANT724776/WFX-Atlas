@@ -1,0 +1,243 @@
+{
+  "tables": [],
+  "subject": "368596 - Automatic Disbursement request (Invoicing) from the system after ASN",
+  "keyTerms": [
+    "asn",
+    "supplier",
+    "date",
+    "against",
+    "request",
+    "invoice",
+    "supplier invoice",
+    "apr",
+    "advance",
+    "advance payment",
+    "payment request",
+    "type",
+    "automation",
+    "against asn",
+    "payment"
+  ],
+  "module": "Booking & sourcing",
+  "moduleScores": [
+    {
+      "module": "Booking & sourcing",
+      "score": 9
+    },
+    {
+      "module": "Sales Order",
+      "score": 1
+    },
+    {
+      "module": "Inventory, QC & WMS",
+      "score": 0
+    },
+    {
+      "module": "Planning",
+      "score": 0
+    }
+  ],
+  "transactions": [
+    "GRN – Goods Receipt Note"
+  ],
+  "candidates": [
+    {
+      "kind": "workflow_steps",
+      "text": "Business Requirement:\n1. Delays in invoice generation\n2. Missed billing timelines\n3. Revenue recognition lag\n4. Dependency on manual tracking",
+      "locator": "§ … › Business Requirement",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Purpose:\n1. Automate post-shipment billing\n2. Improve cash flow cycle\n3. Reduce manual intervention\n4. Ensure timely customer invoicing\n5. Maintain alignment between logistics and finance",
+      "locator": "§ … › Purpose",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Automation of Concept & Validation based on Matrix of APR & Supplier Invoice.",
+      "locator": "§ … › Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Scope:\n1. Introduction of Automation of Advance Payment Request & Supplier Invoice\n2. Provision to create the Advance payment request against Sourcing ASN.\n3. Automation of Concept & Validation based on Matrix of APR & Supplier Invoice.",
+      "locator": "§ … › Scope",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "Let say Number of days is defined as 5.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Introduction of Automation of Advance Payment Request & Supplier Invoice:\n1. Category: All the system’s category such as Apparel, Textiles/fabric, Trims etc.\n2. Supplier: All the supplier belong to the specific category will be reflected with ALL selection and multiple Supplier selection option.\n3. Trigger Document Type:\n4. Advance Payment Request\n5. Supplier Invoice\n6. Document Type: Dependent on Trigger Document Type\n7. For Advance Payment Request:\n8. Against PO\n9. Against Sourcing ASN\n10. For Supplier Invoice\n11. Against GRN – for both GIN, ASN, & PO\n12. Trigger Point: It is dependent on Document Type\n13. APR Against PO\n14. PO Date\n15. APR against ASN\n16. ASN Created On\n17. ASN ETD Date\n18. ASN ETA Date\n19. Supplier Invoice against GRN\n20. Doc Date\n21. GRN Date\n22. Automation Type: Automation Frequency and setup\n23. Specific date in a month: In this case all the document before this date of that month will be used for automation of Invoice and will be saved in the respective list such as APR-List or Supplier Invoice with Remarks as automation (in the log)\n24. Each Number of days: In this scenario, a specific number of days will be defined to automate the invoicing process. Let say Number of days is defined as 5. So, every 5 days system will automatically pick all the document and create the document automatically whether APR or Supplier Invoice.\n25. Every End of the Day: In this type, system will create the invoice automatically at the end of the day.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation & Working Conditions:",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "One Supplier can have only one kind of validation.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "System should show alert if user is trying to create another validation.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "System should show alert if user is trying to create another validation.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Every new validation will work from next tomorrow morning.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Introduction of Automation of Advance Payment Request & Supplier Invoice:\n1. One Supplier can have only one kind of validation.\n2. System should show alert if user is trying to create another validation.\n3. Every new validation will work from next tomorrow morning.\n4. These Documents will be drafted in “Saved Status”\n5. All those Documents will not be available for next transaction which can be APR or Supplier Invoice.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Invoice Number – Non-Mandatory",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Provision to create the Advance payment request against Sourcing ASN:\n1. Advance Type\n2. Supplier\n3. Request Date\n4. Advance Amount\n5. Invoice Number – Non-Mandatory\n6. Estimated Pay Date\n7. Bank Account",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Provision to create the Advance payment request against Sourcing ASN:\n1. Supplier Name\n2. Style Name & BSR – Comma separated if multiple & remove duplicate values\n3. OC No. - Comma separated if multiple & remove duplicate values\n4. Buyer Order Ref - Comma separated if multiple & remove duplicate values\n5. ASN No.\n6. ASN Date\n7. Custom Declaration No.\n8. Customer Declaration Date\n9. Shipping Bill No.\n10. Shipping Bill Date\n11. ETD Date\n12. ETA Date\n13. PO No. - Comma separated if multiple & remove duplicate values\n14. Shipped Qty\n15. Gross Shipped Value\n16. Net Shipped Value",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Provision to create the Advance payment request against Sourcing ASN:\n1. Supplier Name\n2. ASN No.\n3. ASN Date\n4. Custom Declaration No.\n5. Customer Declaration Date\n6. Shipping Bill No.\n7. Shipping Bill Date\n8. ETD Date\n9. ETA Date\n10. PO No. - Comma separated if multiple & remove duplicate values\n11. Net Shipped Value\n12. Previous Requested Amount\n13. APR Request Amount",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "Validation & Conditions:",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "After the APR is created against the ASN then next time if user is trying to create the APR, then system should show the figures while creating the Request.",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "definition",
+      "text": "If APR is created against POs, then system should restrict the APR creation against ASN or allowed for Partial amount.",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "validation",
+      "text": "If APR is created against POs, then system should restrict the APR creation against ASN or allowed for Partial amount.",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    },
+    {
+      "kind": "workflow_steps",
+      "text": "Provision to create the Advance payment request against Sourcing ASN:\n1. After the APR is created against the ASN then next time if user is trying to create the APR, then system should show the figures while creating the Request.\n2. If APR is created against POs, then system should restrict the APR creation against ASN or allowed for Partial amount.\n3. APR Values should be less than Overall PO & ASN Values.",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "module": "Booking & sourcing"
+    }
+  ],
+  "chunks": [
+    {
+      "title": "368596 - Automatic Disbursement request (Invoicing) from the system after ASN",
+      "heading": "",
+      "text": "Automatic Disbursement request (Invoicing) from the system after ASN\nDevelopment ID: 368596\nAutomatic Disbursement request (Invoicing) from the system after ASN\nDevelopment ID: 368596",
+      "locator": "start",
+      "kind": "section"
+    },
+    {
+      "title": "Table of Contents",
+      "heading": "… › … › … › … › … › Table of Contents",
+      "text": "Business Requirement 2\nPurpose 2\nScope 2\nSolution 2\nEnhancement in Supplier Master 2\nLC workflow approval configuration 3\nAcceptance Criteria: 5",
+      "locator": "§ … › … › … › … › … › Table of Contents",
+      "kind": "section"
+    },
+    {
+      "title": "Business Requirement",
+      "heading": "… › Business Requirement",
+      "text": "Currently, after ASN (Advance Shipment Notice) confirmation, invoicing or disbursement requests are created manually. This results in:\n• Delays in invoice generation\n• Missed billing timelines\n• Revenue recognition lag\n• Dependency on manual tracking\nThe business requires automatic generation of a Disbursement Request / Invoice Draft immediately after ASN confirmation.",
+      "locator": "§ … › Business Requirement",
+      "kind": "section"
+    },
+    {
+      "title": "Purpose",
+      "heading": "… › Purpose",
+      "text": "This enhancement will:\n• Automate post-shipment billing\n• Improve cash flow cycle\n• Reduce manual intervention\n• Ensure timely customer invoicing\n• Maintain alignment between logistics and finance\nShipment done → Billing initiated. No loose ends.",
+      "locator": "§ … › Purpose",
+      "kind": "section"
+    },
+    {
+      "title": "Scope",
+      "heading": "… › Scope",
+      "text": "This enhancement applies:\n• Introduction of Automation of Advance Payment Request & Supplier Invoice\n• Provision to create the Advance payment request against Sourcing ASN.\n• Automation of Concept & Validation based on Matrix of APR & Supplier Invoice.",
+      "locator": "§ … › Scope",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "heading": "… › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "text": "A new matrix will be added under Company setup > FA Setting based on setting “Enable automation for APR & Invoicing using PO, ASN & GRN”:\nNew automation rule will be triggers based on below given criteria:\n• Category: All the system’s category such as Apparel, Textiles/fabric, Trims etc.\n• Supplier: All the supplier belong to the specific category will be reflected with ALL selection and multiple Supplier selection option.\n• Trigger Document Type:\n• Advance Payment Request\n• Supplier Invoice\n• Document Type: Dependent on Trigger Document Type\n• For Advance Payment Request:\n• Against PO\n• Against Sourcing ASN\n• For Supplier Invoice\n• Against GRN – for both GIN, ASN, & PO\n• Trigger Point: It is dependent on Document Type\n• APR Against PO\n• PO Date\n• APR against ASN\n• ASN Created On\n• ASN ETD Date\n• ASN ETA Date\n• Supplier Invoice against GRN\n• Doc Date\n• GRN Date\n• Automation Type: Automation Frequency and setup\n• Specific date in a month: In this case all the document before this date of that month will be used for automation of Invoice and will be saved in the respective list such as APR-List or Supplier Invoice with Remarks as automation (in the log)",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "kind": "section"
+    },
+    {
+      "title": "Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "heading": "… › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice",
+      "text": "• Each Number of days: In this scenario, a specific number of days will be defined to automate the invoicing process. Let say Number of days is defined as 5. So, every 5 days system will automatically pick all the document and create the document automatically whether APR or Supplier Invoice.\n• Every End of the Day: In this type, system will create the invoice automatically at the end of the day.\nValidation & Working Conditions:\n• One Supplier can have only one kind of validation.\n• System should show alert if user is trying to create another validation.\n• Every new validation will work from next tomorrow morning.\n• These Documents will be drafted in “Saved Status”\n• All those Documents will not be available for next transaction which can be APR or Supplier Invoice.",
+      "locator": "§ … › Solution › Introduction of Automation of Advance Payment Request & Supplier Invoice (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Provision to create the Advance payment request against Sourcing ASN",
+      "heading": "… › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "text": "Currently, there will a new provision to be introduced in the system to create the Advance Payment Request (APR) against ASN.\nAdvance Type will be Against Sourcing ASN which will be enabled from report rights and User program permission.\nApproval matrix will be applied on this Type as well.\nAdvance Type: Against ASN\nNavigation: FA > Account Payables > Supplier Advance Payment Request\nBased on the selection of advance type as “Against ASN” and Supplier, a grid will be updated below as “ASN List”.\nHeader fields will be:\n• Advance Type\n• Supplier\n• Request Date\n• Advance Amount\n• Invoice Number – Non-Mandatory\n• Estimated Pay Date\n• Bank Account\nASN selection Pop-up will have:\n• Supplier Name\n• Style Name & BSR – Comma separated if multiple & remove duplicate values\n• OC No. - Comma separated if multiple & remove duplicate values\n• Buyer Order Ref - Comma separated if multiple & remove duplicate values\n• ASN No.\n• ASN Date\n• Custom Declaration No.\n• Customer Declaration Date\n• Shipping Bill No.\n• Shipping Bill Date\n• ETD Date\n• ETA Date\n• PO No. - Comma separated if multiple & remove duplicate values\n• Shipped Qty\n• Gross Shipped Value\n• Net Shipped Value\nASN List will have:\nASN selection Pop-up will have:\n• Supplier Name\n• ASN No.\n• ASN Date\n• Custom Declaration No.\n• Customer Declaration Date\n• Shipping Bill No.\n• Shipping Bill Date\n• ETD Date\n• ETA Date",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "kind": "section"
+    },
+    {
+      "title": "Provision to create the Advance payment request against Sourcing ASN",
+      "heading": "… › Solution › Provision to create the Advance payment request against Sourcing ASN",
+      "text": "• PO No. - Comma separated if multiple & remove duplicate values\n• Net Shipped Value\n• Previous Requested Amount\n• APR Request Amount\nValidation & Conditions:\n• After the APR is created against the ASN then next time if user is trying to create the APR, then system should show the figures while creating the Request.\n• If APR is created against POs, then system should restrict the APR creation against ASN or allowed for Partial amount.\n• APR Values should be less than Overall PO & ASN Values.",
+      "locator": "§ … › Solution › Provision to create the Advance payment request against Sourcing ASN (part 2)",
+      "kind": "section"
+    },
+    {
+      "title": "Acceptance Criteria:",
+      "heading": "… › Acceptance Criteria:",
+      "text": "• Need to check the approval mechanism.\n• Check the Combination of APR with PO, ASN & Supplier Invoice against GRN.",
+      "locator": "§ … › Acceptance Criteria:",
+      "kind": "section"
+    }
+  ]
+}

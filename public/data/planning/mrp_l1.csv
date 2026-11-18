@@ -1,0 +1,5 @@
+﻿apparel_code,l1_key,oc_line,actual_requirement,mrp_pct,req_qty,demand_type
+NIS-58,L1|372|38M,-249.1|372|38M,200,1,200,Production
+NIS-58,L1|372|34S,-249.1|372|34S,100,1,100,Production
+NIS-58,L1|3909|38M,-249.1|3909|38M,400,1,400,Production
+NIS-58,L1|3909|34S,-249.1|3909|34S,300,1,300,Production

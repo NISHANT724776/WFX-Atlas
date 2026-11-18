@@ -1,0 +1,2508 @@
+{
+ "note": "WFX-like documents found in the Downloads folder on 2026-11-16 and NOT imported. Identical copies are grouped by content (sha256); several contents with the same base name are likely versions. Import the ones you want with: npm run kb:import -- \"<path>\" --status=proposed (change requests) or --status=source-documented (approved specifications).",
+ "folder": "Downloads",
+ "groups": [
+  {
+   "base_name": "17. “asn without gdn” must be restricted in the absence of an approved cost sheet.",
+   "versions": [
+    {
+     "sha256": "c7ed66a83eeb96c98e91bf7976b89f2967c30c18f82adcb0c951affd8c071cbe",
+     "size": 641468,
+     "names": [
+      "17. “ASN without GDN” must be restricted in the absence of an approved cost sheet. (1).docx",
+      "17. “ASN without GDN” must be restricted in the absence of an approved cost sheet..docx"
+     ],
+     "modified": 1777451880
+    }
+   ]
+  },
+  {
+   "base_name": "18. need designer name field in wfxsopackage import file format. company - indochine international",
+   "versions": [
+    {
+     "sha256": "5e8f7932e8ef27ef57aaa1edcf83440f9e5cc405fcf3b3fcd6cd7e92aec09098",
+     "size": 1503386,
+     "names": [
+      "18. Need Designer name field in WFXSOPackage import file format. Company - indochine international.docx"
+     ],
+     "modified": 1777010915
+    }
+   ]
+  },
+  {
+   "base_name": "21.  buyer blocking",
+   "versions": [
+    {
+     "sha256": "9e4b49e250ce45e4d611fb61d84fb989090a6eed48a344b1951d629737733339",
+     "size": 429416,
+     "names": [
+      "21.  Buyer Blocking.docx"
+     ],
+     "modified": 1780294115
+    }
+   ]
+  },
+  {
+   "base_name": "255855",
+   "versions": [
+    {
+     "sha256": "0995ebb9d817ad24f0a55a31126083a82223db83ba580d5482cf5c2bdb26c38b",
+     "size": 91305,
+     "names": [
+      "255855 (7) (1).docx",
+      "255855 (7).docx"
+     ],
+     "modified": 1776151174
+    }
+   ]
+  },
+  {
+   "base_name": "256707-site category selected on the on the site is not working as per selection",
+   "versions": [
+    {
+     "sha256": "ab2c755ebdf2f26f6d93e9a3187b4e010c57836a8cd1713d18da573d1a048424",
+     "size": 1018368,
+     "names": [
+      "256707-Site Category selected on the on the site is not working as per selection.doc"
+     ],
+     "modified": 1778210755
+    },
+    {
+     "sha256": "983f9cf8e79c18b7a7e0b2a607cd97907ea0471cec52aa12cd498e3ef3815f8e",
+     "size": 1018368,
+     "names": [
+      "256707-Site Category selected on the on the site is not working as per selection (2).doc",
+      "256707-Site Category selected on the on the site is not working as per selection (1).doc"
+     ],
+     "modified": 1778039943
+    }
+   ]
+  },
+  {
+   "base_name": "261472- return to supplier different oc allocated material1",
+   "versions": [
+    {
+     "sha256": "77ecc1857d633a2d12877cff8856e8435f1ddb29e20de34aaaa95543b11b7c2a",
+     "size": 313818,
+     "names": [
+      "261472- Return To Supplier Different OC Allocated MAterial1 (3) (1) (1).docx"
+     ],
+     "modified": 1778474825
+    }
+   ]
+  },
+  {
+   "base_name": "279362 - advance incentive - aipl 11092025",
+   "versions": [
+    {
+     "sha256": "39795cda3d6cb349adcd0954847191fe70e13c04715a3f0d5d1716ebfdd49f45",
+     "size": 520947,
+     "names": [
+      "279362 - Advance Incentive - AIPL 11092025.docx"
+     ],
+     "modified": 1779278539
+    }
+   ]
+  },
+  {
+   "base_name": "279362 - export incentive management",
+   "versions": [
+    {
+     "sha256": "075802bb8a6eeee433b8eec765481757e2c316526da41f837ed0342023401fac",
+     "size": 1645677,
+     "names": [
+      "279362 - Export Incentive Management.docx"
+     ],
+     "modified": 1777376675
+    }
+   ]
+  },
+  {
+   "base_name": "279362 - export incentive management 260226",
+   "versions": [
+    {
+     "sha256": "6d8cdf6feb5d01e37eeb291a3ad33c13aaaf43b274deeb0b5524f406e8689f6a",
+     "size": 2922772,
+     "names": [
+      "279362 - Export Incentive Management 260226 (9).docx",
+      "279362 - Export Incentive Management 260226 (8).docx",
+      "279362 - Export Incentive Management 260226 (7).docx",
+      "279362 - Export Incentive Management 260226 (6).docx",
+      "279362 - Export Incentive Management 260226 (5).docx",
+      "279362 - Export Incentive Management 260226 (4).docx",
+      "279362 - Export Incentive Management 260226 (3).docx",
+      "279362 - Export Incentive Management 260226 (2).docx"
+     ],
+     "modified": 1779358715
+    },
+    {
+     "sha256": "f10a22e0ebc45f8abae88e8a27cb629841bb0b7ef62353f201510e191b33ca4a",
+     "size": 2923697,
+     "names": [
+      "279362 - Export Incentive Management 260226 (1).docx"
+     ],
+     "modified": 1776744488
+    },
+    {
+     "sha256": "8dccef5daf0bac73bcf92a8946caa1e64842feaec59bc0d06c3d103741a0de4b",
+     "size": 2923577,
+     "names": [
+      "279362 - Export Incentive Management 260226.docx"
+     ],
+     "modified": 1776666949
+    }
+   ]
+  },
+  {
+   "base_name": "279362-advance incentive handling",
+   "versions": [
+    {
+     "sha256": "e31be9a34cd20fd2c2494c1a3647c0424582b3f7ac44beed21dbd1910c6716ac",
+     "size": 785429,
+     "names": [
+      "279362-Advance Incentive Handling (6).docx",
+      "279362-Advance Incentive Handling (5).docx",
+      "279362-Advance Incentive Handling (4).docx",
+      "279362-Advance Incentive Handling (3).docx",
+      "279362-Advance Incentive Handling (1).docx",
+      "279362-Advance Incentive Handling.docx"
+     ],
+     "modified": 1777377377
+    },
+    {
+     "sha256": "9b716454e0ee5e88bd625567a69b3d6db9d6d034f00e42b01a44ebe6d2ce8fb3",
+     "size": 785510,
+     "names": [
+      "279362-Advance Incentive Handling (2).docx"
+     ],
+     "modified": 1776833220
+    }
+   ]
+  },
+  {
+   "base_name": "279362-advance incentive handling final",
+   "versions": [
+    {
+     "sha256": "46eed43473273ffc2ea8bb1d0bfcadb65fa6041a1617a37fe50b6ee023e4e3b3",
+     "size": 980023,
+     "names": [
+      "279362-Advance Incentive Handling Final.docx"
+     ],
+     "modified": 1777448305
+    }
+   ]
+  },
+  {
+   "base_name": "293106  - e-way & e-invoice generation in case of different site gstin transfer, automation is required for gdn and grn",
+   "versions": [
+    {
+     "sha256": "3ad187a065be50018759ea27540325d4a012a5acefaa10325bd81d7b50d506eb",
+     "size": 644978,
+     "names": [
+      "293106  - E-way & E-INvoice generation in case of Different site GSTIN transfer, Automation is required for GDN and GRN (1).docx",
+      "293106  - E-way & E-INvoice generation in case of Different site GSTIN transfer, Automation is required for GDN and GRN.docx"
+     ],
+     "modified": 1781675777
+    }
+   ]
+  },
+  {
+   "base_name": "293106  -updated",
+   "versions": [
+    {
+     "sha256": "ad3cb79516da44025b3f21962404ba2169fbc4cc4cd967bef64cddfc5f5d58b6",
+     "size": 709582,
+     "names": [
+      "293106  -Updated.docx"
+     ],
+     "modified": 1780984888
+    }
+   ]
+  },
+  {
+   "base_name": "293106  -updated on behalf of hari sir",
+   "versions": [
+    {
+     "sha256": "55aec2287254c3e5d1efd050d6ad1573cc7bb0dc7550ecfc4b5b9505b971a2f5",
+     "size": 709301,
+     "names": [
+      "293106  -Updated On Behalf of Hari Sir (1).docx"
+     ],
+     "modified": 1781002390
+    },
+    {
+     "sha256": "0bf3e99d37766f00480067a049ebf39323d7dbdc1fc53c5ff676e3ede6476dab",
+     "size": 709735,
+     "names": [
+      "293106  -Updated On Behalf of Hari Sir.docx"
+     ],
+     "modified": 1780985053
+    }
+   ]
+  },
+  {
+   "base_name": "298306 - tracker point 66-rmpo excess procurement approval (martex)",
+   "versions": [
+    {
+     "sha256": "c61d666e911b0f0ebd0368de749b5447b37f76d756fbb47be122e522a249650b",
+     "size": 56335,
+     "names": [
+      "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex) (2).docx"
+     ],
+     "modified": 1775475593
+    }
+   ]
+  },
+  {
+   "base_name": "298306 - tracker point 66-rmpo excess procurement approval (martex) final_last",
+   "versions": [
+    {
+     "sha256": "58cbadbba3a3686127d9e02bf4b6fdabd6f0e0f0d080aaa995fde2302aeaf5ba",
+     "size": 58506,
+     "names": [
+      "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex) Final_Last (2).docx",
+      "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex) Final_Last (1).docx",
+      "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex) Final_Last.docx"
+     ],
+     "modified": 1777357289
+    }
+   ]
+  },
+  {
+   "base_name": "298306 - tracker point 66-rmpo excess procurement approval (martex) final_last_shams",
+   "versions": [
+    {
+     "sha256": "40bcb266784c98b2179dcea94fd3cd346a124b7055f69f143187f383b1e86547",
+     "size": 56704,
+     "names": [
+      "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex) Final_Last_Shams (1).docx",
+      "298306 - Tracker Point 66-RMPO Excess Procurement Approval (Martex) Final_Last_Shams.docx"
+     ],
+     "modified": 1777357429
+    }
+   ]
+  },
+  {
+   "base_name": "332558 procurement against buyer block booking_06-10-2025",
+   "versions": [
+    {
+     "sha256": "c34dec33d249a26bea832a905f5f0884c5ba7054de932e5e3f53d9f83072b04b",
+     "size": 548223,
+     "names": [
+      "332558 Procurement against Buyer Block Booking_06-10-2025 (6).docx",
+      "332558 Procurement against Buyer Block Booking_06-10-2025 (5).docx",
+      "332558 Procurement against Buyer Block Booking_06-10-2025 (4).docx",
+      "332558 Procurement against Buyer Block Booking_06-10-2025 (3).docx",
+      "332558 Procurement against Buyer Block Booking_06-10-2025 (2).docx",
+      "332558 Procurement against Buyer Block Booking_06-10-2025 (1).docx",
+      "332558 Procurement against Buyer Block Booking_06-10-2025.docx"
+     ],
+     "modified": 1785146125
+    }
+   ]
+  },
+  {
+   "base_name": "334178 -in pre shipment export invoice screen, make default values in 'consignor address' and 'location name' based on execution company & factory selection.",
+   "versions": [
+    {
+     "sha256": "a8a6f63d202b1323c787c29c81ea7d6daeca87d10ae1fc38e0bf1faeb1ce0bcf",
+     "size": 360960,
+     "names": [
+      "334178 -In Pre shipment export invoice screen, make default values in 'Consignor Address' and 'Location name' based on Execution Company & factory selection. (1).doc"
+     ],
+     "modified": 1769504621
+    }
+   ]
+  },
+  {
+   "base_name": "349251 need line wise mrp approval same as existing mrl approval functionalityv02",
+   "versions": [
+    {
+     "sha256": "215d8e362e1954ac84fc9f6c3ed3545bd9bedb3900c9eaf1e92eb60ff1948a33",
+     "size": 2329554,
+     "names": [
+      "349251 Need Line wise MRP Approval same as Existing MRL Approval FunctionalityV02 (8) (2).docx",
+      "349251 Need Line wise MRP Approval same as Existing MRL Approval FunctionalityV02 (8) (1).docx",
+      "349251 Need Line wise MRP Approval same as Existing MRL Approval FunctionalityV02 (8).docx"
+     ],
+     "modified": 1781504798
+    }
+   ]
+  },
+  {
+   "base_name": "349905",
+   "versions": [
+    {
+     "sha256": "bbfd645a4b39e2fe68ac002b5607119470c4a4ed6c65e665734ff4b3b187cff1",
+     "size": 29057,
+     "names": [
+      "349905.docx"
+     ],
+     "modified": 1769507123
+    }
+   ]
+  },
+  {
+   "base_name": "351028 - excess not showing in the po screen",
+   "versions": [
+    {
+     "sha256": "c16aceae28db5ab1a059170220ce8033d8bd570aca659eaab850b8a15d4da0c5",
+     "size": 887043,
+     "names": [
+      "351028 - excess not showing in the PO screen (1) (1).docx"
+     ],
+     "modified": 1781865474
+    },
+    {
+     "sha256": "25c69761db1577ecbade2204f6558cdb86f4c854f038ccfd44220c7e7a7f5af0",
+     "size": 897296,
+     "names": [
+      "351028 - excess not showing in the PO screen (2).docx",
+      "351028 - excess not showing in the PO screen (1).docx",
+      "351028 - excess not showing in the PO screen.docx"
+     ],
+     "modified": 1780895068
+    }
+   ]
+  },
+  {
+   "base_name": "355229-required provision to update the grn in movement units in storage uom_v2",
+   "versions": [
+    {
+     "sha256": "babb234cfc5cac38778afd6cbf32a0446eb48f9f4ed1904071b496fdebcf7c08",
+     "size": 2317076,
+     "names": [
+      "355229-Required provision to update the GRN in Movement Units in Storage UOM_V2 (391064).docx"
+     ],
+     "modified": 1780304967
+    }
+   ]
+  },
+  {
+   "base_name": "356333",
+   "versions": [
+    {
+     "sha256": "541c436a77617ebc9e7ee92efd8d55798099771fce1f8bf091ff5afe12de0ba5",
+     "size": 1005586,
+     "names": [
+      "356333.docx"
+     ],
+     "modified": 1779428402
+    }
+   ]
+  },
+  {
+   "base_name": "361027.",
+   "versions": [
+    {
+     "sha256": "1cbf1a0830fc49e137d7c79a9b7b2bdf719416c9962df2becc8542e7285ea64b",
+     "size": 2496353,
+     "names": [
+      "361027. (1) (2).docx"
+     ],
+     "modified": 1781162388
+    }
+   ]
+  },
+  {
+   "base_name": "365986 - multiple supplier payment request voucher",
+   "versions": [
+    {
+     "sha256": "029378766284def53244bf95db543b88a5841490e7574910850937794638d729",
+     "size": 1032142,
+     "names": [
+      "365986 - Multiple Supplier Payment Request Voucher (1).docx",
+      "365986 - Multiple Supplier Payment Request Voucher.docx"
+     ],
+     "modified": 1785928065
+    }
+   ]
+  },
+  {
+   "base_name": "367532 - option to freeze the pd consumption on user update",
+   "versions": [
+    {
+     "sha256": "0cf6ac7732fdf030ba93a8fe84288b35f00bd9e74d2bcc2d327435bf166ad7a3",
+     "size": 1184219,
+     "names": [
+      "367532 - Option to freeze the PD Consumption on User update (3).docx",
+      "367532 - Option to freeze the PD Consumption on User update (2).docx"
+     ],
+     "modified": 1785308523
+    },
+    {
+     "sha256": "e81747f2cbaaeb2698b1e9e20c17a6048e0469f421f1e3a2ebf61a62bf795fda",
+     "size": 1186151,
+     "names": [
+      "367532 - Option to freeze the PD Consumption on User update (1).docx",
+      "367532 - Option to freeze the PD Consumption on User update.docx"
+     ],
+     "modified": 1773639917
+    }
+   ]
+  },
+  {
+   "base_name": "368518 in the approval center, display a customized form that is linked to the related transaction (disbursement form & request form)",
+   "versions": [
+    {
+     "sha256": "7c9de1c435aba99a14e7c1b598e67d6193998428415d6b7a90d67bdb5e9c0cf6",
+     "size": 4248721,
+     "names": [
+      "368518 In the Approval Center, display a customized form that is linked to the related transaction (Disbursement Form & Request Form).pdf"
+     ],
+     "modified": 1774514441
+    }
+   ]
+  },
+  {
+   "base_name": "368596 - automatic disbursement request (invoicing) from the system after asn",
+   "versions": [
+    {
+     "sha256": "f075b30bc29025869b8a19c6313b9c47f89871da9b2fd56efcc4199ea5125d3b",
+     "size": 1148816,
+     "names": [
+      "368596 - Automatic Disbursement request (Invoicing) from the system after ASN (4).docx",
+      "368596 - Automatic Disbursement request (Invoicing) from the system after ASN (3).docx",
+      "368596 - Automatic Disbursement request (Invoicing) from the system after ASN (2).docx",
+      "368596 - Automatic Disbursement request (Invoicing) from the system after ASN (1).docx",
+      "368596 - Automatic Disbursement request (Invoicing) from the system after ASN.docx"
+     ],
+     "modified": 1776756151
+    }
+   ]
+  },
+  {
+   "base_name": "368638 - nego date and bank fields needed to update negotiation information against multiple invoice",
+   "versions": [
+    {
+     "sha256": "893802908916c5685a79c0d8e863b38887c107f3688eb9512d24828bf7fc4297",
+     "size": 1072775,
+     "names": [
+      "368638 - Nego date and Bank fields needed to update negotiation information against multiple invoice (1).docx",
+      "368638 - Nego date and Bank fields needed to update negotiation information against multiple invoice.docx"
+     ],
+     "modified": 1776226491
+    }
+   ]
+  },
+  {
+   "base_name": "372826 material code request for bom integrationv01",
+   "versions": [
+    {
+     "sha256": "ca337e1c74749e3b16a69ead79609b031be17e5266299ba116f4eb49f3499fa1",
+     "size": 2429756,
+     "names": [
+      "372826 Material Code Request for BOM IntegrationV01.docx"
+     ],
+     "modified": 1789363168
+    }
+   ]
+  },
+  {
+   "base_name": "379687-oc quantity reduction after rmpo creation(inquiry order qty reduction upto zero on split only)",
+   "versions": [
+    {
+     "sha256": "854fec1165c5791b307082aeeaebb13638e816e2c0ae69d8044dd5c20b32cf79",
+     "size": 26230,
+     "names": [
+      "379687-OC Quantity Reduction After RMPO Creation(Inquiry Order Qty reduction upto zero on split only) (1).docx"
+     ],
+     "modified": 1769512849
+    },
+    {
+     "sha256": "8650066819a53e9bc42e35d41b8c36132ad305c8a51bcc3d18946f13d888316c",
+     "size": 25818,
+     "names": [
+      "379687-OC Quantity Reduction After RMPO Creation(Inquiry Order Qty reduction upto zero on split only).docx"
+     ],
+     "modified": 1769507898
+    }
+   ]
+  },
+  {
+   "base_name": "388821 - 3dcs roll selection issue",
+   "versions": [
+    {
+     "sha256": "071f0813d3c64aaaccf6e178ee22864855434d73a97f1dde466766aa3a0c848d",
+     "size": 955301,
+     "names": [
+      "388821 - 3DCS Roll selection Issue (2).docx",
+      "388821 - 3DCS Roll selection Issue (1).docx",
+      "388821 - 3DCS Roll selection Issue.docx"
+     ],
+     "modified": 1782120727
+    }
+   ]
+  },
+  {
+   "base_name": "389725",
+   "versions": [
+    {
+     "sha256": "7c48b44c4fc0d89f73b342a0b5edb3d0ca1f256efaef6f54e6572ec4f54cbe0d",
+     "size": 1223352,
+     "names": [
+      "389725 (1).docx"
+     ],
+     "modified": 1788783197
+    },
+    {
+     "sha256": "14dc3516784166eadfad8b166a73d09a0333bd5f67c392695c737d2032c67819",
+     "size": 1174073,
+     "names": [
+      "389725.docx"
+     ],
+     "modified": 1786701196
+    }
+   ]
+  },
+  {
+   "base_name": "389725_bom changes",
+   "versions": [
+    {
+     "sha256": "494751782bcf8499c19b26bb0169af310caeb3da71f472b297889fc8818da726",
+     "size": 362177,
+     "names": [
+      "389725_BOM Changes (1) (3).docx"
+     ],
+     "modified": 1792063518
+    }
+   ]
+  },
+  {
+   "base_name": "391947 - import logistics 060626",
+   "versions": [
+    {
+     "sha256": "6008c9ab732bb9d96d475de700340b161769b2b8ebbd86f927cd86aa51625001",
+     "size": 11292318,
+     "names": [
+      "391947 - Import Logistics 060626.docx"
+     ],
+     "modified": 1781258199
+    }
+   ]
+  },
+  {
+   "base_name": "391947 - import logistics 220226",
+   "versions": [
+    {
+     "sha256": "ef86c8c674bd51dfc51e2e49e24870e8ac8b3434b105eb38685066d4228ad648",
+     "size": 10002100,
+     "names": [
+      "391947 - Import Logistics 220226.docx"
+     ],
+     "modified": 1776854788
+    }
+   ]
+  },
+  {
+   "base_name": "392088 - ocr functionality",
+   "versions": [
+    {
+     "sha256": "a80ca7f750362a7ef4a05f788e2ed13627d56cb998898eadce21e3cf2b0486ed",
+     "size": 2404240,
+     "names": [
+      "392088 - OCR Functionality (1) (1) (1).docx"
+     ],
+     "modified": 1788749327
+    },
+    {
+     "sha256": "101a72dda59063ad824bd8bb840c5c082c866d0edfe55296a64f61b9124ebaa3",
+     "size": 2423416,
+     "names": [
+      "392088 - OCR Functionality (1) (1) (1) (2).docx"
+     ],
+     "modified": 1788171621
+    }
+   ]
+  },
+  {
+   "base_name": "392551 msl functionality and auto indent generation",
+   "versions": [
+    {
+     "sha256": "de0da07860c2c7236b7533e12642bb335bb4d59f95b4d0992f727f00e858df61",
+     "size": 338906,
+     "names": [
+      "392551 MSL Functionality and Auto Indent Generation (1).docx",
+      "392551 MSL Functionality and Auto Indent Generation.docx"
+     ],
+     "modified": 1779358695
+    }
+   ]
+  },
+  {
+   "base_name": "399624 color confirmation - block booking v1",
+   "versions": [
+    {
+     "sha256": "ca7f4290a6349959b5f8fd43d863011b7130733f6d1557dd49e471be06f68820",
+     "size": 1251055,
+     "names": [
+      "399624 Color Confirmation - Block Booking v1.docx"
+     ],
+     "modified": 1793015257
+    }
+   ]
+  },
+  {
+   "base_name": "402748- revised",
+   "versions": [
+    {
+     "sha256": "b186c0c4186be5963aa3b12b73f89c5168a44b07d716574080cacfc372976a08",
+     "size": 2238869,
+     "names": [
+      "402748- Revised (2) (3) (2) (1) (1).docx"
+     ],
+     "modified": 1790566224
+    },
+    {
+     "sha256": "904ece5a8f88ccfff0d092f7faab61ccef25bc59c95d0ab4ed4c3dbfbd8b2dfb",
+     "size": 2052819,
+     "names": [
+      "402748- Revised (2) (3) (2) (1).docx"
+     ],
+     "modified": 1789967320
+    },
+    {
+     "sha256": "961c46c4b3f682ab90d844c073b08a1b07fdace6e7cc967b4c40bf14f3dda730",
+     "size": 2053088,
+     "names": [
+      "402748- Revised (2) (3) (2).docx"
+     ],
+     "modified": 1789709272
+    },
+    {
+     "sha256": "5f5fac801c018d0b9876faee2986f85b7fdf2fdb06b6a643c272c29013d09364",
+     "size": 1502019,
+     "names": [
+      "402748- Revised (2) (3) (1).docx",
+      "402748- Revised (2) (3).docx"
+     ],
+     "modified": 1789707622
+    },
+    {
+     "sha256": "25c8a3a19813c40ca198e162aac570fd5320556a1f739b3dc72d1b760b939497",
+     "size": 1498539,
+     "names": [
+      "402748- Revised (2) (4).docx",
+      "402748- Revised (2) (2).docx",
+      "402748- Revised (2) (1).docx",
+      "402748- Revised (2).docx"
+     ],
+     "modified": 1789360322
+    }
+   ]
+  },
+  {
+   "base_name": "405186 - pd queries",
+   "versions": [
+    {
+     "sha256": "31a33b7b5b382cdd39a02e60c5e4c12d0fd8b2212533478a687e7dfa92b1bd6d",
+     "size": 736951,
+     "names": [
+      "405186 - PD Queries (3).docx",
+      "405186 - PD Queries (1).docx",
+      "405186 - PD Queries.docx"
+     ],
+     "modified": 1785128478
+    },
+    {
+     "sha256": "d182ccf34b2e251539d51f8dcf5b74e08680eed95cb65feeac9ef04409b68099",
+     "size": 738172,
+     "names": [
+      "405186 - PD Queries (2).docx"
+     ],
+     "modified": 1782390117
+    }
+   ]
+  },
+  {
+   "base_name": "405186 - revised",
+   "versions": [
+    {
+     "sha256": "076e205aa406d8561a1c81491748f2a4b47cc82626f9aaa38a15a0a932ccdda2",
+     "size": 737132,
+     "names": [
+      "405186 - Revised (1) (1).docx"
+     ],
+     "modified": 1781495269
+    },
+    {
+     "sha256": "83edd66d8bb02ad7da6f292f97a9953735a777c3c570adb75d11d894fc40a728",
+     "size": 513642,
+     "names": [
+      "405186 - Revised (1).docx",
+      "405186 - Revised.docx"
+     ],
+     "modified": 1781154841
+    }
+   ]
+  },
+  {
+   "base_name": "405186-auto mrp v1",
+   "versions": [
+    {
+     "sha256": "6545566599362fcf433e1e600a59a99839c1cd002ffed5bd06d62de059e69f63",
+     "size": 1434990,
+     "names": [
+      "405186-Auto MRP v1.docx"
+     ],
+     "modified": 1785128629
+    }
+   ]
+  },
+  {
+   "base_name": "405186-auto mrp v2",
+   "versions": [
+    {
+     "sha256": "60110eb11c7dc089d0db02c48eb9bccaa87c819128a1fa37c211b71b0b817817",
+     "size": 1931632,
+     "names": [
+      "405186-Auto MRP v2 (2).docx"
+     ],
+     "modified": 1789386792
+    },
+    {
+     "sha256": "a1309b04e76a75f3c001831f59f15229ed63143dabf929c566ebadbeab754069",
+     "size": 1400951,
+     "names": [
+      "405186-Auto MRP v2 (1) (3).docx"
+     ],
+     "modified": 1789386743
+    },
+    {
+     "sha256": "27592411c3aafa78fdabbff3bca85051312bb1864652ca13a0053a84c793e4c7",
+     "size": 1324255,
+     "names": [
+      "405186-Auto MRP v2 (1) (2).docx",
+      "405186-Auto MRP v2 (1) (1).docx"
+     ],
+     "modified": 1788847427
+    },
+    {
+     "sha256": "072bbfaef142516faa19b911a3287c95e33c515b9c971c1663cb1fb7b9715f67",
+     "size": 2307171,
+     "names": [
+      "405186-Auto MRP v2 (1).docx",
+      "405186-Auto MRP v2.docx"
+     ],
+     "modified": 1785473596
+    }
+   ]
+  },
+  {
+   "base_name": "405186-auto mrp v2 15-sep",
+   "versions": [
+    {
+     "sha256": "6bfedb31acb84c9a6631f4fa085d95725fe04dec221101c799a3b9947f090051",
+     "size": 1780109,
+     "names": [
+      "405186-Auto MRP v2 15-Sep (2).docx",
+      "405186-Auto MRP v2 15-Sep (1).docx",
+      "405186-Auto MRP v2 15-Sep.docx"
+     ],
+     "modified": 1791960336
+    }
+   ]
+  },
+  {
+   "base_name": "405585 sales order (oc) enhancement",
+   "versions": [
+    {
+     "sha256": "f4c663633eb61dde1866f2e0ef80ba2dee45de3001f632eadec5f5b0128b3bb7",
+     "size": 449517,
+     "names": [
+      "405585 Sales Order (OC) Enhancement.docx"
+     ],
+     "modified": 1781167880
+    }
+   ]
+  },
+  {
+   "base_name": "405992 - restriction of selecting packing kit while creation sales order through program",
+   "versions": [
+    {
+     "sha256": "e134365faaa5cb9563257fe9ec6f862c7fdae1d8447ce9ea43d0c603747715df",
+     "size": 1056127,
+     "names": [
+      "405992 - Restriction of selecting packing kit while creation sales order through program (1).docx"
+     ],
+     "modified": 1778730017
+    }
+   ]
+  },
+  {
+   "base_name": "409855 billable qty provision if fppo for part schifly handling",
+   "versions": [
+    {
+     "sha256": "61a3b5d523bd8f0578e2e5d117b43d5f9445fdd5817dfe17eaeaa0841097bffd",
+     "size": 233125,
+     "names": [
+      "409855 Billable Qty Provision if FPPO for Part Schifly Handling (2).docx"
+     ],
+     "modified": 1776658305
+    },
+    {
+     "sha256": "88234d30d8748bd06c1e277bc6a810d614ba16113da541d055be3471954f0871",
+     "size": 332851,
+     "names": [
+      "409855 Billable Qty Provision if FPPO for Part Schifly Handling.docx"
+     ],
+     "modified": 1775622460
+    }
+   ]
+  },
+  {
+   "base_name": "409855 billable qty provision if fppo for part schifly handling r2",
+   "versions": [
+    {
+     "sha256": "6bbd687c1ff2e287e854b9da345cf1ea01244611651f0e35cb30d935d24e88af",
+     "size": 313357,
+     "names": [
+      "409855 Billable Qty Provision if FPPO for Part Schifly Handling r2.docx"
+     ],
+     "modified": 1778210762
+    }
+   ]
+  },
+  {
+   "base_name": "409953 - org structure - detailed review",
+   "versions": [
+    {
+     "sha256": "a2c59c74daaef80fc7852cc0aa84f073e3b49474374133e55a7228730777b979",
+     "size": 10734510,
+     "names": [
+      "409953 - Org Structure - Detailed Review.docx"
+     ],
+     "modified": 1778147678
+    }
+   ]
+  },
+  {
+   "base_name": "411748 - cost consumption and fg calculation screen",
+   "versions": [
+    {
+     "sha256": "1e947925b6e47c6a006d80f477633471838284a3965519d55b2a746ab3dcfaf6",
+     "size": 204734,
+     "names": [
+      "411748 - Cost consumption and FG Calculation screen (1).docx",
+      "411748 - Cost consumption and FG Calculation screen.docx"
+     ],
+     "modified": 1780895994
+    }
+   ]
+  },
+  {
+   "base_name": "412396-request for restrict dispatch functionality for new bom",
+   "versions": [
+    {
+     "sha256": "1c5619d35de1c24baf52a53ef92bfb91fad60864a48c108b5f19130d0e0e1594",
+     "size": 1151388,
+     "names": [
+      "412396-Request for Restrict Dispatch Functionality for NEW BOM.docx"
+     ],
+     "modified": 1775209317
+    }
+   ]
+  },
+  {
+   "base_name": "412681 - auto selection of material colors sizes to garment color sizes, if the colors  sizes of material matches with garment",
+   "versions": [
+    {
+     "sha256": "326ee1857620478b2f51b359f7281593b6714343d8c0aa561e366fe655771f0d",
+     "size": 423546,
+     "names": [
+      "412681 - Auto Selection of Material Colors Sizes to Garment Color Sizes, if the colors  Sizes of material matches with Garment.docx"
+     ],
+     "modified": 1779796634
+    }
+   ]
+  },
+  {
+   "base_name": "412883 - tp mapping configuration setup is required on the ui_updated",
+   "versions": [
+    {
+     "sha256": "497906d4989d894b686e4754898631cca5b11f8fa27a354b3603210e3dbb56b1",
+     "size": 1150353,
+     "names": [
+      "412883 - TP Mapping configuration setup is required on the UI_Updated.docx"
+     ],
+     "modified": 1780569934
+    }
+   ]
+  },
+  {
+   "base_name": "413145",
+   "versions": [
+    {
+     "sha256": "dff498056f5ccf260591feebdcf1e67e678cf2f13d3de39621bdc916c96174a3",
+     "size": 593286,
+     "names": [
+      "413145 (1) (3) (1) (1) (1) (1).docx"
+     ],
+     "modified": 1790566131
+    },
+    {
+     "sha256": "86028762b09c7f5cad16b13ce54021a225185b90dd0ffd1062e5eead7c7fe9e1",
+     "size": 368913,
+     "names": [
+      "413145 (1) (3) (1) (1) (1).docx"
+     ],
+     "modified": 1789966830
+    },
+    {
+     "sha256": "3cc371dca2e0e3aafe01e69c07035299f69d26282091570e949ea6d246e8103b",
+     "size": 368793,
+     "names": [
+      "413145 (1) (3) (1) (1).docx"
+     ],
+     "modified": 1789707573
+    },
+    {
+     "sha256": "3a838512ac75d2da690dd64adeb9cb793ef50e8052b0047bcbe1bdaf24ad682c",
+     "size": 369232,
+     "names": [
+      "413145 (1) (3) (1).docx"
+     ],
+     "modified": 1789360151
+    },
+    {
+     "sha256": "1c4978903d30936df4a562aa10cf74b125a37fcbda990ef28af8cb12590ec08f",
+     "size": 368579,
+     "names": [
+      "413145 (1) (3).docx"
+     ],
+     "modified": 1787640599
+    },
+    {
+     "sha256": "69275f5e4c3739983806d08cdb7bbb5d9a3c9158725d5495837d506039e5cb01",
+     "size": 367885,
+     "names": [
+      "413145 (1) (2).docx",
+      "413145 (1).docx"
+     ],
+     "modified": 1787139241
+    },
+    {
+     "sha256": "64018749980ec03962508700804efdd94a460dfb57a08174c0af2039ae860e03",
+     "size": 368450,
+     "names": [
+      "413145 (1) (1).docx"
+     ],
+     "modified": 1786699701
+    }
+   ]
+  },
+  {
+   "base_name": "414392",
+   "versions": [
+    {
+     "sha256": "c42c667bf6f6df64592e08a3b8648efbc9101c10417444be01aeae504d0fcf72",
+     "size": 500635,
+     "names": [
+      "414392  (2).docx",
+      "414392  (1).docx",
+      "414392 .docx"
+     ],
+     "modified": 1790566869
+    }
+   ]
+  },
+  {
+   "base_name": "414922,option to add part and placement details in the variants",
+   "versions": [
+    {
+     "sha256": "0f743ea12a5fff7109f0f7e9eb4055492db80451689204378cf027a68db35a33",
+     "size": 1050510,
+     "names": [
+      "414922,Option to add part and placement details in the variants.docx"
+     ],
+     "modified": 1785753335
+    }
+   ]
+  },
+  {
+   "base_name": "424698-multiple fabric width & price list handling",
+   "versions": [
+    {
+     "sha256": "e66052460601dee0643bd61eab11a96de6c425da341237164277dbeace0d70e9",
+     "size": 2653697,
+     "names": [
+      "424698-Multiple Fabric Width & Price List handling.docx"
+     ],
+     "modified": 1789708573
+    },
+    {
+     "sha256": "dc4a8cdb119634938f5f9f7b201efabc4c77e27dcac4876170f7702008267f34",
+     "size": 3889112,
+     "names": [
+      "424698-Multiple Fabric Width & Price List handling (3).docx"
+     ],
+     "modified": 1789708533
+    }
+   ]
+  },
+  {
+   "base_name": "431936 -tracker point 67-psn-make default values in 'location name' based on factory selection-ref id-67-379437",
+   "versions": [
+    {
+     "sha256": "9e1b1713a1d85d752dafbc5e32ca23c7fe45de5001497e355cbe95752ee4d0df",
+     "size": 269824,
+     "names": [
+      "431936 -Tracker Point 67-PSN-Make default values in 'Location Name' based on factory selection-Ref ID-67-379437.doc"
+     ],
+     "modified": 1783061561
+    }
+   ]
+  },
+  {
+   "base_name": "437763 need to handle buyer blocking booking based indent creation later indent will be tagged to supplier block booking for greige booking. need to track projection end to end.",
+   "versions": [
+    {
+     "sha256": "278aec5f24a0c93b460d72098962f6f477a02e14b1cf5fcf1c0f2aa4c6883363",
+     "size": 859716,
+     "names": [
+      "437763 Need to Handle Buyer Blocking Booking based Indent Creation later Indent will be Tagged to Supplier Block booking for Greige Booking. Need to Track Projection end to end..docx"
+     ],
+     "modified": 1789628409
+    }
+   ]
+  },
+  {
+   "base_name": "437763 pd queries",
+   "versions": [
+    {
+     "sha256": "3daf6a83ee37ec0027732b23bf3e549412352cfb34535367995ef3f3e5ba7561",
+     "size": 1242871,
+     "names": [
+      "437763 PD Queries (1) (2) (1).docx"
+     ],
+     "modified": 1793092950
+    },
+    {
+     "sha256": "97d1082fb58574e15a0afc3b52af5ed74dc4577112bfee2dff4c165f51026e1d",
+     "size": 1251847,
+     "names": [
+      "437763 PD Queries (1) (5).docx",
+      "437763 PD Queries (1) (4).docx",
+      "437763 PD Queries (1) (3).docx",
+      "437763 PD Queries (1) (2).docx",
+      "437763 PD Queries (1) (1).docx"
+     ],
+     "modified": 1792388267
+    },
+    {
+     "sha256": "8c0fa2fb641f7e0dcecd6c81f3085a7eb033f55be5fc956d6c4eac3f02bb25ad",
+     "size": 938910,
+     "names": [
+      "437763 PD Queries (1).docx"
+     ],
+     "modified": 1789710364
+    },
+    {
+     "sha256": "d77fa1fa0e7c08201c4eddca2b265fe81f91a5bf015ec957c55aab746207d54e",
+     "size": 859712,
+     "names": [
+      "437763 PD Queries.docx"
+     ],
+     "modified": 1789628435
+    }
+   ]
+  },
+  {
+   "base_name": "437763 pd queries (autorecovered)",
+   "versions": [
+    {
+     "sha256": "b9c3a27f490d8dbcad15a7ee77bc52a43d20e357e1ad29244cf88e54dd23ea3d",
+     "size": 1251082,
+     "names": [
+      "437763 PD Queries (1) (3) (AutoRecovered).docx"
+     ],
+     "modified": 1791538578
+    }
+   ]
+  },
+  {
+   "base_name": "441574 - airway bill update and dbk posting",
+   "versions": [
+    {
+     "sha256": "24763990ba87365d9ec0d33c0324b44917d85dd1127e9fecc054b3d5c6faeffe",
+     "size": 963218,
+     "names": [
+      "441574 - Airway Bill Update and DBK Posting.docx"
+     ],
+     "modified": 1789387626
+    }
+   ]
+  },
+  {
+   "base_name": "442564",
+   "versions": [
+    {
+     "sha256": "969ab2eaf4e360a004d53a76a838743a01345716ec8d74ba0de96c83be650dab",
+     "size": 2620890,
+     "names": [
+      "442564  (2).docx",
+      "442564  (1).docx",
+      "442564 .docx"
+     ],
+     "modified": 1789970432
+    }
+   ]
+  },
+  {
+   "base_name": "449020",
+   "versions": [
+    {
+     "sha256": "a450eb211ce54d4aa1fa15f30dbb2f5f9548d360fe355d6638bb91e1d4e3b242",
+     "size": 234549,
+     "names": [
+      "449020.docx"
+     ],
+     "modified": 1791285285
+    }
+   ]
+  },
+  {
+   "base_name": "450654 required fg site allocation section in sales asn when asn type is without gdn.",
+   "versions": [
+    {
+     "sha256": "a69bfa642fc70d578bd74b0c523f7ea09d33474e7e9c0345dea00c8beec91194",
+     "size": 1090387,
+     "names": [
+      "450654 Required FG Site Allocation section in Sales ASN when ASN Type is without GDN..docx"
+     ],
+     "modified": 1793076094
+    }
+   ]
+  },
+  {
+   "base_name": "afflatus gdn",
+   "versions": [
+    {
+     "sha256": "f035a0bf31190a6f94d9ee303b7af5ba78d76c0f14552d318deb225d97891d8c",
+     "size": 194228,
+     "names": [
+      "Afflatus GDN.docx"
+     ],
+     "modified": 1777545343
+    }
+   ]
+  },
+  {
+   "base_name": "approval mrp final",
+   "versions": [
+    {
+     "sha256": "7fcfeac5da4e1b127dfd1c06565a19a0955eb415393b272fc830272cc6f6ca11",
+     "size": 8200517,
+     "names": [
+      "Approval MRP Final (1).docx",
+      "Approval MRP Final.docx"
+     ],
+     "modified": 1781494159
+    }
+   ]
+  },
+  {
+   "base_name": "article master_new1",
+   "versions": [
+    {
+     "sha256": "3d4cb7217d154f464af141e7f586387b07d2928afabf14d6d2685f55ee3b64d5",
+     "size": 86191,
+     "names": [
+      "Article Master_new1 (8).xlsx"
+     ],
+     "modified": 1778217408
+    }
+   ]
+  },
+  {
+   "base_name": "articleapparelmaster",
+   "versions": [
+    {
+     "sha256": "c6cec0e10ac485529926e855ce48038dba09bcf253028f5a7b703a56409cb249",
+     "size": 3418,
+     "names": [
+      "ArticleApparelMaster.xls"
+     ],
+     "modified": 1773990443
+    }
+   ]
+  },
+  {
+   "base_name": "bom_kit_pack_cost_rollup_flow",
+   "versions": [
+    {
+     "sha256": "d95eef183f756b75fc808995dc459654b587103ee2494e7a07ed1f2d8376bf56",
+     "size": 207498,
+     "names": [
+      "bom_kit_pack_cost_rollup_flow.png"
+     ],
+     "modified": 1789550801
+    }
+   ]
+  },
+  {
+   "base_name": "brd_419750_if color size wise price is mentioned in price list, average price should be taken in bom",
+   "versions": [
+    {
+     "sha256": "ff626ec9d0237d7e390f40d4d755cc0b6dd47e6adff71b43aa09615aeafc05c1",
+     "size": 104990,
+     "names": [
+      "BRD_419750_If color size wise price is mentioned in price list, average price should be taken in BOM (2).docx",
+      "BRD_419750_If color size wise price is mentioned in price list, average price should be taken in BOM (1).docx",
+      "BRD_419750_If color size wise price is mentioned in price list, average price should be taken in BOM.docx"
+     ],
+     "modified": 1781676971
+    }
+   ]
+  },
+  {
+   "base_name": "brd_ai_techpack_revision_bom_version_management",
+   "versions": [
+    {
+     "sha256": "6afc347f1ab4165e278be41f566accd736baee359b8e3981c6b5257c1e82fc37",
+     "size": 27380,
+     "names": [
+      "BRD_AI_Techpack_Revision_BOM_Version_Management.docx"
+     ],
+     "modified": 1781505981
+    }
+   ]
+  },
+  {
+   "base_name": "brd_auto_mrp_shahi_exports",
+   "versions": [
+    {
+     "sha256": "798f88f0b1f66ab6e5de6ddf9f228f75fb73136145dc9da17b16935ed1b2e7f2",
+     "size": 33946,
+     "names": [
+      "BRD_Auto_MRP_Shahi_Exports (1).docx"
+     ],
+     "modified": 1785128390
+    },
+    {
+     "sha256": "92009d99eb7b66ea99705035d5c87513692c13f70bf8037cddd5362c70c29a4c",
+     "size": 25167,
+     "names": [
+      "BRD_Auto_MRP_Shahi_Exports.docx"
+     ],
+     "modified": 1782204288
+    }
+   ]
+  },
+  {
+   "base_name": "bug defect for 391843",
+   "versions": [
+    {
+     "sha256": "09141c87bd568bf50d7fc0a1fe382acdcfbb679c9a6391271e8381e637e6d3d6",
+     "size": 16672,
+     "names": [
+      "Bug Defect for 391843.xls"
+     ],
+     "modified": 1788495673
+    }
+   ]
+  },
+  {
+   "base_name": "buyer block booking",
+   "versions": [
+    {
+     "sha256": "0377b4e52d22fab68fc6b62eb112f0074444b8c070c2acb4a885c5b222169601",
+     "size": 8990370,
+     "names": [
+      "Buyer block booking (2).docx",
+      "Buyer block booking (1).docx",
+      "Buyer block booking.docx"
+     ],
+     "modified": 1784288537
+    }
+   ]
+  },
+  {
+   "base_name": "cfai_make_to_stock 9 may 2026 2",
+   "versions": [
+    {
+     "sha256": "64956fe420ce8a262bedbd0d015f9c979eb3053bc85e76bc480c52ebdbc8ff99",
+     "size": 5698357,
+     "names": [
+      "CFAI_Make_To_Stock 9 May 2026 2.pdf"
+     ],
+     "modified": 1784606405
+    }
+   ]
+  },
+  {
+   "base_name": "cons. formulas 2",
+   "versions": [
+    {
+     "sha256": "1834883be3a3aad6ca31da860e87a1aa870615ae6ceb079867c02107a78bf26b",
+     "size": 10088,
+     "names": [
+      "Cons. Formulas 2.xlsx"
+     ],
+     "modified": 1794457372
+    }
+   ]
+  },
+  {
+   "base_name": "copy of inv# be1471-719282-1 -igst",
+   "versions": [
+    {
+     "sha256": "f507a57376abb287aa5db4f8767f0f5d1ddc192e0891355339bf261ac2771367",
+     "size": 362601,
+     "names": [
+      "Copy of INV# BE1471-719282-1 -IGST.xlsx"
+     ],
+     "modified": 1775189063
+    }
+   ]
+  },
+  {
+   "base_name": "crs_stock_transfer_specification",
+   "versions": [
+    {
+     "sha256": "314562911273a5d5035763b7c66296d849ba5ddfaf14c99cc5dd9da595903ae5",
+     "size": 1315405,
+     "names": [
+      "CRS_Stock_Transfer_Specification.docx"
+     ],
+     "modified": 1775534482
+    }
+   ]
+  },
+  {
+   "base_name": "delivery oc print",
+   "versions": [
+    {
+     "sha256": "adb22098c4a2c87c159a81b1a99012281781c91cbc2afa104764c0c9890242e6",
+     "size": 1244059,
+     "names": [
+      "Delivery OC print.pdf"
+     ],
+     "modified": 1782449846
+    }
+   ]
+  },
+  {
+   "base_name": "discount ad comission percentage handling helpdesk id- 391988",
+   "versions": [
+    {
+     "sha256": "2e936a7b25f8c61e60b4704b12be62430e70f51f8b615bb08b368eae9d28e5b5",
+     "size": 3647833,
+     "names": [
+      "Discount ad comission Percentage Handling Helpdesk ID- 391988 (1).docx"
+     ],
+     "modified": 1788749296
+    },
+    {
+     "sha256": "8399566c78dc767e3b208d247a6df6f477a6591944a6d9dd3cb99f23dc18ff88",
+     "size": 3644202,
+     "names": [
+      "Discount ad comission Percentage Handling Helpdesk ID- 391988.docx"
+     ],
+     "modified": 1787286783
+    }
+   ]
+  },
+  {
+   "base_name": "discount ad comission percentage handling helpdesk id- 391988-new",
+   "versions": [
+    {
+     "sha256": "933e90ea3be18a30e806f0b9745f68b81774391fa50269232d40bcf48f64fdfb",
+     "size": 3809403,
+     "names": [
+      "Discount ad comission Percentage Handling Helpdesk ID- 391988 (1)-New.docx"
+     ],
+     "modified": 1787655938
+    }
+   ]
+  },
+  {
+   "base_name": "discount and commision final specs 391988",
+   "versions": [
+    {
+     "sha256": "0db96964bfcf668de4d5bfbabaf66fba566360e8199986bc138a4a27594e9864",
+     "size": 3722888,
+     "names": [
+      "Discount and commision FInal Specs 391988 (1) (1) (1) (1) (1) (2).docx"
+     ],
+     "modified": 1793083886
+    },
+    {
+     "sha256": "92634b8b55e5a57ca520dd1097614419e2d667a1411620acc0d48636ed8a3464",
+     "size": 3671248,
+     "names": [
+      "Discount and commision FInal Specs 391988 (1) (1) (1) (1) (1).docx"
+     ],
+     "modified": 1792988577
+    },
+    {
+     "sha256": "452c4aa260f46841b2ef957d839ca656f6c9381ae4cb962490683b5a159c2125",
+     "size": 3994010,
+     "names": [
+      "Discount and commision FInal Specs 391988 (1) (1) (1).docx"
+     ],
+     "modified": 1791950546
+    },
+    {
+     "sha256": "96074f3413aac2e50909f4c9a4ee49b490ed622d3a75f0e148228a60410919ff",
+     "size": 4196478,
+     "names": [
+      "Discount and commision FInal Specs 391988 (1) (2).docx"
+     ],
+     "modified": 1791347572
+    },
+    {
+     "sha256": "d675b812acbf393098715d1633c471e719a098ff55d364a6c9bb169e32a49160",
+     "size": 4212402,
+     "names": [
+      "Discount and commision FInal Specs 391988 (1) (1).docx"
+     ],
+     "modified": 1791347438
+    },
+    {
+     "sha256": "f48b5f94a32f97a4ed0eae2e60a12caa2ef68f7aea16efd4042324d096d7c068",
+     "size": 4196486,
+     "names": [
+      "Discount and commision FInal Specs 391988 (1).docx"
+     ],
+     "modified": 1791283273
+    },
+    {
+     "sha256": "03982f31041eb23ac477a2b82774a31154660be9a60794b2811627548d4eb9e6",
+     "size": 4197248,
+     "names": [
+      "Discount and commision FInal Specs 391988.docx"
+     ],
+     "modified": 1789029531
+    }
+   ]
+  },
+  {
+   "base_name": "effeciency should be auto allocated based slab , buyerfactory level slab will be defined in teh masters and the same effieciency will be pulled for routing",
+   "versions": [
+    {
+     "sha256": "93d6e5b54227bb9190b7dadb58e96c019edf764d6eefb7b12486650d3deec79e",
+     "size": 619437,
+     "names": [
+      "Effeciency should be auto allocated based slab , BuyerFactory level slab will be defined in teh masters and the same effieciency will be pulled for routing (1).docx"
+     ],
+     "modified": 1789962410
+    },
+    {
+     "sha256": "ea52653c762fb4200c7cdf27bc400ddddf0746f9aefad12ee53f36ea6e320e2a",
+     "size": 495749,
+     "names": [
+      "Effeciency should be auto allocated based slab , BuyerFactory level slab will be defined in teh masters and the same effieciency will be pulled for routing.docx"
+     ],
+     "modified": 1789704521
+    }
+   ]
+  },
+  {
+   "base_name": "fa new fppo_split division wise structure (with 3 gstn) of fa home and apparel pvt limitedv1 1 v5 1 1",
+   "versions": [
+    {
+     "sha256": "427baca21d9dc874ed4870119a16a4f4e9351b1a920be5784f4d60042f17fb21",
+     "size": 7842710,
+     "names": [
+      "FA New FPPO_Split Division Wise Structure (with 3 GSTN) of FA Home and Apparel Pvt LimitedV1 1 V5 1 1 (1) (1).docx"
+     ],
+     "modified": 1786596793
+    }
+   ]
+  },
+  {
+   "base_name": "formatted_consumption_sheet",
+   "versions": [
+    {
+     "sha256": "edc5e8a5f9f79a71ba08d878a7cffd62eb0acfcfe5c3ae48d0fbea99f75bd22c",
+     "size": 94098,
+     "names": [
+      "Formatted_Consumption_Sheet.xlsx"
+     ],
+     "modified": 1775709709
+    }
+   ]
+  },
+  {
+   "base_name": "generate_upc___gtin-419765",
+   "versions": [
+    {
+     "sha256": "5e50c7ee15d0bffd7abf18572f9b492763e126cec5adefd3affdccd2405de72c",
+     "size": 1120862,
+     "names": [
+      "Generate_UPC___GTIN-419765.docx"
+     ],
+     "modified": 1786598293
+    }
+   ]
+  },
+  {
+   "base_name": "grn enhancements",
+   "versions": [
+    {
+     "sha256": "c408486fc9cbcb6485fa8bbd4c624034b2156d27beb14e7bcfeccf6b76a1ab35",
+     "size": 5051451,
+     "names": [
+      "GRN Enhancements.docx"
+     ],
+     "modified": 1777964000
+    }
+   ]
+  },
+  {
+   "base_name": "grnshadelot_20260221214705",
+   "versions": [
+    {
+     "sha256": "fb62304aed1faf758d44e0413dc6a255520b2a2dda9b155260a92303b406b339",
+     "size": 2017,
+     "names": [
+      "GRNShadeLot_20260221214705.xlsx"
+     ],
+     "modified": 1771690630
+    }
+   ]
+  },
+  {
+   "base_name": "in-house stock adjustment (equivalent article) for different article product group [thanh]",
+   "versions": [
+    {
+     "sha256": "fea8d18d68b65a6fec0f5089f2fcc00ca7eb99d8741bfdeb497410ab30303623",
+     "size": 458581,
+     "names": [
+      "In-House stock adjustment (Equivalent Article) for different Article Product Group [THANH].docx"
+     ],
+     "modified": 1776934090
+    }
+   ]
+  },
+  {
+   "base_name": "issue id  382251 - equivalent article adjustment column detail issue in fpo-fppo",
+   "versions": [
+    {
+     "sha256": "b5e07164a138703afd0492dbbff0e6484ad2bb34cfc58ee0639ee7c3c4cafac8",
+     "size": 922913,
+     "names": [
+      "Issue ID  382251 - Equivalent Article adjustment column detail Issue in FPO-FPPO (1).docx",
+      "Issue ID  382251 - Equivalent Article adjustment column detail Issue in FPO-FPPO.docx"
+     ],
+     "modified": 1780895658
+    }
+   ]
+  },
+  {
+   "base_name": "issue id  414282 - job order enhancement",
+   "versions": [
+    {
+     "sha256": "6a5a738c28530f4c8c82757168380d5d73576ba2a5e14a7568434530996f6f3a",
+     "size": 846391,
+     "names": [
+      "Issue ID  414282 - Job order enhancement.docx"
+     ],
+     "modified": 1781150984
+    },
+    {
+     "sha256": "19cc804e8c31f6e1c797d6840f585ca6c103fb63e1b55a17a13fdf10bc0ca16b",
+     "size": 777149,
+     "names": [
+      "Issue ID  414282 - Job order enhancement (2).docx"
+     ],
+     "modified": 1781150940
+    }
+   ]
+  },
+  {
+   "base_name": "issue id 382412",
+   "versions": [
+    {
+     "sha256": "1396edeb92d5c3bd0e99f322d0adfee0f7b3a74a511dbed9b12e17b831516851",
+     "size": 509215,
+     "names": [
+      "Issue ID 382412.docx"
+     ],
+     "modified": 1776674454
+    }
+   ]
+  },
+  {
+   "base_name": "issue id 382412 revised",
+   "versions": [
+    {
+     "sha256": "fde33c421034c5d0de5bcd1845773784c3e165f424609b43bbf8a279349cecb2",
+     "size": 958574,
+     "names": [
+      "Issue ID 382412 revised.docx"
+     ],
+     "modified": 1776829061
+    }
+   ]
+  },
+  {
+   "base_name": "kit enhancements",
+   "versions": [
+    {
+     "sha256": "e33c8989e09f2020086ac954440fbbdcd7b7c13ae2b624e4bc93192a2aa4a940",
+     "size": 4997525,
+     "names": [
+      "Kit Enhancements.pdf"
+     ],
+     "modified": 1791365862
+    }
+   ]
+  },
+  {
+   "base_name": "kit mrp",
+   "versions": [
+    {
+     "sha256": "92428116bb2de2b70f2c8b8001b097c134fb43da2e0852b5c5dc10281b4154e9",
+     "size": 824066,
+     "names": [
+      "KIT MRP.docx"
+     ],
+     "modified": 1789553739
+    }
+   ]
+  },
+  {
+   "base_name": "kit oc_20260707105103",
+   "versions": [
+    {
+     "sha256": "8878eece3e4600e03e90430cc89278d8d4a4636e1beb85284cdb2495b2dcca57",
+     "size": 2183,
+     "names": [
+      "Kit OC_20260707105103.xlsx"
+     ],
+     "modified": 1783401666
+    }
+   ]
+  },
+  {
+   "base_name": "kit pack costing wfx",
+   "versions": [
+    {
+     "sha256": "25868996406febdcfb6262afe5a46c845a59a2e6147b2fce161ac533f2bdefb3",
+     "size": 2883954,
+     "names": [
+      "Kit Pack Costing WFX (1).docx",
+      "Kit Pack Costing WFX.docx"
+     ],
+     "modified": 1789630840
+    }
+   ]
+  },
+  {
+   "base_name": "kit_enhancements",
+   "versions": [
+    {
+     "sha256": "9dc252b4918a6c734f763dd39c1c57e91bd3e1b8a8183014ca76176078084112",
+     "size": 1082660,
+     "names": [
+      "Kit_Enhancements.docx"
+     ],
+     "modified": 1791366308
+    }
+   ]
+  },
+  {
+   "base_name": "kit_enhancements_simplified",
+   "versions": [
+    {
+     "sha256": "a5c972b6ec154de17c371b29c2c68115cdc37b5fc0bcdfcc382a046bc7e0073d",
+     "size": 2306385,
+     "names": [
+      "Kit_Enhancements_Simplified.docx"
+     ],
+     "modified": 1791373436
+    }
+   ]
+  },
+  {
+   "base_name": "kit_pack enhancement version2",
+   "versions": [
+    {
+     "sha256": "dd4f0a8010b07f39cab34ca0c7761cb053f0180c2039c5900c0854c2629aefb8",
+     "size": 2185467,
+     "names": [
+      "Kit_Pack Enhancement version2.docx"
+     ],
+     "modified": 1791806554
+    },
+    {
+     "sha256": "0174885334832721d83604db59acea7918ffbb8beb74d3a140741af8ffb89fcb",
+     "size": 2305764,
+     "names": [
+      "Kit_Pack Enhancement version2 (1).docx"
+     ],
+     "modified": 1791526817
+    }
+   ]
+  },
+  {
+   "base_name": "kit_pack_costing",
+   "versions": [
+    {
+     "sha256": "d747dd9c64cd67b1f44283728aa3d5f3a581539d6bd66945a652f1e5f60263e5",
+     "size": 2940636,
+     "names": [
+      "Kit_pack_Costing.docx"
+     ],
+     "modified": 1779711992
+    }
+   ]
+  },
+  {
+   "base_name": "kit_pack_mrp_enhancement_spec",
+   "versions": [
+    {
+     "sha256": "eb8ac30ff8bca38689306028dd2fb6697f11d2cd152fc91b365af5d433502b26",
+     "size": 91370,
+     "names": [
+      "KIT_Pack_MRP_Enhancement_Spec.docx"
+     ],
+     "modified": 1789564085
+    }
+   ]
+  },
+  {
+   "base_name": "manufacturing base module 349251 release notes",
+   "versions": [
+    {
+     "sha256": "73265f460492520fe3396b01807fde8bc385a89a04cbe945b15030a93bc031bf",
+     "size": 1550964,
+     "names": [
+      "Manufacturing Base Module 349251 Release Notes (1).docx",
+      "Manufacturing Base Module 349251 Release Notes.docx"
+     ],
+     "modified": 1781494277
+    }
+   ]
+  },
+  {
+   "base_name": "manufacturing base module 352391 release notes",
+   "versions": [
+    {
+     "sha256": "55f54b01d6faf98c6f299d46d3320bbcb42dbf509f88ddfd32edae10a9a4d94d",
+     "size": 1637148,
+     "names": [
+      "Manufacturing Base Module 352391 Release Notes.docx"
+     ],
+     "modified": 1783314602
+    }
+   ]
+  },
+  {
+   "base_name": "manufacturing base module 372826 - release note",
+   "versions": [
+    {
+     "sha256": "9c9b3a74a6fd78832e9fb0ef18ce468f5f820c13086138139d385ca59945346f",
+     "size": 561140,
+     "names": [
+      "Manufacturing base module 372826 - Release Note.docx"
+     ],
+     "modified": 1789365117
+    }
+   ]
+  },
+  {
+   "base_name": "manufacturing base module 414433 release notes",
+   "versions": [
+    {
+     "sha256": "15cfbd664b191639a9d0809062ffd0825b0c466b0f83bc9c947855de48cb942f",
+     "size": 388729,
+     "names": [
+      "Manufacturing Base Module 414433 Release Notes.docx"
+     ],
+     "modified": 1789707514
+    }
+   ]
+  },
+  {
+   "base_name": "mrp-284648v01",
+   "versions": [
+    {
+     "sha256": "eb326b73997cfefc0e230bb5ffb1667468406fa91c2c6e171e23d5db934be0b3",
+     "size": 1561937,
+     "names": [
+      "MRP-284648V01.docx"
+     ],
+     "modified": 1786343395
+    }
+   ]
+  },
+  {
+   "base_name": "mrp_dashboard_template",
+   "versions": [
+    {
+     "sha256": "a7394b8e1d92ae8a065f4bf07e5a2ba6a4052bd465fa2a0355d767e01d112b20",
+     "size": 8517,
+     "names": [
+      "MRP_Dashboard_Template.xlsx"
+     ],
+     "modified": 1774842754
+    }
+   ]
+  },
+  {
+   "base_name": "mrp_dashboard_updated",
+   "versions": [
+    {
+     "sha256": "3e4e757e79b142e55b33b860b32420cf0dc95266de8cbb7bd8d93cabb9c0284a",
+     "size": 8828,
+     "names": [
+      "MRP_Dashboard_Updated.xlsx"
+     ],
+     "modified": 1774843723
+    }
+   ]
+  },
+  {
+   "base_name": "multi style kit costing",
+   "versions": [
+    {
+     "sha256": "e1882cd1b6fc9cb54759efeba91652b9e3ecbe5c7a35267512d1de4da0fbd980",
+     "size": 827229,
+     "names": [
+      "Multi Style KIT COSTING.docx"
+     ],
+     "modified": 1785909445
+    }
+   ]
+  },
+  {
+   "base_name": "mutli status approve without second approval",
+   "versions": [
+    {
+     "sha256": "a57264ce4ca715ad1004bd885e46af3d1530edf591db77acbd1463b828d99dc7",
+     "size": 71812,
+     "names": [
+      "mutli status approve without second approval.png"
+     ],
+     "modified": 1771588627
+    }
+   ]
+  },
+  {
+   "base_name": "new approval center",
+   "versions": [
+    {
+     "sha256": "bbcb8afe7a35953238f54b97b8b16b2677c1af0b079933922f9a9aeca46378dc",
+     "size": 1938498,
+     "names": [
+      "New Approval Center.pdf"
+     ],
+     "modified": 1779422092
+    }
+   ]
+  },
+  {
+   "base_name": "oc approval",
+   "versions": [
+    {
+     "sha256": "5589466d459f53037cf9a7c57a7c64ae3883537a180f5769820cda5a2618d5f1",
+     "size": 100316,
+     "names": [
+      "OC approval.png"
+     ],
+     "modified": 1771405251
+    }
+   ]
+  },
+  {
+   "base_name": "price mismatch case on grn",
+   "versions": [
+    {
+     "sha256": "7a26dd05864380ef4b2d30621eb1f5c4f4441820ebbd0d28324f75169d571392",
+     "size": 1416720,
+     "names": [
+      "PRice Mismatch case on GRN.pdf"
+     ],
+     "modified": 1775025023
+    }
+   ]
+  },
+  {
+   "base_name": "production costs",
+   "versions": [
+    {
+     "sha256": "18e2c811609c92c87264b8e215e24ec36932825e08706c36dcf85f887a3813b7",
+     "size": 236016,
+     "names": [
+      "Production Costs (2).docx"
+     ],
+     "modified": 1787799756
+    },
+    {
+     "sha256": "e7f51795d9865beef25a10184986a32fef7d1162b61a9651c5ea6873998a8138",
+     "size": 233791,
+     "names": [
+      "Production Costs (1).docx",
+      "Production Costs.docx"
+     ],
+     "modified": 1787286445
+    }
+   ]
+  },
+  {
+   "base_name": "production costs (pd queries)",
+   "versions": [
+    {
+     "sha256": "3a935460773f67f1f4a0988572704c92e30567cd9ce38165e7319e727a62bc1d",
+     "size": 233955,
+     "names": [
+      "Production Costs (PD Queries).docx"
+     ],
+     "modified": 1787799786
+    }
+   ]
+  },
+  {
+   "base_name": "ref fa new fppo_split division wise structure (with 3 gstn)v01",
+   "versions": [
+    {
+     "sha256": "22c6b4a980749dffd9a47e2f0574e38e34866e7fdedba4eb13b740160ec2b95b",
+     "size": 1703922,
+     "names": [
+      "Ref FA New FPPO_Split Division Wise Structure (with 3 GSTN)V01 (1).docx"
+     ],
+     "modified": 1786597261
+    }
+   ]
+  },
+  {
+   "base_name": "rptstockmovement_b823a790-15f9-49f4-8f75-d1c5479e0eb8",
+   "versions": [
+    {
+     "sha256": "a06fcb4f8cbadf51d1cffb211792c7b60a37aca9ebd6a82193f65c858e88bb49",
+     "size": 38197,
+     "names": [
+      "rptStockMovement_b823a790-15f9-49f4-8f75-d1c5479e0eb8.csv"
+     ],
+     "modified": 1769768544
+    }
+   ]
+  },
+  {
+   "base_name": "rptstockoverviewnew_15d897c1-4e06-4588-9e8d-52ce7426fd48",
+   "versions": [
+    {
+     "sha256": "3a3124307269d5c1358acdf155dc6499fac3c2f492a8e295710dd8b167be0271",
+     "size": 12448,
+     "names": [
+      "rptStockOverviewNew_15d897c1-4e06-4588-9e8d-52ce7426fd48.xlsx"
+     ],
+     "modified": 1769766882
+    }
+   ]
+  },
+  {
+   "base_name": "sales order flex fileds",
+   "versions": [
+    {
+     "sha256": "81dbeb8640dfde3cd82ce6bbc0422fca095b35074599656d7a5f24486fc6b7b4",
+     "size": 13303,
+     "names": [
+      "Sales order Flex fileds.xlsx"
+     ],
+     "modified": 1792047823
+    }
+   ]
+  },
+  {
+   "base_name": "sales order gaps",
+   "versions": [
+    {
+     "sha256": "cadc5859ddcf4810808b2f5119dbcba271427c0ebe3204792a6a06860159c61e",
+     "size": 274634,
+     "names": [
+      "Sales Order gaps.xlsx"
+     ],
+     "modified": 1792470267
+    },
+    {
+     "sha256": "862255ece965498bae878258672a6720118457bd33b8a31dda664937459d3eac",
+     "size": 2136800,
+     "names": [
+      "Sales Order Gaps.docx"
+     ],
+     "modified": 1792127308
+    }
+   ]
+  },
+  {
+   "base_name": "sales order impl gaps pd remarks",
+   "versions": [
+    {
+     "sha256": "8faf971aa8f7ac4e3b8f982c4d3a112783aefb3a1f34d94910be2f751e8298b4",
+     "size": 24516,
+     "names": [
+      "Sales Order IMPL Gaps PD remarks.xlsx"
+     ],
+     "modified": 1792383893
+    }
+   ]
+  },
+  {
+   "base_name": "sales order missing fields_formatted",
+   "versions": [
+    {
+     "sha256": "3c1e1b475c3d8782e5da255f2f93a6eb7ef7ba675f780cd07b4ad9c34b98d6d3",
+     "size": 12156,
+     "names": [
+      "Sales Order Missing fields_formatted.xlsx"
+     ],
+     "modified": 1783429619
+    }
+   ]
+  },
+  {
+   "base_name": "sales order size group",
+   "versions": [
+    {
+     "sha256": "365ae7f4c92fcd61fe1ea69d5526e7a63a96bbdfaf3db8f02fb1b86be21d779b",
+     "size": 1167857,
+     "names": [
+      "Sales Order Size Group.docx"
+     ],
+     "modified": 1790591728
+    }
+   ]
+  },
+  {
+   "base_name": "sales order sprint - 3 v2",
+   "versions": [
+    {
+     "sha256": "801c2ec52ca2c6313672a680bee6833e7c4a106a3c5ee25eb998e5394ab447da",
+     "size": 14138115,
+     "names": [
+      "Sales Order Sprint - 3 V2.docx"
+     ],
+     "modified": 1786944728
+    }
+   ]
+  },
+  {
+   "base_name": "sales order view page",
+   "versions": [
+    {
+     "sha256": "4c271b5e55ee36be69ec21e08a132657fa7d03521edb924951b9eb81de7df78b",
+     "size": 163538,
+     "names": [
+      "Sales Order View Page.png"
+     ],
+     "modified": 1783667859
+    }
+   ]
+  },
+  {
+   "base_name": "sales_asn_fg_allocation_workflow_final",
+   "versions": [
+    {
+     "sha256": "17a107937ebd22cdd568650c14d43e6119897799bb9c1cf36c9b602b51c83fcf",
+     "size": 573570,
+     "names": [
+      "sales_asn_fg_allocation_workflow_final.png"
+     ],
+     "modified": 1793099842
+    }
+   ]
+  },
+  {
+   "base_name": "sales_asn_product_spec_v1.1",
+   "versions": [
+    {
+     "sha256": "99bd01cbf2c57c9ef92c51406571098082a405b4fb3d03593f128c636ec258ec",
+     "size": 5024734,
+     "names": [
+      "Sales_ASN_Product_Spec_v1.1.docx"
+     ],
+     "modified": 1793166436
+    }
+   ]
+  },
+  {
+   "base_name": "screenshot 2026-02-05 164243",
+   "versions": [
+    {
+     "sha256": "3d0966b2845a8c5204d2a62c5667fa78350cc5994d27eb006f0641ab312cd7c8",
+     "size": 1259445,
+     "names": [
+      "Screenshot 2026-02-05 164243.png"
+     ],
+     "modified": 1770289992
+    }
+   ]
+  },
+  {
+   "base_name": "screenshot 2026-07-27 170015",
+   "versions": [
+    {
+     "sha256": "c8aae9243166b2ae7f929e81433d517bf0cfb15e6ac49fe872ab2a15bf1f36b1",
+     "size": 200396,
+     "names": [
+      "Screenshot 2026-07-27 170015.png"
+     ],
+     "modified": 1785152539
+    }
+   ]
+  },
+  {
+   "base_name": "screenshot 2026-11-13 155035",
+   "versions": [
+    {
+     "sha256": "d0a8d2391ca965ee4af78f1d414d68be9f2166959005656339a6a01a1a38d9ad",
+     "size": 181418,
+     "names": [
+      "Screenshot 2026-11-13 155035.png"
+     ],
+     "modified": 1794565346
+    }
+   ]
+  },
+  {
+   "base_name": "sepl-brd_wfx_standalone_material_creation_request_v1_0",
+   "versions": [
+    {
+     "sha256": "982cad6e858640123828b1e60ebe9593d9be2dd31473b1062b64f7d6fa37fc90",
+     "size": 17810,
+     "names": [
+      "SEPL-BRD_WFX_Standalone_Material_Creation_Request_v1_0.docx"
+     ],
+     "modified": 1789107657
+    }
+   ]
+  },
+  {
+   "base_name": "shipment planning, export logistics & government incentive handling",
+   "versions": [
+    {
+     "sha256": "a2d430bd4e64be9b6a919087b11eab127e98cf67235d25c1ca8ce25439515262",
+     "size": 3855895,
+     "names": [
+      "Shipment Planning, Export Logistics & Government Incentive Handling (4).docx"
+     ],
+     "modified": 1781258147
+    },
+    {
+     "sha256": "7e6687f48c6deab7aa6958c3147c2d3cad65c257e7098076da1825da1a02e159",
+     "size": 3811334,
+     "names": [
+      "Shipment Planning, Export Logistics & Government Incentive Handling (3).docx"
+     ],
+     "modified": 1779775199
+    },
+    {
+     "sha256": "520a743a7d2e88b8c3d07001ad07ce82da3330ea3ada37da04d308568bad8107",
+     "size": 3844670,
+     "names": [
+      "Shipment Planning, Export Logistics & Government Incentive Handling (2).docx"
+     ],
+     "modified": 1779336131
+    },
+    {
+     "sha256": "27c9f60dec06ad2975dcc86f1715bd77ef906153f923db2e43c08b8129c792cc",
+     "size": 3843782,
+     "names": [
+      "Shipment Planning, Export Logistics & Government Incentive Handling (1).docx"
+     ],
+     "modified": 1779188937
+    },
+    {
+     "sha256": "87066b6f444a3750b1dc0565490a955c0b206412ac420fd1104c5adc982c5d1c",
+     "size": 3575160,
+     "names": [
+      "Shipment Planning, Export Logistics & Government Incentive Handling.docx"
+     ],
+     "modified": 1779081980
+    }
+   ]
+  },
+  {
+   "base_name": "shipmentdetails_20260429125713",
+   "versions": [
+    {
+     "sha256": "79fc1f18da11478d0e27c187b8ad2da980cfc8929ebbc3b41e26f2f350789bbf",
+     "size": 10865,
+     "names": [
+      "ShipmentDetails_20260429125713.xlsx"
+     ],
+     "modified": 1777448390
+    }
+   ]
+  },
+  {
+   "base_name": "shipmentdetails_20260930095033",
+   "versions": [
+    {
+     "sha256": "64684a10a5e9d11072fccf06303c5e7c9065d676e077d46af077f89a53d62cdf",
+     "size": 1794,
+     "names": [
+      "ShipmentDetails_20260930095033.xlsx"
+     ],
+     "modified": 1790742036
+    }
+   ]
+  },
+  {
+   "base_name": "specs- 354532",
+   "versions": [
+    {
+     "sha256": "f6b27eac371af917ac0ee49f7ea18616c1b451123404fb4cc0268f0804fa16d0",
+     "size": 365919,
+     "names": [
+      "Specs- 354532.docx"
+     ],
+     "modified": 1773978923
+    }
+   ]
+  },
+  {
+   "base_name": "sprint-01 (oc creation & list,buyer wise order screen - configuration,oc creation - structure, manufacturing order, cm for ks fashion)",
+   "versions": [
+    {
+     "sha256": "e6d48e8eeb97d91c16503d1678331bdc9be601fea123011ef599b411ff3fb332",
+     "size": 3972360,
+     "names": [
+      "Sprint-01 (OC Creation & List,Buyer wise Order screen - Configuration,OC Creation - Structure, Manufacturing Order, CM for KS Fashion) (1).docx",
+      "Sprint-01 (OC Creation & List,Buyer wise Order screen - Configuration,OC Creation - Structure, Manufacturing Order, CM for KS Fashion).docx"
+     ],
+     "modified": 1788495768
+    }
+   ]
+  },
+  {
+   "base_name": "techpack destination page",
+   "versions": [
+    {
+     "sha256": "060471a22b06ed4912c21779b6b54712719f47120edafc8f5f9ad3f6fc131195",
+     "size": 123272,
+     "names": [
+      "techpack destination page.png"
+     ],
+     "modified": 1783667900
+    }
+   ]
+  },
+  {
+   "base_name": "unique bsr based on division-buyer-season",
+   "versions": [
+    {
+     "sha256": "a2ed8087dd998d0eb36785772be3c59a6e08582f2cafd0f62a7f94f2c8c2ea27",
+     "size": 140021,
+     "names": [
+      "Unique BSR based on Division-Buyer-Season (002).docx"
+     ],
+     "modified": 1789628985
+    }
+   ]
+  },
+  {
+   "base_name": "wfx erp customer specification & approval",
+   "versions": [
+    {
+     "sha256": "881b550ccfcbcdb9c9a2430f3958f63fc6a5fd1c457d24829e13fe3a2f63af19",
+     "size": 12516,
+     "names": [
+      "WFX ERP Customer Specification & Approval.docx"
+     ],
+     "modified": 1789553528
+    }
+   ]
+  },
+  {
+   "base_name": "wfx fields rmpo tactive",
+   "versions": [
+    {
+     "sha256": "812769cb7712cea3457184f3a5e87556cbde2774941567134db5bc32e07dd487",
+     "size": 25758,
+     "names": [
+      "WFX fields RMPO Tactive.xlsx"
+     ],
+     "modified": 1777867456
+    }
+   ]
+  },
+  {
+   "base_name": "wfx scanned joining docs_compressed",
+   "versions": [
+    {
+     "sha256": "f08d5ae49292e645caef812f30d01a2565c4fcfad25d148e72a20772517e7cbb",
+     "size": 1637448,
+     "names": [
+      "WFX scanned joining docs_compressed.pdf"
+     ],
+     "modified": 1766554815
+    }
+   ]
+  },
+  {
+   "base_name": "wfx-erp 1",
+   "versions": [
+    {
+     "sha256": "a80ef1efe8e8689391f9bf9473681459c68b828a52a35a50d085a085b7c97238",
+     "size": 856100,
+     "names": [
+      "WFX-ERP 1.docx",
+      "WFX-ERP.docx"
+     ],
+     "modified": 1789984960
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_architecture_blueprint",
+   "versions": [
+    {
+     "sha256": "9ad3b05b9e65ece897460638ce1233e6045da0932a681f1c5070a2b04e8c9cde",
+     "size": 3876,
+     "names": [
+      "WFX_ARCHITECTURE_BLUEPRINT.md"
+     ],
+     "modified": 1776334056
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_bom_techpack_change_af",
+   "versions": [
+    {
+     "sha256": "9add9fa87ba037274d606d542caa6ca638af5337d4e11a69cba79039219d0259",
+     "size": 16050,
+     "names": [
+      "WFX_BOM_Techpack_Change_AF.xlsx"
+     ],
+     "modified": 1781505969
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_functional_specification_template",
+   "versions": [
+    {
+     "sha256": "30749e7a5593f2998d743b026f4908b367c36cc5ff479ab7bb99b48b82cd6c73",
+     "size": 1160495,
+     "names": [
+      "WFX_Functional_Specification_Template.docx"
+     ],
+     "modified": 1793179926
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_menu shahi vs html - technology",
+   "versions": [
+    {
+     "sha256": "acf8646d47d315f43367ede8176758dc74e5c10e0b82d612b907534db027d708",
+     "size": 68128,
+     "names": [
+      "WFX_Menu Shahi VS HTML - Technology.xlsx"
+     ],
+     "modified": 1793771664
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_menu shahi vs html v10 - proposed menu",
+   "versions": [
+    {
+     "sha256": "77e7912abdcf250b34c76468693aec5e4d197b1a8b69f640da2fcc4542b9490f",
+     "size": 80582,
+     "names": [
+      "WFX_Menu Shahi VS HTML V10 - Proposed Menu.xlsx"
+     ],
+     "modified": 1793783607
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_menu shahi vs html v10 - proposed menu- with path",
+   "versions": [
+    {
+     "sha256": "17c6624edad99763790d8e8c92d81639adc556372c44c63b0a94055941b75016",
+     "size": 80383,
+     "names": [
+      "WFX_Menu Shahi VS HTML V10 - Proposed Menu- With Path.xlsx"
+     ],
+     "modified": 1793868858
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_menu_comparison_excel_vs_html_avp",
+   "versions": [
+    {
+     "sha256": "7f374e6707547ac4f4fef41e0379fafa5992352135923bbcf8c2e301df0dda3a",
+     "size": 61610,
+     "names": [
+      "WFX_Menu_Comparison_Excel_vs_HTML_AVP.xlsx"
+     ],
+     "modified": 1793360809
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_menu_shahi_vs_html_v10_-_proposed_menu-_with_path new",
+   "versions": [
+    {
+     "sha256": "49542fa6f99a1864784c1015dd4bf56c329d9416c171ccf1f316cc4ae23b8ede",
+     "size": 79412,
+     "names": [
+      "WFX_Menu_Shahi_VS_HTML_V10_-_Proposed_Menu-_With_Path NEW.xlsx"
+     ],
+     "modified": 1793870765
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_training_module_tracker",
+   "versions": [
+    {
+     "sha256": "ebf738ef3bbe69d9afcbaac9815113dafe22fd458cd559f160e67901a65a2453",
+     "size": 6617,
+     "names": [
+      "WFX_Training_Module_Tracker.xlsx"
+     ],
+     "modified": 1773201971
+    }
+   ]
+  },
+  {
+   "base_name": "wfx_v10_menu_spec",
+   "versions": [
+    {
+     "sha256": "bc3a6d768bf170ea95bb8eabfcd610dab553e8b65597f04fb7487b5d1b7889a6",
+     "size": 119174,
+     "names": [
+      "WFX_V10_Menu_Spec.docx"
+     ],
+     "modified": 1793871128
+    }
+   ]
+  },
+  {
+   "base_name": "wfxqa.worldfashionexchange.com_wfxbase4.0_wfxtnaconfig.aspx_action=new&guid=e32f7e55-0d84-4ea9-985a-916f0ebd6a6a_1lxy6u",
+   "versions": [
+    {
+     "sha256": "08c85a0bcbf57e496f41294ebf4d33e8fdc375894dd920844a709df86f7b2ba6",
+     "size": 193534,
+     "names": [
+      "wfxqa.worldfashionexchange.com_WFXBase4.0_WFXTNAConfig.aspx_Action=New&GUID=e32f7e55-0d84-4ea9-985a-916f0ebd6a6a_1LXy6u (1).png"
+     ],
+     "modified": 1785396085
+    },
+    {
+     "sha256": "3697b613bd771d7eff25f07608917bdf27e265f4470256b4fcad3466182daa45",
+     "size": 176447,
+     "names": [
+      "wfxqa.worldfashionexchange.com_WFXBase4.0_WFXTNAConfig.aspx_Action=New&GUID=e32f7e55-0d84-4ea9-985a-916f0ebd6a6a_1LXy6u.png"
+     ],
+     "modified": 1785396054
+    }
+   ]
+  }
+ ],
+ "counts": {
+  "distinct_contents": 205,
+  "base_names": 157,
+  "files": 277
+ }
+}
