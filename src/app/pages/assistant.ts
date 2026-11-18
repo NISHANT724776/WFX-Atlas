@@ -15,9 +15,10 @@ const IDEAS = [
   { group: 'Theory', items: ['What is BOM?', 'What is Split Shuffle?', 'Open the theory of GRN'] },
 ];
 
+import { Status } from '../shared/status';
 @Component({
   selector: 'app-assistant',
-  imports: [ChatThread, RouterLink, KbAssistant],
+  imports: [ChatThread, RouterLink, KbAssistant, Status],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (!grounded()) {
@@ -58,7 +59,7 @@ const IDEAS = [
           @if (chat.msgs().length) { <button type="button" class="linkish" (click)="chat.clear()">Clear conversation</button> }
         </div>
         <div class="as-thread" #thread aria-live="polite">
-          @if (!chat.msgs().length) { <p class="muted">Nothing yet. Pick an idea on the left or type below.</p> }
+          @if (!chat.msgs().length) { <wfx-status kind="empty" title="Nothing asked yet" detail="Pick an idea on the left or type a question below." /> }
           <app-chat-thread [msgs]="chat.msgs()" [full]="true" [busy]="chat.busy()" [aiEnabled]="chat.ai().enabled" [label]="labelFn"
             (ask)="chat.send($event)" (askAi)="chat.askAi($event)" />
         </div>

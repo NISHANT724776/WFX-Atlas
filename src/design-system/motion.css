@@ -1,0 +1,178 @@
+/* ==========================================================================
+   WFX Knowledge Hub — motion primitives
+
+   The rules these encode:
+     1. Numbers tween, layout snaps. Animate value, opacity, transform. Never
+        animate a reflow on content being read.
+     2. Cause then effect, 80ms apart. The lag is what teaches the causal
+        chain; simultaneous updates teach nothing.
+     3. Stagger 40ms, max 8 siblings, then the rest arrive as one block.
+     4. Tables are for comparison — fade on load, nothing else.
+     5. Every animation must be describable in one sentence saying what it
+        teaches. If it isn't, delete it.
+     6. prefers-reduced-motion collapses to a 120ms cross-fade with a fully
+        legible static end-state. Never to "nothing happens".
+   ========================================================================== */
+
+/* --- 1. enter / exit ----------------------------------------------------- */
+
+@keyframes wfx-enter {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes wfx-enter-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes wfx-exit {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translate3d(0, 4px, 0); }
+}
+
+.wfx-enter {
+  animation: wfx-enter var(--wfx-dur-element) var(--wfx-ease-enter) both;
+}
+.wfx-enter-fade {
+  animation: wfx-enter-fade var(--wfx-dur-element) var(--wfx-ease-enter) both;
+}
+.wfx-exit {
+  animation: wfx-exit var(--wfx-dur-micro) var(--wfx-ease-exit) both;
+}
+
+/* --- 2. stagger ----------------------------------------------------------
+   Apply to the container. First 8 children cascade; the rest arrive together
+   so a long list never feels like it is loading slowly. */
+
+.wfx-stagger > * {
+  animation: wfx-enter var(--wfx-dur-element) var(--wfx-ease-enter) both;
+  animation-delay: calc(8 * var(--wfx-stagger));
+}
+.wfx-stagger > *:nth-child(1) { animation-delay: calc(0 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(2) { animation-delay: calc(1 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(3) { animation-delay: calc(2 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(4) { animation-delay: calc(3 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(5) { animation-delay: calc(4 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(6) { animation-delay: calc(5 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(7) { animation-delay: calc(6 * var(--wfx-stagger)); }
+.wfx-stagger > *:nth-child(8) { animation-delay: calc(7 * var(--wfx-stagger)); }
+
+/* --- 3. cause -> effect --------------------------------------------------
+   Put .wfx-effect-1 / -2 / -3 on the dependent elements. The chain reads:
+   status chip moves, then the adjusted quantity, then "still to buy". */
+
+.wfx-cause    { animation-delay: 0ms !important; }
+.wfx-effect-1 { animation-delay: calc(1 * var(--wfx-lag)) !important; }
+.wfx-effect-2 { animation-delay: calc(2 * var(--wfx-lag)) !important; }
+.wfx-effect-3 { animation-delay: calc(3 * var(--wfx-lag)) !important; }
+
+/* --- 4. value change -----------------------------------------------------
+   A quantity that just changed gets a single accent pulse. The number itself
+   is tweened by motion.js; this marks that it moved. */
+
+@keyframes wfx-value-change {
+  0%   { color: var(--wfx-accent); }
+  100% { color: inherit; }
+}
+.wfx-value-changed {
+  animation: wfx-value-change var(--wfx-dur-section) var(--wfx-ease-exit) both;
+}
+
+/* --- 5. processing shimmer ----------------------------------------------
+   SYSTEM steps only. A USER step never shimmers — that distinction is how
+   the user learns who is acting without reading the label. */
+
+@keyframes wfx-shimmer {
+  from { background-position: -140% 0; }
+  to   { background-position: 240% 0; }
+}
+.wfx-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    transparent 20%,
+    var(--wfx-accent-wash) 45%,
+    transparent 70%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: wfx-shimmer 2200ms linear infinite;
+}
+
+/* --- 6. directional flow -------------------------------------------------
+   For the data-model connectors. Runs once on hover, not forever: a
+   permanently crawling line is decoration, and decoration is banned. */
+
+@keyframes wfx-flow {
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0; }
+}
+.wfx-flow-line {
+  stroke-dasharray: 4 4;
+  stroke-dashoffset: 24;
+}
+.wfx-flow-line--run,
+*:hover > .wfx-flow-line {
+  animation: wfx-flow var(--wfx-dur-section) var(--wfx-ease-standard) both;
+}
+
+/* --- 7. line draw --------------------------------------------------------
+   Set --len to the path length (getTotalLength()) before running. */
+
+@keyframes wfx-draw {
+  from { stroke-dashoffset: var(--len, 300); }
+  to   { stroke-dashoffset: 0; }
+}
+.wfx-draw {
+  stroke-dasharray: var(--len, 300);
+  stroke-dashoffset: var(--len, 300);
+  animation: wfx-draw var(--wfx-dur-section) var(--wfx-ease-enter) both;
+}
+
+/* --- 8. interaction states ----------------------------------------------- */
+
+.wfx-interactive {
+  transition:
+    background-color var(--wfx-dur-micro) var(--wfx-ease-standard),
+    border-color     var(--wfx-dur-micro) var(--wfx-ease-standard),
+    color            var(--wfx-dur-micro) var(--wfx-ease-standard),
+    transform        var(--wfx-dur-micro) var(--wfx-ease-standard);
+}
+.wfx-interactive:hover  { background-color: var(--wfx-surface-2); }
+.wfx-interactive:active { transform: scale(0.985); background-color: var(--wfx-surface-3); }
+
+:where(a, button, [tabindex], input, select, textarea):focus-visible {
+  outline: 2px solid var(--wfx-focus);
+  outline-offset: 2px;
+  border-radius: var(--wfx-radius-sm);
+}
+
+/* waiting to be revealed: invisible only once the script runs, so server-rendered HTML stays readable */
+.wfx-reveal-wait { opacity: 0; }
+
+/* --- 9. tables: fade only, never animated numbers ------------------------ */
+
+.wfx-table-enter {
+  animation: wfx-enter-fade var(--wfx-dur-element) var(--wfx-ease-enter) both;
+}
+
+/* --- 10. reduced motion --------------------------------------------------
+   Collapse to a cross-fade. Every element still arrives at its correct,
+   fully legible end state. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: var(--wfx-dur-micro) !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: var(--wfx-dur-micro) !important;
+    scroll-behavior: auto !important;
+  }
+  .wfx-enter,
+  .wfx-stagger > * { animation-name: wfx-enter-fade; }
+  .wfx-shimmer     { animation: none; background-image: none; }
+  .wfx-flow-line   { stroke-dashoffset: 0; animation: none; }
+  .wfx-draw        { stroke-dashoffset: 0; animation: none; }
+  .wfx-interactive:active { transform: none; }
+  .wfx-reveal-wait { opacity: 1; }
+}

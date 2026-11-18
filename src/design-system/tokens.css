@@ -1,0 +1,163 @@
+/* ==========================================================================
+   WFX Knowledge Hub — design tokens (from wfx-ui-pack, adapted to the app)
+   Single source of truth: no colour, spacing, radius or duration anywhere
+   else in the app. Rendered live at /styleguide.
+
+   Themes. The app follows the OS until the user toggles (the choice is kept
+   as <html data-theme>). So:  light pair on :root and [data-theme=light],
+   dark pair on [data-theme=dark] and on :root when the OS prefers dark and
+   no light choice was made. Any element can carry data-theme to show one
+   theme inside the other (the styleguide does).
+   Additions to the pack, marked "+": bad (errors/conflicts) and the three
+   "wash" backgrounds for ok/warn/bad notices. Everything else is the pack.
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  --wfx-canvas:        #FAF7F4;   /* warm paper, not white */
+  --wfx-surface:       #FFFFFF;
+  --wfx-surface-2:     #F3EEE9;
+  --wfx-surface-3:     #E8E1DA;
+  --wfx-hairline:      #E3DBD4;
+  --wfx-hairline-str:  #CFC5BC;
+
+  --wfx-ink:           #171412;
+  --wfx-ink-2:         #5A534E;
+  --wfx-ink-3:         #766D67;   /* 4.74:1 on canvas */
+
+  --wfx-accent:        #C8400F;   /* darkened so it clears 4.5:1 on paper */
+  --wfx-accent-ink:    #FFFFFF;
+  --wfx-accent-dim:    #E8A289;
+  --wfx-accent-wash:   rgba(200, 64, 15, 0.10);
+
+  --wfx-state-0:       #78706A;   /* Not ordered */
+  --wfx-state-1:       #9A5B2E;   /* PO created  */
+  --wfx-state-2:       #B4571A;   /* ASN done    */
+  --wfx-state-3:       #C8400F;   /* GRN done    */
+
+  --wfx-ok:            #2F7A4E;
+  --wfx-warn:          #8A6410;
+  --wfx-bad:           #B3261E;   /* + 6.2:1 on surface */
+  --wfx-ok-wash:       rgba(47, 122, 78, 0.10);   /* + */
+  --wfx-warn-wash:     rgba(138, 100, 16, 0.10);  /* + */
+  --wfx-bad-wash:      rgba(179, 38, 30, 0.08);   /* + */
+  --wfx-focus:         #C8400F;
+  --wfx-scrim:         rgba(23, 20, 18, 0.55);    /* + behind dialogs */
+
+  --wfx-elev-1: 0 1px 2px rgba(23, 20, 18, 0.05);
+  --wfx-elev-2: 0 4px 16px rgba(23, 20, 18, 0.08);
+
+  color-scheme: light;
+}
+
+/* dark: chosen, or the OS default when nothing was chosen */
+[data-theme="dark"] {
+  --wfx-canvas:        #0E0D0C;
+  --wfx-surface:       #161413;
+  --wfx-surface-2:     #1F1C1A;   /* raised / hover */
+  --wfx-surface-3:     #292523;   /* pressed / active */
+  --wfx-hairline:      #2A2624;
+  --wfx-hairline-str:  #3B3532;   /* emphasised divider */
+
+  --wfx-ink:           #F2EEEA;
+  --wfx-ink-2:         #A79F99;   /* secondary */
+  --wfx-ink-3:         #8A827B;   /* labels, eyebrows — 4.86:1 on surface */
+
+  --wfx-accent:        #F2683C;
+  --wfx-accent-ink:    #140A06;   /* text ON accent */
+  --wfx-accent-dim:    #7A3420;   /* accent at rest */
+  --wfx-accent-wash:   rgba(242, 104, 60, 0.12);
+
+  --wfx-state-0:       #6E6560;   /* Not ordered — inert      */
+  --wfx-state-1:       #A96B41;   /* PO created  — committed  */
+  --wfx-state-2:       #D4873F;   /* ASN done    — in transit */
+  --wfx-state-3:       #F2683C;   /* GRN done    — landed     */
+
+  --wfx-ok:            #5FA87C;
+  --wfx-warn:          #D9A441;
+  --wfx-bad:           #E5786E;   /* + 6.0:1 on surface */
+  --wfx-ok-wash:       rgba(95, 168, 124, 0.12);  /* + */
+  --wfx-warn-wash:     rgba(217, 164, 65, 0.12);  /* + */
+  --wfx-bad-wash:      rgba(229, 120, 110, 0.12); /* + */
+  --wfx-focus:         #F2683C;
+  --wfx-scrim:         rgba(0, 0, 0, 0.72);       /* + */
+
+  --wfx-elev-1: none;   /* elevation on dark is surface + hairline, not shadow */
+  --wfx-elev-2: none;
+
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --wfx-canvas:        #0E0D0C;
+    --wfx-surface:       #161413;
+    --wfx-surface-2:     #1F1C1A;
+    --wfx-surface-3:     #292523;
+    --wfx-hairline:      #2A2624;
+    --wfx-hairline-str:  #3B3532;
+    --wfx-ink:           #F2EEEA;
+    --wfx-ink-2:         #A79F99;
+    --wfx-ink-3:         #8A827B;
+    --wfx-accent:        #F2683C;
+    --wfx-accent-ink:    #140A06;
+    --wfx-accent-dim:    #7A3420;
+    --wfx-accent-wash:   rgba(242, 104, 60, 0.12);
+    --wfx-state-0:       #6E6560;
+    --wfx-state-1:       #A96B41;
+    --wfx-state-2:       #D4873F;
+    --wfx-state-3:       #F2683C;
+    --wfx-ok:            #5FA87C;
+    --wfx-warn:          #D9A441;
+    --wfx-bad:           #E5786E;
+    --wfx-ok-wash:       rgba(95, 168, 124, 0.12);
+    --wfx-warn-wash:     rgba(217, 164, 65, 0.12);
+    --wfx-bad-wash:      rgba(229, 120, 110, 0.12);
+    --wfx-focus:         #F2683C;
+    --wfx-scrim:         rgba(0, 0, 0, 0.72);
+    --wfx-elev-1: none;
+    --wfx-elev-2: none;
+    color-scheme: dark;
+  }
+}
+
+/* theme-independent scales; on every themed element too, so composite tokens (borders) resolve in that theme */
+:root, [data-theme] {
+  /* --- spacing: 4px base. Section rhythm is 96. Nothing between 64 and 96 */
+  --wfx-space-0:   2px;   /* + hairline offsets only (underline, focus gap) */
+  --wfx-space-1:   4px;
+  --wfx-space-2:   8px;
+  --wfx-space-3:  12px;
+  --wfx-space-4:  16px;
+  --wfx-space-5:  24px;
+  --wfx-space-6:  40px;
+  --wfx-space-7:  64px;
+  --wfx-space-8:  96px;
+
+  /* --- radius ---------------------------------------------------------- */
+  --wfx-radius-sm:   6px;
+  --wfx-radius:     10px;
+  --wfx-radius-lg:  16px;
+  --wfx-radius-pill: 999px;
+
+  /* --- borders --------------------------------------------------------- */
+  --wfx-border:      1px solid var(--wfx-hairline);
+  --wfx-border-str:  1px solid var(--wfx-hairline-str);
+
+  /* --- motion ---------------------------------------------------------- */
+  --wfx-dur-micro:    120ms;  /* hover, chip, toggle            */
+  --wfx-dur-element:  240ms;  /* card, panel, dropdown          */
+  --wfx-dur-section:  400ms;  /* route / section change         */
+  --wfx-stagger:       40ms;  /* between siblings, max 8        */
+  --wfx-lag:           80ms;  /* cause -> effect separation     */
+
+  --wfx-ease-enter:    cubic-bezier(0.2, 0, 0, 1);
+  --wfx-ease-exit:     cubic-bezier(0.4, 0, 1, 1);
+  --wfx-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  /* value changes: spring() in motion.js (stiffness ~180, damping ~24), not a bezier */
+
+  /* --- layout ---------------------------------------------------------- */
+  --wfx-measure:   72ch;
+  --wfx-gutter:    var(--wfx-space-5);
+  --wfx-max:      1280px;
+  --wfx-header-h:  64px;  /* + sticky header height (scroll padding) */
+}

@@ -15,9 +15,10 @@ interface Dash {
   documentsByStatus: { status: string; n: number }[];
 }
 
+import { Status } from '../shared/status';
 @Component({
   selector: 'app-dashboard',
-  imports: [KbGate, KbTabs, RouterLink, DatePipe],
+  imports: [KbGate, KbTabs, RouterLink, DatePipe, Status],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <h1 class="kb-h1">Dashboard</h1>
@@ -42,7 +43,7 @@ interface Dash {
             <h2>Knowledge gaps</h2>
             @if (d.gaps.length) {
               <ul class="kb-list">@for (g of d.gaps; track g.question) { <li><a routerLink="/assistant" [queryParams]="{ q: g.question }">{{ g.question }}</a> <span class="muted small">×{{ g.times }}</span></li> }</ul>
-            } @else { <p class="muted">No gaps recorded yet.</p> }
+            } @else { <wfx-status kind="empty" title="No gaps recorded yet" [compact]="true" /> }
           </section>
           </div>
         <details class="kb-more"><summary>Recent activity</summary>
@@ -54,13 +55,13 @@ interface Dash {
           <section class="kb-panel kb-pad">
             <h2>Recently asked topics</h2>
             @if (d.recentTopics.length) { <ul class="kb-list">@for (t of d.recentTopics; track t.topic) { <li>{{ t.topic }} <span class="muted small">×{{ t.hits }}</span></li> }</ul> }
-            @else { <p class="muted">No questions yet.</p> }
+            @else { <wfx-status kind="empty" title="No questions yet" [compact]="true" /> }
             <h2>Your recent conversations</h2>
             @if (d.conversations.length) { <ul class="kb-list">@for (c of d.conversations; track c.id) { <li><a routerLink="/assistant" [queryParams]="{ c: c.id }">{{ c.title }}</a> <span class="muted small">{{ c.messages }} messages</span></li> }</ul> }
             @else { <p class="muted">None yet. <a routerLink="/assistant">Ask a question</a>.</p> }
           </section>
         </div></details>
-      } @else if (error()) { <p class="kb-bad">{{ error() }}</p> } @else { <p class="muted">Loading…</p> }
+      } @else if (error()) { <wfx-status kind="error" title="The dashboard could not be loaded" [detail]="error()" /> } @else { <wfx-status kind="loading" title="Loading the dashboard" /> }
     </kb-gate>
   `,
 })

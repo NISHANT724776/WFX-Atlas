@@ -2,8 +2,8 @@
 <header class="site-header">
   <div class="wrap header-row">
     <a routerLink="/" class="brand" aria-label="WFX Knowledge Hub home">
-      <span class="brand-mark" aria-hidden="true">W</span>
-      <span class="brand-name">WFX <em>Knowledge Hub</em></span>
+      <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="7.5" /><path d="M6.5 9.5 11 22.5 16 12.5 21 22.5 25.5 9.5" /></svg>
+      <span class="brand-name"><span class="brand-wfx">WFX</span> <em>Knowledge Hub</em></span>
     </a>
     <nav id="main-nav" class="main-nav" [class.open]="menuOpen()" aria-label="Main">
       @for (n of nav; track n.path) {
@@ -53,7 +53,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <p class="footer-title brand-name">WFX <em>Knowledge Hub</em></p>
+      <p class="footer-title brand-name"><span class="brand-wfx">WFX</span> <em>Knowledge Hub</em></p>
       <p class="muted small">Interactive workflows and short, precise theory of the WFX ERP, verified step by step on Flannel Shirt Adi (NIS-58).</p>
     </div>
     <div>

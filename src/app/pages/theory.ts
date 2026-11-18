@@ -17,9 +17,11 @@ import { NotFoundBody } from './not-found';
 
 type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
 
+import { FormulaBadge } from '../shared/states';
+import { Status } from '../shared/status';
 @Component({
   selector: 'app-theory',
-  imports: [RouterLink, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
+  imports: [RouterLink, FormulaBadge, Status, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (txn(); as t) {
@@ -31,7 +33,7 @@ type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
             <p class="one-line">{{ s.oneLine }}</p>
             <dl class="facts big">
               @for (f of s.facts; track f.label; let i = $index) {
-                <div [appReveal]="i * 70"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
+                <div [appReveal]="i"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
               }
             </dl>
           }
@@ -122,7 +124,7 @@ type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
             <div class="calc-list">
               @for (c of calcs(); track c.id) {
                 <div class="formula-card">
-                  <div class="fc-head"><strong>{{ c.name }}</strong><span class="badge" [class]="c.status">{{ c.status === 'verified' ? 'Verified in WFX' : 'To confirm' }}</span></div>
+                  <div class="fc-head"><strong>{{ c.name }}</strong><wfx-formula-badge [status]="c.status" [question]="c.question" verifiedLabel="Verified in WFX" /></div>
                   <code class="fc-formula">{{ c.formula }}</code>
                   <p class="small">{{ c.explanation }}</p>
                   <p class="small"><strong>Example:</strong> {{ c.example }}</p>
@@ -170,7 +172,7 @@ type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
 
         <section role="tabpanel" id="panel-data" aria-labelledby="tab-data" class="panel-body" [hidden]="tab() !== 'data'">
           @for (tb of t.tables; track tb.title) { <app-data-table [table]="tb" /> }
-          @empty { <p class="muted">No line data recorded for this transaction yet.</p> }
+          @empty { <wfx-status kind="empty" title="No line data recorded for this transaction yet" [compact]="true" /> }
         </section>
 
         <section role="tabpanel" id="panel-cases" aria-labelledby="tab-cases" class="panel-body" [hidden]="tab() !== 'cases'">
@@ -180,7 +182,7 @@ type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
               <h3>{{ c.title }}</h3>
               <p>{{ c.body }}</p>
             </div>
-          } @empty { <p class="muted">No cases recorded yet.</p> }
+          } @empty { <wfx-status kind="empty" title="No cases recorded yet" [compact]="true" /> }
         </section>
 
         <nav class="pager" aria-label="Previous and next transaction">

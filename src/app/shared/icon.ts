@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-/** Line icons drawn on a 24×24 grid with the current text colour. */
+/** Line icons drawn on a 24×24 grid with the current text colour (1.5px stroke, round cap and join — one family). */
 const PATHS: Record<string, string> = {
   swatch: 'M4 20V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v15a3 3 0 0 1-6 0zM10 8l3.5-3.5a1 1 0 0 1 1.4 0l2.8 2.8a1 1 0 0 1 0 1.4L10 16.4M7 20h12a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-3',
   shirt: 'M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0z',
@@ -30,15 +30,32 @@ const PATHS: Record<string, string> = {
   bolt: 'M13 2 4 14h7l-1 8 9-12h-7z',
 };
 
+/** The ten module icons (wfx-ui-pack/assets/icons): apparel-manufacturing marks, drawn as shape lists. */
+type Shape = { t: 'path' | 'rect' | 'circle' | 'ellipse'; [attr: string]: string | undefined };
+export const MODULE_ICONS: Record<string, Shape[]> = {"mod-booking": [{"t": "rect", "x": "3", "y": "5", "width": "18", "height": "16", "rx": "2"}, {"t": "path", "d": "M3 10h18"}, {"t": "path", "d": "M8 3.2v3.6"}, {"t": "path", "d": "M16 3.2v3.6"}, {"t": "rect", "x": "6.6", "y": "13", "width": "7", "height": "4.6", "rx": "1.2"}], "mod-definitions": [{"t": "path", "d": "M9 4.2C6.4 7.5 6.4 16.5 9 19.8"}, {"t": "path", "d": "M15 4.2c2.6 3.3 2.6 12.3 0 15.6"}, {"t": "path", "d": "M9.6 12h4.8"}, {"t": "circle", "cx": "12", "cy": "8.3", "r": "1"}, {"t": "circle", "cx": "12", "cy": "15.7", "r": "1"}], "mod-inventory": [{"t": "path", "d": "M12 2.8 20.5 7.2v9.6L12 21.2 3.5 16.8V7.2Z"}, {"t": "path", "d": "M3.5 7.2 12 11.6l8.5-4.4"}, {"t": "path", "d": "M12 11.6v9.6"}], "mod-masters": [{"t": "ellipse", "cx": "12", "cy": "5.8", "rx": "8", "ry": "3.1"}, {"t": "path", "d": "M4 5.8v5.3c0 1.71 3.58 3.1 8 3.1s8-1.39 8-3.1V5.8"}, {"t": "path", "d": "M4 11.1v5.3c0 1.71 3.58 3.1 8 3.1s8-1.39 8-3.1v-5.3"}], "mod-planning": [{"t": "path", "d": "M3.2 4.5v17"}, {"t": "rect", "x": "5.4", "y": "6.4", "width": "9", "height": "3.4", "rx": "1.2"}, {"t": "rect", "x": "8.8", "y": "12.3", "width": "9.4", "height": "3.4", "rx": "1.2"}, {"t": "rect", "x": "6.6", "y": "18.1", "width": "7.4", "height": "3.4", "rx": "1.2"}], "mod-production": [{"t": "path", "d": "M3 20.5h18"}, {"t": "path", "d": "M5 20.5V10l4.3 2.7V10l4.3 2.7V10l4.3 2.7V6.5h2.6v14"}], "mod-sales": [{"t": "path", "d": "M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"}, {"t": "path", "d": "M14 3v5h5"}, {"t": "path", "d": "M8.5 13.5h7"}, {"t": "path", "d": "M8.5 17h4.5"}], "mod-setup": [{"t": "path", "d": "M3 7h18"}, {"t": "path", "d": "M3 12h18"}, {"t": "path", "d": "M3 17h18"}, {"t": "circle", "cx": "8.5", "cy": "7", "r": "2.25", "fill": "var(--icon-bg, none)"}, {"t": "circle", "cx": "15.5", "cy": "12", "r": "2.25", "fill": "var(--icon-bg, none)"}, {"t": "circle", "cx": "6.5", "cy": "17", "r": "2.25", "fill": "var(--icon-bg, none)"}], "mod-style": [{"t": "path", "d": "M9 4 4.4 6.4 3 10.2l3.2 1.2.7-1.6V20h10.2V9.8l.7 1.6 3.2-1.2L19.6 6.4 15 4"}, {"t": "path", "d": "M9 4c1 2.6 5 2.6 6 0"}], "mod-tna": [{"t": "circle", "cx": "12", "cy": "12", "r": "8.5"}, {"t": "path", "d": "M12 4.6V6"}, {"t": "path", "d": "M19.4 12H18"}, {"t": "path", "d": "M12 19.4V18"}, {"t": "path", "d": "M4.6 12H6"}, {"t": "path", "d": "M12 7.2V12l3.4 2.1"}]} as Record<string, Shape[]>;
+export const MODULE_ICON_NAMES = Object.keys(MODULE_ICONS);
+
 @Component({
   selector: 'app-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'icon', 'aria-hidden': 'true' },
   template: `<svg viewBox="0 0 24 24" [attr.width]="size()" [attr.height]="size()" fill="none" stroke="currentColor"
-    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path [attr.d]="d()" /></svg>`,
+    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    @if (shapes(); as list) {
+      @for (e of list; track $index) {
+        @switch (e.t) {
+          @case ('rect') { <rect [attr.x]="e['x']" [attr.y]="e['y']" [attr.width]="e['width']" [attr.height]="e['height']" [attr.rx]="e['rx']" /> }
+          @case ('circle') { <circle [attr.cx]="e['cx']" [attr.cy]="e['cy']" [attr.r]="e['r']" [attr.fill]="e['fill']" /> }
+          @case ('ellipse') { <ellipse [attr.cx]="e['cx']" [attr.cy]="e['cy']" [attr.rx]="e['rx']" [attr.ry]="e['ry']" /> }
+          @default { <path [attr.d]="e['d']" /> }
+        }
+      }
+    } @else { <path [attr.d]="d()" /> }
+  </svg>`,
 })
 export class Icon {
   readonly name = input.required<string>();
   readonly size = input(24);
+  protected readonly shapes = computed(() => MODULE_ICONS[this.name()] ?? null);
   protected readonly d = computed(() => PATHS[this.name()] ?? PATHS['doc']);
 }

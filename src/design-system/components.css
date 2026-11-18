@@ -1,0 +1,101 @@
+/* ==========================================================================
+   WFX Knowledge Hub — state components (tokens only; see /styleguide 05)
+   ========================================================================== */
+
+/* --- lifecycle chip ------------------------------------------------------
+   The ramp colour is the information: the dot and border carry it, the label
+   says it in words. current = filled wash, reached = solid, ahead = dashed. */
+.wfx-chip {
+  --chip: var(--wfx-state-0);
+  display: inline-flex; align-items: center; gap: var(--wfx-space-2);
+  padding: var(--wfx-space-1) var(--wfx-space-3) var(--wfx-space-1) var(--wfx-space-2);
+  border: 1px solid var(--chip); border-radius: var(--wfx-radius-pill);
+  font: 500 var(--wfx-t-sm)/1.2 var(--wfx-font-ui); color: var(--chip); white-space: nowrap;
+  transition: color var(--wfx-dur-element) var(--wfx-ease-standard), border-color var(--wfx-dur-element) var(--wfx-ease-standard), background-color var(--wfx-dur-element) var(--wfx-ease-standard);
+}
+.wfx-chip[data-level="1"] { --chip: var(--wfx-state-1); }
+.wfx-chip[data-level="2"] { --chip: var(--wfx-state-2); }
+.wfx-chip[data-level="3"] { --chip: var(--wfx-state-3); }
+.wfx-chip-dot { width: var(--wfx-space-2); height: var(--wfx-space-2); border-radius: 50%; background: var(--chip); flex: none; }
+.wfx-chip[data-mode="current"] { background: color-mix(in srgb, var(--chip) 14%, transparent); font-weight: 600; }
+.wfx-chip[data-mode="ahead"] { border-style: dashed; border-color: var(--wfx-hairline-str); color: var(--wfx-ink-3); }
+.wfx-chip[data-mode="ahead"] .wfx-chip-dot { background: none; box-shadow: inset 0 0 0 1.5px var(--wfx-ink-3); }
+
+/* --- lifecycle chain ----------------------------------------------------- */
+.wfx-lifecycle { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wfx-space-2); list-style: none; margin: 0; padding: 0; }
+.wfx-lc-step { display: inline-flex; }
+.wfx-lc-link { display: inline-flex; color: var(--wfx-hairline-str); }
+.wfx-lc-link svg { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.wfx-lc-link.reached[data-level="1"] { color: var(--wfx-state-1); }
+.wfx-lc-link.reached[data-level="2"] { color: var(--wfx-state-2); }
+.wfx-lc-link.reached[data-level="3"] { color: var(--wfx-state-3); }
+@media (max-width: 480px) { .wfx-lc-link svg { width: 16px; } }
+
+/* --- USER vs SYSTEM step marker ------------------------------------------
+   USER: solid disc with a person (someone does it). SYSTEM: dashed ring with
+   a bolt (WFX does it). Readable without the label, in both themes. */
+.wfx-marker { display: inline-flex; align-items: center; gap: var(--wfx-space-1); vertical-align: middle; color: var(--wfx-ink); }
+.wfx-marker svg { flex: none; display: block; }
+.wfx-marker .m-disc { fill: var(--wfx-ink); }
+.wfx-marker .m-glyph-fill { fill: var(--wfx-canvas); }
+.wfx-marker .m-ring { fill: none; stroke: var(--wfx-ink-2); stroke-width: 1.5; stroke-dasharray: 3 2.4; }
+.wfx-marker .m-glyph { fill: var(--wfx-ink-2); }
+.wfx-marker-label { font: 560 var(--wfx-t-xs)/1 var(--wfx-font-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wfx-ink-3); }
+.wfx-marker.wfx-shimmer { border-radius: var(--wfx-radius-pill); }
+
+/* --- formula badges -------------------------------------------------------
+   Verified: solid surface, check. To confirm: dashed outline, question mark,
+   the open question on hover and focus. */
+.wfx-badge-host { display: inline-flex; }
+.wfx-badge {
+  position: relative; display: inline-flex; align-items: center; gap: var(--wfx-space-1);
+  padding: var(--wfx-space-1) var(--wfx-space-2); border-radius: var(--wfx-radius-sm);
+  font: 560 var(--wfx-t-xs)/1 var(--wfx-font-ui); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+}
+.wfx-badge svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.wfx-badge[data-kind="verified"] { background: var(--wfx-surface-3); color: var(--wfx-ink); border: 1px solid transparent; }
+.wfx-badge[data-kind="confirm"] { background: none; color: var(--wfx-ink-2); border: 1px dashed var(--wfx-hairline-str); }
+.wfx-badge[data-kind="confirm"][tabindex] { cursor: help; }
+.wfx-badge[data-kind="confirm"][tabindex]:hover, .wfx-badge[data-kind="confirm"]:focus { border-color: var(--wfx-warn); color: var(--wfx-ink); }
+.wfx-tip {
+  position: absolute; z-index: 50; right: 0; top: calc(100% + var(--wfx-space-2)); width: max-content; visibility: hidden; max-width: min(32ch, 80vw);
+  padding: var(--wfx-space-2) var(--wfx-space-3); background: var(--wfx-surface); color: var(--wfx-ink); border: var(--wfx-border-str); border-radius: var(--wfx-radius);
+  box-shadow: var(--wfx-elev-2); font: 400 var(--wfx-t-sm)/1.45 var(--wfx-font-ui); letter-spacing: 0; text-transform: none; white-space: normal;
+  opacity: 0; transform: translateY(calc(-1 * var(--wfx-space-1))); pointer-events: none;
+  transition: opacity var(--wfx-dur-micro) var(--wfx-ease-exit), transform var(--wfx-dur-micro) var(--wfx-ease-exit), visibility var(--wfx-dur-micro);
+}
+.wfx-tip-k { display: block; margin-bottom: var(--wfx-space-1); font: 560 var(--wfx-t-xs)/1 var(--wfx-font-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wfx-warn); }
+.wfx-badge:hover .wfx-tip, .wfx-badge:focus .wfx-tip { opacity: 1; visibility: visible; transform: none; transition-timing-function: var(--wfx-ease-enter); }
+
+/* --- empty / loading / error states --------------------------------------
+   Framed and centred by default; .compact sits inline in a card or list. */
+.wfx-status {
+  display: grid; justify-items: center; align-content: center; gap: var(--wfx-space-3);
+  min-height: 160px; padding: var(--wfx-space-6) var(--wfx-space-5); text-align: center;
+  border: 1px dashed var(--wfx-hairline-str); border-radius: var(--wfx-radius-lg); color: var(--wfx-ink-2);
+}
+.wfx-status.compact { display: flex; justify-items: start; align-items: center; min-height: 0; padding: var(--wfx-space-2) 0; border: 0; text-align: left; gap: var(--wfx-space-2); }
+.wfx-status-ic { fill: none; stroke: var(--wfx-ink-3); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.wfx-status[data-kind="error"] .wfx-status-ic { stroke: var(--wfx-bad); }
+.wfx-status.compact .wfx-status-ic { width: 16px; height: 16px; }
+.wfx-status-text { display: grid; gap: var(--wfx-space-1); }
+.wfx-status-title { font: 500 var(--wfx-t-body)/1.4 var(--wfx-font-ui); color: var(--wfx-ink); }
+.wfx-status.compact .wfx-status-title { font-size: var(--wfx-t-sm); font-weight: 400; color: var(--wfx-ink-2); }
+.wfx-status-detail { font: 400 var(--wfx-t-sm)/1.45 var(--wfx-font-ui); color: var(--wfx-ink-2); max-width: 48ch; }
+.wfx-status-actions:empty { display: none; }
+.wfx-status-actions { display: flex; flex-wrap: wrap; gap: var(--wfx-space-2); justify-content: center; }
+/* the processing bar: a live indicator, so it may move while work runs */
+.wfx-status-bar { position: relative; display: block; width: 120px; height: var(--wfx-space-1); border-radius: var(--wfx-radius-pill); background: var(--wfx-hairline); overflow: hidden; }
+.wfx-status.compact .wfx-status-bar { width: 48px; }
+.wfx-status-bar i { position: absolute; inset: 0 auto 0 0; width: 40%; border-radius: inherit; background: var(--wfx-ink-2); animation: wfx-status-run 1.1s var(--wfx-ease-standard) infinite; }
+@keyframes wfx-status-run { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+@media (prefers-reduced-motion: reduce) { .wfx-status-bar i { animation: none; transform: none; opacity: 0.6; } }
+
+/* --- homepage motif --------------------------------------------------------- */
+.wfx-motif { display: block; width: 100%; height: auto; overflow: visible; }
+.wfx-motif .m-label { font: 560 var(--wfx-t-xs) var(--wfx-font-ui); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--wfx-ink-3); }
+.wfx-motif .m-lane { fill: none; stroke: var(--wfx-hairline-str); stroke-width: 1.5; stroke-dasharray: 4 6; stroke-linecap: round; }
+.wfx-motif .m-link { fill: none; stroke: var(--wfx-ink-3); stroke-width: 1.5; stroke-dasharray: 3 5; stroke-linecap: round; }
+.wfx-motif .m-live { stroke: var(--wfx-accent); stroke-dasharray: none; }
+.wfx-motif .m-node { fill: var(--wfx-canvas); stroke: var(--wfx-ink-2); stroke-width: 1.5; }
+.wfx-motif .m-node-live { fill: var(--wfx-accent); stroke: var(--wfx-accent); }

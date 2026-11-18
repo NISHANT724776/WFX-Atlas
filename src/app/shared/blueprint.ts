@@ -7,9 +7,10 @@ import { Icon } from './icon';
 
 const RANK: Record<IndentStatus, number> = { none: 0, po: 1, asn: 2, grn: 3 };
 
+import { StepMarker } from './states';
 @Component({
   selector: 'app-blueprint',
-  imports: [RouterLink, Icon],
+  imports: [RouterLink, Icon, StepMarker],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @for (g of groups(); track g.phase.id) {
@@ -26,7 +27,7 @@ const RANK: Record<IndentStatus, number> = { none: 0, po: 1, asn: 2, grn: 3 };
                 <li [class.sel]="s.step.id === selected()" [class.pending]="isPending(s.step)" [class.system]="s.step.actor === 'system'" [style.--i]="s.n">
                   <button type="button" class="bp-card" (click)="pick.emit(s.step.id)" [attr.aria-expanded]="s.step.id === selected()" [attr.aria-controls]="'bp-detail-' + g.phase.id">
                     <span class="bp-n">{{ s.n }}</span>
-                    <span class="bp-actor">{{ s.step.actor === 'user' ? 'User' : 'System' }}</span>
+                    <wfx-step-marker class="bp-actor" [actor]="s.step.actor" [size]="16" [showLabel]="true" />
                     <app-icon [name]="s.step.icon" [size]="30" />
                     <strong class="bp-title">{{ s.step.title }}</strong>
                     <span class="bp-short">{{ v(s.step.short) }}</span>

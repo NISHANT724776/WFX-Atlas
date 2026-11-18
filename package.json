@@ -37,8 +37,6 @@
     "@angular/router": "^21.2.0",
     "@angular/ssr": "^21.2.29",
     "@anthropic-ai/sdk": "^1.10.0",
-    "@fontsource-variable/inter": "^5.2.8",
-    "@fontsource/instrument-serif": "^5.2.8",
     "rxjs": "~7.8.0",
     "sql.js": "^1.14.2",
     "tslib": "^2.3.0"

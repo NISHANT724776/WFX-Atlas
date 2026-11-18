@@ -8,15 +8,15 @@ import { ModulePicker } from '../shared/module-picker';
 
 /** Areas of the data, with plain names. (The files behind them are never shown.) */
 const AREAS: AppModule[] = [
-  { id: 'masters', name: 'Masters', icon: 'swatch', blurb: 'Colours, sizes, units and article coding', docs: [], txns: [], steps: [], dataArea: '' },
-  { id: 'product-development', name: 'Style & BOM', icon: 'shirt', blurb: 'Techpacks, BOM, routing and cost', docs: [], txns: [], steps: [], dataArea: '' },
-  { id: 'sourcing', name: 'Booking & sourcing', icon: 'cart', blurb: 'Block booking, indents, purchase and receipt', docs: [], txns: [], steps: [], dataArea: '' },
-  { id: 'order', name: 'Sales Order', icon: 'order', blurb: 'Orders, deliveries, approval, price and packing', docs: [], txns: [], steps: [], dataArea: '' },
-  { id: 'planning', name: 'Planning', icon: 'gear', blurb: 'MRP and sales order indents', docs: [], txns: [], steps: [], dataArea: '' },
-  { id: 'production', name: 'Production', icon: 'factory', blurb: 'Production order and FPO', docs: [], txns: [], steps: [], dataArea: '' },
-  { id: 'inventory', name: 'Inventory, QC & WMS', icon: 'box', blurb: 'GRN, quality check, returns, GDI and GDN, mobile app', docs: [], txns: [], steps: [], dataArea: 'inventory' },
-  { id: 'tna', name: 'TNA', icon: 'check', blurb: 'Time and Action calendar guide', docs: [], txns: [], steps: [], dataArea: 'tna' },
-  { id: 'knowledge', name: 'Definitions & formulas', icon: 'list', blurb: 'Transactions, fields, formulas and terms', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'masters', name: 'Masters', icon: 'mod-masters', blurb: 'Colours, sizes, units and article coding', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'product-development', name: 'Style & BOM', icon: 'mod-style', blurb: 'Techpacks, BOM, routing and cost', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'sourcing', name: 'Booking & sourcing', icon: 'mod-booking', blurb: 'Block booking, indents, purchase and receipt', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'order', name: 'Sales Order', icon: 'mod-sales', blurb: 'Orders, deliveries, approval, price and packing', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'planning', name: 'Planning', icon: 'mod-planning', blurb: 'MRP and sales order indents', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'production', name: 'Production', icon: 'mod-production', blurb: 'Production order and FPO', docs: [], txns: [], steps: [], dataArea: '' },
+  { id: 'inventory', name: 'Inventory, QC & WMS', icon: 'mod-inventory', blurb: 'GRN, quality check, returns, GDI and GDN, mobile app', docs: [], txns: [], steps: [], dataArea: 'inventory' },
+  { id: 'tna', name: 'TNA', icon: 'mod-tna', blurb: 'Time and Action calendar guide', docs: [], txns: [], steps: [], dataArea: 'tna' },
+  { id: 'knowledge', name: 'Definitions & formulas', icon: 'mod-definitions', blurb: 'Transactions, fields, formulas and terms', docs: [], txns: [], steps: [], dataArea: '' },
 ];
 
 const WORDS: Record<string, string> = {
@@ -37,9 +37,10 @@ export function humanize(name: string): string {
   }).join(' ');
 }
 
+import { Status } from '../shared/status';
 @Component({
   selector: 'app-data-explorer',
-  imports: [RouterLink, ModulePicker],
+  imports: [RouterLink, ModulePicker, Status],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="page-head">
@@ -49,9 +50,9 @@ export function humanize(name: string): string {
     </header>
 
     @if (error()) {
-      <p class="alert warn">{{ error() }}</p>
+      <wfx-status kind="error" title="The data could not be loaded" [detail]="error()" />
     } @else if (!tables().length) {
-      <p class="muted">Getting the data ready…</p>
+      <wfx-status kind="loading" title="Getting the data ready" detail="Loading the WFX tables into your browser. This takes a moment the first time." />
     } @else {
       <app-module-picker [modules]="areas" [selected]="areaId()" label="Areas of the data" (pick)="pickArea($event)" />
 
@@ -82,7 +83,7 @@ export function humanize(name: string): string {
             <button type="button" class="dm-x" (click)="topic.set(null)" aria-label="Close this table">×</button>
           </div>
           @if (loading()) {
-            <p class="muted">Loading…</p>
+            <wfx-status kind="loading" title="Loading the records" [compact]="true" />
           } @else if (result(); as r) {
             <div class="lookup-bar">
               <label class="search lookup-search"><span class="visually-hidden">Search these records</span>

@@ -17,24 +17,24 @@ export interface AppModule {
 }
 
 export const MODULES: AppModule[] = [
-  { id: 'rules', name: 'Setup rules', icon: 'cog', blurb: 'Article coding, UOM, dependency types, BOM types',
+  { id: 'rules', name: 'Setup rules', icon: 'mod-setup', blurb: 'Article coding, UOM, dependency types, BOM types',
     docs: ['article-coding', 'uom-types', 'dependency-types', 'bom-types'], txns: [], steps: [], dataArea: 'masters' },
-  { id: 'style', name: 'Style & BOM', icon: 'shirt', blurb: 'Techpacks, BOM, routing and cost',
+  { id: 'style', name: 'Style & BOM', icon: 'mod-style', blurb: 'Techpacks, BOM, routing and cost',
     docs: ['rm-techpack', 'apparel', 'bom-materials', 'routing-processes', 'routing-operations', 'material-linkage', 'bom-cost', 'bom-58'],
     txns: ['masters', 'rm-techpack', 'apparel-style', 'bom-materials', 'bom-routing', 'bom-costing'],
     steps: ['masters', 'rm', 'style', 'bom', 'routing', 'operations', 'linkage', 'costing', 'approve'], dataArea: 'product-development' },
-  { id: 'booking', name: 'Booking & sourcing', icon: 'cart', blurb: 'Block booking, indents, purchase, receipt',
+  { id: 'booking', name: 'Booking & sourcing', icon: 'mod-booking', blurb: 'Block booking, indents, purchase, receipt',
     docs: ['bbb', 'adhoc-indent', 'rmpo-1229', 'grn', 'rmpo-1230'], txns: ['buyer-block-booking', 'adhoc-indent', 'rmpo', 'grn'],
     steps: ['bbb-create', 'bbb-details', 'bbb-article', 'bbb-bom', 'bbb-populate', 'bbb-materials', 'bbb-save', 'gen-indent', 'adhoc', 'po', 'asn', 'grn'], dataArea: 'sourcing' },
-  { id: 'sales', name: 'Sales Order', icon: 'order', blurb: 'Orders, deliveries, approval, price, packing',
+  { id: 'sales', name: 'Sales Order', icon: 'mod-sales', blurb: 'Orders, deliveries, approval, price, packing',
     docs: ['oc', 'so-structure', 'so-actions', 'so-approval', 'so-pricing', 'so-types', 'so-packing', 'so-other'], txns: ['buyer-po'], steps: ['style', 'oc', 'link', 'mrp'], dataArea: 'order' },
-  { id: 'planning', name: 'Planning', icon: 'gear', blurb: 'MRP and sales order indents',
+  { id: 'planning', name: 'Planning', icon: 'mod-planning', blurb: 'MRP and sales order indents',
     docs: ['mrp', 'so-indent'], txns: ['mrp', 'production-indents'], steps: ['mrp', 'mfg-indent', 'so-indent', 'adjust', 'so-updated'], dataArea: 'planning' },
-  { id: 'production', name: 'Production', icon: 'factory', blurb: 'Production order, FPO and process orders',
+  { id: 'production', name: 'Production', icon: 'mod-production', blurb: 'Production order, FPO and process orders',
     docs: ['fpo'], txns: ['production-order', 'fpo'], steps: ['rmpo-gap', 'prod-order', 'fpo', 'fppo'], dataArea: 'production' },
-  { id: 'inventory', name: 'Inventory, QC & WMS', icon: 'box', blurb: 'GRN, quality check, GDI and GDN, WMS mobile app',
+  { id: 'inventory', name: 'Inventory, QC & WMS', icon: 'mod-inventory', blurb: 'GRN, quality check, GDI and GDN, WMS mobile app',
     docs: [], txns: [], steps: [], dataArea: 'inventory' },
-  { id: 'tna', name: 'TNA', icon: 'check', blurb: 'Time and Action calendar: roles, tasks, templates',
+  { id: 'tna', name: 'TNA', icon: 'mod-tna', blurb: 'Time and Action calendar: roles, tasks, templates',
     docs: [], txns: [], steps: [], dataArea: 'tna' },
 ];
 
