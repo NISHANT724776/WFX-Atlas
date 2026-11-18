@@ -31,18 +31,18 @@ const GROUPS: Group[] = [
     { name: '--wfx-bad', label: 'bad · error, conflict', against: SURF, need: 4.5 }, { name: '--wfx-focus', label: 'focus ring', against: SURF, need: 3 }] },
 ];
 const TYPE = [
-  { cls: 'wfx-display', token: '--wfx-t-display', size: '44 → 72', face: 'Fraunces · WONK on', use: 'Homepage hero only', text: 'Every WFX transaction, <em>explained</em>' },
-  { cls: 'wfx-h1', token: '--wfx-t-1', size: '32 → 48', face: 'Fraunces', use: 'Page title', text: 'Buyer Block Booking' },
-  { cls: 'wfx-answer', token: '--wfx-t-2', size: '24 → 32', face: 'Fraunces · WONK off', use: 'The one-line answer of a Theory page', text: 'Booked fabric is reserved for a buyer before the order exists.' },
-  { cls: 'wfx-h2', token: '--wfx-t-3', size: '24', face: 'Inter 560', use: 'Section heading', text: 'Material requirement' },
-  { cls: 'wfx-lead', token: '--wfx-t-4', size: '18', face: 'Inter', use: 'Lead paragraph', text: 'The order needs 1,500 KG; 600 KG is booked, so 1,100 KG is still to buy.' },
-  { cls: 'wfx-body', token: '--wfx-t-body', size: '15', face: 'Inter', use: 'Body', text: 'An Adhoc Indent raised from the booking carries the booked quantity until it is adjusted to the order.' },
-  { cls: 'wfx-sm', token: '--wfx-t-sm', size: '13', face: 'Inter', use: 'Captions, table cells, meta', text: 'Updated after GRN · RMPO 1229' },
-  { cls: 'wfx-eyebrow', token: '--wfx-t-xs', size: '11 · 0.08em', face: 'Inter 560 uppercase', use: 'Eyebrow above every section', text: '02 · Type' },
+  { cls: 'wfx-display', token: '--wfx-t-display', size: '38 → 72 · −0.045em', face: 'Geist 500', use: 'Homepage hero only', text: 'Every WFX transaction, <em>explained</em>' },
+  { cls: 'wfx-h1', token: '--wfx-t-1', size: '30 → 48 · −0.035em', face: 'Geist 500', use: 'Page title', text: 'Buyer Block Booking' },
+  { cls: 'wfx-answer', token: '--wfx-t-2', size: '24 → 28', face: 'Geist 500', use: 'The one-line answer of a Theory page', text: 'Booked fabric is reserved for a buyer before the order exists.' },
+  { cls: 'wfx-h2', token: '--wfx-t-3', size: '22', face: 'Geist 500', use: 'Section heading', text: 'Material requirement' },
+  { cls: 'wfx-lead', token: '--wfx-t-4', size: '18 → 20', face: 'Geist 400', use: 'Lead paragraph', text: 'The order needs 1,500 KG; 600 KG is booked, so 1,100 KG is still to buy.' },
+  { cls: 'wfx-body', token: '--wfx-t-body', size: '16 / 26', face: 'Geist 400', use: 'Body', text: 'An Adhoc Indent raised from the booking carries the booked quantity until it is adjusted to the order.' },
+  { cls: 'wfx-sm', token: '--wfx-t-sm', size: '14', face: 'Geist 400', use: 'Captions, table cells, meta', text: 'Updated after GRN · RMPO 1229' },
+  { cls: 'wfx-eyebrow', token: '--wfx-t-xs', size: '13 — the floor', face: 'Geist 500, sentence case', use: 'Label above a section', text: 'Type' },
 ];
 const SPACE = [['--wfx-space-0', '2', 'hairline offsets only'], ['--wfx-space-1', '4', ''], ['--wfx-space-2', '8', ''], ['--wfx-space-3', '12', ''], ['--wfx-space-4', '16', ''], ['--wfx-space-5', '24', 'gutter'], ['--wfx-space-6', '40', ''], ['--wfx-space-7', '64', ''], ['--wfx-space-8', '96', 'section rhythm']];
-const RADII = [['--wfx-radius-sm', '6'], ['--wfx-radius', '10'], ['--wfx-radius-lg', '16'], ['--wfx-radius-pill', '999']];
-const MOTION = [['--wfx-dur-micro', '120ms', 'hover, chip, toggle'], ['--wfx-dur-element', '240ms', 'card, panel, dropdown'], ['--wfx-dur-section', '400ms', 'route / section — nothing longer'], ['--wfx-stagger', '40ms', 'between siblings, max 8'], ['--wfx-lag', '80ms', 'cause → effect'], ['--wfx-ease-enter', 'cubic-bezier(0.2,0,0,1)', 'entering'], ['--wfx-ease-exit', 'cubic-bezier(0.4,0,1,1)', 'exiting']];
+const RADII = [['--wfx-radius-sm', '8'], ['--wfx-radius', '12'], ['--wfx-radius-lg', '20'], ['--wfx-radius-pill', '999']];
+const MOTION = [['--wfx-dur-micro', '150ms', 'hover in'], ['--wfx-dur-out', '120ms', 'hover out'], ['--wfx-dur-press', '90ms', 'button press'], ['--wfx-dur-element', '240ms', 'card, panel, dropdown'], ['--wfx-dur-rise', '700ms', 'heading lines rising on load, once'], ['--wfx-dur-fade', '520ms', 'lead and buttons after the heading'], ['--wfx-stagger', '60ms', 'between siblings'], ['--wfx-ease', 'cubic-bezier(.2,.8,.2,1)', 'hover and press'], ['--wfx-ease-enter', 'cubic-bezier(.22,1,.36,1)', 'entering']];
 
 /** WCAG relative luminance contrast of two colours as the browser resolved them. */
 function contrast(a: string, b: string): number | null {
@@ -101,7 +101,7 @@ function contrast(a: string, b: string): number | null {
     <section class="sg-sec" aria-labelledby="sg-type">
       <p class="wfx-eyebrow">02 · Type</p>
       <h2 class="wfx-h1" id="sg-type">Three faces, three jobs</h2>
-      <p class="wfx-body">Fraunces for display only (never below 24px, never in UI chrome). Inter for all UI. IBM Plex Mono for every quantity, code and formula, always with tabular figures.</p>
+      <p class="wfx-body">Geist for everything you read: headings at weight 500 with tight tracking, body at 16/26. Geist Mono for every quantity, code and formula, always with tabular figures. Labels are sentence case at 13px; nothing is smaller.</p>
       <div class="sg-type">
         @for (t of type; track t.cls) {
           <div class="sg-type-row">
@@ -158,7 +158,7 @@ function contrast(a: string, b: string): number | null {
     <section class="sg-sec" aria-labelledby="sg-icons">
       <p class="wfx-eyebrow">04 · Icons and brand</p>
       <h2 class="wfx-h1" id="sg-icons">Module set and wordmark</h2>
-      <p class="wfx-body">One family: 24px grid, 1.5px stroke, round cap and join, <code class="wfx-code">currentColor</code>. Ink at rest; the accent only marks the module that is open. Shown at 32, 24 and 16.</p>
+      <p class="wfx-body">One family, Lucide (ISC): 24px grid, 1.75px stroke (2px at 16), round cap and join, <code class="wfx-code">currentColor</code>. Ink at rest; the accent only marks the module that is open. Shown at 32, 24 and 16.</p>
       <ul class="sg-icons">
         @for (i of icons; track i.name) {
           <li>
@@ -388,7 +388,7 @@ function contrast(a: string, b: string): number | null {
     .sg-chain .btn.on { background: var(--wfx-ink); color: var(--wfx-canvas); border-color: var(--wfx-ink); }
     .sg-table { width: 100%; border-collapse: collapse; margin-top: var(--wfx-space-3); }
     .sg-table th, .sg-table td { text-align: left; padding: var(--wfx-space-2) var(--wfx-space-3); border-bottom: var(--wfx-border); }
-    .sg-table th { font-size: var(--wfx-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wfx-ink-3); font-weight: 560; }
+    .sg-table th { font-size: var(--wfx-t-xs); color: var(--wfx-ink-3); font-weight: 500; }
   `],
 })
 export default class StyleguidePage {

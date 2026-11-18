@@ -264,3 +264,12 @@ Read the questions in the live server's conversations and re-asked each one. Fix
 - The two "indent inactive" questions already worked after the rule rewrite.
 - Six of these questions are now in the evaluation set: retrieval 39/39, status 60/60, hallucinations 0/14. Tests 112/112. Index rebuilt (normalisation changed).
 - Still partial (honest): "how to cancel indent from mrp" (no stored procedure for cancelling); "Generate workflow for costing to FPPO" asks which workflow. With Claude on, these are interpreted by Claude through the same tools.
+
+## 2026-11-18 — Taste-skill pass (branch taste-pass)
+Applied the rules of github.com/leonxlnx/taste-skill to the existing design system. No routing, data or simulator logic changed.
+- Fonts: Geist (headings at 500 with -0.035em tracking, -0.045em on the hero; UI; body 16/26) and Geist Mono for quantities. Fraunces, Inter and Plex Mono removed. Labels are sentence case at 13px; nothing is smaller; tracked capitals removed everywhere.
+- Icons: one Lucide (ISC) set, generated into src/app/shared/icon-data.ts by backend/scripts/build-icons.mjs.
+- Colour: the accent fills only the primary button; links and focus use it too. Heading second phrases step back in grey instead of orange italic.
+- Buttons: 44px, 8px radius, 24px padding, 16px label; 1px lift on hover, 1px press with scale .985.
+- Motion: in 150ms, out 120ms, press 90ms. Linked cards lift 2px with a darker border and a soft shadow (pointer devices only). Text-link underlines draw left to right. The page title rises once on load, then lead and actions fade up 12px, 60ms apart. Scroll reveals and load-time card staggers removed (Reveal directive deleted). Reduced motion: nothing moves, everything is visible.
+- Radius tokens 8/12/20.

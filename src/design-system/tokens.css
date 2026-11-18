@@ -46,6 +46,7 @@
 
   --wfx-elev-1: 0 1px 2px rgba(23, 20, 18, 0.05);
   --wfx-elev-2: 0 4px 16px rgba(23, 20, 18, 0.08);
+  --wfx-lift:   0 12px 24px -12px rgba(23, 20, 18, 0.10);  /* hover only */
 
   color-scheme: light;
 }
@@ -84,6 +85,7 @@
 
   --wfx-elev-1: none;   /* elevation on dark is surface + hairline, not shadow */
   --wfx-elev-2: none;
+  --wfx-lift:   none;
 
   color-scheme: dark;
 }
@@ -116,6 +118,7 @@
     --wfx-scrim:         rgba(0, 0, 0, 0.72);
     --wfx-elev-1: none;
     --wfx-elev-2: none;
+    --wfx-lift:   none;
     color-scheme: dark;
   }
 }
@@ -134,26 +137,31 @@
   --wfx-space-8:  96px;
 
   /* --- radius ---------------------------------------------------------- */
-  --wfx-radius-sm:   6px;
-  --wfx-radius:     10px;
-  --wfx-radius-lg:  16px;
+  --wfx-radius-sm:   8px;   /* buttons, inputs, chips */
+  --wfx-radius:     12px;   /* cards, panels */
+  --wfx-radius-lg:  20px;   /* dialogs, hero blocks */
   --wfx-radius-pill: 999px;
 
   /* --- borders --------------------------------------------------------- */
   --wfx-border:      1px solid var(--wfx-hairline);
   --wfx-border-str:  1px solid var(--wfx-hairline-str);
 
-  /* --- motion ---------------------------------------------------------- */
-  --wfx-dur-micro:    120ms;  /* hover, chip, toggle            */
+  /* --- motion (taste skill): quick, quiet, no overshoot ---------------- */
+  --wfx-dur-micro:    150ms;  /* hover in                       */
+  --wfx-dur-out:      120ms;  /* hover out                      */
+  --wfx-dur-press:     90ms;  /* button press                   */
   --wfx-dur-element:  240ms;  /* card, panel, dropdown          */
   --wfx-dur-section:  400ms;  /* route / section change         */
-  --wfx-stagger:       40ms;  /* between siblings, max 8        */
+  --wfx-dur-rise:     700ms;  /* heading lines rising on load   */
+  --wfx-dur-fade:     520ms;  /* lead and buttons after them    */
+  --wfx-stagger:       60ms;  /* between siblings               */
   --wfx-lag:           80ms;  /* cause -> effect separation     */
 
-  --wfx-ease-enter:    cubic-bezier(0.2, 0, 0, 1);
+  --wfx-ease:          cubic-bezier(0.2, 0.8, 0.2, 1);   /* hover, press */
+  --wfx-ease-enter:    cubic-bezier(0.22, 1, 0.36, 1);   /* entering     */
   --wfx-ease-exit:     cubic-bezier(0.4, 0, 1, 1);
   --wfx-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  /* value changes: spring() in motion.js (stiffness ~180, damping ~24), not a bezier */
+  /* value changes: spring() in core/motion.ts, critically damped */
 
   /* --- layout ---------------------------------------------------------- */
   --wfx-measure:   72ch;

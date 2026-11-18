@@ -1,94 +1,73 @@
 /* ==========================================================================
-   WFX Knowledge Hub — typography
-   Three faces, three jobs, no overlap:
-     Fraunces      display only — hero, page titles, the one-line answer
-     Inter         all UI, labels, body, navigation
-     IBM Plex Mono every quantity, code, formula and document reference
-   All three are SIL Open Font License; files are bundled in ../fonts/.
+   WFX Knowledge Hub — typography (taste-skill pass)
+   One family, two cuts:
+     Geist       headings (weight 500, tight tracking), UI, labels, body
+     Geist Mono  every quantity, code, formula and document reference
+   Both SIL Open Font License; files are bundled in /fonts.
+   Rules: labels are sentence case at 13px/500, never tracked capitals;
+   nothing on screen is smaller than 13px; body is 16px.
    ========================================================================== */
 
 @font-face {
-  font-family: 'Fraunces';
+  font-family: 'Geist';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/fraunces-latin-full-normal.woff2') format('woff2');
+  src: url('/fonts/geist-latin-wght-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Fraunces';
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('/fonts/fraunces-latin-full-italic.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Inter';
+  font-family: 'Geist Mono';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+  src: url('/fonts/geist-mono-latin-wght-normal.woff2') format('woff2');
 }
 
 :root {
-  --wfx-font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  --wfx-font-ui:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --wfx-font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --wfx-font-display: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --wfx-font-ui:      'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --wfx-font-mono:    'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* Fluid scale — min at 390px, max at 1280px */
-  --wfx-t-display: clamp(2.75rem, 1.6rem + 4.7vw, 4.5rem);   /* 44 → 72 */
-  --wfx-t-1:       clamp(2rem,    1.4rem + 2.4vw, 3rem);     /* 32 → 48 */
-  --wfx-t-2:       clamp(1.5rem,  1.2rem + 1.2vw, 2rem);     /* 24 → 32 */
-  --wfx-t-3:       1.5rem;   /* 24 */
-  --wfx-t-4:       1.125rem; /* 18 — lead */
-  --wfx-t-body:    0.9375rem;/* 15 */
-  --wfx-t-sm:      0.8125rem;/* 13 */
-  --wfx-t-xs:      0.6875rem;/* 11 — eyebrow */
+  --wfx-t-display: clamp(2.375rem, 1.5rem + 3.6vw, 4.5rem);  /* 38 → 72 */
+  --wfx-t-1:       clamp(1.875rem, 1.4rem + 2vw, 3rem);      /* 30 → 48 */
+  --wfx-t-2:       clamp(1.5rem,  1.35rem + 0.6vw, 1.75rem); /* 24 → 28 */
+  --wfx-t-3:       1.375rem; /* 22 */
+  --wfx-t-4:       clamp(1.125rem, 1.07rem + 0.22vw, 1.25rem); /* 18 → 20 — lead */
+  --wfx-t-body:    1rem;     /* 16 */
+  --wfx-t-sm:      0.875rem; /* 14 */
+  --wfx-t-xs:      0.8125rem;/* 13 — labels; the floor */
 
   --wfx-lh-tight:  1.04;
-  --wfx-lh-snug:   1.22;
-  --wfx-lh-normal: 1.55;
+  --wfx-lh-snug:   1.2;
+  --wfx-lh-normal: 1.625;   /* 16/26 */
+
+  --wfx-track-display: -0.035em;
 }
 
 /* --------------------------------------------------------------------------
-   Display — Fraunces. WONK on only above 32px: the quirky letterforms are
-   personality at hero size and noise at body size. SOFT stays at 0 — this is
-   an instrument panel, not a cosmetics brand.
+   Headings — Geist 500, tight. Tighter still at hero size.
    -------------------------------------------------------------------------- */
 .wfx-display {
   font-family: var(--wfx-font-display);
   font-size: var(--wfx-t-display);
-  font-variation-settings: 'opsz' 144, 'wght' 420, 'SOFT' 0, 'WONK' 1;
+  font-weight: 500;
   line-height: var(--wfx-lh-tight);
-  letter-spacing: -0.022em;
+  letter-spacing: -0.045em;
   color: var(--wfx-ink);
   text-wrap: balance;
 }
 .wfx-display em {
-  font-style: italic;
-  font-variation-settings: 'opsz' 144, 'wght' 420, 'SOFT' 0, 'WONK' 1;
-  color: var(--wfx-accent);
+  font-style: normal;
+  color: var(--wfx-ink-3);
 }
 
 .wfx-h1 {
   font-family: var(--wfx-font-display);
   font-size: var(--wfx-t-1);
-  font-variation-settings: 'opsz' 60, 'wght' 450, 'SOFT' 0, 'WONK' 1;
-  line-height: var(--wfx-lh-snug);
-  letter-spacing: -0.016em;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: var(--wfx-track-display);
   color: var(--wfx-ink);
   text-wrap: balance;
 }
@@ -97,23 +76,23 @@
 .wfx-answer {
   font-family: var(--wfx-font-display);
   font-size: var(--wfx-t-2);
-  font-variation-settings: 'opsz' 40, 'wght' 400, 'SOFT' 0, 'WONK' 0;
-  line-height: 1.3;
-  letter-spacing: -0.012em;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   max-width: 34ch;
   color: var(--wfx-ink);
   text-wrap: pretty;
 }
 
 /* --------------------------------------------------------------------------
-   UI — Inter
+   UI
    -------------------------------------------------------------------------- */
 .wfx-h2 {
   font-family: var(--wfx-font-ui);
   font-size: var(--wfx-t-3);
-  font-weight: 560;
+  font-weight: 500;
   line-height: var(--wfx-lh-snug);
-  letter-spacing: -0.014em;
+  letter-spacing: -0.02em;
   color: var(--wfx-ink);
 }
 .wfx-lead {
@@ -121,7 +100,7 @@
   font-size: var(--wfx-t-4);
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: -0.008em;
+  letter-spacing: -0.01em;
   max-width: var(--wfx-measure);
   color: var(--wfx-ink-2);
 }
@@ -140,19 +119,17 @@
   color: var(--wfx-ink-2);
 }
 
-/* Eyebrow — the small uppercase label above every section */
+/* Eyebrow — the small sentence-case label above a section */
 .wfx-eyebrow {
   font-family: var(--wfx-font-ui);
   font-size: var(--wfx-t-xs);
-  font-weight: 560;
+  font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--wfx-ink-3);
 }
 
 /* --------------------------------------------------------------------------
-   Data — IBM Plex Mono. Every quantity on the site uses this, always with
+   Data — Geist Mono. Every quantity on the site uses this, always with
    tabular figures, or the simulator will jitter as values change.
    -------------------------------------------------------------------------- */
 .wfx-num {

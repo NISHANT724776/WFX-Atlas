@@ -12,7 +12,6 @@ import { CostSheet } from '../shared/cost-sheet';
 import { ColorChip } from '../shared/color-chip';
 import { DataTableView } from '../shared/data-table';
 import { KindBadge } from '../shared/kind-badge';
-import { Reveal } from '../shared/reveal';
 import { NotFoundBody } from './not-found';
 
 type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
@@ -21,7 +20,7 @@ import { FormulaBadge } from '../shared/states';
 import { Status } from '../shared/status';
 @Component({
   selector: 'app-theory',
-  imports: [RouterLink, FormulaBadge, Status, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
+  imports: [RouterLink, FormulaBadge, Status, KindBadge, DataTableView, CostSheet, ColorChip, NotFoundBody],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (txn(); as t) {
@@ -33,7 +32,7 @@ import { Status } from '../shared/status';
             <p class="one-line">{{ s.oneLine }}</p>
             <dl class="facts big">
               @for (f of s.facts; track f.label; let i = $index) {
-                <div [appReveal]="i"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
+                <div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
               }
             </dl>
           }
