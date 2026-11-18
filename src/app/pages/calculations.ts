@@ -9,9 +9,10 @@ import { ModulePicker } from '../shared/module-picker';
 
 type Filter = 'all' | 'verified' | 'assumed';
 
+import { FormulaBadge } from '../shared/states';
 @Component({
   selector: 'app-calculations',
-  imports: [RouterLink, ModulePicker],
+  imports: [RouterLink, ModulePicker, FormulaBadge],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="page-head">
@@ -43,7 +44,7 @@ type Filter = 'all' | 'verified' | 'assumed';
           @for (c of g.calcs; track c.id) {
             <div class="formula-card" [id]="c.id">
               <div class="fc-head"><strong>{{ c.name }}</strong>
-                <span class="badge" [class]="c.status">{{ c.status === 'verified' ? 'Verified in WFX' : 'To confirm' }}</span></div>
+                <wfx-formula-badge [status]="c.status" [question]="c.question" verifiedLabel="Verified in WFX" /></div>
               <code class="fc-formula">{{ c.formula }}</code>
               <details class="fc-more">
                 <summary>Explanation and example</summary>

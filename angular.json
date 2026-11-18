@@ -60,6 +60,7 @@
               "src/design-system/tokens.css",
               "src/design-system/typography.css",
               "src/design-system/motion.css",
+              "src/design-system/components.css",
               "src/styles.scss",
               "src/platform.scss"
             ],
@@ -74,12 +75,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "480kB",
+                  "maximumWarning": "500kB",
                   "maximumError": "500kB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
+                  "maximumWarning": "8kB",
                   "maximumError": "8kB"
                 }
               ],

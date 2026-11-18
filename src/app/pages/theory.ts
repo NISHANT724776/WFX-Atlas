@@ -17,9 +17,10 @@ import { NotFoundBody } from './not-found';
 
 type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
 
+import { FormulaBadge } from '../shared/states';
 @Component({
   selector: 'app-theory',
-  imports: [RouterLink, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
+  imports: [RouterLink, FormulaBadge, KindBadge, DataTableView, CostSheet, ColorChip, Reveal, NotFoundBody],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (txn(); as t) {
@@ -122,7 +123,7 @@ type Tab = 'overview' | 'formulas' | 'fields' | 'data' | 'cases';
             <div class="calc-list">
               @for (c of calcs(); track c.id) {
                 <div class="formula-card">
-                  <div class="fc-head"><strong>{{ c.name }}</strong><span class="badge" [class]="c.status">{{ c.status === 'verified' ? 'Verified in WFX' : 'To confirm' }}</span></div>
+                  <div class="fc-head"><strong>{{ c.name }}</strong><wfx-formula-badge [status]="c.status" [question]="c.question" verifiedLabel="Verified in WFX" /></div>
                   <code class="fc-formula">{{ c.formula }}</code>
                   <p class="small">{{ c.explanation }}</p>
                   <p class="small"><strong>Example:</strong> {{ c.example }}</p>

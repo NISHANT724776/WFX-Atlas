@@ -6,9 +6,10 @@ import { Icon } from './icon';
 
 const KIND_LABEL = { user: 'Typed by user', system: 'Filled by WFX', carried: 'Carried from earlier document' } as const;
 
+import { StepMarker } from './states';
 @Component({
   selector: 'app-storyboard',
-  imports: [RouterLink, Icon],
+  imports: [RouterLink, Icon, StepMarker],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="story">
@@ -28,7 +29,7 @@ const KIND_LABEL = { user: 'Typed by user', system: 'Filled by WFX', carried: 'C
             <div class="scene-text">
               <p class="eyebrow">{{ phaseName(s.phase) }} · step {{ i + 1 }} of {{ steps().length }} · {{ phaseSource(s.phase) }}</p>
               <h2 class="scene-title">{{ s.title }}</h2>
-              <span class="actor-pill" [class.system]="s.actor === 'system'"><app-icon [name]="s.actor === 'user' ? 'user' : 'bolt'" [size]="14" />{{ s.actor === 'user' ? 'User action' : 'System process' }}</span>
+              <wfx-step-marker class="actor-pill" [actor]="s.actor" [size]="18" [showLabel]="true" />
               <p class="scene-short">{{ v(s.short) }}</p>
               <ul class="bpd-points">@for (p of s.points; track $index) { <li>{{ v(p) }}</li> }</ul>
               @if (s.formula; as fo) { <p class="scene-formula"><strong>{{ fo.label }}</strong> = {{ fo.expr }}</p> }

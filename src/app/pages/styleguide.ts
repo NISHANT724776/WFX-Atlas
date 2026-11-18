@@ -1,9 +1,10 @@
 // /styleguide — the design system rendered live with the app's own tokens and components. Internal review page
 // (not in the navigation, not indexed). Every value shown is read from the running CSS, so this page cannot drift
-// from the app. Groups are added here as they are built: 01 colour, 02 type, 03 scales, 04 icons and brand.
+// from the app. Groups are added here as they are built: 01 colour, 02 type, 03 scales, 04 icons and brand, 05 state components.
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, signal, viewChildren } from '@angular/core';
 import { SeoService } from '../core/seo.service';
 import { Icon, MODULE_ICON_NAMES } from '../shared/icon';
+import { FormulaBadge, LIFECYCLE, Lifecycle, StateChip, StepMarker } from '../shared/states';
 
 interface Tok { name: string; label: string; against?: string; need?: number }
 interface Group { title: string; note: string; tokens: Tok[] }
@@ -51,7 +52,7 @@ function contrast(a: string, b: string): number | null {
 
 @Component({
   selector: 'app-styleguide',
-  imports: [Icon],
+  imports: [Icon, Lifecycle, StateChip, StepMarker, FormulaBadge],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="sg-head">
@@ -182,6 +183,52 @@ function contrast(a: string, b: string): number | null {
         }
       </div>
     </section>
+    <section class="sg-sec" aria-labelledby="sg-states">
+      <p class="wfx-eyebrow">05 · State components</p>
+      <h2 class="wfx-h1" id="sg-states">Lifecycle, actors and proof</h2>
+      <p class="wfx-body">Three small components that carry meaning, not decoration. Each is one reusable component; the same chip is used in the workflow chain, the scenario cards and the data tables.</p>
+
+      <h3 class="wfx-h2 sg-gt">Lifecycle chain · the Adhoc Indent in each of its four states</h3>
+      <p class="wfx-body">Warmer means closer to physical stock. The current state is filled, passed states are solid, states ahead are dashed and quiet.</p>
+      <div class="sg-themes">
+        @for (t of themes; track t) {
+          <div class="sg-theme sg-stack" [attr.data-theme]="t">
+            <p class="wfx-eyebrow">{{ t }}</p>
+            @for (l of lifecycle; track l.id) {
+              <div class="sg-lc-row"><wfx-lifecycle [state]="l.id" /><span class="wfx-sm">{{ l.meaning }}</span></div>
+            }
+          </div>
+        }
+      </div>
+      <h3 class="wfx-h2 sg-gt">Chip on its own · as in a table cell</h3>
+      <div class="sg-row">@for (l of lifecycle; track l.id) { <wfx-state-chip [state]="l.id" /> }</div>
+
+      <h3 class="wfx-h2 sg-gt">USER and SYSTEM steps</h3>
+      <p class="wfx-body">Readable without the label: a solid disc is a person acting, a dashed ring is WFX acting by itself. Only a SYSTEM step may shimmer while it runs.</p>
+      <div class="sg-themes">
+        @for (t of themes; track t) {
+          <div class="sg-theme" [attr.data-theme]="t">
+            <ul class="sg-steps">
+              <li><wfx-step-marker actor="user" [size]="24" /><span><strong>Create Buyer Block Booking</strong><br /><span class="wfx-sm">Merchandiser enters the booking</span></span></li>
+              <li><wfx-step-marker actor="system" [size]="24" /><span><strong>Auto-populate materials</strong><br /><span class="wfx-sm">WFX copies the BOM lines</span></span></li>
+              <li><wfx-step-marker actor="system" [size]="24" [processing]="true" /><span><strong>MRP runs on confirmation</strong><br /><span class="wfx-sm">Running now (shimmer, SYSTEM only)</span></span></li>
+            </ul>
+            <div class="sg-row"><wfx-step-marker actor="user" [showLabel]="true" /><wfx-step-marker actor="system" [showLabel]="true" /><wfx-step-marker actor="user" [size]="16" /><wfx-step-marker actor="system" [size]="16" /></div>
+          </div>
+        }
+      </div>
+
+      <h3 class="wfx-h2 sg-gt">Formula badges</h3>
+      <p class="wfx-body">Verified reproduces the value WFX showed on screen. To confirm could not be proved yet and carries its open question: hover it, or reach it with Tab.</p>
+      <div class="sg-themes">
+        @for (t of themes; track t) {
+          <div class="sg-theme sg-stack" [attr.data-theme]="t">
+            <div class="sg-formula"><wfx-formula-badge status="verified" /><p class="wfx-num">Requirement = Qty per colour/size × Consumption</p><p class="wfx-sm">600 KG · matches the WFX screen.</p></div>
+            <div class="sg-formula"><wfx-formula-badge status="assumed" question="Which exchange-rate table does WFX use (BOM date, company rate, or OC rate)?" /><p class="wfx-num sg-unproven">Value (CS Curr) = Value × exchange rate</p><p class="wfx-sm">Not proved by the sample data: the rate was 1.</p></div>
+          </div>
+        }
+      </div>
+    </section>
   `,
   styles: [`
     :host { display: block; padding-block: var(--wfx-space-7) var(--wfx-space-8); }
@@ -223,6 +270,14 @@ function contrast(a: string, b: string): number | null {
     .sg-tiles { margin-top: var(--wfx-space-3); }
     .sg-brand { align-items: center; color: var(--wfx-ink); }
     .sg-brand .brand { margin-right: auto; }
+    .sg-stack { display: grid; gap: var(--wfx-space-4); align-content: start; }
+    .sg-lc-row { display: grid; gap: var(--wfx-space-1); }
+    .sg-row { display: flex; flex-wrap: wrap; gap: var(--wfx-space-3); align-items: center; margin-top: var(--wfx-space-3); }
+    .sg-steps { list-style: none; padding: 0; margin: 0 0 var(--wfx-space-4); display: grid; gap: var(--wfx-space-3); }
+    .sg-steps li { display: flex; gap: var(--wfx-space-3); align-items: flex-start; }
+    .sg-formula { display: grid; gap: var(--wfx-space-2); justify-items: start; padding: var(--wfx-space-4); background: var(--wfx-surface); border: var(--wfx-border); border-radius: var(--wfx-radius); }
+    .sg-formula p { margin: 0; }
+    .sg-unproven { text-decoration: underline dashed var(--wfx-hairline-str); text-underline-offset: 5px; }
     .sg-table { width: 100%; border-collapse: collapse; margin-top: var(--wfx-space-3); }
     .sg-table th, .sg-table td { text-align: left; padding: var(--wfx-space-2) var(--wfx-space-3); border-bottom: var(--wfx-border); }
     .sg-table th { font-size: var(--wfx-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wfx-ink-3); font-weight: 560; }
@@ -235,6 +290,7 @@ export default class StyleguidePage {
   protected readonly space = SPACE;
   protected readonly radii = RADII;
   protected readonly motion = MOTION;
+  protected readonly lifecycle = LIFECYCLE;
   protected readonly icons = MODULE_ICON_NAMES.map((name) => ({ name, label: ({ 'mod-setup': 'Setup rules', 'mod-style': 'Style & BOM', 'mod-booking': 'Booking & sourcing', 'mod-sales': 'Sales Order', 'mod-planning': 'Planning', 'mod-production': 'Production', 'mod-inventory': 'Inventory, QC & WMS', 'mod-tna': 'TNA', 'mod-masters': 'Masters', 'mod-definitions': 'Definitions & formulas' } as Record<string, string>)[name] ?? name }));
   private readonly panels = viewChildren<ElementRef<HTMLElement>>('themePanel');
   /** Resolved token values per theme, read from the rendered panels (empty on the server). */
