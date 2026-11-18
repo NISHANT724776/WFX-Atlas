@@ -28,6 +28,7 @@ export const routes: Routes = [
   { path: 'data-modelling', loadComponent: () => import('./platform/data-modelling') },
   { path: 'profile', loadComponent: () => import('./platform/profile') },
   { path: 'admin', loadComponent: () => import('./platform/admin') },
+  { path: 'styleguide', loadComponent: () => import('./pages/styleguide') },
   { path: '404', loadComponent: () => import('./pages/not-found') },
   { path: '**', loadComponent: () => import('./pages/not-found') },
 ];
