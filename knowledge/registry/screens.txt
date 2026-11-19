@@ -776,3 +776,63 @@ KEYWORDS: trims scan, trims prototype, quick docs, QR scan, mobile app, trims ou
 SOURCE: Owner-supplied prototype link (chat, 2026-11-18).
 STATUS: Active
 CREATED DATE: 2026-11-18
+================================================================================
+SCREEN ID: SCR-SO-LIST
+SCREEN NAME: Sales Order List
+MODULE: Sales Order
+WFX MENU PATH: Sales > Sales Order List
+PURPOSE: The working Sales Order list in Atlas: Main OC wise or Style wise, search, status and buyer filters, approvals, export.
+APP ROUTE: /sales-order
+ROUTE QUERY: 
+THEORY ROUTE: /theory/buyer-po
+RELATED TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+RELATED WORKFLOWS: WF-READY-SALES-ORDER, WF-READY-END-TO-END
+WORKFLOW PAGES: /workflows/sales-order, /workflows/end-to-end
+SCREENSHOTS: 
+ACTIONS: List orders Main OC wise or Style wise; open an order; cancel or close an order; sync prices; approve pending orders; export
+REQUIRED ROLE: viewer
+WFX URL: 
+KEYWORDS: sales order list, sales orders, oc list, order list, main oc wise, style wise, approval centre
+SOURCE: Atlas Sales Order module (documentation/SALES_ORDER.md), built from the Sales Order Sprint-01/02/3 V2 specifications.
+STATUS: Active
+CREATED DATE: 2026-11-19
+================================================================================
+SCREEN ID: SCR-SO-NEW
+SCREEN NAME: Add New Sales Order
+MODULE: Sales Order
+WFX MENU PATH: Sales > Sales Order List > Add New Order
+PURPOSE: Create a Sales Order: choose Category and Buyer, then the buyer's configured screen opens for deliveries, articles and colour/size quantities.
+APP ROUTE: /sales-order
+ROUTE QUERY: new=1
+THEORY ROUTE: /theory/buyer-po
+RELATED TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+RELATED WORKFLOWS: WF-READY-SALES-ORDER
+WORKFLOW PAGES: /workflows/sales-order
+SCREENSHOTS: 
+ACTIONS: Create a sales order; add deliveries and articles; enter quantities; confirm and send for approval
+REQUIRED ROLE: editor
+WFX URL: 
+KEYWORDS: create sales order, new sales order, add new order, new oc, create oc, enter buyer order
+SOURCE: Atlas Sales Order module (documentation/SALES_ORDER.md), built from Sprint-01 §4 Add New Order.
+STATUS: Active
+CREATED DATE: 2026-11-19
+================================================================================
+SCREEN ID: SCR-SO-SETUP
+SCREEN NAME: Sales Order Setup (SLC and buyer-wise views)
+MODULE: Sales Order
+WFX MENU PATH: Admin > Configurator > SLC > Sales Order
+PURPOSE: Company-level Screen Layout Configurator, Additional Fields, buyer-wise views and their users, approvers with approval value, tool permissions.
+APP ROUTE: /sales-order-setup
+ROUTE QUERY: 
+THEORY ROUTE: /theory/buyer-po
+RELATED TRANSACTION: Purchase Order from Buyer (OC) (buyer-po)
+RELATED WORKFLOWS: 
+WORKFLOW PAGES: 
+SCREENSHOTS: 
+ACTIONS: Show or hide fields; make fields mandatory; add additional fields; create buyer-wise views; set approvers and tool permissions
+REQUIRED ROLE: admin
+WFX URL: 
+KEYWORDS: slc, screen layout configurator, view configurator, buyer wise view, additional fields, flex fields, approval value, tool permission
+SOURCE: Atlas Sales Order module (documentation/SALES_ORDER.md), built from Sprint-01 §1–2 and Sprint-3.
+STATUS: Active
+CREATED DATE: 2026-11-19

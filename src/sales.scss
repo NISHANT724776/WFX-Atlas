@@ -97,3 +97,4 @@
 .so-dialog form { display: grid; gap: var(--wfx-space-3); padding: var(--wfx-space-4); }
 .so-dialog footer { display: flex; justify-content: space-between; gap: var(--wfx-space-2); }
 .so-x { border: 0; background: none; font-size: 22px; line-height: 1; cursor: pointer; color: var(--wfx-ink-2); }
+.live-step { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wfx-space-2); margin: var(--wfx-space-2) 0; }

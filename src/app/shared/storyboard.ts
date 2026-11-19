@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, afterNextRender, effect, inject, input, signal, untracked } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { JStep, phaseById, val } from '../data/journey';
+import { LIVE_STEPS } from '../data/live-screens';
 import { SimResult } from '../data/sim';
 import { Icon } from './icon';
 
@@ -33,6 +34,7 @@ import { StepMarker } from './states';
               <p class="scene-short">{{ v(s.short) }}</p>
               <ul class="bpd-points">@for (p of s.points; track $index) { <li>{{ v(p) }}</li> }</ul>
               @if (s.formula; as fo) { <p class="scene-formula"><strong>{{ fo.label }}</strong> = {{ fo.expr }}</p> }
+              @if (live[s.id]; as lv) { <p class="live-step"><a class="btn small primary" [routerLink]="lv.path" [queryParams]="lv.query">{{ lv.label }} →</a> <span class="small muted">{{ lv.note }}</span></p> }
               <a class="small" [routerLink]="['/theory', s.theory]">Read the theory →</a>
             </div>
 
@@ -83,6 +85,7 @@ export class Storyboard {
   readonly focus = input<string | null>(null);
 
   protected readonly kind = KIND_LABEL;
+  protected readonly live = LIVE_STEPS;
   protected readonly active = signal<string | null>(null);
   protected readonly activeIndex = signal(0);
   private readonly host = inject(ElementRef<HTMLElement>);

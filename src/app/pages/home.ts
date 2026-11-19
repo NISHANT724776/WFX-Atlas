@@ -46,6 +46,7 @@ import { HeroMotif } from '../shared/hero-motif';
             @if (m.docs.length) {
               <a class="pick-act" routerLink="/data-model" [queryParams]="{ module: m.id }"><app-icon name="table" [size]="22" /><strong>Data model</strong><span>How data moves</span></a>
             }
+            @if (m.id === 'sales') { <a class="pick-act" routerLink="/sales-order"><app-icon name="order" [size]="22" /><strong>Sales Orders</strong><span>Create and run orders</span></a> }
             <a class="pick-act" routerLink="/data" [queryParams]="{ area: m.dataArea }"><app-icon name="list" [size]="22" /><strong>Guides &amp; records</strong><span>How-to and the data</span></a>
             @if (m.txns.length) {
               <a class="pick-act" routerLink="/calculations" [queryParams]="{ module: m.id }"><app-icon name="calc" [size]="22" /><strong>Formulas</strong><span>How it is calculated</span></a>

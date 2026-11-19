@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { ADJUST_SCENARIOS, JStep, PHASES, val } from '../data/journey';
 import { IndentStatus, SimResult } from '../data/sim';
 import { txnBySlug } from '../data/transactions';
+import { LIVE_STEPS } from '../data/live-screens';
 import { Icon } from './icon';
 
 const RANK: Record<IndentStatus, number> = { none: 0, po: 1, asn: 2, grn: 3 };
@@ -107,7 +108,8 @@ import { StepMarker } from './states';
                     </div>
                   }
                   <div class="sd-actions">
-                    <a class="btn primary" [routerLink]="['/theory', d.step.theory]">Read the theory: {{ theoryName(d.step.theory) }}</a>
+                    @if (live[d.step.id]; as lv) { <a class="btn primary" [routerLink]="lv.path" [queryParams]="lv.query" [title]="lv.note">{{ lv.label }} →</a> }
+                    <a class="btn" [class.primary]="!live[d.step.id]" [routerLink]="['/theory', d.step.theory]">Read the theory: {{ theoryName(d.step.theory) }}</a>
                     <button type="button" class="btn" (click)="story.emit(d.step.id)">See it on screen</button>
                   </div>
                 </div>
@@ -155,6 +157,7 @@ export class Blueprint {
   protected f(n: number): string {
     return n.toLocaleString('en-US', { maximumFractionDigits: 2 });
   }
+  protected readonly live = LIVE_STEPS;
   protected theoryName(slug: string): string {
     return txnBySlug(slug)?.name ?? slug;
   }

@@ -117,7 +117,7 @@ function guideKeywords(g: Guide): string { return `${g.title} ${g.module} ${g.su
 
 /** Pages of this platform (Angular routes); a registry route must start with one of them. */
 export const APP_ROUTES = ['/', '/workflows', '/data-model', '/data', '/theory', '/calculations', '/glossary', '/assistant', '/dashboard', '/library', '/rulebook', '/transactions',
-  '/calc-lab', '/ba-copilot', '/workflow-designer', '/data-modelling', '/profile', '/admin', '/color-cards'];
+  '/calc-lab', '/ba-copilot', '/workflow-designer', '/data-modelling', '/profile', '/admin', '/color-cards', '/question-mapping', '/sales-order', '/sales-order-setup'];
 const routeKnown = (r: string, routes: string[]) => routes.some((x) => r === x || (x !== '/' && r.startsWith(`${x}/`)));
 
 export function listScreens(): Screen[] { return all<{ fields: string }>('SELECT fields FROM reg_screens ORDER BY module, name').map((r) => JSON.parse(r.fields) as Screen); }

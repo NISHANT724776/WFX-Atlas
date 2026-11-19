@@ -4,7 +4,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { KbService } from '../core/kb.service';
 import { SeoService } from '../core/seo.service';
 import { Status } from '../shared/status';
@@ -133,6 +133,7 @@ export default class SoList {
   protected readonly kb = inject(KbService);
   private readonly api = inject(SoApi);
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
   protected readonly masters = signal<SoMasters | null>(null);
   protected readonly rows = signal<SoListRow[]>([]);
   protected readonly total = signal(0);
@@ -179,6 +180,7 @@ export default class SoList {
       const t = await this.api.tools();
       this.tools.set(t);
       await Promise.all([this.reload(1), this.loadApprovals()]);
+      if (this.route.snapshot.queryParamMap.get('new') === '1' && this.canCreate()) this.openNew();
     } catch (e) { this.error.set((e as Error).message); }
   }
   protected can(t: string): boolean { return this.tools().includes(t); }

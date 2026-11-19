@@ -7,6 +7,7 @@ import { presetsForTheory } from '../data/journey';
 import { BOM_COLOR_DEP } from '../data/records';
 import { INDENT_COMPARISON, THEORY_SUMMARY } from '../data/theory-extras';
 import { TRANSACTIONS, txnBySlug } from '../data/transactions';
+import { LIVE_TXNS } from '../data/live-screens';
 import type { Calculation } from '../data/types';
 import { CostSheet } from '../shared/cost-sheet';
 import { ColorChip } from '../shared/color-chip';
@@ -28,6 +29,7 @@ import { Status } from '../shared/status';
         <header class="page-head">
           <p class="eyebrow">{{ t.module }}</p>
           <h1>{{ t.name }}</h1>
+          @if (liveTxn[t.slug]; as lv) { <p class="live-step"><a class="btn small primary" [routerLink]="lv.path" [queryParams]="lv.query">{{ lv.label }} →</a> <span class="small muted">{{ lv.note }}</span></p> }
           @if (summary(); as s) {
             <p class="one-line">{{ s.oneLine }}</p>
             <dl class="facts big">
@@ -195,6 +197,7 @@ import { Status } from '../shared/status';
   `,
 })
 export default class TheoryPage {
+  protected readonly liveTxn = LIVE_TXNS;
   readonly slug = input<string>('');
   /** Optional ?view= query parameter that opens a tab directly. */
   readonly view = input<string | undefined>(undefined);
