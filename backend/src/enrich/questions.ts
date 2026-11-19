@@ -108,7 +108,8 @@ export function generateQuestions(u: UnitDraft, terms: Term[]): QDraft[] {
   }
 
   if (u.aspect === 'calculation') {
-    const out = lc(clean(u.f['CALC OUTPUT'] || (u.f['EXPRESSION'] ?? u.f['FORMULA / LOGIC'] ?? '').split('=')[0]) || T);
+    // the readable output name ("Total Value"), not the formula's code name ("total_value")
+    const out = lc(clean(u.f['OUTPUT'] || (u.f['FORMULA / LOGIC'] ?? '').split('=')[0] || (u.f['CALC OUTPUT'] ?? '').replace(/_/g, ' ')) || T);
     add('direct', `How is ${out} calculated?`, 'canonical');
     add('direct', `What is the formula for ${out}?`);
     add('conversational', `How does the system work out ${out}?`);

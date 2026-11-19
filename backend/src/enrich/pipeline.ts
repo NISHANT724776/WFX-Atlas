@@ -20,7 +20,7 @@ import type { Features } from './vectors.ts';
 export interface Review {
   units: Record<string, { review: 'approved' | 'needs-review'; note?: string; by?: string; at?: string; hash?: string }>;
   questions: Record<string, Record<string, { status: 'approved' | 'rejected'; text?: string; by?: string; at?: string }>>;
-  manual: Record<string, { text: string; category: string; by?: string; at?: string }[]>;
+  manual: Record<string, { text: string; category: string; by?: string; at?: string; origin?: 'manual' | 'llm'; model?: string }[]>;
 }
 const enrichDir = () => path.join(settings().knowledge, 'enrichment');
 export const reviewFile = () => path.join(enrichDir(), 'review.json');
@@ -72,7 +72,7 @@ export function enrich(modules: string[] = configuredModules()): EnrichReport {
       });
       for (const m of review.manual[u.id] ?? []) {
         const norm = normalize(m.text);
-        if (!qs.some((x) => x.norm === norm)) qs.push({ text: m.text, norm, category: m.category || 'manual', origin: 'manual', status: qr[norm]?.status ?? 'approved', dup: null });
+        if (!qs.some((x) => x.norm === norm)) qs.push({ text: m.text, norm, category: m.category || 'manual', origin: m.origin ?? 'manual', status: qr[norm]?.status ?? (m.origin === 'llm' ? 'generated' : 'approved'), dup: null });
       }
       drafts.push({ u, qs, reviewState, note });
     }

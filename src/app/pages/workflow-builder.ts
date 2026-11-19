@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, HostListener, computed, untracked, 
 import { Router } from '@angular/router';
 import { SeoService } from '../core/seo.service';
 import { FLOW_INDEX, SITE, STATIC_PAGES } from '../data/catalog';
-import { PHASES, REQUIRES, SCENARIOS, STEPS, STEP_GROUPS, hasBooking, pathBetween, phaseById, stepById } from '../data/journey';
+import { PHASES, REQUIRES, SCENARIOS, STEPS, STEP_GROUPS, hasBooking, pathBetween, phaseById, presetSteps, stepById } from '../data/journey';
+import { Status } from '../shared/status';
 import { DEFAULT_SIM, IndentStatus, SimInput, simulate } from '../data/sim';
 import { Blueprint } from '../shared/blueprint';
 import { SimPanel } from '../shared/sim-panel';
@@ -14,7 +15,7 @@ type View = 'blueprint' | 'story';
 
 @Component({
   selector: 'app-workflow-builder',
-  imports: [Blueprint, SimPanel, Storyboard, NotFoundBody, SectionSwitch],
+  imports: [Blueprint, SimPanel, Storyboard, NotFoundBody, SectionSwitch, Status],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (valid()) {
@@ -99,6 +100,12 @@ type View = 'blueprint' | 'story';
 
       <p class="objective"><strong>Objective</strong> {{ objective() }}</p>
 
+      @if (empty()) {
+        <div class="wf-empty">
+          <wfx-status kind="empty" title="Build the workflow you need" detail="Open Steps and tick what your process does — a Sales Order without a booking, a booking only, style setup, or any mix. Or start from a ready-made workflow above and change it." />
+          <button type="button" class="btn primary" (click)="openSteps($event)">Choose steps</button>
+        </div>
+      } @else {
       <div class="builder-layout">
         <div class="builder-main">
           @if (viewNow() === 'blueprint') {
@@ -136,6 +143,7 @@ type View = 'blueprint' | 'story';
           </details>
         </aside>
       </div>
+      }
     } @else {
       <app-not-found-body />
     }
@@ -165,9 +173,8 @@ export default class WorkflowBuilderPage {
 
   protected readonly preset = computed(() => FLOW_INDEX.find((p) => p.slug === this.flow()));
   protected readonly valid = computed(() => !this.flow() || !!this.preset());
-  private readonly fallback = FLOW_INDEX[0];
-  protected readonly fromId = computed(() => this.known(this.from()) ?? this.preset()?.from ?? this.fallback.from);
-  protected readonly toId = computed(() => this.known(this.to()) ?? this.preset()?.to ?? this.fallback.to);
+  protected readonly fromId = computed(() => this.known(this.from()) ?? this.preset()?.from);
+  protected readonly toId = computed(() => this.known(this.to()) ?? this.preset()?.to);
   protected readonly scenarios = SCENARIOS;
   /** Steps hand-picked by the user, in WFX flow order. */
   private readonly picked = computed(() => {
@@ -177,7 +184,14 @@ export default class WorkflowBuilderPage {
   /** True when the steps were chosen by hand (?steps=), false for a ready-made start-to-end range. */
   protected readonly pickMode = computed(() => this.picked().length > 0);
   /** The selected steps: the hand-picked ones, otherwise the range of the ready-made workflow. */
-  protected readonly path = computed(() => (this.pickMode() ? this.picked() : pathBetween(this.fromId(), this.toId())));
+  /** Nothing chosen yet (/workflows without a ready-made workflow or steps): the user builds the chain, nothing is assumed. */
+  protected readonly empty = computed(() => !this.pickMode() && !this.fromId() && !this.toId());
+  protected readonly path = computed(() => {
+    if (this.pickMode()) return this.picked();
+    const p = this.preset();
+    if (p && !this.from() && !this.to()) return presetSteps(p);
+    return this.fromId() || this.toId() ? pathBetween(this.fromId() ?? STEPS[0].id, this.toId() ?? STEPS[STEPS.length - 1].id) : [];
+  });
   protected readonly total = STEPS.length;
   protected readonly menuOpen = signal(false);
   private readonly openGroups = signal<Set<string>>(new Set());
@@ -205,12 +219,13 @@ export default class WorkflowBuilderPage {
     }
     return out;
   });
-  protected readonly activePreset = computed(() => (this.pickMode() ? undefined : FLOW_INDEX.find((p) => p.from === this.fromId() && p.to === this.toId())));
+  protected readonly activePreset = computed(() => FLOW_INDEX.find((p) => this.path().length > 0 && this.isSame(presetSteps(p).map((s) => s.id))));
   protected readonly viewNow = computed<View>(() => (this.view() === 'story' ? 'story' : 'blueprint'));
   protected readonly selected = computed(() => (this.step() && this.path().some((s) => s.id === this.step()) ? this.step()! : null));
 
   protected readonly objective = computed(() => {
     const p = this.path();
+    if (!p.length) return 'Choose the steps your process needs from the Steps list, or start from a ready-made workflow.';
     const ph = [...new Set(p.map((s) => s.phase))].map((id) => phaseById(id).name.toLowerCase());
     if (this.pickMode()) {
       const skipped = this.chain().reduce((a, c) => a + c.skipped.length, 0);
@@ -237,7 +252,7 @@ export default class WorkflowBuilderPage {
       }
       const path = p ? `/workflows/${p.slug}` : '/workflows';
       const base = STATIC_PAGES.find((x) => x.path === '/workflows')!;
-      const steps = pathBetween(p?.from ?? this.fallback.from, p?.to ?? this.fallback.to);
+      const steps = p ? presetSteps(p) : [];
       this.seo.set({
         title: p ? `${p.name} workflow` : base.title,
         description: p ? p.description : base.description,
@@ -279,8 +294,8 @@ export default class WorkflowBuilderPage {
   protected toggleStep(id: string): void {
     const cur = this.path().map((s) => s.id);
     if (cur.includes(id)) {
-      if (cur.length === 1) return; // keep at least one step
-      this.setSteps(cur.filter((x) => x !== id));
+      const rest = cur.filter((x) => x !== id);
+      if (rest.length) this.setSteps(rest); else this.resetSel();
     } else this.setSteps([...cur, id]);
   }
   protected phaseState(phase: string): 'all' | 'some' | 'none' {
@@ -313,7 +328,7 @@ export default class WorkflowBuilderPage {
     this.openGroups.update((s) => { const n = new Set(s); n.has(id) ? n.delete(id) : n.add(id); return n; });
   }
   // ── ready-made workflows and scenarios ──
-  protected presetIds(p: (typeof FLOW_INDEX)[number]): string[] { return pathBetween(p.from, p.to).map((x) => x.id); }
+  protected presetIds(p: (typeof FLOW_INDEX)[number]): string[] { return presetSteps(p).map((x) => x.id); }
   protected isSame(ids: string[]): boolean {
     const cur = this.path().map((s) => s.id);
     return cur.length === ids.length && ids.every((x) => cur.includes(x));
@@ -326,6 +341,7 @@ export default class WorkflowBuilderPage {
     this.applyIds(sc.steps, sc.id);
   }
   protected resetSel(): void { this.nav({ steps: null, step: null, from: null, to: null }); }
+  protected openSteps(e: Event): void { e.stopPropagation(); this.menuOpen.set(true); }
   @HostListener('document:click', ['$event'])
   protected onDocClick(e: Event): void {
     if (this.menuOpen() && !(e.target as HTMLElement).closest('.msel')) this.menuOpen.set(false);

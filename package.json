@@ -23,6 +23,8 @@
     "kb:inventory": "node --disable-warning=ExperimentalWarning backend/scripts/inventory.ts",
     "kb:evaluate": "node --disable-warning=ExperimentalWarning backend/scripts/evaluate.ts",
     "kb:enrich": "node --disable-warning=ExperimentalWarning backend/scripts/enrich.ts",
+    "kb:export-training": "node --disable-warning=ExperimentalWarning backend/scripts/export-training.ts",
+    "kb:import-questions": "node --disable-warning=ExperimentalWarning backend/scripts/import-questions.ts",
     "kb:eval-paraphrase": "node --disable-warning=ExperimentalWarning backend/scripts/eval-paraphrase.ts",
     "kb:typecheck": "tsc -p backend/tsconfig.json",
     "test:kb": "node tests/run.mjs"

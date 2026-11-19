@@ -106,19 +106,22 @@ export interface FlowIndexEntry {
   /** First and last journey step (ids in journey.ts). */
   from: string;
   to: string;
+  /** Exact steps when the workflow is not one unbroken range (ids in journey.ts). */
+  steps?: string[];
 }
 
 /** Ready-made workflows. Any other start/end can be picked on the workflow page. */
 export const FLOW_INDEX: FlowIndexEntry[] = [
-  { slug: 'block-booking', name: 'Buyer Block Booking', tagline: 'Book fabric early, adjust it to the sales order',
-    from: 'bbb-create', to: 'so-updated',
-    description: 'Buyer Block Booking with BOM → material requirement → system Adhoc Indent → PO / ASN / GRN → link to sales order → automatic On Order or In-House adjustment.' },
-  { slug: 'sales-order', name: 'Sales Order to factory', tagline: 'From buyer order to the factory floor',
-    from: 'oc', to: 'fppo',
-    description: 'Sales order → MRP → Manufacture and Sales Order Indents → adjustment from booking stock → PO for the gap → Production Order → FPO and process orders.' },
   { slug: 'style-setup', name: 'Style setup', tagline: 'Define the garment once',
     from: 'masters', to: 'approve',
     description: 'Masters, fabric and trim techpacks, apparel techpack, BOM materials, routing operations, material linkage, costing and approval – captured live for Adi TShirt (NIS-59).' },
+  // an order is not always booked: this chain has no Buyer Block Booking step (add it from the step picker when the order is booked)
+  { slug: 'sales-order', name: 'Sales Order to factory', tagline: 'From buyer order to the factory floor',
+    from: 'oc', to: 'fppo', steps: ['oc', 'mrp', 'mfg-indent', 'so-indent', 'rmpo-gap', 'prod-order', 'fpo', 'fppo'],
+    description: 'Sales order → MRP → Manufacture and Sales Order Indents → PO for what is still to buy → Production Order → FPO and process orders. No Buyer Block Booking: add its steps when the order is booked.' },
+  { slug: 'block-booking', name: 'Buyer Block Booking', tagline: 'Book fabric early, adjust it to the sales order',
+    from: 'bbb-create', to: 'so-updated',
+    description: 'Only when the buyer books ahead: Buyer Block Booking with BOM → material requirement → system Adhoc Indent → PO / ASN / GRN → link to sales order → automatic On Order or In-House adjustment.' },
   { slug: 'end-to-end', name: 'End to end', tagline: 'Every step, masters to process orders',
     from: 'masters', to: 'fppo',
     description: 'The complete Flannel Shirt Adi (NIS-58) journey across style setup, buyer block booking, sales order, adjustment and production.' },

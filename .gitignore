@@ -56,3 +56,6 @@ Thumbs.db
 # confidential originals and the admin directory stay out of version control
 /knowledge/original_sources/
 /knowledge/admin/
+
+# LLM training exports (regenerate with npm run kb:export-training)
+/exports/

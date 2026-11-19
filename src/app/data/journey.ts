@@ -217,6 +217,11 @@ export const phaseById = (id: string) => PHASES.find((p) => p.id === id)!;
 export const val = (v: Dyn, r: SimResult) => (typeof v === 'function' ? v(r) : v);
 
 /** Steps between two end points (inclusive), in flow order. */
+/** The steps of a ready-made workflow: its exact list when it has one, otherwise its unbroken range. */
+export function presetSteps(p: { from: string; to: string; steps?: string[] }): JStep[] {
+  return p.steps ? STEPS.filter((s) => p.steps!.includes(s.id)) : pathBetween(p.from, p.to);
+}
+
 export function pathBetween(from: string, to: string): JStep[] {
   let a = STEPS.findIndex((s) => s.id === from);
   let b = STEPS.findIndex((s) => s.id === to);
@@ -230,7 +235,7 @@ export function pathBetween(from: string, to: string): JStep[] {
 export function presetsForTheory(slug: string) {
   const out: { preset: (typeof FLOW_INDEX)[number]; step: JStep }[] = [];
   for (const p of FLOW_INDEX) {
-    const steps = pathBetween(p.from, p.to).filter((s) => s.theory === slug);
+    const steps = presetSteps(p).filter((s) => s.theory === slug);
     if (steps.length) out.push({ preset: p, step: steps[0] });
   }
   return out;
