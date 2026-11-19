@@ -4,6 +4,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, signal, viewChildren } from '@angular/core';
 import { SeoService } from '../core/seo.service';
 import { Icon, MODULE_ICON_NAMES } from '../shared/icon';
+import { BrandLogo } from '../shared/brand-logo';
 import { FormulaBadge, LIFECYCLE, Lifecycle, StateChip, StepMarker } from '../shared/states';
 import { Status } from '../shared/status';
 import { HeroMotif } from '../shared/hero-motif';
@@ -31,17 +32,17 @@ const GROUPS: Group[] = [
     { name: '--wfx-bad', label: 'bad · error, conflict', against: SURF, need: 4.5 }, { name: '--wfx-focus', label: 'focus ring', against: SURF, need: 3 }] },
 ];
 const TYPE = [
-  { cls: 'wfx-display', token: '--wfx-t-display', size: '38 → 72 · −0.045em', face: 'Geist 500', use: 'Homepage hero only', text: 'Every WFX transaction, <em>explained</em>' },
-  { cls: 'wfx-h1', token: '--wfx-t-1', size: '30 → 48 · −0.035em', face: 'Geist 500', use: 'Page title', text: 'Buyer Block Booking' },
-  { cls: 'wfx-answer', token: '--wfx-t-2', size: '24 → 28', face: 'Geist 500', use: 'The one-line answer of a Theory page', text: 'Booked fabric is reserved for a buyer before the order exists.' },
-  { cls: 'wfx-h2', token: '--wfx-t-3', size: '22', face: 'Geist 500', use: 'Section heading', text: 'Material requirement' },
-  { cls: 'wfx-lead', token: '--wfx-t-4', size: '18 → 20', face: 'Geist 400', use: 'Lead paragraph', text: 'The order needs 1,500 KG; 600 KG is booked, so 1,100 KG is still to buy.' },
-  { cls: 'wfx-body', token: '--wfx-t-body', size: '16 / 26', face: 'Geist 400', use: 'Body', text: 'An Adhoc Indent raised from the booking carries the booked quantity until it is adjusted to the order.' },
-  { cls: 'wfx-sm', token: '--wfx-t-sm', size: '14', face: 'Geist 400', use: 'Captions, table cells, meta', text: 'Updated after GRN · RMPO 1229' },
-  { cls: 'wfx-eyebrow', token: '--wfx-t-xs', size: '13 — the floor', face: 'Geist 500, sentence case', use: 'Label above a section', text: 'Type' },
+  { cls: 'wfx-display', token: '--wfx-t-display', size: '38 → 72 · −0.045em', face: 'DM Sans 500', use: 'Homepage hero only', text: 'Every WFX transaction, <em>explained</em>' },
+  { cls: 'wfx-h1', token: '--wfx-t-1', size: '30 → 48 · −0.035em', face: 'DM Sans 500', use: 'Page title', text: 'Buyer Block Booking' },
+  { cls: 'wfx-answer', token: '--wfx-t-2', size: '24 → 28', face: 'DM Sans 500', use: 'The one-line answer of a Theory page', text: 'Booked fabric is reserved for a buyer before the order exists.' },
+  { cls: 'wfx-h2', token: '--wfx-t-3', size: '22', face: 'DM Sans 500', use: 'Section heading', text: 'Material requirement' },
+  { cls: 'wfx-lead', token: '--wfx-t-4', size: '18 → 20', face: 'DM Sans 400', use: 'Lead paragraph', text: 'The order needs 1,500 KG; 600 KG is booked, so 1,100 KG is still to buy.' },
+  { cls: 'wfx-body', token: '--wfx-t-body', size: '16 / 26', face: 'DM Sans 400', use: 'Body', text: 'An Adhoc Indent raised from the booking carries the booked quantity until it is adjusted to the order.' },
+  { cls: 'wfx-sm', token: '--wfx-t-sm', size: '14', face: 'DM Sans 400', use: 'Captions, table cells, meta', text: 'Updated after GRN · RMPO 1229' },
+  { cls: 'wfx-eyebrow', token: '--wfx-t-xs', size: '13 — the floor', face: 'DM Sans 500, sentence case', use: 'Label above a section', text: 'Type' },
 ];
 const SPACE = [['--wfx-space-0', '2', 'hairline offsets only'], ['--wfx-space-1', '4', ''], ['--wfx-space-2', '8', ''], ['--wfx-space-3', '12', ''], ['--wfx-space-4', '16', ''], ['--wfx-space-5', '24', 'gutter'], ['--wfx-space-6', '40', ''], ['--wfx-space-7', '64', ''], ['--wfx-space-8', '96', 'section rhythm']];
-const RADII = [['--wfx-radius-sm', '8'], ['--wfx-radius', '12'], ['--wfx-radius-lg', '20'], ['--wfx-radius-pill', '999']];
+const RADII = [['--wfx-radius-sm', '6'], ['--wfx-radius', '8'], ['--wfx-radius-lg', '12'], ['--wfx-radius-pill', '999']];
 const MOTION = [['--wfx-dur-micro', '150ms', 'hover in'], ['--wfx-dur-out', '120ms', 'hover out'], ['--wfx-dur-press', '90ms', 'button press'], ['--wfx-dur-element', '240ms', 'card, panel, dropdown'], ['--wfx-dur-rise', '700ms', 'heading lines rising on load, once'], ['--wfx-dur-fade', '520ms', 'lead and buttons after the heading'], ['--wfx-stagger', '60ms', 'between siblings'], ['--wfx-ease', 'cubic-bezier(.2,.8,.2,1)', 'hover and press'], ['--wfx-ease-enter', 'cubic-bezier(.22,1,.36,1)', 'entering']];
 
 /** WCAG relative luminance contrast of two colours as the browser resolved them. */
@@ -56,7 +57,7 @@ function contrast(a: string, b: string): number | null {
 
 @Component({
   selector: 'app-styleguide',
-  imports: [Icon, Lifecycle, StateChip, StepMarker, FormulaBadge, Status, HeroMotif],
+  imports: [Icon, BrandLogo, Lifecycle, StateChip, StepMarker, FormulaBadge, Status, HeroMotif],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="sg-head">
@@ -101,7 +102,7 @@ function contrast(a: string, b: string): number | null {
     <section class="sg-sec" aria-labelledby="sg-type">
       <p class="wfx-eyebrow">02 · Type</p>
       <h2 class="wfx-h1" id="sg-type">Three faces, three jobs</h2>
-      <p class="wfx-body">Geist for everything you read: headings at weight 500 with tight tracking, body at 16/26. Geist Mono for every quantity, code and formula, always with tabular figures. Labels are sentence case at 13px; nothing is smaller.</p>
+      <p class="wfx-body">DM Sans, the WFX product font, for everything you read: headings at weight 500 with tight tracking, body at 16/26. Geist Mono for every quantity, code and formula, always with tabular figures. Labels are sentence case at 13px; nothing is smaller.</p>
       <div class="sg-type">
         @for (t of type; track t.cls) {
           <div class="sg-type-row">
@@ -178,8 +179,7 @@ function contrast(a: string, b: string): number | null {
         @for (t of themes; track t) {
           <div [attr.data-theme]="t" class="sg-elev-bg sg-brand">
             <span class="brand">
-              <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="7.5" /><path d="M6.5 9.5 11 22.5 16 12.5 21 22.5 25.5 9.5" /></svg>
-              <span class="brand-name"><span class="brand-wfx">WFX</span> <em>Atlas</em></span>
+              <app-brand-logo /><span class="brand-sep" aria-hidden="true"></span><span class="brand-name"><em>Atlas</em></span>
             </span>
             <img src="/favicon.svg" width="32" height="32" alt="Favicon" />
             <img src="/favicon.svg" width="16" height="16" alt="Favicon at 16px" />

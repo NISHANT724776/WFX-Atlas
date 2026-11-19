@@ -75,13 +75,13 @@ button, input { font: inherit; color: inherit; }
 .site-header { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border); }
 .header-row { display: flex; align-items: center; gap: var(--wfx-space-3); min-height: 64px; }
 .brand { display: flex; align-items: center; gap: var(--wfx-space-2); color: var(--text); text-decoration: none; margin-right: auto; }
-.brand-mark { flex: none; display: block; color: var(--wfx-ink); }
-.brand-mark rect { fill: currentColor; }
-.brand-mark path { fill: none; stroke: var(--wfx-canvas); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-/* wordmark: "WFX" in ink, "Atlas" in grey, one family */
+.brand-logo { display: inline-flex; flex: none; }
+.brand-logo svg { display: block; width: auto; height: 22px; }
+.brand-sep { width: 1px; height: 20px; background: var(--wfx-hairline-str); }
+/* lockup: the WFX logo, a hairline, then "Atlas" */
 .brand-name { font-size: var(--wfx-t-4); line-height: 1; white-space: nowrap; }
 .brand-wfx { font-family: var(--wfx-font-ui); font-weight: 600; letter-spacing: -0.024em; color: var(--wfx-ink); }
-.brand-name em { margin-left: var(--wfx-space-1); font-style: normal; font-weight: 500; letter-spacing: -0.024em; color: var(--wfx-ink-3); }
+.brand-name em { font-style: normal; font-weight: 500; letter-spacing: -0.02em; color: var(--wfx-ink); }
 .main-nav { display: flex; gap: var(--wfx-space-0); }
 .main-nav a { position: relative; padding: var(--wfx-space-2) var(--wfx-space-3); color: var(--muted); text-decoration: none; font-size:var(--wfx-t-body); font-weight: 500; border-radius: var(--wfx-radius-pill); transition: color var(--wfx-dur-element) var(--wfx-ease-standard); }
 .main-nav a::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 2px; background: var(--wfx-ink); transform: scaleX(0); transform-origin: left; transition: transform var(--wfx-dur-element) var(--wfx-ease-enter); }
@@ -117,7 +117,7 @@ main { padding-bottom: var(--wfx-space-8); min-height: 60vh; }
 .site-footer { border-top: 1px solid var(--border); padding: var(--wfx-space-6) 0 var(--wfx-space-4); background: var(--surface); }
 .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1.5fr; gap: var(--wfx-space-5); }
 .footer-title { font-weight: 650; margin: 0 0 var(--wfx-space-2); }
-.footer-title.brand-name { font-size: var(--wfx-t-3); }
+.footer-title.brand-name { display: flex; align-items: center; gap: var(--wfx-space-2); font-size: var(--wfx-t-4); }
 .footer-links { list-style: none; padding: 0; margin: 0 0 var(--wfx-space-4); columns: 2; font-size:var(--wfx-t-body); }
 .footer-links.one { columns: 1; }
 .footer-links a { color: var(--muted); text-decoration: none; line-height: 2; }
@@ -132,8 +132,8 @@ main { padding-bottom: var(--wfx-space-8); min-height: 60vh; }
   transition: background-color var(--wfx-dur-out) var(--wfx-ease), border-color var(--wfx-dur-out) var(--wfx-ease), color var(--wfx-dur-out) var(--wfx-ease), transform var(--wfx-dur-out) var(--wfx-ease); }
 .btn:hover { background: var(--wfx-surface-2); border-color: var(--wfx-ink-3); transition-duration: var(--wfx-dur-micro); }
 /* primary = the one filled accent on a view; everything else is outline */
-.btn.primary { background: var(--wfx-accent); border-color: var(--wfx-accent); color: var(--wfx-accent-ink); }
-.btn.primary:hover { background: color-mix(in oklab, var(--wfx-accent) 86%, var(--wfx-ink)); border-color: transparent; }
+.btn.primary { background: var(--wfx-brand); border-color: var(--wfx-brand); color: var(--wfx-brand-ink); }
+.btn.primary:hover { background: var(--wfx-brand-hover); border-color: var(--wfx-brand-hover); }
 .btn:active { transform: translateY(1px) scale(0.985); transition-duration: var(--wfx-dur-press); }
 @media (hover: hover) and (pointer: fine) { .btn:hover:not(:active) { transform: translateY(-1px); } }
 .btn.small { min-height: 36px; padding: 0 var(--wfx-space-4); font-size: var(--wfx-t-sm); }

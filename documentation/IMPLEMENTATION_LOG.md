@@ -273,3 +273,10 @@ Applied the rules of github.com/leonxlnx/taste-skill to the existing design syst
 - Buttons: 44px, 8px radius, 24px padding, 16px label; 1px lift on hover, 1px press with scale .985.
 - Motion: in 150ms, out 120ms, press 90ms. Linked cards lift 2px with a darker border and a soft shadow (pointer devices only). Text-link underlines draw left to right. The page title rises once on load, then lead and actions fade up 12px, 60ms apart. Scroll reveals and load-time card staggers removed (Reveal directive deleted). Reduced motion: nothing moves, everything is visible.
 - Radius tokens 8/12/20.
+
+## 2026-11-19 — WFX brand (branch wfx-brand)
+Look taken from the WFX v10 design system (D:\wfx-workspaceV10\v10\frontend, read only; nothing there was changed).
+- Logo: the WFX cloud + "WFX" logo from wfx-ui `wfx-brand-logo` (fixed brand gradient #43CECD → #1F6DB7), shown as "WFX | Atlas" in header and footer (`src/app/shared/brand-logo.ts`). Favicon is the WFX cloud (favicon.svg; the .ico/.png icons are still the old mark).
+- Font: DM Sans, the WFX product font (files copied from wfx-ui styles/fonts). Geist Mono stays for numbers.
+- Colours: the WFX palette from wfx-design-tokens — primary #0099C4 (hover #0087AD) on primary buttons, neutral greys, dark theme on #111827. Accent TEXT uses WFX primary 800 #007596, because #0099C4 is only 3.2:1 on white. Radii follow WFX: 6 / 8 / 12.
+- The v10 skills (wfx-mock-screen, wfx-build-live-screen, …) build screens inside the v10 Nx app and do not apply to this separate site.

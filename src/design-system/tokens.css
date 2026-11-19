@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WFX Atlas — design tokens (from wfx-ui-pack, adapted to the app)
+   WFX Atlas — design tokens (colours from the WFX v10 design system, wfx-design-tokens)
    Single source of truth: no colour, spacing, radius or duration anywhere
    else in the app. Rendered live at /styleguide.
 
@@ -14,76 +14,82 @@
 
 :root,
 [data-theme="light"] {
-  --wfx-canvas:        #FAF7F4;   /* warm paper, not white */
+  --wfx-canvas:        #FAFAFA;   /* WFX surface 50 */
   --wfx-surface:       #FFFFFF;
-  --wfx-surface-2:     #F3EEE9;
-  --wfx-surface-3:     #E8E1DA;
-  --wfx-hairline:      #E3DBD4;
-  --wfx-hairline-str:  #CFC5BC;
+  --wfx-surface-2:     #F5F5F5;
+  --wfx-surface-3:     #EBEBEB;
+  --wfx-hairline:      #EBEBEB;
+  --wfx-hairline-str:  #D6D6D6;
 
-  --wfx-ink:           #171412;
-  --wfx-ink-2:         #5A534E;
-  --wfx-ink-3:         #766D67;   /* 4.74:1 on canvas */
+  --wfx-ink:           #111827;   /* WFX foreground */
+  --wfx-ink-2:         #4D4D4D;
+  --wfx-ink-3:         #666666;   /* 5.7:1 on canvas */
 
-  --wfx-accent:        #C8400F;   /* darkened so it clears 4.5:1 on paper */
+  --wfx-brand:         #0099C4;   /* WFX primary 600: button fill, as in the product */
+  --wfx-brand-hover:   #0087AD;   /* WFX primary 700 */
+  --wfx-brand-ink:     #FFFFFF;
+  --wfx-accent:        #007596;   /* WFX primary 800: accent TEXT, clears 4.5:1 */
   --wfx-accent-ink:    #FFFFFF;
-  --wfx-accent-dim:    #E8A289;
-  --wfx-accent-wash:   rgba(200, 64, 15, 0.10);
+  --wfx-accent-dim:    #80DDF1;
+  --wfx-accent-wash:   #E0F7FC;   /* WFX primary 50 (highlight) */
 
-  --wfx-state-0:       #78706A;   /* Not ordered */
-  --wfx-state-1:       #9A5B2E;   /* PO created  */
-  --wfx-state-2:       #B4571A;   /* ASN done    */
-  --wfx-state-3:       #C8400F;   /* GRN done    */
+  --wfx-state-0:       #666666;   /* Not ordered */
+  --wfx-state-1:       #4F7A86;   /* PO created  */
+  --wfx-state-2:       #0087AD;   /* ASN done    */
+  --wfx-state-3:       #005D73;   /* GRN done    */
 
   --wfx-ok:            #2F7A4E;
   --wfx-warn:          #8A6410;
-  --wfx-bad:           #B3261E;   /* + 6.2:1 on surface */
-  --wfx-ok-wash:       rgba(47, 122, 78, 0.10);   /* + */
-  --wfx-warn-wash:     rgba(138, 100, 16, 0.10);  /* + */
-  --wfx-bad-wash:      rgba(179, 38, 30, 0.08);   /* + */
-  --wfx-focus:         #C8400F;
-  --wfx-scrim:         rgba(23, 20, 18, 0.55);    /* + behind dialogs */
+  --wfx-bad:           #B3261E;
+  --wfx-ok-wash:       rgba(60, 152, 92, 0.12);
+  --wfx-warn-wash:     rgba(245, 158, 11, 0.12);
+  --wfx-bad-wash:      rgba(239, 68, 68, 0.10);
+  --wfx-focus:         #0099C4;
+  --wfx-scrim:         rgba(17, 24, 39, 0.55);
 
-  --wfx-elev-1: 0 1px 2px rgba(23, 20, 18, 0.05);
-  --wfx-elev-2: 0 4px 16px rgba(23, 20, 18, 0.08);
-  --wfx-lift:   0 12px 24px -12px rgba(23, 20, 18, 0.10);  /* hover only */
+  --wfx-elev-1: 0 1px 2px rgba(17, 24, 39, 0.06);
+  --wfx-elev-2: 0 4px 16px rgba(17, 24, 39, 0.08);
+  --wfx-lift:   0 12px 24px -12px rgba(17, 24, 39, 0.12);  /* hover only */
 
   color-scheme: light;
 }
 
 /* dark: chosen, or the OS default when nothing was chosen */
 [data-theme="dark"] {
-  --wfx-canvas:        #0E0D0C;
-  --wfx-surface:       #161413;
-  --wfx-surface-2:     #1F1C1A;   /* raised / hover */
-  --wfx-surface-3:     #292523;   /* pressed / active */
-  --wfx-hairline:      #2A2624;
-  --wfx-hairline-str:  #3B3532;   /* emphasised divider */
+  --wfx-canvas:        #111827;   /* WFX dark surface 0 */
+  --wfx-surface:       #1F2937;
+  --wfx-surface-2:     #243041;
+  --wfx-surface-3:     #2D3748;
+  --wfx-hairline:      #2D3748;
+  --wfx-hairline-str:  #4B5563;
 
-  --wfx-ink:           #F2EEEA;
-  --wfx-ink-2:         #A79F99;   /* secondary */
-  --wfx-ink-3:         #8A827B;   /* labels, eyebrows — 4.86:1 on surface */
+  --wfx-ink:           #F9FAFB;
+  --wfx-ink-2:         #CBD5E1;
+  --wfx-ink-3:         #9CA3AF;
 
-  --wfx-accent:        #F2683C;
-  --wfx-accent-ink:    #140A06;   /* text ON accent */
-  --wfx-accent-dim:    #7A3420;   /* accent at rest */
-  --wfx-accent-wash:   rgba(242, 104, 60, 0.12);
+  --wfx-brand:         #26C4E6;   /* WFX dark primary (400) */
+  --wfx-brand-hover:   #4DCFEB;
+  --wfx-brand-ink:     #003847;   /* WFX primary 950 */
+  --wfx-accent:        #4DCFEB;
+  --wfx-accent-ink:    #003847;
+  --wfx-accent-dim:    #005D73;
+  --wfx-accent-wash:   rgba(0, 164, 196, 0.16);
 
-  --wfx-state-0:       #6E6560;   /* Not ordered — inert      */
-  --wfx-state-1:       #A96B41;   /* PO created  — committed  */
-  --wfx-state-2:       #D4873F;   /* ASN done    — in transit */
-  --wfx-state-3:       #F2683C;   /* GRN done    — landed     */
+  --wfx-state-0:       #9CA3AF;
+  --wfx-state-1:       #6FA3B2;
+  --wfx-state-2:       #26C4E6;
+  --wfx-state-3:       #80DDF1;
 
   --wfx-ok:            #5FA87C;
   --wfx-warn:          #D9A441;
-  --wfx-bad:           #E5786E;   /* + 6.0:1 on surface */
-  --wfx-ok-wash:       rgba(95, 168, 124, 0.12);  /* + */
-  --wfx-warn-wash:     rgba(217, 164, 65, 0.12);  /* + */
-  --wfx-bad-wash:      rgba(229, 120, 110, 0.12); /* + */
-  --wfx-focus:         #F2683C;
-  --wfx-scrim:         rgba(0, 0, 0, 0.72);       /* + */
+  --wfx-bad:           #F08A80;
+  --wfx-ok-wash:       rgba(95, 168, 124, 0.14);
+  --wfx-warn-wash:     rgba(217, 164, 65, 0.14);
+  --wfx-bad-wash:      rgba(240, 138, 128, 0.14);
+  --wfx-focus:         #26C4E6;
+  --wfx-scrim:         rgba(0, 0, 0, 0.72);
 
-  --wfx-elev-1: none;   /* elevation on dark is surface + hairline, not shadow */
+  --wfx-elev-1: none;
   --wfx-elev-2: none;
   --wfx-lift:   none;
 
@@ -91,31 +97,39 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --wfx-canvas:        #0E0D0C;
-    --wfx-surface:       #161413;
-    --wfx-surface-2:     #1F1C1A;
-    --wfx-surface-3:     #292523;
-    --wfx-hairline:      #2A2624;
-    --wfx-hairline-str:  #3B3532;
-    --wfx-ink:           #F2EEEA;
-    --wfx-ink-2:         #A79F99;
-    --wfx-ink-3:         #8A827B;
-    --wfx-accent:        #F2683C;
-    --wfx-accent-ink:    #140A06;
-    --wfx-accent-dim:    #7A3420;
-    --wfx-accent-wash:   rgba(242, 104, 60, 0.12);
-    --wfx-state-0:       #6E6560;
-    --wfx-state-1:       #A96B41;
-    --wfx-state-2:       #D4873F;
-    --wfx-state-3:       #F2683C;
+    --wfx-canvas:        #111827;   /* WFX dark surface 0 */
+    --wfx-surface:       #1F2937;
+    --wfx-surface-2:     #243041;
+    --wfx-surface-3:     #2D3748;
+    --wfx-hairline:      #2D3748;
+    --wfx-hairline-str:  #4B5563;
+  
+    --wfx-ink:           #F9FAFB;
+    --wfx-ink-2:         #CBD5E1;
+    --wfx-ink-3:         #9CA3AF;
+  
+    --wfx-brand:         #26C4E6;   /* WFX dark primary (400) */
+    --wfx-brand-hover:   #4DCFEB;
+    --wfx-brand-ink:     #003847;   /* WFX primary 950 */
+    --wfx-accent:        #4DCFEB;
+    --wfx-accent-ink:    #003847;
+    --wfx-accent-dim:    #005D73;
+    --wfx-accent-wash:   rgba(0, 164, 196, 0.16);
+  
+    --wfx-state-0:       #9CA3AF;
+    --wfx-state-1:       #6FA3B2;
+    --wfx-state-2:       #26C4E6;
+    --wfx-state-3:       #80DDF1;
+  
     --wfx-ok:            #5FA87C;
     --wfx-warn:          #D9A441;
-    --wfx-bad:           #E5786E;
-    --wfx-ok-wash:       rgba(95, 168, 124, 0.12);
-    --wfx-warn-wash:     rgba(217, 164, 65, 0.12);
-    --wfx-bad-wash:      rgba(229, 120, 110, 0.12);
-    --wfx-focus:         #F2683C;
+    --wfx-bad:           #F08A80;
+    --wfx-ok-wash:       rgba(95, 168, 124, 0.14);
+    --wfx-warn-wash:     rgba(217, 164, 65, 0.14);
+    --wfx-bad-wash:      rgba(240, 138, 128, 0.14);
+    --wfx-focus:         #26C4E6;
     --wfx-scrim:         rgba(0, 0, 0, 0.72);
+  
     --wfx-elev-1: none;
     --wfx-elev-2: none;
     --wfx-lift:   none;
@@ -137,9 +151,9 @@
   --wfx-space-8:  96px;
 
   /* --- radius ---------------------------------------------------------- */
-  --wfx-radius-sm:   8px;   /* buttons, inputs, chips */
-  --wfx-radius:     12px;   /* cards, panels */
-  --wfx-radius-lg:  20px;   /* dialogs, hero blocks */
+  --wfx-radius-sm:   6px;   /* buttons, inputs, chips (WFX/Aura button radius) */
+  --wfx-radius:      8px;   /* cards, panels (WFX radius-md) */
+  --wfx-radius-lg:  12px;   /* dialogs, hero blocks (WFX radius-lg) */
   --wfx-radius-pill: 999px;
 
   /* --- borders --------------------------------------------------------- */
