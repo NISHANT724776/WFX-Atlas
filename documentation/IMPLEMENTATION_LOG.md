@@ -280,3 +280,4 @@ Look taken from the WFX v10 design system (D:\wfx-workspaceV10\v10\frontend, rea
 - Font: DM Sans, the WFX product font (files copied from wfx-ui styles/fonts). Geist Mono stays for numbers.
 - Colours: the WFX palette from wfx-design-tokens — primary #0099C4 (hover #0087AD) on primary buttons, neutral greys, dark theme on #111827. Accent TEXT uses WFX primary 800 #007596, because #0099C4 is only 3.2:1 on white. Radii follow WFX: 6 / 8 / 12.
 - The v10 skills (wfx-mock-screen, wfx-build-live-screen, …) build screens inside the v10 Nx app and do not apply to this separate site.
+- Same day, at the owner's request: colours restored to the original palette (warm paper, orange accent). Kept from the WFX brand: logo, favicon, DM Sans, radii 6/8/12.

@@ -132,8 +132,8 @@ main { padding-bottom: var(--wfx-space-8); min-height: 60vh; }
   transition: background-color var(--wfx-dur-out) var(--wfx-ease), border-color var(--wfx-dur-out) var(--wfx-ease), color var(--wfx-dur-out) var(--wfx-ease), transform var(--wfx-dur-out) var(--wfx-ease); }
 .btn:hover { background: var(--wfx-surface-2); border-color: var(--wfx-ink-3); transition-duration: var(--wfx-dur-micro); }
 /* primary = the one filled accent on a view; everything else is outline */
-.btn.primary { background: var(--wfx-brand); border-color: var(--wfx-brand); color: var(--wfx-brand-ink); }
-.btn.primary:hover { background: var(--wfx-brand-hover); border-color: var(--wfx-brand-hover); }
+.btn.primary { background: var(--wfx-accent); border-color: var(--wfx-accent); color: var(--wfx-accent-ink); }
+.btn.primary:hover { background: color-mix(in oklab, var(--wfx-accent) 86%, var(--wfx-ink)); border-color: transparent; }
 .btn:active { transform: translateY(1px) scale(0.985); transition-duration: var(--wfx-dur-press); }
 @media (hover: hover) and (pointer: fine) { .btn:hover:not(:active) { transform: translateY(-1px); } }
 .btn.small { min-height: 36px; padding: 0 var(--wfx-space-4); font-size: var(--wfx-t-sm); }
