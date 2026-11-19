@@ -24,5 +24,7 @@ export const serverRoutes: ServerRoute[] = [
   },
   // a saved workflow is opened by its ID and loaded from the knowledge server: it is drawn in the browser only
   { path: 'workflow-designer/:id', renderMode: RenderMode.Client },
+  // a sales order is opened by its id from the server: drawn in the browser only
+  { path: 'sales-order/:id', renderMode: RenderMode.Client },
   { path: '**', renderMode: RenderMode.Prerender },
 ];

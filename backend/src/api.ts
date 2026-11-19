@@ -33,6 +33,9 @@ import type { DraftDoc } from './workflows/generate.ts';
 import { enrich as enrichGraph } from './workflows/generate.ts';
 import { selectDiagram } from './workflows/select.ts';
 import { inside, nowIso, toPosix } from './util.ts';
+import * as SO from './sales/orders.ts';
+import * as SOC from './sales/config.ts';
+import { TOOLS as SO_TOOLS } from './sales/masters.ts';
 import { addQuestion, listUnits, regenerate as regenerateEnrichment, setQuestion, setUnitReview, summary as enrichmentSummary, tryQuestion, unitDetail } from './enrich/review.ts';
 
 export interface Ctx { req: http.IncomingMessage; res: http.ServerResponse; url: URL; params: Record<string, string>; user: User | null; token?: string; ip: string; body: Record<string, unknown>; raw: Buffer; ua: string }
@@ -402,6 +405,85 @@ export const routes: Route[] = [
     const res = search(q, { limit: Math.min(Number(c.body['limit'] ?? 20), 50), kinds: Array.isArray(c.body['kinds']) ? (c.body['kinds'] as string[]).slice(0, 10) : undefined, module: str(c.body['module'], 80) || undefined, includeHistory: c.body['includeHistory'] === true });
     return { ...res, hits: res.hits.map((h) => ({ ...h, text: h.text.slice(0, 600) })) };
   }),
+  // ── Sales Order (Main OC → Delivery OC → Article → Colour/Size) ──
+  r('GET', '/api/v2/so/masters', 'user', () => SO.listMasters()),
+  r('GET', '/api/v2/so/tools', 'user', (c) => ({ tools: SO.toolsOf(c.user!) })),
+  r('GET', '/api/v2/so/orders', 'user', (c) => {
+    const p = c.url.searchParams;
+    return SO.listOrders(c.user!, { mode: p.get('mode') === 'style' ? 'style' : 'main', q: p.get('q')?.slice(0, 80) ?? '', status: p.get('status') ?? '', buyer: p.get('buyer') ?? '',
+      page: Number(p.get('page') ?? 1), size: Number(p.get('size') ?? 20), sort: p.get('sort') === 'asc' ? 'asc' : 'desc' });
+  }),
+  r('GET', '/api/v2/so/layout', 'user', (c) => SOC.resolveLayout(c.url.searchParams.get('list') === 'List' ? 'List' : 'New', c.user!.id, c.url.searchParams.get('buyer') ?? undefined)),
+  r('POST', '/api/v2/so/orders', 'user', (c) => SO.createOrder(c.user!, { category: str(c.body['category'], 40), buyer: str(c.body['buyer'], 40) })),
+  r('GET', '/api/v2/so/orders/:id', 'user', (c) => SO.getOrder(c.user!, Number(c.params['id']))),
+  r('PATCH', '/api/v2/so/orders/:id', 'user', (c) => { SO.updateHeader(c.user!, Number(c.params['id']), (c.body['values'] ?? {}) as Record<string, unknown>, c.body['instructions'] as Record<string, string> | undefined); return SO.getOrder(c.user!, Number(c.params['id'])); }),
+  r('POST', '/api/v2/so/orders/:id/action', 'user', (c) => {
+    const id = Number(c.params['id']);
+    const a = str(c.body['action'], 30);
+    const remarks = str(c.body['remarks'], 500);
+    const out: Record<string, unknown> = {};
+    if (a === 'confirm') Object.assign(out, SO.confirmOrder(c.user!, id, c.body['approverId'] ? Number(c.body['approverId']) : null));
+    else if (a === 'approve') Object.assign(out, SO.approveOrder(c.user!, id, remarks, c.body['nextApproverId'] ? Number(c.body['nextApproverId']) : null));
+    else if (a === 'reject') SO.rejectOrder(c.user!, id, remarks);
+    else if (a === 'revise') SO.reviseOrder(c.user!, id, str(c.body['reason'], 300), str(c.body['authorizedBy'], 100));
+    else if (a === 'cancel') SO.cancelOrder(c.user!, id, remarks);
+    else if (a === 'close') SO.closeOrder(c.user!, id, remarks);
+    else if (a === 'sync-price') Object.assign(out, SO.syncPrices(c.user!, id));
+    else if (a === 'add-delivery') out['deliveryId'] = SO.addDelivery(c.user!, id, (c.body['delivery'] ?? {}) as SO.DeliveryInput);
+    else fail(400, 'Unknown action.');
+    audit(c.user, `so-${a}`, 'sales-order', String(id), remarks, c.ip);
+    return { ...out, order: SO.getOrder(c.user!, id) };
+  }),
+  r('POST', '/api/v2/so/deliveries/action', 'user', (c) => {
+    const a = str(c.body['action'], 30);
+    const ids = (Array.isArray(c.body['ids']) ? c.body['ids'] : []).map(Number).filter((n) => n > 0).slice(0, 200);
+    const remarks = str(c.body['remarks'], 500);
+    const first = ids[0] ?? fail(400, 'Select a delivery.');
+    const orderId = SO.getDeliveryOrder(first);
+    const out: Record<string, unknown> = {};
+    if (a === 'update') SO.updateDelivery(c.user!, first, (c.body['delivery'] ?? {}) as SO.DeliveryInput);
+    else if (a === 'copy') out['deliveryId'] = SO.copyDelivery(c.user!, first);
+    else if (a === 'delete') SO.deleteDeliveries(c.user!, ids);
+    else if (a === 'cancel') SO.cancelDeliveries(c.user!, ids, remarks);
+    else if (a === 'close') SO.closeDeliveries(c.user!, ids, remarks);
+    else if (a === 'reopen') SO.reopenDeliveries(c.user!, ids, remarks);
+    else if (a === 'split') out['deliveryId'] = SO.splitDelivery(c.user!, first, str(c.body['mode'], 12) === 'quantity' ? 'quantity' : 'percentage', Number(c.body['value']));
+    else if (a === 'add-article') out['lineId'] = SO.addArticle(c.user!, first, str(c.body['article'], 40));
+    else fail(400, 'Unknown action.');
+    audit(c.user, `so-delivery-${a}`, 'sales-order', String(orderId), ids.join(','), c.ip);
+    return { ...out, order: SO.getOrder(c.user!, orderId) };
+  }),
+  r('POST', '/api/v2/so/lines/:id', 'user', (c) => {
+    const id = Number(c.params['id']);
+    const orderId = SO.getLineOrder(id);
+    const a = str(c.body['action'], 30);
+    if (a === 'update') SO.updateArticle(c.user!, id, { bomId: c.body['bomId'] === undefined ? undefined : (str(c.body['bomId'], 60) || null), extraProductionPct: c.body['extraProductionPct'] === undefined ? undefined : Number(c.body['extraProductionPct']), fields: c.body['fields'] as Record<string, unknown> | undefined });
+    else if (a === 'remove') SO.removeArticle(c.user!, id);
+    else if (a === 'add-qty') SO.addBreakup(c.user!, id, c.body['additional'] === true);
+    else fail(400, 'Unknown action.');
+    return { order: SO.getOrder(c.user!, orderId) };
+  }),
+  r('POST', '/api/v2/so/breakups/:id', 'user', (c) => {
+    const id = Number(c.params['id']);
+    const orderId = SO.getBreakupOrder(id);
+    if (str(c.body['action'], 20) === 'delete') SO.deleteBreakup(c.user!, id);
+    else SO.saveBreakup(c.user!, id, c.body as unknown as SO.BreakupInput);
+    return { order: SO.getOrder(c.user!, orderId) };
+  }),
+  r('GET', '/api/v2/so/approvals', 'user', (c) => ({ pending: SO.pendingApprovals(c.user!), done: SO.approvalLog(c.user!), approvers: SO.approverRows() })),
+  // setup: SLC, Additional Fields, buyer-wise views, approvers, tool permissions (admin)
+  r('GET', '/api/v2/so/setup', ADMIN, () => ({ fields: SOC.fields(), slcNew: SOC.getSlc('New'), slcList: SOC.getSlc('List'), views: SOC.listViews(),
+    users: listUsers().filter((u) => !u.pending && !u.disabled).map((u) => ({ id: u.id, username: u.username, displayName: u.displayName, role: u.role })),
+    approvers: SO.approverRows(), tools: SO.toolRows(), allTools: SO_TOOLS, settings: SO.settingRows(), buyers: SO.listMasters().buyers })),
+  r('PUT', '/api/v2/so/setup/slc/:list', ADMIN, (c) => { SOC.saveSlc(c.params['list'] === 'List' ? 'List' : 'New', (c.body['rows'] ?? []) as SOC.SlcRow[], c.user!.username); audit(c.user, 'so-slc-saved', 'slc', c.params['list'], '', c.ip); return { ok: true }; }),
+  r('POST', '/api/v2/so/setup/fields', ADMIN, (c) => SOC.addAdditionalField({ label: str(c.body['label'], 80), fieldType: str(c.body['fieldType'], 20), multi: c.body['multi'] === true, options: (Array.isArray(c.body['options']) ? c.body['options'] : []).map((x) => String(x).slice(0, 80)).slice(0, 100), validation: str(c.body['validation'], 20) || 'None' })),
+  r('DELETE', '/api/v2/so/setup/fields/:key', ADMIN, (c) => { SOC.deleteAdditionalField(c.params['key']); return { ok: true }; }),
+  r('POST', '/api/v2/so/setup/views', ADMIN, (c) => SOC.saveView({ id: c.body['id'] ? Number(c.body['id']) : undefined, name: str(c.body['name'], 80), listType: str(c.body['listType'], 8) as SOC.ListType, buyers: (Array.isArray(c.body['buyers']) ? c.body['buyers'] : []).map(String), fields: (c.body['fields'] ?? []) as SOC.ViewField[], listScope: str(c.body['listScope'], 30) }, c.user!.username)),
+  r('PUT', '/api/v2/so/setup/views/:id/users', ADMIN, (c) => SOC.setViewUsers(Number(c.params['id']), (Array.isArray(c.body['users']) ? c.body['users'] : []).map(Number))),
+  r('DELETE', '/api/v2/so/setup/views/:id', ADMIN, (c) => { SOC.deleteView(Number(c.params['id'])); return { ok: true }; }),
+  r('PUT', '/api/v2/so/setup/approvers', ADMIN, (c) => { SO.setApprovers((c.body['approvers'] ?? []) as { userId: number; limit: number; isFinal: boolean }[]); return { approvers: SO.approverRows() }; }),
+  r('PUT', '/api/v2/so/setup/tools', ADMIN, (c) => { SO.setTools((c.body['tools'] ?? {}) as Record<string, string[]>); return { tools: SO.toolRows() }; }),
+  r('PUT', '/api/v2/so/setup/settings', ADMIN, (c) => { SO.setSettings((c.body['settings'] ?? {}) as Record<string, string>); return { settings: SO.settingRows() }; }),
   // knowledge enrichment (question mapping): everyone signed in can look, editors change questions, approvers approve units
   r('GET', '/api/v2/enrichment/summary', 'user', () => enrichmentSummary()),
   r('GET', '/api/v2/enrichment/units', 'user', (c) => ({ units: listUnits(c.url.searchParams.get('module')?.slice(0, 80) || 'Sales Order', c.url.searchParams.get('filter')?.slice(0, 20) ?? '', c.url.searchParams.get('q')?.slice(0, 120) ?? '') })),

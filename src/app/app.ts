@@ -30,6 +30,7 @@ export class App {
     { path: '/theory', label: 'Theory' },
     { path: '/calculations', label: 'Formulas' },
     { path: '/data', label: 'Data' },
+    { path: '/sales-order', label: 'Sales', also: ['/sales-order-setup'] },
   ];
   /** The knowledge platform (assistant, library, rulebook, designers …) lives in one top-bar menu. */
   protected readonly kb = inject(KbService);

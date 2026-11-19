@@ -11,6 +11,7 @@ import { routes } from './api.ts';
 import type { Ctx } from './api.ts';
 import { syncAdminDirectory } from './admin/directory.ts';
 import { syncRegistry } from './registry/registry.ts';
+import { syncSalesMasters } from './sales/masters.ts';
 import { issueSetupToken, sessionUser, setupRequired } from './auth.ts';
 import { indexLibrary } from './index/indexer.ts';
 import { readRegistry, reindexDocuments } from './ingest/pipeline.ts';
@@ -160,6 +161,7 @@ if (isMain) {
   }
   // the readable list of users (knowledge/admin/users.txt) and its admin-only passages follow the accounts table
   try { const r = syncRegistry(); if (r.problems.length) log('warn', 'registry problems', { problems: r.problems }); } catch (e) { log('error', 'registry not indexed', { error: (e as Error).message }); }
+  try { syncSalesMasters(); } catch (e) { log('error', 'sales order masters not loaded', { error: (e as Error).message }); }
   try { syncAdminDirectory(); } catch (e) { log('error', 'admin directory not written', { error: (e as Error).message }); }
   if (!get('SELECT 1 FROM documents LIMIT 1') && readRegistry().documents.length) {
     const d = await reindexDocuments();
