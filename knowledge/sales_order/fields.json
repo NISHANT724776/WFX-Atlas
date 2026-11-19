@@ -1,0 +1,1160 @@
+[
+ {
+  "key": "manager",
+  "label": "Manager",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 1,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "division_manager",
+  "label": "Division Manager",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 2,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "sales_order_no",
+  "label": "Sales Order No",
+  "level": "Header",
+  "section": "Order Information",
+  "visibility": "Always",
+  "type": "text",
+  "seq": 3,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "ship_under_po_ref",
+  "label": "Ship Under PO Ref",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Always",
+  "type": "text",
+  "seq": 4,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "category",
+  "label": "Category",
+  "level": "Header",
+  "section": "Order Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 5,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "category"
+ },
+ {
+  "key": "buyer",
+  "label": "Buyer",
+  "level": "Header",
+  "section": "Order Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 6,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "buyer"
+ },
+ {
+  "key": "buyer_division_dept",
+  "label": "Buyer Division/Dept",
+  "level": "Header",
+  "section": "Order Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 7,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "department"
+ },
+ {
+  "key": "sales_manager",
+  "label": "Sales Manager",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 8,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "sourcing_manager",
+  "label": "Sourcing Manager",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 9,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "order_season",
+  "label": "Order Season",
+  "level": "Header",
+  "section": "Order Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 10,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "season"
+ },
+ {
+  "key": "currency",
+  "label": "Currency",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 11,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "currency"
+ },
+ {
+  "key": "agent_name",
+  "label": "Agent Name",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 12,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "country_of_origin",
+  "label": "Country of Origin",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 13,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "floor_set_date",
+  "label": "Floor Set Date",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 14,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "speed_code",
+  "label": "Speed Code",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 15,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "sales_contract",
+  "label": "Sales Contract",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 16,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "notify_1",
+  "label": "Notify 1",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 17,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "notify_2",
+  "label": "Notify 2",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 18,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "forwarder",
+  "label": "Forwarder",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 19,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "service_oc_no",
+  "label": "Service/OC No",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 20,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "buyer_order_date",
+  "label": "Buyer Order Date",
+  "level": "Header",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 21,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "order_initiation_date",
+  "label": "Order Initiation Date",
+  "level": "Article",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 22,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "trim_instructions",
+  "label": "Trim Instructions",
+  "level": "Article",
+  "section": "Instruction",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 23,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "wash_instructions",
+  "label": "Wash Instructions",
+  "level": "Article",
+  "section": "Instruction",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 24,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "testing_instructions",
+  "label": "Testing Instructions",
+  "level": "Article",
+  "section": "Instruction",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 25,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "fabric_instructions",
+  "label": "Fabric Instructions",
+  "level": "Article",
+  "section": "Instruction",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 26,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "packing_instructions",
+  "label": "Packing Instructions",
+  "level": "Article",
+  "section": "Instruction",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 27,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "approval_instructions",
+  "label": "Approval Instructions",
+  "level": "Article",
+  "section": "Instruction",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 28,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "order_type",
+  "label": "Order Type",
+  "level": "Article",
+  "section": "Other Detail",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 29,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "order_type"
+ },
+ {
+  "key": "block_booking_no",
+  "label": "Block Booking No",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 30,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "sustainable_order",
+  "label": "Sustainable Order",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 31,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "article_name_code",
+  "label": "Article Name/Code",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 32,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "article"
+ },
+ {
+  "key": "buyer_style_ref",
+  "label": "Buyer Style Ref.",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "text",
+  "seq": 34,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "link_block_booking",
+  "label": "Link Block Booking",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 35,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "sample_ref",
+  "label": "Sample Ref.",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 36,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "uom",
+  "label": "UOM",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 37,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "uom"
+ },
+ {
+  "key": "ref_style_no",
+  "label": "Ref Style No",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 38,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "extra_production",
+  "label": "Extra Production %",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "numeric",
+  "seq": 39,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "technical_manager",
+  "label": "Technical Manager",
+  "level": "Article",
+  "section": "Other Detail",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 40,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "purchase_officer",
+  "label": "Purchase Officer",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 41,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "total_upcharge_amount",
+  "label": "Total Upcharge Amount",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "numeric",
+  "seq": 42,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "upcharge_currency",
+  "label": "Upcharge Currency",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 43,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "quota_category",
+  "label": "Quota Category",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 44,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "hts_code",
+  "label": "HTS Code",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 45,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "tba_remarks_date",
+  "label": "TBA Remarks Date",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 46,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "tba_remarks",
+  "label": "TBA Remarks",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 47,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "zone",
+  "label": "Zone",
+  "level": "Article",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 48,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "delivery_buyer_order_ref",
+  "label": "Delivery Buyer Order Ref",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 49,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "oc_delivery_date",
+  "label": "OC Delivery Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 50,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "po_packet_target_date",
+  "label": "PO Packet Target Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 51,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "gac_date",
+  "label": "GAC Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 52,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "mode_of_shipment",
+  "label": "Mode of Shipment",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 53,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "shipment_mode"
+ },
+ {
+  "key": "buyer_delivery_date",
+  "label": "Buyer Delivery Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "date",
+  "seq": 54,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "seal_by_date",
+  "label": "Seal By Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 55,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "original_gac_date",
+  "label": "Original GAC Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 56,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "raw_material_eta",
+  "label": "Raw Material ETA",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 57,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "delivery_cancel_date",
+  "label": "Delivery Cancel Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 58,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "country_of_final_destination",
+  "label": "Country of Final Destination",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 59,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "country"
+ },
+ {
+  "key": "market",
+  "label": "Market",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 60,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "market"
+ },
+ {
+  "key": "pcd_date",
+  "label": "PCD Date",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 61,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "final_destination",
+  "label": "Final Destination",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 62,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "ship_to_address",
+  "label": "Ship To Address",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 63,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "delivery_terms",
+  "label": "Delivery Terms",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 64,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "delivery_terms"
+ },
+ {
+  "key": "bill_to",
+  "label": "Bill To",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "lookup",
+  "seq": 65,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "bill_to"
+ },
+ {
+  "key": "other_instruction",
+  "label": "Other Instruction",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 66,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "buyer_lot_no",
+  "label": "Buyer LOT No.",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 67,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "internal_lot_no",
+  "label": "Internal LOT No.",
+  "level": "Delivery",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 68,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "packing_type",
+  "label": "Packing Type",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 70,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "packing_type"
+ },
+ {
+  "key": "packing_code_sku",
+  "label": "Packing Code (SKU)",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 71,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "color",
+  "label": "Color",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 72,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "size",
+  "label": "Size",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 73,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "selling_price",
+  "label": "Selling Price",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "text",
+  "seq": 74,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "quantity_breakup",
+  "label": "Quantity Breakup",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "numeric",
+  "seq": 75,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "total_quantity",
+  "label": "Total Quantity",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "numeric",
+  "seq": 76,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "total_value",
+  "label": "Total Value",
+  "level": "Delivery+SKU",
+  "section": "Delivery Level Information",
+  "visibility": "Always",
+  "type": "numeric",
+  "seq": 77,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_buyer_division_dept",
+  "label": "Buyer Division/Dept",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 78,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "department"
+ },
+ {
+  "key": "x_customer_requested_gac_date",
+  "label": "Customer Requested GAC Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 79,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_delivery_material_eta",
+  "label": "Delivery Material ETA",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 80,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_po_packet_target_date",
+  "label": "PO Packet Target Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 81,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_order_type",
+  "label": "Order Type",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 82,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "order_type"
+ },
+ {
+  "key": "x_prompt_on_multiple_purchase_orders_from_buyer_for_the_same_style",
+  "label": "Prompt on multiple Purchase Orders from Buyer for the same style",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 83,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_delivery_season",
+  "label": "Delivery Season",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 84,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_gac_date",
+  "label": "GAC Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 85,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_raw_material_eta",
+  "label": "Raw Material ETA",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 86,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_extra_production",
+  "label": "Extra Production %",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 87,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_quota_country_group",
+  "label": "Quota Country Group",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 88,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_hts_num",
+  "label": "HTS Num",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 89,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_tba_remark",
+  "label": "TBA Remark",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 90,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_forwarder",
+  "label": "Forwarder",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 91,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_attention",
+  "label": "Attention",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 92,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_agent",
+  "label": "Agent",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 93,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_uom",
+  "label": "UOM",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 94,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "uom"
+ },
+ {
+  "key": "x_internal_lot_no",
+  "label": "Internal LOT No.",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 95,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_show_transfer_price_order_notification_in_summary_oc",
+  "label": "Show Transfer Price Order Notification in Summary OC",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 96,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_po_trigger_date",
+  "label": "PO Trigger Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 97,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_initial_pcd",
+  "label": "Initial PCD",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 98,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_packaging_uom",
+  "label": "Packaging UOM",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 99,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_ship_to_address_for_oc",
+  "label": "Ship To Address For OC",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 100,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_technical_manager",
+  "label": "Technical Manager",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 101,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_business_unit",
+  "label": "Business Unit",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 102,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_buyer_currency_and_exchange_rate_in_case_of_tp_order",
+  "label": "Buyer Currency and Exchange Rate in Case of TP Order",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 103,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_delivery_terms",
+  "label": "Delivery Terms",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "lookup",
+  "seq": 104,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)",
+  "lookup": "delivery_terms"
+ },
+ {
+  "key": "x_link_inquiry_order",
+  "label": "Link Inquiry Order",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 105,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_retail_price_retail_currency",
+  "label": "Retail Price & Retail Currency",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 106,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_advertised_date",
+  "label": "Advertised Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 107,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_speed_code",
+  "label": "Speed Code",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 108,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_shipment_terms",
+  "label": "Shipment Terms",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 109,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_gst_port_of_discharge",
+  "label": "GST Port of Discharge",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 110,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_final_destination",
+  "label": "Final Destination",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 111,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_eta",
+  "label": "ETA",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 112,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_port_of_loading",
+  "label": "Port Of Loading",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 113,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_shipping_bill_date",
+  "label": "Shipping Bill Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 114,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_fcr_date",
+  "label": "FCR Date",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "date",
+  "seq": 115,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ },
+ {
+  "key": "x_shipping_dept_ref_no",
+  "label": "Shipping Dept. Ref No.",
+  "level": "Additional",
+  "section": "Additional Fields",
+  "visibility": "Optional",
+  "type": "text",
+  "seq": 116,
+  "source": "Sprint-01 §1.3 field table (Sales Order New)"
+ }
+]

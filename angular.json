@@ -62,7 +62,8 @@
               "src/design-system/motion.css",
               "src/design-system/components.css",
               "src/styles.scss",
-              "src/platform.scss"
+              "src/platform.scss",
+              "src/sales.scss"
             ],
             "server": "src/main.server.ts",
             "outputMode": "static",
@@ -76,7 +77,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "500kB"
+                  "maximumError": "600kB"
                 },
                 {
                   "type": "anyComponentStyle",

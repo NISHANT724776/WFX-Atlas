@@ -1,0 +1,52 @@
+{
+  "_about": "Sales Order masters for WFX Atlas. Every record names its source. Records marked 'spec example' are the example values used in the Sales Order specifications, not captured WFX data. Edit this file and run npm run kb:reindex (or restart the server) to reload; orders already saved keep their own copies of price and dates.",
+  "categories": [
+    { "code": "Apparel", "name": "Apparel", "source": "Sprint-01 Add New Order (Category = Apparel); NIS-58 / NIS-59 are apparel styles" }
+  ],
+  "buyers": [
+    { "code": "GAP-KIDS", "name": "GAP Kids", "category": "Apparel", "departments": ["Kids-Tops-Knits"], "currency": "INR", "seasons": ["AW26"],
+      "source": "Apparel techpack Adi TShirt (NIS-59) buyer, Buyer Block Booking PPJ179 (season AW26) – captured WFX data" },
+    { "code": "LEVIS", "name": "LEVIS", "category": "Apparel", "departments": [], "currency": "INR", "seasons": ["AW26"], "source": "spec example – Sprint-01 buyer-wise view logic (LEVIS → PK View)" },
+    { "code": "GAP", "name": "GAP", "category": "Apparel", "departments": [], "currency": "INR", "seasons": ["AW26"], "source": "spec example – Sprint-01 buyer-wise view logic (GAP → SK View)" },
+    { "code": "RED-TAPE", "name": "RED TAPE", "category": "Apparel", "departments": [], "currency": "INR", "seasons": ["AW26"], "source": "spec example – Sprint-01 buyer-wise view logic (RED TAPE → RK View)" }
+  ],
+  "colours": [
+    { "code": "372", "name": "BALSAM TREE" }, { "code": "3909", "name": "Cosmic sky purple" }, { "code": "475", "name": "Happy Pink" }, { "code": "968", "name": "New Off White" },
+    { "code": "762", "name": "Primitive" }, { "code": "291", "name": "True Black" }, { "code": "201", "name": "Light Green" }, { "code": "TBA", "name": "TBA" }
+  ],
+  "sizes": [
+    { "code": "34S", "name": "Small S" }, { "code": "38M", "name": "Medium M" }, { "code": "42L1", "name": "Large L1" }, { "code": "46XL", "name": "Extra Large XL" },
+    { "code": "50XXL", "name": "Double XL XXL" }, { "code": "TBA", "name": "TBA" }
+  ],
+  "articles": [
+    { "code": "NIS-58", "name": "Flannel Shirt Adi", "buyer": "GAP-KIDS", "category": "Apparel", "colourCard": "Nis_colors", "sizeRange": "ERPSIZE",
+      "inseams": ["Regular", "Tall", "Short"], "pricePer": "Article", "basePrice": 33.3333, "uom": "PCS", "uomDecimals": 0, "isKit": false,
+      "source": "Flannel Shirt Adi (NIS-58) – Excel trial; base price = OC GAPS.NEWOC-249.1 selling price 33.3333; inseams from the Sprint-3 inseam examples (spec example)" },
+    { "code": "NIS-59", "name": "Adi TShirt", "buyer": "GAP-KIDS", "category": "Apparel", "colourCard": "Nis_colors", "sizeRange": "ERPSIZE",
+      "inseams": [], "pricePer": "Article", "basePrice": 4000, "uom": "PCS", "uomDecimals": 0, "isKit": false,
+      "source": "Adi TShirt (NIS-59) – captured WFX apparel techpack; base price = BOM #1 DP cost sheet selling price 4,000" }
+  ],
+  "boms": [
+    { "id": "NIS-58#1DP", "article": "NIS-58", "bomNo": "#1 DP", "version": 1, "status": "Approved", "accepted": true, "acceptedOn": "2026-11-10", "sellingPrice": 33.3333, "routing": "#1 · Approved",
+      "source": "BOM used by the order (NIS-58) – Excel trial" },
+    { "id": "NIS-59#1DP", "article": "NIS-59", "bomNo": "#1 DP", "version": 1, "status": "Approved", "accepted": true, "acceptedOn": "2026-11-12", "sellingPrice": 4000, "routing": "Routing #1 · Approved",
+      "source": "Production BOM #1 DP · V1, Routing #1 Approved, cost summary selling price 4,000 – captured WFX data" }
+  ],
+  "costSheets": [
+    { "article": "NIS-58", "destination": "", "status": "Confirmed", "sellingPrice": 33.3333, "revisedOn": "2026-11-10", "source": "OC GAPS.NEWOC-249.1 selling price (NIS-58 Excel trial)" },
+    { "article": "NIS-59", "destination": "", "status": "Confirmed", "sellingPrice": 4000, "revisedOn": "2026-11-12", "source": "BOM #1 DP cost summary (captured WFX data)" }
+  ],
+  "exFactory": [
+    { "shipmentMode": "Sea", "buyer": "GAP-KIDS", "department": "", "days": 7, "source": "spec example – Sprint-3 Ex Factory Calculation master (days before Buyer Delivery Date)" }
+  ],
+  "lookups": {
+    "shipment_mode": ["Sea", "Air", "Road"],
+    "order_type": ["Manufacturing", "CM", "Back Order", "Purchase Order", "Make to Stock"],
+    "packing_type": ["Solid Color / Solid Size", "Solid Color / Assorted Size", "Multiple Prepack"],
+    "country": ["India", "United States", "United Kingdom"],
+    "currency": ["INR", "USD"],
+    "uom": ["PCS"],
+    "market": [], "delivery_terms": ["FOB", "CIF"], "bill_to": []
+  },
+  "lookupSource": "Order types: Order type handling (Back, Purchase, MTS) and Sprint-01 CM; packing types: Sprint-3; other lists are spec examples to be replaced by the company masters"
+}
