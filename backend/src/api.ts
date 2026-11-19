@@ -33,6 +33,7 @@ import type { DraftDoc } from './workflows/generate.ts';
 import { enrich as enrichGraph } from './workflows/generate.ts';
 import { selectDiagram } from './workflows/select.ts';
 import { inside, nowIso, toPosix } from './util.ts';
+import { addQuestion, listUnits, regenerate as regenerateEnrichment, setQuestion, setUnitReview, summary as enrichmentSummary, tryQuestion, unitDetail } from './enrich/review.ts';
 
 export interface Ctx { req: http.IncomingMessage; res: http.ServerResponse; url: URL; params: Record<string, string>; user: User | null; token?: string; ip: string; body: Record<string, unknown>; raw: Buffer; ua: string }
 type Auth = 'public' | 'user' | Role[];
@@ -401,6 +402,31 @@ export const routes: Route[] = [
     const res = search(q, { limit: Math.min(Number(c.body['limit'] ?? 20), 50), kinds: Array.isArray(c.body['kinds']) ? (c.body['kinds'] as string[]).slice(0, 10) : undefined, module: str(c.body['module'], 80) || undefined, includeHistory: c.body['includeHistory'] === true });
     return { ...res, hits: res.hits.map((h) => ({ ...h, text: h.text.slice(0, 600) })) };
   }),
+  // knowledge enrichment (question mapping): everyone signed in can look, editors change questions, approvers approve units
+  r('GET', '/api/v2/enrichment/summary', 'user', () => enrichmentSummary()),
+  r('GET', '/api/v2/enrichment/units', 'user', (c) => ({ units: listUnits(c.url.searchParams.get('module')?.slice(0, 80) || 'Sales Order', c.url.searchParams.get('filter')?.slice(0, 20) ?? '', c.url.searchParams.get('q')?.slice(0, 120) ?? '') })),
+  r('GET', '/api/v2/enrichment/units/:id', 'user', (c) => unitDetail(decodeURIComponent(c.params['id'])) ?? fail(404, 'Unknown knowledge unit.')),
+  r('POST', '/api/v2/enrichment/units/:id/questions', EDIT, (c) => {
+    const id = decodeURIComponent(c.params['id']);
+    const out = c.body['norm']
+      ? setQuestion(id, str(c.body['norm'], 400), { status: (str(c.body['status'], 12) || undefined) as never, text: str(c.body['text'], 300) || undefined }, c.user!.username)
+      : addQuestion(id, str(c.body['text'], 300), str(c.body['category'], 20), c.user!.username);
+    audit(c.user, 'enrichment-question', 'knowledge-unit', id, str(c.body['status'], 12) || 'edit', c.ip);
+    return out;
+  }),
+  r('POST', '/api/v2/enrichment/units/:id/review', APPROVE, (c) => {
+    const id = decodeURIComponent(c.params['id']);
+    const review = str(c.body['review'], 20) === 'approved' ? 'approved' : 'needs-review';
+    audit(c.user, 'enrichment-unit-review', 'knowledge-unit', id, review, c.ip);
+    return setUnitReview(id, review, str(c.body['note'], 300), c.user!.username);
+  }),
+  r('POST', '/api/v2/enrichment/regenerate', EDIT, (c) => {
+    const module = str(c.body['module'], 80) || undefined;
+    const out = regenerateEnrichment(module);
+    audit(c.user, 'enrichment-regenerated', 'module', module ?? 'configured', `${out.units} units, ${out.questions} questions`, c.ip);
+    return { ...out, sourceProblems: out.sourceProblems.slice(0, 20) };
+  }),
+  r('POST', '/api/v2/enrichment/try', 'user', (c) => ({ matches: tryQuestion(str(c.body['q'], 500), str(c.body['context'], 300) || undefined) })),
   r('POST', '/api/v2/ask', 'user', (c) => {
     if (!allow(`chat:${c.user!.id}`, 300, 3600_000)) fail(429, 'Question limit reached; try again later.');
     return answerQuestion(str(c.body['question'], 4000), { mode: (str(c.body['mode'], 20) || 'ask') as never, depth: (str(c.body['depth'], 10) || 'standard') as never, userId: c.user!.id });

@@ -1,0 +1,18 @@
+# Everyday phrasings → the plain word the documents use. ENGLISH ONLY: a line may never claim that two WFX terms are
+# the same thing (that needs a document, see terminology.txt). Used by the question mapping, not by the keyword search.
+# Format: phrase, phrase, … = word the documents use
+get rid of, erase, throw away, undo = delete
+greyed out, grayed out, not clickable, inactive button, cannot click = disabled
+stuck, held up, waiting, cannot proceed = blocked
+not showing, not visible, not listed, missing from, does not appear = not shown
+on leave, absent, unavailable, not available, away = missing
+open again, re-open, reactivate, bring back = reopen
+same, identical, exact copy, twice, repeated = duplicate
+download, excel, spreadsheet = export
+who changed, audit trail, change log, activity, trail = history
+surcharge, extra charge, markup, mark up, add on price = upcharge
+rebate, price reduction, less price, reduce the price = discount
+whole, entire, all deliveries, complete order = all
+compulsory, required, must enter, need to enter = mandatory
+organised, organized, arranged, structured, made up of = structure
+parts, sections, blocks, areas = sections

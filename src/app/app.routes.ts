@@ -19,6 +19,7 @@ export const routes: Routes = [
   { path: 'login', loadComponent: () => import('./platform/login') },
   { path: 'dashboard', loadComponent: () => import('./platform/dashboard') },
   { path: 'library', loadComponent: () => import('./platform/library') },
+  { path: 'question-mapping', loadComponent: () => import('./platform/question-mapping') },
   { path: 'rulebook', loadComponent: () => import('./platform/rulebook') },
   { path: 'transactions', loadComponent: () => import('./platform/transactions') },
   { path: 'calc-lab', loadComponent: () => import('./platform/calc-lab') },
