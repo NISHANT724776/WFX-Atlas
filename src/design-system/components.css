@@ -99,3 +99,22 @@
 .wfx-motif .m-live { stroke: var(--wfx-accent); stroke-dasharray: none; }
 .wfx-motif .m-node { fill: var(--wfx-canvas); stroke: var(--wfx-ink-2); stroke-width: 1.5; }
 .wfx-motif .m-node-live { fill: var(--wfx-accent); stroke: var(--wfx-accent); }
+/* interactive motif: steps open their transaction, lane names their workflow */
+.wfx-motif a { cursor: pointer; outline: none; }
+.wfx-motif .m-hit { fill: transparent; }
+.wfx-motif .m-node { transform-box: fill-box; transform-origin: center;
+  transition: transform var(--wfx-dur-out) var(--wfx-ease), fill var(--wfx-dur-out) var(--wfx-ease), stroke var(--wfx-dur-out) var(--wfx-ease); }
+.wfx-motif .m-node-on { stroke: var(--wfx-ink); transform: scale(1.35); transition-duration: var(--wfx-dur-micro); }
+.wfx-motif .m-node-live.m-node-on { stroke: var(--wfx-accent); }
+.wfx-motif .m-step:focus-visible .m-node { stroke: var(--wfx-focus); stroke-width: 2.5; transform: scale(1.35); }
+.wfx-motif .m-lane { transition: stroke var(--wfx-dur-out) var(--wfx-ease); }
+.wfx-motif .m-lane-on { stroke: var(--wfx-ink-3); }
+.wfx-motif .m-go { opacity: 0; transition: opacity var(--wfx-dur-out) var(--wfx-ease); }
+.wfx-motif .m-lane-link:hover .m-label, .wfx-motif .m-lane-link:focus-visible .m-label { fill: var(--wfx-ink); }
+.wfx-motif .m-lane-link:hover .m-go, .wfx-motif .m-lane-link:focus-visible .m-go { opacity: 1; }
+.wfx-motif .m-lane-link:focus-visible .m-label { text-decoration: underline; }
+.wfx-motif .m-packet { fill: var(--wfx-accent); }
+.wfx-motif .m-tip { pointer-events: none; }
+.wfx-motif .m-tip rect { fill: var(--wfx-ink); }
+.wfx-motif .m-tip text { font: 500 var(--wfx-t-xs) var(--wfx-font-ui); fill: var(--wfx-canvas); }
+@media (prefers-reduced-motion: reduce) { .wfx-motif .m-packet { display: none; } }

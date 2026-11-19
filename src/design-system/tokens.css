@@ -136,6 +136,13 @@
   --wfx-space-7:  64px;
   --wfx-space-8:  96px;
 
+  /* --- WFX logo gradient: primary buttons (fixed brand colours, every theme) */
+  --wfx-brand-from:   #43CECD;
+  --wfx-brand-to:     #1F6DB7;
+  --wfx-brand-grad:       linear-gradient(135deg, var(--wfx-brand-from) 0%, var(--wfx-brand-to) 100%);
+  --wfx-brand-grad-hover: linear-gradient(135deg, #36B9BC 0%, #1A5E9E 100%);
+  --wfx-brand-ink:    #FFFFFF;
+
   /* --- radius ---------------------------------------------------------- */
   --wfx-radius-sm:   6px;   /* buttons, inputs, chips (WFX/Aura button radius) */
   --wfx-radius:      8px;   /* cards, panels (WFX radius-md) */
