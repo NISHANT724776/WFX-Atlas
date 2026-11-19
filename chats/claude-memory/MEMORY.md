@@ -1,0 +1,3 @@
+- [WFX Knowledge Hub](wfx-knowledge-hub.md) — Angular site of WFX transactions from NIS-58 Excel; how to add next transactions, open BOM formula questions
+- [WFX Sales Order specs](wfx-sales-order-specs.md) — full rule digest of D:Sprints SO specs (use instead of re-reading the docx); open points
+- [WFX knowledge platform (v2)](wfx-knowledge-platform.md) — TXT knowledge library + Node/SQLite server + grounded assistant in ASN; owner's knowledge/AI rules; state and pitfalls

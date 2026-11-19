@@ -1,0 +1,29 @@
+---
+name: wfx-sales-order-specs
+description: "Sales Order spec digest (Sprint-01/02/3 V2, order types) — the rules themselves, so the Word files need not be re-read; plus decisions and open points"
+metadata:
+  node_type: memory
+  type: project
+  originSessionId: f0eeb508-248b-43ad-acac-b979ff989cde
+  modified: 2026-11-19T06:10:11.847Z
+---
+
+Sales Order (OC) re-write specs are Word files under `D:\Sprints\` (Sales Order Sprint\Sprint-01, Sprint-02, Sales Order Sprint - 3 V2; Order type handelling in Sales Order\Back, purchase, MTS Orders.docx; also Sales Order Gaps.docx, Purchase Order From Buyer\Desync Price OC List.docx). **User (2026-11-19): keep this in memory, do not re-read the files again and again.** Read fully (text + 283 screenshots) on 2026-11-19; the digest below is what they say.
+
+**Why:** the owner builds the Sales Order module in WFX Atlas (not v10) and wants the rules remembered.
+**How to apply:** use this digest; re-open a docx only for a detail not here. Sprint-01 sections 5–7 (menu permission, permissions handling, settings) were excluded for the knowledge base on 2026-11-12, but the 2026-11-19 build brief asks for tool permissions/approval, so those parts were built. Prototype sites (sales-order-sprint-3-screendesign*.vercel.app) are reference only — specs win. [[wfx-knowledge-platform]] [[wfx-knowledge-hub]]
+
+## Digest
+- **Structure:** Main OC (Sales Order) → Delivery OCs → Articles → Colour/Size breakup with selling price. List shows one row per order + article.
+- **SLC** (Admin › Configurator › SLC, list types Sales Order New / List): company level; per field Visible/Hidden, Mandatory (New only), Editable (New only, Sprint-3 correction), placement; no caption change (multilingual setup instead); no left/right pin on New. Field table (Sprint-01 §1.3): 114 fields in levels Header / Article / Delivery / Delivery+SKU / Flex, sections Order Information, Other Detail, Instruction, Delivery Level Information; "Always" = always visible. Stored as `knowledge/sales_order/fields.json`.
+- **View Configurator:** views per user/role/department inside the SLC; New views carry a mandatory multi-select Buyer, one New view per buyer; New permission = checkboxes (many views), List = radio (one view per user). List scope toggles: Created Order Permission / Created Order & Buyer wise. Buyer-wise logic: buyer's view if user permitted, else Default (GAP→SK no perm→Default; LEVIS→PK perm→PK; RED TAPE→RK no perm→Default).
+- **Flex → "Additional Fields"** (Sprint-3): Add Field popup, types Alphanumeric, Dropdown (single/multi), Date, Numeric Box, Text Box; validation None / Alphanumeric / Numeric.
+- **List:** label, global search (SO no, style), selected counter, Status + Buyer filters, sort by Created On, Add New Order, floating filter; status progress bar, deliveries count, actions column (edit, %), top 50 or own transactions.
+- **Deliveries (Sprint-02):** Add (button or + in sidebar, blank popup), Copy (style kept; number, date, lines re-entered), Delete (confirmation naming deliveries; until GMPO/ASN), Split from sidebar by % (default) or qty, Save replaces Confirm while splitting; Cancel/Close remarks mandatory, confirmation "Do you want to Cancel the selected Delivery Order(s)?", Cancelled red, Closed orange, Reopen only closed → Open green. Duplicate delivery = same Delivery Buyer Order Ref + Buyer Delivery Date + OC Delivery Date + Mode of Shipment. Delivery Update edits dates without revision.
+- **Approval (Sprint-02):** single (creator names approver; Home › Approval Centre › Sales Order › Pending Approval), multi-level (next approver chosen by previous; final approver), multiple approvers (default + selectable). Approval value per approver: 0 never, -1 always, >0 when value exceeds.
+- **Pricing:** Price Per from tech pack (Article/Color/Size/Color-Size), never typed; Final = Base ± Upcharge/Discount (read-only); price pickup from confirmed cost sheet/BOM by style + destination; latest accepted BOM unless user picks one; Desync (blue) when OC price ≠ cost sheet, Sync → green; Update OC price fetches latest confirmed cost sheet price; setting "OC Price Validation with selling price in cost sheet".
+- **Sprint-3:** tool permissions per user group (Program Permissions › Sales Order New › Tool Permission); Split/Shuffle DOC (target same order/buyer/style, Draft or editable, not Cancelled/Closed; Split Qty = Existing × % ÷ 100); Notes (Sales › Codes › OC Notes, active only, timeline entry); Cancel order cancels all DOCs; Close order not when Cancelled/Closed ("You cannot close a Cancelled or Closed Order."); ASN/GDN hyperlinks, Sales Invoice detail; Dispatch; TNA template Main OC/Style wise; Additional Qty; Packing Type: Solid Color/Solid Size (one colour + size), Solid Color/Assorted Size (PP column, one colour, "Only one color can be entered for this packing type.", PCS = PP × Size + …), Multiple Prepack (PCS = PP × TBA); Add Qty grid freezes packing type; Inseam (Petite, Missy, Regular, Tall, Long, Short) from Size Master; kit articles grid view only, no kit/non-kit mix; Ex-factory master (shipment mode, company, buyer, dept) → OC Delivery Date = Buyer Delivery Date − days; EDI Buyer PO tabs New/Revision/On Hold/Processed; Transfer Price forward/backward; Confirmed * = revised confirmed order with draft delivery (Delete disabled); Revise needs Reason for revision + Revision Authorized By.
+- **Order types:** Manufacturing, CM (supplier mandatory, GMPO per delivery, purchase price), Back Order (New PO/GMPO option), Purchase (style indents), Make to Stock (no Sales ASN; Material Allocation).
+
+## Open points still unconfirmed by the owner (built as noted in ASN/documentation/SALES_ORDER.md)
+PCS = PP × TBA meaning (screenshots contradict); which fields are mandatory; price-source order cost sheet vs BOM; Add Qty for Solid/Solid; copy-delivery scope; roles vs user groups; no-approver case.
