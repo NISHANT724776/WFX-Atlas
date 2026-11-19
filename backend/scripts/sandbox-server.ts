@@ -29,6 +29,7 @@ const { createServer } = await import('../src/server.ts');
 indexLibrary();
 await reindexDocuments();
 (await import('../src/registry/registry.ts')).syncRegistry();
+(await import('../src/enrich/review.ts')).refresh();
 const password = `Sandbox-${randomBytes(6).toString('hex')}`;
 createUser('sandbox-admin', 'Sandbox Admin', 'admin', password);
 fs.writeFileSync(path.join(dir, 'TEST-CREDENTIALS.txt'), `Sandbox only (temporary copy, not the real knowledge base)\nuser: sandbox-admin\npassword: ${password}\n`);

@@ -181,10 +181,21 @@ export function answerQuestion(question: string, opts: AskOptions = {}): Knowled
   if (mode === 'transaction') { const t = transactionAnswer(question, fu.question, depth, S); if (t) return t; }
   if (mode === 'data_model' || /\bdata ?model\b|\berd?\b|\bentit(y|ies)\b/.test(normalize(fu.question))) { const m = dataModelAnswer(question, fu.question, mode, S); if (m) return m; }
 
-  const sr = search(fu.question, { intent, limit: 16, includeAdmin: !!opts.admin });
-  const entryPool = search(fu.question, { intent, limit: 12, entriesOnly: true });
+  // the previous answer's topic reads with a follow-up question ("is the remark mandatory there?")
+  const mapCtx = opts.context ? { text: [opts.context.title, ...(opts.context.terms ?? [])].join(' ') } : undefined;
+  const sr = search(fu.question, { intent, limit: 16, includeAdmin: !!opts.admin, context: mapCtx });
+  const entryPool = search(fu.question, { intent, limit: 12, entriesOnly: true, context: mapCtx });
   for (const h of entryPool.hits) if (!sr.hits.some((x) => x.ref === h.ref)) sr.hits.push(h);
   sr.hits.sort((a, b) => b.score - a.score);
+  // the question maps equally well onto two modules and names neither: ask which one instead of picking
+  const [m1, m2] = sr.mapping ?? [];
+  const qn = ` ${normalize(fu.question)} `;
+  if (m1 && m2 && m1.module !== m2.module && m1.score >= 0.45 && m1.score - m2.score < 0.03 && ![m1.module, m2.module].some((m) => qn.includes(` ${normalize(m)} `))) {
+    const options = [m1, m2].map((m) => `${m.topic} (${m.module})`);
+    return finish(question, fu.question, intent, mode, S, { title: 'Which one do you mean?', status: 'partial',
+      statusNote: 'Your question fits two modules equally well, so it was not answered from either.',
+      sections: [{ kind: 'clarify', title: 'Which one do you mean?', items: options }], missing: [], followUps: options, topic: { title: fu.question, terms: [] } }, sr.corrections, opts);
+  }
   const top = sr.hits.slice(0, 6);
   const best = top[0];
   const coveredUnits = new Set(top.flatMap((h) => h.matched));

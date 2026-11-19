@@ -22,6 +22,8 @@
     "kb:ask": "node --disable-warning=ExperimentalWarning backend/scripts/ask.ts",
     "kb:inventory": "node --disable-warning=ExperimentalWarning backend/scripts/inventory.ts",
     "kb:evaluate": "node --disable-warning=ExperimentalWarning backend/scripts/evaluate.ts",
+    "kb:enrich": "node --disable-warning=ExperimentalWarning backend/scripts/enrich.ts",
+    "kb:eval-paraphrase": "node --disable-warning=ExperimentalWarning backend/scripts/eval-paraphrase.ts",
     "kb:typecheck": "tsc -p backend/tsconfig.json",
     "test:kb": "node tests/run.mjs"
   },

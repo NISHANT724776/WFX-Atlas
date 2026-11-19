@@ -1,0 +1,4 @@
+# Aliases a reviewer has confirmed against the documents. One per line:  term | means | source entry | module (optional)
+# Only add a line when a stored document says the two names are the same thing.
+Main OC | Sales Order | RULE-SO-LEVELS ("A Sales Order (Main OC) holds Deliveries (Delivery OCs)") | Sales Order
+Delivery OC | delivery | RULE-SO-LEVELS ("A Sales Order (Main OC) holds Deliveries (Delivery OCs)") | Sales Order

@@ -1,6 +1,6 @@
 # Knowledge evaluation
 
-Generated 2026-11-18 09:03 UTC by `npm run kb:evaluate` over `tests/retrieval/eval-set.json` (60 questions). The same set runs as an automated test (`npm run test:kb`).
+Generated 2026-11-19 04:42 UTC by `npm run kb:evaluate` over `tests/retrieval/eval-set.json` (60 questions). The same set runs as an automated test (`npm run test:kb`).
 Expected sources were checked by reading the entries; "not-documented" questions are questions the stored knowledge does not answer.
 
 | Measure | Result |
@@ -36,7 +36,7 @@ Version correctness, conflict detection, follow-ups and the calculation engine a
 | 19 | how do I change the location of stock with the mobile app | procedure | confirmed | PROC-INVENTORY-WMS-LOCATION-CHANGE | ✔ |
 | 20 | how do I log in to the WFX mobile application | procedure | confirmed | PROC-INVENTORY-WMS-MOBILE-LOGIN | ✔ |
 | 21 | what happens to rejected stock | procedure | confirmed | PROC-INVENTORY-REJECTED-STOCK-AND-DEBIT-NOTE | ✔ |
-| 22 | how do I approve a sales order | rule | confirmed | RULE-SO-APPROVAL-MULTIPLE | ✔ |
+| 22 | how do I approve a sales order | rule | confirmed | RULE-SO-APPROVAL-LIMIT | ✔ |
 | 23 | what is price per in sales order | rule | confirmed | TERM-PRICE-PER | ✔ |
 | 24 | how does split delivery work in sales order | rule | confirmed | TERM-SPLIT-DELIVERY | ✔ |
 | 25 | explain the kit pack process | document | documented | DOC-0010 | ✔ |
@@ -49,7 +49,7 @@ Version correctness, conflict detection, follow-ups and the calculation engine a
 | 32 | what is the maximum shrinkage allowed | not-documented | not-documented | TERM-SHRINKAGE | ✔ |
 | 33 | what is lead time in garment sourcing | not-documented | partial | TERM-BBB-BUYER-BLOCK-BOOKING | ✔ |
 | 34 | what is FOB price | not-documented | partial | TERM-TRANSFER-PRICE-MAPPING | ✔ |
-| 35 | how to cancel a purchase order | not-documented | partial | TERM-CANCEL-SALES-ORDER | ✔ |
+| 35 | how to cancel a purchase order | not-documented | partial | TERM-CANCEL-DELIVERY | ✔ |
 | 36 | can one RMPO have multiple suppliers | not-documented | partial | PROC-SOURCING-RMPO-FOR-MULTIPLE-INDENTS | ✔ |
 | 37 | how is open qty calculated in GRN | not-documented | partial | CALC-RMPO-OPEN | ✔ |
 | 38 | can I create a PO without indent | not-documented | documented | DOC-0006 | ✔ |

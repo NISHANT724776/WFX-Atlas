@@ -4,15 +4,19 @@
 import { all, get } from '../db.ts';
 import { detectIntent, editDistance, FILLER, INTENT_WORDS, KIND_FIT, normalize, stem, STOP, synonyms } from './lexicon.ts';
 import type { Intent } from './lexicon.ts';
+import { matchQuestion } from '../enrich/match.ts';
+import type { UnitMatch } from '../enrich/match.ts';
 
 export interface Unit { text: string; alts: string[][]; df: number; idf: number; known: boolean; corrected?: string }
 export interface Hit {
   id: number; ref: string; kind: string; title: string; heading: string; text: string; module: string | null; txn: string | null;
   status: string; sourceLabel: string; docId: string | null; docVersion: number | null; entryId: string | null; entryVersion: number | null;
   locator: string | null; isCurrent: boolean; score: number; coverage: number; titleCoverage: number; matched: string[]; missing: string[];
+  /** Set when the question mapping (semantic match on question variations) pointed at this entry. */
+  mapped?: { unitId: string; score: number; via: string };
 }
-export interface SearchOptions { /** Include the admin directory (users and roles). Only set for an administrator. */ includeAdmin?: boolean; entriesOnly?: boolean; limit?: number; kinds?: string[]; module?: string; includeHistory?: boolean; docId?: string; entryId?: string; intent?: Intent }
-export interface SearchResult { intent: Intent; units: Unit[]; hits: Hit[]; unknownUnits: string[]; corrections: Record<string, string> }
+export interface SearchOptions { /** Include the admin directory (users and roles). Only set for an administrator. */ includeAdmin?: boolean; /** Conversation topic for context-aware mapping. */ context?: { text: string; module?: string }; /** false = keyword ranking only. */ mapping?: boolean; entriesOnly?: boolean; limit?: number; kinds?: string[]; module?: string; includeHistory?: boolean; docId?: string; entryId?: string; intent?: Intent }
+export interface SearchResult { intent: Intent; units: Unit[]; hits: Hit[]; unknownUnits: string[]; corrections: Record<string, string>; mapping?: UnitMatch[] }
 
 interface Cache { vocab: Map<string, number>; n: number; abbr: Map<string, string[]>; expansions: Map<string, string>; phrases: Set<string> }
 let cache: Cache | null = null;
@@ -123,6 +127,9 @@ export function questionUnits(question: string): { units: Unit[]; corrections: R
   return { units, corrections };
 }
 
+/** Question-mapping thresholds (tuned on tests/retrieval/so-paraphrase-set.json, checked against the not-documented set). */
+const envNum = (k: string, d: number) => (process.env[k] ? Number(process.env[k]) : d);
+const MAP_MIN = envNum('WFX_MAP_MIN', 0.3), MAP_ADD = envNum('WFX_MAP_ADD', 0.4), MAP_STRONG = envNum('WFX_MAP_STRONG', 0.55), MAP_COVERAGE = envNum('WFX_MAP_COVERAGE', 0.6), MAP_WEIGHT = envNum('WFX_MAP_WEIGHT', 0.6), MAP_FLOOR = envNum('WFX_MAP_FLOOR', 0.2);
 const ftsQuote = (alt: string[]) => `"${alt.join(' ').replace(/"/g, '')}"`;
 const STATUS_FACTOR: Record<string, number> = { Active: 1, Approved: 1, 'source-documented': 1, reference: 0.85, 'Under Review': 0.9, Draft: 0.88, proposed: 0.9, unreviewed: 0.88 };
 
@@ -130,7 +137,10 @@ export function search(question: string, opts: SearchOptions = {}): SearchResult
   const intent = opts.intent ?? detectIntent(question);
   const { units, corrections } = questionUnits(question);
   const known = units.filter((u) => u.known);
-  if (!known.length) return { intent, units, hits: [], unknownUnits: units.map((u) => u.text), corrections };
+  // semantic question mapping (knowledge enrichment): only for open questions, not for the internal filtered lookups
+  const useMap = opts.mapping !== false && process.env['WFX_MAPPING'] !== '0' && !opts.kinds?.length && !opts.docId && !opts.entryId && !opts.module && !opts.includeHistory;
+  const mapping = useMap ? matchQuestion(question, { contextText: opts.context?.text, contextModule: opts.context?.module, limit: 5 }) : [];
+  if (!known.length && !mapping.some((m) => m.score >= MAP_STRONG)) return { intent, units, hits: [], unknownUnits: units.map((u) => u.text), corrections, mapping };
   const match = known.flatMap((u) => u.alts.filter((a) => a.every((w) => w.length > 1)).map(ftsQuote)).join(' OR ');
   const where: string[] = ['chunks_fts MATCH ?'];
   const params: unknown[] = [match];
@@ -141,9 +151,21 @@ export function search(question: string, opts: SearchOptions = {}): SearchResult
   if (opts.entriesOnly) where.push('c.entry_id IS NOT NULL');
   if (opts.docId) { where.push('c.doc_id = ?'); params.push(opts.docId); }
   if (opts.entryId) { where.push('c.entry_id = ?'); params.push(opts.entryId); }
-  const rows = all<Record<string, unknown>>(
+  const rows = known.length && match ? all<Record<string, unknown>>(
     `SELECT c.*, bm25(chunks_fts, 10.0, 4.0, 1.0) AS bm FROM chunks_fts JOIN chunks c ON c.id = chunks_fts.rowid
-     WHERE ${where.join(' AND ')} ORDER BY bm LIMIT 120`, ...params);
+     WHERE ${where.join(' AND ')} ORDER BY bm LIMIT 120`, ...params) : [];
+  // entries the mapping points at but the keyword search did not find: their first current chunk joins the candidates
+  const boost = new Map<string, { score: number; unitId: string; via: string }>();
+  for (const m of mapping) {
+    if (m.score < MAP_MIN) continue;
+    m.entryIds.forEach((e, i) => { const w = m.score * (i === 0 ? 1 : 0.97); if ((boost.get(e)?.score ?? 0) < w) boost.set(e, { score: w, unitId: m.unitId, via: m.viaQuestion }); });
+  }
+  const have = new Set(rows.map((r) => r['entry_id']).filter(Boolean));
+  for (const [e, b] of boost) {
+    if (have.has(e) || b.score < MAP_ADD) continue;
+    const r = get<Record<string, unknown>>("SELECT c.*, 0 AS bm FROM chunks c WHERE c.entry_id = ? AND c.is_current = 1 AND c.kind <> 'admin_user' ORDER BY c.id LIMIT 1", e);
+    if (r) rows.push(r);
+  }
   const minBm = Math.min(...rows.map((r) => Number(r['bm'])), -1e-9);
   const totalIdf = known.reduce((a, u) => a + u.idf, 0) || 1;
   const fit = KIND_FIT[intent];
@@ -171,12 +193,17 @@ export function search(question: string, opts: SearchOptions = {}): SearchResult
     // low-information chunks (a bare value such as "15,000 per KG") rank lower
     const thin = text.replace(/\s+/g, ' ').trim().length < 60 ? 0.85 : 1;
     const precisionWeight = intent === 'definition' || intent === 'compare' || intent === 'general' ? 0.15 : 0.06;
-    const score = (0.5 * coverage + 0.2 * titleCoverage + 0.15 * bm25n + 0.15 * kindFit + precisionWeight * titlePrecision + typeBonus + curated) * (STATUS_FACTOR[status] ?? 0.9) * thin;
+    const keywordScore = (0.5 * coverage + 0.2 * titleCoverage + 0.15 * bm25n + 0.15 * kindFit + precisionWeight * titlePrecision + typeBonus + curated) * (STATUS_FACTOR[status] ?? 0.9) * thin;
+    // hybrid: the mapping score lifts the entry it points at; a strong mapping also counts as covering the question
+    const b = r['entry_id'] ? boost.get(String(r['entry_id'])) : undefined;
+    const score = keywordScore + (b ? MAP_WEIGHT * Math.max(0, b.score - MAP_FLOOR) * (STATUS_FACTOR[status] ?? 0.9) : 0);
+    const mappedCoverage = b && b.score >= MAP_STRONG ? Math.max(coverage, MAP_COVERAGE) : coverage;
     return {
       id: Number(r['id']), ref: String(r['ref']), kind, title, heading, text, module: (r['module'] as string) ?? null, txn: (r['txn'] as string) ?? null,
       status, sourceLabel: String(r['source_label']), docId: (r['doc_id'] as string) ?? null, docVersion: r['doc_version'] === null ? null : Number(r['doc_version']),
       entryId: (r['entry_id'] as string) ?? null, entryVersion: r['entry_version'] === null ? null : Number(r['entry_version']), locator: (r['locator'] as string) ?? null,
-      isCurrent: Number(r['is_current']) === 1, score, coverage, titleCoverage, matched: matched.map((u) => u.text), missing: known.filter((u) => !matched.includes(u)).map((u) => u.text),
+      isCurrent: Number(r['is_current']) === 1, score, coverage: mappedCoverage, titleCoverage, matched: matched.map((u) => u.text), missing: known.filter((u) => !matched.includes(u)).map((u) => u.text),
+      ...(b ? { mapped: { unitId: b.unitId, score: b.score, via: b.via } } : {}),
     };
   });
   hits.sort((a, b) => b.score - a.score);
@@ -188,5 +215,5 @@ export function search(question: string, opts: SearchOptions = {}): SearchResult
     seen.add(key);
     return true;
   });
-  return { intent, units, hits: unique.slice(0, opts.limit ?? 12), unknownUnits: units.filter((u) => !u.known).map((u) => u.text), corrections };
+  return { intent, units, hits: unique.slice(0, opts.limit ?? 12), unknownUnits: units.filter((u) => !u.known).map((u) => u.text), corrections, mapping };
 }
