@@ -5,3 +5,8 @@
 *.ico binary
 *.xlsx binary
 *.db binary
+*.db binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.pptx binary

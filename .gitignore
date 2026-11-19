@@ -44,7 +44,7 @@ __screenshots__/
 Thumbs.db
 
 # Knowledge platform runtime data (rebuildable index, backups) and build cache
-/database/*.db
+# cleaned copy (no passwords or sessions) is committed: /database/*.db
 /database/*.db-wal
 /database/*.db-shm
 /database/backups/
@@ -53,8 +53,8 @@ Thumbs.db
 # server secrets (Claude / Gemini keys) — never commit
 .env
 
-# confidential originals and the admin directory stay out of version control
-/knowledge/original_sources/
+# the admin directory stays out of version control
+# original documents are committed in this repository
 /knowledge/admin/
 
 # LLM training exports (regenerate with npm run kb:export-training)
