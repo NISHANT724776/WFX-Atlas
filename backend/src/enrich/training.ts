@@ -18,6 +18,7 @@ import { CONFIRMED } from '../knowledge/txt.ts';
 import { normalize } from '../search/lexicon.ts';
 import { nowIso } from '../util.ts';
 import { readReview, writeReview } from './pipeline.ts';
+import type Anthropic from '@anthropic-ai/sdk';
 
 const SYSTEM = 'You are the WFX ERP assistant. Answer only from the WFX knowledge provided. Be brief and exact. If the knowledge does not cover the question, say so instead of guessing.';
 const CATEGORIES = ['direct', 'conversational', 'informal', 'problem', 'process', 'technical', 'terminology', 'short', 'contextual'];
@@ -73,19 +74,7 @@ export function exportTraining(opts: { includeDrafts?: boolean; dir?: string } =
   if (fs.existsSync(paraFile)) for (const c of JSON.parse(fs.readFileSync(paraFile, 'utf8')) as { q: string; category: string; expect: string[]; context?: string }[]) evalRows.push({ question: c.q, category: c.category, expectedSources: c.expect, context: c.context ?? null, set: 'so-paraphrase' });
 
   // 4 · prompts asking an LLM for more questions per unit (grounded, no new facts)
-  const prompts = units.map((u) => {
-    const have = all<{ text: string }>("SELECT text FROM kn_questions WHERE unit_id = ? AND status <> 'rejected'", u.id).map((q) => q.text);
-    return {
-      unit_id: u.id, module: u.module, topic: u.topic,
-      prompt: [
-        'You write the questions real WFX ERP users would ask to get the knowledge below. Users are merchandisers, planners, store staff, implementation consultants and QA.',
-        'Rules: every question must be answerable from the knowledge text alone; do not add facts, fields, screens or behaviour it does not state; vary the wording (informal, short, problem-oriented, abbreviations a user would type, typos are fine); 8 to 20 questions; no duplicates of the existing ones.',
-        `Allowed categories: ${CATEGORIES.join(', ')}.`,
-        'Reply with ONE line of JSON only: {"unit_id": "<id>", "questions": [{"text": "...", "category": "..."}]}',
-        '', `unit_id: ${u.id}`, `Module: ${u.module}`, `Topic: ${u.topic}`, 'Knowledge:', u.answer, '', 'Existing questions:', ...have.map((h) => `- ${h}`),
-      ].join('\n'),
-    };
-  });
+  const prompts = units.map((u) => ({ unit_id: u.id, module: u.module, topic: u.topic, prompt: unitPrompt(u) }));
 
   fs.writeFileSync(path.join(dir, 'knowledge_corpus.jsonl'), jsonl(corpus));
   fs.writeFileSync(path.join(dir, 'qa_train.jsonl'), jsonl(train));
@@ -94,6 +83,48 @@ export function exportTraining(opts: { includeDrafts?: boolean; dir?: string } =
   fs.writeFileSync(path.join(dir, 'question_prompts.jsonl'), jsonl(prompts));
   fs.writeFileSync(path.join(dir, 'README.md'), readme({ corpus: corpus.length, train: train.length, validation: validation.length, eval: evalRows.length, prompts: prompts.length, includeDrafts: !!opts.includeDrafts }));
   return { dir, corpus: corpus.length, train: train.length, validation: validation.length, eval: evalRows.length, prompts: prompts.length, skippedDraft };
+}
+
+/** The prompt that asks an LLM for more user questions about one knowledge unit: grounded in its text, no new facts. */
+export function unitPrompt(u: { id: string; module: string; topic: string; answer: string }): string {
+  const have = all<{ text: string }>("SELECT text FROM kn_questions WHERE unit_id = ? AND status <> 'rejected'", u.id).map((q) => q.text);
+  return [
+    'You write the questions real WFX ERP users would ask to get the knowledge below. Users are merchandisers, planners, store staff, implementation consultants and QA.',
+    'Rules: every question must be answerable from the knowledge text alone; do not add facts, fields, screens or behaviour it does not state; vary the wording (informal, short, problem-oriented, abbreviations a user would type, typos are fine); 8 to 20 questions; no duplicates of the existing ones.',
+    `Allowed categories: ${CATEGORIES.join(', ')}.`,
+    'Reply with ONE line of JSON only: {"unit_id": "<id>", "questions": [{"text": "...", "category": "..."}]}',
+    '', `unit_id: ${u.id}`, `Module: ${u.module}`, `Topic: ${u.topic}`, 'Knowledge:', u.answer, '', 'Existing questions:', ...have.map((h) => `- ${h}`),
+  ].join('\n');
+}
+
+export interface ClaudeQuestionsReport extends ImportReport { asked: number; failed: { unit: string; reason: string }[]; tokens: number; model: string }
+
+/** Claude in Atlas writes more user questions for the given units (a few at a time). Its replies go through
+ *  importQuestions: checked, deduplicated, stored as unreviewed proposals. Answers are never touched. */
+export async function claudeQuestions(unitIds: string[], by: string, client: Anthropic, model: string): Promise<ClaudeQuestionsReport> {
+  const units = unitIds.map((id) => get<{ id: string; module: string; topic: string; answer: string }>("SELECT id, module, topic, answer FROM kn_units WHERE id = ? AND review <> 'insufficient'", id)).filter((u): u is NonNullable<typeof u> => !!u);
+  const lines: string[] = [];
+  const failed: { unit: string; reason: string }[] = [];
+  let tokens = 0;
+  const ask = async (u: (typeof units)[number]) => {
+    try {
+      const msg = await client.beta.messages.create({
+        model, max_tokens: 4000, output_config: { effort: 'low' }, betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default',
+        system: 'You help build a question bank for a garment ERP knowledge base. Follow the rules exactly and reply with the JSON line only.',
+        messages: [{ role: 'user', content: unitPrompt(u) }],
+      } as never) as Anthropic.Beta.BetaMessage;
+      tokens += (msg.usage?.input_tokens ?? 0) + (msg.usage?.output_tokens ?? 0);
+      if (msg.stop_reason === 'refusal') { failed.push({ unit: u.id, reason: 'refused' }); return; }
+      const text = msg.content.filter((b): b is Anthropic.Beta.BetaTextBlock => b.type === 'text').map((b) => b.text).join('\n');
+      const json = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1);
+      const o = JSON.parse(json) as { unit_id?: string; questions?: unknown[] };
+      // the reply must be about the unit that was asked
+      lines.push(JSON.stringify({ unit_id: u.id, questions: Array.isArray(o.questions) ? o.questions : [] }));
+    } catch (e) { failed.push({ unit: u.id, reason: (e as Error).message.slice(0, 160) }); }
+  };
+  for (let i = 0; i < units.length; i += 4) await Promise.all(units.slice(i, i + 4).map(ask));
+  const r = lines.length ? importQuestions(lines.join('\n'), by, model) : { added: 0, duplicates: 0, rejected: [], units: 0 };
+  return { ...r, asked: units.length, failed, tokens, model };
 }
 
 export interface ImportReport { added: number; duplicates: number; rejected: { unit: string; text: string; reason: string }[]; units: number }

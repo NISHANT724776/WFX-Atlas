@@ -9,13 +9,14 @@ import { Status } from '../shared/status';
 import { KbGate, KbTabs } from './shared';
 
 interface ModRow { module: string; entries: number; enriched: boolean; units?: number; canonical?: number; variations?: number; keywords?: number; terms?: number; mapped?: number; checked?: number; toReview?: number; misrouted?: number; unitsToReview?: number; insufficient?: number; approved?: number }
-interface Summary { modules: ModRow[]; configured: string[]; enrichedAt: string | null; embedder: string | null }
+interface Summary { modules: ModRow[]; configured: string[]; enrichedAt: string | null; embedder: string | null; claude: boolean }
+interface ClaudeReport { added: number; duplicates: number; asked: number; failed: { unit: string; reason: string }[]; rejected: { reason: string }[]; tokens: number; model: string }
 interface UnitRow { id: string; topic: string; aspect: string; canonical_q: string; confidence: string; review: string; review_note: string; entry_status: string; questions: number; misrouted: number }
 interface Q { id: number; text: string; norm: string; category: string; origin: string; status: string; duplicate_of: string | null; self_rank: number | null }
 interface Unit { id: string; module: string; submodule: string; topic: string; aspect: string; canonical_q: string; answer: string; entry_ids: string[]; screen: string; keywords: string[]; related_modules: string[]; source_ref: string; entry_status: string; confidence: string; review: string; review_note: string; updated_at: string; questions: Q[] }
 interface Match { unitId: string; module: string; topic: string; score: number; confidence: number; viaQuestion: string }
 
-const FILTERS = [['', 'All'], ['generated', 'Not reviewed'], ['needs-review', 'Needs review'], ['approved', 'Approved'], ['insufficient', 'Insufficient source'], ['misrouted', 'Misrouted questions']] as const;
+const FILTERS = [['', 'All'], ['generated', 'Not reviewed'], ['needs-review', 'Needs review'], ['approved', 'Approved'], ['insufficient', 'Insufficient source'], ['misrouted', 'Misrouted questions'], ['llm', 'Claude proposals to review']] as const;
 const CATEGORIES = ['direct', 'conversational', 'informal', 'problem', 'process', 'technical', 'terminology', 'short', 'contextual'];
 
 @Component({
@@ -42,12 +43,14 @@ const CATEGORIES = ['direct', 'conversational', 'informal', 'problem', 'process'
                       <td>{{ m.units }}</td><td>{{ m.canonical }}</td><td>{{ m.variations }}</td><td>{{ m.keywords }}</td><td>{{ m.terms }}</td>
                       <td>{{ m.mapped }}/{{ m.checked }}</td><td>{{ m.toReview }}</td><td [class.kb-bad]="!!m.misrouted">{{ m.misrouted }}</td><td [class.kb-bad]="!!m.insufficient">{{ m.insufficient }}</td>
                     } @else { <td colspan="9" class="muted small">Not enriched yet</td> }
-                    <td>@if (kb.can('editor')) { <button type="button" class="btn small" [disabled]="busy()" (click)="regenerate(m.module)">{{ m.enriched ? 'Regenerate' : 'Enrich' }}</button> }</td>
+                    <td class="qm-actions">@if (kb.can('editor')) { <button type="button" class="btn small" [disabled]="busy()" (click)="regenerate(m.module)">{{ m.enriched ? 'Regenerate' : 'Enrich' }}</button>
+                      @if (m.enriched && s.claude) { <button type="button" class="btn small" [disabled]="busy()" (click)="claudeModule(m.module)" title="Claude writes user-style questions for up to 10 units that have none from Claude yet">Claude: write questions</button> } }</td>
                   </tr>
                 }
               </tbody>
             </table>
           </div>
+          @if (!s.claude) { <p class="small muted">Claude is not active, so it cannot write questions yet: add ANTHROPIC_API_KEY to the server's .env and record the approval in Admin › AI provider.</p> }
           <p class="small muted">Map back: generated questions that, asked again, land on their own unit. Embedder: {{ s.embedder ?? '–' }} · last run {{ s.enrichedAt?.slice(0, 16)?.replace('T', ' ') ?? 'never' }}.</p>
         </section>
       } @else if (error()) { <wfx-status kind="error" title="Could not load the question mapping" [detail]="error()" /> } @else { <wfx-status kind="loading" title="Loading the question mapping" /> }
@@ -96,6 +99,7 @@ const CATEGORIES = ['direct', 'conversational', 'informal', 'problem', 'process'
                 <p class="small"><strong>Entries:</strong> {{ u.entry_ids.join(', ') }} @if (u.related_modules.length) { · <strong>Related modules:</strong> {{ u.related_modules.join(', ') }} }</p>
                 <p class="qm-chips">@for (k of u.keywords; track k) { <span class="kb-badge">{{ k }}</span> }</p>
                 <p class="small">Review: <strong>{{ u.review }}</strong> @if (u.review_note) { – {{ u.review_note }} }</p>
+                @if (kb.can('editor') && sum()?.claude) { <div class="kb-row"><button type="button" class="btn small" [disabled]="busy()" (click)="claudeUnit(u.id)">Ask Claude for more questions</button><span class="small muted">They arrive as proposals for you to approve or reject.</span></div> }
                 @if (kb.can('approver')) {
                   <div class="kb-row"><button type="button" class="btn small primary" [disabled]="busy()" (click)="review('approved')">Approve unit</button>
                   <button type="button" class="btn small" [disabled]="busy()" (click)="review('needs-review')">Mark for review</button></div>
@@ -197,7 +201,7 @@ export default class QuestionMapping {
       const u = await fn();
       if (u) this.sel.set(u);
       await Promise.all([this.loadUnits(), this.kb.get<Summary>('/enrichment/summary').then((s) => this.sum.set(s))]);
-      this.msg.set(done);
+      if (done) this.msg.set(done);
     } catch (e) { this.msg.set((e as Error).message); } finally { this.busy.set(false); }
   }
 
@@ -230,6 +234,25 @@ export default class QuestionMapping {
       this.module.set(module);
       return null;
     }, `${module} regenerated.`);
+  }
+  private claudeMsg(r: ClaudeReport): string {
+    return `Claude (${r.model}) wrote questions for ${r.asked - r.failed.length} of ${r.asked} unit(s): ${r.added} new, ${r.duplicates} already there, ${r.rejected.length} refused by the checks${r.failed.length ? `, ${r.failed.length} failed (${r.failed[0].reason})` : ''}. ${r.tokens.toLocaleString()} tokens. Review them under "Claude proposals to review".`;
+  }
+  protected claudeUnit(id: string): void {
+    void this.act(async () => {
+      const r = await this.kb.post<ClaudeReport>('/enrichment/claude', { unitId: id });
+      this.msg.set(this.claudeMsg(r));
+      return this.kb.get<Unit>(`/enrichment/units/${encodeURIComponent(id)}`);
+    }, '');
+  }
+  protected claudeModule(module: string): void {
+    void this.act(async () => {
+      const r = await this.kb.post<ClaudeReport>('/enrichment/claude', { module, limit: 10 });
+      this.module.set(module);
+      this.filter.set('llm');
+      this.msg.set(this.claudeMsg(r));
+      return null;
+    }, '');
   }
   protected async tryIt(): Promise<void> {
     const r = await this.kb.post<{ matches: Match[] }>('/enrichment/try', { q: this.tryQ, context: this.tryCtx });

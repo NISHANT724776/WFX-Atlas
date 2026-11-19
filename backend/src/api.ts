@@ -34,6 +34,11 @@ import { enrich as enrichGraph } from './workflows/generate.ts';
 import { selectDiagram } from './workflows/select.ts';
 import { inside, nowIso, toPosix } from './util.ts';
 import * as SO from './sales/orders.ts';
+import Anthropic from '@anthropic-ai/sdk';
+import { claudeQuestions } from './enrich/training.ts';
+import { claudeActive } from './assistant/conversations.ts';
+import { CLAUDE_MODEL } from './assistant/claude-chat.ts';
+import { refresh as refreshEnrichment } from './enrich/review.ts';
 import * as SOC from './sales/config.ts';
 import { TOOLS as SO_TOOLS } from './sales/masters.ts';
 import { addQuestion, listUnits, regenerate as regenerateEnrichment, setQuestion, setUnitReview, summary as enrichmentSummary, tryQuestion, unitDetail } from './enrich/review.ts';
@@ -507,6 +512,19 @@ export const routes: Route[] = [
     const out = regenerateEnrichment(module);
     audit(c.user, 'enrichment-regenerated', 'module', module ?? 'configured', `${out.units} units, ${out.questions} questions`, c.ip);
     return { ...out, sourceProblems: out.sourceProblems.slice(0, 20) };
+  }),
+  r('POST', '/api/v2/enrichment/claude', EDIT, async (c) => {
+    if (!claudeActive()) fail(409, 'Claude is not active: add ANTHROPIC_API_KEY to the server .env and record the approval in Admin › AI provider.');
+    const unit = str(c.body['unitId'], 120);
+    const module = str(c.body['module'], 80);
+    const limit = Math.min(Math.max(Number(c.body['limit'] ?? 10), 1), 40);
+    const ids = unit ? [unit] : all<{ id: string }>(`SELECT u.id FROM kn_units u WHERE u.module = ? AND u.review <> 'insufficient'
+      AND NOT EXISTS (SELECT 1 FROM kn_questions q WHERE q.unit_id = u.id AND q.origin = 'llm') ORDER BY u.id LIMIT ?`, module, limit).map((r) => r.id);
+    if (!ids.length) fail(400, unit ? 'Choose a knowledge unit.' : 'Every unit of this module already has Claude questions.');
+    const r = await claudeQuestions(ids, c.user!.username, new Anthropic(), CLAUDE_MODEL());
+    const e = refreshEnrichment();
+    audit(c.user, 'enrichment-claude-questions', 'module', unit || module, `${r.added} added, ${r.tokens} tokens`, c.ip);
+    return { ...r, rejected: r.rejected.slice(0, 20), questions: e.questions };
   }),
   r('POST', '/api/v2/enrichment/try', 'user', (c) => ({ matches: tryQuestion(str(c.body['q'], 500), str(c.body['context'], 300) || undefined) })),
   r('POST', '/api/v2/ask', 'user', (c) => {

@@ -68,3 +68,30 @@ test('ready-made "Sales Order to factory" has no Buyer Block Booking step; modul
     assert.ok(!/bbb|'link'|'adjust'|so-updated/.test(m[2]), `${m[1]}: ${m[2]}`);
   }
 });
+
+test('Claude in Atlas: its questions become unreviewed proposals; bad replies and refusals are reported, not stored', async () => {
+  const { claudeQuestions } = await import('../../backend/src/enrich/training.ts');
+  const replies: Record<string, unknown> = {
+    'RULE-SO-ORDER-CLOSE#overview': { stop_reason: 'end_turn', usage: { input_tokens: 400, output_tokens: 80 }, content: [{ type: 'text', text: '{"unit_id": "SOMETHING-ELSE", "questions": [{"text": "cant close a cancelled OC why", "category": "problem"}, {"text": "How do I close the sales order?", "category": "direct"}]}' }] },
+    'RULE-SO-EXPORT#overview': { stop_reason: 'end_turn', usage: { input_tokens: 300, output_tokens: 10 }, content: [{ type: 'text', text: 'Sorry, here are some ideas' }] },
+    'RULE-SO-KIT#overview': { stop_reason: 'refusal', usage: { input_tokens: 1, output_tokens: 1 }, content: [] },
+  };
+  const asked: string[] = [];
+  const client = { beta: { messages: { create: async (req: { messages: { content: string }[] }) => {
+    const id = /unit_id: (\S+)/.exec(req.messages[0].content)![1];
+    asked.push(id);
+    assert.match(req.messages[0].content, /do not add facts/, 'the prompt forbids new facts');
+    return replies[id];
+  } } } };
+  const r = await claudeQuestions(Object.keys(replies), 'tester', client as never, 'claude-test');
+  assert.deepEqual(asked.sort(), Object.keys(replies).sort());
+  assert.equal(r.added, 1, 'the new question; the existing one is a duplicate');
+  assert.equal(r.duplicates, 1);
+  assert.equal(r.failed.length, 2, JSON.stringify(r.failed));
+  assert.equal(r.tokens, 400 + 80 + 300 + 10 + 2);
+  refresh(['Sales Order']);
+  const q = unitDetail('RULE-SO-ORDER-CLOSE#overview')!.questions.find((x) => x.text === 'cant close a cancelled OC why')!;
+  assert.ok(q, 'stored on the unit that was asked, whatever unit id the reply names');
+  assert.equal(q.origin, 'llm');
+  assert.equal(q.status, 'generated');
+});

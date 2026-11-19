@@ -19,7 +19,18 @@ Writes `exports/llm-training/` (not committed; regenerate after the knowledge ch
 | `eval_heldout.jsonl` | the 60 + 70 evaluation questions with expected source/status, incl. undocumented ones | before/after comparison — never train on it (any pair with the same question is dropped from training) |
 | `question_prompts.jsonl` | one prompt per knowledge unit asking for more user-style questions | step 2 |
 
-## 2. Let an LLM write more user questions (recommended first step)
+## 2a. Claude in Atlas writes the questions (no files)
+
+On **Knowledge › Question mapping** (editors):
+
+- **Claude: write questions** on a module row — Claude writes questions for up to 10 knowledge units of that module that have none from Claude yet (run it again for the next 10);
+- **Ask Claude for more questions** on a unit — for that unit only.
+
+Each unit is sent with its own text and the rules (answerable from this text only, no new facts, 8–20 varied questions, no duplicates). The replies go through the same checks as an import and arrive as **unreviewed proposals**; the filter **Claude proposals to review** lists the units waiting. Approve, edit or reject them, then measure (step 2, point 4). The message after each run shows how many were added, already there, refused by the checks or failed, and the tokens used.
+
+Needs Claude to be active: `ANTHROPIC_API_KEY` in `D:\WFX Knowledge hub\ASN\.env` (set it yourself) **and** the approval recorded in **Admin › AI provider**. Until then the page says so and the buttons are hidden. Model: `AI_CLAUDE_MODEL` in `.env`, default the one the assistant uses.
+
+## 2b. Any other LLM writes the questions (files)
 
 1. Run each prompt of `question_prompts.jsonl` with your LLM. Each reply is one JSON line: `{"unit_id": "...", "questions": [{"text": "...", "category": "..."}]}`.
 2. Put the replies in one file and import it:

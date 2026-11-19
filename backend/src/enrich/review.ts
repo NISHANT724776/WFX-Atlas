@@ -6,6 +6,7 @@ import { normalize } from '../search/lexicon.ts';
 import { nowIso } from '../util.ts';
 import { resetMatchCache, matchQuestion } from './match.ts';
 import { configuredModules, enrich, readReview, writeReview } from './pipeline.ts';
+import { claudeActive } from '../assistant/conversations.ts';
 import type { EnrichReport } from './pipeline.ts';
 
 /** Asks every stored question and records where its own unit ranks: 1 means the question maps back correctly. */
@@ -65,7 +66,7 @@ export function summary() {
       approved: q("SELECT COUNT(*) AS n FROM kn_units WHERE module = ? AND review = 'approved'"),
     };
   });
-  return { modules: rows, configured: configuredModules(), enrichedAt, embedder };
+  return { modules: rows, configured: configuredModules(), enrichedAt, embedder, claude: claudeActive() };
 }
 
 export function listUnits(module: string, filter = '', text = '') {
@@ -73,6 +74,7 @@ export function listUnits(module: string, filter = '', text = '') {
   const params: unknown[] = [module];
   if (['generated', 'approved', 'needs-review', 'insufficient'].includes(filter)) { where.push('review = ?'); params.push(filter); }
   if (filter === 'misrouted') where.push('id IN (SELECT unit_id FROM kn_questions WHERE self_rank > 1)');
+  if (filter === 'llm') where.push("id IN (SELECT unit_id FROM kn_questions WHERE origin = 'llm' AND status = 'generated')");
   if (text) { where.push('(topic LIKE ? OR id LIKE ? OR id IN (SELECT unit_id FROM kn_questions WHERE text LIKE ?))'); const t = `%${text}%`; params.push(t, t, t); }
   return all<Record<string, unknown>>(`SELECT id, topic, aspect, canonical_q, confidence, review, review_note, entry_status,
       (SELECT COUNT(*) FROM kn_questions q WHERE q.unit_id = kn_units.id AND q.status <> 'rejected') AS questions,
