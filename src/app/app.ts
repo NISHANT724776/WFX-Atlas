@@ -7,12 +7,13 @@ import { SeoService } from './core/seo.service';
 import { ThemeService } from './core/theme.service';
 import { FLOW_INDEX, TXN_INDEX } from './data/catalog';
 import { ChatWidget } from './shared/chat-widget';
+import { BrandLogo } from './shared/brand-logo';
 import { KbService } from './core/kb.service';
 import { KB_TABS } from './platform/tabs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, ChatWidget],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, ChatWidget, BrandLogo],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '(document:click)': 'onDocClick($event)', '(document:keydown.escape)': 'kbOpen.set(false)' },
   templateUrl: './app.html',
